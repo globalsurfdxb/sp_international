@@ -82,7 +82,7 @@ const SectionTwo = forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({ playAnimations }));
 
   return (
-    <section ref={sectionRef} className="h-screen scroll-area" id="section1">
+    <section ref={sectionRef} className="h-screen scroll-area" id="section2">
       <div className="grid grid-cols-[2fr_5fr] h-full">
         <div className="relative py-4 xl:py-[50px] xl:pl-[150px] overflow-hidden">
           <div className="absolute top-0 left-0 z-20 w-full h-full bg-gradient-to-l from-black/30 to-black/80"></div>

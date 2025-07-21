@@ -2,12 +2,16 @@
 
 import React, { forwardRef, useImperativeHandle, useRef } from "react";
 import gsap from "gsap";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const SectionFour = forwardRef((props, ref) => {
   const sectionRef = useRef(null);
   const textItemsRef = useRef([]);
   const titleRef = useRef(null);
   const rightImageRef = useRef(null);
+  const imageRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   // Expose GSAP animation method to parent via ref
   useImperativeHandle(ref, () => ({
@@ -34,6 +38,7 @@ const SectionFour = forwardRef((props, ref) => {
         },
         "-=0.5"
       );
+
         gsap.fromTo(
        rightImageRef.current,
       { x: 50, width: '0%', opacity: 0 },
@@ -49,10 +54,56 @@ const SectionFour = forwardRef((props, ref) => {
     },
   }));
 
+  useEffect(() => {
+    if (imageRef.current) {
+      gsap.fromTo(
+        imageRef.current,
+        { x: 50, width: '0%', opacity: 0 },
+        {
+          x: 0,
+          width: '100%',
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+        }
+      );
+    }
+  }, [activeIndex]);
+
+  const content = [
+    {
+      image:"/assets/images/services/servicemain.jpg",
+      title:"Engineering & Construction",
+      description:""
+    },
+    {
+      image:"/assets/images/sprint-right-img.jpg",
+      title:"Design Studio",
+      description:""
+    },
+    {
+      image:"/assets/images/about-left-bg.jpg",
+      title:"MEP",
+      description:""
+    },
+    {
+      image:"/assets/images/sprint-main-bg.jpg",
+      title:"Interior Fit-out",
+      description:""
+    },
+    {
+      image:"/assets/images/sprint-right-img.jpg",
+      title:"Façade",
+      description:""
+    },
+  ];
+
+
+
   return (
     <section
       ref={sectionRef}
-      id="section3"
+      id="section4"
       className="h-screen relative overflow-hidden whitebgref scroll-area"
     >
       <div className="grid grid-cols-2 h-full">
@@ -73,22 +124,15 @@ const SectionFour = forwardRef((props, ref) => {
                     <p className="text-60 font-light text-[#62626210]">02/06</p>
                   </div>
                   <div className="flex flex-col gap-2 pt-14 pb-21 pr-2">
-                    {[
-                      "Engineering & Construction",
-                      "Design Studio",
-                      "MEP",
-                      "Interior Fit-out",
-                      "Façade",
-                      "Facilities Management",
-                      "Water",
-                    ].map((service, index) => (
+                    {content.map((service, index) => (
                       <div
                         key={index}
                         className="flex items-center gap-3 cursor-pointer group"
                         ref={(el) => (textItemsRef.current[index] = el)}
+                        onClick={()=>setActiveIndex(index)}
                       >
                         <p className="text-29 font-light group-hover:text-black group-hover:font-bold text-[#626262] cursor-pointer transform-all duration-300">
-                          {service}
+                          {service.title}
                         </p>
                         <img
                           src="../assets/images/services/arrowblw.svg"
@@ -110,10 +154,12 @@ const SectionFour = forwardRef((props, ref) => {
         <div>
           <div ref={rightImageRef} className="relative w-full h-[100vh]">
             <img
-              src="/assets/images/services/servicemain.jpg"
+            key={activeIndex}
+              src={content[activeIndex].image}
               alt="Service Image"
               fill
               className="object-cover absolute w-full h-full"
+              ref={imageRef}
             />
             <div className="absolute top-0 right-20">
               <img
