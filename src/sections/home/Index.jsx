@@ -73,12 +73,10 @@ const Index = ({ setActiveSection }) => {
           trigger: scrollContainer.current,
          /*  markers: true, */
           start: () => {
-            console.log(`${i * window.innerHeight}px`);
             return `${i * window.innerHeight}px top`;
           },
           end: () => `${(i + 1) * window.innerHeight}px top`,
           onEnter: () => {
-            console.log(`${i * window.innerHeight}px`);
             gsap.set(sections, { visibility: "hidden", zIndex: 0 });
             gsap.set(section, { visibility: "visible", zIndex: 10 });
             setActiveSection(`section${i + 1}`);

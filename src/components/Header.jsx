@@ -8,11 +8,12 @@ gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(ScrollTrigger);
 
 const sections = [
-  { id: "section1", label: "SP GROUP" },
-  { id: "section2", label: "SPINT" },
-  { id: "section3", label: "SERVICES" },
-  { id: "section4", label: "PROJECTS" },
-  { id: "section5", label: "PEOPLE" },
+  { id: "section1", label: "" },
+  { id: "section2", label: "SP GROUP" },
+  { id: "section3", label: "SPINT" },
+  { id: "section4", label: "SERVICES" },
+  { id: "section5", label: "PROJECTS" },
+  { id: "section6", label: "PEOPLE" },
 ];
 
 const Header = ({ activeSection, setActiveSection }) => {
@@ -40,9 +41,9 @@ const nextSection = sections.find((section) => section.id === `section${parseInt
   console.log(activeSection,nextSection)
 
   const handleScroll = (sectionId) => {
+
     const index = sections.findIndex((s) => s.id === sectionId);
 
-    console.log(index * window.innerHeight)
   
     if (index !== -1) {
       gsap.to(window, {
@@ -76,7 +77,7 @@ const nextSection = sections.find((section) => section.id === `section${parseInt
                   href={`#${section.id}`}
                   className={`transition-colors font-[300] ${
                     activeSection === section.id
-                      ? "text-white font-[700] activebfr"
+                      ? `${activeSection === "section1" ? "" : "text-white font-[700] activebfr"}`
                       : "nonactivebfr hover:text-white hover:font-[700]"
                   } ${
                     activeSection === "section3" || activeSection === "section4"
