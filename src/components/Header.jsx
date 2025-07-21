@@ -70,7 +70,7 @@ const nextSection = sections.find((section) => section.id === `section${parseInt
       <header className="fixed top-0 left-0 z-50">
         <div className="flex">
           <div className="flex w-[150px]">
-            <nav className="flex flex-col justify-center gap-4">
+            {activeSection !== "section1" && <nav className="flex flex-col justify-center gap-4">
               {sections.map((section) => (
                 <a
                   key={section.id}
@@ -89,7 +89,7 @@ const nextSection = sections.find((section) => section.id === `section${parseInt
                   {section.label}
                 </a>
               ))}
-            </nav>
+            </nav>}
           </div>
 
           <div className="bg-primary shadow ml-8 my-12 w-[133px] h-[calc(100vh-100px)]">
