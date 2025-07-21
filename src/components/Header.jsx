@@ -8,11 +8,12 @@ gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(ScrollTrigger);
 
 const sections = [
-  { id: "section1", label: "SP GROUP" },
-  { id: "section2", label: "SPINT" },
-  { id: "section3", label: "SERVICES" },
-  { id: "section4", label: "PROJECTS" },
-  { id: "section5", label: "PEOPLE" },
+  { id: "section1", label: "" },
+  { id: "section2", label: "SP GROUP" },
+  { id: "section3", label: "SPINT" },
+  { id: "section4", label: "SERVICES" },
+  { id: "section5", label: "PROJECTS" },
+  { id: "section6", label: "PEOPLE" },
 ];
 
 const Header = ({ activeSection, setActiveSection }) => {
@@ -40,9 +41,9 @@ const nextSection = sections.find((section) => section.id === `section${parseInt
   console.log(activeSection,nextSection)
 
   const handleScroll = (sectionId) => {
+
     const index = sections.findIndex((s) => s.id === sectionId);
 
-    console.log(index * window.innerHeight)
   
     if (index !== -1) {
       gsap.to(window, {
@@ -69,14 +70,14 @@ const nextSection = sections.find((section) => section.id === `section${parseInt
       <header className="fixed top-0 left-0 z-50">
         <div className="flex">
           <div className="flex w-[150px]">
-            <nav className="flex flex-col justify-center gap-4">
+            {activeSection !== "section1" && <nav className="flex flex-col justify-center gap-4">
               {sections.map((section) => (
                 <a
                   key={section.id}
                   href={`#${section.id}`}
                   className={`transition-colors font-[300] ${
                     activeSection === section.id
-                      ? "text-white font-[700] activebfr"
+                      ? `${activeSection === "section1" ? "" : "text-white font-[700] activebfr"}`
                       : "nonactivebfr hover:text-white hover:font-[700]"
                   } ${
                     activeSection === "section3" || activeSection === "section4"
@@ -88,7 +89,7 @@ const nextSection = sections.find((section) => section.id === `section${parseInt
                   {section.label}
                 </a>
               ))}
-            </nav>
+            </nav>}
           </div>
 
           <div className="bg-primary shadow ml-8 my-12 w-[133px] h-[calc(100vh-100px)]">

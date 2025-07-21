@@ -11,6 +11,7 @@ const SectionFour = forwardRef((props, ref) => {
   const titleRef = useRef(null);
   const rightImageRef = useRef(null);
   const imageRef = useRef(null);
+  const borderRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   // Expose GSAP animation method to parent via ref
@@ -39,7 +40,18 @@ const SectionFour = forwardRef((props, ref) => {
         "-=0.5"
       );
 
-        gsap.fromTo(
+    gsap.fromTo(
+       rightImageRef.current,
+      { x: 50, width: '0%', opacity: 0 },
+      {
+        x: 0,
+        width: '100%',
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+      }
+    );
+    gsap.fromTo(
        rightImageRef.current,
       { x: 50, width: '0%', opacity: 0 },
       {
@@ -70,6 +82,29 @@ const SectionFour = forwardRef((props, ref) => {
     }
   }, [activeIndex]);
 
+/*   useEffect(() => {
+  if (!textItemsRef.current.length) return;
+
+  const ctx = gsap.context(() => {
+    textItemsRef.current.forEach((el, i) => {
+      gsap.to(el, {
+        opacity: 0,
+        y: 30,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: () => `top+=${100 + i * 50} top`, // stagger by offset
+          end: "bottom top",
+          scrub: true,
+        },
+        ease: "none",
+      });
+    });
+  }, sectionRef);
+
+  return () => ctx.revert(); // Clean up on unmount
+}, []); */
+
+
   const content = [
     {
       image:"/assets/images/services/servicemain.jpg",
@@ -77,32 +112,32 @@ const SectionFour = forwardRef((props, ref) => {
       description:""
     },
     {
-      image:"/assets/images/sprint-right-img.jpg",
+        image:"/assets/images/services/servicemain.jpg",
       title:"Design Studio",
       description:""
     },
     {
-      image:"/assets/images/about-left-bg.jpg",
+        image:"/assets/images/services/servicemain.jpg",
       title:"MEP",
       description:""
     },
     {
-      image:"/assets/images/sprint-main-bg.jpg",
+         image:"/assets/images/services/servicemain.jpg",
       title:"Interior Fit-out",
       description:""
     },
     {
-      image:"/assets/images/sprint-right-img.jpg",
+         image:"/assets/images/services/servicemain.jpg",
       title:"Façade",
       description:""
     },
     {
-      image:"/assets/images/sprint-right-img.jpg",
+        image:"/assets/images/services/servicemain.jpg",
       title:"Facilities Management",
       description:""
     },
     {
-      image:"/assets/images/sprint-right-img.jpg",
+        image:"/assets/images/services/servicemain.jpg",
       title:"Water",
       description:""
     },
@@ -122,7 +157,9 @@ const SectionFour = forwardRef((props, ref) => {
                 <h1 ref={titleRef} className="text-60 font-light gradient-text leading-[70px]">Our Services</h1>
                 <div className="w-full flex flex-col h-full justify-end border-l border-black/20 pl-13 mt-15">
                   <div className="pb-4">
-                    <p className="text-60 font-light text-[#62626210]">02/06</p>
+                   <p className="text-60 font-light text-[#62626210]">
+  {String(activeIndex + 1).padStart(2, '0')}/{String(content.length).padStart(2, '0')}
+</p>
                   </div>
                   <div className="flex flex-col gap-2 pt-14 pb-21 pr-2">
                     {content.map((service, index) => (
@@ -147,7 +184,7 @@ const SectionFour = forwardRef((props, ref) => {
         </div>
 
         {/* horizontal line */}
-        <div className="absolute inset-0 top-[50%] h-[1px] bg-gradient-to-r from-black/30 to-white w-[70%] left-[15%]"></div>
+        <div ref={borderRef} className="absolute inset-0 top-[50%] h-[1px] bg-gradient-to-r from-black/30 to-white w-[70%] left-[15%] opacity-30"></div>
       </div>
     </section>
   );
