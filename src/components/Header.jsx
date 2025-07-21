@@ -1,5 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
 const sections = [
   { id: "section1", label: "SP GROUP" },
@@ -22,10 +28,7 @@ const Header = () => {
           const offsetTop = element.offsetTop;
           const offsetHeight = element.offsetHeight;
 
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
             setActiveSection(section.id);
             break;
           }
@@ -62,19 +65,15 @@ const Header = () => {
                 <a
                   key={section.id}
                   href={`#${section.id}`}
-                  className={`transition-colors font-[300]
-      ${
-        activeSection === section.id
-          ? "font-[700] activebfr"
-          : "nonactivebfr hover:font-[700]"
-      }
-      ${
-        activeSection === section.id &&
-        (section.id === "section2" || section.id === "section3")
-          ? "text-black"
-          : "text-white"
-      }
-    `}
+                  className={`transition-colors font-[300] ${
+                    activeSection === section.id
+                      ? "text-white font-[700] activebfr"
+                      : "nonactivebfr hover:text-white hover:font-[700]"
+                  } ${
+                    activeSection === "section3" || activeSection === "section2"
+                      ? "!text-black font-[700] activebfr hover:text-[red]"
+                      : "text-white"
+                  }`}
                 >
                   {section.label}
                 </a>

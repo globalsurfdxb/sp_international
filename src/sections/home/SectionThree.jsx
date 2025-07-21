@@ -68,7 +68,7 @@ const SectionThree = forwardRef((props, ref) => {
   }));
 
   return (
-    <section ref={sectionRef} id="section2" className="h-screen overflow-hidden relative scroll-area">
+    <section ref={sectionRef} id="section3" className="h-screen overflow-hidden relative scroll-area">
       <div className="absolute top-0 left-0 z-0 w-full h-full bg-gradient-to-l from-white/10 to-white/80 opacity-[0.1]">
         <img src={sprintData.mainBgImage} alt="" width={2000} height={1500} className="w-full h-full object-cover" />
       </div>
