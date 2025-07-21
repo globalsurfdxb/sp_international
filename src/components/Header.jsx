@@ -1,5 +1,11 @@
 'use client';
 import React, { useEffect, useState } from "react";
+import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
 const sections = [
   { id: "section1", label: "SP GROUP" },
@@ -9,34 +15,46 @@ const sections = [
   { id: "section5", label: "PEOPLE" },
 ];
 
-const Header = () => {
-  const [activeSection, setActiveSection] = useState("");
+const Header = ({ activeSection, setActiveSection }) => {
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100;
 
-      for (const section of sections) {
-        const element = document.getElementById(section.id);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetHeight = element.offsetHeight;
+  // useEffect(() => {
+  //   if (!activeSection) return;
 
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section.id);
-            break;
-          }
-        }
-      }
-    };
+  //   console.log("Scroll container:", document.scrollingElement);
+  
+  //   const element = document.getElementById(`${activeSection}`);
+  //   console.log("Element:", element);
+  //   if (element) {
+  //     window.scrollTo({
+  //       top: element.offsetTop,
+  //       behavior: "smooth",
+  //     });
+  //   }
+  // }, [activeSection]);
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
+const length = activeSection.length
+console.log(activeSection[length-1])
+const nextSection = sections.find((section) => section.id === `section${parseInt(activeSection[length-1])+1}`);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  console.log(activeSection,nextSection)
+
+  const handleScroll = (sectionId) => {
+    const index = sections.findIndex((s) => s.id === sectionId);
+
+    console.log(index * window.innerHeight)
+  
+    if (index !== -1) {
+      gsap.to(window, {
+        scrollTo: {
+          y: index * window.innerHeight + 1,
+          autoKill: false, // important if using ScrollTrigger-based logic
+        },
+        duration: 1,
+        ease: "power2.inOut",
+      });
+    }
+  };
 
    const activeIndex = sections.findIndex((s) => s.id === activeSection);
 
@@ -61,10 +79,11 @@ const Header = () => {
                       ? "text-white font-[700] activebfr"
                       : "nonactivebfr hover:text-white hover:font-[700]"
                   } ${
-                    activeSection === "section3" || activeSection === "section2"
+                    activeSection === "section3" || activeSection === "section4"
                       ? "!text-black font-[700] activebfr hover:text-[red]"
                       : "text-white"
                   }`}
+                onClick={()=>handleScroll(section.id)}
                 >
                   {section.label}
                 </a>
@@ -80,7 +99,7 @@ const Header = () => {
               <div className="flex justify-center items-center">
                 <img src="/assets/images/menu-crbs.svg" alt="Menu" width={31} height={24} />
               </div>
-              <div className="flex flex-col gap-3 justify-center items-center border-t border-[#ffffff20]">
+              <div className="flex flex-col gap-3 justify-center items-center border-t border-[#ffffff20] cursor-pointer" onClick={()=>handleScroll(nextSection.id)}>
                 <p className="text-white font-[300] text-[13px] leading-[25px] pt-3">SCROLL DOWN</p>
                 <img src="/assets/images/arrowcircle.svg" alt="Arrow" width={87} height={87} />
               </div>
