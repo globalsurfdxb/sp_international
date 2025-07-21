@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import "tailwindcss";
+
+html {
+ /*  scroll-behavior: smooth; */
+}/*  */
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #1E45A2;
+  --secondary: #30B6F9;
+  --text-12: clamp(14px, 1.5vw + 0.5rem, 12px);
+  --text-13: clamp(16px, 1.8vw + 0.5rem, 13px);
+  --text-14: clamp(18px, 2vw + 0.5rem, 14px);
+  --text-16: clamp(16px, 2.5vw + 0.5rem, 16px);
+  --text-18: clamp(18px, 3vw + 0.5rem, 18px);
+  --text-20: clamp(20px, 3.5vw + 0.5rem, 20px);
+  --text-24: clamp(20px, 4vw + 0.5rem, 24px);
+  --text-29: clamp(29px, 4.5vw + 0.5rem, 29px);
+  --text-32: clamp(32px, 5vw + 0.5rem, 32px);
+  --text-36: clamp(36px, 5vw + 0.5rem, 36px);
+  --text-40: clamp(40px, 5.5vw + 0.5rem, 40px);
+  --text-48: clamp(48px, 6vw + 0.5rem, 48px);
+  --text-60: clamp(60px, 6vw + 0.5rem, 60px);
+  --text-70: clamp(70px, 6vw + 0.5rem, 70px);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --font-sans: var(--font-dm-sans);
+  --breakpoint-7xl: 103.125rem;
+  --container-7xl: 98.125rem;
+
+  --text-12: var(--text-12);
+  --text-13: var(--text-13);
+  --text-14: var(--text-14);
+  --text-16: var(--text-16);
+  --text-18: var(--text-18);
+  --text-20: var(--text-20);
+  --text-24: var(--text-24);
+  --text-29: var(--text-29);
+  --text-32: var(--text-32);
+  --text-36: var(--text-36);
+  --text-40: var(--text-40);
+  --text-48: var(--text-48);
+  --text-60: var(--text-60);
+  --text-70: var(--text-70);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #fff;
+    --foreground: #171717;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "DM Sans", sans-serif;
+}
+
+.container {
+  @apply px-[15px] mx-auto;
+}
+
+.activebfr::before {
+  content: "";
+  width: 23px;
+  position: relative;
+  top: 10px;
+  left: 0;
+  border-bottom: 2px solid #30B6F9;
+  display: block;
+  float: left;
+  margin-right: 10px;
+}
+
+.nonactivebfr::before {
+  content: "";
+  width: 23px;
+  position: relative;
+  top: 10px;
+  left: 0;
+  border-bottom: 2px solid transparent;
+  display: block;
+  float: left;
+  margin-right: 10px;
+}
+
+.sprintswiper .swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  position: absolute;
+  top: 1rem!important;
+  /* adjust as needed */
+  left: unset!important;
+  right: 1rem!important;
+  /* adjust as needed */
+  z-index: 10;
+  width: fit-content!important;
+}
+
+.sprintswiper .swiper-pagination-bullet-active {
+  background-color: #30B6F9!important;
+}
+
+.sprintswiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.gradient-text {
+  background: linear-gradient(90deg, #1E45A2 0%, #30B6F9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.scroll-container {
+  overflow: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+.scroll-area {
+  scroll-snap-align: start;
+}
+.mswd {
+  opacity: 1;
+  transition: opacity 2s ease;
+}
