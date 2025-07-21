@@ -105,7 +105,7 @@ const Header = ({ activeSection, setActiveSection }) => {
                   height={24}
                 />
               </div>
-              <div className="flex flex-col gap-3 justify-center items-center border-t border-[#ffffff20]">
+              <div className="flex flex-col gap-3 justify-center items-center border-t border-[#ffffff20] cursor-pointer" onClick={()=>handleScroll(nextSection.id)}>
                 <p className="text-white font-[300] text-[13px] leading-[25px] pt-3">SCROLL DOWN</p>
                 <img src="/assets/images/arrowcircle.svg" alt="Arrow" width={87} height={87} />
               </div>
