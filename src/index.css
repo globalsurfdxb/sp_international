@@ -63,6 +63,9 @@ body {
   color: var(--foreground);
   font-family: "DM Sans", sans-serif;
 }
+/* body::-webkit-scrollbar {
+  display: none;
+} */
 
 .container {
   @apply px-[15px] mx-auto;
@@ -132,4 +135,13 @@ body {
 .mswd {
   opacity: 1;
   transition: opacity 2s ease;
+}
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
 }
