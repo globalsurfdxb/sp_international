@@ -55,74 +55,74 @@ const SectionOne = forwardRef((props, ref) => {
       // Scroll-triggered animations for video and content
       gsap.to(videoRef.current, {
         scale: 1,
-        x: '-75%',  
-        ease: 'none',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top top',
-          end: 'bottom top', 
-          scrub: 1, 
-         /*   markers: true, */
-          
-        },
-      });
-   
-// Scroll-based fade-out one by one
-const fadeOutTL = gsap.timeline({
-  scrollTrigger: {
-    trigger: sectionRef.current,
-    start: 'top+=100 top',   // Slight delay after scroll begins
-    end: 'bottom top',
-    scrub: true,
-    // markers: true,
-  },
-});
-fadeOutTL
-  .to(titleRef.current, {
-    opacity: 0,
-    x: -30,
-    duration: 1,
-    ease: 'none',
-  })
-  .to(subtitleRef.current, {
-    opacity: 0,
-    x: -30,
-    duration: 1,
-    ease: 'none',
-  }, '-=0.6') // slight overlap
-  .to(iconsRef.current, {
-    opacity: 0,
-    y: -30,
-    duration: 1,
-    ease: 'none',
-  }, '-=0.3');
-
-
-    /*   // Animate the text and icons to fade out
-      gsap.to([titleRef.current, subtitleRef.current, iconsRef.current], {
-        opacity: 0,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top top',
-          end: 'top -20%', // Start fading out as soon as scrolling begins, finished by 20% down
-          scrub: 0.5, // Adjust scrub for how quickly it fades
-          // markers: true, // For debugging
-        },
-      });
-
-      // Animate the overlay opacity as well, making it slightly less opaque as we scroll
-      gsap.to(overlayRef.current, {
-        opacity: 0.5, // From 0.8 to 0.5, or adjust as desired
+        x: '-75%',
         ease: 'none',
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top top',
           end: 'bottom top',
+          scrub: 1,
+          /*   markers: true, */
+
+        },
+      });
+
+      // Scroll-based fade-out one by one
+      const fadeOutTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top+=100 top',   // Slight delay after scroll begins
+          end: 'bottom top',
           scrub: true,
-          // markers: true, // For debugging
-        }
-      }) */
+          // markers: true,
+        },
+      });
+      fadeOutTL
+        .to(titleRef.current, {
+          opacity: 0,
+          x: -30,
+          duration: 1,
+          ease: 'none',
+        })
+        .to(subtitleRef.current, {
+          opacity: 0,
+          x: -30,
+          duration: 1,
+          ease: 'none',
+        }, '-=0.6') // slight overlap
+        .to(iconsRef.current, {
+          opacity: 0,
+          y: -30,
+          duration: 1,
+          ease: 'none',
+        }, '-=0.3');
+
+
+      /*   // Animate the text and icons to fade out
+        gsap.to([titleRef.current, subtitleRef.current, iconsRef.current], {
+          opacity: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top top',
+            end: 'top -20%', // Start fading out as soon as scrolling begins, finished by 20% down
+            scrub: 0.5, // Adjust scrub for how quickly it fades
+            // markers: true, // For debugging
+          },
+        });
+  
+        // Animate the overlay opacity as well, making it slightly less opaque as we scroll
+        gsap.to(overlayRef.current, {
+          opacity: 0.5, // From 0.8 to 0.5, or adjust as desired
+          ease: 'none',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+            // markers: true, // For debugging
+          }
+        }) */
 
     }, sectionRef); // Scope the GSAP animations to this component
 
@@ -139,13 +139,13 @@ fadeOutTL
           muted
           className="w-full h-full object-cover absolute z-[2]"
         ></video>
-           <video
-              src="../assets/videos/hero.mp4"
-              autoPlay
-              loop
-              muted
-              className="absolute w-[80%] h-full object-cover z-[1] right-0 top-0"
-            ></video>
+        <video
+          src="../assets/videos/hero.mp4"
+          autoPlay
+          loop
+          muted
+          className="absolute w-[80%] h-full object-cover z-[1] right-0 top-0"
+        ></video>
       </div>
 
       <div className="relative z-[1] h-full">
@@ -211,7 +211,7 @@ fadeOutTL
       </div>
 
       {/* Changed class to ref, and initial opacity to match your current code (.mswd's opacity:0 means this overlay is active) */}
-      <div ref={overlayRef} className="absolute inset-0 bg-[#0000008C] h-[100dvh]"></div>
+      <div ref={overlayRef} className="absolute inset-0 bg-black/55 h-[100dvh]"></div>
     </section>
   );
 });

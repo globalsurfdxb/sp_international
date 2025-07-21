@@ -38,6 +38,8 @@ const Header = () => {
     };
   }, []);
 
+   const activeIndex = sections.findIndex((s) => s.id === activeSection);
+
   return (
     <>
       <div className="fixed top-13 right-38 z-50">
