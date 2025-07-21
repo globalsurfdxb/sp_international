@@ -18,22 +18,6 @@ const sections = [
 
 const Header = ({ activeSection, setActiveSection }) => {
 
-
-  // useEffect(() => {
-  //   if (!activeSection) return;
-
-  //   console.log("Scroll container:", document.scrollingElement);
-  
-  //   const element = document.getElementById(`${activeSection}`);
-  //   console.log("Element:", element);
-  //   if (element) {
-  //     window.scrollTo({
-  //       top: element.offsetTop,
-  //       behavior: "smooth",
-  //     });
-  //   }
-  // }, [activeSection]);
-
 const length = activeSection.length
 console.log(activeSection[length-1])
 const nextSection = sections.find((section) => section.id === `section${parseInt(activeSection[length-1])+1}`);
@@ -71,24 +55,31 @@ const nextSection = sections.find((section) => section.id === `section${parseInt
         <div className="flex">
           <div className="flex w-[150px]">
             {activeSection !== "section1" && <nav className="flex flex-col justify-center gap-4">
-              {sections.map((section) => (
-                <a
-                  key={section.id}
-                  href={`#${section.id}`}
-                  className={`transition-colors font-[300] ${
-                    activeSection === section.id
-                      ? `${activeSection === "section1" ? "" : "text-white font-[700] activebfr"}`
-                      : "nonactivebfr hover:text-white hover:font-[700]"
-                  } ${
-                    activeSection === "section3" || activeSection === "section4"
-                      ? "!text-black font-[700] activebfr hover:text-[red]"
-                      : "text-white"
-                  }`}
-                onClick={()=>handleScroll(section.id)}
-                >
-                  {section.label}
-                </a>
-              ))}
+              {sections.map((section, index) => {
+                const activeIndex = sections.findIndex((s) => s.id === activeSection);
+                const distance = Math.abs(index - activeIndex);
+                const opacity = Math.max(1 - distance * 0.3, 0.3);
+
+                const isActive = activeSection === section.id;
+                const isBlackTheme = ["section3", "section4"].includes(activeSection);
+
+                const baseColor = isBlackTheme ? "text-black hover:text-red" : "text-white hover:text-white";
+
+                return (
+                  <a
+                    key={section.id}
+                    href={`#${section.id}`}
+                    onClick={() => handleScroll(section.id)}
+                    style={{ opacity }}
+                    className={`transition-all duration-300 font-[300] hover:font-[700]
+        ${isActive ? `font-[700] activebfr ${baseColor}` : `nonactivebfr ${baseColor}`}
+      `}
+                  >
+                    {section.label}
+                  </a>
+                );
+              })}
+
             </nav>}
           </div>
 
