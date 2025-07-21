@@ -1,5 +1,11 @@
 'use client';
 import React, { useEffect, useState } from "react";
+import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
 const sections = [
   { id: "section1", label: "SP GROUP" },
@@ -9,34 +15,40 @@ const sections = [
   { id: "section5", label: "PEOPLE" },
 ];
 
-const Header = () => {
-  const [activeSection, setActiveSection] = useState("");
+const Header = ({ activeSection, setActiveSection }) => {
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100;
 
-      for (const section of sections) {
-        const element = document.getElementById(section.id);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetHeight = element.offsetHeight;
+  // useEffect(() => {
+  //   if (!activeSection) return;
 
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section.id);
-            break;
-          }
-        }
-      }
-    };
+  //   console.log("Scroll container:", document.scrollingElement);
+  
+  //   const element = document.getElementById(`${activeSection}`);
+  //   console.log("Element:", element);
+  //   if (element) {
+  //     window.scrollTo({
+  //       top: element.offsetTop,
+  //       behavior: "smooth",
+  //     });
+  //   }
+  // }, [activeSection]);
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
+  const handleScroll = (sectionId) => {
+    const trigger = ScrollTrigger.getAll().find(t =>
+      t.trigger?.id === "scroll-container" && t.start.includes(sectionId)
+    );
+  
+    const index = sections.findIndex((s) => s.id === sectionId);
+    const scrollY = index * window.innerHeight;
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+    console.log(scrollY);
+  
+    gsap.to(window, {
+      scrollTo: scrollY,
+      duration: 1,
+      ease: "power2.inOut",
+    });
+  };
 
   return (
     <>
@@ -59,10 +71,11 @@ const Header = () => {
                       ? "text-white font-[700] activebfr"
                       : "nonactivebfr hover:text-white hover:font-[700]"
                   } ${
-                    activeSection === "section3" || activeSection === "section2"
+                    activeSection === "section3" || activeSection === "section4"
                       ? "!text-black font-[700] activebfr hover:text-[red]"
                       : "text-white"
                   }`}
+                onClick={()=>handleScroll(section.id)}
                 >
                   {section.label}
                 </a>

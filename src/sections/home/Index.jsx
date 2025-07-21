@@ -11,7 +11,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Index = () => {
+const Index = ({ setActiveSection }) => {
   const [showContent, setShowContent] = useState(false);
 
   // Two refs: DOM refs + component refs
@@ -72,11 +72,17 @@ const Index = () => {
         ScrollTrigger.create({
           trigger: scrollContainer.current,
          /*  markers: true, */
-          start: () => `${i * window.innerHeight}px top`,
+          start: () => {
+            console.log(`${i * window.innerHeight}px`);
+            return `${i * window.innerHeight}px top`;
+          },
           end: () => `${(i + 1) * window.innerHeight}px top`,
           onEnter: () => {
+            console.log(`${i * window.innerHeight}px`);
             gsap.set(sections, { visibility: "hidden", zIndex: 0 });
             gsap.set(section, { visibility: "visible", zIndex: 10 });
+            setActiveSection(`section${i + 1}`);
+
 
             if (sectionComponentRefs.current[i]?.playAnimations) {
               sectionComponentRefs.current[i].playAnimations();
@@ -85,6 +91,7 @@ const Index = () => {
           onEnterBack: () => {
             gsap.set(sections, { visibility: "hidden", zIndex: 0 });
             gsap.set(section, { visibility: "visible", zIndex: 10 });
+             setActiveSection(`section${i + 1}`);
 
             if (sectionComponentRefs.current[i]?.playAnimations) {
               sectionComponentRefs.current[i].playAnimations();
