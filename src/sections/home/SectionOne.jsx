@@ -137,7 +137,7 @@ fadeOutTL
   }, []);
 
   return (
-    <section ref={sectionRef} className="h-[100dvh] overflow-x-hidden relative scroll-area overflow-hidden">
+    <section ref={sectionRef} className="h-[100dvh] overflow-x-hidden relative scroll-area overflow-hidden" id="section1">
       <div className="h-full absolute top-0 left-0 w-full bg-amber-50 z-0">
         <video ref={videoRef}
           src="../assets/videos/home.mp4"
