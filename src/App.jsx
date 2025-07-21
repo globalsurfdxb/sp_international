@@ -7,7 +7,7 @@ import { useState } from 'react'
 /* import SmoothScroll from "./components/SmoothScroll"; */
 
 const App = () => {
-  const [activeSection, setActiveSection] = useState("");
+  const [activeSection, setActiveSection] = useState("section1");
   const sectionScrollPositions = useRef({});
   return (
     <main className='no-scrollbar'>

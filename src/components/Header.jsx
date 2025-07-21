@@ -33,6 +33,12 @@ const Header = ({ activeSection, setActiveSection }) => {
   //   }
   // }, [activeSection]);
 
+const length = activeSection.length
+console.log(activeSection[length-1])
+const nextSection = sections.find((section) => section.id === `section${parseInt(activeSection[length-1])+1}`);
+
+  console.log(activeSection,nextSection)
+
   const handleScroll = (sectionId) => {
     const trigger = ScrollTrigger.getAll().find(t =>
       t.trigger?.id === "scroll-container" && t.start.includes(sectionId)
@@ -41,7 +47,6 @@ const Header = ({ activeSection, setActiveSection }) => {
     const index = sections.findIndex((s) => s.id === sectionId);
     const scrollY = index * window.innerHeight;
 
-    console.log(scrollY);
   
     gsap.to(window, {
       scrollTo: scrollY,
@@ -91,7 +96,7 @@ const Header = ({ activeSection, setActiveSection }) => {
               <div className="flex justify-center items-center">
                 <img src="/assets/images/menu-crbs.svg" alt="Menu" width={31} height={24} />
               </div>
-              <div className="flex flex-col gap-3 justify-center items-center border-t border-[#ffffff20]">
+              <div className="flex flex-col gap-3 justify-center items-center border-t border-[#ffffff20]" onClick={()=>handleScroll(nextSection.id)}>
                 <p className="text-white font-[300] text-[13px] leading-[25px] pt-3">SCROLL DOWN</p>
                 <img src="/assets/images/arrowcircle.svg" alt="Arrow" width={87} height={87} />
               </div>
