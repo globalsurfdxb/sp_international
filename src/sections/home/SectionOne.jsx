@@ -56,8 +56,8 @@ const SectionOne = forwardRef((props, ref) => {
       // Scroll-triggered animations for video and content
       gsap.to(videoRef.current, {
         scale: 1,
-        x: '-75%',
-        ease: 'none',
+        x: '-70%',
+        ease: 'power4.easeInOut',
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top top',
