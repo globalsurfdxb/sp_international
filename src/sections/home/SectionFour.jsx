@@ -3,7 +3,7 @@
 import React, { forwardRef, useImperativeHandle, useRef } from "react";
 import gsap from "gsap";
 import { useState } from "react";
-import { useEffect } from "react";
+/* import { useEffect } from "react"; */
 
 const SectionFour = forwardRef((props, ref) => {
   const sectionRef = useRef(null);
@@ -15,94 +15,56 @@ const SectionFour = forwardRef((props, ref) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   // Expose GSAP animation method to parent via ref
-  useImperativeHandle(ref, () => ({
-    playAnimations: () => {
-      const tl = gsap.timeline();
+useImperativeHandle(ref, () => ({
+  playAnimations: () => {
+    const tl = gsap.timeline();
 
-      // Animate title
-      tl.fromTo(
-        titleRef.current,
-        { y: 80, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, ease: "power4.out" }
-      );
+    // Animate title
+    tl.fromTo(
+      titleRef.current,
+      { y: 80, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: "power4.out" }
+    );
 
-      // Animate each service item
-      tl.fromTo(
-        textItemsRef.current,
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          stagger: 0.1,
-          duration: 0.8,
-          ease: "power2.out",
-        },
-        "-=0.5"
-      );
+    // Animate services list
+    tl.fromTo(
+      textItemsRef.current,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: "power2.out",
+      },
+      "-=0.5"
+    );
 
+    // Animate image
     gsap.fromTo(
-       rightImageRef.current,
+      rightImageRef.current,
       { x: 50, width: '0%', opacity: 0 },
       {
         x: 0,
         width: '100%',
         opacity: 1,
         duration: 1,
-        ease: "power2.out",
+        ease: "power2.easeInOut",
       }
     );
-    gsap.fromTo(
-       rightImageRef.current,
-      { x: 50, width: '0%', opacity: 0 },
-      {
-        x: 0,
-        width: '100%',
-        opacity: 1,
-        duration: 1,
-        ease: "power2.out",
-      }
-    );
-
-    },
-  }));
-
-  useEffect(() => {
-    if (imageRef.current) {
-      gsap.fromTo(
-        imageRef.current,
-        { x: 50, width: '0%', opacity: 0 },
-        {
-          x: 0,
-          width: '100%',
-          opacity: 1,
-          duration: 1,
-          ease: "power2.out",
-        }
-      );
-    }
-  }, [activeIndex]);
-
-/*   useEffect(() => {
-  if (!textItemsRef.current.length) return;
-
-  const ctx = gsap.context(() => {
-    textItemsRef.current.forEach((el, i) => {
-      gsap.to(el, {
-        opacity: 0,
-        y: 30,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: () => `top+=${100 + i * 50} top`, // stagger by offset
-          end: "bottom top",
-          scrub: true,
-        },
-        ease: "none",
-      });
+  },
+  resetAnimations: () => {
+    // Reset all opacity for text items
+    textItemsRef.current.forEach((el) => {
+      if (el) gsap.set(el, { opacity: 0 });
     });
-  }, sectionRef);
+    gsap.set(titleRef.current, { opacity: 0 });
+    gsap.set(rightImageRef.current, { opacity: 0 });
+  },
+}));
 
-  return () => ctx.revert(); // Clean up on unmount
-}, []); */
+
+
 
 
   const content = [
