@@ -107,13 +107,8 @@ useImperativeHandle(ref, () => ({
   ];
 
 
-
   return (
-    <section
-      ref={sectionRef}
-      id="section4"
-      className="h-screen relative overflow-hidden whitebgref scroll-area"
-    >
+    <section ref={sectionRef} id="section4" className="h-screen relative overflow-hidden whitebgref scroll-area">
       <div className="grid grid-cols-2 h-full">
         {/* left side */}
         <div>
@@ -121,13 +116,8 @@ useImperativeHandle(ref, () => ({
             <div className="w-1/3"></div>
             <div className="w-2/3 pt-33">
               <div className="ml-28 flex flex-col h-full">
-                <h1
-                  ref={titleRef}
-                  className="text-60 font-light gradient-text leading-[70px]"
-                >
-                  Our Services
-                </h1>
-                <div className="w-full flex flex-col h-full justify-end border-l border-black/10 pl-13 mt-15">
+                <h1 ref={titleRef} className="text-60 font-light gradient-text leading-[70px]">Our Services</h1>
+                <div className="w-full flex flex-col h-full justify-end border-l border-black/20 pl-13 mt-15">
                   <div className="pb-4">
                    <p className="text-60 font-light text-[#62626210]">
   {String(activeIndex + 1).padStart(2, '0')}/{String(content.length).padStart(2, '0')}
@@ -135,33 +125,10 @@ useImperativeHandle(ref, () => ({
                   </div>
                   <div className="flex flex-col gap-2 pt-14 pb-21 pr-2">
                     {content.map((service, index) => (
-                      <div
-      key={index}
-      className={`flex items-center gap-3 cursor-pointer group opacity-0 ${
-        activeIndex === index ? "text-black font-black" : ""
-      }`}
-      ref={(el) => (textItemsRef.current[index] = el)}
-      onClick={() => setActiveIndex(index)}
-    >
-      <p
-        className={`text-29 cursor-pointer transform-all duration-300 ${
-          activeIndex === index
-            ? "text-black font-bold"
-            : "text-[#626262] group-hover:text-black group-hover:font-bold"
-        }`}
-      >
-        {service.title}
-      </p>
-      <img
-        src="../assets/images/services/arrowblw.svg"
-        className={`transform-all duration-300 ${
-          activeIndex === index ? "block" : "hidden group-hover:block"
-        }`}
-        alt="Arrow"
-        width={21}
-        height={21}
-      />
-    </div>
+                      <div key={index} className="flex items-center gap-3 cursor-pointer group" ref={(el) => (textItemsRef.current[index] = el)} onClick={()=>setActiveIndex(index)}>
+                        <p className="text-29 font-light group-hover:text-black group-hover:font-bold text-[#626262] cursor-pointer transform-all duration-300">{service.title}</p>
+                        <img src="../assets/images/services/arrowblw.svg" className="hidden group-hover:block transform-all duration-300" alt="Arrow" width={21} height={21}/>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -173,22 +140,8 @@ useImperativeHandle(ref, () => ({
         {/* right side */}
         <div>
           <div ref={rightImageRef} className="relative w-full h-[100vh]">
-            <img
-            key={activeIndex}
-              src={content[activeIndex].image}
-              alt="Service Image"
-              fill
-              className="object-cover absolute w-full h-full"
-              ref={imageRef}
-            />
-            <div className="absolute top-0 right-20">
-              <img
-                src="../assets/images/services/studio-over.svg"
-                alt="Logo"
-                width={682}
-                height={914}
-              />
-            </div>
+            <img key={activeIndex} src={content[activeIndex].image} alt="Service Image" fill className="object-cover absolute w-full h-full" ref={imageRef} />
+            <div className="absolute top-0 right-20"><img src="../assets/images/services/studio-over.svg" alt="Logo" width={682} height={914}/></div>
           </div>
         </div>
 
