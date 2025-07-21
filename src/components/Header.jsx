@@ -58,7 +58,7 @@ const nextSection = sections.find((section) => section.id === `section${parseInt
               {sections.map((section, index) => {
                 const activeIndex = sections.findIndex((s) => s.id === activeSection);
                 const distance = Math.abs(index - activeIndex);
-                const opacity = Math.max(1 - distance * 0.3, 0.3);
+                const opacity = Math.max(1 - distance * 0.3, 0.1);
 
                 const isActive = activeSection === section.id;
                 const isBlackTheme = ["section3", "section4"].includes(activeSection);
@@ -71,7 +71,7 @@ const nextSection = sections.find((section) => section.id === `section${parseInt
                     href={`#${section.id}`}
                     onClick={() => handleScroll(section.id)}
                     style={{ opacity }}
-                    className={`transition-all duration-300 font-[300] hover:font-[700]
+                    className={`transition-all duration-300 font-[300] hover:font-[700] text-12 
         ${isActive ? `font-[700] activebfr ${baseColor}` : `nonactivebfr ${baseColor}`}
       `}
                   >
