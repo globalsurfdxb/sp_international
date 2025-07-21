@@ -96,7 +96,7 @@ const nextSection = sections.find((section) => section.id === `section${parseInt
               <div className="flex justify-center items-center">
                 <img src="/assets/images/menu-crbs.svg" alt="Menu" width={31} height={24} />
               </div>
-              <div className="flex flex-col gap-3 justify-center items-center border-t border-[#ffffff20]" onClick={()=>handleScroll(nextSection.id)}>
+              <div className="flex flex-col gap-3 justify-center items-center border-t border-[#ffffff20] cursor-pointer" onClick={()=>handleScroll(nextSection.id)}>
                 <p className="text-white font-[300] text-[13px] leading-[25px] pt-3">SCROLL DOWN</p>
                 <img src="/assets/images/arrowcircle.svg" alt="Arrow" width={87} height={87} />
               </div>
