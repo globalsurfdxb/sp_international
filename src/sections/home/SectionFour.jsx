@@ -39,7 +39,7 @@ const SectionFour = forwardRef((props, ref) => {
         "-=0.5"
       );
 
-        gsap.fromTo(
+    gsap.fromTo(
        rightImageRef.current,
       { x: 50, width: '0%', opacity: 0 },
       {
@@ -69,6 +69,29 @@ const SectionFour = forwardRef((props, ref) => {
       );
     }
   }, [activeIndex]);
+
+  useEffect(() => {
+  if (!textItemsRef.current.length) return;
+
+  const ctx = gsap.context(() => {
+    textItemsRef.current.forEach((el, i) => {
+      gsap.to(el, {
+        opacity: 0,
+        y: 30,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: () => `top+=${100 + i * 50} top`, // stagger by offset
+          end: "bottom top",
+          scrub: true,
+        },
+        ease: "none",
+      });
+    });
+  }, sectionRef);
+
+  return () => ctx.revert(); // Clean up on unmount
+}, []);
+
 
   const content = [
     {
@@ -132,27 +155,39 @@ const SectionFour = forwardRef((props, ref) => {
                 </h1>
                 <div className="w-full flex flex-col h-full justify-end border-l border-black/20 pl-13 mt-15">
                   <div className="pb-4">
-                    <p className="text-60 font-light text-[#62626210]">02/06</p>
+                   <p className="text-60 font-light text-[#62626210]">
+  {String(activeIndex + 1).padStart(2, '0')}/{String(content.length).padStart(2, '0')}
+</p>
                   </div>
                   <div className="flex flex-col gap-2 pt-14 pb-21 pr-2">
                     {content.map((service, index) => (
                       <div
-                        key={index}
-                        className="flex items-center gap-3 cursor-pointer group"
-                        ref={(el) => (textItemsRef.current[index] = el)}
-                        onClick={()=>setActiveIndex(index)}
-                      >
-                        <p className="text-29 font-light group-hover:text-black group-hover:font-bold text-[#626262] cursor-pointer transform-all duration-300">
-                          {service.title}
-                        </p>
-                        <img
-                          src="../assets/images/services/arrowblw.svg"
-                          className="hidden group-hover:block transform-all duration-300"
-                          alt="Arrow"
-                          width={21}
-                          height={21}
-                        />
-                      </div>
+      key={index}
+      className={`flex items-center gap-3 cursor-pointer group opacity-0 ${
+        activeIndex === index ? "text-black font-black" : ""
+      }`}
+      ref={(el) => (textItemsRef.current[index] = el)}
+      onClick={() => setActiveIndex(index)}
+    >
+      <p
+        className={`text-29 cursor-pointer transform-all duration-300 ${
+          activeIndex === index
+            ? "text-black font-bold"
+            : "text-[#626262] group-hover:text-black group-hover:font-bold"
+        }`}
+      >
+        {service.title}
+      </p>
+      <img
+        src="../assets/images/services/arrowblw.svg"
+        className={`transform-all duration-300 ${
+          activeIndex === index ? "block" : "hidden group-hover:block"
+        }`}
+        alt="Arrow"
+        width={21}
+        height={21}
+      />
+    </div>
                     ))}
                   </div>
                 </div>
