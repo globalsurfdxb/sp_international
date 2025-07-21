@@ -13,6 +13,7 @@ const SectionOne = forwardRef((props, ref) => {
   const subtitleRef = useRef(null);
   const iconsRef = useRef(null);
   const videoRef = useRef(null);
+  const borderRef = useRef(null);
   const overlayRef = useRef(null); // Ref for the overlay div
 
   // Expose a playAnimations function to the parent component
@@ -95,8 +96,14 @@ fadeOutTL
     y: -30,
     duration: 1,
     ease: 'none',
-  }, '-=0.3');
-
+  }, '-=0.3')
+ .to(borderRef.current, {
+    opacity: 0,
+    width: '20%',
+    x: 30,
+    duration: 1,
+    ease: 'none',
+  }, '-=0.9');
 
     /*   // Animate the text and icons to fade out
       gsap.to([titleRef.current, subtitleRef.current, iconsRef.current], {
@@ -159,7 +166,7 @@ fadeOutTL
             </h1>
           </div>
 
-          <div className="my-10 w-full border-t border-white/30"></div>
+          <div ref={borderRef} className="my-10 w-full border-t border-white/30"></div>
 
           <div
             ref={subtitleRef}
