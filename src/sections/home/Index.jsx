@@ -59,8 +59,8 @@ const Index = () => {
       const sections = sectionDOMRefs.current;
 
       // Hide all, show first
-      gsap.set(sections, { visibility: "hidden", zIndex: 0 });
-      gsap.set(sections[0], { visibility: "visible", zIndex: 10 });
+      gsap.set(sections, { visibility: "hidden", zIndex: 0, ease: "Power2.easeInOut" });
+      gsap.set(sections[0], { visibility: "visible", zIndex: 10, ease: "Power2.easeInOut" });
 
       // Create fake scroll height
       gsap.set(scrollContainer.current, {
@@ -75,16 +75,16 @@ const Index = () => {
           start: () => `${i * window.innerHeight}px top`,
           end: () => `${(i + 1) * window.innerHeight}px top`,
           onEnter: () => {
-            gsap.set(sections, { visibility: "hidden", zIndex: 0 });
-            gsap.set(section, { visibility: "visible", zIndex: 10 });
+            gsap.set(sections, { visibility: "hidden", zIndex: 0, ease: "Power2.easeInOut" });
+            gsap.set(section, { visibility: "visible", zIndex: 10, ease: "Power2.easeInOut" });
 
             if (sectionComponentRefs.current[i]?.playAnimations) {
               sectionComponentRefs.current[i].playAnimations();
             }
           },
           onEnterBack: () => {
-            gsap.set(sections, { visibility: "hidden", zIndex: 0 });
-            gsap.set(section, { visibility: "visible", zIndex: 10 });
+            gsap.set(sections, { visibility: "hidden", zIndex: 0, ease: "Power2.easeInOut" });
+            gsap.set(section, { visibility: "visible", zIndex: 10, ease: "Power2.easeInOut" });
 
             if (sectionComponentRefs.current[i]?.playAnimations) {
               sectionComponentRefs.current[i].playAnimations();
