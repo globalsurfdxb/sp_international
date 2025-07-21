@@ -17,106 +17,88 @@ const SectionTwo = forwardRef((props, ref) => {
   const videoBgRef = useRef(null);
 
   const playAnimations = () => {
-  gsap.fromTo(
-    leftBgRef.current,
-    { y: 100, width: '0%' },
-    {
-      y: 0,
-      width: '100%',
-      duration: 1.2,
-      ease: 'power3.out',
-    }
-  );
+    gsap.fromTo(
+      leftBgRef.current,
+      { y: 100, width: '0%' },
+      {
+        y: 0,
+        width: '100%',
+        duration: 1.2,
+        ease: 'power3.out',
+      }
+    );
 
-  gsap.fromTo(
-    videoBgRef.current,
-    { y: 0, width: '0%' },
-    {
-      y: 0,
-      width: '100%',
-      duration: 1.4,
-      ease: 'power3.out',
-    }
-  );
+    gsap.fromTo(
+      videoBgRef.current,
+      { y: 0, width: '0%' },
+      {
+        y: 0,
+        width: '100%',
+        duration: 1.4,
+        ease: 'power3.out',
+      }
+    );
 
-  gsap.fromTo(
-    titleRef.current,
-    { x: 50, opacity: 0 },
-    {
-      x: 0,
-      opacity: 1,
-      duration: 1,
-      ease: 'power3.out',
-    }
-  );
+    gsap.fromTo(
+      titleRef.current,
+      { x: 50, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power3.out',
+      }
+    );
 
-  gsap.fromTo(
-    descriptionRef.current,
-    { x: 50, opacity: 0 },
-    {
-      x: 0,
-      opacity: 1,
-      duration: 1,
-      delay: 0.2,
-      ease: 'power3.out',
-    }
-  );
+    gsap.fromTo(
+      descriptionRef.current,
+      { x: 50, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.2,
+        ease: 'power3.out',
+      }
+    );
 
-  // Animate stats from left to right with stagger
-  const statItems = statsRef.current.querySelectorAll('div');
+    // Animate stats from left to right with stagger
+    const statItems = statsRef.current.querySelectorAll('div');
 
-  gsap.fromTo(
-    statItems,
-    { x: -50, opacity: 0 },
-    {
-      x: 0,
-      opacity: 1,
-      duration: 1,
-      delay: 0.4,
-      ease: 'power3.out',
-      stagger: 0.2,
-    }
-  );
-};
+    gsap.fromTo(
+      statItems,
+      { x: -50, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.4,
+        ease: 'power3.out',
+        stagger: 0.2,
+      }
+    );
+  };
 
   useImperativeHandle(ref, () => ({ playAnimations }));
 
   return (
-    <section ref={sectionRef} className="h-screen scroll-area" id="section2">
-      <div className="grid grid-cols-[2fr_5fr] h-full">
+    <section ref={sectionRef} className="h-screen scroll-area" id="section1">
+      <div className="grid grid-cols-[2fr_5fr] 3xl:grid-cols-[657px_auto] h-full">
         <div className="relative py-4 xl:py-[50px] xl:pl-[150px] overflow-hidden">
-          <div className="absolute top-0 left-0 z-20 w-full h-full bg-gradient-to-l from-black/30 to-black/80"></div>
-          <div
-            className="absolute top-0 left-0 w-full z-10 h-full bg-amber-50"
-            ref={leftBgRef}
-          >
-            <img
-              src={aboutData.leftBgImage}
-              alt=""
-              width={2000}
-              height={1500}
-              className="w-full h-full object-cover"
-            />
+          <div className="absolute top-0 left-0 z-20 w-full h-full bg-gradient-to-l from-black/30 from-0% to-black/80 to-100%"></div>
+          <div className="absolute top-0 left-0 w-full z-10 h-full bg-amber-50" ref={leftBgRef}>
+            <img src={aboutData.leftBgImage} alt="" width={2000} height={1500} className="w-full h-full object-cover" />
           </div>
         </div>
 
         <div className="relative flex flex-col h-full px-10 xl:px-[90px] pb-20 xl:pb-[93px] pt-20 xl:pt-[50px] overflow-hidden">
-          <div className="absolute top-0 left-0 z-20 w-full h-full bg-gradient-to-r from-black/30 to-black/80"></div>
-          <div
-            className="absolute top-0 left-0 w-full z-10 h-full bg-amber-50"
-            ref={videoBgRef}
-          >
-            <video
-              src="../assets/videos/hero.mp4"
-              autoPlay
-              loop
-              muted
-              className="w-full h-full object-cover"
-            ></video>
+          <div className="absolute top-0 left-0 z-20 w-full h-full bg-gradient-to-r from-black/60 from-0% via-black/60 via-52% to-black/60 to-100%"></div>
+          <div className="absolute top-0 left-0 w-full z-10 h-full bg-amber-50" ref={videoBgRef}>
+            <video src="../assets/videos/hero.mp4" autoPlay loop muted className="w-full h-full object-cover"></video>
           </div>
 
           <div className="relative z-40 pt-6 xl:pt-[35px] text-white" ref={titleRef}>
-            <h1 className="text-48 xl:text-60 font-light leading-[1.166666666666667]">
+            <h1 className="text-48 xl:text-60 font-light leading-[1.166666666666667] mb-3 3xl:mb-[25px]">
               {aboutData.title}
             </h1>
             <h3 className="text-18 xl:text-24 font-light max-w-xl">
@@ -130,7 +112,7 @@ const SectionTwo = forwardRef((props, ref) => {
 
           <div className="relative z-40 mt-auto ml-auto" ref={descriptionRef}>
             <div className="bg-primary p-10 w-fit xl:w-[550px] px-15 py-10 text-white">
-              <p className="text-16 xl:text-20 font-light">
+              <p className="text-16 xl:text-18 font-light leading-[1.5]">
                 {aboutData.description}
               </p>
             </div>
@@ -141,16 +123,16 @@ const SectionTwo = forwardRef((props, ref) => {
             ref={statsRef}
           >
             <div>
-              <h3 className="text-24 xl:text-40 font-light">160+</h3>
-              <p>Years of Legacy</p>
+              <h3 className="text-24 xl:text-40 font-light leading-[auto] mb-[5px]">160+</h3>
+              <p className="text-16 xl:text-18 font-light leading-[1.555555555555556]">Years of Legacy</p>
             </div>
             <div>
-              <h3 className="text-24 xl:text-40 font-light">35000+</h3>
-              <p>Employees Strength</p>
+              <h3 className="text-24 xl:text-40 font-light leading-[auto] mb-[5px]">35000+</h3>
+              <p className="text-16 xl:text-18 font-light leading-[1.555555555555556]">Employees Strength</p>
             </div>
             <div>
-              <h3 className="text-24 xl:text-40 font-light">35+</h3>
-              <p>Countries Globally Reached</p>
+              <h3 className="text-24 xl:text-40 font-light leading-[auto] mb-[5px]">35+</h3>
+              <p className="text-16 xl:text-18 font-light leading-[1.555555555555556]">Countries Globally Reached</p>
             </div>
           </div>
         </div>

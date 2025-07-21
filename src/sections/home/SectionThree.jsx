@@ -9,6 +9,7 @@ import { sprintData } from "./data.js";
 import gsap from "gsap";
 import {  useRef, forwardRef, useImperativeHandle } from "react";
 
+
 const SectionThree = forwardRef((props, ref) => {
   const sectionRef = useRef(null);
   const leftContentRef = useRef(null);
@@ -72,7 +73,7 @@ const SectionThree = forwardRef((props, ref) => {
       <div className="absolute top-0 left-0 z-0 w-full h-full bg-gradient-to-l from-white/10 to-white/80 opacity-[0.1]">
         <img src={sprintData.mainBgImage} alt="" width={2000} height={1500} className="w-full h-full object-cover" />
       </div>
-      <div className="absolute bottom-0 xl:bottom-10 left-[20%] xl:left-[18%] w-full h-fit z-40">
+      <div className="absolute bottom-0 xl:bottom-10 left-[20%] xl:left-[18%] w-fit h-fit z-40">
         <svg width="503" height="707" viewBox="0 0 503 707" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M502 3L1.00011 506.517L1 707H502V435.467L253.584 684.968V584.013L502 334.349V3Z" stroke="url(#paint0_linear_987_1030)" strokeWidth="2" />
           <defs>
@@ -89,18 +90,18 @@ const SectionThree = forwardRef((props, ref) => {
           <line opacity="0.2" x1="718.5" y1="366" x2="718.5" y2="-2.18557e-08" stroke="black" />
         </svg>
       </div>
-      <div className="grid grid-cols-2 h-full relative z-10 ">
+      <div className="grid grid-cols-2 3xl:grid-rows-[548px_auto] h-full relative z-10 ">
         <div ref={leftContentRef} className="pt-20 xl:pt-[130px]">
-          <div className="w-fit ml-auto pr-10 xl:pr-[68px]">
-            <h1 className="text-34 xl:text-60 leading-[1.083333333333333] font-light max-w-lg mb-8 xl:mb-[39px] text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">{sprintData.title}</h1>
-            <p className="text-18 xl:text-29 font-light leading-[1.344827586206897]">{sprintData.subtitle}</p>
+          <div className="w-fit ml-auto pr-10 3xl:pr-[68px]">
+            <h1 className="text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light max-w-sm 3xl:max-w-md mb-8 xl:mb-[39px] text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">{sprintData.title}</h1>
+            <p className="text-18 xl:text-29 font-light leading-[1.344827586206897] max-w-md">{sprintData.subtitle}</p>
           </div>
         </div>
         <div ref={rightImageRef} className="relative z-50 h-[550px]">
           <img src={sprintData.rightImage} alt="" width={2000} height={1500} className="w-full h-full object-cover" />
         </div>
         <div className="flex justify-end">
-          <div ref={swiperRef} className="bg-primary w-full xl:w-[298px] xl:h-[316px] mt-[-45px]">
+          <div ref={swiperRef} className="bg-primary w-full xl:w-[298px] xl:h-[316px] ">
             <Swiper
               className="w-full h-full sprintswiper"
               slidesPerView={1}
@@ -122,9 +123,17 @@ const SectionThree = forwardRef((props, ref) => {
             </Swiper>
           </div>
         </div>
-        <div ref={bottomTextRef} className="pt-20 xl:pt-[67px]">
+        <div ref={bottomTextRef} className="pt-20 xl:pt-[67px] relative z-50">
           <div className="w-fit pl-10 xl:pl-[265px]">
-            <p className="text-16 xl:text-18 font-light leading-[1.6875] max-w-md">{sprintData.description}</p>
+            <p className="text-16 xl:text-18 font-light leading-[1.5] max-w-md">{sprintData.description}</p>
+            <div className="mt-10 xl:mt-15 3xl:mt-20">
+              <a href={"/"} className="text-16 leading-[1.75] font-light text-light-gray uppercase flex items-center gap-2 cursor-pointer group"><span>About sprint</span> 
+              <svg width="27" height="18" viewBox="0 0 27 18" fill="none" xmlns="http://www.w3.org/2000/svg" className="group-hover:translate-x-2 transition-all ease-in-out duration-300">
+                <path d="M17.6328 2.43262L25.0111 9.0134L17.6579 15.5679" stroke="#30B6F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M24.5954 9H1.98047" stroke="#30B6F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+</a>
+            </div>
           </div>
         </div>
       </div>

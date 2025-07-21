@@ -57,6 +57,8 @@ const nextSection = sections.find((section) => section.id === `section${parseInt
     }
   };
 
+   const activeIndex = sections.findIndex((s) => s.id === activeSection);
+
   return (
     <>
       <div className="fixed top-13 right-38 z-50">
