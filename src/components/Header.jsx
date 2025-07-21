@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -33,6 +33,12 @@ const Header = ({ activeSection, setActiveSection }) => {
   //   }
   // }, [activeSection]);
 
+const length = activeSection.length
+console.log(activeSection[length-1])
+const nextSection = sections.find((section) => section.id === `section${parseInt(activeSection[length-1])+1}`);
+
+  console.log(activeSection,nextSection)
+
   const handleScroll = (sectionId) => {
     const trigger = ScrollTrigger.getAll().find(t =>
       t.trigger?.id === "scroll-container" && t.start.includes(sectionId)
@@ -41,7 +47,6 @@ const Header = ({ activeSection, setActiveSection }) => {
     const index = sections.findIndex((s) => s.id === sectionId);
     const scrollY = index * window.innerHeight;
 
-    console.log(scrollY);
   
     gsap.to(window, {
       scrollTo: scrollY,
@@ -54,12 +59,7 @@ const Header = ({ activeSection, setActiveSection }) => {
     <>
       <div className="fixed top-13 right-38 z-50">
         <div className="flex items-center justify-center bg-black rounded-full p-2 w-11 h-11">
-          <img
-            src="/assets/images/search.svg"
-            alt="Search"
-            width={18}
-            height={18}
-          />
+          <img src="/assets/images/search.svg" alt="Search" width={18} height={18} />
         </div>
       </div>
 
@@ -76,10 +76,11 @@ const Header = ({ activeSection, setActiveSection }) => {
                       ? "text-white font-[700] activebfr"
                       : "nonactivebfr hover:text-white hover:font-[700]"
                   } ${
-                    activeSection === "section3" || activeSection === "section2"
+                    activeSection === "section3" || activeSection === "section4"
                       ? "!text-black font-[700] activebfr hover:text-[red]"
                       : "text-white"
                   }`}
+                onClick={()=>handleScroll(section.id)}
                 >
                   {section.label}
                 </a>
@@ -90,20 +91,10 @@ const Header = ({ activeSection, setActiveSection }) => {
           <div className="bg-primary shadow ml-8 my-12 w-[133px] h-[calc(100vh-100px)]">
             <div className="flex flex-col justify-between h-full pt-10 pb-6">
               <div className="flex justify-center items-center">
-                <img
-                  src="/assets/images/logo.svg"
-                  alt="Logo"
-                  width={90}
-                  height={55}
-                />
+                <img src="/assets/images/logo.svg" alt="Logo" width={90} height={55} />
               </div>
               <div className="flex justify-center items-center">
-                <img
-                  src="/assets/images/menu-crbs.svg"
-                  alt="Menu"
-                  width={31}
-                  height={24}
-                />
+                <img src="/assets/images/menu-crbs.svg" alt="Menu" width={31} height={24} />
               </div>
               <div className="flex flex-col gap-3 justify-center items-center border-t border-[#ffffff20] cursor-pointer" onClick={()=>handleScroll(nextSection.id)}>
                 <p className="text-white font-[300] text-[13px] leading-[25px] pt-3">SCROLL DOWN</p>

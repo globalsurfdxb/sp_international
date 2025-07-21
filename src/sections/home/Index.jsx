@@ -59,8 +59,8 @@ const Index = ({ setActiveSection }) => {
       const sections = sectionDOMRefs.current;
 
       // Hide all, show first
-      gsap.set(sections, { visibility: "hidden", zIndex: 0, ease: "Power2.easeInOut" });
-      gsap.set(sections[0], { visibility: "visible", zIndex: 10, ease: "Power2.easeInOut" });
+      gsap.set(sections, { visibility: "hidden", zIndex: 0 });
+      gsap.set(sections[0], { visibility: "visible", zIndex: 10 });
 
       // Create fake scroll height
       gsap.set(scrollContainer.current, {
@@ -78,8 +78,11 @@ const Index = ({ setActiveSection }) => {
           },
           end: () => `${(i + 1) * window.innerHeight}px top`,
           onEnter: () => {
+            console.log(`${i * window.innerHeight}px`);
             gsap.set(sections, { visibility: "hidden", zIndex: 0 });
             gsap.set(section, { visibility: "visible", zIndex: 10 });
+            setActiveSection(`section${i + 1}`);
+
 
             if (sectionComponentRefs.current[i]?.playAnimations) {
               sectionComponentRefs.current[i].playAnimations();
@@ -88,6 +91,7 @@ const Index = ({ setActiveSection }) => {
           onEnterBack: () => {
             gsap.set(sections, { visibility: "hidden", zIndex: 0 });
             gsap.set(section, { visibility: "visible", zIndex: 10 });
+             setActiveSection(`section${i + 1}`);
 
             if (sectionComponentRefs.current[i]?.playAnimations) {
               sectionComponentRefs.current[i].playAnimations();
