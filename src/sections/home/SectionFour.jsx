@@ -14,6 +14,63 @@ const SectionFour = forwardRef((props, ref) => {
   const borderRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
+
+  // svg
+  const AnimatedArrowSVG = () => (
+    <svg
+      id="ekVUvFDlGn21"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 71 71"
+      shapeRendering="geometricPrecision"
+      textRendering="geometricPrecision"
+      style={{ width: '71px', height: '71px' }} // optional
+    >
+      <style>
+        {`
+        #ekVUvFDlGn22 {
+          animation: ekVUvFDlGn22_s_p 12000ms linear infinite alternate forwards
+        }
+        @keyframes ekVUvFDlGn22_s_p {
+          0% { stroke: #f6f5f5 }
+          66.666667% { stroke: #30b6f9 }
+          100% { stroke: #30b6f9 }
+        }
+
+        #ekVUvFDlGn23 {
+          animation: ekVUvFDlGn23_s_p 12000ms linear infinite alternate forwards
+        }
+        @keyframes ekVUvFDlGn23_s_p {
+          0% { stroke: #f6f5f5 }
+          66.666667% { stroke: #30b6f9 }
+          100% { stroke: #30b6f9 }
+        }
+      `}
+      </style>
+      <path
+        id="ekVUvFDlGn22"
+        d="M4.75781,4.76465h61.48589v61.47185"
+        fill="none"
+        stroke="#f6f5f5"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        id="ekVUvFDlGn23"
+        d="M66.2468,4.76465L5.05469,66.2365"
+        fill="none"
+        stroke="#f6f5f5"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+
+
+
+
   // Expose GSAP animation method to parent via ref
   useImperativeHandle(ref, () => ({
     playAnimations: () => {
@@ -143,10 +200,8 @@ const SectionFour = forwardRef((props, ref) => {
               <h3 className="text-18 3xl:text-29 leading-[1.344827586206897] font-light text-white">{content[activeIndex].title}</h3>
             </div>
             <div className="absolute bottom-10 3xl:bottom-[50px] left-20 z-10">
-              <svg width="71" height="71" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.75781 4.76465H66.2437V66.2365" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M66.2468 4.76465L5.05469 66.2365" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
+              <AnimatedArrowSVG />
+
 
             </div>
           </div>
