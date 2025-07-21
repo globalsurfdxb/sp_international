@@ -40,19 +40,20 @@ const nextSection = sections.find((section) => section.id === `section${parseInt
   console.log(activeSection,nextSection)
 
   const handleScroll = (sectionId) => {
-    const trigger = ScrollTrigger.getAll().find(t =>
-      t.trigger?.id === "scroll-container" && t.start.includes(sectionId)
-    );
-  
     const index = sections.findIndex((s) => s.id === sectionId);
-    const scrollY = index * window.innerHeight;
 
+    console.log(index * window.innerHeight)
   
-    gsap.to(window, {
-      scrollTo: scrollY,
-      duration: 1,
-      ease: "power2.inOut",
-    });
+    if (index !== -1) {
+      gsap.to(window, {
+        scrollTo: {
+          y: index * window.innerHeight + 1,
+          autoKill: false, // important if using ScrollTrigger-based logic
+        },
+        duration: 1,
+        ease: "power2.inOut",
+      });
+    }
   };
 
   return (
