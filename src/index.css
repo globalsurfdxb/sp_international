@@ -63,9 +63,9 @@ body {
   color: var(--foreground);
   font-family: "DM Sans", sans-serif;
 }
-/* body::-webkit-scrollbar {
+body::-webkit-scrollbar {
   display: none;
-} */
+}
 
 .container {
   @apply px-[15px] mx-auto;

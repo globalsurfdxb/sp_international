@@ -8,7 +8,7 @@ import Header from './components/Header'
 const App = () => {
   return (
     <main className='no-scrollbar'>
-   {/*    <SmoothScroll/> */}
+ {/*      <SmoothScroll/> */}
       
       <Header/>
  <Index/>

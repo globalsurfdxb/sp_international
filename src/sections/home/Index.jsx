@@ -13,7 +13,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Index = () => {
   const [showContent, setShowContent] = useState(false);
-  const sectionRefs = useRef([]);
+
+  // Two refs: DOM refs + component refs
+  const sectionDOMRefs = useRef([]);
+  const sectionComponentRefs = useRef([]);
   const scrollContainer = useRef(null);
 
   // Loader animation
@@ -53,38 +56,42 @@ const Index = () => {
   // Scroll-triggered slide logic
   useEffect(() => {
     if (showContent) {
-      const sections = sectionRefs.current;
+      const sections = sectionDOMRefs.current;
 
       // Hide all, show first
       gsap.set(sections, { visibility: "hidden", zIndex: 0 });
       gsap.set(sections[0], { visibility: "visible", zIndex: 10 });
 
       // Create fake scroll height
-    //  const totalHeight = sections.length * window.innerHeight;
-     gsap.set(scrollContainer.current, {
-  height: (sections.length + 1) * window.innerHeight, // add buffer
-});
+      gsap.set(scrollContainer.current, {
+        height: (sections.length + 1) * window.innerHeight,
+      });
 
       // Animate which section to show
-     sections.forEach((section, i) => {
-  console.log(`Setting up ScrollTrigger for section ${i}`, section); // Add this
-  ScrollTrigger.create({
-    trigger: scrollContainer.current,
-    start: () => `${i * window.innerHeight}px top`,
-    end: () => `${(i + 1) * window.innerHeight}px top`,
-    onEnter: () => {
-      console.log(`Entering section ${i}`); // Log this
-      gsap.set(sections, { visibility: "hidden", zIndex: 0 });
-      gsap.set(section, { visibility: "visible", zIndex: 10 });
-    },
-    onEnterBack: () => {
-      console.log(`Back to section ${i}`); // Log this
-      gsap.set(sections, { visibility: "hidden", zIndex: 0 });
-      gsap.set(section, { visibility: "visible", zIndex: 10 });
-    },
-  });
-});
+      sections.forEach((section, i) => {
+        ScrollTrigger.create({
+          trigger: scrollContainer.current,
+         /*  markers: true, */
+          start: () => `${i * window.innerHeight}px top`,
+          end: () => `${(i + 1) * window.innerHeight}px top`,
+          onEnter: () => {
+            gsap.set(sections, { visibility: "hidden", zIndex: 0 });
+            gsap.set(section, { visibility: "visible", zIndex: 10 });
 
+            if (sectionComponentRefs.current[i]?.playAnimations) {
+              sectionComponentRefs.current[i].playAnimations();
+            }
+          },
+          onEnterBack: () => {
+            gsap.set(sections, { visibility: "hidden", zIndex: 0 });
+            gsap.set(section, { visibility: "visible", zIndex: 10 });
+
+            if (sectionComponentRefs.current[i]?.playAnimations) {
+              sectionComponentRefs.current[i].playAnimations();
+            }
+          },
+        });
+      });
     }
   }, [showContent]);
 
@@ -110,37 +117,43 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Main Slides + Scroll Container */}
       {showContent && (
         <>
-          {/* Fake Scroll Container */}
           <div ref={scrollContainer} className="relative w-full no-scrollbar" />
 
-          {/* Absolute Sections (slides) */}
           <div className="fixed top-0 left-0 w-full h-screen">
             <div
-              ref={(el) => (sectionRefs.current[0] = el)}
+              ref={(el) => (sectionDOMRefs.current[0] = el)}
               className="absolute top-0 left-0 w-full h-full invisible"
             >
-              <SectionOne />
+              <SectionOne ref={(ref) => (sectionComponentRefs.current[0] = ref)}/>
             </div>
+
             <div
-              ref={(el) => (sectionRefs.current[1] = el)}
+              ref={(el) => (sectionDOMRefs.current[1] = el)}
               className="absolute top-0 left-0 w-full h-full invisible"
             >
-              <SectionTwo />
+              <SectionTwo
+                ref={(ref) => (sectionComponentRefs.current[1] = ref)}
+              />
             </div>
+
             <div
-              ref={(el) => (sectionRefs.current[2] = el)}
+              ref={(el) => (sectionDOMRefs.current[2] = el)}
               className="absolute top-0 left-0 w-full h-full invisible"
             >
-              <SectionThree />
+              <SectionThree
+                ref={(ref) => (sectionComponentRefs.current[2] = ref)}
+              />
             </div>
+
             <div
-              ref={(el) => (sectionRefs.current[3] = el)}
+              ref={(el) => (sectionDOMRefs.current[3] = el)}
               className="absolute top-0 left-0 w-full h-full invisible"
             >
-              <SectionFour />
+              <SectionFour
+                ref={(ref) => (sectionComponentRefs.current[3] = ref)}
+              />
             </div>
           </div>
         </>

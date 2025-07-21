@@ -1,22 +1,33 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SectionOne = () => {
+// Use forwardRef to allow parent component to access internal functions/refs
+const SectionOne = forwardRef((props, ref) => {
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
   const iconsRef = useRef(null);
   const videoRef = useRef(null);
+  const overlayRef = useRef(null); // Ref for the overlay div
+
+  // Expose a playAnimations function to the parent component
+  useImperativeHandle(ref, () => ({
+    playAnimations: () => {
+      // Replay or ensure initial animations are set when this section becomes active
+      // We might not need to re-run from() animations directly here if ScrollTrigger handles them onEnterBack
+      // but it's a good place for any intro animations that should happen when the section appears.
+      // For this specific case, the ScrollTrigger will handle the "reset" implicitly when scrolling back.
+    }
+  }));
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Initial entrance animations
-      
       gsap.from(titleRef.current, {
         y: 60,
         opacity: 0,
@@ -41,34 +52,100 @@ const SectionOne = () => {
         delay: 1.2,
       });
 
-      // Scroll-triggered zoom-out effect
-     /*  gsap.to(sectionRef.current, {
-        scale: 0.8,
-          transformOrigin: "50%, 50%",
-        opacity: 1,
-        ease: 'power2.out',
+      // Scroll-triggered animations for video and content
+      gsap.to(videoRef.current, {
+        scale: 1,
+        x: '-75%',  
+        ease: 'none',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top top',
+          end: 'bottom top', 
+          scrub: 1, 
+           markers: true,
+          
+        },
+      });
+   
+// Scroll-based fade-out one by one
+const fadeOutTL = gsap.timeline({
+  scrollTrigger: {
+    trigger: sectionRef.current,
+    start: 'top+=100 top',   // Slight delay after scroll begins
+    end: 'bottom top',
+    scrub: true,
+    // markers: true,
+  },
+});
+fadeOutTL
+  .to(titleRef.current, {
+    opacity: 0,
+    x: -30,
+    duration: 1,
+    ease: 'none',
+  })
+  .to(subtitleRef.current, {
+    opacity: 0,
+    x: -30,
+    duration: 1,
+    ease: 'none',
+  }, '-=0.6') // slight overlap
+  .to(iconsRef.current, {
+    opacity: 0,
+    y: -30,
+    duration: 1,
+    ease: 'none',
+  }, '-=0.3');
+
+
+    /*   // Animate the text and icons to fade out
+      gsap.to([titleRef.current, subtitleRef.current, iconsRef.current], {
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top top',
+          end: 'top -20%', // Start fading out as soon as scrolling begins, finished by 20% down
+          scrub: 0.5, // Adjust scrub for how quickly it fades
+          // markers: true, // For debugging
+        },
+      });
+
+      // Animate the overlay opacity as well, making it slightly less opaque as we scroll
+      gsap.to(overlayRef.current, {
+        opacity: 0.5, // From 0.8 to 0.5, or adjust as desired
+        ease: 'none',
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top top',
           end: 'bottom top',
           scrub: true,
-        },
-      }); */
-    }, sectionRef);
+          // markers: true, // For debugging
+        }
+      }) */
 
-    return () => ctx.revert();
+    }, sectionRef); // Scope the GSAP animations to this component
+
+    return () => ctx.revert(); // Clean up GSAP animations on unmount
   }, []);
 
   return (
     <section ref={sectionRef} className="h-[100dvh] overflow-x-hidden relative scroll-area overflow-hidden">
-      <div className="h-full absolute top-0 left-0 w-full bg-amber-50">
+      <div className="h-full absolute top-0 left-0 w-full bg-amber-50 z-0">
         <video ref={videoRef}
           src="../assets/videos/home.mp4"
           autoPlay
           loop
           muted
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover absolute z-[2]"
         ></video>
+           <video
+              src="../assets/videos/hero.mp4"
+              autoPlay
+              loop
+              muted
+              className="absolute w-[80%] h-full object-cover z-[1] right-0 top-0"
+            ></video>
       </div>
 
       <div className="relative z-[1] h-full">
@@ -133,9 +210,10 @@ const SectionOne = () => {
         </div>
       </div>
 
-      <div className="absolute inset-0 bg-[#0000008C] h-[100dvh]"></div>
+      {/* Changed class to ref, and initial opacity to match your current code (.mswd's opacity:0 means this overlay is active) */}
+      <div ref={overlayRef} className="absolute inset-0 bg-[#0000008C] h-[100dvh]"></div>
     </section>
   );
-};
+});
 
 export default SectionOne;

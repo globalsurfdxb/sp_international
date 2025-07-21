@@ -1,13 +1,14 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
-import { aboutData } from "./data";
+import React, {
+  useRef,
+  useImperativeHandle,
+  forwardRef,
+} from 'react';
+import { aboutData } from './data';
 import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger);
-
-const SectionTwo = () => {
+const SectionTwo = forwardRef((props, ref) => {
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
@@ -15,104 +16,74 @@ const SectionTwo = () => {
   const leftBgRef = useRef(null);
   const videoBgRef = useRef(null);
 
- useEffect(() => {
-  const ctx = gsap.context(() => {
-    // Animate left background
-    gsap.fromTo(
-      leftBgRef.current,
-      { y: 100, width: '0%' },
-      {
-        y: 0,
-        width: '100%',
-        duration: 1.2,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: leftBgRef.current,
-          start: 'top 80%',
-          toggleActions: 'restart none none reset',
-        },
-      }
-    );
+  const playAnimations = () => {
+  gsap.fromTo(
+    leftBgRef.current,
+    { y: 100, width: '0%' },
+    {
+      y: 0,
+      width: '100%',
+      duration: 1.2,
+      ease: 'power3.out',
+    }
+  );
 
-    // Animate right video background
-    gsap.fromTo(
-      videoBgRef.current,
-      { y: 100, width: '0%' },
-      {
-        y: 0,
-        width: '100%',
-        duration: 1.4,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: videoBgRef.current,
-          start: 'top 80%',
-          toggleActions: 'restart none none reset',
-        },
-      }
-    );
+  gsap.fromTo(
+    videoBgRef.current,
+    { y: 0, width: '0%' },
+    {
+      y: 0,
+      width: '100%',
+      duration: 1.4,
+      ease: 'power3.out',
+    }
+  );
 
-    // Animate title
-    gsap.fromTo(
-      titleRef.current,
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: titleRef.current,
-          start: 'top 85%',
-          toggleActions: 'restart none none reset',
-        },
-      }
-    );
+  gsap.fromTo(
+    titleRef.current,
+    { x: 50, opacity: 0 },
+    {
+      x: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power3.out',
+    }
+  );
 
-    // Animate description
-    gsap.fromTo(
-      descriptionRef.current,
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        delay: 0.2,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: descriptionRef.current,
-          start: 'top 90%',
-          toggleActions: 'restart none none reset',
-        },
-      }
-    );
+  gsap.fromTo(
+    descriptionRef.current,
+    { x: 50, opacity: 0 },
+    {
+      x: 0,
+      opacity: 1,
+      duration: 1,
+      delay: 0.2,
+      ease: 'power3.out',
+    }
+  );
 
-    // Animate stats
-    gsap.fromTo(
-      statsRef.current,
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        delay: 0.2,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: statsRef.current,
-          start: 'top 90%',
-          toggleActions: 'restart none none reset',
-        },
-      }
-    );
-  }, sectionRef);
+  // Animate stats from left to right with stagger
+  const statItems = statsRef.current.querySelectorAll('div');
 
-  return () => ctx.revert();
-}, []);
+  gsap.fromTo(
+    statItems,
+    { x: -50, opacity: 0 },
+    {
+      x: 0,
+      opacity: 1,
+      duration: 1,
+      delay: 0.4,
+      ease: 'power3.out',
+      stagger: 0.2,
+    }
+  );
+};
 
+  useImperativeHandle(ref, () => ({ playAnimations }));
 
   return (
     <section ref={sectionRef} className="h-screen scroll-area" id="section1">
       <div className="grid grid-cols-[2fr_5fr] h-full">
-        {/* Left Side */}
         <div className="relative py-4 xl:py-[50px] xl:pl-[150px] overflow-hidden">
           <div className="absolute top-0 left-0 z-20 w-full h-full bg-gradient-to-l from-black/30 to-black/80"></div>
           <div
@@ -129,7 +100,6 @@ const SectionTwo = () => {
           </div>
         </div>
 
-        {/* Right Side */}
         <div className="relative flex flex-col h-full px-10 xl:px-[90px] pb-20 xl:pb-[93px] pt-20 xl:pt-[50px] overflow-hidden">
           <div className="absolute top-0 left-0 z-20 w-full h-full bg-gradient-to-r from-black/30 to-black/80"></div>
           <div
@@ -145,11 +115,7 @@ const SectionTwo = () => {
             ></video>
           </div>
 
-          {/* Title */}
-          <div
-            className="relative z-40 pt-6 xl:pt-[35px] text-white"
-            ref={titleRef}
-          >
+          <div className="relative z-40 pt-6 xl:pt-[35px] text-white" ref={titleRef}>
             <h1 className="text-48 xl:text-60 font-light leading-[1.166666666666667]">
               {aboutData.title}
             </h1>
@@ -162,7 +128,6 @@ const SectionTwo = () => {
             </h3>
           </div>
 
-          {/* Description Box */}
           <div className="relative z-40 mt-auto ml-auto" ref={descriptionRef}>
             <div className="bg-primary p-10 w-fit xl:w-[550px] px-15 py-10 text-white">
               <p className="text-16 xl:text-20 font-light">
@@ -171,7 +136,6 @@ const SectionTwo = () => {
             </div>
           </div>
 
-          {/* Stats Section */}
           <div
             className="relative z-40 border-t border-white/30 pt-6 xl:pt-[30px] flex gap-6 xl:gap-[75px] text-white"
             ref={statsRef}
@@ -193,6 +157,6 @@ const SectionTwo = () => {
       </div>
     </section>
   );
-};
+});
 
 export default SectionTwo;
