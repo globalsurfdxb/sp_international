@@ -96,6 +96,17 @@ const SectionFour = forwardRef((props, ref) => {
       title:"Façade",
       description:""
     },
+    {
+      image:"/assets/images/sprint-right-img.jpg",
+      title:"Facilities Management",
+      description:""
+    },
+    {
+      image:"/assets/images/sprint-right-img.jpg",
+      title:"Water",
+      description:""
+    },
+
   ];
 
 
