@@ -21,7 +21,7 @@ const Header = ({ activeSection, setActiveSection }) => {
 const length = activeSection.length
 console.log(activeSection[length-1])
 const nextSection = sections.find((section) => section.id === `section${parseInt(activeSection[length-1])+1}`);
-const scrollStep = 100;
+const scrollStep = 300;
 
   const handleScroll = (sectionId) => {
 
