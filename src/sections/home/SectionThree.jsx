@@ -7,7 +7,7 @@ import "swiper/css/autoplay";
 
 import { sprintData } from "./data.js";
 import gsap from "gsap";
-import {  useRef, forwardRef, useImperativeHandle } from "react";
+import {  useRef, forwardRef, useImperativeHandle, useEffect } from "react";
 
 
 const SectionThree = forwardRef((props, ref) => {
@@ -16,6 +16,49 @@ const SectionThree = forwardRef((props, ref) => {
   const rightImageRef = useRef(null);
   const swiperRef = useRef(null);
   const bottomTextRef = useRef(null);
+
+  const containerRef = useRef(null);
+  const TILE_SIZE = 60; // ✅ Place this inside component
+
+  useEffect(() => {
+    const tiles = gsap.utils.toArray('.tile');
+
+    gsap.set(tiles, { opacity: 1 });
+
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+
+    tl.to(tiles, {
+      duration: 1,
+      x: () => gsap.utils.random(-150, 150),
+      y: () => gsap.utils.random(-150, 150),
+      rotation: () => gsap.utils.random(-180, 180),
+      opacity: 0,
+      ease: "power2.inOut",
+      stagger: {
+        each: 0.008,
+        from: "center",
+      },
+    });
+
+    tl.to(tiles, {
+      duration: 1.2,
+      x: 0,
+      y: 0,
+      rotation: 0,
+      opacity: 1,
+      ease: "power3.out",
+      stagger: {
+        each: 0.008,
+        from: "center",
+      },
+    });
+  }, []);
+
+  const containerWidth = 1920; // adjust based on your layout
+  const containerHeight = 1080;
+
+  const rows = Math.ceil(containerHeight / TILE_SIZE);
+  const cols = Math.ceil(containerWidth / TILE_SIZE);
 
   const playAnimations = () => {
     gsap.fromTo(
@@ -70,8 +113,33 @@ const SectionThree = forwardRef((props, ref) => {
 
   return (
     <section ref={sectionRef} id="section3" className="h-screen overflow-hidden relative scroll-area">
-      <div className="absolute top-0 left-0 z-0 w-full h-full bg-gradient-to-l from-white/10 to-white/80 opacity-[0.1]">
+      {/* <div className="absolute top-0 left-0 z-0 w-full h-full bg-gradient-to-l from-white/10 to-white/80 opacity-[0.1]">
         <img src={sprintData.mainBgImage} alt="" width={2000} height={1500} className="w-full h-full object-cover" />
+      </div> */}
+      <div
+        className="absolute top-0 left-0 z-0 w-full h-full opacity-[0.1] pointer-events-none overflow-hidden"
+        ref={containerRef}
+      >
+        {[...Array(rows * cols)].map((_, i) => {
+          const row = Math.floor(i / cols);
+          const col = i % cols;
+
+          return (
+            <div
+              key={i}
+              className="tile absolute"
+              style={{
+                width: TILE_SIZE,
+                height: TILE_SIZE,
+                top: row * TILE_SIZE,
+                left: col * TILE_SIZE,
+                backgroundImage: `url(${sprintData.mainBgImage})`,
+                backgroundSize: `${cols * TILE_SIZE}px ${rows * TILE_SIZE}px`,
+                backgroundPosition: `-${col * TILE_SIZE}px -${row * TILE_SIZE}px`,
+              }}
+            />
+          );
+        })}
       </div>
       <div className="absolute bottom-0 xl:bottom-10 left-[20%] xl:left-[18%] w-fit h-fit z-40">
         <svg width="503" height="707" viewBox="0 0 503 707" fill="none" xmlns="http://www.w3.org/2000/svg">
