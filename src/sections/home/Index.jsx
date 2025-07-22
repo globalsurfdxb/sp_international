@@ -43,7 +43,7 @@ const Index = ({ setActiveSection }) => {
           opacity: 0,
           scale: 1.1,
           filter: "blur(20px)",
-          duration: 0.5,
+          duration: 0,
           ease: "power2.out",
           onComplete: () => {
             setShowContent(true);
@@ -136,7 +136,7 @@ const Index = ({ setActiveSection }) => {
 
             <div
               ref={(el) => (sectionDOMRefs.current[1] = el)}
-              className="absolute top-0 left-0 w-full h-full invisible"
+              className="absolute top-0 left-0 w-full h-full invisible bg-black"
             >
               <SectionTwo
                 ref={(ref) => (sectionComponentRefs.current[1] = ref)}
