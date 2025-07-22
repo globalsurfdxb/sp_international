@@ -24,8 +24,9 @@ const Index = ({ setActiveSection }) => {
     const tl = gsap.timeline();
 
     tl.to(".loader-im", {
-      rotate: 10,
+      rotate: 0,
       duration: 2,
+      delay: 1.1,
       ease: "Power4.easeInOut",
       transformOrigin: "50%, 50%",
     })
