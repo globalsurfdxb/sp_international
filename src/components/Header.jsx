@@ -21,8 +21,7 @@ const Header = ({ activeSection, setActiveSection }) => {
 const length = activeSection.length
 console.log(activeSection[length-1])
 const nextSection = sections.find((section) => section.id === `section${parseInt(activeSection[length-1])+1}`);
-
-  console.log(activeSection,nextSection)
+const scrollStep = 100;
 
   const handleScroll = (sectionId) => {
 
@@ -30,9 +29,10 @@ const nextSection = sections.find((section) => section.id === `section${parseInt
 
   
     if (index !== -1) {
+      console.log(index * scrollStep)
       gsap.to(window, {
         scrollTo: {
-          y: index * window.innerHeight + 1,
+          y: (index * scrollStep) + 1,
           autoKill: false, // important if using ScrollTrigger-based logic
         },
         duration: 1,
