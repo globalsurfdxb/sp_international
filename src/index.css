@@ -187,3 +187,31 @@ body::-webkit-scrollbar {
     opacity: 1;
   }
 }
+.mnbxs {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.load-sec {
+    svg {
+      
+        width: 450px;
+        height: 450px;
+        margin: 0 auto;
+    
+        top: 50%;
+        transform: translateY(-50%);
+       
+    }
+}
+ .st0 {
+        stroke: #0d88c4;
+      }
+
+      .st0, .st1 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .st1 {
+        stroke: #264a9b;
+      }

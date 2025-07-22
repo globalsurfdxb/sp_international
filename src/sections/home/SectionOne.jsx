@@ -13,6 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Use forwardRef to allow parent component to access internal functions/refs
 const SectionOne = forwardRef((props, ref) => {
+
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
@@ -35,7 +36,7 @@ const SectionOne = forwardRef((props, ref) => {
 useEffect(() => {
   const ctx = gsap.context(() => {
     // Start with visible blocks
-    gsap.set(blockRefs.current, { opacity: 1, height: "100%" });
+    gsap.set(blockRefs.current, { opacity: 1, delay: 0.5, height: "100%" });
 
     // Animate each block to fade + shrink
     blockRefs.current.forEach((el, i) => {
@@ -193,17 +194,17 @@ useEffect(() => {
           {/* Block 1 */}
       <div
     ref={(el) => (blockRefs.current[0] = el)}
-    className="absolute top-0 left w-1/3 h-full  bg-white/30 backdrop-blur-md"
+    className="absolute top-0 left w-1/3 h-full  bg-white  mnbxs"
   ></div>
           {/* Block 2 */}
     <div
     ref={(el) => (blockRefs.current[1] = el)}
-    className="absolute top-0 left-1/3 w-1/3 h-full  bg-white/30 backdrop-blur-md"
+    className="absolute top-0 left-1/3 w-1/3 h-full  bg-white  mnbxs"
   ></div>
           {/* Block 3 */}
           <div
     ref={(el) => (blockRefs.current[2] = el)}
-    className="absolute top-0 left-2/3 w-1/3 h-full  bg-white/30 backdrop-blur-md"
+    className="absolute top-0 left-2/3 w-1/3 h-full  bg-white mnbxs"
   ></div>
          
         </div>
