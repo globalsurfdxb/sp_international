@@ -16,6 +16,7 @@ const SectionTwo = forwardRef((props, ref) => {
   const leftBgRef = useRef(null);
   const videoBgRef = useRef(null);
   const dsrnRef = useRef(null);
+  const dsrnBxRef = useRef(null);
 
   const playAnimations = () => {
 
@@ -99,7 +100,7 @@ const SectionTwo = forwardRef((props, ref) => {
      const fadeOutTL = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top+=100 top", // Slight delay after scroll begins
+          start: "top+=200 top", // Slight delay after scroll begins
           end: "bottom top",
           scrub: true,
           // markers: true,
@@ -110,40 +111,33 @@ const SectionTwo = forwardRef((props, ref) => {
           opacity: 0,
           x: -30,
           duration: 1,
-          ease: "none",
+           ease: 'power3.out',
         })
+        
         .to(
-          dsrnRef.current,
+          dsrnBxRef.current,
           {
+           /*    x: -30, */
             opacity: 0,
-            y: -30,
             duration: 1,
-            ease: "none",
+             delay: -1,
+             ease: 'power3.out',
           },
-          "-=0.3"
+          
         )
+       
         .to(
-          descriptionRef.current,
+          statsRef.current,
           {
             opacity: 0,
-            width: "20%",
-            x: 30,
+           /*  width:' 0%', */
+          /*   x: -30, */
             duration: 1,
-            ease: "none",
+            delay: -1,
+               ease: 'power3.out',
           },
-          "-=0.9"
+          
         )
-        .to(
-          statItems.current,
-          {
-            opacity: 0,
-            width: "20%",
-            x: 30,
-            duration: 1,
-            ease: "none",
-          },
-          "-=0.9"
-        );
   };
 
   useImperativeHandle(ref, () => ({ playAnimations }));
@@ -178,7 +172,7 @@ const SectionTwo = forwardRef((props, ref) => {
           </div>
 
           <div className="relative z-40 mt-auto ml-auto" >
-            <div className="p-10 w-fit xl:w-[550px] px-15 py-10 text-white relative">
+            <div ref={dsrnBxRef} className="p-10 w-fit xl:w-[550px] px-15 py-10 text-white relative">
               <div ref={dsrnRef} className='bg-primary ovrbx w-full h-full absolute left-0 right-0 bottom-0 z-[-1]'></div>
               <p ref={descriptionRef} className="text-16 xl:text-18 font-light leading-[1.5]">
                 {aboutData.description}
