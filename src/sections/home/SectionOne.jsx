@@ -80,7 +80,14 @@ useEffect(() => {
         ease: "power3.out",
         delay: 1.2,
       });
-
+      gsap.fromTo(borderRef.current, {
+        width: '0%',
+      },{
+        width: '100%',
+        duration: 2,
+        ease: "power3.easeInOut",
+        delay: 0.5,
+      });
       // Scroll-triggered animations for video and content
       gsap.to(videoRef.current, {
         scale: 1,
@@ -122,6 +129,16 @@ useEffect(() => {
           },
           "-=0.6"
         ) // slight overlap
+          .fromTo(borderRef.current, {
+        width: '100%',
+         opacity: 1,
+      },{
+        opacity: 0,
+        width: '0%',
+        duration: 2,
+        ease: "power3.easeInOut",
+        delay: 0.5,
+      })
         .to(
           iconsRef.current,
           {
@@ -132,17 +149,7 @@ useEffect(() => {
           },
           "-=0.3"
         )
-        .to(
-          borderRef.current,
-          {
-            opacity: 0,
-            width: "20%",
-            x: 30,
-            duration: 1,
-            ease: "none",
-          },
-          "-=0.9"
-        );
+       ;
 
       /*   // Animate the text and icons to fade out
         gsap.to([titleRef.current, subtitleRef.current, iconsRef.current], {
