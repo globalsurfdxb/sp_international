@@ -11,20 +11,22 @@ html {
   --primary: #1E45A2;
   --secondary: #30B6F9;
   --color-light-gray: #626262;
-  --text-12: clamp(14px, 1.5vw + 0.5rem, 12px);
-  --text-13: clamp(16px, 1.8vw + 0.5rem, 13px);
-  --text-14: clamp(18px, 2vw + 0.5rem, 14px);
-  --text-16: clamp(16px, 2.5vw + 0.5rem, 16px);
-  --text-18: clamp(18px, 3vw + 0.5rem, 18px);
-  --text-20: clamp(20px, 3.5vw + 0.5rem, 20px);
-  --text-24: clamp(20px, 4vw + 0.5rem, 24px);
-  --text-29: clamp(29px, 4.5vw + 0.5rem, 29px);
-  --text-32: clamp(32px, 5vw + 0.5rem, 32px);
-  --text-36: clamp(36px, 5vw + 0.5rem, 36px);
-  --text-40: clamp(40px, 5.5vw + 0.5rem, 40px);
-  --text-48: clamp(48px, 6vw + 0.5rem, 48px);
-  --text-60: clamp(60px, 6vw + 0.5rem, 60px);
-  --text-70: clamp(70px, 6vw + 0.5rem, 70px);
+  --text-12: clamp(0.7rem, 1.5vw + 0.5rem, 12px);
+  --text-13: clamp(0.8rem, 1.8vw + 0.5rem, 13px);
+  --text-14: clamp(0.9rem, 2vw + 0.5rem, 14px);
+  --text-16: clamp(1rem, 2.5vw + 0.5rem, 16px);
+  --text-18: clamp(1.1rem, 3vw + 0.5rem, 18px);
+  --text-20: clamp(1.2rem, 3.5vw + 0.5rem, 20px);
+  --text-24: clamp(1.4rem, 4vw + 0.5rem, 24px);
+  --text-26: clamp(1.6rem, 4.5vw + 0.5rem, 26px);
+  --text-28: clamp(1.8rem, 4.5vw + 0.5rem, 28px);
+  --text-29: clamp(1.9px, 4.5vw + 0.5rem, 29px);
+  --text-32: clamp(2rem, 5vw + 0.5rem, 32px);
+  --text-36: clamp(2.1rem, 5vw + 0.5rem, 36px);
+  --text-40: clamp(2.2rem, 5.5vw + 0.5rem, 40px);
+  --text-48: clamp(2.4rem, 6vw + 0.5rem, 48px);
+  --text-60: clamp(2.6rem, 6vw + 0.5rem, 60px);
+  --text-70: clamp(2.8rem, 6vw + 0.5rem, 70px);
 }
 
 @theme {
@@ -53,6 +55,8 @@ html {
   --text-18: var(--text-18);
   --text-20: var(--text-20);
   --text-24: var(--text-24);
+  --text-26: var(--text-26);
+  --text-28: var(--text-28);
   --text-29: var(--text-29);
   --text-32: var(--text-32);
   --text-36: var(--text-36);
