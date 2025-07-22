@@ -123,7 +123,7 @@ const SectionFour = forwardRef((props, ref) => {
 
   const content = [
     {
-      image: "/assets/images/services/servicemain.jpg",
+      image: "/assets/images/services/engineering-construction.jpg",
       title: "Engineering & Construction",
       description: ""
     },
@@ -133,12 +133,12 @@ const SectionFour = forwardRef((props, ref) => {
       description: ""
     },
     {
-      image: "/assets/images/services/servicemain.jpg",
+      image: "/assets/images/services/mep.jpg",
       title: "MEP",
       description: ""
     },
     {
-      image: "/assets/images/services/servicemain.jpg",
+      image: "/assets/images/services/interior-fit-out.jpg",
       title: "Interior Fit-out",
       description: ""
     },
@@ -170,17 +170,17 @@ const SectionFour = forwardRef((props, ref) => {
             <div className="w-1/3"></div>
             <div className="w-2/3 pt-33">
               <div className="ml-28 flex flex-col h-full">
-                <h1 ref={titleRef} className="text-60 font-light gradient-text leading-[70px]">Our Services</h1>
+                <h1 ref={titleRef} className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px]">Our Services</h1>
                 <div className="w-full flex flex-col h-full justify-end border-l border-black/20 pl-13 mt-15">
                   <div className="pb-4">
                     <p className="text-60 font-light text-[#62626210]">
                       {String(activeIndex + 1).padStart(2, '0')}/{String(content.length).padStart(2, '0')}
                     </p>
                   </div>
-                  <div className="flex flex-col gap-2 pt-14 pb-21 pr-2">
+                  <div className="flex flex-col pt-14 pb-21 pr-2">
                     {content.map((service, index) => (
                       <div key={index} className="flex items-center gap-3 cursor-pointer group" ref={(el) => (textItemsRef.current[index] = el)} onClick={() => setActiveIndex(index)}>
-                        <p className="text-29 font-light group-hover:text-black group-hover:font-bold text-[#626262] cursor-pointer transform-all duration-300">{service.title}</p>
+                        <p className="text-28 leading-[1.607142857142857] font-light group-hover:text-black group-hover:font-bold text-[#626262] cursor-pointer transform-all duration-300">{service.title}</p>
                         <img src="../assets/images/services/arrowblw.svg" className="hidden group-hover:block transform-all duration-300" alt="Arrow" width={21} height={21} />
                       </div>
                     ))}
@@ -195,14 +195,13 @@ const SectionFour = forwardRef((props, ref) => {
         <div>
           <div ref={rightImageRef} className="relative w-full h-[100vh]">
             <img key={activeIndex} src={content[activeIndex].image} alt="Service Image" fill className="object-cover absolute w-full h-full" ref={imageRef} />
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black/40 from-0% via-black/40 via-52% to-black/40 to-100%"></div>
             <div className="absolute top-0 right-20"><img src="../assets/images/services/studio-over.svg" alt="Logo" width={682} height={914} /></div>
-            <div className="absolute top-[50%] left-20 z-10">
+            <div className="absolute top-[43%] left-20 z-10">
               <h3 className="text-18 3xl:text-29 leading-[1.344827586206897] font-light text-white">{content[activeIndex].title}</h3>
             </div>
             <div className="absolute bottom-10 3xl:bottom-[50px] left-20 z-10">
-              <AnimatedArrowSVG />
-
-
+              <img src="../assets/images/services/arrow-up.svg" alt="Arrow" className="" width={71} height={71} />
             </div>
           </div>
         </div>
