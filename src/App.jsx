@@ -11,10 +11,10 @@ const App = () => {
   const sectionScrollPositions = useRef({});
   return (
     <main className='no-scrollbar'>
- {/*      <SmoothScroll/> */}
-      
-      <Header activeSection={activeSection} setActiveSection={setActiveSection} sectionScrollPositions={sectionScrollPositions}/>
- <Index setActiveSection={setActiveSection} sectionScrollPositions={sectionScrollPositions}/>
+      {/*      <SmoothScroll/> */}
+
+      <Header activeSection={activeSection} setActiveSection={setActiveSection} sectionScrollPositions={sectionScrollPositions} />
+      <Index setActiveSection={setActiveSection} sectionScrollPositions={sectionScrollPositions} />
     </main>
   )
 }
