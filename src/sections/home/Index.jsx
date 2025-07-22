@@ -57,7 +57,7 @@ const Index = ({ setActiveSection }) => {
   useEffect(() => {
     if (showContent) {
       const sections = sectionDOMRefs.current;
-      const scrollStep = 100;
+      const scrollStep = 300;
       const scrollHeight = Math.max((sections.length + 1) * scrollStep, window.innerHeight * sections.length);
 
       // Hide all, show first
