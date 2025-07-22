@@ -20,7 +20,14 @@ const sections = [
 const Header = ({ activeSection, setActiveSection }) => {
 
 const headerRef = useRef(null);
+const navItemsRef = useRef([]);
+navItemsRef.current = [];
 
+const addToNavRefs = (el) => {
+  if (el && !navItemsRef.current.includes(el)) {
+    navItemsRef.current.push(el);
+  }
+};
 
 useGSAP(() => {
     const tl = gsap.timeline();
@@ -93,58 +100,29 @@ useGSAP(() => {
     }
   )
 
-  /*   .fromTo(
-      polygon2Ref.current,
-      { drawSVG: "0%" },
-      { drawSVG: "100%", duration: 1.5, delay: -1.5, ease: "power1.inOut" }
-    )
-
-    .to(".ovrlywht", {
-      opacity: 0,
-      duration: 0.5,
-      delay: 0,
-      ease: "Power2.easeInOut",
-    })
-    .fromTo(
-      polygon1Ref.current,
-      { drawSVG: "100%" },
-      { drawSVG: "-0%", duration: .5, ease: "power1.inOut" }
-    )
-      .fromTo(
-      polygon2Ref.current,
-      { drawSVG: "100%" },
-      { drawSVG: "0%", duration: .5, delay: -.5, ease: "power1.inOut" }
-    )
-    .to(".loader-im", {
-      rotate: 0,
-      duration: 1,
-      delay: 1.1,
-      ease: "Power4.easeInOut",
-      transformOrigin: "50%, 50%",
-    })
-      .to(".loader-im", {
-        scale: 10,
-        duration: 2,
-        delay: -1.8,
-        ease: "Expo.easeInOut",
-        transformOrigin: "50%, 50%",
-        opacity: 0,
-      })
-      .to(
-        ".mswd",
-        {
-          opacity: 0,
-          scale: 1.1,
-          filter: "blur(0px)",
-          duration: 0,
-          ease: "power2.out",
-          onComplete: () => {
-            setShowContent(true);
-          },
-        },
-        "-=1.2"
-      ); */
+  
   }, []);
+  
+  useGSAP(() => {
+  ScrollTrigger.create({
+    trigger: headerRef.current,
+    start: "top 80%",
+    once: true,
+    onEnter: () => {
+      gsap.fromTo(
+        navItemsRef.current,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.15,
+          ease: "power3.out",
+        }
+      );
+    },
+  });
+}, []);
   
 
 const length = activeSection.length
@@ -183,7 +161,8 @@ const scrollStep = 300;
       <header className="fixed top-0 left-0 z-50">
         <div className="flex">
           <div className="flex w-[150px]">
-            {activeSection !== "section1" && <nav className="flex flex-col justify-center gap-4">
+            {activeSection !== "section1" && 
+            <nav className="flex flex-col justify-center gap-4">
               {sections.map((section, index) => {
                 const activeIndex = sections.findIndex((s) => s.id === activeSection);
                 const distance = Math.abs(index - activeIndex);
@@ -195,15 +174,15 @@ const scrollStep = 300;
                 const baseColor = isBlackTheme ? "text-black hover:text-red" : "text-white hover:text-white";
 
                 return (
-                  <a
-                    key={section.id}
-                    href={`#${section.id}`}
-                    onClick={() => handleScroll(section.id)}
-                    style={{ opacity }}
-                    className={`transition-all duration-300 font-[300] hover:font-[700] text-12 
-        ${isActive ? `font-[700] activebfr ${baseColor}` : `nonactivebfr ${baseColor}`}
-      `}
-                  >
+               <a
+  key={section.id}
+  ref={addToNavRefs}
+  href={`#${section.id}`}
+  onClick={() => handleScroll(section.id)}
+  style={{ opacity }}
+  className={`transition-all duration-300 font-[300] hover:font-[700] text-12 
+  ${isActive ? `font-[700] activebfr ${baseColor}` : `nonactivebfr ${baseColor}`}`}
+>
                     {section.label}
                   </a>
                 );

@@ -62,8 +62,8 @@ const Index = ({ setActiveSection }) => {
     })
     .fromTo(
       polygon1Ref.current,
-      { drawSVG: "100%" },
-      { drawSVG: "-0%", duration: .5, ease: "power1.inOut" }
+      { drawSVG: "-100%" },
+      { drawSVG: "0%", duration: .5, ease: "power1.inOut" }
     )
       .fromTo(
       polygon2Ref.current,
