@@ -57,6 +57,8 @@ const Index = ({ setActiveSection }) => {
   useEffect(() => {
     if (showContent) {
       const sections = sectionDOMRefs.current;
+      const scrollStep = 100;
+      const scrollHeight = Math.max((sections.length + 1) * scrollStep, window.innerHeight * sections.length);
 
       // Hide all, show first
       gsap.set(sections, { visibility: "hidden", zIndex: 0 });
@@ -64,7 +66,7 @@ const Index = ({ setActiveSection }) => {
 
       // Create fake scroll height
       gsap.set(scrollContainer.current, {
-        height: (sections.length + 1) * window.innerHeight,
+        height: scrollHeight,
       });
 
       // Animate which section to show
@@ -73,9 +75,10 @@ const Index = ({ setActiveSection }) => {
           trigger: scrollContainer.current,
          /*  markers: true, */
           start: () => {
-            return `${i * window.innerHeight}px top`;
+            console.log(i * scrollStep)
+            return `${i * scrollStep}px top`;
           },
-          end: () => `${(i + 1) * window.innerHeight}px top`,
+          end: () => `${(i + 1) * scrollStep}px top`,
           onEnter: () => {
             gsap.set(sections, { visibility: "hidden", zIndex: 0 });
             gsap.set(section, { visibility: "visible", zIndex: 10 });
