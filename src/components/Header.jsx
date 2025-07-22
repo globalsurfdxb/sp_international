@@ -17,6 +17,7 @@ const sections = [
 ];
 
 const Header = ({ activeSection, setActiveSection }) => {
+  
 
 const length = activeSection.length
 console.log(activeSection[length-1])
@@ -96,7 +97,9 @@ const scrollStep = 300;
                 {/* <img src="/assets/images/round-arrow-down-menu.svg" alt="Arrow" width={87} height={87} /> */}
                 <div className="flex items-center relative group">
                   <img src="/assets/images/round-circle.svg" alt="Arrow" width={87} height={87} />
-                  <img src="/assets/images/arrow-down.svg" alt="Arrow" width={35} height={35} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 group-hover:scale-120 transition-all ease-in-out duration-300" />
+                  <img src="/assets/images/arrow-down.svg" alt="Arrow" width={35} height={35} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0
+               group-hover:scale-110 transition-transform duration-300 ease-in-out
+               animate-[scaleFade_0.8s_ease-out_forwards] [animation-delay:1.5s]" />
                 </div>
               </div>
             </div>
