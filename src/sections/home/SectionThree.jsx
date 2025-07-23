@@ -127,12 +127,17 @@ const SectionThree = forwardRef((props, ref) => {
         ease: "power1.out",
       }
     )
-    .to(bgdivRef.current, {
-      opacity: 0,
-      ease: "power1.inOut",
-       delay: -1.4,
-      duration: 1,
-    })
+  
+    .to(
+      rightImageRef.current,
+      {
+        x: 50,
+        opacity: 0,
+        duration: 1,
+         delay: -1,
+       ease: "power1.out",
+      }
+    )
          .fromTo(
       swiperRef.current,
       { x: 0, opacity: 1 },
@@ -140,21 +145,19 @@ const SectionThree = forwardRef((props, ref) => {
         x: 300,
         opacity: 0,
         duration: 1.5,
-         delay: -0.8,
+         delay: -1.5,
         ease: "power1.in",
       }
     )
-    .to(
-      rightImageRef.current,
-      {
-        x: 50,
-        opacity: 0,
-        duration: 1,
-         delay: -0.8,
-       ease: "power1.out",
-      }
-    )
-  
+   
+    .to(bgdivRef.current, {
+      scale: 1.5,
+      opacity: 0,
+      ease: "power1.inOut",
+    
+      duration: 2,
+       /*   delay: 0.5, */
+    },  "-=1.2")
     .to(
       bottomTextRef.current,
       {
@@ -163,7 +166,7 @@ const SectionThree = forwardRef((props, ref) => {
         duration: 1,
          delay: -1.2,
        ease: "power1.out",
-      }
+      },"-=1.2"
     );
   
   };
