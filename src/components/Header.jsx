@@ -30,99 +30,82 @@ const addToNavRefs = (el) => {
 };
 
 useGSAP(() => {
-    const tl = gsap.timeline();
+  const tl = gsap.timeline();
 
-    tl.fromTo(".bxone", {
-      height: '0%',
-    },
-     {
-      height: '100%',
-      duration: 1,
-      delay: 3.5,
-      ease: "Power3.easeInOut",
-    }
-  )
-  .fromTo(".bxtwo", {
-      height: '0%',
-    },
-     {
-     
-      height: '100%',
-      duration: 1,
-      delay: 0,
-    ease: "back.inOut(1)",
-    }
-  )
-  .fromTo(".logsc", {
-      opacity: 0,
-      y: 10,
-    },
-     {
-      y: 0,
-      opacity: 1,
-      duration: 0.5,
-      delay: 0,
-    ease: "back.inOut(1)",
-    }
-  )
-  .fromTo(".mnsc", {
-      opacity: 0,
-      scale: 1.1,
-    },
-     {
-      scale: 1,
-      opacity: 1,
-      duration: 0.5,
-      delay: '-0.5',
-   ease: "power3.easeInOut",
-    }
-  )
- .fromTo(".scrlldwn", {
-      opacity: 0,
-      y: -10,
-    },
-     {
-      y: 0,
-      opacity: 1,
-      duration: 0.5,
-      delay: 0,
-  ease: "power3.easeInOut",
-    }
-  )
- .fromTo(".arcrcl", {
-      rotate: '180deg',
-    },
-     {
-      rotate: 0,
-      duration: 1,
-      delay: 0,
-      ease: "Power3.easeInOut",
-    }
-  )
-
-  
-  }, []);
-  
-  useGSAP(() => {
-  ScrollTrigger.create({
-    trigger: headerRef.current,
-    start: "top 80%",
-    once: true,
-    onEnter: () => {
-      gsap.fromTo(
-        navItemsRef.current,
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.15,
-          ease: "power3.out",
-        }
-      );
-    },
+  // .bxone initial animation
+  tl.fromTo(".bxone", {
+    height: '0%',
+  }, {
+    height: '100%',
+    duration: 1,
+    delay: 3.5,
+    ease: "Power3.easeInOut",
   });
+
+  // .bxtwo jump-style animation
+  gsap.set(".bxtwo", {
+    height: "20%",
+    y: "100%",
+  });
+
+  tl.to(".bxtwo", {
+    y: "-10%",
+    duration: 0.5,
+    ease: "back.out(1.7)",
+  })
+  .to(".bxtwo", {
+    y: "0%",
+    duration: 0.3,
+    ease: "power2.out",
+  })
+  .to(".bxtwo", {
+    height: "100%",
+    duration: 1,
+    ease: "power2.inOut",
+  });
+
+  // Continue your timeline
+  tl.fromTo(".logsc", {
+    opacity: 0,
+    y: 10,
+  }, {
+    y: 0,
+    opacity: 1,
+    duration: 0.5,
+    ease: "back.inOut(1)",
+  });
+
+  tl.fromTo(".mnsc", {
+    opacity: 0,
+    scale: 1.1,
+  }, {
+    scale: 1,
+    opacity: 1,
+    duration: 0.5,
+    delay: '-=0.5', // relative overlap
+    ease: "power3.easeInOut",
+  });
+
+  tl.fromTo(".scrlldwn", {
+    opacity: 0,
+    y: -10,
+  }, {
+    y: 0,
+    opacity: 1,
+    duration: 0.5,
+    ease: "power3.easeInOut",
+  });
+
+  tl.fromTo(".arcrcl", {
+    rotate: '180deg',
+  }, {
+    rotate: 0,
+    duration: 1,
+    ease: "Power3.easeInOut",
+  });
+
 }, []);
+
   
 
 const length = activeSection.length
@@ -192,7 +175,7 @@ const scrollStep = 600;
           </div>
 
           <div ref={headerRef} className=" shadow ml-8 my-12 w-[133px] h-[calc(100vh-100px)] relative">
-            <div className="bg-white  w-full absolute z-[-2] bxone"></div>
+            <div className="bg-transparent  w-full absolute z-[-2] bxone"></div>
             <div className="bg-primary h-[20%] w-full absolute z-[-1] bottom-0 bxtwo"></div>
             <div className="flex flex-col justify-between h-full pt-10 pb-6 z-10">
               <div className="flex justify-center items-center">
