@@ -4,9 +4,11 @@ import React, {
   useRef,
   useImperativeHandle,
   forwardRef,
+  useEffect,
 } from 'react';
 import { aboutData } from './data';
 import gsap from 'gsap';
+import { sprintData } from "./data.js";
 
 const SectionTwo = forwardRef((props, ref) => {
   const sectionRef = useRef(null);
@@ -18,6 +20,25 @@ const SectionTwo = forwardRef((props, ref) => {
   const dsrnRef = useRef(null);
   const dsrnBxRef = useRef(null);
   const brdrsRef = useRef(null);
+  const leftSecRef = useRef(null);
+  const rightSecRef = useRef(null);
+  const bgImageRef = useRef(null);
+  
+  useEffect(() => {
+    const tl = gsap.timeline({ repeat: -1, yoyo: true }); // smooth in and out
+
+    tl.to(bgImageRef.current, {
+      scale: 1.1,
+      xPercent: 4,
+      yPercent: 2,
+      ease: "power1.inOut",
+      duration: 20,
+    });
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
 
   const playAnimations = () => {
 
@@ -89,7 +110,7 @@ const SectionTwo = forwardRef((props, ref) => {
         opacity: 1,
         duration: 1,
           delay: -0.5,
-        ease: 'power3.out',
+       ease: "power1.inOut",
       }
     )
 
@@ -130,7 +151,7 @@ const SectionTwo = forwardRef((props, ref) => {
         .to(
           dsrnBxRef.current,
           {
-              x: -30,
+              x: 100,
             opacity: 0,
             duration: 1,
              delay: -1,
@@ -151,28 +172,38 @@ const SectionTwo = forwardRef((props, ref) => {
           },
           
         )
-           .to(videoBgRef.current, {
+           .to(rightSecRef.current, {
           opacity: 0,
-          x: -30,
+          x: 200,
           duration: 1,
+           delay: -1,
            ease: 'power3.easeInOut',
         })
-        
+           .to(leftSecRef.current, {
+          opacity: 0,
+          x: -200,
+          duration: 1,
+           delay: -1,
+           ease: 'power3.easeInOut',
+        })
   };
 
   useImperativeHandle(ref, () => ({ playAnimations }));
 
   return (
-    <section ref={sectionRef} className="h-screen scroll-area" id="section1">
+    <section ref={sectionRef} className="h-screen scroll-area relative" id="section1">
+         <div className="absolute top-0 left-0 z-0 w-full h-full bg-gradient-to-l from-white/10 to-white/80 opacity-[0.1]">
+              <img src={sprintData.mainBgImage} alt="" width={2000} height={1500} className="w-full h-full object-cover" ref={bgImageRef} />
+            </div>
       <div className="grid grid-cols-[2fr_5fr] 3xl:grid-cols-[657px_auto] h-full">
-        <div className="relative py-4 xl:py-[50px] xl:pl-[150px] overflow-hidden">
+        <div ref={leftSecRef} className="relative py-4 xl:py-[50px] xl:pl-[150px] overflow-hidden">
           <div className="absolute top-0 left-0 z-20 w-full h-full bg-gradient-to-l from-black/30 from-0% to-black/80 to-100%"></div>
           <div className="absolute top-0 left-0 w-full z-10 h-full bg-amber-50" ref={leftBgRef}>
             <img src={aboutData.leftBgImage} alt="" width={2000} height={1500} className="w-full h-full object-cover" />
           </div>
         </div>
 
-        <div className="relative flex flex-col h-full px-10 xl:px-[90px] pb-20 xl:pb-[93px] pt-20 xl:pt-[50px] overflow-hidden">
+        <div ref={rightSecRef} className="relative flex flex-col h-full px-10 xl:px-[90px] pb-20 xl:pb-[93px] pt-20 xl:pt-[50px] overflow-hidden">
           <div className="absolute top-0 left-0 z-20 w-full h-full bg-gradient-to-r from-black/60 from-0% via-black/60 via-52% to-black/60 to-100%"></div>
           <div className="absolute top-0 left-0 w-full z-10 h-full bg-amber-50" ref={videoBgRef}>
             <video src="../assets/videos/hero.mp4" autoPlay loop muted className="w-full h-full object-cover"></video>

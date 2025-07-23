@@ -106,7 +106,7 @@ const Index = ({ setActiveSection }) => {
   useEffect(() => {
     if (showContent) {
       const sections = sectionDOMRefs.current;
-      const scrollStep = 400;
+      const scrollStep = 500;
       const scrollHeight = Math.max(
         (sections.length + 1) * scrollStep,
         window.innerHeight * sections.length
@@ -216,7 +216,7 @@ const Index = ({ setActiveSection }) => {
 
             <div
               ref={(el) => (sectionDOMRefs.current[1] = el)}
-              className="absolute top-0 left-0 w-full h-full invisible bg-black"
+              className="absolute top-0 left-0 w-full h-full invisible"
             >
               <SectionTwo
                 ref={(ref) => (sectionComponentRefs.current[1] = ref)}

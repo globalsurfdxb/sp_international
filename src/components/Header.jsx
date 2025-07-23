@@ -128,7 +128,7 @@ useGSAP(() => {
 const length = activeSection.length
 console.log(activeSection[length-1])
 const nextSection = sections.find((section) => section.id === `section${parseInt(activeSection[length-1])+1}`);
-const scrollStep = 400;
+const scrollStep = 500;
 
   const handleScroll = (sectionId) => {
 

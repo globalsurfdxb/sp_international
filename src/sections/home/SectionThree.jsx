@@ -36,6 +36,8 @@ const SectionThree = forwardRef((props, ref) => {
   }, []);
 
   const playAnimations = () => {
+
+    
     gsap.fromTo(
       leftContentRef.current,
       { x: -50, opacity: 0 },
