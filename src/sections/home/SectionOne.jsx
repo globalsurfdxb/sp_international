@@ -92,7 +92,7 @@ useEffect(() => {
       gsap.to(videoRef.current, {
         scale: 1,
         x: "-70%",
-        ease: "power4.easeInOut",
+      ease: "power1.out",
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
@@ -136,7 +136,7 @@ useEffect(() => {
         opacity: 0,
         width: '0%',
         duration: 2,
-        ease: "power3.easeInOut",
+       ease: "power1.out",
         delay: 0.5,
       })
         .to(

@@ -155,7 +155,7 @@ const SectionTwo = forwardRef((props, ref) => {
             opacity: 0,
             duration: 1,
              delay: -1,
-             ease: 'power3.out',
+          ease: "power1.out",
           },
           
         )
@@ -168,23 +168,23 @@ const SectionTwo = forwardRef((props, ref) => {
             x: 30,
             duration: 1,
             delay: -1,
-               ease: 'power3.out',
+            ease: "power1.out",
           },
           
         )
            .to(rightSecRef.current, {
           opacity: 0,
-          x: 200,
+          x: 400,
           duration: 1,
            delay: -1,
-           ease: 'power3.easeInOut',
+          ease: "power1.out",
         })
            .to(leftSecRef.current, {
           opacity: 0,
-          x: -200,
+          x: -400,
           duration: 1,
            delay: -1,
-           ease: 'power3.easeInOut',
+          ease: "power1.out",
         })
   };
 

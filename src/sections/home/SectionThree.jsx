@@ -9,6 +9,9 @@ import { sprintData } from "./data.js";
 import gsap from "gsap";
 import {  useRef, forwardRef, useImperativeHandle, useEffect } from "react";
 
+import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
+
+gsap.registerPlugin(DrawSVGPlugin);
 
 const SectionThree = forwardRef((props, ref) => {
   const sectionRef = useRef(null);
@@ -18,6 +21,11 @@ const SectionThree = forwardRef((props, ref) => {
   const bottomTextRef = useRef(null);
 
   const bgImageRef = useRef(null);
+  const bgdivRef = useRef(null);
+
+    const polygon1Ref = useRef(null);
+    const polygon2Ref = useRef(null);
+
 
   useEffect(() => {
     const tl = gsap.timeline({ repeat: -1, yoyo: true }); // smooth in and out
@@ -37,19 +45,23 @@ const SectionThree = forwardRef((props, ref) => {
 
   const playAnimations = () => {
 
-    
-    gsap.fromTo(
+   
+
+       const t1 = gsap.timeline();
+
+       
+    t1.fromTo(
       leftContentRef.current,
       { x: -50, opacity: 0 },
       {
         x: 0,
-        opacity: 1,
+        opacity: 1.5,
         duration: 1,
-        ease: "power2.out",
+        delay: -0.5,
+        ease: "power1.in",
       }
-    );
-
-    gsap.fromTo(
+    )
+    .fromTo(
       rightImageRef.current,
       { x: 50, width: '0%', opacity: 0 },
       {
@@ -57,32 +69,106 @@ const SectionThree = forwardRef((props, ref) => {
         width: '100%',
         opacity: 1,
         duration: 1,
-        ease: "power2.out",
+         delay: -0.8,
+       ease: "power1.in",
       }
-    );
-
-    gsap.fromTo(
+    )
+    .fromTo(
       swiperRef.current,
-      { x: 50, opacity: 0 },
+      { x: 300, opacity: 0 },
       {
         x: 0,
         opacity: 1,
-        duration: 1,
-        ease: "power2.out",
+        duration: 1.5,
+         delay: -0.8,
+        ease: "power1.in",
       }
-    );
+    )
+     .fromTo(
+      polygon1Ref.current,
+      { drawSVG: "0%" },
+      { drawSVG: "-100%", duration: 1,  delay: -1,  ease: "power1.inOut" }
+    )
 
-    gsap.fromTo(
+    .fromTo(
+      polygon2Ref.current,
+      { drawSVG: "0%" },
+      { drawSVG: "100%", duration: 1,  delay: -1.5, ease: "power1.inOut" }
+    )
+    .fromTo(
       bottomTextRef.current,
       { x: 30, opacity: 0 },
       {
         x: 0,
         opacity: 1,
-        duration: 1,
-        ease: "power2.out",
+        duration: 0.5,
+         delay: -0.8,
+       ease: "power1.in",
       }
     );
+
+     const fadeOutTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top+=200 top", // Slight delay after scroll begins
+          end: "bottom top",
+          scrub: true,
+          // markers: true,
+        },
+      });
+      fadeOutTL
+        .to(
+      leftContentRef.current,
+      {
+        x: -50,
+        opacity: 0,
+        duration: 1,
+        delay: -0.5,
+        ease: "power1.out",
+      }
+    )
+    .to(bgdivRef.current, {
+      opacity: 0,
+      ease: "power1.inOut",
+       delay: -1.4,
+      duration: 1,
+    })
+         .fromTo(
+      swiperRef.current,
+      { x: 0, opacity: 1 },
+      {
+        x: 300,
+        opacity: 0,
+        duration: 1.5,
+         delay: -0.8,
+        ease: "power1.in",
+      }
+    )
+    .to(
+      rightImageRef.current,
+      {
+        x: 50,
+        opacity: 0,
+        duration: 1,
+         delay: -0.8,
+       ease: "power1.out",
+      }
+    )
+  
+    .to(
+      bottomTextRef.current,
+      {
+        x: -50,
+        opacity: 0,
+        duration: 1,
+         delay: -1.2,
+       ease: "power1.out",
+      }
+    );
+  
   };
+
+  
 
   useImperativeHandle(ref, () => ({
     playAnimations,
@@ -90,7 +176,7 @@ const SectionThree = forwardRef((props, ref) => {
 
   return (
     <section ref={sectionRef} id="section3" className="h-screen overflow-hidden relative scroll-area">
-      <div className="absolute top-0 left-0 z-0 w-full h-full bg-gradient-to-l from-white/10 to-white/80 opacity-[0.1]">
+      <div ref={bgdivRef} className="absolute top-0 left-0 z-0 w-full h-full bg-gradient-to-l from-white/10 to-white/80 opacity-[0.1]">
         <img src={sprintData.mainBgImage} alt="" width={2000} height={1500} className="w-full h-full object-cover" ref={bgImageRef} />
       </div>
       <div className="absolute bottom-0 xl:bottom-10 left-[20%] xl:left-[18%] w-fit h-fit z-40">
@@ -106,8 +192,8 @@ const SectionThree = forwardRef((props, ref) => {
       </div>
       <div className="absolute bottom-0 left-[20%] xl:left-[18%] w-full h-fit z-10">
         <svg width="719" height="366" viewBox="0 0 719 366" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line opacity="0.2" x1="4.37114e-08" y1="157.5" x2="718" y2="157.5" stroke="black" />
-          <line opacity="0.2" x1="718.5" y1="366" x2="718.5" y2="-2.18557e-08" stroke="black" />
+          <line ref={polygon1Ref} opacity="0.2" x1="4.37114e-08" y1="157.5" x2="718" y2="157.5" stroke="black" />
+          <line ref={polygon2Ref} opacity="0.2" x1="718.5" y1="366" x2="718.5" y2="-2.18557e-08" stroke="black" />
         </svg>
       </div>
       <div className="grid grid-cols-2 3xl:grid-rows-[548px_auto] h-full relative z-10 ">
@@ -130,6 +216,7 @@ const SectionThree = forwardRef((props, ref) => {
               loop={true}
               modules={[Pagination, Autoplay]}
               speed={800}
+              fadeEffect={true}
               autoplay={{ delay: 1500, disableOnInteraction: false }}
             >
               {sprintData.items.map((item, index) => (
@@ -149,8 +236,8 @@ const SectionThree = forwardRef((props, ref) => {
             <div className="mt-10 xl:mt-15 3xl:mt-20">
               <a href={"/"} className="text-16 leading-[1.75] font-light text-light-gray uppercase flex items-center gap-2 cursor-pointer group"><span>About sprint</span> 
               <svg width="27" height="18" viewBox="0 0 27 18" fill="none" xmlns="http://www.w3.org/2000/svg" className="group-hover:translate-x-2 transition-all ease-in-out duration-300">
-                <path d="M17.6328 2.43262L25.0111 9.0134L17.6579 15.5679" stroke="#30B6F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M24.5954 9H1.98047" stroke="#30B6F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path  d="M17.6328 2.43262L25.0111 9.0134L17.6579 15.5679" stroke="#30B6F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path  d="M24.5954 9H1.98047" stroke="#30B6F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
 </a>
             </div>
