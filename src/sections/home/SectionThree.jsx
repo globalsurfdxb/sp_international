@@ -167,8 +167,18 @@ const SectionThree = forwardRef((props, ref) => {
          delay: -1.2,
        ease: "power1.out",
       },"-=1.2"
+    )
+   .fromTo(
+      polygon1Ref.current,
+      { drawSVG: "-100%" },
+      { drawSVG: "0%", duration: 1,  ease: "power1.inOut" }, "-=1.8"
+    )
+
+    .fromTo(
+      polygon2Ref.current,
+      { drawSVG: "-100%" },
+      { drawSVG: "0%", duration: 1,  ease: "power1.inOut" }, "-=1.8"
     );
-  
   };
 
   

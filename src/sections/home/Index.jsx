@@ -106,7 +106,7 @@ const Index = ({ setActiveSection }) => {
   useEffect(() => {
     if (showContent) {
       const sections = sectionDOMRefs.current;
-      const scrollStep = 500;
+      const scrollStep = 600;
       const scrollHeight = Math.max(
         (sections.length + 1) * scrollStep,
         window.innerHeight * sections.length

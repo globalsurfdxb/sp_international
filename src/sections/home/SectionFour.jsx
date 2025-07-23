@@ -1,6 +1,6 @@
 'use client';
 
-import React, { forwardRef, useImperativeHandle, useRef } from "react";
+import React, { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import gsap from "gsap";
 import { useState } from "react";
 /* import { useEffect } from "react"; */
@@ -12,6 +12,8 @@ const SectionFour = forwardRef((props, ref) => {
   const rightImageRef = useRef(null);
   const imageRef = useRef(null);
   const borderRef = useRef(null);
+  const borderTwRef = useRef(null);
+  const indxsRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
 
@@ -70,6 +72,24 @@ const SectionFour = forwardRef((props, ref) => {
 
 
 
+useEffect(() => {
+  if (imageRef.current && rightImageRef.current) {
+    // Image fade-in animation
+    gsap.fromTo(
+      imageRef.current,
+      { width: '0%', opacity: 0 },
+      { width: '100%', opacity: 1, duration: 1, ease: "power2.out" }
+    );
+  }
+
+  if (textItemsRef.current[activeIndex]) {
+    gsap.fromTo(
+      textItemsRef.current[activeIndex],
+      { x: 20, opacity: 0 },
+      { x: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
+    );
+  }
+}, [activeIndex]);
 
   // Expose GSAP animation method to parent via ref
   useImperativeHandle(ref, () => ({
@@ -79,12 +99,26 @@ const SectionFour = forwardRef((props, ref) => {
       // Animate title
       tl.fromTo(
         titleRef.current,
-        { y: 80, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, ease: "power4.out" }
-      );
-
-      // Animate services list
-      tl.fromTo(
+        { x: 50, opacity: 0 },
+        { x: 0, opacity: 1, duration: 1, ease: "power4.out" }
+      )
+      .fromTo(
+        indxsRef.current,
+        { x: 50, opacity: 0 },
+        { x: 0, opacity: 1, duration: 1, ease: "power4.out" }
+      )
+      .fromTo(
+        borderRef.current,
+        {   width: '0%' },
+        {  width: '70%', duration: 1, ease: "power4.out" }, "-=1"
+      )
+      .fromTo(
+        borderTwRef.current,
+        {   height: '0%' },
+        {  height: '100%',  duration: 1, ease: "power4.out" }, "-=1.5"
+      )
+      
+      .fromTo(
         textItemsRef.current,
         { y: 40, opacity: 0 },
         {
@@ -109,6 +143,47 @@ const SectionFour = forwardRef((props, ref) => {
           ease: "power2.easeInOut",
         }
       );
+      // fadeout
+      const fadeOutTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top+=200 top", // Slight delay after scroll begins
+          end: "bottom top",
+          scrub: true,
+          // markers: true,
+        },
+      });
+      fadeOutTL.fromTo(
+        titleRef.current,
+        { x: 50, opacity: 0, duration: 1, ease: "power4.out" },  "-=0.5"
+      )
+    .fromTo(
+        indxsRef.current,
+        { x: 50, opacity: 0, duration: 1, ease: "power4.out" },  "-=0.5"
+      )
+      .fromTo(
+        textItemsRef.current,
+        {
+          y: 40,
+          opacity: 0,
+          stagger: 0.1,
+          duration: 0.8,
+          ease: "power2.out",
+        },
+        "-=0.5"
+      )
+      .fromTo(
+        rightImageRef.current,
+       
+        {
+          x: 50,
+          opacity: 0,
+          duration: 1,
+          ease: "power2.easeInOut",
+        },  "-=0.5"
+      );
+
+
     },
     resetAnimations: () => {
       // Reset all opacity for text items
@@ -171,17 +246,32 @@ const SectionFour = forwardRef((props, ref) => {
             <div className="w-2/3 pt-33">
               <div className="ml-28 flex flex-col h-full">
                 <h1 ref={titleRef} className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px]">Our Services</h1>
-                <div className="w-full flex flex-col h-full justify-end border-l border-black/20 pl-13 mt-15">
+                <div className="w-full flex flex-col h-full justify-end  pl-13 mt-15 relative">
+                  <hr ref={borderTwRef} className="border-l border-black/10 absolute h-full left-0 top-0"/>
                   <div className="pb-4">
-                    <p className="text-60 font-light text-[#62626210]">
+                    <p ref={indxsRef} className="text-60 font-light text-[#62626210]">
                       {String(activeIndex + 1).padStart(2, '0')}/{String(content.length).padStart(2, '0')}
                     </p>
                   </div>
                   <div className="flex flex-col pt-14 pb-21 pr-2">
                     {content.map((service, index) => (
                       <div key={index} className="flex items-center gap-3 cursor-pointer group" ref={(el) => (textItemsRef.current[index] = el)} onClick={() => setActiveIndex(index)}>
-                        <p className="text-28 leading-[1.607142857142857] font-light group-hover:text-black group-hover:font-bold text-[#626262] cursor-pointer transform-all duration-300">{service.title}</p>
-                        <img src="../assets/images/services/arrowblw.svg" className="hidden group-hover:block transform-all duration-300" alt="Arrow" width={21} height={21} />
+          <p
+  className={`text-28 leading-[1.607142857142857] font-light cursor-pointer group-hover:text-black group-hover:font-bold  ${
+    activeIndex === index ? 'text-black font-bold' : 'text-[#626262]'
+  }`}
+>
+ <span className="duration-100"> {service.title}</span>
+</p>
+                        <img
+  src="../assets/images/services/arrowblw.svg"
+  className={`transform-all duration-300 ${
+    activeIndex === index ? 'block' : 'hidden group-hover:block'
+  }`}
+  alt="Arrow"
+  width={21}
+  height={21}
+/>
                       </div>
                     ))}
                   </div>
