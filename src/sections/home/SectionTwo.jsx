@@ -17,6 +17,7 @@ const SectionTwo = forwardRef((props, ref) => {
   const videoBgRef = useRef(null);
   const dsrnRef = useRef(null);
   const dsrnBxRef = useRef(null);
+  const brdrsRef = useRef(null);
 
   const playAnimations = () => {
 
@@ -79,6 +80,18 @@ const SectionTwo = forwardRef((props, ref) => {
         ease: 'power3.out',
       }
     )
+    .fromTo(
+      brdrsRef.current,
+      { x: -50,width: '0%', opacity: 0 },
+      {
+        x: 0,
+        width: '100%',
+        opacity: 1,
+        duration: 1,
+          delay: -0.5,
+        ease: 'power3.out',
+      }
+    )
 
     // Animate stats from left to right with stagger
     const statItems = statsRef.current.querySelectorAll('div');
@@ -113,11 +126,11 @@ const SectionTwo = forwardRef((props, ref) => {
           duration: 1,
            ease: 'power3.out',
         })
-        
+     
         .to(
           dsrnBxRef.current,
           {
-           /*    x: -30, */
+              x: -30,
             opacity: 0,
             duration: 1,
              delay: -1,
@@ -131,13 +144,20 @@ const SectionTwo = forwardRef((props, ref) => {
           {
             opacity: 0,
            /*  width:' 0%', */
-          /*   x: -30, */
+            x: 30,
             duration: 1,
             delay: -1,
                ease: 'power3.out',
           },
           
         )
+           .to(videoBgRef.current, {
+          opacity: 0,
+          x: -30,
+          duration: 1,
+           ease: 'power3.easeInOut',
+        })
+        
   };
 
   useImperativeHandle(ref, () => ({ playAnimations }));
@@ -181,9 +201,10 @@ const SectionTwo = forwardRef((props, ref) => {
           </div>
 
           <div
-            className="relative z-40 border-t border-white/30 pt-6 xl:pt-[30px] flex gap-6 xl:gap-[75px] text-white"
+            className="relative z-40  pt-6 xl:pt-[30px] flex gap-6 xl:gap-[75px] text-white"
             ref={statsRef}
           >
+            <hr ref={brdrsRef} className='border-t border-white/30 absolute top-0 w-full my-0' />
             <div>
               <h3 className="text-24 xl:text-40 font-light leading-[auto] mb-[5px]">160+</h3>
               <p className="text-16 xl:text-18 font-light leading-[1.555555555555556]">Years of Legacy</p>

@@ -55,9 +55,10 @@ const Index = ({ setActiveSection }) => {
     )
 
     .to(".ovrlywht", {
-      opacity: 0,
-      duration: 0.5,
-      delay: 0,
+     /*  opacity: 0, */
+      y: '-100%',
+      duration: 2,
+      delay: -1,
       ease: "Power2.easeInOut",
     })
     .fromTo(
