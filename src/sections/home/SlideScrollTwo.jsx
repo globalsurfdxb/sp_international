@@ -70,7 +70,7 @@ const SlideScrollTwo = ({setActiveSection}) => {
   const currentIndexRef = useRef(0);
 
   const sections = [section1Ref, section2Ref, section3Ref, section4Ref];
-  const menuTitles = ["SP GROUP", "SPINT", "SERVICES",];
+
 
   useEffect(() => {
    const a3 = gsap.timeline();

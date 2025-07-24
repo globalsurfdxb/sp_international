@@ -143,7 +143,7 @@ const scrollStep = 600;
 
       <header className="fixed top-0 left-0 z-50">
         <div className="flex">
-          <div className="flex w-[150px]">
+          <div className="flex w-[150px] h-screen">
             {activeSection !== "section1" && 
             <nav className="flex flex-col justify-center gap-4">
               {sections.map((section, index) => {
@@ -171,13 +171,13 @@ const scrollStep = 600;
                 );
               })}
 
-            </nav>}
+            </nav>} 
           </div>
-
-          <div ref={headerRef} className=" shadow ml-8  my-12 w-[133px] h-[calc(100vh-100px)] relative">
+            <div className="left-spacing fixed ">
+          <div ref={headerRef} className=" shadow ml-0 3xl:ml-8 my-12 w-[125px] 3xl:w-[133px] h-[calc(100vh-100px)] relative">
             <div className="bg-transparent  w-full absolute z-[-2] bxone"></div>
             <div className="bg-primary h-[20%] w-full absolute z-[-1] bottom-0 bxtwo"></div>
-            <div className="flex flex-col justify-between h-full pt-10 pb-6 z-10">
+            <div className="flex flex-col justify-between h-full pt-10 pb-6 z-10 w-full">
               <div className="flex justify-center items-center">
                 <img className="logsc" src="/assets/images/logo.svg" alt="Logo" width={90} height={55} />
               </div>
@@ -195,6 +195,7 @@ const scrollStep = 600;
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </header>
