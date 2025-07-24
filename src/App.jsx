@@ -10,15 +10,16 @@ import SlideScrollTwo from './sections/home/SlideScrollTwo'
 
 const App = () => {
   const [activeSection, setActiveSection] = useState("section1");
+  const [indexToScroll, setIndexToScroll] = useState(0);
   const sectionScrollPositions = useRef({});
   return (
     <main className='no-scrollbar'>
       {/*      <SmoothScroll/> */}
 
-      <Header activeSection={activeSection} setActiveSection={setActiveSection} sectionScrollPositions={sectionScrollPositions} />
+      <Header activeSection={activeSection} setActiveSection={setActiveSection} sectionScrollPositions={sectionScrollPositions} setIndexToScroll={setIndexToScroll}/>
     {/*   <Index setActiveSection={setActiveSection} sectionScrollPositions={sectionScrollPositions} /> */}
   {/*   <SlideScroll/> */}
-    <SlideScrollTwo setActiveSection={setActiveSection} activeSection={activeSection}/>
+    <SlideScrollTwo setActiveSection={setActiveSection} activeSection={activeSection} indexToScroll={indexToScroll} setIndexToScroll={setIndexToScroll}/>
     </main>
   )
 }
