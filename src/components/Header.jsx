@@ -174,7 +174,7 @@ const scrollStep = 600;
             </nav>}
           </div>
 
-          <div ref={headerRef} className=" shadow ml-8 my-12 w-[133px] h-[calc(100vh-100px)] relative">
+          <div ref={headerRef} className=" shadow ml-8  my-12 w-[133px] h-[calc(100vh-100px)] relative">
             <div className="bg-transparent  w-full absolute z-[-2] bxone"></div>
             <div className="bg-primary h-[20%] w-full absolute z-[-1] bottom-0 bxtwo"></div>
             <div className="flex flex-col justify-between h-full pt-10 pb-6 z-10">

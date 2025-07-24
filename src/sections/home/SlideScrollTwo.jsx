@@ -15,7 +15,6 @@ import { aboutData } from "./data";
 import { sprintData } from "./data.js";
 
 const SlideScrollTwo = () => {
-      const [showContent, setShowContent] = useState(false);
   const containerRef = useRef(null);
   const scrollBlock = useRef(false);
   const timeoutRef = useRef(null);
@@ -127,9 +126,6 @@ const SlideScrollTwo = () => {
           filter: "blur(0px)",
           duration: 0,
           ease: "power2.out",
-        onComplete: () => {
-            setShowContent(true);
-          },
         },
         "-=1.2"
       );
@@ -779,9 +775,7 @@ const SlideScrollTwo = () => {
         </div>
       )}
 
-      {showContent && (
-        <>
-     
+      {/* Slide 1 */}
       <div
         ref={section1Ref}
         className="absolute top-0 left-0 w-full h-full bg-transparent"
@@ -1300,9 +1294,7 @@ const SlideScrollTwo = () => {
           </div>
         </section>
       </div>
-     
       {/* Slide 4 */}
-       </> )};
     </div>
   );
 };
