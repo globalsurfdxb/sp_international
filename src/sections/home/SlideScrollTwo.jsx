@@ -15,6 +15,7 @@ import { aboutData } from "./data";
 import { sprintData } from "./data.js";
 
 const SlideScrollTwo = () => {
+      const [showContent, setShowContent] = useState(false);
   const containerRef = useRef(null);
   const scrollBlock = useRef(false);
   const timeoutRef = useRef(null);
@@ -72,24 +73,8 @@ const SlideScrollTwo = () => {
   const sections = [section1Ref, section2Ref, section3Ref, section4Ref];
   const menuTitles = ["SP GROUP", "SPINT", "SERVICES",];
 
-  const playEntryAnimation = (index) => {
-    gsap.set([ttbxsRef.current, rightSecRef.current, leftSecRef.current], {
-      x: 0,
-      opacity: 1,
-    });
-        gsap.set(bgImageRef.current, { opacity: 1, scale: 1})
-    const statItems = statsRef.current.querySelectorAll("div");
-    const a1 = gsap.timeline();
-    const b1 = gsap.timeline();
-    const c1 = gsap.timeline();
-    const d1 = gsap.timeline();
-       const a3 = gsap.timeline();
-       const masterTimeline = gsap.timeline();
-
-    switch (index) {
-      case 0:
-     
-
+  useEffect(() => {
+   const a3 = gsap.timeline();
    a3.fromTo(
       polygon4Ref.current,
       { drawSVG: "0%" },
@@ -142,9 +127,32 @@ const SlideScrollTwo = () => {
           filter: "blur(0px)",
           duration: 0,
           ease: "power2.out",
+        onComplete: () => {
+            setShowContent(true);
+          },
         },
         "-=1.2"
       );
+  }, [])
+  
+
+  const playEntryAnimation = (index) => {
+    gsap.set([ttbxsRef.current, rightSecRef.current, leftSecRef.current], {
+      x: 0,
+      opacity: 1,
+    });
+        gsap.set(bgImageRef.current, { opacity: 1, scale: 1})
+    const statItems = statsRef.current.querySelectorAll("div");
+    const a1 = gsap.timeline();
+    const b1 = gsap.timeline();
+    const c1 = gsap.timeline();
+    const d1 = gsap.timeline();
+     
+    switch (index) {
+      case 0:
+     
+
+   
         a1.set(videoRef.current, { x: "0%" })
         .set(brdrRef.current, { x: "0%", width: '0%' })
         .set(blockRefs.current, { opacity: 1, delay: 0.5, height: "100%" })
@@ -187,9 +195,6 @@ const SlideScrollTwo = () => {
             { opacity: 1, duration: 1, ease: "power3.out" },
             "-=4"
           );
-
-masterTimeline.add(a3);         // a3 runs first
-masterTimeline.add(a1, "-=2");  // a1 starts immediately after a3 finishes
 
         break;
       case 1:
@@ -774,7 +779,9 @@ masterTimeline.add(a1, "-=2");  // a1 starts immediately after a3 finishes
         </div>
       )}
 
-      {/* Slide 1 */}
+      {showContent && (
+        <>
+     
       <div
         ref={section1Ref}
         className="absolute top-0 left-0 w-full h-full bg-transparent"
@@ -1293,7 +1300,9 @@ masterTimeline.add(a1, "-=2");  // a1 starts immediately after a3 finishes
           </div>
         </section>
       </div>
+     
       {/* Slide 4 */}
+       </> )};
     </div>
   );
 };
