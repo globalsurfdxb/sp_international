@@ -14,7 +14,7 @@ gsap.registerPlugin(DrawSVGPlugin);
 import { aboutData } from "./data";
 import { sprintData } from "./data.js";
 
-const SlideScrollTwo = () => {
+const SlideScrollTwo = ({setActiveSection}) => {
   const containerRef = useRef(null);
   const scrollBlock = useRef(false);
   const timeoutRef = useRef(null);
@@ -592,7 +592,24 @@ masterTimeline.add(a1, "-=2");  // a1 starts immediately after a3 finishes
   const updateSlides = (newIndex) => {
     const prevIndex = currentIndexRef.current;
     currentIndexRef.current = newIndex;
-    setCurrentIndex(newIndex);
+    setCurrentIndex("newIndex",newIndex);
+
+    switch (newIndex) {
+      case 0:
+        setActiveSection("section1");
+        break;
+      case 1:
+        setActiveSection("section2");
+        break;
+      case 2:
+        setActiveSection("section3");
+        break;
+      case 3:
+        setActiveSection("section4");
+        break;
+      default:
+        break;
+    }
 
     clearTimeout(timeoutRef.current);
 
@@ -639,9 +656,7 @@ masterTimeline.add(a1, "-=2");  // a1 starts immediately after a3 finishes
   };
 
   const handleMenuClick = (index) => {
-    if (index !== currentIndexRef.current) {
       updateSlides(index);
-    }
   };
 
   useEffect(() => {
@@ -754,7 +769,7 @@ masterTimeline.add(a1, "-=2");  // a1 starts immediately after a3 finishes
 
 
       {/* Menu */}
-      {currentIndex > 0 && (
+      {/* {currentIndex > 0 && (
         <div className="fixed top-0 left-0 z-50 flex flex-col gap-3">
           {[1, 2, 3].map((i, idx) => {
             let opacity = "opacity-30";
@@ -772,7 +787,10 @@ masterTimeline.add(a1, "-=2");  // a1 starts immediately after a3 finishes
             );
           })}
         </div>
-      )}
+      )} */}
+
+
+
 
       {/* Slide 1 */}
       <div
