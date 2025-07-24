@@ -67,6 +67,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
 
   /*     const [activeIndex, setActiveIndex] = useState(0); */
   const [currentIndex, setCurrentIndex] = useState(0);
+
   const currentIndexRef = useRef(0);
 
   const sections = [section1Ref, section2Ref, section3Ref, section4Ref];
@@ -130,6 +131,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
         "-=1.2"
       );
   }, [])
+
   
 
   const playEntryAnimation = (index) => {
@@ -725,6 +727,8 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
     },
   ];
 
+  const [activeService, setActiveService] = useState({image:content[0].image,title:content[0].title});
+
   return (
     <div
       ref={containerRef}
@@ -1259,7 +1263,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
                           className="flex items-center gap-3 cursor-pointer group"
                           ref={(el) => (textItemsRef.current[index] = el)}
                         >
-                          <p className="text-28 leading-[1.607142857142857] font-light cursor-pointer group-hover:text-black group-hover:font-bold text-black">
+                          <p className="text-28 leading-[1.607142857142857] font-light cursor-pointer group-hover:text-black group-hover:font-bold text-black" onClick={()=>setActiveService({image:service.image,title:service.title})}>
                             <span className="duration-100">
                               {" "}
                               {service.title}
@@ -1284,7 +1288,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
             <div className="relative w-full h-[100vh]" ref={srvsImgRef} >
                 <div  className="absolute h-full w-full">
               <img 
-                src="/assets/images/services/engineering-construction.jpg"
+            src={activeService?.image}
                 alt="Service Image"
                 fill
                 className="object-cover absolute w-full h-full"
@@ -1301,7 +1305,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
               </div>
               <div className="absolute top-[43%] left-20 z-10">
                 <h3 className="text-18 3xl:text-29 leading-[1.344827586206897] font-light text-white">
-                  Engineering & Construction
+                  {activeService?.title}
                 </h3>
               </div>
               <div className="absolute bottom-10 3xl:bottom-[50px] left-20 z-10">
