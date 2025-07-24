@@ -47,7 +47,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
   const swiperRef = useRef(null);
   const bottomTextRef = useRef(null);
 
-  const bgImageRef = useRef(null);
+
   const bgdivRef = useRef(null);
 
   const polygon1Ref = useRef(null);
@@ -261,14 +261,14 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
           );
         break;
       case 2:
-        c1
+        c1  /* .set(bgdivRef.current, { opacity: 0, x: 0 }) */
         .set(leftContentRef.current, { opacity: 0 })
         .set(bottomTextRef.current, { opacity: 0, x: 0, })
         .set(polygon1Ref.current, {  drawSVG: "0%"})
         .set(polygon2Ref.current, {  drawSVG: "0%"})
         .set(polygon3Ref.current, {  drawSVG: "0%", opacity: 1,})
         .set(leftContentRef.current, { opacity: 0 })
-        /* .set(bgImageRef.current, { opacity: 0 }) */
+      
     
         .fromTo(
           leftContentRef.current,
@@ -313,9 +313,9 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
             { x: 0, opacity: 1, duration: 0.5, delay: 0, ease: "power1.in" }, '-=1.5'
           )
            /* .fromTo(
-            bgImageRef.current,
-            { x: 30, opacity: 0 },
-            { x: 0, opacity: 0.5, duration: 0.5, delay: 0, ease: "power1.in" }, '-=2.5'
+            bgdivRef.current,
+            { x: 0, opacity: 0 , scale: 1 },
+            { x: 0, opacity: 0.1, scale: 1.1, duration: 5,  ease: "power1.in", repeat: -1, yoyo: true }, '-=2.5'
           ) */;
   
           
@@ -954,7 +954,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
                   alt=""
                   width={2000}
                   height={1500}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-right"
                 />
               </div>
             </div>
@@ -1060,16 +1060,16 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
           className="h-screen overflow-hidden relative scroll-area bg-transparent"
         >
           <div
-            ref={bgdivRef}
-            className="absolute top-0 left-0 z-0 w-full h-full bg-gradient-to-l from-white/10 to-white/80 opacity-[0.1]"
+            
+            className="absolute top-0 left-0 z-0 w-full h-full bg-transparent"
           >
             <img
               src={sprintData.mainBgImage}
               alt=""
               width={2000}
               height={1500}
-              className="w-full h-full object-cover opacity-1"
-              ref={bgImageRef}
+              className="w-full h-full object-cover opacity-0 absolute"
+              ref={bgdivRef}
             />
           </div>
           <div className="absolute bottom-0 xl:bottom-10 left-[20%] xl:left-[18%] w-fit h-fit z-40">
@@ -1303,7 +1303,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
                 />
               </div>
               <div className="absolute top-[43%] left-20 z-10">
-                <h3 className=" 3xl:text-29 leading-[1.344827586206897] font-light text-white">
+                <h3 className="text-29 leading-[1.344827586206897] font-light text-white">
                   {activeService?.title}
                 </h3>
               </div>
