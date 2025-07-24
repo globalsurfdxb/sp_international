@@ -21,7 +21,7 @@ const SectionOne = forwardRef((props, ref) => {
   const videoRef = useRef(null);
   const borderRef = useRef(null);
   const overlayRef = useRef(null);
-  const blockRefs = useRef([]); // Ref for the overlay div
+  const blockRefs = useRef([]); 
 
   // Expose a playAnimations function to the parent component
   useImperativeHandle(ref, () => ({
@@ -150,32 +150,6 @@ useEffect(() => {
           "-=0.3"
         )
        ;
-
-      /*   // Animate the text and icons to fade out
-        gsap.to([titleRef.current, subtitleRef.current, iconsRef.current], {
-          opacity: 0,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top top',
-            end: 'top -20%', // Start fading out as soon as scrolling begins, finished by 20% down
-            scrub: 0.5, // Adjust scrub for how quickly it fades
-            // markers: true, // For debugging
-          },
-        });
-   
-        // Animate the overlay opacity as well, making it slightly less opaque as we scroll
-        gsap.to(overlayRef.current, {
-          opacity: 0.5, // From 0.8 to 0.5, or adjust as desired
-          ease: 'none',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top top',
-            end: 'bottom top',
-            scrub: true,
-            // markers: true, // For debugging
-          }
-        }) */
     }, sectionRef); // Scope the GSAP animations to this component
 
     return () => ctx.revert(); // Clean up GSAP animations on unmount

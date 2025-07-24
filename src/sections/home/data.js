@@ -27,3 +27,43 @@ export const sprintData = {
     }
   ]
 };
+
+
+export const servcsData = [
+    {
+      image: "/assets/images/services/engineering-construction.jpg",
+      title: "Engineering & Construction",
+      description: ""
+    },
+    {
+      image: "/assets/images/services/servicemain.jpg",
+      title: "Design Studio",
+      description: ""
+    },
+    {
+      image: "/assets/images/services/mep.jpg",
+      title: "MEP",
+      description: ""
+    },
+    {
+      image: "/assets/images/services/interior-fit-out.jpg",
+      title: "Interior Fit-out",
+      description: ""
+    },
+    {
+      image: "/assets/images/services/servicemain.jpg",
+      title: "Façade",
+      description: ""
+    },
+    {
+      image: "/assets/images/services/servicemain.jpg",
+      title: "Facilities Management",
+      description: ""
+    },
+    {
+      image: "/assets/images/services/servicemain.jpg",
+      title: "Water",
+      description: ""
+    },
+
+  ];

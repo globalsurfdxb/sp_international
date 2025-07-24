@@ -1,8 +1,10 @@
 import React, { useRef } from 'react'
 
-import Index from './sections/home/Index'
+
 import Header from './components/Header'
 import { useState } from 'react'
+import SlideScroll from './sections/home/SlideScroll'
+import SlideScrollTwo from './sections/home/SlideScrollTwo'
 
 /* import SmoothScroll from "./components/SmoothScroll"; */
 
@@ -14,7 +16,9 @@ const App = () => {
       {/*      <SmoothScroll/> */}
 
       <Header activeSection={activeSection} setActiveSection={setActiveSection} sectionScrollPositions={sectionScrollPositions} />
-      <Index setActiveSection={setActiveSection} sectionScrollPositions={sectionScrollPositions} />
+    {/*   <Index setActiveSection={setActiveSection} sectionScrollPositions={sectionScrollPositions} /> */}
+  {/*   <SlideScroll/> */}
+    <SlideScrollTwo/>
     </main>
   )
 }
