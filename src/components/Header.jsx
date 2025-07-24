@@ -17,7 +17,7 @@ const sections = [
   { id: "section6", label: "PEOPLE" },
 ];
 
-const Header = ({ activeSection, setActiveSection }) => {
+const Header = ({ activeSection, setActiveSection,setIndexToScroll }) => {
 
 const headerRef = useRef(null);
 const navItemsRef = useRef([]);
@@ -114,6 +114,26 @@ const nextSection = sections.find((section) => section.id === `section${parseInt
 const scrollStep = 600;
 
   const handleScroll = (sectionId) => {
+    
+    switch (sectionId) {
+      case "section2":
+        setIndexToScroll(1);
+        break;
+      case "section3":
+        setIndexToScroll(2);
+        break;
+      case "section4":
+        setIndexToScroll(3);
+        break;
+      case "section5":
+        setIndexToScroll(4);
+        break;
+      case "section6":
+        setIndexToScroll(5);
+        break;
+      default:
+        setIndexToScroll(0);
+    }
 
     const index = sections.findIndex((s) => s.id === sectionId);
 
