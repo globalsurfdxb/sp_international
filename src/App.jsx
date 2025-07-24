@@ -18,7 +18,7 @@ const App = () => {
       <Header activeSection={activeSection} setActiveSection={setActiveSection} sectionScrollPositions={sectionScrollPositions} />
     {/*   <Index setActiveSection={setActiveSection} sectionScrollPositions={sectionScrollPositions} /> */}
   {/*   <SlideScroll/> */}
-    <SlideScrollTwo/>
+    <SlideScrollTwo setActiveSection={setActiveSection} activeSection={activeSection}/>
     </main>
   )
 }
