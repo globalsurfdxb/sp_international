@@ -14,7 +14,7 @@ gsap.registerPlugin(DrawSVGPlugin);
 import { aboutData } from "./data";
 import { sprintData } from "./data.js";
 
-const SlideScrollTwo = ({setActiveSection}) => {
+const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
   const containerRef = useRef(null);
   const scrollBlock = useRef(false);
   const timeoutRef = useRef(null);
@@ -659,6 +659,13 @@ const SlideScrollTwo = ({setActiveSection}) => {
   const handleMenuClick = (index) => {
       updateSlides(index);
   };
+
+  useEffect(() => {
+    if(currentIndex== 0){
+    return
+    }
+    updateSlides(indexToScroll);
+  }, [indexToScroll]);
 
   useEffect(() => {
     const container = containerRef.current;
