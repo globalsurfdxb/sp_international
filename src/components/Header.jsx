@@ -155,9 +155,25 @@ const scrollStep = 600;
 
   return (
     <>
-      <div className="fixed top-13 right-38 z-50">
-        <div className="flex items-center justify-center bg-black rounded-full p-2 w-11 h-11">
-          <img src="/assets/images/search.svg" alt="Search" width={18} height={18} />
+   <div className="fixed top-13 right-38 z-50">
+        <div className='flex gap-8 items-center'>
+          <div className='flex gap-2'>
+            <a href="#">
+              <div className='flex items-center justify-center z-[1]  cursor-pointer relative  h-[31px] bg-[#00000040] rounded-[15px]'>
+                <img src="../assets/images/grbdr.svg" alt="Logo" className="absolute w-full h-full" width={18} height={31} />
+                <p className='mb-0 text-white font-[300] text-[16px] px-5'>العربية</p>
+              </div>
+            </a>
+            <a href="#">
+              <div className='flex items-center justify-center z-[1]  cursor-pointer relative  h-[31px] bg-[#00000040] rounded-[15px]'>
+                <img src="../assets/images/grbdr.svg" alt="Logo" className="absolute w-full h-full" width={18} height={31} />
+                <p className='mb-0 text-white font-[300] text-[16px] px-4'>HRMS</p>
+              </div>
+            </a>
+          </div>
+          <div className="flex items-center justify-center bg-black rounded-full p-2 w-11 h-11">
+            <img src="../assets/images/search.svg" alt="Logo" width={18} height={18} />
+          </div>
         </div>
       </div>
 

@@ -160,7 +160,7 @@ const Index = ({ setActiveSection }) => {
       <div className="fixed w-screen h-screen z-[100] mswd pointer-events-none grid content-center load-sec">
        
         <svg
-          className="w-[500px] h-[500px] absolute left-0 right-0 z-20"
+          className="w-[400px] h-[400px] 3xl:w-[450px] 3xl:h-[450px] absolute left-0 right-0 z-20"
           id="Layer_1"
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"

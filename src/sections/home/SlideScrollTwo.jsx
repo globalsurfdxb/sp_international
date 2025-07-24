@@ -139,7 +139,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
       x: 0,
       opacity: 1,
     });
-        gsap.set(bgImageRef.current, { opacity: 1, scale: 1})
+      
     const statItems = statsRef.current.querySelectorAll("div");
     const a1 = gsap.timeline();
     const b1 = gsap.timeline();
@@ -261,13 +261,14 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
           );
         break;
       case 2:
-        c1.set(bgImageRef.current, { opacity: 1, visibility: 'visible' })
+        c1
         .set(leftContentRef.current, { opacity: 0 })
         .set(bottomTextRef.current, { opacity: 0, x: 0, })
         .set(polygon1Ref.current, {  drawSVG: "0%"})
         .set(polygon2Ref.current, {  drawSVG: "0%"})
         .set(polygon3Ref.current, {  drawSVG: "0%", opacity: 1,})
         .set(leftContentRef.current, { opacity: 0 })
+        /* .set(bgImageRef.current, { opacity: 0 }) */
     
         .fromTo(
           leftContentRef.current,
@@ -289,7 +290,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
           .fromTo(
             swiperRef.current,
             { x: 300, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.6,  ease: "power1.in" }
+            { x: 0, opacity: 1, duration: 0.6,  ease: "power1.inOut" }, '-=1'
           )
           .fromTo(
             polygon1Ref.current,
@@ -310,18 +311,14 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
             bottomTextRef.current,
             { x: 30, opacity: 0 },
             { x: 0, opacity: 1, duration: 0.5, delay: 0, ease: "power1.in" }, '-=1.5'
-          );
+          )
+           /* .fromTo(
+            bgImageRef.current,
+            { x: 30, opacity: 0 },
+            { x: 0, opacity: 0.5, duration: 0.5, delay: 0, ease: "power1.in" }, '-=2.5'
+          ) */;
   
-            gsap.to(bgImageRef.current, {
-            scale: 1.1,
-            xPercent: 4,
-            yPercent: 2,
-            opacity: 1,
-            ease: "power1.inOut",
-            duration: 20,
-            repeat: -1,
-            yoyo: true,
-            });
+          
         break;
       case 3:
         d1.set(srvttlRef.current,{opacity: 0})
@@ -333,7 +330,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
         .fromTo(
             srvttlRef.current,
             { x: -30, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+            { x: 0, opacity: 1, duration: 1.5, ease: "power1.in" }
           )
            .fromTo(
             countRef.current,
@@ -371,7 +368,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
           )
           .fromTo(
             srvsImgRef.current,
-            { x: -30, width: "0%", opacity: 0 },
+            { x: 0, width: "0%", opacity: 0 },
             {
               x: 0,
               width: "100%",
@@ -515,11 +512,11 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
             { drawSVG: "0%", duration: 0.5, ease: "power1.inOut", opacity: 0 },
             "-=2.5"
           )
-             gsap.fromTo(
+           /*   gsap.fromTo(
             bgImageRef.current,
             { x: 0, opacity: 1 },
             { x: 0, opacity: 0, scale: 1.2, duration: 1, delay: 0, ease: "power1.in" }, '-=1.5'
-          );;
+          ) */;
 
         break;
       case 3:
@@ -711,17 +708,17 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
       description: "",
     },
     {
-      image: "/assets/images/services/servicemain.jpg",
+      image: "/assets/images/services/Facade.jpg",
       title: "Façade",
       description: "",
     },
     {
-      image: "/assets/images/services/servicemain.jpg",
+      image: "/assets/images/services/Facility-Management.jpg",
       title: "Facilities Management",
       description: "",
     },
     {
-      image: "/assets/images/services/servicemain.jpg",
+      image: "/assets/images/services/Water.jpg",
       title: "Water",
       description: "",
     },
@@ -1071,7 +1068,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
               alt=""
               width={2000}
               height={1500}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover opacity-1"
               ref={bgImageRef}
             />
           </div>
@@ -1191,7 +1188,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
               ref={bottomTextRef}
               className="pt-20 xl:pt-[67px] relative z-50 opacity-0"
             >
-              <div className="w-fit pl-10 xl:pl-[265px]">
+              <div className="w-fit pl-10 xl:pl-[205px] 3xl:pl-[265px] pr-8">
                 <p className="text-16 xl:text-18 font-light leading-[1.5] max-w-md">
                   {sprintData.description}
                 </p>
@@ -1265,7 +1262,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
                           className="flex items-center gap-3 cursor-pointer group"
                           ref={(el) => (textItemsRef.current[index] = el)}
                         >
-                          <p className="text-28 leading-[1.607142857142857] font-light cursor-pointer group-hover:text-black group-hover:font-bold text-black" onClick={()=>setActiveService({image:service.image,title:service.title})}>
+                          <p className="text-28 leading-[1.607142857142857] font-light cursor-pointer group-hover:text-black group-hover:font-bold text-black" onMouseOver={()=>setActiveService({image:service.image,title:service.title})}>
                             <span className="duration-100">
                               {" "}
                               {service.title}
@@ -1306,7 +1303,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
                 />
               </div>
               <div className="absolute top-[43%] left-20 z-10">
-                <h3 className="text-18 3xl:text-29 leading-[1.344827586206897] font-light text-white">
+                <h3 className=" 3xl:text-29 leading-[1.344827586206897] font-light text-white">
                   {activeService?.title}
                 </h3>
               </div>
