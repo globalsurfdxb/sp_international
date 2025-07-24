@@ -193,8 +193,7 @@ body::-webkit-scrollbar {
 .load-sec {
     svg {
       
-        width: 450px;
-        height: 450px;
+      
         margin: 0 auto;
     
         top: 50%;

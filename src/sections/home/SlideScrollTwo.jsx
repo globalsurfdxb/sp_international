@@ -728,7 +728,7 @@ const SlideScrollTwo = ({setActiveSection}) => {
           <div className="fixed w-screen h-screen z-[500] mswd pointer-events-none grid content-center load-sec">
        
         <svg
-          className="w-[500px] h-[500px] absolute left-0 right-0 z-20"
+          className="h-[370px] w-[370px] 3xl:h-[450px] 3xl:w-[450px] absolute left-0 right-0 z-20"
           id="Layer_1"
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
@@ -1092,10 +1092,10 @@ const SlideScrollTwo = ({setActiveSection}) => {
               </defs>
             </svg>
           </div>
-          <div className="absolute bottom-0 left-[20%] xl:left-[18%] w-full h-fit z-10">
+          <div className="absolute bottom-0 left-[10%] xl:left-[8%] 3xl:left-[18%] w-full h-fit z-10">
             <svg
               width="719"
-              height="366"
+              height="376"
               viewBox="0 0 719 366"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -1120,24 +1120,26 @@ const SlideScrollTwo = ({setActiveSection}) => {
               />
             </svg>
           </div>
-          <div className="grid grid-cols-2 3xl:grid-rows-[548px_auto] h-full relative z-10 ">
-            <div ref={leftContentRef} className="pt-20 xl:pt-[130px]">
-              <div className="w-fit ml-auto pr-10 3xl:pr-[68px]">
-                <h1 className="text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light max-w-sm 3xl:max-w-md mb-8 xl:mb-[39px] text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+          <div className="grid grid-cols-2 xl:grid-rows-[525px_auto] 3xl:grid-rows-[530px_auto] h-full relative z-10 ">
+            <div ref={leftContentRef} className=" pt-[110px] 3xl:pt-[130px]">
+              <div className="w-fit ml-auto  pr-10 3xl:pr-[68px]">
+             
+                <h1 className="text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light max-w-xs 3xl:max-w-md mb-8 xl:mb-[39px] text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                   {sprintData.title}
                 </h1>
-                <p className="text-18 xl:text-29 font-light leading-[1.344827586206897] max-w-md">
+                <p className="text-18 xl:text-29 font-light leading-[1.344827586206897] max-w-sm  3xl:max-w-md">
                   {sprintData.subtitle}
                 </p>
+                
               </div>
             </div>
-            <div ref={rightImageRef} className="relative z-50 h-[550px]">
+            <div ref={rightImageRef} className="relative z-50">
               <img
                 src={sprintData.rightImage}
                 alt=""
                 width={2000}
                 height={1500}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover absolute"
               />
             </div>
             <div className="flex justify-end">
@@ -1234,11 +1236,11 @@ const SlideScrollTwo = ({setActiveSection}) => {
             <div className="flex h-full">
               <div className="w-1/3"></div>
               <div className="w-2/3 pt-33">
-                <div className="ml-28 flex flex-col h-full">
+                <div className="ml-16 3xl:ml-28 flex flex-col h-full">
                   <h1 ref={srvttlRef} className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px]">
                     Our Services
                   </h1>
-                  <div className="w-full flex flex-col h-full justify-end  pl-13 mt-15 relative">
+                  <div className="w-full flex flex-col h-full justify-end  pl-11 3xl:pl-13 mt-15 relative">
                     <hr ref={brdtwsRef} className="border-l border-black/10 absolute h-full left-0 top-0" />
                     <div className="pb-4">
                       <p ref={countRef} className="text-60 font-light text-[#62626210]">

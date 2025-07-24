@@ -12,7 +12,7 @@ const App = () => {
   const [activeSection, setActiveSection] = useState("section1");
   const sectionScrollPositions = useRef({});
   return (
-    <main className='no-scrollbar'>
+    <main className='no-scrollbar hidden lg:block'>
       {/*      <SmoothScroll/> */}
 
       <Header activeSection={activeSection} setActiveSection={setActiveSection} sectionScrollPositions={sectionScrollPositions} />
