@@ -724,7 +724,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
     },
   ];
 
-  const [activeService, setActiveService] = useState({image:content[0].image,title:content[0].title});
+  const [activeService, setActiveService] = useState({image:content[0].image,title:content[0].title,index:0});
 
   return (
     <div
@@ -1252,7 +1252,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
                     <hr ref={brdtwsRef} className="border-l border-black/10 absolute h-full left-0 top-0" />
                     <div className="pb-4">
                       <p ref={countRef} className="text-60 font-light text-[#62626210]">
-                        01/ 06
+                        0{activeService.index+1}/ 06
                       </p>
                     </div>
                     <div className="flex flex-col pt-14 pb-21 pr-2">
@@ -1262,7 +1262,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
                           className="flex items-center gap-3 cursor-pointer group"
                           ref={(el) => (textItemsRef.current[index] = el)}
                         >
-                          <p className="text-28 leading-[1.607142857142857] font-light cursor-pointer group-hover:text-black group-hover:font-bold text-black" onMouseOver={()=>setActiveService({image:service.image,title:service.title})}>
+                          <p className="text-28 leading-[1.607142857142857] font-light cursor-pointer group-hover:text-black group-hover:font-bold text-black" onMouseOver={()=>setActiveService({image:service.image,title:service.title,index})}>
                             <span className="duration-100">
                               {" "}
                               {service.title}
