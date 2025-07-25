@@ -261,7 +261,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
           );
         break;
       case 2:
-        c1  /* .set(bgdivRef.current, { opacity: 0, x: 0 }) */
+        c1.set(bgdivRef.current, { opacity: 0, x: 0 })
         .set(leftContentRef.current, { opacity: 0 })
         .set(bottomTextRef.current, { opacity: 0, x: 0, })
         .set(polygon1Ref.current, {  drawSVG: "0%"})
@@ -312,16 +312,17 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
             { x: 30, opacity: 0 },
             { x: 0, opacity: 1, duration: 0.5, delay: 0, ease: "power1.in" }, '-=1.5'
           )
-           /* .fromTo(
+           .fromTo(
             bgdivRef.current,
             { x: 0, opacity: 0 , scale: 1 },
-            { x: 0, opacity: 0.1, scale: 1.1, duration: 5,  ease: "power1.in", repeat: -1, yoyo: true }, '-=2.5'
-          ) */;
+            { x: 0, opacity: 0.1, scale: 1.1, duration: 5,  ease: "power1.in" }, '-=3.5'
+          );
   
           
         break;
       case 3:
-        d1.set(srvttlRef.current,{opacity: 0})
+        d1.set(bgdivRef.current, { opacity: 0, x: 0 })
+        .set(srvttlRef.current,{opacity: 0})
         .set(srvsImgRef.current,{opacity: 0, width: "0%",})
         .set(countRef.current,{opacity: 0,})
         .set(textItemsRef.current,{opacity: 0, y: 0})
@@ -981,7 +982,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
                 className="relative z-40 pt-6 xl:pt-[35px] text-white"
                 ref={title2Ref}
               >
-                <h1 className="text-48 xl:text-60 font-light leading-[1.166666666666667] mb-3 3xl:mb-[25px]">
+                <h1 className="text-45 xl:text-60 font-light leading-[1.166666666666667] mb-3 3xl:mb-[25px]">
                   {aboutData.title}
                 </h1>
                 <h3 className="text-18 xl:text-24 font-light max-w-xl">
@@ -1245,7 +1246,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
               <div className="w-1/3"></div>
               <div className="w-2/3 pt-33">
                 <div className="ml-16 3xl:ml-28 flex flex-col h-full">
-                  <h1 ref={srvttlRef} className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px]">
+                  <h1 ref={srvttlRef} className="text-34 xl:text-45 3xl:text-60 font-light gradient-text leading-[70px]">
                     Our Services
                   </h1>
                   <div className="w-full flex flex-col h-full justify-end  pl-11 3xl:pl-13 mt-15 relative">
@@ -1262,7 +1263,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
                           className="flex items-center gap-3 cursor-pointer group"
                           ref={(el) => (textItemsRef.current[index] = el)}
                         >
-                          <p className="text-28 leading-[1.607142857142857] font-light cursor-pointer group-hover:text-black group-hover:font-bold text-black" onMouseOver={()=>setActiveService({image:service.image,title:service.title,index})}>
+                          <p className="text-[24px] 3xl:text-28 leading-[1.607142857142857] font-light cursor-pointer group-hover:text-black group-hover:font-bold text-black" onMouseOver={()=>setActiveService({image:service.image,title:service.title,index})}>
                             <span className="duration-100">
                               {" "}
                               {service.title}
