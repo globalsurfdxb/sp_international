@@ -114,7 +114,8 @@ const nextSection = sections.find((section) => section.id === `section${parseInt
 const scrollStep = 600;
 
   const handleScroll = (sectionId) => {
-    
+    console.log("clicked")
+    console.log(sectionId)
     switch (sectionId) {
       case "section2":
         setIndexToScroll(1);
@@ -125,30 +126,22 @@ const scrollStep = 600;
       case "section4":
         setIndexToScroll(3);
         break;
-      case "section5":
-        setIndexToScroll(4);
-        break;
-      case "section6":
-        setIndexToScroll(5);
-        break;
-      default:
-        setIndexToScroll(0);
     }
 
     const index = sections.findIndex((s) => s.id === sectionId);
 
   
-    if (index !== -1) {
-      console.log(index * scrollStep)
-      gsap.to(window, {
-        scrollTo: {
-          y: (index * scrollStep) + 1,
-          autoKill: false, // important if using ScrollTrigger-based logic
-        },
-        duration: 1,
-        ease: "power2.inOut",
-      });
-    }
+    // if (index !== -1) {
+    //   console.log(index * scrollStep)
+    //   gsap.to(window, {
+    //     scrollTo: {
+    //       y: (index * scrollStep) + 1,
+    //       autoKill: false, // important if using ScrollTrigger-based logic
+    //     },
+    //     duration: 1,
+    //     ease: "power2.inOut",
+    //   });
+    // }
   };
 
    const activeIndex = sections.findIndex((s) => s.id === activeSection);
@@ -195,11 +188,15 @@ const scrollStep = 600;
                 return (
                <a
   key={section.id}
-  ref={addToNavRefs}
+
   href={`#${section.id}`}
-  onClick={() => handleScroll(section.id)}
+  onClick={(e) => {
+    e.preventDefault();
+    console.log("click is happening")
+    handleScroll(section.id)
+  }}
   style={{ opacity }}
-  className={`transition-all duration-300 font-[300] hover:font-[700] text-12 
+  className={`transition-all duration-300 font-[300] hover:font-[700] text-12 z-1000
   ${isActive ? `font-[700] activebfr ${baseColor}` : `nonactivebfr ${baseColor}`}`}
 >
                     {section.label}
