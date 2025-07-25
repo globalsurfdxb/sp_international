@@ -320,7 +320,7 @@ const SectionFour = forwardRef((props, ref) => {
               className="object-cover absolute w-full h-full"
               ref={imageRef}
             />
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black/40 from-0% via-black/40 via-52% to-black/40 to-100%"></div>
+           
             <div className="absolute top-0 right-20">
               <img
                 src="../assets/images/services/studio-over.svg"

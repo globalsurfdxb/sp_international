@@ -326,7 +326,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
         .set(srvsImgRef.current,{opacity: 0, width: "0%",})
         .set(countRef.current,{opacity: 0,})
         .set(textItemsRef.current,{opacity: 0, y: 0})
-        .set(brdonRef.current,{opacity: 0, width: '0%'})
+        .set(brdonRef.current,{opacity: 0})
         .set(brdtwsRef.current,{opacity: 0, height: '0%'})
         .fromTo(
             srvttlRef.current,
@@ -347,11 +347,11 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
           )
         .fromTo(
             brdonRef.current,
-            { x: -30, width: "0%", opacity: 0.2 },
+            { x: -30, opacity: 0 },
             {
               x: 0,
-              width: "70%",
-              opacity: 0.2,
+            
+              opacity: 0.1,
               duration: 1.2,
               ease: "power1.in",
             }, '-=0.2'
@@ -1074,7 +1074,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
               ref={bgdivRef}
             />
           </div>
-          <div className="absolute bottom-0 xl:bottom-10 left-[20%] xl:left-[18%] w-fit h-fit z-40">
+          <div className="absolute bottom-0 xl:bottom-10 left-[20%] xl:left-[17%] w-fit h-fit z-40">
             <svg
               width="503"
               height="707"
@@ -1102,10 +1102,11 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
               </defs>
             </svg>
           </div>
-          <div className="absolute bottom-0 left-[10%] xl:left-[8%] 3xl:left-[18%] w-full h-fit z-10">
+          <div className="absolute bottom-0 left-[10%] xl:left-[8%] 3xl:left-[18%] w-full h-[35%] z-10">
             <svg
+            className="absolute top-[50%] translate-y-[-50%]"
               width="719"
-              height="376"
+              height="102%"
               viewBox="0 0 719 366"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -1130,7 +1131,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
               />
             </svg>
           </div>
-          <div className="grid grid-cols-2 grid-rows-[450px_auto] xl:grid-rows-[480px_auto] 3xl:grid-rows-[530px_auto] h-full relative z-10 ">
+          <div className="grid grid-cols-2 grid-rows-[65%_auto] h-full relative z-10 ">
             <div ref={leftContentRef} className=" pt-[110px] 3xl:pt-[130px]">
               <div className="w-fit ml-auto  pr-10 3xl:pr-[68px]">
              
@@ -1149,13 +1150,13 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
                 alt=""
                 width={2000}
                 height={1500}
-                className="w-full h-full object-cover absolute"
+                className="w-full h-full object-cover absolute object-center"
               />
             </div>
-            <div className="flex justify-end">
+            <div className="flex justify-end pb-[50px]">
               <div
                 ref={swiperRef}
-                className="bg-primary w-full xl:w-[298px] xl:h-[316px] opacity-0 "
+                className="bg-primary w-[298px] xl:h-full opacity-0 "
               >
                 <Swiper
                   className="w-full h-full sprintswiper"
@@ -1252,12 +1253,13 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
                   </h1>
                   <div className="w-full flex flex-col h-full justify-end  pl-11 3xl:pl-13 mt-15 relative">
                     <hr ref={brdtwsRef} className="border-l border-black/10 absolute h-full left-0 top-0" />
-                    <div className="pb-4">
+                    <div className="pb-4 relative">
+                       <hr ref={brdonRef} className="absolute left-[-30%] right-[-150%] h-[1px] opacity-20 bottom-0 z-20   bg-gradient-to-r from-black to-white "/>
                       <p ref={countRef} className="text-60 font-light text-[#62626210]">
                         0{activeService.index+1}/ 06
                       </p>
                     </div>
-                    <div className="flex flex-col pt-14 pb-21 pr-2">
+                    <div className="flex flex-col pt-18 pb-21 3xl:pt-14 3xl:pb-21 pr-2">
                       {content.map((service, index) => (
                         <div
                           key={index}
@@ -1295,7 +1297,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
                 className="object-cover absolute w-full h-full"
               />
               </div>
-              <div  className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black/40 from-0% via-black/40 via-52% to-black/40 to-100%"></div>
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black/40 from-0% via-black/40 via-52% to-black/40 to-100%"></div>
               <div className="absolute top-0 right-20">
                 <img
                   src="../assets/images/services/studio-over.svg"
@@ -1304,7 +1306,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
                   height={914}
                 />
               </div>
-              <div className="absolute top-[43%] left-20 z-10">
+              <div className="absolute top-[38%] 3xl:top-[43%] left-20 z-10">
                 <h3 className="text-29 leading-[1.344827586206897] font-light text-white">
                   {activeService?.title}
                 </h3>
@@ -1320,7 +1322,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
               </div>
             </div>
             {/* right */}
-            <div ref={brdonRef} className="absolute left-0 top-[50%] h-[1px] bg-gradient-to-r from-black to-white w-[70%] left-[15%] opacity-30"></div>
+            {/* <div ref={brdonRef} className=""></div> */}
           </div>
         </section>
       </div>
