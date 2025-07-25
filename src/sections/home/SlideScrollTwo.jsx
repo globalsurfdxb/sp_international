@@ -315,7 +315,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
            .fromTo(
             bgdivRef.current,
             { x: 0, opacity: 0 , scale: 1 },
-            { x: 0, opacity: 0.1, scale: 1.1, duration: 5,  ease: "power1.in" }, '-=3.5'
+            { x: 0, opacity: 0.06, scale: 1.1, duration: 5,  ease: "power1.in" }, '-=3.5'
           );
   
           
@@ -938,7 +938,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
                            <img src={sprintData.mainBgImage} alt="" width={2000} height={1500} className="w-full h-full object-cover" ref={bgImageRef} />
                          </div> */}
           <div
-            className="grid grid-cols-[2fr_5fr] 3xl:grid-cols-[657px_auto] h-full"
+            className="grid grid-cols-[2fr_5fr] 3xl:grid-cols-[657px_auto] h-full bg-transparent"
             ref={ttbxsRef}
           >
             <div
@@ -1129,7 +1129,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
               />
             </svg>
           </div>
-          <div className="grid grid-cols-2 xl:grid-rows-[525px_auto] 3xl:grid-rows-[530px_auto] h-full relative z-10 ">
+          <div className="grid grid-cols-2 grid-rows-[450px_auto] xl:grid-rows-[480px_auto] 3xl:grid-rows-[530px_auto] h-full relative z-10 ">
             <div ref={leftContentRef} className=" pt-[110px] 3xl:pt-[130px]">
               <div className="w-fit ml-auto  pr-10 3xl:pr-[68px]">
              
