@@ -660,6 +660,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
   };
 
   useEffect(() => {
+    console.log(indexToScroll)
     if(currentIndex== 0){
     return
     }
