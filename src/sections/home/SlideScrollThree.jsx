@@ -11,10 +11,10 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
 gsap.registerPlugin(DrawSVGPlugin);
 
-import { aboutData } from "./data";
+import { aboutData } from "./data.js";
 import { sprintData } from "./data.js";
 
-const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
+const SlideScrollThree = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
   const containerRef = useRef(null);
   const scrollBlock = useRef(false);
   const timeoutRef = useRef(null);
@@ -1058,7 +1058,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
       >
         <section
           id="section3"
-          className="h-screen overflow-hidden relative scroll-area bg-transparent"
+          className="h-screen overflow-hidden relative scroll-area"
         >
           <div
             
@@ -1330,4 +1330,4 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll}) => {
   );
 };
 
-export default SlideScrollTwo;
+export default SlideScrollThree;
