@@ -55,6 +55,7 @@ const SlideScrollThree = ({
   const splftbg = useRef(null);
   const sprghtBx = useRef(null);
   const sprIcnim = useRef(null);
+  const spBrdOne = useRef(null);
 
 /*   const leftContentRef = useRef(null);
   const rightImageRef = useRef(null);
@@ -82,6 +83,7 @@ const SlideScrollThree = ({
   const srvsCntb = useRef([]);
   const srvsArrw = useRef([]);
   const srvsRghtBx = useRef([]);
+  const srvLftBx = useRef([]);
 
   /*     const [activeIndex, setActiveIndex] = useState(0); */
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -280,12 +282,13 @@ const SlideScrollThree = ({
           );
         break;
       case 2:
-        c1.set(splftimng.current, { opacity: 0, width: 0, x: 0 })
+        c1.set(splftimng.current, { opacity: 0, width: '0%', x: 0 })
          .set(sptitle.current, { opacity: 0 })
          .set(spdscrpt.current, { opacity: 0 })
          .set(spbtn.current, { opacity: 0 })
          .set(sprghtBx.current, { opacity: 0, x: 0})
          .set(sprIcnim.current, { opacity: 0, x: 0})
+         .set(spBrdOne.current, { opacity: 0, x: 0})
 
 
          /*  .set(bgdivRef.current, { opacity: 0, x: 0 })
@@ -299,42 +302,43 @@ const SlideScrollThree = ({
           .fromTo(
             splftimng.current,
             { x: -50, opacity: 0, width: '0%' },
-            { x: 0, opacity: 1, width: '100%', duration: 0.8, delay: 0, ease: "power3.out" }
+            { x: 0, opacity: 1, width: '100%', duration: 1, delay: 0, ease: "power1.out" }
           )
           .fromTo(
             sprghtBx.current,
             { x: 50, opacity: 0, },
-            { x: 0, opacity: 1, duration: 0.8, delay: 0, ease: "power3.out" }
+            { x: 0, opacity: 1, duration: 0.8, delay: 0, ease: "power1.out" },'-=0.5'
           )
           .fromTo(
             splftbg.current,
             { x: -50, opacity: 0, width: '0%' },
-            { x: 0, opacity: 1, width: '100%', duration: 0.8, delay: -0.5, ease: "power3.out" }
-          )
-          .fromTo(
-            sprgtbg.current,
-            { x: 50, opacity: 0, width: '0%' },
-            { x: 0, opacity: 1, width: '100%', duration: 0.8, delay: -0.5, ease: "power3.out" }
+            { x: 0, opacity: 1, width: '100%', duration: 0.8, delay: -0.5, ease: "power1.out" }, '-=0'
           )
           .fromTo(
             sptitle.current,
             { x: -50, opacity: 0, },
-            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power3.out" }
+            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
           )
           .fromTo(
             spdscrpt.current,
             { x: -50, opacity: 0, },
-            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power3.out" }
+            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
           )
           .fromTo(
             spbtn.current,
             { x: -50, opacity: 0, },
-            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power3.out" }
+            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
           )
+        
           .fromTo(
             sprIcnim.current,
             { x: 50, opacity: 0, },
-            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power3.out" }
+            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=1.5'
+          )
+            .fromTo(
+            spBrdOne.current,
+            { x: -100, opacity: 0,  },
+            { x: 0, opacity: 0.2,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
           )
         .fromTo(
             spStatsItems,
@@ -346,7 +350,7 @@ const SlideScrollThree = ({
               delay: -0.5,
               ease: "power3.out",
               stagger: 0.2,
-            }
+            }, '-=0.6'
           )
 
           /* 
@@ -422,11 +426,17 @@ const SlideScrollThree = ({
           .set(srvsCntb.current, { opacity: 0})
           .set(srvsArrw.current, { opacity: 0})
           .set(srvsRghtBx.current, { opacity: 0, x: 0})
+          .set(srvLftBx.current, { opacity: 0, x: 0})
 
           .fromTo(
             srvBgimg.current,
             {  opacity: 0 },
             { opacity: 1, duration: 1.5,  ease: "power3.out", transformOrigin: "50% 50%",  }
+          )
+          .fromTo(
+            srvLftBx.current,
+            {  opacity: 0 },
+            { opacity: 1, duration: 0.5,  ease: "power3.out",  },'-=0.5'
           )
           .fromTo(
             srvttlRef.current,
@@ -461,7 +471,7 @@ const SlideScrollThree = ({
             .fromTo(
             srvsRghtBx.current,
             { x: 30, opacity: 0 },
-            { x: 0, opacity: 1, duration: 1.5,  ease: "power3.out" },"-=1"
+            { x: 0, opacity: 1, duration: 1.5,  ease: "power3.out" },"-=1.5"
           )
           .fromTo(
             srvsImgRef.current,
@@ -473,7 +483,7 @@ const SlideScrollThree = ({
               duration: 1,
               ease: "power3.out",
             },
-            "-=0.5"
+            "-=1.5"
           )
           .fromTo(
             srvsVct.current,
@@ -482,7 +492,7 @@ const SlideScrollThree = ({
               x: 0,
               opacity: 1,
               duration: 0.5,
-              ease: "power3.out",
+              ease: "power3.inOut",
             }, "-=0.5"
           )
           .fromTo(
@@ -491,9 +501,9 @@ const SlideScrollThree = ({
             {
               x: 0,
               opacity: 1,
-              duration: 0.5,
-              ease: "power3.out",
-            }, "-=0.5"
+              duration: 1.5,
+              ease: "power3.inOut",
+            }, "-=1"
           )
           .fromTo(
             srvsArrw.current,
@@ -502,7 +512,7 @@ const SlideScrollThree = ({
               y: 0,
               opacity: 1,
               duration: 0.5,
-              ease: "power3.out",
+              ease: "power3.inOut",
             }, "-=0.5"
           )
           
@@ -566,11 +576,11 @@ const SlideScrollThree = ({
       case 1:
         b2.to(
           rightSecRef.current,
-          { x: 800, opacity: 0, duration: 1.5, ease: "power1.in" },
+          { x: 800, opacity: 0, duration: 1.1, ease: "power1.in" },
           0
         ).to(
           leftSecRef.current,
-          { x: -800, opacity: 0, duration: 1.5, ease: "power1.in" },
+          { x: -800, opacity: 0, duration: 1.1, ease: "power1.in" },
           0
         );
         /*   .to(ttbxsRef.current, { x: 800, opacity: 0, duration: 1.5, ease: 'power1.in' }, 0)
@@ -579,11 +589,11 @@ const SlideScrollThree = ({
       case 2:
         c2.to(
           sprghtBx.current,
-          { x: 800, opacity: 0, duration: 1.5, ease: "power1.in" },
+          { x: 800, opacity: 0, duration: 1.2, ease: "power1.in" },
           0
         ).to(
           splftimng.current,
-          { x: -800, opacity: 0, duration: 1.5, ease: "power1.in" },
+          { x: -800, opacity: 0, duration: 1.2, ease: "power1.in" },
           0
         );
         
@@ -657,16 +667,26 @@ const SlideScrollThree = ({
 
         break;
       case 3:
-        d2.fromTo(
+        d2.to(
+          srvLftBx.current,
+          { x: -800, opacity: 0, duration: 1, ease: "power1.in" },
+          0
+        ).to(
+          srvsRghtBx.current,
+          { x: 800, opacity: 0, duration: 1, ease: "power1.in" },
+          0
+        )
+         .fromTo(
+          srvBgimg.current,
+          {  opacity: 1 },
+          {  opacity: 0, duration: 1, ease: "power3.out" }, '-=0.8'
+        );
+        /* .fromTo(
           srvttlRef.current,
           { x: 0, opacity: 1 },
           { x: 50, opacity: 0, duration: 1, ease: "power3.out" }
         )
-        .fromTo(
-          srvBgimg.current,
-          {  opacity: 1 },
-          {  opacity: 0, duration: 1, ease: "power3.out" }
-        )
+       
          
           .fromTo(
             brdtwsRef.current,
@@ -718,7 +738,7 @@ const SlideScrollThree = ({
             ease: "power2.out",
           },
           "-=0.5"
-        );
+        ); */
         break;
     }
   };
@@ -1114,7 +1134,7 @@ const SlideScrollThree = ({
                 className="relative z-40 pt-6 xl:pt-[35px] text-white"
                 ref={title2Ref}
               >
-                <h1 className="text-45 xl:text-60 font-light leading-[1.166666666666667] mb-3 3xl:mb-[25px]">
+                <h1 className="text-48 3xl:text-60 font-light leading-[1.166666666666667] mb-3 3xl:mb-[25px]">
                   {aboutData.title}
                 </h1>
                 <h3 className="text-18 xl:text-24 font-light max-w-xl">
@@ -1203,9 +1223,9 @@ const SlideScrollThree = ({
                 className="w-full h-full object-cover absolute object-center"
               />
             </div>
-            <div className=" flex flex-col h-full px-10 xl:px-[100px] pb-20 xl:pb-[150px] pt-20 xl:pt-[150px] overflow-hidden relative" ref={sprghtBx}>
+            <div className=" flex flex-col h-full px-[70px] 3xl:px-[100px] pb-[120px] 3xl:pb-[150px] pt-[120px] 3xl:pt-[150px] overflow-hidden relative" ref={sprghtBx}>
               <div className="bg-primary absolute w-full left-0 h-full top-0 z-[-1]"  ref={sprgtbg}></div>
-              <img ref={sprIcnim} src="/assets/images/svg/sv-02.svg" width={600} height={600} className="absolute right-0 w-[300px]"/>
+              <img ref={sprIcnim} src="/assets/images/svg/sv-02.svg" width={600} height={600} className="absolute right-0 w-[250px] 3xl:w-[300px]"/>
               <div className="">
                 <h1 ref={sptitle} className="text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light  mb-8 xl:mb-[25px] text-white">
                   About SP <br></br>International
@@ -1246,7 +1266,7 @@ const SlideScrollThree = ({
                 </a>
               </div>
               <div className="mt-auto relative">
-                <hr className="border-white opacity-20 absolute top-[55%] left-[-30%] right-0"/>
+                <hr ref={spBrdOne} className="border-white opacity-20 absolute top-[55%] left-[-30%] right-0"/>
                   <div className="grid grid-cols-3 " ref={spStats}>
                          <div className="text-white">
                         <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
@@ -1424,12 +1444,12 @@ const SlideScrollThree = ({
           <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
             {/* left */}
             <div className="flex h-full">
-              <div className="w-1/3"></div>
-              <div className="w-2/3 pt-33">
-                <div className="ml-16 3xl:ml-28 flex flex-col h-full">
+         {/*      <div className="w-1/3"></div> */}
+              <div className="w-full pt-33 pl-[245px] 3xl:pl-[310px]" ref={srvLftBx}>
+                <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
                   <h1
                     ref={srvttlRef}
-                    className="text-34 xl:text-45 3xl:text-60 font-light gradient-text leading-[70px]"
+                    className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px]"
                   >
                     Our Services
                   </h1>
@@ -1486,7 +1506,7 @@ const SlideScrollThree = ({
             </div>
             {/* left */}
 
-            <div className="relative w-full h-[100vh]"  ref={srvsRghtBx}>
+            <div className="relative w-full h-[100vh] z-[-1]"  ref={srvsRghtBx}>
               <div className="absolute h-full w-full" ref={srvsImgRef}>
                               <div className="absolute z-10 top-0 left-0 w-full h-full bg-gradient-to-r from-black/40 from-0% via-black/40 via-52% to-black/40 to-100%"></div>
 
@@ -1506,7 +1526,7 @@ const SlideScrollThree = ({
                   height={914}
                 />
               </div>
-              <div className="absolute top-[38%] 3xl:top-[41.5%] left-20 z-10" ref={srvsCntb}>
+              <div className="absolute top-[38%] 3xl:top-[41.5%] left-[40px] 3xl:left-[58px] z-10" ref={srvsCntb}>
                 <h3 className="text-29 leading-[1.344827586206897] font-light text-white">
                   {activeService?.title}
                 </h3>
@@ -1514,7 +1534,7 @@ const SlideScrollThree = ({
                   {activeService?.description}
                 </p>
               </div>
-              <div className="absolute bottom-10 3xl:bottom-[50px] left-20 z-10" ref={srvsArrw}>
+              <div className="absolute bottom-10 3xl:bottom-[50px] left-[45px] 3xl:left-[58px] z-10" ref={srvsArrw}>
                 <img
                   src="../assets/images/services/arrow-up.svg"
                   alt="Arrow"
