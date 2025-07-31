@@ -422,7 +422,7 @@ const SlideScrollThree = ({
           .set(brdonRef.current, { opacity: 0 })
           .set(brdtwsRef.current, { opacity: 0, height: "0%" })
           .set(srvBgimg.current, { opacity: 0})
-          .set(srvsVct.current, { opacity: 0, scale: 0.6 })
+          .set(srvsVct.current, { opacity: 0})
           .set(srvsCntb.current, { opacity: 0})
           .set(srvsArrw.current, { opacity: 0})
           .set(srvsRghtBx.current, { opacity: 0, x: 0})
@@ -1455,10 +1455,7 @@ const SlideScrollThree = ({
                   <div className="w-full flex flex-col h-full justify-end   mt-15 relative">
                   
                     <div className="pb-4 relative">
-                      <hr
-                        ref={brdonRef}
-                        className="absolute left-0 right-[-100%] h-[1px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
-                      />
+                    
                    {/*    <p
                         ref={countRef}
                         className="text-60 font-light text-[#62626210]"
@@ -1507,7 +1504,7 @@ const SlideScrollThree = ({
 
             <div className="relative w-full h-[100vh] z-[-1]"  ref={srvsRghtBx}>
               <div className="absolute h-full w-full" ref={srvsImgRef}>
-                              <div className="absolute z-10 top-0 left-0 w-full h-full bg-gradient-to-r from-black/40 from-0% via-black/40 via-52% to-black/40 to-100%"></div>
+                              <div className="absolute z-10 top-0 left-0 w-full h-full bg-gradient-to-r from-black/60 from-0% via-black/60 via-52% to-black/60 to-100%"></div>
 
                 <img
                   src={activeService?.image}
@@ -1516,7 +1513,7 @@ const SlideScrollThree = ({
                   className="object-cover absolute w-full h-full"
                 />
               </div>
-              <div className="absolute bottom-0 right-0  w-[35%] " ref={srvsVct}>
+              <div className="absolute bottom-0 right-0  w-[38%] " ref={srvsVct}>
                 <img
                   src="../assets/images/srv-vct.svg"
                   alt="Logo"
@@ -1526,10 +1523,18 @@ const SlideScrollThree = ({
                 />
               </div>
               <div className="absolute top-[38%] 3xl:top-[41.5%] left-[40px] 3xl:left-[58px] z-10" ref={srvsCntb}>
+                  <hr
+                        ref={brdonRef}
+                        className="absolute right-[25%] left-[-85%] 3xl:left-[-78%] h-[1px] top-[80px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
+                      />
+                  <hr
+                        ref={brdonRef}
+                        className="absolute  left-[-40px] 3xl:left-[-58px] right-[25%] h-[1px] top-[80px] opacity-20 bottom-0 z-20 border-none   bg-white "
+                      />
                 <h3 className="text-29 leading-[1.344827586206897] font-light text-white">
                   {activeService?.title}
                 </h3>
-                <p className="text-18 text-white mt-[80px] w-[60%]">
+                <p className="text-18 text-white mt-[80px] w-[75%] 3xl:w-[60%]">
                   {activeService?.description}
                 </p>
               </div>
