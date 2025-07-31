@@ -1,8 +1,7 @@
 import React from 'react'
 
 
-import Header from './components/Header'
-import MainLayout from './mainLayout/mainLayout'
+import MainLayout from './MainLayout/MainLayout'
 
 /* import SmoothScroll from "./components/SmoothScroll"; */
 
