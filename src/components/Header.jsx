@@ -17,7 +17,11 @@ const sections = [
   { id: "section6", label: "PEOPLE" },
 ];
 
-const Header = ({ activeSection, setActiveSection,setIndexToScroll }) => {
+const Header = ({ activeSection, setActiveSection,setIndexToScroll,indexToScroll }) => {
+
+  useEffect(() => {
+    console.log(indexToScroll)
+  }, [indexToScroll])
 
 const headerRef = useRef(null);
 const navItemsRef = useRef([]);
@@ -106,15 +110,13 @@ useGSAP(() => {
 
 }, []);
 
-  
+
 
 const length = activeSection.length
-console.log(activeSection[length-1])
 const nextSection = sections.find((section) => section.id === `section${parseInt(activeSection[length-1])+1}`);
 const scrollStep = 600;
 
   const handleScroll = (sectionId) => {
-    console.log("clicked")
     console.log(sectionId)
     switch (sectionId) {
       case "section2":
@@ -128,7 +130,7 @@ const scrollStep = 600;
         break;
     }
 
-    const index = sections.findIndex((s) => s.id === sectionId);
+    // const index = sections.findIndex((s) => s.id === sectionId);
 
   
     // if (index !== -1) {
@@ -222,7 +224,7 @@ const scrollStep = 600;
                 {/* <img src="/assets/images/round-arrow-down-menu.svg" alt="Arrow" width={87} height={87} /> */}
                 <div className="flex items-center relative group">
                   <img src="/assets/images/round-circle.svg" alt="Arrow"  width={87} height={87} />
-                  <img src="/assets/images/arrow-down.svg" alt="Arrow"  width={35} height={35} className="arcrcl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0
+                  <img src="/assets/images/arrow-down.svg" alt="Arrow"  width={35} height={35} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0
                group-hover:scale-110 transition-transform duration-300 ease-in-out
                animate-[scaleFade_0.8s_ease-out_forwards] [animation-delay:1.5s]" />
                 </div>

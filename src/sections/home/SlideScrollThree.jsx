@@ -746,7 +746,8 @@ const SlideScrollThree = ({
   const updateSlides = (newIndex) => {
     const prevIndex = currentIndexRef.current;
     currentIndexRef.current = newIndex;
-    setCurrentIndex("newIndex", newIndex);
+    setCurrentIndex(newIndex);
+    setIndexToScroll(newIndex);
 
     switch (newIndex) {
       case 0:
@@ -814,11 +815,9 @@ const SlideScrollThree = ({
   };
 
   useEffect(() => {
-    console.log(indexToScroll);
-    if (currentIndex == 0) {
-      return;
+    if(currentIndex !== indexToScroll){
+      updateSlides(indexToScroll);
     }
-    updateSlides(indexToScroll);
   }, [indexToScroll]);
 
   useEffect(() => {
