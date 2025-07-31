@@ -1238,7 +1238,7 @@ const SlideScrollThree = ({
                   href={"/"}
                   className="text-16 leading-[1.75] font-light text-white uppercase flex items-center gap-2 cursor-pointer group "
                 >
-                  <span>About sprint</span>
+                  <span>READ MORE</span>
                   <svg
                     width="27"
                     height="18"
