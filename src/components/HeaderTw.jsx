@@ -17,11 +17,7 @@ const sections = [
   { id: "section6", label: "PEOPLE" },
 ];
 
-const Header = ({ activeSection, setActiveSection,setIndexToScroll,indexToScroll }) => {
-
-  useEffect(() => {
-    console.log(indexToScroll)
-  }, [indexToScroll])
+const HeaderTw = ({ activeSection, setActiveSection,setIndexToScroll }) => {
 
 const headerRef = useRef(null);
 const navItemsRef = useRef([]);
@@ -110,13 +106,15 @@ useGSAP(() => {
 
 }, []);
 
-
+  
 
 const length = activeSection.length
+console.log(activeSection[length-1])
 const nextSection = sections.find((section) => section.id === `section${parseInt(activeSection[length-1])+1}`);
 const scrollStep = 600;
 
   const handleScroll = (sectionId) => {
+    console.log("clicked")
     console.log(sectionId)
     switch (sectionId) {
       case "section2":
@@ -130,7 +128,7 @@ const scrollStep = 600;
         break;
     }
 
-    // const index = sections.findIndex((s) => s.id === sectionId);
+    const index = sections.findIndex((s) => s.id === sectionId);
 
   
     // if (index !== -1) {
@@ -176,7 +174,7 @@ const scrollStep = 600;
         <div className="flex">
           <div className="flex w-[150px] h-screen">
             {activeSection !== "section1" && 
-            <nav className="flex flex-col justify-center gap-4">
+            <nav className="flex flex-col justify-center gap-4 opacity-0">
               {sections.map((section, index) => {
                 const activeIndex = sections.findIndex((s) => s.id === activeSection);
                 const distance = Math.abs(index - activeIndex);
@@ -209,7 +207,7 @@ const scrollStep = 600;
             </nav>} 
           </div>
             <div className="left-spacing fixed ">
-          <div ref={headerRef} className=" shadow ml-0 3xl:ml-8 my-12 w-[125px] 3xl:w-[133px] h-[calc(100vh-100px)] relative">
+          <div ref={headerRef} className=" shadow ml-0 my-12 w-[125px] 3xl:w-[133px] h-[calc(100vh-100px)] relative">
             <div className="bg-transparent  w-full absolute z-[-2] bxone"></div>
             <div className="bg-primary h-[20%] w-full absolute z-[-1] bottom-0 bxtwo"></div>
             <div className="flex flex-col justify-between h-full pt-10 pb-6 z-10 w-full">
@@ -224,7 +222,7 @@ const scrollStep = 600;
                 {/* <img src="/assets/images/round-arrow-down-menu.svg" alt="Arrow" width={87} height={87} /> */}
                 <div className="flex items-center relative group">
                   <img src="/assets/images/round-circle.svg" alt="Arrow"  width={87} height={87} />
-                  <img src="/assets/images/arrow-down.svg" alt="Arrow"  width={35} height={35} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0
+                  <img src="/assets/images/arrow-down.svg" alt="Arrow" className="arcrcl" width={35} height={35} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0
                group-hover:scale-110 transition-transform duration-300 ease-in-out
                animate-[scaleFade_0.8s_ease-out_forwards] [animation-delay:1.5s]" />
                 </div>
@@ -238,4 +236,4 @@ const scrollStep = 600;
   );
 };
 
-export default Header;
+export default HeaderTw;

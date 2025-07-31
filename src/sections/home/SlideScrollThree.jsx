@@ -11,13 +11,14 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
 gsap.registerPlugin(DrawSVGPlugin);
 
-import { aboutData } from "./data";
+import { aboutData } from "./data.js";
 import { sprintData } from "./data.js";
 
-const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeSection}) => {
-
-  console.log(indexToScroll)
-
+const SlideScrollThree = ({
+  setActiveSection,
+  indexToScroll,
+  setIndexToScroll,
+}) => {
   const containerRef = useRef(null);
   const scrollBlock = useRef(false);
   const timeoutRef = useRef(null);
@@ -45,28 +46,44 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
   const ttbxsRef = useRef(null);
 
   const section3Ref = useRef(null);
-  const leftContentRef = useRef(null);
+  const splftimng = useRef(null);
+  const sptitle = useRef(null);
+  const spdscrpt = useRef(null);
+  const spbtn = useRef(null);
+  const spStats = useRef(null);
+  const sprgtbg = useRef(null);
+  const splftbg = useRef(null);
+  const sprghtBx = useRef(null);
+  const sprIcnim = useRef(null);
+  const spBrdOne = useRef(null);
+
+/*   const leftContentRef = useRef(null);
   const rightImageRef = useRef(null);
   const swiperRef = useRef(null);
-  const bottomTextRef = useRef(null);
-
+  const bottomTextRef = useRef(null); */
 
   const bgdivRef = useRef(null);
 
-  const polygon1Ref = useRef(null);
+/*   const polygon1Ref = useRef(null);
   const polygon2Ref = useRef(null);
-  const polygon3Ref = useRef(null);
+  const polygon3Ref = useRef(null); */
   const polygon4Ref = useRef(null);
   const polygon5Ref = useRef(null);
 
   const section4Ref = useRef(null);
- /*  const section4Content = useRef(null); */
+  /*  const section4Content = useRef(null); */
   const srvttlRef = useRef(null);
   const srvsImgRef = useRef(null);
   const textItemsRef = useRef([]);
   const countRef = useRef([]);
   const brdonRef = useRef([]);
   const brdtwsRef = useRef([]);
+  const srvBgimg = useRef([]);
+  const srvsVct = useRef([]);
+  const srvsCntb = useRef([]);
+  const srvsArrw = useRef([]);
+  const srvsRghtBx = useRef([]);
+  const srvLftBx = useRef([]);
 
   /*     const [activeIndex, setActiveIndex] = useState(0); */
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -75,45 +92,44 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
 
   const sections = [section1Ref, section2Ref, section3Ref, section4Ref];
 
-
   useEffect(() => {
-   const a3 = gsap.timeline();
-   a3.fromTo(
+    const a3 = gsap.timeline();
+    a3.fromTo(
       polygon4Ref.current,
       { drawSVG: "0%" },
       { drawSVG: "-100%", duration: 1.5, ease: "power1.inOut" }
     )
 
-    .fromTo(
-      polygon5Ref.current,
-      { drawSVG: "0%" },
-      { drawSVG: "100%", duration: 1.5, delay: -1.5, ease: "power1.inOut" }
-    )
-
-    .to(".ovrlywht", {
-     /*  opacity: 0, */
-      y: '-100%',
-      duration: 2,
-      delay: -1,
-      ease: "Power2.easeInOut",
-    })
-    .fromTo(
-      polygon4Ref.current,
-      { drawSVG: "-100%" },
-      { drawSVG: "0%", duration: .5, ease: "power1.inOut" }
-    )
       .fromTo(
-      polygon5Ref.current,
-      { drawSVG: "100%" },
-      { drawSVG: "0%", duration: .5, delay: -.5, ease: "power1.inOut" }
-    )
-    .to(".loader-im", {
-      rotate: 0,
-      duration: 1,
-      delay: 1.1,
-      ease: "Power4.easeInOut",
-      transformOrigin: "50%, 50%",
-    })
+        polygon5Ref.current,
+        { drawSVG: "0%" },
+        { drawSVG: "100%", duration: 1.5, delay: -1.5, ease: "power1.inOut" }
+      )
+
+      .to(".ovrlywht", {
+        /*  opacity: 0, */
+        y: "-100%",
+        duration: 2,
+        delay: -1,
+        ease: "Power2.easeInOut",
+      })
+      .fromTo(
+        polygon4Ref.current,
+        { drawSVG: "-100%" },
+        { drawSVG: "0%", duration: 0.5, ease: "power1.inOut" }
+      )
+      .fromTo(
+        polygon5Ref.current,
+        { drawSVG: "100%" },
+        { drawSVG: "0%", duration: 0.5, delay: -0.5, ease: "power1.inOut" }
+      )
+      .to(".loader-im", {
+        rotate: 0,
+        duration: 1,
+        delay: 1.1,
+        ease: "Power4.easeInOut",
+        transformOrigin: "50%, 50%",
+      })
       .to(".loader-im", {
         scale: 10,
         duration: 2,
@@ -133,30 +149,26 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
         },
         "-=1.2"
       );
-  }, [])
-
-  
+  }, []);
 
   const playEntryAnimation = (index) => {
     gsap.set([ttbxsRef.current, rightSecRef.current, leftSecRef.current], {
       x: 0,
       opacity: 1,
     });
-      
+
+    const spStatsItems = spStats.current.querySelectorAll("div");
     const statItems = statsRef.current.querySelectorAll("div");
     const a1 = gsap.timeline();
     const b1 = gsap.timeline();
     const c1 = gsap.timeline();
     const d1 = gsap.timeline();
-     
+
     switch (index) {
       case 0:
-     
-
-   
         a1.set(videoRef.current, { x: "0%" })
-        .set(brdrRef.current, { x: "0%", width: '0%' })
-        .set(blockRefs.current, { opacity: 1, delay: 0.5, height: "100%" })
+          .set(brdrRef.current, { x: "0%", width: "0%" })
+          .set(blockRefs.current, { opacity: 1, delay: 0.5, height: "100%" })
           .fromTo(
             videoRef.current,
             { scale: 0.8, opacity: 0 },
@@ -199,8 +211,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
 
         break;
       case 1:
-        b1
-        .fromTo(
+        b1.fromTo(
           videoBgRef.current,
           { y: 0, opacity: 0, width: "0%" },
           {
@@ -215,7 +226,14 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
           .fromTo(
             leftBgRef.current,
             { y: 0, width: "0%", opacity: 0 },
-            { y: 0, width: "100%", opacity: 1, duration: 1,  ease: "power3.out" }, '+=0.5'
+            {
+              y: 0,
+              width: "100%",
+              opacity: 1,
+              duration: 1,
+              ease: "power3.out",
+            },
+            "+=0.5"
           )
           .fromTo(
             title2Ref.current,
@@ -264,20 +282,83 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
           );
         break;
       case 2:
-        c1.set(bgdivRef.current, { opacity: 0, x: 0 })
-        .set(leftContentRef.current, { opacity: 0 })
-        .set(bottomTextRef.current, { opacity: 0, x: 0, })
-        .set(polygon1Ref.current, {  drawSVG: "0%"})
-        .set(polygon2Ref.current, {  drawSVG: "0%"})
-        .set(polygon3Ref.current, {  drawSVG: "0%", opacity: 1,})
-        .set(leftContentRef.current, { opacity: 0 })
-      
-    
+        c1.set(splftimng.current, { opacity: 0, width: '0%', x: 0 })
+         .set(sptitle.current, { opacity: 0 })
+         .set(spdscrpt.current, { opacity: 0 })
+         .set(spbtn.current, { opacity: 0 })
+         .set(sprghtBx.current, { opacity: 0, x: 0})
+         .set(sprIcnim.current, { opacity: 0, x: 0})
+         .set(spBrdOne.current, { opacity: 0, x: 0})
+
+
+         /*  .set(bgdivRef.current, { opacity: 0, x: 0 })
+          .set(leftContentRef.current, { opacity: 0 })
+          .set(bottomTextRef.current, { opacity: 0, x: 0 })
+          .set(polygon1Ref.current, { drawSVG: "0%" })
+          .set(polygon2Ref.current, { drawSVG: "0%" })
+          .set(polygon3Ref.current, { drawSVG: "0%", opacity: 1 })
+          .set(leftContentRef.current, { opacity: 0 }) */
+
+          .fromTo(
+            splftimng.current,
+            { x: -50, opacity: 0, width: '0%' },
+            { x: 0, opacity: 1, width: '100%', duration: 1, delay: 0, ease: "power1.out" }
+          )
+          .fromTo(
+            sprghtBx.current,
+            { x: 50, opacity: 0, },
+            { x: 0, opacity: 1, duration: 0.8, delay: 0, ease: "power1.out" },'-=0.5'
+          )
+          .fromTo(
+            splftbg.current,
+            { x: -50, opacity: 0, width: '0%' },
+            { x: 0, opacity: 1, width: '100%', duration: 0.8, delay: -0.5, ease: "power1.out" }, '-=0'
+          )
+          .fromTo(
+            sptitle.current,
+            { x: -50, opacity: 0, },
+            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
+          )
+          .fromTo(
+            spdscrpt.current,
+            { x: -50, opacity: 0, },
+            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
+          )
+          .fromTo(
+            spbtn.current,
+            { x: -50, opacity: 0, },
+            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
+          )
+        
+          .fromTo(
+            sprIcnim.current,
+            { x: 50, opacity: 0, },
+            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=1.5'
+          )
+            .fromTo(
+            spBrdOne.current,
+            { x: -100, opacity: 0,  },
+            { x: 0, opacity: 0.2,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
+          )
         .fromTo(
-          leftContentRef.current,
-          { x: -50, opacity: 0 },
-          { x: 0, opacity: 1.5, duration: 0.8, delay: 0, ease: "power1.in" }
-        )
+            spStatsItems,
+            { x: -50, opacity: 0 },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 1,
+              delay: -0.5,
+              ease: "power3.out",
+              stagger: 0.2,
+            }, '-=0.6'
+          )
+
+          /* 
+          .fromTo(
+            leftContentRef.current,
+            { x: -50, opacity: 0 },
+            { x: 0, opacity: 1.5, duration: 0.8, delay: 0, ease: "power1.in" }
+          )
           .fromTo(
             rightImageRef.current,
             { x: 50, width: "0%", opacity: 0 },
@@ -293,7 +374,8 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
           .fromTo(
             swiperRef.current,
             { x: 300, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.6,  ease: "power1.inOut" }, '-=1'
+            { x: 0, opacity: 1, duration: 0.6, ease: "power1.inOut" },
+            "-=1"
           )
           .fromTo(
             polygon1Ref.current,
@@ -308,67 +390,88 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
           .fromTo(
             polygon3Ref.current,
             { drawSVG: "0%" },
-            { drawSVG: "100%", duration: 3, delay: -2, ease: "power1.inOut",  repeat: 0, yoyo: true, }
+            {
+              drawSVG: "100%",
+              duration: 3,
+              delay: -2,
+              ease: "power1.inOut",
+              repeat: 0,
+              yoyo: true,
+            }
           )
           .fromTo(
             bottomTextRef.current,
             { x: 30, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.5, delay: 0, ease: "power1.in" }, '-=1.5'
+            { x: 0, opacity: 1, duration: 0.5, delay: 0, ease: "power1.in" },
+            "-=1.5"
           )
-           .fromTo(
+          .fromTo(
             bgdivRef.current,
-            { x: 0, opacity: 0 , scale: 1 },
-            { x: 0, opacity: 0.06, scale: 1.1, duration: 5,  ease: "power1.in" }, '-=3.5'
-          );
-  
-          
+            { x: 0, opacity: 0, scale: 1 },
+            { x: 0, opacity: 0.06, scale: 1.1, duration: 5, ease: "power1.in" },
+            "-=3.5"
+          ) */;
+
         break;
       case 3:
         d1.set(bgdivRef.current, { opacity: 0, x: 0 })
-        .set(srvttlRef.current,{opacity: 0})
-        .set(srvsImgRef.current,{opacity: 0, width: "0%",})
-        .set(countRef.current,{opacity: 0,})
-        .set(textItemsRef.current,{opacity: 0, y: 0})
-        .set(brdonRef.current,{opacity: 0})
-        .set(brdtwsRef.current,{opacity: 0, height: '0%'})
-        .fromTo(
+          .set(srvttlRef.current, { opacity: 0 })
+          .set(srvsImgRef.current, { opacity: 0, width: "0%" })
+          .set(countRef.current, { opacity: 0 })
+          .set(textItemsRef.current, { opacity: 0, y: 0 })
+          .set(brdonRef.current, { opacity: 0 })
+          .set(brdtwsRef.current, { opacity: 0, height: "0%" })
+          .set(srvBgimg.current, { opacity: 0})
+          .set(srvsVct.current, { opacity: 0, scale: 0.6 })
+          .set(srvsCntb.current, { opacity: 0})
+          .set(srvsArrw.current, { opacity: 0})
+          .set(srvsRghtBx.current, { opacity: 0, x: 0})
+          .set(srvLftBx.current, { opacity: 0, x: 0})
+
+          .fromTo(
+            srvBgimg.current,
+            {  opacity: 0 },
+            { opacity: 1, duration: 1.5,  ease: "power3.out", transformOrigin: "50% 50%",  }
+          )
+          .fromTo(
+            srvLftBx.current,
+            {  opacity: 0 },
+            { opacity: 1, duration: 0.5,  ease: "power3.out",  },'-=0.5'
+          )
+          .fromTo(
             srvttlRef.current,
             { x: -30, opacity: 0 },
-            { x: 0, opacity: 1, duration: 1.5, ease: "power1.in" }
+            { x: 0, opacity: 1, duration: 0.5, delay: 0, ease: "power3.out" }, '-=0.5'
           )
-           .fromTo(
-            countRef.current,
-            { x: -30, width: "0%", opacity: 0 },
-            {
-              x: 0,
-              width: "100%",
-              opacity: 1,
-              duration: 0.5,
-              delay: 0,
-              ease: "power1.in",
-            }, '-=0.2'
-          )
-        .fromTo(
+        
+       
+          .fromTo(
             brdonRef.current,
             { x: -30, opacity: 0 },
             {
               x: 0,
-            
+
               opacity: 0.1,
               duration: 1.2,
-              ease: "power1.in",
-            }, '-=0.2'
+              ease: "power3.out",
+            },
+            "-=0.5"
           )
-        .fromTo(
-            brdtwsRef.current,
-            { y: -30, height: "0%", opacity: 1 },
+           .fromTo(
+            textItemsRef.current,
+            { y: 30, opacity: 0 },
             {
               y: 0,
-              height: "100%",
               opacity: 1,
-              duration: 1.2,
-              ease: "power1.in",
-            },'-=1.5'
+              stagger: 0.1,
+              duration: 0.8,
+              ease: "power3.out",
+            },"-=1"
+          )
+            .fromTo(
+            srvsRghtBx.current,
+            { x: 30, opacity: 0 },
+            { x: 0, opacity: 1, duration: 1.5,  ease: "power3.out" },"-=1.5"
           )
           .fromTo(
             srvsImgRef.current,
@@ -378,22 +481,43 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
               width: "100%",
               opacity: 1,
               duration: 1,
-              ease: "power1.in",
-            }, '-=1'
+              ease: "power3.out",
+            },
+            "-=1.5"
           )
-         
           .fromTo(
-          textItemsRef.current,
-          { y: 30, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            stagger: 0.1,
-            duration: 0.8,
-            ease: "power2.out",
-          },
-          "-=1.5"
-        );
+            srvsVct.current,
+            { x: -30, opacity: 0 },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 0.5,
+              ease: "power3.inOut",
+            }, "-=0.5"
+          )
+          .fromTo(
+            srvsCntb.current,
+            { x: -30, opacity: 0 },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 1.5,
+              ease: "power3.inOut",
+            }, "-=1"
+          )
+          .fromTo(
+            srvsArrw.current,
+            { y: -30, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.5,
+              ease: "power3.inOut",
+            }, "-=0.5"
+          )
+          
+
+         ;
         break;
     }
   };
@@ -452,18 +576,30 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
       case 1:
         b2.to(
           rightSecRef.current,
-          { x: 800, opacity: 0, duration: 1.5, ease: "power1.in" },
+          { x: 800, opacity: 0, duration: 1.1, ease: "power1.in" },
           0
         ).to(
           leftSecRef.current,
-          { x: -800, opacity: 0, duration: 1.5, ease: "power1.in" },
+          { x: -800, opacity: 0, duration: 1.1, ease: "power1.in" },
           0
         );
         /*   .to(ttbxsRef.current, { x: 800, opacity: 0, duration: 1.5, ease: 'power1.in' }, 0)
          */
         break;
       case 2:
-        c2.to(leftContentRef.current, {
+        c2.to(
+          sprghtBx.current,
+          { x: 800, opacity: 0, duration: 1.2, ease: "power1.in" },
+          0
+        ).to(
+          splftimng.current,
+          { x: -800, opacity: 0, duration: 1.2, ease: "power1.in" },
+          0
+        );
+        
+        
+        
+      /*   .to(leftContentRef.current, {
           x: -50,
           opacity: 0,
           duration: 1,
@@ -496,7 +632,14 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
           .fromTo(
             bottomTextRef.current,
             { x: 0, opacity: 1 },
-            { x: 30, opacity: 0, duration: 0.5, delay: -0.8, ease: "power1.in" }, '-=1'
+            {
+              x: 30,
+              opacity: 0,
+              duration: 0.5,
+              delay: -0.8,
+              ease: "power1.in",
+            },
+            "-=1"
           )
           .fromTo(
             polygon1Ref.current,
@@ -515,32 +658,37 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
             { drawSVG: "-100%" },
             { drawSVG: "0%", duration: 0.5, ease: "power1.inOut", opacity: 0 },
             "-=2.5"
-          )
-           /*   gsap.fromTo(
+          ); */
+        /*   gsap.fromTo(
             bgImageRef.current,
             { x: 0, opacity: 1 },
             { x: 0, opacity: 0, scale: 1.2, duration: 1, delay: 0, ease: "power1.in" }, '-=1.5'
-          ) */;
+          ) */
 
         break;
       case 3:
-       d2.fromTo(
-            srvttlRef.current,
-            { x: 0, opacity: 1 },
-            { x: 50, opacity: 0, duration: 1,  ease: "power3.out" }
-          )
+        d2.to(
+          srvLftBx.current,
+          { x: -800, opacity: 0, duration: 1, ease: "power1.in" },
+          0
+        ).to(
+          srvsRghtBx.current,
+          { x: 800, opacity: 0, duration: 1, ease: "power1.in" },
+          0
+        )
+         .fromTo(
+          srvBgimg.current,
+          {  opacity: 1 },
+          {  opacity: 0, duration: 1, ease: "power3.out" }, '-=0.8'
+        );
+        /* .fromTo(
+          srvttlRef.current,
+          { x: 0, opacity: 1 },
+          { x: 50, opacity: 0, duration: 1, ease: "power3.out" }
+        )
+       
+         
           .fromTo(
-            brdonRef.current,
-            { x: -50, opacity: 0.1},
-            {
-              x: 0,
-              opacity: 0,
-              duration: 1,
-              delay: -1,
-              ease: "power1.in",
-            },"-=0.5"
-          )
-        .fromTo(
             brdtwsRef.current,
             { y: -50, height: "100%", opacity: 0 },
             {
@@ -550,7 +698,8 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
               duration: 1,
               delay: -1,
               ease: "power1.in",
-            },"-=0.5"
+            },
+            "-=0.5"
           )
           .fromTo(
             srvsImgRef.current,
@@ -562,7 +711,8 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
               duration: 1,
               delay: -1,
               ease: "power1.in",
-            },"-=0.5"
+            },
+            "-=0.5"
           )
           .fromTo(
             countRef.current,
@@ -574,7 +724,8 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
               duration: 0.5,
               delay: 0,
               ease: "power1.in",
-            },"-=1"
+            },
+            "-=1"
           );
         t1.fromTo(
           textItemsRef.current,
@@ -587,7 +738,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
             ease: "power2.out",
           },
           "-=0.5"
-        );
+        ); */
         break;
     }
   };
@@ -595,7 +746,6 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
   const updateSlides = (newIndex) => {
     const prevIndex = currentIndexRef.current;
     currentIndexRef.current = newIndex;
-    console.log(newIndex)
     setCurrentIndex(newIndex);
     setIndexToScroll(newIndex);
 
@@ -661,13 +811,11 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
   };
 
   const handleMenuClick = (index) => {
-      updateSlides(index);
+    updateSlides(index);
   };
 
   useEffect(() => {
-    console.log(indexToScroll,currentIndex)
-
-    if(indexToScroll !== currentIndex){
+    if(currentIndex !== indexToScroll){
       updateSlides(indexToScroll);
     }
   }, [indexToScroll]);
@@ -696,51 +844,53 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
     {
       image: "/assets/images/services/engineering-construction.jpg",
       title: "Engineering & Construction",
-      description: "",
+      description: "Shapoorji Pallonji International (SPINT) is the international arm of Shapoorji Pallonji Engineering & Construction (SP E&C) for its construction operations outside India.",
     },
     {
       image: "/assets/images/services/servicemain.jpg",
       title: "Design Studio",
-      description: "",
+      description: "Shapoorji Pallonji International (SPINT) is the international arm of Shapoorji Pallonji Engineering & Construction (SP E&C) for its construction operations outside India.",
     },
     {
       image: "/assets/images/services/mep.jpg",
       title: "MEP",
-      description: "",
+      description: "Shapoorji Pallonji International (SPINT) is the international arm of Shapoorji Pallonji Engineering & Construction (SP E&C) for its construction operations outside India.",
     },
     {
       image: "/assets/images/services/interior-fit-out.jpg",
       title: "Interior Fit-out",
-      description: "",
+      description: "Shapoorji Pallonji International (SPINT) is the international arm of Shapoorji Pallonji Engineering & Construction (SP E&C) for its construction operations outside India.",
     },
     {
       image: "/assets/images/services/Facade.jpg",
       title: "Façade",
-      description: "",
+      description: "Shapoorji Pallonji International (SPINT) is the international arm of Shapoorji Pallonji Engineering & Construction (SP E&C) for its construction operations outside India.",
     },
     {
       image: "/assets/images/services/Facility-Management.jpg",
       title: "Facilities Management",
-      description: "",
+      description: "Shapoorji Pallonji International (SPINT) is the international arm of Shapoorji Pallonji Engineering & Construction (SP E&C) for its construction operations outside India.",
     },
     {
       image: "/assets/images/services/Water.jpg",
       title: "Water",
-      description: "",
+      description: "Shapoorji Pallonji International (SPINT) is the international arm of Shapoorji Pallonji Engineering & Construction (SP E&C) for its construction operations outside India.",
     },
   ];
 
-  const [activeService, setActiveService] = useState({image:content[0].image,title:content[0].title,index:0});
+  const [activeService, setActiveService] = useState({
+    image: content[0].image,
+    title: content[0].title,
+    description: content[0].description,
+    index: 0,
+  });
 
   return (
     <div
       ref={containerRef}
       className="relative h-screen w-screen overflow-hidden"
     >
-
-
-          <div className="fixed w-screen h-screen z-[500] mswd pointer-events-none grid content-center load-sec">
-       
+      <div className="fixed w-screen h-screen z-[500] mswd pointer-events-none grid content-center load-sec">
         <svg
           className="h-[370px] w-[370px] 3xl:h-[450px] 3xl:w-[450px] absolute left-0 right-0 z-20"
           id="Layer_1"
@@ -770,7 +920,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
           width={1920}
           height={1080}
         />
-       
+
         <div className="h-full absolute top-0 left-0 w-full bg-amber-50">
           <video
             src="../assets/videos/home.mp4"
@@ -781,7 +931,6 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
           ></video>
         </div>
       </div>
-
 
       {/* Menu */}
       {/* {currentIndex > 0 && (
@@ -804,16 +953,11 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
         </div>
       )} */}
 
-
-
-
       {/* Slide 1 */}
       <div
         ref={section1Ref}
         className="absolute top-0 left-0 w-full h-full bg-transparent"
       >
-
-       
         <section className="h-[100dvh] overflow-x-hidden relative scroll-area overflow-hidden bg-transparent">
           <div
             className="h-full absolute top-0 left-0 w-full z-0"
@@ -950,11 +1094,12 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
               ref={leftSecRef}
               className="relative py-4 xl:py-[50px] xl:pl-[150px] overflow-hidden"
             >
-              <div className="absolute top-0 left-0 z-20 w-full h-full bg-gradient-to-l from-black/30 from-0% to-black/80 to-100%"></div>
+             
               <div
                 className="absolute top-0 w-full z-10 h-full right-0 "
                 ref={leftBgRef}
               >
+                 <div className="absolute top-0 left-0 z-20 w-full h-full bg-gradient-to-l from-black/30 from-0% to-black/80 to-100%"></div>
                 <img
                   src={aboutData.leftBgImage}
                   alt=""
@@ -969,17 +1114,18 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
               ref={rightSecRef}
               className="relative flex flex-col h-full px-10 xl:px-[90px] pb-20 xl:pb-[93px] pt-20 xl:pt-[50px] overflow-hidden"
             >
-              <div className="absolute top-0 left-0 z-[22] w-full h-full bg-gradient-to-r from-black/85 from-0% via-black/65 via-75% to-black/60 to-100% "></div>
+             
               <div
                 className="absolute top-0 w-full z-10 h-full right-0 opacity-0"
                 ref={videoBgRef}
               >
+                 <div className="absolute top-0 left-0 z-[22] w-full h-full bg-gradient-to-r from-black/85 from-0% via-black/65 via-75% to-black/60 to-100% "></div>
                 <video
                   src="../assets/videos/hero.mp4"
                   autoPlay
                   loop
                   muted
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover absolute left-0 right-0"
                 ></video>
               </div>
 
@@ -987,7 +1133,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
                 className="relative z-40 pt-6 xl:pt-[35px] text-white"
                 ref={title2Ref}
               >
-                <h1 className="text-45 xl:text-60 font-light leading-[1.166666666666667] mb-3 3xl:mb-[25px]">
+                <h1 className="text-48 3xl:text-60 font-light leading-[1.166666666666667] mb-3 3xl:mb-[25px]">
                   {aboutData.title}
                 </h1>
                 <h3 className="text-18 xl:text-24 font-light max-w-xl">
@@ -1063,12 +1209,93 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
       >
         <section
           id="section3"
-          className="h-screen overflow-hidden relative scroll-area bg-transparent"
+          className="h-screen overflow-hidden relative scroll-area"
         >
-          <div
-            
-            className="absolute top-0 left-0 z-0 w-full h-full bg-transparent"
-          >
+          <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full bg-transparent">
+            <div className="lftblc relative right-0" ref={splftimng}>
+               <div className="bg-primary absolute w-full right-0 h-full top-0 z-[-1]" ref={splftbg}></div>
+              <img
+                src={'../assets/images/abut-sp.jpg'}
+                alt=""
+                width={2000}
+                height={1500}
+                className="w-full h-full object-cover absolute object-center"
+              />
+            </div>
+            <div className=" flex flex-col h-full px-[70px] 3xl:px-[100px] pb-[120px] 3xl:pb-[150px] pt-[120px] 3xl:pt-[150px] overflow-hidden relative" ref={sprghtBx}>
+              <div className="bg-primary absolute w-full left-0 h-full top-0 z-[-1]"  ref={sprgtbg}></div>
+              <img ref={sprIcnim} src="/assets/images/svg/sv-02.svg" width={600} height={600} className="absolute right-0 w-[250px] 3xl:w-[300px]"/>
+              <div className="">
+                <h1 ref={sptitle} className="text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light  mb-8 xl:mb-[25px] text-white">
+                  About SP <br></br>International
+                </h1>
+                <p ref={spdscrpt} className="text-18 text-white font-light leading-[1.5] max-w-[90%]  3xl:max-w-[75%] mb-[30px]">
+                  Shapoorji Pallonji International (SPINT) is the international
+                  arm of Shapoorji Pallonji Engineering & Construction (SP E&C)
+                  for its construction operations outside India.
+                </p>
+                <a ref={spbtn}
+                  href={"/"}
+                  className="text-16 leading-[1.75] font-light text-white uppercase flex items-center gap-2 cursor-pointer group "
+                >
+                  <span>About sprint</span>
+                  <svg
+                    width="27"
+                    height="18"
+                    viewBox="0 0 27 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="group-hover:translate-x-2 transition-all ease-in-out duration-300"
+                  >
+                    <path
+                      d="M17.6328 2.43262L25.0111 9.0134L17.6579 15.5679"
+                      stroke="#30B6F9"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M24.5954 9H1.98047"
+                      stroke="#30B6F9"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <div className="mt-auto relative">
+                <hr ref={spBrdOne} className="border-white opacity-20 absolute top-[55%] left-[-30%] right-0"/>
+                  <div className="grid grid-cols-3 " ref={spStats}>
+                         <div className="text-white">
+                        <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
+                          150+
+                        </h1>
+                        <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
+                          Iconic Projects
+                        </p>
+                      </div>
+                     <div className="text-white">
+                        <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
+                         350+
+                        </h1>
+                        <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
+                       Happy Clients
+                        </p>
+                      </div>
+                       <div className="text-white">
+                        <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
+                        550+
+                        </h1>
+                        <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
+                        Projects Completed
+                        </p>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          {/* <div className="absolute top-0 left-0 z-0 w-full h-full bg-transparent">
             <img
               src={sprintData.mainBgImage}
               alt=""
@@ -1077,8 +1304,8 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
               className="w-full h-full object-cover opacity-0 absolute"
               ref={bgdivRef}
             />
-          </div>
-          <div className="absolute bottom-0 xl:bottom-10 left-[20%] xl:left-[17%] w-fit h-fit z-40">
+          </div> */}
+          {/*  <div className="absolute bottom-0 xl:bottom-10 left-[20%] xl:left-[17%] w-fit h-fit z-40">
             <svg
               width="503"
               height="707"
@@ -1086,7 +1313,8 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path ref={polygon3Ref}
+              <path
+                ref={polygon3Ref}
                 d="M502 3L1.00011 506.517L1 707H502V435.467L253.584 684.968V584.013L502 334.349V3Z"
                 stroke="url(#paint0_linear_987_1030)"
                 strokeWidth="2"
@@ -1108,7 +1336,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
           </div>
           <div className="absolute bottom-0 left-[10%] xl:left-[8%] 3xl:left-[18%] w-full h-[35%] z-10">
             <svg
-            className="absolute top-[50%] translate-y-[-50%]"
+              className="absolute top-[50%] translate-y-[-50%]"
               width="719"
               height="102%"
               viewBox="0 0 719 366"
@@ -1137,16 +1365,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
           </div>
           <div className="grid grid-cols-2 grid-rows-[65%_auto] h-full relative z-10 ">
             <div ref={leftContentRef} className=" pt-[110px] 3xl:pt-[130px]">
-              <div className="w-fit ml-auto  pr-10 3xl:pr-[68px]">
              
-                <h1 className="text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light max-w-xs 3xl:max-w-md mb-8 xl:mb-[39px] text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-                  {sprintData.title}
-                </h1>
-                <p className="text-18 xl:text-29 font-light leading-[1.344827586206897] max-w-sm  3xl:max-w-md">
-                  {sprintData.subtitle}
-                </p>
-                
-              </div>
             </div>
             <div ref={rightImageRef} className="relative z-50">
               <img
@@ -1200,39 +1419,11 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
                   {sprintData.description}
                 </p>
                 <div className="mt-10 xl:mt-15 3xl:mt-20">
-                  <a
-                    href={"/"}
-                    className="text-16 leading-[1.75] font-light text-light-gray uppercase flex items-center gap-2 cursor-pointer group"
-                  >
-                    <span>About sprint</span>
-                    <svg
-                      width="27"
-                      height="18"
-                      viewBox="0 0 27 18"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="group-hover:translate-x-2 transition-all ease-in-out duration-300"
-                    >
-                      <path
-                        d="M17.6328 2.43262L25.0111 9.0134L17.6579 15.5679"
-                        stroke="#30B6F9"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M24.5954 9H1.98047"
-                        stroke="#30B6F9"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </a>
+                 
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </section>
       </div>
 
@@ -1246,22 +1437,34 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
           id="section4"
           className="h-screen relative overflow-hidden whitebgref scroll-area"
         >
-          <div className="grid grid-cols-2 h-full">
+          <figure className="absolute w-full h-full bg-white z-[-1]" ref={srvBgimg}>
+            <img src="../assets/images/services-bg.jpg" alt="" />
+          </figure>
+          <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
             {/* left */}
             <div className="flex h-full">
-              <div className="w-1/3"></div>
-              <div className="w-2/3 pt-33">
-                <div className="ml-16 3xl:ml-28 flex flex-col h-full">
-                  <h1 ref={srvttlRef} className="text-34 xl:text-45 3xl:text-60 font-light gradient-text leading-[70px]">
+         {/*      <div className="w-1/3"></div> */}
+              <div className="w-full pt-33 pl-[245px] 3xl:pl-[310px]" ref={srvLftBx}>
+                <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
+                  <h1
+                    ref={srvttlRef}
+                    className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px]"
+                  >
                     Our Services
                   </h1>
-                  <div className="w-full flex flex-col h-full justify-end  pl-11 3xl:pl-13 mt-15 relative">
-                    <hr ref={brdtwsRef} className="border-l border-black/10 absolute h-full left-0 top-0" />
+                  <div className="w-full flex flex-col h-full justify-end   mt-15 relative">
+                  
                     <div className="pb-4 relative">
-                       <hr ref={brdonRef} className="absolute left-[-30%] right-[-150%] h-[1px] opacity-20 bottom-0 z-20   bg-gradient-to-r from-black to-white "/>
-                      <p ref={countRef} className="text-60 font-light text-[#62626210]">
-                        0{activeService.index+1}/ 06
-                      </p>
+                      <hr
+                        ref={brdonRef}
+                        className="absolute left-0 right-[-100%] h-[1px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
+                      />
+                   {/*    <p
+                        ref={countRef}
+                        className="text-60 font-light text-[#62626210]"
+                      >
+                        0{activeService.index + 1}/ 06
+                      </p> */}
                     </div>
                     <div className="flex flex-col pt-18 pb-21 3xl:pt-14 3xl:pb-21 pr-2">
                       {content.map((service, index) => (
@@ -1270,7 +1473,17 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
                           className="flex items-center gap-3 cursor-pointer group"
                           ref={(el) => (textItemsRef.current[index] = el)}
                         >
-                          <p className="text-[24px] 3xl:text-28 leading-[1.607142857142857] font-light cursor-pointer group-hover:text-black group-hover:font-bold text-black" onMouseOver={()=>setActiveService({image:service.image,title:service.title,index})}>
+                          <p
+                            className="text-[24px] 3xl:text-28 leading-[1.607142857142857] font-light cursor-pointer group-hover:text-black group-hover:font-bold text-black"
+                            onMouseOver={() =>
+                              setActiveService({
+                                image: service.image,
+                                title: service.title,
+                                description: service.description,
+                                index,
+                              })
+                            }
+                          >
                             <span className="duration-100">
                               {" "}
                               {service.title}
@@ -1292,30 +1505,35 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
             </div>
             {/* left */}
 
-            <div className="relative w-full h-[100vh]" ref={srvsImgRef} >
-                <div  className="absolute h-full w-full">
-              <img 
-            src={activeService?.image}
-                alt="Service Image"
-                fill
-                className="object-cover absolute w-full h-full"
-              />
-              </div>
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black/40 from-0% via-black/40 via-52% to-black/40 to-100%"></div>
-              <div className="absolute top-0 right-20">
+            <div className="relative w-full h-[100vh] z-[-1]"  ref={srvsRghtBx}>
+              <div className="absolute h-full w-full" ref={srvsImgRef}>
+                              <div className="absolute z-10 top-0 left-0 w-full h-full bg-gradient-to-r from-black/40 from-0% via-black/40 via-52% to-black/40 to-100%"></div>
+
                 <img
-                  src="../assets/images/services/studio-over.svg"
+                  src={activeService?.image}
+                  alt="Service Image"
+                  fill
+                  className="object-cover absolute w-full h-full"
+                />
+              </div>
+              <div className="absolute bottom-0 right-0  w-[35%] " ref={srvsVct}>
+                <img
+                  src="../assets/images/srv-vct.svg"
                   alt="Logo"
+                  className="h-full w-full"
                   width={682}
                   height={914}
                 />
               </div>
-              <div className="absolute top-[38%] 3xl:top-[43%] left-20 z-10">
+              <div className="absolute top-[38%] 3xl:top-[41.5%] left-[40px] 3xl:left-[58px] z-10" ref={srvsCntb}>
                 <h3 className="text-29 leading-[1.344827586206897] font-light text-white">
                   {activeService?.title}
                 </h3>
+                <p className="text-18 text-white mt-[80px] w-[60%]">
+                  {activeService?.description}
+                </p>
               </div>
-              <div className="absolute bottom-10 3xl:bottom-[50px] left-20 z-10">
+              <div className="absolute bottom-10 3xl:bottom-[50px] left-[45px] 3xl:left-[58px] z-10" ref={srvsArrw}>
                 <img
                   src="../assets/images/services/arrow-up.svg"
                   alt="Arrow"
@@ -1335,4 +1553,4 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
   );
 };
 
-export default SlideScrollTwo;
+export default SlideScrollThree;
