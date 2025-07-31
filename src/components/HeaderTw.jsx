@@ -174,7 +174,7 @@ const scrollStep = 600;
         <div className="flex">
           <div className="flex w-[150px] h-screen">
             {activeSection !== "section1" && 
-            <nav className="flex flex-col justify-center gap-4">
+            <nav className="flex flex-col justify-center gap-4 opacity-0">
               {sections.map((section, index) => {
                 const activeIndex = sections.findIndex((s) => s.id === activeSection);
                 const distance = Math.abs(index - activeIndex);
@@ -207,7 +207,7 @@ const scrollStep = 600;
             </nav>} 
           </div>
             <div className="left-spacing fixed ">
-          <div ref={headerRef} className=" shadow ml-0 3xl:ml-8 my-12 w-[125px] 3xl:w-[133px] h-[calc(100vh-100px)] relative">
+          <div ref={headerRef} className=" shadow ml-0 my-12 w-[125px] 3xl:w-[133px] h-[calc(100vh-100px)] relative">
             <div className="bg-transparent  w-full absolute z-[-2] bxone"></div>
             <div className="bg-primary h-[20%] w-full absolute z-[-1] bottom-0 bxtwo"></div>
             <div className="flex flex-col justify-between h-full pt-10 pb-6 z-10 w-full">
