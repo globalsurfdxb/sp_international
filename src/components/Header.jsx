@@ -17,7 +17,11 @@ const sections = [
   { id: "section6", label: "PEOPLE" },
 ];
 
-const Header = ({ activeSection, setActiveSection,setIndexToScroll }) => {
+const Header = ({ activeSection, setActiveSection,setIndexToScroll,indexToScroll }) => {
+
+  useEffect(() => {
+    console.log(indexToScroll)
+  }, [indexToScroll])
 
 const headerRef = useRef(null);
 const navItemsRef = useRef([]);
@@ -106,15 +110,13 @@ useGSAP(() => {
 
 }, []);
 
-  
+
 
 const length = activeSection.length
-console.log(activeSection[length-1])
 const nextSection = sections.find((section) => section.id === `section${parseInt(activeSection[length-1])+1}`);
 const scrollStep = 600;
 
   const handleScroll = (sectionId) => {
-    console.log("clicked")
     console.log(sectionId)
     switch (sectionId) {
       case "section2":
@@ -128,7 +130,7 @@ const scrollStep = 600;
         break;
     }
 
-    const index = sections.findIndex((s) => s.id === sectionId);
+    // const index = sections.findIndex((s) => s.id === sectionId);
 
   
     // if (index !== -1) {
