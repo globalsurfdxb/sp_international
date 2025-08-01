@@ -589,11 +589,11 @@ const SlideScrollThree = ({
       case 2:
         c2.to(
           sprghtBx.current,
-          { x: 800, opacity: 0, duration: 1.2, ease: "power1.in" },
+          { x: 800, opacity: 0, duration: 1.2, ease: "power1.inOut" },
           0
         ).to(
           splftimng.current,
-          { x: -800, opacity: 0, duration: 1.2, ease: "power1.in" },
+          { x: -800, opacity: 0, duration: 1.2, ease: "power1.inOut" },
           0
         );
         
