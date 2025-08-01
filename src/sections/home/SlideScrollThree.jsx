@@ -1522,7 +1522,7 @@ const SlideScrollThree = ({
                   height={914}
                 />
               </div>
-              <div className="absolute bottom-[250px] 3xl:bottom-[330px]  left-[40px] 3xl:left-[58px] z-10" ref={srvsCntb}>
+              <div className="absolute bottom-[245px] 3xl:bottom-[300px]  left-[40px] 3xl:left-[58px] z-10" ref={srvsCntb}>
                   <hr
                         ref={brdonRef}
                         className="absolute right-[25%] left-[-85%] 3xl:left-[-78%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
