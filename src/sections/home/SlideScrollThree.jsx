@@ -1513,7 +1513,7 @@ const SlideScrollThree = ({
                   className="object-cover absolute w-full h-full"
                 />
               </div>
-              <div className="absolute bottom-0 right-0  w-[38%] " ref={srvsVct}>
+              <div className="absolute bottom-0 right-0  w-[40%] " ref={srvsVct}>
                 <img
                   src="../assets/images/svg/srv-vct.svg"
                   alt="Logo"
@@ -1522,7 +1522,7 @@ const SlideScrollThree = ({
                   height={914}
                 />
               </div>
-              <div className="absolute bottom-[330px]  left-[40px] 3xl:left-[58px] z-10" ref={srvsCntb}>
+              <div className="absolute bottom-[250px] 3xl:bottom-[330px]  left-[40px] 3xl:left-[58px] z-10" ref={srvsCntb}>
                   <hr
                         ref={brdonRef}
                         className="absolute right-[25%] left-[-85%] 3xl:left-[-78%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
@@ -1534,7 +1534,7 @@ const SlideScrollThree = ({
                 <h3 className="text-29 leading-[1.344827586206897] font-light text-white">
                   {activeService?.title}
                 </h3>
-                <p className="text-18 text-white mt-[80px] w-[75%] 3xl:w-[60%]">
+                <p className="text-18 text-white mt-[80px] w-[75%] 3xl:w-[55%]">
                   {activeService?.description}
                 </p>
               </div>
