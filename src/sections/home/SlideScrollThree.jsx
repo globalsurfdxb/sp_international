@@ -669,7 +669,7 @@ const SlideScrollThree = ({
       case 3:
         d2.to(
           srvLftBx.current,
-          { x: -800, opacity: 0, duration: 1, ease: "power1.in" },
+          { x: -100, opacity: 0, duration: 1, ease: "power1.in" },
           0
         ).to(
           srvsRghtBx.current,
