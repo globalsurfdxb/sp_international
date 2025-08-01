@@ -950,11 +950,12 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
               ref={leftSecRef}
               className="relative py-4 xl:py-[50px] xl:pl-[150px] overflow-hidden"
             >
-              <div className="absolute top-0 left-0 z-20 w-full h-full bg-gradient-to-l from-black/30 from-0% to-black/80 to-100%"></div>
+              
               <div
                 className="absolute top-0 w-full z-10 h-full right-0 "
                 ref={leftBgRef}
               >
+                <div className="absolute top-0 left-0 z-20 w-full h-full bg-gradient-to-l from-black/30 from-0% to-black/80 to-100%"></div>
                 <img
                   src={aboutData.leftBgImage}
                   alt=""
@@ -969,11 +970,12 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
               ref={rightSecRef}
               className="relative flex flex-col h-full px-10 xl:px-[90px] pb-20 xl:pb-[93px] pt-20 xl:pt-[50px] overflow-hidden"
             >
-              <div className="absolute top-0 left-0 z-[22] w-full h-full bg-gradient-to-r from-black/85 from-0% via-black/65 via-75% to-black/60 to-100% "></div>
+             
               <div
                 className="absolute top-0 w-full z-10 h-full right-0 opacity-0"
                 ref={videoBgRef}
               >
+                 <div className="absolute top-0 left-0 z-[22] w-full h-full bg-gradient-to-r from-black/85 from-0% via-black/65 via-75% to-black/60 to-100% "></div>
                 <video
                   src="../assets/videos/hero.mp4"
                   autoPlay
