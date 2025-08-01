@@ -844,37 +844,37 @@ const SlideScrollThree = ({
     {
       image: "/assets/images/services/engineering-construction.jpg",
       title: "Engineering & Construction",
-      description: "Shapoorji Pallonji International (SPINT) is the international arm of Shapoorji Pallonji Engineering & Construction (SP E&C) for its construction operations outside India.",
+      description: "Delivering complex infrastructure and building projects with precision, safety, and quality at the core. We bring engineering excellence to life across industries and geographies.",
     },
     {
       image: "/assets/images/services/servicemain.jpg",
       title: "Design Studio",
-      description: "Shapoorji Pallonji International (SPINT) is the international arm of Shapoorji Pallonji Engineering & Construction (SP E&C) for its construction operations outside India.",
+      description: "Our design studio blends creativity with functionality to craft innovative, human-centric spaces. From concept to detail, we create solutions that inspire and endure.",
     },
     {
       image: "/assets/images/services/mep.jpg",
       title: "MEP",
-      description: "Shapoorji Pallonji International (SPINT) is the international arm of Shapoorji Pallonji Engineering & Construction (SP E&C) for its construction operations outside India.",
+      description: "We provide fully integrated MEP services that ensure efficiency, sustainability, and performance in every built environment. Tailored solutions backed by technical expertise.",
     },
     {
       image: "/assets/images/services/interior-fit-out.jpg",
       title: "Interior Fit-out",
-      description: "Shapoorji Pallonji International (SPINT) is the international arm of Shapoorji Pallonji Engineering & Construction (SP E&C) for its construction operations outside India.",
+      description: "Transforming interiors into purposeful and aesthetically refined spaces. We manage complete fit-out solutions with attention to detail and commitment to quality delivery.",
     },
     {
       image: "/assets/images/services/Facade.jpg",
       title: "Façade",
-      description: "Shapoorji Pallonji International (SPINT) is the international arm of Shapoorji Pallonji Engineering & Construction (SP E&C) for its construction operations outside India.",
+      description: "Specializing in advanced façade systems that merge architecture and engineering. We design and execute high-performance, energy-efficient, and visually striking exteriors.",
     },
     {
       image: "/assets/images/services/Facility-Management.jpg",
       title: "Facilities Management",
-      description: "Shapoorji Pallonji International (SPINT) is the international arm of Shapoorji Pallonji Engineering & Construction (SP E&C) for its construction operations outside India.",
+      description: "Comprehensive facility management services focused on operational efficiency, asset longevity, and user satisfaction. We ensure smooth day-to-day operations with proactive care.",
     },
     {
       image: "/assets/images/services/Water.jpg",
       title: "Water",
-      description: "Shapoorji Pallonji International (SPINT) is the international arm of Shapoorji Pallonji Engineering & Construction (SP E&C) for its construction operations outside India.",
+      description: "Sustainable water infrastructure solutions that address urban and industrial needs. Our expertise spans treatment, distribution, and management systems with a focus on resilience.",
     },
   ];
 
