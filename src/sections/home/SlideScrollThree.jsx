@@ -1438,7 +1438,7 @@ const SlideScrollThree = ({
           className="h-screen relative overflow-hidden whitebgref scroll-area"
         >
           <figure className="absolute w-full h-full bg-white z-[-1]" ref={srvBgimg}>
-            <img src="../assets/images/services-bg.jpg" alt="" />
+            <img className="absolute w-full h-full object-cover" src="../assets/images/services-bg.jpg" alt="" />
           </figure>
           <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
             {/* left */}
@@ -1515,21 +1515,21 @@ const SlideScrollThree = ({
               </div>
               <div className="absolute bottom-0 right-0  w-[38%] " ref={srvsVct}>
                 <img
-                  src="../assets/images/srv-vct.svg"
+                  src="../assets/images/svg/srv-vct.svg"
                   alt="Logo"
                   className="h-full w-full"
                   width={682}
                   height={914}
                 />
               </div>
-              <div className="absolute top-[38%] 3xl:top-[41.5%] left-[40px] 3xl:left-[58px] z-10" ref={srvsCntb}>
+              <div className="absolute bottom-[330px]  left-[40px] 3xl:left-[58px] z-10" ref={srvsCntb}>
                   <hr
                         ref={brdonRef}
-                        className="absolute right-[25%] left-[-85%] 3xl:left-[-78%] h-[1px] top-[80px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
+                        className="absolute right-[25%] left-[-85%] 3xl:left-[-78%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
                       />
                   <hr
                         ref={brdonRef}
-                        className="absolute  left-[-40px] 3xl:left-[-58px] right-[25%] h-[1px] top-[80px] opacity-20 bottom-0 z-20 border-none   bg-white "
+                        className="absolute  left-[-40px] 3xl:left-[-58px] right-[25%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-white "
                       />
                 <h3 className="text-29 leading-[1.344827586206897] font-light text-white">
                   {activeService?.title}
