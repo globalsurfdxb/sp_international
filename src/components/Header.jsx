@@ -217,7 +217,7 @@ const scrollStep = 600;
                 <img className="logsc" src="/assets/images/logo.svg" alt="Logo" width={90} height={55} />
               </div>
               <div className="flex justify-center items-center ">
-                <img src="/assets/images/menu-crbs.svg" className="mnsc" alt="Menu" width={31} height={24} />
+                <img src="/assets/images/menu-crbs.svg" className="mnsc cursor-pointer" alt="Menu" width={31} height={24} />
               </div>
               <div className="flex flex-col gap-3 justify-center items-center border-t border-[#ffffff20] cursor-pointer scrlldwn" onClick={()=>handleScroll(nextSection.id)}>
                 <p className="text-white font-[300] text-[13px] leading-[25px] pt-3">SCROLL DOWN</p>
