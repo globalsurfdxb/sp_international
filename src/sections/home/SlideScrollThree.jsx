@@ -576,11 +576,11 @@ const SlideScrollThree = ({
       case 1:
         b2.to(
           rightSecRef.current,
-          { x: 800, opacity: 0, duration: 1.1, ease: "power1.in" },
+          { x: 800, opacity: 0, duration: 1.1, ease: "power1.inOut" },
           0
         ).to(
           leftSecRef.current,
-          { x: -800, opacity: 0, duration: 1.1, ease: "power1.in" },
+          { x: -800, opacity: 0, duration: 1.1, ease: "power1.inOut" },
           0
         );
         /*   .to(ttbxsRef.current, { x: 800, opacity: 0, duration: 1.5, ease: 'power1.in' }, 0)
