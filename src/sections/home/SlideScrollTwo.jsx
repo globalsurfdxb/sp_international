@@ -1037,7 +1037,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
                 </div>
                 <div>
                   <h3 className="text-24 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    35000+
+                    33000+
                   </h3>
                   <p className="text-16 xl:text-18 font-light leading-[1.555555555555556]">
                     Employees Strength
@@ -1045,7 +1045,7 @@ const SlideScrollTwo = ({setActiveSection,indexToScroll,setIndexToScroll,activeS
                 </div>
                 <div>
                   <h3 className="text-24 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    35+
+                    40+
                   </h3>
                   <p className="text-16 xl:text-18 font-light leading-[1.555555555555556]">
                     Countries Globally Reached
