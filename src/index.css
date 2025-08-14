@@ -225,3 +225,24 @@ body::-webkit-scrollbar {
       .st1 {
         stroke: #264a9b;
       }
+
+
+
+         .st01 {
+        stroke: #0d88c4;
+      }
+
+      .st01, .st11 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 3px;
+      }
+
+      .st21 {
+        fill: #fff;
+      }
+
+      .st11 {
+        stroke: #264a9b;
+      }
