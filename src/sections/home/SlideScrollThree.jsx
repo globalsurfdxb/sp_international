@@ -1173,26 +1173,26 @@ const SlideScrollThree = ({
                 />
                 <div>
                   <h3 className="text-24 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    160+
+                    350+
                   </h3>
                   <p className="text-16 xl:text-18 font-light leading-[1.555555555555556]">
-                    Years of Legacy
+                   Iconic Projects
                   </p>
                 </div>
                 <div>
                   <h3 className="text-24 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    33000+
+                    6000+
                   </h3>
                   <p className="text-16 xl:text-18 font-light leading-[1.555555555555556]">
-                    Employees Strength
+                    Dedicated Workforce
                   </p>
                 </div>
                 <div>
                   <h3 className="text-24 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    40+
+                    250+
                   </h3>
                   <p className="text-16 xl:text-18 font-light leading-[1.555555555555556]">
-                    Countries Globally Reached
+                    Happy Clients
                   </p>
                 </div>
               </div>
