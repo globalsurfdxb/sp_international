@@ -1173,26 +1173,26 @@ const SlideScrollThree = ({
                 />
                 <div>
                   <h3 className="text-24 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    350+
+                    160+
                   </h3>
                   <p className="text-16 xl:text-18 font-light leading-[1.555555555555556]">
-                   Iconic Projects
+                    Years of Legacy
                   </p>
                 </div>
                 <div>
                   <h3 className="text-24 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    6000+
+                    33000+
                   </h3>
                   <p className="text-16 xl:text-18 font-light leading-[1.555555555555556]">
-                    Dedicated Workforce
+                    Employees Strength
                   </p>
                 </div>
                 <div>
                   <h3 className="text-24 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    250+
+                    40+
                   </h3>
                   <p className="text-16 xl:text-18 font-light leading-[1.555555555555556]">
-                    Happy Clients
+                    Countries Globally Reached
                   </p>
                 </div>
               </div>
@@ -1269,7 +1269,7 @@ const SlideScrollThree = ({
                   <div className="grid grid-cols-3 " ref={spStats}>
                          <div className="text-white">
                         <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
-                          150+
+                          350+
                         </h1>
                         <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
                           Iconic Projects
@@ -1277,18 +1277,18 @@ const SlideScrollThree = ({
                       </div>
                      <div className="text-white">
                         <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
-                         350+
+                         6000+
                         </h1>
                         <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
-                       Happy Clients
+                       Dedicated Workforce
                         </p>
                       </div>
                        <div className="text-white">
                         <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
-                        550+
+                        250+
                         </h1>
                         <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
-                        Projects Completed
+                       Happy Clients
                         </p>
                       </div>
                   </div>
