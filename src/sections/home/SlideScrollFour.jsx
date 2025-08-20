@@ -589,12 +589,12 @@ const SlideScrollFour = ({
         ) */
         .to(
           rightSecRef.current,
-          { height: '0%', duration: 0.8, ease: "power3.out" },
+          { height: '0%', duration: 1, ease: "power3.out" },
         )
        
         .to(
           leftSecRef.current,
-          { height: '0%', duration: 1, ease: "power3.out" },
+          { height: '0%', duration: 1.2, ease: "power3.out" },
           "-=0.8"
         );
         /*   .to(ttbxsRef.current, { x: 800, opacity: 0, duration: 1.5, ease: 'power1.in' }, 0)
@@ -603,11 +603,11 @@ const SlideScrollFour = ({
       case 2:
         c2.to(
           sprghtBx.current,
-          { height: '0%', duration: 0.8, ease: "power3.out" },
+          { height: '0%', duration: 1, ease: "power3.out" },
           
         ).to(
           splftimng.current,
-          { height: '0%', duration: 1, ease: "power3.out" },
+          { height: '0%', duration: 1.2, ease: "power3.out" },
           "-=0.8"
         );
         
