@@ -303,7 +303,8 @@ const SlideScrollFour = ({
           .fromTo(
             splftimng.current,
             { x: -50, opacity: 0, width: '0%' },
-            { x: 0, opacity: 1, width: '100%', duration: 1, delay: 0, ease: "power1.out" }
+            { x: 0, opacity: 1, width: '100%', duration: 1, delay: 0, ease: "power1.out" },
+            '-=0.5'
           )
           .fromTo(
             sprghtBx.current,
@@ -432,7 +433,8 @@ const SlideScrollFour = ({
           .fromTo(
             srvBgimg.current,
             {  opacity: 0 },
-            { opacity: 1, duration: 1.5,  ease: "power3.out", transformOrigin: "50% 50%",  }
+            { opacity: 1, duration: 1.5,  ease: "power3.out", transformOrigin: "50% 50%",  },
+            '-=0.5'
           )
           .fromTo(
             srvLftBx.current,
