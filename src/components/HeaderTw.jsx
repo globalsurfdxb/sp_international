@@ -126,6 +126,15 @@ const scrollStep = 600;
       case "section4":
         setIndexToScroll(3);
         break;
+      case "section5":
+        setIndexToScroll(4);
+        break;
+      case "section6":
+        setIndexToScroll(5);
+        break;
+      case "section7":
+        setIndexToScroll(6);
+        break;
     }
 
     const index = sections.findIndex((s) => s.id === sectionId);
