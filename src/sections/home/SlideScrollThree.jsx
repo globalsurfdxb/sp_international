@@ -10,7 +10,14 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 gsap.registerPlugin(DrawSVGPlugin);
 
 import { aboutData } from "./data.js";
-
+  
+const cities = [
+  { id: "dubai", name: "Dubai", left: "46%", top: "15%" , iconicpjts: "250+",pjtcompleted: "300+",dedicatedemployees: "7500+" },
+  { id: "mexico", name: "Mexico", left: "6%", top: "14%" , iconicpjts: "200+",pjtcompleted: "320+",dedicatedemployees: "5000+" },
+  { id: "india", name: "India", left: "51.2%", top: "19%" , iconicpjts: "250+",pjtcompleted: "250+",dedicatedemployees: "8800+" },
+  { id: "iran", name: "Iran", left: "45.5%", top: "11.5%" , iconicpjts: "180+",pjtcompleted: "300+",dedicatedemployees: "3500+" },
+];
+ 
 const SlideScrollThree = ({
   setActiveSection,
   indexToScroll,
@@ -95,6 +102,28 @@ const SlideScrollThree = ({
   const currentIndexRef = useRef(0);
 
   const sections = [section1Ref, section2Ref, section3Ref, section4Ref, section5Ref, section6Ref, section7Ref];
+
+  const [activeDot, setActiveDot] = useState("dubai");
+ 
+  const [adjustY, setAdjustY] = useState(0);
+
+  const bubbleRef = useRef(null);
+  const containersRef = useRef(null);
+
+ useEffect(() => {
+    if (!activeDot || !bubbleRef.current || !containersRef.current) return;
+
+    const bubble = bubbleRef.current.getBoundingClientRect();
+    const container = containersRef.current.getBoundingClientRect();
+
+    let offsetY = 0;
+    if (bubble.top < container.top) {
+      offsetY = container.top - bubble.top + 250; // push down
+    } else if (bubble.bottom > container.bottom) {
+      offsetY = container.bottom - bubble.bottom - 50; // push up
+    }
+    setAdjustY(offsetY);
+  }, [activeDot]);
 
   useEffect(() => {
     const a3 = gsap.timeline();
@@ -1609,8 +1638,102 @@ const SlideScrollThree = ({
         className="absolute top-0 left-0 w-full h-full bg-transparent"
         style={{ visibility: "hidden", zIndex: 0 }}
       >
-        <section id="section5" className="h-screen relative overflow-hidden whitebgref scroll-area bg-yellow-300">
-        </section>
+     
+        <section
+          id="section5"
+          className="h-screen relative overflow-hidden whitebgref scroll-area bg-white"
+        >
+            <div className="w-full pt-33 pl-[245px] 3xl:pl-[310px]">
+                  <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
+                  <h1
+                    ref={srvttlRef}
+                    className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px] max-w-[15ch]"
+                  >
+                    Our Presence is Steadily Expanding
+                  </h1>
+                  </div>
+                <div className="  flex justify-center overflow-hidden  ">
+                    <div className="relative w-[1158px] h-[637px]"
+                     ref={containersRef}>
+                      
+                      <img
+                                src="../assets/images/world_map.png"
+                                alt="Arrow" 
+                                width={1158}
+                                height={679}
+                        className="object-contain select-none"
+                              />
+
+                      {/* Dots */}
+                      {cities.map((city) => (
+                        <div
+                          key={city.id}
+                          className={`absolute   transition-all duration-300 w-[480px] h-[480px]  flex items-center justify-center ${
+                            activeDot === city.id ? "z-[999]" : ""
+                          }`}
+                          style={{ left: city.left, top: city.top }}
+                        > 
+                            <div
+                          onClick={() => setActiveDot(city.id)}
+                            className={`w-[15px] h-[15px] group cursor-pointer relative z-10 rounded-full transition-all duration-500 backdrop-blur-[4px ${
+                              activeDot === city.id
+                                ? "bg-[#30F955] shadow-[0_0_35px_#30F955,0_0_50px_rgba(0,255,136,0.6)] border border-[#97DCFF] scale-full"
+                                : "bg-[#30B6F9]   border border-[#97DCFF] scale-85"
+                            }`}
+                          ></div> 
+                          <span className={`relative   -left-1 border border-[#30F95533] min-w-[110px] text-center backdrop-blur-[10px] uppercase bg-[#0015FF99] text-white text-[14px] font-bold px-2 py-[2px] rounded-full opacity-0 
+                            ${activeDot === city.id ? "opacity-100 scale-full " : "scale-80 "} group-hover:opacity-100 transition-all duration-500`}>
+                            {city.name}
+                          </span>
+                         <div className={`translate-x-[50%] -left-1/2 top-0   rounded-full transition-all duration-500 absolute  w-full h-full  
+                         `}
+                          ref={activeDot === city.id ? bubbleRef : undefined}
+              style={{ transform: `translateY(${adjustY}px)` }}>
+                            {activeDot === city.id && (
+                              <div > 
+                                <div className={`bubble  bg-[#0015FF66] border  border-[#0015FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)] 
+                                absolute left-[0%] top-[21%] ${activeDot === city.id ? "opacity-100 scale-full" : "scale-80 opacity-0 "}   transition-all duration-500 delay-700`}>
+                                  <p className="text-[24px] font-[200] leading-tight">{city.iconicpjts}</p>
+                                  <p className="text-[14px] font-[200]">Iconic Projects</p>
+                                </div>
+                                
+                                <div className="bubble  bg-[#00C8FF80] border border-[#00C8FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)] 
+                                absolute left-[48.3%] top-[5%]">
+                                  <p className="text-[24px] font-[200] leading-tight">{city.pjtcompleted}</p>
+                                  <p className="text-[14px] font-[200]">Project Completed</p>
+                                </div>
+                                <div className="bubble  bg-[#0066EB80] border border-[#0066EB26] backdrop-blur-sm  text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)]
+                                absolute left-[51%] top-[55%]">
+                                  <p className="text-[24px] font-[200] leading-tight">{city.dedicatedemployees}</p>
+                                  <p className="text-[14px] font-[200]">Dedicated Employees</p>
+                                </div>
+                              </div>
+                            )}
+                            {activeDot === city.id && ( 
+                              // <div className="absolute -left-[50px] w-[100%] h-[100%] border border-[#0015FF26] rounded-full z-[-1]
+                              // after:absolute after:w-[50%] after:h-[50%] after:border after:border-[#0015FF26] 
+                              // after:rounded-full after:left-[50%] after:top-[50%] after:z-[-1] after:-translate-x-[50%] after:-translate-y-[50%]
+                              // before:absolute before:w-[70%] before:h-[70%] before:border before:border-[#0015FF26] 
+                              // before:rounded-full before:left-[50%] before:top-[50%] before:z-[-1] before:-translate-x-[50%] before:-translate-y-[50%] "> </div> 
+                              
+                              <div className="absolute -left-[50px] w-[100%] h-[100%] rounded-full z-[-1] " 
+                              style={{backgroundImage: `url(../assets/images/ring.svg)`,
+                              backgroundSize: "cover",
+                              backgroundPosition: "center",
+                              backgroundRepeat: "no-repeat",
+                              }}
+                              >  
+                              </div> 
+                            )}
+                         </div>
+                        </div>
+                      ))}
+ 
+                    </div>
+                </div>
+    
+            </div>
+           </section>
       </div>
       {/* Slide 5 */}
       {/* Slide 6 */}
