@@ -61,16 +61,16 @@ const SlideScrollThree = ({
   const sprIcnim = useRef(null);
   const spBrdOne = useRef(null);
 
-/*   const leftContentRef = useRef(null);
-  const rightImageRef = useRef(null);
-  const swiperRef = useRef(null);
-  const bottomTextRef = useRef(null); */
+  /*   const leftContentRef = useRef(null);
+    const rightImageRef = useRef(null);
+    const swiperRef = useRef(null);
+    const bottomTextRef = useRef(null); */
 
   const bgdivRef = useRef(null);
 
-/*   const polygon1Ref = useRef(null);
-  const polygon2Ref = useRef(null);
-  const polygon3Ref = useRef(null); */
+  /*   const polygon1Ref = useRef(null);
+    const polygon2Ref = useRef(null);
+    const polygon3Ref = useRef(null); */
   const polygon4Ref = useRef(null);
   const polygon5Ref = useRef(null);
 
@@ -90,11 +90,11 @@ const SlideScrollThree = ({
   const srvLftBx = useRef([]);
 
 
-    const section5Ref = useRef(null);
+  const section5Ref = useRef(null);
 
-    const section6Ref = useRef(null);
+  const section6Ref = useRef(null);
 
-    const section7Ref = useRef(null);
+  const section7Ref = useRef(null);
 
   /*     const [activeIndex, setActiveIndex] = useState(0); */
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -316,21 +316,21 @@ const SlideScrollThree = ({
         break;
       case 2:
         c1.set(splftimng.current, { opacity: 0, width: '0%', x: 0 })
-         .set(sptitle.current, { opacity: 0 })
-         .set(spdscrpt.current, { opacity: 0 })
-         .set(spbtn.current, { opacity: 0 })
-         .set(sprghtBx.current, { opacity: 0, x: 0})
-         .set(sprIcnim.current, { opacity: 0, x: 0})
-         .set(spBrdOne.current, { opacity: 0, x: 0})
+          .set(sptitle.current, { opacity: 0 })
+          .set(spdscrpt.current, { opacity: 0 })
+          .set(spbtn.current, { opacity: 0 })
+          .set(sprghtBx.current, { opacity: 0, x: 0 })
+          .set(sprIcnim.current, { opacity: 0, x: 0 })
+          .set(spBrdOne.current, { opacity: 0, x: 0 })
 
 
-         /*  .set(bgdivRef.current, { opacity: 0, x: 0 })
-          .set(leftContentRef.current, { opacity: 0 })
-          .set(bottomTextRef.current, { opacity: 0, x: 0 })
-          .set(polygon1Ref.current, { drawSVG: "0%" })
-          .set(polygon2Ref.current, { drawSVG: "0%" })
-          .set(polygon3Ref.current, { drawSVG: "0%", opacity: 1 })
-          .set(leftContentRef.current, { opacity: 0 }) */
+          /*  .set(bgdivRef.current, { opacity: 0, x: 0 })
+           .set(leftContentRef.current, { opacity: 0 })
+           .set(bottomTextRef.current, { opacity: 0, x: 0 })
+           .set(polygon1Ref.current, { drawSVG: "0%" })
+           .set(polygon2Ref.current, { drawSVG: "0%" })
+           .set(polygon3Ref.current, { drawSVG: "0%", opacity: 1 })
+           .set(leftContentRef.current, { opacity: 0 }) */
 
           .fromTo(
             splftimng.current,
@@ -340,7 +340,7 @@ const SlideScrollThree = ({
           .fromTo(
             sprghtBx.current,
             { x: 50, opacity: 0, },
-            { x: 0, opacity: 1, duration: 0.8, delay: 0, ease: "power1.out" },'-=0.5'
+            { x: 0, opacity: 1, duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.5'
           )
           .fromTo(
             splftbg.current,
@@ -350,30 +350,30 @@ const SlideScrollThree = ({
           .fromTo(
             sptitle.current,
             { x: -50, opacity: 0, },
-            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
+            { x: 0, opacity: 1, duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
           )
           .fromTo(
             spdscrpt.current,
             { x: -50, opacity: 0, },
-            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
+            { x: 0, opacity: 1, duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
           )
           .fromTo(
             spbtn.current,
             { x: -50, opacity: 0, },
-            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
+            { x: 0, opacity: 1, duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
           )
-        
+
           .fromTo(
             sprIcnim.current,
             { x: 50, opacity: 0, },
-            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=1.5'
+            { x: 0, opacity: 1, duration: 0.8, delay: 0, ease: "power1.out" }, '-=1.5'
           )
-            .fromTo(
+          .fromTo(
             spBrdOne.current,
-            { x: -100, opacity: 0,  },
-            { x: 0, opacity: 0.2,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
+            { x: -100, opacity: 0, },
+            { x: 0, opacity: 0.2, duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
           )
-        .fromTo(
+          .fromTo(
             spStatsItems,
             { x: -50, opacity: 0 },
             {
@@ -454,30 +454,30 @@ const SlideScrollThree = ({
           .set(textItemsRef.current, { opacity: 0, y: 0 })
           .set(brdonRef.current, { opacity: 0 })
           .set(brdtwsRef.current, { opacity: 0, height: "0%" })
-          .set(srvBgimg.current, { opacity: 0})
-          .set(srvsVct.current, { opacity: 0})
-          .set(srvsCntb.current, { opacity: 0})
-          .set(srvsArrw.current, { opacity: 0})
-          .set(srvsRghtBx.current, { opacity: 0, x: 0})
-          .set(srvLftBx.current, { opacity: 0, x: 0})
+          .set(srvBgimg.current, { opacity: 0 })
+          .set(srvsVct.current, { opacity: 0 })
+          .set(srvsCntb.current, { opacity: 0 })
+          .set(srvsArrw.current, { opacity: 0 })
+          .set(srvsRghtBx.current, { opacity: 0, x: 0 })
+          .set(srvLftBx.current, { opacity: 0, x: 0 })
 
           .fromTo(
             srvBgimg.current,
-            {  opacity: 0 },
-            { opacity: 1, duration: 1.5,  ease: "power3.out", transformOrigin: "50% 50%",  }
+            { opacity: 0 },
+            { opacity: 1, duration: 1.5, ease: "power3.out", transformOrigin: "50% 50%", }
           )
           .fromTo(
             srvLftBx.current,
-            {  opacity: 0 },
-            { opacity: 1, duration: 0.5,  ease: "power3.out",  },'-=0.5'
+            { opacity: 0 },
+            { opacity: 1, duration: 0.5, ease: "power3.out", }, '-=0.5'
           )
           .fromTo(
             srvttlRef.current,
             { x: -30, opacity: 0 },
             { x: 0, opacity: 1, duration: 0.5, delay: 0, ease: "power3.out" }, '-=0.5'
           )
-        
-       
+
+
           .fromTo(
             brdonRef.current,
             { x: -30, opacity: 0 },
@@ -490,7 +490,7 @@ const SlideScrollThree = ({
             },
             "-=0.5"
           )
-           .fromTo(
+          .fromTo(
             textItemsRef.current,
             { y: 30, opacity: 0 },
             {
@@ -499,12 +499,12 @@ const SlideScrollThree = ({
               stagger: 0.1,
               duration: 0.8,
               ease: "power3.out",
-            },"-=1"
+            }, "-=1"
           )
-            .fromTo(
+          .fromTo(
             srvsRghtBx.current,
             { x: 30, opacity: 0 },
-            { x: 0, opacity: 1, duration: 1.5,  ease: "power3.out" },"-=1.5"
+            { x: 0, opacity: 1, duration: 1.5, ease: "power3.out" }, "-=1.5"
           )
           .fromTo(
             srvsImgRef.current,
@@ -548,15 +548,15 @@ const SlideScrollThree = ({
               ease: "power3.inOut",
             }, "-=0.5"
           )
-          
 
-         ;
+
+          ;
         break;
-        case 4:
+      case 4:
         break;
-        case 5:
+      case 5:
         break;
-        case 6:
+      case 6:
         break;
     }
   };
@@ -635,69 +635,69 @@ const SlideScrollThree = ({
           { x: -800, opacity: 0, duration: 1.2, ease: "power1.inOut" },
           0
         );
-        
-        
-        
-      /*   .to(leftContentRef.current, {
-          x: -50,
-          opacity: 0,
-          duration: 1,
-          delay: -0.5,
-          ease: "power1.out",
-        })
-          .to(rightImageRef.current, {
-            x: 50,
+
+
+
+        /*   .to(leftContentRef.current, {
+            x: -50,
             opacity: 0,
             duration: 1,
-            delay: -1,
+            delay: -0.5,
             ease: "power1.out",
           })
-          .fromTo(
-            swiperRef.current,
-            { x: 0, opacity: 1 },
-            {
-              x: 300,
+            .to(rightImageRef.current, {
+              x: 50,
               opacity: 0,
-              duration: 1.5,
-              delay: -1.5,
-              ease: "power1.in",
-            }
-          )
-          .to(
-            bgdivRef.current,
-            { scale: 1.5, opacity: 0, ease: "power1.inOut", duration: 2 },
-            "-=1.2"
-          )
-          .fromTo(
-            bottomTextRef.current,
-            { x: 0, opacity: 1 },
-            {
-              x: 30,
-              opacity: 0,
-              duration: 0.5,
-              delay: -0.8,
-              ease: "power1.in",
-            },
-            "-=1"
-          )
-          .fromTo(
-            polygon1Ref.current,
-            { drawSVG: "-100%" },
-            { drawSVG: "0%", duration: 1, ease: "power1.inOut" },
-            "-=1.8"
-          )
-          .fromTo(
-            polygon2Ref.current,
-            { drawSVG: "-100%" },
-            { drawSVG: "0%", duration: 1, ease: "power1.inOut" },
-            "-=1.8"
-          )
-          .fromTo(
-            polygon3Ref.current,
-            { drawSVG: "-100%" },
-            { drawSVG: "0%", duration: 0.5, ease: "power1.inOut", opacity: 0 },
-            "-=2.5"
-          ); */
+              duration: 1,
+              delay: -1,
+              ease: "power1.out",
+            })
+            .fromTo(
+              swiperRef.current,
+              { x: 0, opacity: 1 },
+              {
+                x: 300,
+                opacity: 0,
+                duration: 1.5,
+                delay: -1.5,
+                ease: "power1.in",
+              }
+            )
+            .to(
+              bgdivRef.current,
+              { scale: 1.5, opacity: 0, ease: "power1.inOut", duration: 2 },
+              "-=1.2"
+            )
+            .fromTo(
+              bottomTextRef.current,
+              { x: 0, opacity: 1 },
+              {
+                x: 30,
+                opacity: 0,
+                duration: 0.5,
+                delay: -0.8,
+                ease: "power1.in",
+              },
+              "-=1"
+            )
+            .fromTo(
+              polygon1Ref.current,
+              { drawSVG: "-100%" },
+              { drawSVG: "0%", duration: 1, ease: "power1.inOut" },
+              "-=1.8"
+            )
+            .fromTo(
+              polygon2Ref.current,
+              { drawSVG: "-100%" },
+              { drawSVG: "0%", duration: 1, ease: "power1.inOut" },
+              "-=1.8"
+            )
+            .fromTo(
+              polygon3Ref.current,
+              { drawSVG: "-100%" },
+              { drawSVG: "0%", duration: 0.5, ease: "power1.inOut", opacity: 0 },
+              "-=2.5"
+            ); */
         /*   gsap.fromTo(
             bgImageRef.current,
             { x: 0, opacity: 1 },
@@ -715,11 +715,11 @@ const SlideScrollThree = ({
           { x: 800, opacity: 0, duration: 1, ease: "power1.in" },
           0
         )
-         .fromTo(
-          srvBgimg.current,
-          {  opacity: 1 },
-          {  opacity: 0, duration: 1, ease: "power3.out" }, '-=0.8'
-        );
+          .fromTo(
+            srvBgimg.current,
+            { opacity: 1 },
+            { opacity: 0, duration: 1, ease: "power3.out" }, '-=0.8'
+          );
         /* .fromTo(
           srvttlRef.current,
           { x: 0, opacity: 1 },
@@ -779,11 +779,11 @@ const SlideScrollThree = ({
           "-=0.5"
         ); */
         break;
-          case 4:
+      case 4:
         break;
-          case 5:
+      case 5:
         break;
-          case 6:
+      case 6:
         break;
     }
   };
@@ -869,7 +869,7 @@ const SlideScrollThree = ({
   };
 
   useEffect(() => {
-    if(currentIndex !== indexToScroll){
+    if (currentIndex !== indexToScroll) {
       updateSlides(indexToScroll);
     }
   }, [indexToScroll]);
@@ -939,12 +939,53 @@ const SlideScrollThree = ({
     index: 0,
   });
 
+  const [activeIndex, setActiveIndex] = useState(3);
+
+  const sectors = [
+    { name: 'Industrial', icon: '../assets/images/sectors/icons/hospitality-icon.svg', image: '../assets/images/sectors/industrial.jpg', projectsCompleted: '180+', ongoingProjects: '15+' },
+    { name: 'Healthcare', icon: '../assets/images/sectors/icons/hospitality-icon.svg', image: '../assets/images/sectors/health-care.jpg', projectsCompleted: '150+', ongoingProjects: '20+' },
+    { name: 'Commercial', icon: '../assets/images/sectors/icons/hospitality-icon.svg', image: '../assets/images/sectors/hospitality.jpg', projectsCompleted: '320+', ongoingProjects: '30+' },
+    { name: 'Hospitality', icon: '../assets/images/sectors/icons/hospitality-icon.svg', image: '../assets/images/sectors/hospitality.jpg', projectsCompleted: '275+', ongoingProjects: '25+' },
+    { name: 'Residential', icon: '../assets/images/sectors/icons/hospitality-icon.svg', image: '../assets/images/sectors/hospitality.jpg', projectsCompleted: '450+', ongoingProjects: '40+' },
+    { name: 'Water', icon: '../assets/images/sectors/icons/hospitality-icon.svg', image: '../assets/images/sectors/hospitality.jpg', projectsCompleted: '95+', ongoingProjects: '12+' },
+    { name: 'Infrastructure', icon: '../assets/images/sectors/icons/hospitality-icon.svg', img: '../assets/images/sectors/hospitality.jpg' }
+  ];
+
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const handleSlideClick = (index) => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setActiveIndex(index);
+    setTimeout(() => setIsTransitioning(false), 600);
+  };
+
+  // Create infinite loop by repeating sectors with smooth positioning
+  const getVisibleSectors = () => {
+    const result = [];
+    const totalSectors = sectors.length;
+
+    // Show more items for smooth transition effect
+    for (let i = -4; i <= 4; i++) {
+      let index = (activeIndex + i + totalSectors) % totalSectors;
+      result.push({
+        ...sectors[index],
+        originalIndex: index,
+        position: i
+      });
+    }
+
+    return result;
+  };
+
+  const visibleSectors = getVisibleSectors();
+  const activeSector = sectors[activeIndex];
   return (
     <div
       ref={containerRef}
       className="relative h-screen w-screen overflow-hidden"
     >
-    {/*   <div className="fixed w-screen h-screen z-[500] mswd pointer-events-none grid content-center load-sec2">
+      {/*   <div className="fixed w-screen h-screen z-[500] mswd pointer-events-none grid content-center load-sec2">
         <svg className="h-full w-full absolute left-0 right-0 z-20 object-cover loader-im scale-[1.2]" id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1920 1080">
 
   <defs>
@@ -1135,12 +1176,12 @@ const SlideScrollThree = ({
               ref={leftSecRef}
               className="relative py-4 xl:py-[50px] xl:pl-[150px] overflow-hidden"
             >
-             
+
               <div
                 className="absolute top-0 w-full z-10 h-full right-0 "
                 ref={leftBgRef}
               >
-                 <div className="absolute top-0 left-0 z-20 w-full h-full bg-gradient-to-l from-black/30 from-0% to-black/80 to-100%"></div>
+                <div className="absolute top-0 left-0 z-20 w-full h-full bg-gradient-to-l from-black/30 from-0% to-black/80 to-100%"></div>
                 <img
                   src={aboutData.leftBgImage}
                   alt=""
@@ -1155,12 +1196,12 @@ const SlideScrollThree = ({
               ref={rightSecRef}
               className="relative flex flex-col h-full px-10 xl:px-[90px] pb-20 xl:pb-[93px] pt-20 xl:pt-[50px] overflow-hidden"
             >
-             
+
               <div
                 className="absolute top-0 w-full z-10 h-full right-0 opacity-0"
                 ref={videoBgRef}
               >
-                 <div className="absolute top-0 left-0 z-[22] w-full h-full bg-gradient-to-r from-black/85 from-0% via-black/65 via-75% to-black/60 to-100% "></div>
+                <div className="absolute top-0 left-0 z-[22] w-full h-full bg-gradient-to-r from-black/85 from-0% via-black/65 via-75% to-black/60 to-100% "></div>
                 <video
                   src="../assets/videos/hero.mp4"
                   autoPlay
@@ -1254,7 +1295,7 @@ const SlideScrollThree = ({
         >
           <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full bg-transparent">
             <div className="lftblc relative right-0" ref={splftimng}>
-               <div className="bg-primary absolute w-full right-0 h-full top-0 z-[-1]" ref={splftbg}></div>
+              <div className="bg-primary absolute w-full right-0 h-full top-0 z-[-1]" ref={splftbg}></div>
               <img
                 src={'../assets/images/abut-sp.jpg'}
                 alt=""
@@ -1264,8 +1305,8 @@ const SlideScrollThree = ({
               />
             </div>
             <div className=" flex flex-col h-full px-[70px] 3xl:px-[100px] pb-[120px] 3xl:pb-[150px] pt-[120px] 3xl:pt-[150px] overflow-hidden relative" ref={sprghtBx}>
-              <div className="bg-primary absolute w-full left-0 h-full top-0 z-[-1]"  ref={sprgtbg}></div>
-              <img ref={sprIcnim} src="/assets/images/svg/sv-02.svg" width={600} height={600} className="absolute right-0 w-[250px] 3xl:w-[300px]"/>
+              <div className="bg-primary absolute w-full left-0 h-full top-0 z-[-1]" ref={sprgtbg}></div>
+              <img ref={sprIcnim} src="/assets/images/svg/sv-02.svg" width={600} height={600} className="absolute right-0 w-[250px] 3xl:w-[300px]" />
               <div className="">
                 <h1 ref={sptitle} className="text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light  mb-8 xl:mb-[25px] text-white">
                   About SP <br></br>International
@@ -1306,33 +1347,33 @@ const SlideScrollThree = ({
                 </a>
               </div>
               <div className="mt-auto relative">
-                <hr ref={spBrdOne} className="border-white opacity-20 absolute top-[55%] left-[-30%] right-0"/>
-                  <div className="grid grid-cols-3 " ref={spStats}>
-                         <div className="text-white">
-                        <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
-                          350+
-                        </h1>
-                        <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
-                          Iconic Projects
-                        </p>
-                      </div>
-                     <div className="text-white">
-                        <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
-                         6000+
-                        </h1>
-                        <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
-                       Dedicated Workforce
-                        </p>
-                      </div>
-                       <div className="text-white">
-                        <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
-                        250+
-                        </h1>
-                        <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
-                       Happy Clients
-                        </p>
-                      </div>
+                <hr ref={spBrdOne} className="border-white opacity-20 absolute top-[55%] left-[-30%] right-0" />
+                <div className="grid grid-cols-3 " ref={spStats}>
+                  <div className="text-white">
+                    <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
+                      350+
+                    </h1>
+                    <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
+                      Iconic Projects
+                    </p>
                   </div>
+                  <div className="text-white">
+                    <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
+                      6000+
+                    </h1>
+                    <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
+                      Dedicated Workforce
+                    </p>
+                  </div>
+                  <div className="text-white">
+                    <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
+                      250+
+                    </h1>
+                    <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
+                      Happy Clients
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1469,8 +1510,7 @@ const SlideScrollThree = ({
       </div>
 
       {/* Slide 4 */}
-      <div
-        ref={section4Ref}
+      <div ref={section4Ref}
         className="absolute top-0 left-0 w-full h-full bg-transparent"
         style={{ visibility: "hidden", zIndex: 0 }}
       >
@@ -1484,20 +1524,17 @@ const SlideScrollThree = ({
           <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
             {/* left */}
             <div className="flex h-full">
-         {/*      <div className="w-1/3"></div> */}
+              {/*      <div className="w-1/3"></div> */}
               <div className="w-full pt-33 pl-[245px] 3xl:pl-[310px]" ref={srvLftBx}>
                 <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
-                  <h1
-                    ref={srvttlRef}
-                    className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px]"
-                  >
+                  <h1 ref={srvttlRef} className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px]" >
                     Our Services
                   </h1>
                   <div className="w-full flex flex-col h-full justify-end   mt-15 relative">
-                  
+
                     <div className="pb-4 relative">
-                    
-                   {/*    <p
+
+                      {/*    <p
                         ref={countRef}
                         className="text-60 font-light text-[#62626210]"
                       >
@@ -1543,9 +1580,9 @@ const SlideScrollThree = ({
             </div>
             {/* left */}
 
-            <div className="relative w-full h-[100vh] z-[-1]"  ref={srvsRghtBx}>
+            <div className="relative w-full h-[100vh] z-[-1]" ref={srvsRghtBx}>
               <div className="absolute h-full w-full" ref={srvsImgRef}>
-                              <div className="absolute z-10 top-0 left-0 w-full h-full bg-gradient-to-r from-black/60 from-0% via-black/60 via-52% to-black/60 to-100%"></div>
+                <div className="absolute z-10 top-0 left-0 w-full h-full bg-gradient-to-r from-black/60 from-0% via-black/60 via-52% to-black/60 to-100%"></div>
 
                 <img
                   src={activeService?.image}
@@ -1564,14 +1601,14 @@ const SlideScrollThree = ({
                 />
               </div>
               <div className="absolute bottom-[245px] 3xl:bottom-[300px]  left-[40px] 3xl:left-[58px] z-10" ref={srvsCntb}>
-                  <hr
-                        ref={brdonRef}
-                        className="absolute right-[25%] left-[-85%] 3xl:left-[-78%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
-                      />
-                  <hr
-                        ref={brdonRef}
-                        className="absolute  left-[-40px] 3xl:left-[-58px] right-[25%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-white "
-                      />
+                <hr
+                  ref={brdonRef}
+                  className="absolute right-[25%] left-[-85%] 3xl:left-[-78%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
+                />
+                <hr
+                  ref={brdonRef}
+                  className="absolute  left-[-40px] 3xl:left-[-58px] right-[25%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-white "
+                />
                 <h3 className="text-29 leading-[1.344827586206897] font-light text-white">
                   {activeService?.title}
                 </h3>
@@ -1700,19 +1737,148 @@ const SlideScrollThree = ({
       </div>
       {/* Slide 5 */}
       {/* Slide 6 */}
-      <div
-        ref={section6Ref}
-        className="absolute top-0 left-0 w-full h-full bg-transparent"
-        style={{ visibility: "hidden", zIndex: 0 }}
-      >
-        <section
-          id="section6"
-          className="h-screen relative overflow-hidden whitebgref scroll-area bg-black"
-        >
-          
-           </section>
+
+
+      <div ref={section6Ref} className="absolute top-0 left-0 w-full h-full bg-transparent" style={{ visibility: "hidden", zIndex: 0 }} >
+        <section id="section6" className="h-screen relative overflow-hidden whitebgref scroll-area bg-white">
+          <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
+            {/* left start */}
+            <div className="flex h-full bg-white">
+              <div className="w-full pt-33 pl-[245px] 3xl:pl-[310px]">
+                <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
+                  <h1 ref={srvttlRef} className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px] max-w-[13ch]" >
+                    Shaping Diverse Sectors
+                  </h1>
+                  <div className="w-full flex flex-col justify-center h-[541px] mt-5 relative">
+                    <div className="pb-4 relative h-fit">
+
+                      {/* hear the vertical slider with sectors name */}
+                      <div className="absolute top-0 left-0 h-full  flex flex-col justify-center">
+                        <img src="../assets/images/sectors/svg-crv.svg" alt="curved line svg" />
+                      </div>
+                      {/* <div className="flex flex-col gap-1 pl-4 pb-6">
+                        <div className="flex items-center gap-5">
+                          <div className="bg-[#30B6F94D] rounded-full w-[83px] h-[83px] flex items-center justify-center absolute opacity-0">
+                            <img src="../assets/images/sectors/icons/hospitality-icon.svg" alt="hospitality icon" />
+                          </div>
+                          <h3 className="text-19 leading-[1.842105263157895] ">Industrial</h3>
+                        </div>
+                        <div className="flex items-center gap-5">
+                          <div className="bg-[#30B6F94D] rounded-full w-[83px] h-[83px] flex items-center justify-center absolute opacity-0">
+                            <img src="../assets/images/sectors/icons/hospitality-icon.svg" alt="hospitality icon" />
+                          </div>
+                          <h3 className="text-19 leading-[1.842105263157895] ">Healthcare</h3>
+                        </div>
+                        <div className="flex items-center gap-5">
+                          <div className="bg-[#30B6F94D] rounded-full w-[83px] h-[83px] flex items-center justify-center absolute opacity-0">
+                            <img src="../assets/images/sectors/icons/hospitality-icon.svg" alt="hospitality icon" />
+                          </div>
+                          <h3 className="text-19 leading-[1.842105263157895] ">Commercial</h3>
+                        </div>
+                        <div className="flex items-center gap-5 ml-[-27px] py-5">
+                          <div className="bg-[#30B6F94D] rounded-full w-[83px] h-[83px] flex items-center justify-center relative opacity-100">
+                            <img src="../assets/images/sectors/icons/hospitality-icon.svg" alt="hospitality icon" />
+                          </div>
+                          <h3 className="text-29 leading-[1.842105263157895] font-semibold">Hospitality</h3>
+                        </div>
+                        <div className="flex items-center gap-5">
+                          <div className="bg-[#30B6F94D] rounded-full w-[83px] h-[83px] flex items-center justify-center absolute opacity-0">
+                            <img src="../assets/images/sectors/icons/hospitality-icon.svg" alt="hospitality icon" />
+                          </div>
+                          <h3 className="text-19 leading-[1.842105263157895] ">Residential</h3>
+                        </div>
+                        <div className="flex items-center gap-5">
+                          <div className="bg-[#30B6F94D] rounded-full w-[83px] h-[83px] flex items-center justify-center absolute opacity-0">
+                            <img src="../assets/images/sectors/icons/hospitality-icon.svg" alt="hospitality icon" />
+                          </div>
+                          <h3 className="text-19 leading-[1.842105263157895] ">Water</h3>
+                        </div>
+                        <div className="flex items-center gap-5">
+                          <div className="bg-[#30B6F94D] rounded-full w-[83px] h-[83px] flex items-center justify-center absolute opacity-0">
+                            <img src="../assets/images/sectors/icons/hospitality-icon.svg" alt="hospitality icon" />
+                          </div>
+                          <h3 className="text-19 leading-[1.842105263157895] ">Infrastructure</h3>
+                        </div>
+                      </div> */}
+                      <div className="flex flex-col gap-1 pl-4 pb-6 sectors-list">
+                        {visibleSectors.map((sector, idx) => {
+                          const isActive = sector.position === 0;
+                          const opacity = Math.abs(sector.position) > 3 ? 0 : 1;
+                          const scale = isActive ? 1 : 0.95;
+
+                          return (
+                            <div
+                              key={`${sector.originalIndex}-${idx}`}
+                              className={`flex items-center gap-5 cursor-pointer transition-all duration-700 ease-out ${isActive ? 'ml-[-27px] py-5' : ''
+                                }`}
+                              style={{
+                                opacity: opacity,
+                                transform: `scale(${scale})`,
+                                transformOrigin: 'left center'
+                              }}
+                              onClick={() => handleSlideClick(sector.originalIndex)}
+                            >
+                              <div
+                                className={`bg-[#30B6F94D] rounded-full w-[83px] h-[83px] flex items-center justify-center transition-all duration-700 ease-out ${isActive ? 'relative opacity-100' : 'absolute opacity-0'
+                                  }`}
+                              >
+                                <img src={sector.icon} alt={`${sector.name} icon`} />
+                              </div>
+                              <h3
+                                className={`transition-all duration-700 ease-out ${isActive
+                                  ? 'text-29 leading-[1.842105263157895] font-semibold'
+                                  : 'text-19 leading-[1.842105263157895]'
+                                  }`}
+                              >
+                                {sector.name}
+                              </h3>
+                            </div>
+                          );
+                        })}
+                      </div>
+                      <div>
+                        <div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* left end*/}
+            {/* right start */}
+            <div className="relative w-full h-[100vh] z-0" >
+              <div className="absolute h-full w-full" >
+                {/* hear the image that changes according to the vertical slider */}
+                <img src={activeSector.image}
+                  alt={`${activeSector.name} sector`} fill className="object-cover absolute w-full h-full" />
+                {/* hear the absolute positioned box with project details */}
+                <div className="absolute bottom-20 left-0 bg-primary text-white z-50 cursor-pointer">
+                  <div>
+                    <div className="flex gap-5 xl:gap-[77px] px-15 py-6 xl:pt-[28px] xl:pb-[33px] border-b border-white/20">
+                      <div>
+                        <h3 className="text-40 font-light">{activeSector.projectsCompleted}</h3>
+                        <p className="text-19 font-light text-white/70 leading-[1.473684210526316]">Completed Projects</p>
+                      </div>
+                      <div>
+                        <h3 className="text-40 font-light">{activeSector.ongoingProjects}</h3>
+                        <p className="text-19 font-light text-white/70 leading-[1.473684210526316]">Ongoing Projects</p>
+                      </div>
+                    </div>
+                    <div className="px-15 py-6 xl:pt-[42px] xl:pb-[49px] group cursor-pointer">
+                      <a href="/sectors" className="flex items-center gap-2 ">View All Projects <img src="../assets/images/icons/arrow-right.svg" alt="arrow right" className="group-hover:translate-x-2 transition-all duration-300" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* right end*/}
+          </div>
+        </section>
       </div>
       {/* Slide 6 */}
+
       {/* Slide 7 */}
       <div
         ref={section7Ref}
@@ -1723,7 +1889,7 @@ const SlideScrollThree = ({
           id="section7"
           className="h-screen relative overflow-hidden whitebgref scroll-area bg-fuchsia-500"
         >
-           </section>
+        </section>
       </div>
       {/* Slide 7 */}
     </div>
