@@ -10,6 +10,7 @@ const IndexV2 = () => {
    <>
     <HeaderTw activeSection={activeSection} setActiveSection={setActiveSection} sectionScrollPositions={sectionScrollPositions} setIndexToScroll={setIndexToScroll}/>
     <SlideScrollThree setActiveSection={setActiveSection} activeSection={activeSection} indexToScroll={indexToScroll} setIndexToScroll={setIndexToScroll}/>
+    
    </>
   )
 }
