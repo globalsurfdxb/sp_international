@@ -8,6 +8,7 @@ import gsap from "gsap";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
 gsap.registerPlugin(DrawSVGPlugin);
+import { motion, AnimatePresence } from "framer-motion";
 
 import { aboutData } from "./data.js";
   
@@ -17,10 +18,33 @@ const cities = [
   { id: "india", name: "India", left: "51.2%", top: "19%" , iconicpjts: "250+",pjtcompleted: "250+",dedicatedemployees: "8800+" },
   { id: "iran", name: "Iran", left: "45.5%", top: "11.5%" , iconicpjts: "180+",pjtcompleted: "300+",dedicatedemployees: "3500+" },
 ];
+ const items = [
+    {
+      id: 1,
+      title: "Global Workforce",
+      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text",
+    },
+    {
+      id: 2,
+      title: "Inclusive Culture",
+      desc: "We embrace diverse perspectives, ensuring every voice is heard and respected—regardless of background, nationality, or gender.",
+    },
+    {
+      id: 3,
+      title: "People-First Approach",
+      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard  text",
+    },
+    {
+      id: 4,
+      title: "Celebrating Talent",
+      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard ",
+    },
+  ];
  
 const SlideScrollThree = ({
   setActiveSection,
   indexToScroll,
+
   setIndexToScroll,
 }) => {
   const containerRef = useRef(null);
@@ -92,6 +116,7 @@ const SlideScrollThree = ({
 
   const section5Ref = useRef(null);
 
+
   const section6Ref = useRef(null);
 
   const section7Ref = useRef(null);
@@ -141,6 +166,10 @@ const SlideScrollThree = ({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [setActiveDot]);
+
+  
+
+  const [activeItem, setActiveItem] = useState(items[1]);
 
   useEffect(() => {
     const a3 = gsap.timeline();
@@ -572,6 +601,7 @@ const SlideScrollThree = ({
       case 4:
         break;
       case 5:
+        
         break;
       case 6:
         break;
@@ -1703,11 +1733,11 @@ const SlideScrollThree = ({
           id="section5"
           className="h-screen relative overflow-hidden whitebgref scroll-area bg-white"
         >
-          <div className="w-full pt-33 pl-[245px] 3xl:pl-[310px]">
+          <div className="w-full pt-25 3xl:pt-33 pl-[245px] 3xl:pl-[310px]">
             <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
               <h1
                 ref={srvttlRef}
-                className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px] max-w-[15ch]"
+                className="text-34 xl:text-40 3xl:text-60 font-light gradient-text leading-[1.2] 3xl:leading-[1.18] max-w-[15ch]"
               >
                 Our Presence is Steadily Expanding
               </h1>
@@ -1761,12 +1791,12 @@ const SlideScrollThree = ({
                        <div   ref={activeDot === city.id ? outsideRef : null} className={` transition-all duration-500  outside `}>
                           <div>
                           <div
-                            className={`bubble  bg-[#0015FF66] border  border-[#0015FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)] 
+                            className={`bubble  bg-[#0015FF66] transition-all duration-500 delay-100 border  border-[#0015FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)] 
                                 absolute left-[0%] top-[21%] ${
                                   activeDot === city.id
-                                    ? "opacity-100 scale-full"
+                                    ? "opacity-100 scale-full float-bubble1"
                                     : "scale-80 opacity-0 "
-                                }   transition-all duration-500 delay-100`}
+                                }   `}
                           >
                             <p className="text-[24px] font-[200] leading-tight">
                               {city.iconicpjts}
@@ -1780,7 +1810,7 @@ const SlideScrollThree = ({
                             className={`bubble  bg-[#00C8FF80] border border-[#00C8FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)] 
                                 absolute left-[48.3%] top-[5%] ${
                                   activeDot === city.id
-                                    ? "opacity-100 scale-full"
+                                    ? "opacity-100 scale-full float-bubble2"
                                     : "scale-80 opacity-0 "
                                 }   transition-all duration-500 delay-200`}
                           >
@@ -1795,7 +1825,7 @@ const SlideScrollThree = ({
                             className={`bubble  bg-[#0066EB80] border border-[#0066EB26] backdrop-blur-sm  text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)]
                                 absolute left-[51%] top-[55%] ${
                                   activeDot === city.id
-                                    ? "opacity-100 scale-full"
+                                    ? "opacity-100 scale-full float-bubble3"
                                     : "scale-80 opacity-0 "
                                 }   transition-all duration-500 delay-300`} 
                           >
@@ -1811,10 +1841,10 @@ const SlideScrollThree = ({
                        
 
                         <div
-                          className={`absolute -left-[50px] w-[100%] h-[100%] rounded-full z-[-1]  ${
+                          className={`absolute -left-[50px] w-[100%] h-[100%] rounded-full z-[-1] scale-pulse ${
                             activeDot === city.id
                               ? "opacity-100 scale-full"
-                              : "scale-80 opacity-0 "
+                              : "opacity-0 "
                           }   transition-all duration-500 delay-300`}
                           style={{
                             backgroundImage: `url(../assets/images/ring3.svg)`,
@@ -2022,8 +2052,96 @@ const SlideScrollThree = ({
       >
         <section
           id="section7"
-          className="h-screen relative overflow-hidden whitebgref scroll-area bg-fuchsia-500"
-        ></section>
+          className="h-screen relative overflow-hidden whitebgref scroll-area " style={{
+                            backgroundImage: `url(../assets/images/driven_force.jpg)`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                          }}
+        >
+          <div
+      className="grid grid-cols-[950px_auto] 2xl:grid-cols-[950px_auto] 3xl:grid-cols-[1201px_auto] h-full 
+      bg-[linear-gradient(270deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.65)_51.29%,rgba(0,0,0,0.75)_100%)]"
+    >
+      {/* LEFT SIDE */}
+      <div className="w-full pt-33 pl-[245px] 3xl:pl-[300px] pb-[120px] 3xl:pb-[212px]">
+        <div className="ml-[80px] 3xl:ml-[110px] flex flex-col justify-between h-full">
+          <h1 className="max-w-[14ch] text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light mb-8 xl:mb-[25px] text-white">
+            Driven by Talent. <br /> Defined by Culture.
+          </h1>
+
+          <div>
+            <div className="flex items-center gap-5">
+              {items.map((item) => (
+                <div
+                  key={item.id}
+                  onClick={() => setActiveItem(item)}
+                  className={`hover:border-b-[2px] hover:border-primary border-b-2 ${
+                    activeItem.id === item.id
+                      ? "border-primary"
+                      : "border-transparent"
+                  } pb-1 transition-all duration-300`}
+                >
+                  <p
+                    className={`text-[15px] 3xl:text-19 min-w-[110px] 3xl:min-w-[130px]  text-white/80 leading-[1.473684210526316] 
+                    transition-all duration-300 cursor-pointer ${
+                      activeItem.id === item.id
+                        ? "font-bold text-white"
+                        : "hover:font-bold hover:text-white font-light"
+                    }`}
+                  >
+                    {item.title.split(" ").map((word, i) => (
+                      <span key={i}>
+                        {word}
+                        <br />
+                      </span>
+                    ))}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="relative">
+          <div className="border-b border-white/20 absolute bottom-0 w-full left-0"></div>
+        </div>
+      </div>
+
+      {/* RIGHT SIDE */}
+      <div className="flex flex-col justify-end h-full pb-[120px] 3xl:pb-[212px] pt-[120px] 3xl:pt-[150px] overflow-hidden relative border-l border-white/25">
+        <AnimatePresence mode="wait"> 
+          <motion.div  
+          key={activeItem.id}
+            
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}  className="p-5 lg:p-7 3xl:py-12 3xl:px-15 bg-primary w-fit 2xl:w-[400px] 3xl:w-[550px] text-white relative ">
+          <div className="h-fit mb-5 overflow-hidden">
+            <motion.h3 
+          key={activeItem.id}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -30 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }} 
+            className="text-29 font-light leading-[1] ">{activeItem.title}
+            </motion.h3>
+          </div>
+          <motion.p 
+          key={activeItem.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1}}
+            exit={{ opacity: 0}}
+            transition={{ duration: 0.5, ease: "easeInOut" }} 
+            className="text-16 xl:text-19 font-light leading-[1.5]">
+            {activeItem.desc}
+          </motion.p>
+        </motion.div>
+        </AnimatePresence> 
+      </div>
+    </div>
+        </section>
       </div>
       {/* Slide 7 */}
     </div>
