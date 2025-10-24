@@ -1084,7 +1084,7 @@ const SlideScrollThree = ({
 
       {/* Slide 1 */}
       <div
-        ref={section5Ref}
+        ref={section1Ref}
         className="absolute top-0 left-0 w-full h-full bg-transparent"
       >
         <section className="h-[100dvh] overflow-x-hidden relative scroll-area overflow-hidden bg-transparent">
@@ -1725,7 +1725,7 @@ const SlideScrollThree = ({
       {/* Slide 4 */}
       {/* Slide 5 */}
       <div
-        ref={section1Ref}
+        ref={section5Ref}
         className="absolute top-0 left-0 w-full h-full bg-transparent"
         style={{ visibility: "hidden", zIndex: 0 }}
       >
