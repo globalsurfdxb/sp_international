@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { moveUp } from "../../motionVarients.js";
+
+
 
 import "swiper/css";
 import "swiper/css/pagination";
