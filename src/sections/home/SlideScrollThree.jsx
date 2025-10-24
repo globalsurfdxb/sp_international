@@ -8,6 +8,7 @@ import gsap from "gsap";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
 gsap.registerPlugin(DrawSVGPlugin);
+import { motion, AnimatePresence } from "framer-motion";
 
 import { aboutData } from "./data.js";
   
@@ -17,10 +18,33 @@ const cities = [
   { id: "india", name: "India", left: "51.2%", top: "19%" , iconicpjts: "250+",pjtcompleted: "250+",dedicatedemployees: "8800+" },
   { id: "iran", name: "Iran", left: "45.5%", top: "11.5%" , iconicpjts: "180+",pjtcompleted: "300+",dedicatedemployees: "3500+" },
 ];
+ const items = [
+    {
+      id: 1,
+      title: "Global Workforce",
+      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text",
+    },
+    {
+      id: 2,
+      title: "Inclusive Culture",
+      desc: "We embrace diverse perspectives, ensuring every voice is heard and respected—regardless of background, nationality, or gender.",
+    },
+    {
+      id: 3,
+      title: "People-First Approach",
+      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard  text",
+    },
+    {
+      id: 4,
+      title: "Celebrating Talent",
+      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard ",
+    },
+  ];
  
 const SlideScrollThree = ({
   setActiveSection,
   indexToScroll,
+
   setIndexToScroll,
 }) => {
   const containerRef = useRef(null);
@@ -92,6 +116,7 @@ const SlideScrollThree = ({
 
   const section5Ref = useRef(null);
 
+
   const section6Ref = useRef(null);
 
   const section7Ref = useRef(null);
@@ -124,6 +149,27 @@ const SlideScrollThree = ({
     }
     setAdjustY(offsetY);
   }, [activeDot]);
+
+    const outsideRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      // if clicked element is NOT inside the 'outside' div
+      if (outsideRef.current && !outsideRef.current.contains(event.target)) {
+        setActiveDot(null);
+      }
+    }
+
+    // attach event listener to the whole document
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [setActiveDot]);
+
+  
+
+  const [activeItem, setActiveItem] = useState(items[1]);
 
   useEffect(() => {
     const a3 = gsap.timeline();
@@ -555,6 +601,7 @@ const SlideScrollThree = ({
       case 4:
         break;
       case 5:
+        
         break;
       case 6:
         break;
@@ -1037,7 +1084,7 @@ const SlideScrollThree = ({
 
       {/* Slide 1 */}
       <div
-        ref={section1Ref}
+        ref={section5Ref}
         className="absolute top-0 left-0 w-full h-full bg-transparent"
       >
         <section className="h-[100dvh] overflow-x-hidden relative scroll-area overflow-hidden bg-transparent">
@@ -1176,7 +1223,6 @@ const SlideScrollThree = ({
               ref={leftSecRef}
               className="relative py-4 xl:py-[50px] xl:pl-[150px] overflow-hidden"
             >
-
               <div
                 className="absolute top-0 w-full z-10 h-full right-0 "
                 ref={leftBgRef}
@@ -1196,7 +1242,6 @@ const SlideScrollThree = ({
               ref={rightSecRef}
               className="relative flex flex-col h-full px-10 xl:px-[90px] pb-20 xl:pb-[93px] pt-20 xl:pt-[50px] overflow-hidden"
             >
-
               <div
                 className="absolute top-0 w-full z-10 h-full right-0 opacity-0"
                 ref={videoBgRef}
@@ -1295,28 +1340,50 @@ const SlideScrollThree = ({
         >
           <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full bg-transparent">
             <div className="lftblc relative right-0" ref={splftimng}>
-              <div className="bg-primary absolute w-full right-0 h-full top-0 z-[-1]" ref={splftbg}></div>
+              <div
+                className="bg-primary absolute w-full right-0 h-full top-0 z-[-1]"
+                ref={splftbg}
+              ></div>
               <img
-                src={'../assets/images/abut-sp.jpg'}
+                src={"../assets/images/abut-sp.jpg"}
                 alt=""
                 width={2000}
                 height={1500}
                 className="w-full h-full object-cover absolute object-center"
               />
             </div>
-            <div className=" flex flex-col h-full px-[70px] 3xl:px-[100px] pb-[120px] 3xl:pb-[150px] pt-[120px] 3xl:pt-[150px] overflow-hidden relative" ref={sprghtBx}>
-              <div className="bg-primary absolute w-full left-0 h-full top-0 z-[-1]" ref={sprgtbg}></div>
-              <img ref={sprIcnim} src="/assets/images/svg/sv-02.svg" width={600} height={600} className="absolute right-0 w-[250px] 3xl:w-[300px]" />
+            <div
+              className=" flex flex-col h-full px-[70px] 3xl:px-[100px] pb-[120px] 3xl:pb-[150px] pt-[120px] 3xl:pt-[150px] overflow-hidden relative"
+              ref={sprghtBx}
+            >
+              <div
+                className="bg-primary absolute w-full left-0 h-full top-0 z-[-1]"
+                ref={sprgtbg}
+              ></div>
+              <img
+                ref={sprIcnim}
+                src="/assets/images/svg/sv-02.svg"
+                width={600}
+                height={600}
+                className="absolute right-0 w-[250px] 3xl:w-[300px]"
+              />
               <div className="">
-                <h1 ref={sptitle} className="text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light  mb-8 xl:mb-[25px] text-white">
+                <h1
+                  ref={sptitle}
+                  className="text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light  mb-8 xl:mb-[25px] text-white"
+                >
                   About SP <br></br>International
                 </h1>
-                <p ref={spdscrpt} className="text-18 text-white font-light leading-[1.5] max-w-[90%]  3xl:max-w-[75%] mb-[30px]">
+                <p
+                  ref={spdscrpt}
+                  className="text-18 text-white font-light leading-[1.5] max-w-[90%]  3xl:max-w-[75%] mb-[30px]"
+                >
                   Shapoorji Pallonji International (SPINT) is the international
                   arm of Shapoorji Pallonji Engineering & Construction (SP E&C)
                   for its construction operations outside India.
                 </p>
-                <a ref={spbtn}
+                <a
+                  ref={spbtn}
                   href={"/"}
                   className="text-16 leading-[1.75] font-light text-white uppercase flex items-center gap-2 cursor-pointer group "
                 >
@@ -1347,7 +1414,10 @@ const SlideScrollThree = ({
                 </a>
               </div>
               <div className="mt-auto relative">
-                <hr ref={spBrdOne} className="border-white opacity-20 absolute top-[55%] left-[-30%] right-0" />
+                <hr
+                  ref={spBrdOne}
+                  className="border-white opacity-20 absolute top-[55%] left-[-30%] right-0"
+                />
                 <div className="grid grid-cols-3 " ref={spStats}>
                   <div className="text-white">
                     <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
@@ -1510,7 +1580,8 @@ const SlideScrollThree = ({
       </div>
 
       {/* Slide 4 */}
-      <div ref={section4Ref}
+      <div
+        ref={section4Ref}
         className="absolute top-0 left-0 w-full h-full bg-transparent"
         style={{ visibility: "hidden", zIndex: 0 }}
       >
@@ -1518,22 +1589,33 @@ const SlideScrollThree = ({
           id="section4"
           className="h-screen relative overflow-hidden whitebgref scroll-area"
         >
-          <figure className="absolute w-full h-full bg-white z-[-1]" ref={srvBgimg}>
-            <img className="absolute w-full h-full object-cover" src="../assets/images/services-bg.jpg" alt="" />
+          <figure
+            className="absolute w-full h-full bg-white z-[-1]"
+            ref={srvBgimg}
+          >
+            <img
+              className="absolute w-full h-full object-cover"
+              src="../assets/images/services-bg.jpg"
+              alt=""
+            />
           </figure>
           <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
             {/* left */}
             <div className="flex h-full">
               {/*      <div className="w-1/3"></div> */}
-              <div className="w-full pt-33 pl-[245px] 3xl:pl-[310px]" ref={srvLftBx}>
+              <div
+                className="w-full pt-33 pl-[245px] 3xl:pl-[310px]"
+                ref={srvLftBx}
+              >
                 <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
-                  <h1 ref={srvttlRef} className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px]" >
+                  <h1
+                    ref={srvttlRef}
+                    className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px]"
+                  >
                     Our Services
                   </h1>
                   <div className="w-full flex flex-col h-full justify-end   mt-15 relative">
-
                     <div className="pb-4 relative">
-
                       {/*    <p
                         ref={countRef}
                         className="text-60 font-light text-[#62626210]"
@@ -1591,7 +1673,10 @@ const SlideScrollThree = ({
                   className="object-cover absolute w-full h-full"
                 />
               </div>
-              <div className="absolute bottom-0 right-0  w-[40%] " ref={srvsVct}>
+              <div
+                className="absolute bottom-0 right-0  w-[40%] "
+                ref={srvsVct}
+              >
                 <img
                   src="../assets/images/svg/srv-vct.svg"
                   alt="Logo"
@@ -1600,7 +1685,10 @@ const SlideScrollThree = ({
                   height={914}
                 />
               </div>
-              <div className="absolute bottom-[245px] 3xl:bottom-[300px]  left-[40px] 3xl:left-[58px] z-10" ref={srvsCntb}>
+              <div
+                className="absolute bottom-[245px] 3xl:bottom-[300px]  left-[40px] 3xl:left-[58px] z-10"
+                ref={srvsCntb}
+              >
                 <hr
                   ref={brdonRef}
                   className="absolute right-[25%] left-[-85%] 3xl:left-[-78%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
@@ -1616,7 +1704,10 @@ const SlideScrollThree = ({
                   {activeService?.description}
                 </p>
               </div>
-              <div className="absolute bottom-10 3xl:bottom-[50px] left-[45px] 3xl:left-[58px] z-10" ref={srvsArrw}>
+              <div
+                className="absolute bottom-10 3xl:bottom-[50px] left-[45px] 3xl:left-[58px] z-10"
+                ref={srvsArrw}
+              >
                 <img
                   src="../assets/images/services/arrow-up.svg"
                   alt="Arrow"
@@ -1634,127 +1725,174 @@ const SlideScrollThree = ({
       {/* Slide 4 */}
       {/* Slide 5 */}
       <div
-        ref={section5Ref}
+        ref={section1Ref}
         className="absolute top-0 left-0 w-full h-full bg-transparent"
         style={{ visibility: "hidden", zIndex: 0 }}
       >
-     
         <section
           id="section5"
           className="h-screen relative overflow-hidden whitebgref scroll-area bg-white"
         >
-            <div className="w-full pt-33 pl-[245px] 3xl:pl-[310px]">
-                  <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
-                  <h1
-                    ref={srvttlRef}
-                    className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px] max-w-[15ch]"
-                  >
-                    Our Presence is Steadily Expanding
-                  </h1>
-                  </div>
-                <div className="  flex justify-center overflow-hidden  ">
-                    <div className="relative w-[1158px] h-[637px]"
-                     ref={containersRef}>
-                      
-                      <img
-                                src="../assets/images/world_map.png"
-                                alt="Arrow" 
-                                width={1158}
-                                height={679}
-                        className="object-contain select-none"
-                              />
-
-                      {/* Dots */}
-                      {cities.map((city) => (
-                        <div
-                          key={city.id}
-                          className={`absolute   transition-all duration-300 w-[480px] h-[480px]  flex items-center justify-center ${
-                            activeDot === city.id ? "z-[999]" : ""
-                          }`}
-                          style={{ left: city.left, top: city.top }}
-                        > 
-                            <div
-                          onClick={() => setActiveDot(city.id)}
-                            className={`w-[15px] h-[15px] group cursor-pointer relative z-10 rounded-full transition-all duration-500 backdrop-blur-[4px ${
-                              activeDot === city.id
-                                ? "bg-[#30F955] shadow-[0_0_35px_#30F955,0_0_50px_rgba(0,255,136,0.6)] border border-[#97DCFF] scale-full"
-                                : "bg-[#30B6F9]   border border-[#97DCFF] scale-85"
-                            }`}
-                          ></div> 
-                          <span className={`relative   -left-1 border border-[#30F95533] min-w-[110px] text-center backdrop-blur-[10px] uppercase bg-[#0015FF99] text-white text-[14px] font-bold px-2 py-[2px] rounded-full opacity-0 
-                            ${activeDot === city.id ? "opacity-100 scale-full " : "scale-80 "} group-hover:opacity-100 transition-all duration-500`}>
-                            {city.name}
-                          </span>
-                         <div className={`translate-x-[50%] -left-1/2 top-0   rounded-full transition-all duration-500 absolute  w-full h-full  
-                         `}
-                          ref={activeDot === city.id ? bubbleRef : undefined}
-              style={{ transform: `translateY(${adjustY}px)` }}>
-                            {activeDot === city.id && (
-                              <div > 
-                                <div className={`bubble  bg-[#0015FF66] border  border-[#0015FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)] 
-                                absolute left-[0%] top-[21%] ${activeDot === city.id ? "opacity-100 scale-full" : "scale-80 opacity-0 "}   transition-all duration-500 delay-700`}>
-                                  <p className="text-[24px] font-[200] leading-tight">{city.iconicpjts}</p>
-                                  <p className="text-[14px] font-[200]">Iconic Projects</p>
-                                </div>
-                                
-                                <div className="bubble  bg-[#00C8FF80] border border-[#00C8FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)] 
-                                absolute left-[48.3%] top-[5%]">
-                                  <p className="text-[24px] font-[200] leading-tight">{city.pjtcompleted}</p>
-                                  <p className="text-[14px] font-[200]">Project Completed</p>
-                                </div>
-                                <div className="bubble  bg-[#0066EB80] border border-[#0066EB26] backdrop-blur-sm  text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)]
-                                absolute left-[51%] top-[55%]">
-                                  <p className="text-[24px] font-[200] leading-tight">{city.dedicatedemployees}</p>
-                                  <p className="text-[14px] font-[200]">Dedicated Employees</p>
-                                </div>
-                              </div>
-                            )}
-                            {activeDot === city.id && ( 
-                              // <div className="absolute -left-[50px] w-[100%] h-[100%] border border-[#0015FF26] rounded-full z-[-1]
-                              // after:absolute after:w-[50%] after:h-[50%] after:border after:border-[#0015FF26] 
-                              // after:rounded-full after:left-[50%] after:top-[50%] after:z-[-1] after:-translate-x-[50%] after:-translate-y-[50%]
-                              // before:absolute before:w-[70%] before:h-[70%] before:border before:border-[#0015FF26] 
-                              // before:rounded-full before:left-[50%] before:top-[50%] before:z-[-1] before:-translate-x-[50%] before:-translate-y-[50%] "> </div> 
-                              
-                              <div className="absolute -left-[50px] w-[100%] h-[100%] rounded-full z-[-1] " 
-                              style={{backgroundImage: `url(../assets/images/ring.svg)`,
-                              backgroundSize: "cover",
-                              backgroundPosition: "center",
-                              backgroundRepeat: "no-repeat",
-                              }}
-                              >  
-                              </div> 
-                            )}
-                         </div>
-                        </div>
-                      ))}
- 
-                    </div>
-                </div>
-    
+          <div className="w-full pt-25 3xl:pt-33 pl-[245px] 3xl:pl-[310px]">
+            <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
+              <h1
+                ref={srvttlRef}
+                className="text-34 xl:text-40 3xl:text-60 font-light gradient-text leading-[1.2] 3xl:leading-[1.18] max-w-[15ch]"
+              >
+                Our Presence is Steadily Expanding
+              </h1>
             </div>
-           </section>
+            <div className="  flex justify-center    ">
+              <div
+                className="relative md:w-[1000px] md:h-[70%] 3xl:w-[1158px] 3xl:h-[70%] "
+                ref={containersRef}
+              >
+                <img
+                  src="../assets/images/world_map.png"
+                  alt="Arrow"
+                  width={1158} 
+                  height={679}
+                  className="object-cover img-f select-none md:w-[1000px] md:h-[70%] 3xl:w-[1158px] 3xl:h-[70%] "
+                />
+
+                {/* Dots */}
+                {cities.map((city) => (
+                  <div
+                    key={city.id}
+                    className={`absolute   transition-all duration-300 md:w-[43%] md:h-[76%] 3xl:w-[41.5%] 3xl:h-[76%]  flex items-center justify-center ${
+                      activeDot === city.id ? "z-[999]" : ""
+                    }`}
+                    style={{ left: city.left, top: city.top }}
+                  >
+                    <div
+                      onClick={() => setActiveDot(city.id)}
+                      className={`w-[15px] h-[15px] group cursor-pointer relative z-10 rounded-full transition-all duration-500 backdrop-blur-[4px ${
+                        activeDot === city.id
+                          ? "bg-[#30F955] shadow-[0_0_35px_#30F955,0_0_50px_rgba(0,255,136,0.6)] border border-[#97DCFF] scale-full"
+                          : "bg-[#30B6F9]   border border-[#97DCFF] scale-85"
+                      }`}
+                    ></div>
+                    <span
+                      className={`relative   -left-1 border border-[#30F95533] min-w-[110px] text-center backdrop-blur-[10px] uppercase bg-[#0015FF99] text-white text-[14px] font-bold px-2 py-[2px] rounded-full opacity-0 
+                            ${
+                              activeDot === city.id
+                                ? "opacity-100 scale-full "
+                                : "scale-80 "
+                            } group-hover:opacity-100 transition-all duration-500`}
+                    >
+                      {city.name}
+                    </span>
+                    <div
+                      className={`translate-x-[50%] -left-1/2 top-0   rounded-full transition-all duration-500 absolute  w-full h-full  
+                       `}
+                      ref={activeDot === city.id ? bubbleRef : undefined}
+                      style={{ transform: `translateY(${adjustY}px)` }}
+                    > 
+                       <div   ref={activeDot === city.id ? outsideRef : null} className={` transition-all duration-500  outside `}>
+                          <div>
+                          <div
+                            className={`bubble  bg-[#0015FF66] transition-all duration-500 delay-100 border  border-[#0015FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)] 
+                                absolute left-[0%] top-[21%] ${
+                                  activeDot === city.id
+                                    ? "opacity-100 scale-full float-bubble1"
+                                    : "scale-80 opacity-0 "
+                                }   `}
+                          >
+                            <p className="text-[24px] font-[200] leading-tight">
+                              {city.iconicpjts}
+                            </p>
+                            <p className="text-[14px] font-[200]">
+                              Iconic Projects
+                            </p>
+                          </div>
+
+                          <div
+                            className={`bubble  bg-[#00C8FF80] border border-[#00C8FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)] 
+                                absolute left-[48.3%] top-[5%] ${
+                                  activeDot === city.id
+                                    ? "opacity-100 scale-full float-bubble2"
+                                    : "scale-80 opacity-0 "
+                                }   transition-all duration-500 delay-200`}
+                          >
+                            <p className="text-[24px] font-[200] leading-tight">
+                              {city.pjtcompleted}
+                            </p>
+                            <p className="text-[14px] font-[200]">
+                              Project Completed
+                            </p>
+                          </div>
+                          <div
+                            className={`bubble  bg-[#0066EB80] border border-[#0066EB26] backdrop-blur-sm  text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)]
+                                absolute left-[51%] top-[55%] ${
+                                  activeDot === city.id
+                                    ? "opacity-100 scale-full float-bubble3"
+                                    : "scale-80 opacity-0 "
+                                }   transition-all duration-500 delay-300`} 
+                          >
+                            <p className="text-[24px] font-[200] leading-tight">
+                              {city.dedicatedemployees}
+                            </p>
+                            <p className="text-[14px] font-[200]">
+                              Dedicated Employees
+                            </p>
+                          </div>
+                        </div>
+                      
+                       
+
+                        <div
+                          className={`absolute -left-[50px] w-[100%] h-[100%] rounded-full z-[-1] scale-pulse ${
+                            activeDot === city.id
+                              ? "opacity-100 scale-full"
+                              : "opacity-0 "
+                          }   transition-all duration-500 delay-300`}
+                          style={{
+                            backgroundImage: `url(../assets/images/ring3.svg)`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                          }}
+                        ></div> 
+                        </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
       {/* Slide 5 */}
       {/* Slide 6 */}
 
-
-      <div ref={section6Ref} className="absolute top-0 left-0 w-full h-full bg-transparent" style={{ visibility: "hidden", zIndex: 0 }} >
-        <section id="section6" className="h-screen relative overflow-hidden whitebgref scroll-area bg-white">
+      <div
+        ref={section6Ref}
+        className="absolute top-0 left-0 w-full h-full bg-transparent"
+        style={{ visibility: "hidden", zIndex: 0 }}
+      >
+        <section
+          id="section6"
+          className="h-screen relative overflow-hidden whitebgref scroll-area bg-white"
+        >
           <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
             {/* left start */}
             <div className="flex h-full bg-white">
               <div className="w-full pt-33 pl-[245px] 3xl:pl-[310px]">
                 <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
-                  <h1 ref={srvttlRef} className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px] max-w-[13ch]" >
+                  <h1
+                    ref={srvttlRef}
+                    className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px] max-w-[13ch]"
+                  >
                     Shaping Diverse Sectors
                   </h1>
                   <div className="w-full flex flex-col justify-center h-[541px] mt-5 relative">
                     <div className="pb-4 relative h-fit">
-
                       {/* hear the vertical slider with sectors name */}
                       <div className="absolute top-0 left-0 h-full  flex flex-col justify-center">
-                        <img src="../assets/images/sectors/svg-crv.svg" alt="curved line svg" />
+                        <img
+                          src="../assets/images/sectors/svg-crv.svg"
+                          alt="curved line svg"
+                        />
                       </div>
                       {/* <div className="flex flex-col gap-1 pl-4 pb-6">
                         <div className="flex items-center gap-5">
@@ -1809,26 +1947,36 @@ const SlideScrollThree = ({
                           return (
                             <div
                               key={`${sector.originalIndex}-${idx}`}
-                              className={`flex items-center gap-5 cursor-pointer transition-all duration-700 ease-out ${isActive ? 'ml-[-27px] py-5' : ''
-                                }`}
+                              className={`flex items-center gap-5 cursor-pointer transition-all duration-700 ease-out ${
+                                isActive ? "ml-[-27px] py-5" : ""
+                              }`}
                               style={{
                                 opacity: opacity,
                                 transform: `scale(${scale})`,
-                                transformOrigin: 'left center'
+                                transformOrigin: "left center",
                               }}
-                              onClick={() => handleSlideClick(sector.originalIndex)}
+                              onClick={() =>
+                                handleSlideClick(sector.originalIndex)
+                              }
                             >
                               <div
-                                className={`bg-[#30B6F94D] rounded-full w-[83px] h-[83px] flex items-center justify-center transition-all duration-700 ease-out ${isActive ? 'relative opacity-100' : 'absolute opacity-0'
-                                  }`}
+                                className={`bg-[#30B6F94D] rounded-full w-[83px] h-[83px] flex items-center justify-center transition-all duration-700 ease-out ${
+                                  isActive
+                                    ? "relative opacity-100"
+                                    : "absolute opacity-0"
+                                }`}
                               >
-                                <img src={sector.icon} alt={`${sector.name} icon`} />
+                                <img
+                                  src={sector.icon}
+                                  alt={`${sector.name} icon`}
+                                />
                               </div>
                               <h3
-                                className={`transition-all duration-700 ease-out ${isActive
-                                  ? 'text-29 leading-[1.842105263157895] font-semibold'
-                                  : 'text-19 leading-[1.842105263157895]'
-                                  }`}
+                                className={`transition-all duration-700 ease-out ${
+                                  isActive
+                                    ? "text-29 leading-[1.842105263157895] font-semibold"
+                                    : "text-19 leading-[1.842105263157895]"
+                                }`}
                               >
                                 {sector.name}
                               </h3>
@@ -1837,9 +1985,7 @@ const SlideScrollThree = ({
                         })}
                       </div>
                       <div>
-                        <div>
-
-                        </div>
+                        <div></div>
                       </div>
                     </div>
                   </div>
@@ -1848,26 +1994,45 @@ const SlideScrollThree = ({
             </div>
             {/* left end*/}
             {/* right start */}
-            <div className="relative w-full h-[100vh] z-0" >
-              <div className="absolute h-full w-full" >
+            <div className="relative w-full h-[100vh] z-0">
+              <div className="absolute h-full w-full">
                 {/* hear the image that changes according to the vertical slider */}
-                <img src={activeSector.image}
-                  alt={`${activeSector.name} sector`} fill className="object-cover absolute w-full h-full" />
+                <img
+                  src={activeSector.image}
+                  alt={`${activeSector.name} sector`}
+                  fill
+                  className="object-cover absolute w-full h-full"
+                />
                 {/* hear the absolute positioned box with project details */}
                 <div className="absolute bottom-20 left-0 bg-primary text-white z-50 cursor-pointer">
                   <div>
                     <div className="flex gap-5 xl:gap-[77px] px-15 py-6 xl:pt-[28px] xl:pb-[33px] border-b border-white/20">
                       <div>
-                        <h3 className="text-40 font-light">{activeSector.projectsCompleted}</h3>
-                        <p className="text-19 font-light text-white/70 leading-[1.473684210526316]">Completed Projects</p>
+                        <h3 className="text-40 font-light">
+                          {activeSector.projectsCompleted}
+                        </h3>
+                        <p className="text-19 font-light text-white/70 leading-[1.473684210526316]">
+                          Completed Projects
+                        </p>
                       </div>
                       <div>
-                        <h3 className="text-40 font-light">{activeSector.ongoingProjects}</h3>
-                        <p className="text-19 font-light text-white/70 leading-[1.473684210526316]">Ongoing Projects</p>
+                        <h3 className="text-40 font-light">
+                          {activeSector.ongoingProjects}
+                        </h3>
+                        <p className="text-19 font-light text-white/70 leading-[1.473684210526316]">
+                          Ongoing Projects
+                        </p>
                       </div>
                     </div>
                     <div className="px-15 py-6 xl:pt-[42px] xl:pb-[49px] group cursor-pointer">
-                      <a href="/sectors" className="flex items-center gap-2 ">View All Projects <img src="../assets/images/icons/arrow-right.svg" alt="arrow right" className="group-hover:translate-x-2 transition-all duration-300" /></a>
+                      <a href="/sectors" className="flex items-center gap-2 ">
+                        View All Projects{" "}
+                        <img
+                          src="../assets/images/icons/arrow-right.svg"
+                          alt="arrow right"
+                          className="group-hover:translate-x-2 transition-all duration-300"
+                        />
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -1887,8 +2052,95 @@ const SlideScrollThree = ({
       >
         <section
           id="section7"
-          className="h-screen relative overflow-hidden whitebgref scroll-area bg-fuchsia-500"
+          className="h-screen relative overflow-hidden whitebgref scroll-area " style={{
+                            backgroundImage: `url(../assets/images/driven_force.jpg)`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                          }}
         >
+          <div
+      className="grid grid-cols-[950px_auto] 2xl:grid-cols-[950px_auto] 3xl:grid-cols-[1201px_auto] h-full 
+      bg-[linear-gradient(270deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.65)_51.29%,rgba(0,0,0,0.75)_100%)]"
+    >
+      {/* LEFT SIDE */}
+      <div className="w-full pt-33 pl-[245px] 3xl:pl-[300px] pb-[120px] 3xl:pb-[212px]">
+        <div className="ml-[80px] 3xl:ml-[110px] flex flex-col justify-between h-full">
+          <h1 className="max-w-[14ch] text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light mb-8 xl:mb-[25px] text-white">
+            Driven by Talent. <br /> Defined by Culture.
+          </h1>
+
+          <div>
+            <div className="flex items-center gap-5">
+              {items.map((item) => (
+                <div
+                  key={item.id}
+                  onClick={() => setActiveItem(item)}
+                  className={`hover:border-b-[2px] hover:border-primary border-b-2 ${
+                    activeItem.id === item.id
+                      ? "border-primary"
+                      : "border-transparent"
+                  } pb-1 transition-all duration-300`}
+                >
+                  <p
+                    className={`text-[15px] 3xl:text-19 min-w-[110px] 3xl:min-w-[130px]  text-white/80 leading-[1.473684210526316] 
+                    transition-all duration-300 cursor-pointer ${
+                      activeItem.id === item.id
+                        ? "font-bold text-white"
+                        : "hover:font-bold hover:text-white font-light"
+                    }`}
+                  >
+                    {item.title.split(" ").map((word, i) => (
+                      <span key={i}>
+                        {word}
+                        <br />
+                      </span>
+                    ))}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="relative">
+          <div className="border-b border-white/20 absolute bottom-0 w-full left-0"></div>
+        </div>
+      </div>
+
+      {/* RIGHT SIDE */}
+      <div className="flex flex-col justify-end h-full pb-[120px] 3xl:pb-[212px] pt-[120px] 3xl:pt-[150px] overflow-hidden relative border-l border-white/25">
+        <AnimatePresence mode="wait"> 
+          <motion.div  
+          key={activeItem.id}
+            
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}  className="p-5 lg:p-7 3xl:py-12 3xl:px-15 bg-primary w-fit 2xl:w-[400px] 3xl:w-[550px] text-white relative ">
+          <div className="h-fit mb-5 overflow-hidden">
+            <motion.h3 
+          key={activeItem.id}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -30 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }} 
+            className="text-29 font-light leading-[1] ">{activeItem.title}
+            </motion.h3>
+          </div>
+          <motion.p 
+          key={activeItem.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1}}
+            exit={{ opacity: 0}}
+            transition={{ duration: 0.5, ease: "easeInOut" }} 
+            className="text-16 xl:text-19 font-light leading-[1.5]">
+            {activeItem.desc}
+          </motion.p>
+        </motion.div>
+        </AnimatePresence> 
+      </div>
+    </div>
         </section>
       </div>
       {/* Slide 7 */}
