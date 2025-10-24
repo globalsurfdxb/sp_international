@@ -115,7 +115,10 @@ const SlideScrollThree = ({
 
 
   const section5Ref = useRef(null);
-
+  const maptitle = useRef([]);
+  const mapimage = useRef([]);
+  const mapdots = useRef([]);
+  const mapactive = useRef([]);
 
   const section6Ref = useRef(null);
 
@@ -242,6 +245,7 @@ const SlideScrollThree = ({
     const b1 = gsap.timeline();
     const c1 = gsap.timeline();
     const d1 = gsap.timeline();
+    const e1 = gsap.timeline();
 
     switch (index) {
       case 0:
@@ -599,6 +603,49 @@ const SlideScrollThree = ({
           ;
         break;
       case 4:
+       e1.set(maptitle.current, { opacity: 0 })
+          .set(mapimage.current, { opacity: 0 })
+          .set(mapdots.current, { opacity: 0 })
+          .set(mapactive.current, { opacity: 0 })
+          .fromTo(
+            maptitle.current,
+            { x: -50, opacity: 0, },
+            { x: 0, opacity: 1, 
+              duration: 1.5, delay: 1.4, ease: "power1.out" }, '-=0.5'
+          )
+          .fromTo(
+            mapimage.current,
+            { scale: 0.9, opacity: 0 },
+            {
+              scale: 1,
+              opacity: 1,
+              duration: 0.9, 
+              ease: "power1.out",
+            },
+            "-=0.5"
+          )
+          .fromTo(
+            mapdots.current,
+            { scale: 0, opacity: 0 },
+            {
+              scale: 1,
+              opacity: 1,
+              duration: 1.9, 
+              ease: "power1.out",
+            },
+            "-=0.5"
+          )
+          .fromTo(
+            mapactive.current,
+            { opacity: 0 },
+            {
+              opacity: 1,
+              duration: 1.9, 
+              ease: "power1.out",
+            },
+            "-=0.5"
+          )
+          ;
         break;
       case 5:
         
@@ -1735,14 +1782,15 @@ const SlideScrollThree = ({
         >
           <div className="w-full pt-25 3xl:pt-33 pl-[245px] 3xl:pl-[310px]">
             <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
-              <h1
-                ref={srvttlRef}
+              <h1 
+                  ref={maptitle}
                 className="text-34 xl:text-40 3xl:text-60 font-light gradient-text leading-[1.2] 3xl:leading-[1.18] max-w-[15ch]"
               >
                 Our Presence is Steadily Expanding
               </h1>
             </div>
-            <div className="  flex justify-center    ">
+            <div className="  flex justify-center    " 
+                  ref={mapimage}>
               <div
                 className="relative md:w-[1000px] md:h-[70%] 3xl:w-[1158px] 3xl:h-[70%] "
                 ref={containersRef}
@@ -1752,6 +1800,7 @@ const SlideScrollThree = ({
                   alt="Arrow"
                   width={1158} 
                   height={679}
+                  
                   className="object-cover img-f select-none md:w-[1000px] md:h-[70%] 3xl:w-[1158px] 3xl:h-[70%] "
                 />
 
@@ -1759,15 +1808,18 @@ const SlideScrollThree = ({
                 {cities.map((city) => (
                   <div
                     key={city.id}
+                    ref={mapactive}
                     className={`absolute   transition-all duration-300 md:w-[43%] md:h-[76%] 3xl:w-[41.5%] 3xl:h-[76%]  flex items-center justify-center ${
                       activeDot === city.id ? "z-[999]" : ""
                     }`}
                     style={{ left: city.left, top: city.top }}
                   >
                     <div
+                    ref={mapdots}
                       onClick={() => setActiveDot(city.id)}
                       className={`w-[15px] h-[15px] group cursor-pointer relative z-10 rounded-full transition-all duration-500 backdrop-blur-[4px ${
                         activeDot === city.id
+                        
                           ? "bg-[#30F955] shadow-[0_0_35px_#30F955,0_0_50px_rgba(0,255,136,0.6)] border border-[#97DCFF] scale-full"
                           : "bg-[#30B6F9]   border border-[#97DCFF] scale-85"
                       }`}
