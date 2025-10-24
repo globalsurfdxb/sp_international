@@ -974,7 +974,7 @@ const SlideScrollThree = ({
     if (isTransitioning) return;
     setIsTransitioning(true);
     setActiveIndex(index);
-    setTimeout(() => setIsTransitioning(false), 600);
+    setTimeout(() => setIsTransitioning(false), 700);
   };
 
   // Create infinite loop by repeating sectors with smooth positioning
