@@ -1049,6 +1049,7 @@ const SlideScrollThree = ({
   const [activeIndex, setActiveIndex] = useState(3);
   const [isAnimating, setIsAnimating] = useState(false);
   const [animationDirection, setAnimationDirection] = useState(0); // 1 for down, -1 for up
+  const [displayedIndex, setDisplayedIndex] = useState(activeIndex);
   const animationRef = useRef(null);
 
   const handleSlideClick = (targetIndex) => {
@@ -1095,6 +1096,7 @@ const SlideScrollThree = ({
         animationRef.current = null;
         setIsAnimating(false);
         setAnimationDirection(0);
+        setDisplayedIndex(path[path.length - 1]); // ✅ update right-side content only now
       }
     }, 400);
   };
@@ -1116,7 +1118,7 @@ const SlideScrollThree = ({
   };
 
   const visibleSectors = getVisibleSectors();
-  const activeSector = sectors[activeIndex];
+  const activeSector = sectors[displayedIndex];
   return (
     <div
       ref={containerRef}
@@ -1965,7 +1967,7 @@ const SlideScrollThree = ({
           <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
             {/* left start */}
             <div className="flex h-full bg-white">
-              <div className="w-full pt-33 pl-[245px] 3xl:pl-[310px]">
+              <div className="w-full pt-10 3xl:pt-33 pl-[245px] 3xl:pl-[310px]">
                 <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
                   <h1
                     ref={srvttlRef}
@@ -2021,20 +2023,17 @@ const SlideScrollThree = ({
                             >
                               {/* Show icon ONLY when at center */}
                               {isActive && (
-                                <div
-                                  className="bg-[#30B6F94D] rounded-full w-[83px] h-[83px] flex items-center justify-center relative"
-                                  style={{
+                                <div className="bg-[#30B6F94D] rounded-full w-[83px] h-[83px] flex items-center justify-center relative opacity-0">
+                                  <img src={sector.icon} alt={`${sector.name} icon`} style={{
                                     animation: animationDirection !== 0
                                       ? 'iconFadeInScale 0.4s ease-out 0.2s both'
                                       : 'none'
-                                  }}
-                                >
-                                  <img src={sector.icon} alt={`${sector.name} icon`} />
+                                  }} />
                                 </div>
                               )}
 
                               <h3
-                                className={`${isActive
+                                className={`hover:opacity-100 hover:text-[#30B6F9] transition-opacity duration-500 ${isActive
                                     ? 'text-29 leading-[1.842105263157895] font-semibold'
                                     : 'text-19 leading-[1.842105263157895]'
                                   }`}
@@ -2050,6 +2049,21 @@ const SlideScrollThree = ({
                         })}
                       </div>
 
+                      <div className="absolute left-[-10px] top-1/2 -translate-y-[75%] z-10">
+                        <div className="bg-[#30B6F94D] rounded-full w-[83px] h-[83px] flex items-center justify-center relative">
+                          <img
+                            key={activeSector.icon}
+                            src={activeSector.icon}
+                            alt={`${activeSector.name} icon`}
+                            style={{
+                              animation: animationDirection !== 0
+                                ? 'iconFadeInScale 0.4s ease-out 0.2s both'
+                                : 'none'
+                            }}
+                          />
+                        </div>
+                      </div>
+
                       
                     </div>
                   </div>
@@ -2061,7 +2075,6 @@ const SlideScrollThree = ({
             <div className="relative w-full h-[100vh] z-0">
               <div className="absolute h-full w-full">
                 {/* hear the image that changes according to the vertical slider */}
-                {/* <img src={activeSector.image} alt={`${activeSector.name} sector`} fill className="object-cover absolute w-full h-full" /> */}
                 {/* Image section */}
                 <div className="relative w-full h-full overflow-hidden bg-black">
                   {sectors.map((sector, idx) => (
@@ -2069,11 +2082,11 @@ const SlideScrollThree = ({
                       key={idx}
                       className="absolute inset-0 w-full h-full"
                       style={{
-                        opacity: idx === activeIndex ? 1 : 0,
-                        transform: idx === activeIndex ? 'scale(1)' : 'scale(1.05)',
+                        opacity: idx === displayedIndex ? 1 : 0,
+                        transform: idx === displayedIndex ? 'scale(1)' : 'scale(1.05)',
                         transition: 'opacity 0.8s ease-in-out, transform 0.8s ease-in-out',
                         willChange: 'opacity, transform',
-                        pointerEvents: idx === activeIndex ? 'auto' : 'none'
+                        pointerEvents: idx === displayedIndex ? 'auto' : 'none'
                       }}
                     >
                       <img
@@ -2099,7 +2112,7 @@ const SlideScrollThree = ({
                       <div>
                         <div style={{ position: 'relative', overflow: 'hidden'}}>
                           <h3
-                            key={`projects-${activeIndex}`}
+                            key={`projects-${displayedIndex}`}
                             className="text-40 font-light mb-2"
                             style={{
                               animation: 'slideUpFadeIn 0.6s ease-out',
@@ -2116,7 +2129,7 @@ const SlideScrollThree = ({
                       <div>
                         <div style={{ position: 'relative', overflow: 'hidden',  }}>
                           <h3
-                            key={`ongoing-${activeIndex}`}
+                            key={`projects-${displayedIndex}`}
                             className="text-40 font-light mb-2" 
                             style={{
                               animation: 'slideUpFadeIn 0.6s ease-out 0.1s',
