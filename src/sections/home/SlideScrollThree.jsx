@@ -1228,42 +1228,42 @@ const mapactive = useRef([]);
     },
     {
       name: "Healthcare",
-      icon: "../assets/images/sectors/icons/hospitality-icon.svg",
+      icon: "../assets/images/sectors/icons/Healthcare.svg",
       image: "../assets/images/sectors/health-care.jpg",
       projectsCompleted: "150+",
       ongoingProjects: "20+",
     },
     {
       name: "Commercial",
-      icon: "../assets/images/sectors/icons/hospitality-icon.svg",
+      icon: "../assets/images/sectors/icons/Commercial.svg",
       image: "../assets/images/sectors/hospitality.jpg",
       projectsCompleted: "320+",
       ongoingProjects: "30+",
     },
     {
       name: "Hospitality",
-      icon: "../assets/images/sectors/icons/hospitality-icon.svg",
+      icon: "../assets/images/sectors/icons/industrial.svg",
       image: "../assets/images/sectors/hospitality.jpg",
       projectsCompleted: "275+",
       ongoingProjects: "25+",
     },
     {
       name: "Residential",
-      icon: "../assets/images/sectors/icons/hospitality-icon.svg",
+      icon: "../assets/images/sectors/icons/Residential.svg",
       image: "../assets/images/sectors/hospitality.jpg",
       projectsCompleted: "450+",
       ongoingProjects: "40+",
     },
     {
       name: "Water",
-      icon: "../assets/images/sectors/icons/hospitality-icon.svg",
+      icon: "../assets/images/sectors/icons/Water.svg",
       image: "../assets/images/sectors/hospitality.jpg",
       projectsCompleted: "95+",
       ongoingProjects: "12+",
     },
     {
       name: "Infrastructure",
-      icon: "../assets/images/sectors/icons/hospitality-icon.svg",
+      icon: "../assets/images/sectors/icons/infrastructure.svg",
       image: "../assets/images/sectors/hospitality.jpg",
       projectsCompleted: "95+",
       ongoingProjects: "12+",
@@ -2251,6 +2251,7 @@ const mapactive = useRef([]);
                                   <img
                                     src={sector.icon}
                                     alt={`${sector.name} icon`}
+                                    className="h-[40px]"
                                     style={{
                                       animation:
                                         animationDirection !== 0
@@ -2285,6 +2286,7 @@ const mapactive = useRef([]);
                             key={activeSector.icon}
                             src={activeSector.icon}
                             alt={`${activeSector.name} icon`}
+                            className="h-[40px]"
                             style={{
                               animation:
                                 animationDirection !== 0
