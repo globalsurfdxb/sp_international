@@ -15,6 +15,7 @@ const sections = [
   { id: "section4", label: "SERVICES" },
   { id: "section5", label: "PROJECTS" },
   { id: "section6", label: "PEOPLE" },
+  { id: "section7", label: "PEOPLE" },
 ];
 
 const HeaderTw = ({ activeSection, setActiveSection,setIndexToScroll }) => {
@@ -111,7 +112,7 @@ useGSAP(() => {
 const length = activeSection.length
 console.log(activeSection[length-1])
 const nextSection = sections.find((section) => section.id === `section${parseInt(activeSection[length-1])+1}`);
-const scrollStep = 600;
+const scrollStep = 700;
 
   const handleScroll = (sectionId) => {
     console.log("clicked")
