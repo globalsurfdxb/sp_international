@@ -149,7 +149,6 @@ const SlideScrollThree = ({
 const section5Ref = useRef(null);
 const maptitle = useRef([]);
 const mapimage = useRef([]);
-const mapdots = useRef([]);
 const mapactive = useRef([]);
 
 
@@ -173,7 +172,7 @@ const mapactive = useRef([]);
   const sections = [section1Ref, section2Ref, section3Ref, section4Ref, section5Ref, section6Ref, section7Ref];
   
 
-  const [activeDot, setActiveDot] = useState("dubai");
+  const [activeDot, setActiveDot] = useState("false");
   
     const [adjustY, setAdjustY] = useState(0);
   
@@ -260,6 +259,7 @@ const mapactive = useRef([]);
         transformOrigin: "50%, 50%",
         opacity: 0,
       })
+     
       .to(
         ".mswd",
         {
@@ -283,6 +283,7 @@ const mapactive = useRef([]);
     const statItems = statsRef.current.querySelectorAll("div");
     const talentdtlsItems = talentdtls.current.querySelectorAll("div.tlnits");
     const cultlistItems = cultlist.current.querySelectorAll("div.ctitm");
+    const dotsItms = containersRef.current.querySelectorAll("div.itmbsx");
     const a1 = gsap.timeline();
     const b1 = gsap.timeline();
     const c1 = gsap.timeline();
@@ -649,12 +650,12 @@ const mapactive = useRef([]);
         case 4:
            e1.set(maptitle.current, { opacity: 0 })
           .set(mapimage.current, { opacity: 0 })
-          .set(mapdots.current, { opacity: 0 })
+      
           .set(mapactive.current, { opacity: 0 })
           .fromTo(
             maptitle.current,
             { x: -50, opacity: 0 },
-            { x: 0, opacity: 1, duration: 1.5, delay: 1.5, ease: "power1.out" },
+            { x: 0, opacity: 1, duration: 1.2, delay: 1.5, ease: "power1.out" },
             "-=0.5"
           )
           .fromTo(
@@ -666,19 +667,29 @@ const mapactive = useRef([]);
               duration: 0.9,
               ease: "power1.out",
             },
-            "-=0.5"
+            "-=0.8"
           )
-          /* .fromTo(
-            mapsItems,
+           .fromTo(
+            dotsItms,
             {  opacity: 0, scale: 0 },
             {
               scale: 1,
               opacity: 1,
               duration: 1,
-              delay: -0.5,
+              stagger: 0.3,
               ease: "power3.out",
             },
-            "-=0"
+            "-=1.2"
+          )  
+         /*  .fromTo(".actdts", {
+        opacity: 0, scale: 0.8 },
+            {
+              scale: 1,
+              opacity: 1,
+              duration: 1,
+              ease: "power3.out",
+            },
+            "-=0.8"
           ) */;
         
         break;
@@ -711,7 +722,7 @@ const mapactive = useRef([]);
               delay: 0,
               ease: "power3.out",
             },
-            "-=1"
+            "-=1.5"
           ) .fromTo(
             talentdtls.current,
             { x: -30, opacity: 0 },
@@ -736,7 +747,7 @@ const mapactive = useRef([]);
           .set(cultlist.current, { opacity: 0, x: 0 })
           .set(cultlistItems.current, { opacity: 0, x: 0 })
           .set(cutltdtls.current, { opacity: 0, x: 0 })
-          .set(cutltimg.current, { opacity: 0, x: 0, width: "0%"})
+          .set(cutltimg.current, { opacity: 0, x: 0, width: "0%", scale: 1})
            .fromTo(
             cutltimg.current,
             { width: "0%", opacity: 0 },
@@ -746,6 +757,7 @@ const mapactive = useRef([]);
               duration: 1,
               delay: 2,
               ease: "power3.out",
+               transformOrigin: "50% 50%"
             },
             "-=0"
           )
@@ -1012,7 +1024,7 @@ const mapactive = useRef([]);
           0
         ).to(
           mapimage.current,
-          { opacity: 0, scale: 0.9, duration: 1.2, ease: "power1.in" },
+          { opacity: 0, scale: 0.9, duration: 1.3, ease: "power1.in" },
           "-=0.5"
         );
         break;
@@ -1046,7 +1058,7 @@ const mapactive = useRef([]);
           "-=1.2"
         ).to(
           cutltimg.current,
-          { x: 100, opacity: 0, duration: 1.5, ease: "power1.in" },
+          { scale: 1.5, opacity: 0, duration: 1.2, ease: "power1.in" },
           "-=1.2"
         );
         break;
@@ -2050,15 +2062,16 @@ const mapactive = useRef([]);
                   <div
                     key={city.id}
                     ref={mapactive}
-                    className={`absolute   transition-all duration-300 md:w-[43%] md:h-[76%] 3xl:w-[41.5%] 3xl:h-[76%]  flex items-center justify-center itmbsx ${
+                    className={`absolute   transition-all duration-300 md:w-[43%] md:h-[76%] 3xl:w-[41.5%] 3xl:h-[76%]  flex items-center justify-center  ${
                       activeDot === city.id ? "z-[999]" : ""
                     }`}
                     style={{ left: city.left, top: city.top }}
                   >
                     <div
-                      ref={mapdots}
+                  
+                  
                       onClick={() => setActiveDot(city.id)}
-                      className={`w-[15px] h-[15px] group cursor-pointer relative z-10 rounded-full transition-all duration-500 backdrop-blur-[4px ${
+                      className={`w-[15px] h-[15px] group cursor-pointer relative z-10 rounded-full transition-all duration-500 itmbsx backdrop-blur-[4px] ${
                         activeDot === city.id
                           ? "bg-[#30F955] shadow-[0_0_35px_#30F955,0_0_50px_rgba(0,255,136,0.6)] border border-[#97DCFF] scale-full"
                           : "bg-[#30B6F9]   border border-[#97DCFF] scale-85"
@@ -2075,7 +2088,8 @@ const mapactive = useRef([]);
                       {city.name}
                     </span>
                     <div
-                      className={`translate-x-[50%] -left-1/2 top-0   rounded-full transition-all duration-500 absolute  w-full h-full  
+                  
+                      className={`translate-x-[50%] -left-1/2 top-0  rounded-full transition-all duration-500 absolute  w-full h-full  
                        `}
                       ref={activeDot === city.id ? bubbleRef : undefined}
                       style={{ transform: `translateY(${adjustY}px)` }}
