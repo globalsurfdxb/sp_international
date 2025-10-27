@@ -12,6 +12,7 @@ gsap.registerPlugin(DrawSVGPlugin);
 import { motion, AnimatePresence } from "framer-motion";
 
 import { aboutData } from "./data.js";
+
 const cities = [
   {
     id: "dubai",
@@ -73,10 +74,10 @@ const items = [
   },
 ];
 
-
 const SlideScrollThree = ({
   setActiveSection,
   indexToScroll,
+
   setIndexToScroll,
 }) => {
   const containerRef = useRef(null);
@@ -117,16 +118,16 @@ const SlideScrollThree = ({
   const sprIcnim = useRef(null);
   const spBrdOne = useRef(null);
 
-/*   const leftContentRef = useRef(null);
-  const rightImageRef = useRef(null);
-  const swiperRef = useRef(null);
-  const bottomTextRef = useRef(null); */
+  /*   const leftContentRef = useRef(null);
+    const rightImageRef = useRef(null);
+    const swiperRef = useRef(null);
+    const bottomTextRef = useRef(null); */
 
   const bgdivRef = useRef(null);
 
-/*   const polygon1Ref = useRef(null);
-  const polygon2Ref = useRef(null);
-  const polygon3Ref = useRef(null); */
+  /*   const polygon1Ref = useRef(null);
+    const polygon2Ref = useRef(null);
+    const polygon3Ref = useRef(null); */
   const polygon4Ref = useRef(null);
   const polygon5Ref = useRef(null);
 
@@ -145,74 +146,75 @@ const SlideScrollThree = ({
   const srvsRghtBx = useRef([]);
   const srvLftBx = useRef([]);
 
+  const section5Ref = useRef(null);
+  const maptitle = useRef([]);
+  const mapimage = useRef([]);
+  const mapdots = useRef([]);
+  const mapactive = useRef([]);
 
-const section5Ref = useRef(null);
-const maptitle = useRef([]);
-const mapimage = useRef([]);
-const mapdots = useRef([]);
-const mapactive = useRef([]);
+  const section6Ref = useRef(null);
+  const talenttitle = useRef([]);
+  const talentlist = useRef([]);
+  const talentdetails = useRef([]);
+  const talentimage = useRef([]);
 
-
-    const section6Ref = useRef(null);
-      const talenttitle = useRef([]);
-      const talentlist = useRef([]);
-      const talentimage = useRef([]);
-      const talentdtls = useRef([]);
-
-    const section7Ref = useRef(null);
-      const cutltttl = useRef([]);
-      const cultlist = useRef([]);
-      const cutltimg = useRef([]);
-      const cutltdtls = useRef([]);
+  const section7Ref = useRef(null);
 
   /*     const [activeIndex, setActiveIndex] = useState(0); */
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const currentIndexRef = useRef(0);
 
-  const sections = [section1Ref, section2Ref, section3Ref, section4Ref, section5Ref, section6Ref, section7Ref];
-  
+  const sections = [
+    section1Ref,
+    section2Ref,
+    section3Ref,
+    section4Ref,
+    section5Ref,
+    section6Ref,
+    section7Ref,
+  ];
 
   const [activeDot, setActiveDot] = useState("dubai");
-  
-    const [adjustY, setAdjustY] = useState(0);
-  
-    const bubbleRef = useRef(null);
-    const containersRef = useRef(null);
-  
-    useEffect(() => {
-      if (!activeDot || !bubbleRef.current || !containersRef.current) return;
-  
-      const bubble = bubbleRef.current.getBoundingClientRect();
-      const container = containersRef.current.getBoundingClientRect();
-  
-      let offsetY = 0;
-      if (bubble.top < container.top) {
-        offsetY = container.top - bubble.top + 250; // push down
-      } else if (bubble.bottom > container.bottom) {
-        offsetY = container.bottom - bubble.bottom - 50; // push up
+
+  const [adjustY, setAdjustY] = useState(0);
+
+  const bubbleRef = useRef(null);
+  const containersRef = useRef(null);
+
+  useEffect(() => {
+    if (!activeDot || !bubbleRef.current || !containersRef.current) return;
+
+    const bubble = bubbleRef.current.getBoundingClientRect();
+    const container = containersRef.current.getBoundingClientRect();
+
+    let offsetY = 0;
+    if (bubble.top < container.top) {
+      offsetY = container.top - bubble.top + 250; // push down
+    } else if (bubble.bottom > container.bottom) {
+      offsetY = container.bottom - bubble.bottom - 50; // push up
+    }
+    setAdjustY(offsetY);
+  }, [activeDot]);
+
+  const outsideRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      // if clicked element is NOT inside the 'outside' div
+      if (outsideRef.current && !outsideRef.current.contains(event.target)) {
+        setActiveDot(null);
       }
-      setAdjustY(offsetY);
-    }, [activeDot]);
-  
-    const outsideRef = useRef(null);
-  
-    useEffect(() => {
-      function handleClickOutside(event) {
-        // if clicked element is NOT inside the 'outside' div
-        if (outsideRef.current && !outsideRef.current.contains(event.target)) {
-          setActiveDot(null);
-        }
-      }
-  
-      // attach event listener to the whole document
-      document.addEventListener("mousedown", handleClickOutside);
-      return () => {
-        document.removeEventListener("mousedown", handleClickOutside);
-      };
-    }, [setActiveDot]);
-  
-    const [activeItem, setActiveItem] = useState(items[1]);  
+    }
+
+    // attach event listener to the whole document
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [setActiveDot]);
+
+  const [activeItem, setActiveItem] = useState(items[1]);
 
   useEffect(() => {
     const a3 = gsap.timeline();
@@ -281,15 +283,12 @@ const mapactive = useRef([]);
 
     const spStatsItems = spStats.current.querySelectorAll("div");
     const statItems = statsRef.current.querySelectorAll("div");
-    const talentdtlsItems = talentdtls.current.querySelectorAll("div.tlnits");
-    const cultlistItems = cultlist.current.querySelectorAll("div.ctitm");
     const a1 = gsap.timeline();
     const b1 = gsap.timeline();
     const c1 = gsap.timeline();
     const d1 = gsap.timeline();
     const e1 = gsap.timeline();
     const f1 = gsap.timeline();
-    const g1 = gsap.timeline();
 
     switch (index) {
       case 0:
@@ -409,65 +408,85 @@ const mapactive = useRef([]);
           );
         break;
       case 2:
-        c1.set(splftimng.current, { opacity: 0, width: '0%', x: 0 })
-         .set(sptitle.current, { opacity: 0 })
-         .set(spdscrpt.current, { opacity: 0 })
-         .set(spbtn.current, { opacity: 0 })
-         .set(sprghtBx.current, { opacity: 0, x: 0})
-         .set(sprIcnim.current, { opacity: 0, x: 0})
-         .set(spBrdOne.current, { opacity: 0, x: 0})
+        c1.set(splftimng.current, { opacity: 0, width: "0%", x: 0 })
+          .set(sptitle.current, { opacity: 0 })
+          .set(spdscrpt.current, { opacity: 0 })
+          .set(spbtn.current, { opacity: 0 })
+          .set(sprghtBx.current, { opacity: 0, x: 0 })
+          .set(sprIcnim.current, { opacity: 0, x: 0 })
+          .set(spBrdOne.current, { opacity: 0, x: 0 })
 
-
-         /*  .set(bgdivRef.current, { opacity: 0, x: 0 })
-          .set(leftContentRef.current, { opacity: 0 })
-          .set(bottomTextRef.current, { opacity: 0, x: 0 })
-          .set(polygon1Ref.current, { drawSVG: "0%" })
-          .set(polygon2Ref.current, { drawSVG: "0%" })
-          .set(polygon3Ref.current, { drawSVG: "0%", opacity: 1 })
-          .set(leftContentRef.current, { opacity: 0 }) */
+          /*  .set(bgdivRef.current, { opacity: 0, x: 0 })
+           .set(leftContentRef.current, { opacity: 0 })
+           .set(bottomTextRef.current, { opacity: 0, x: 0 })
+           .set(polygon1Ref.current, { drawSVG: "0%" })
+           .set(polygon2Ref.current, { drawSVG: "0%" })
+           .set(polygon3Ref.current, { drawSVG: "0%", opacity: 1 })
+           .set(leftContentRef.current, { opacity: 0 }) */
 
           .fromTo(
             splftimng.current,
-            { x: -50, opacity: 0, width: '0%' },
-            { x: 0, opacity: 1, width: '100%', duration: 1, delay: 0, ease: "power1.out" }
+            { x: -50, opacity: 0, width: "0%" },
+            {
+              x: 0,
+              opacity: 1,
+              width: "100%",
+              duration: 1,
+              delay: 0,
+              ease: "power1.out",
+            }
           )
           .fromTo(
             sprghtBx.current,
-            { x: 50, opacity: 0, },
-            { x: 0, opacity: 1, duration: 0.8, delay: 0, ease: "power1.out" },'-=0.5'
+            { x: 50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.8, delay: 0, ease: "power1.out" },
+            "-=0.5"
           )
           .fromTo(
             splftbg.current,
-            { x: -50, opacity: 0, width: '0%' },
-            { x: 0, opacity: 1, width: '100%', duration: 0.8, delay: -0.5, ease: "power1.out" }, '-=0'
+            { x: -50, opacity: 0, width: "0%" },
+            {
+              x: 0,
+              opacity: 1,
+              width: "100%",
+              duration: 0.8,
+              delay: -0.5,
+              ease: "power1.out",
+            },
+            "-=0"
           )
           .fromTo(
             sptitle.current,
-            { x: -50, opacity: 0, },
-            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
+            { x: -50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.8, delay: 0, ease: "power1.out" },
+            "-=0.3"
           )
           .fromTo(
             spdscrpt.current,
-            { x: -50, opacity: 0, },
-            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
+            { x: -50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.8, delay: 0, ease: "power1.out" },
+            "-=0.3"
           )
           .fromTo(
             spbtn.current,
-            { x: -50, opacity: 0, },
-            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
+            { x: -50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.8, delay: 0, ease: "power1.out" },
+            "-=0.3"
           )
-        
+
           .fromTo(
             sprIcnim.current,
-            { x: 50, opacity: 0, },
-            { x: 0, opacity: 1,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=1.5'
+            { x: 50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.8, delay: 0, ease: "power1.out" },
+            "-=1.5"
           )
-            .fromTo(
+          .fromTo(
             spBrdOne.current,
-            { x: -100, opacity: 0,  },
-            { x: 0, opacity: 0.2,  duration: 0.8, delay: 0, ease: "power1.out" }, '-=0.3'
+            { x: -100, opacity: 0 },
+            { x: 0, opacity: 0.2, duration: 0.8, delay: 0, ease: "power1.out" },
+            "-=0.3"
           )
-        .fromTo(
+          .fromTo(
             spStatsItems,
             { x: -50, opacity: 0 },
             {
@@ -477,10 +496,11 @@ const mapactive = useRef([]);
               delay: -0.5,
               ease: "power3.out",
               stagger: 0.2,
-            }, '-=0.6'
-          )
+            },
+            "-=0.6"
+          );
 
-          /* 
+        /* 
           .fromTo(
             leftContentRef.current,
             { x: -50, opacity: 0 },
@@ -537,7 +557,7 @@ const mapactive = useRef([]);
             { x: 0, opacity: 0, scale: 1 },
             { x: 0, opacity: 0.06, scale: 1.1, duration: 5, ease: "power1.in" },
             "-=3.5"
-          ) */;
+          ) */
 
         break;
       case 3:
@@ -548,30 +568,36 @@ const mapactive = useRef([]);
           .set(textItemsRef.current, { opacity: 0, y: 0 })
           .set(brdonRef.current, { opacity: 0 })
           .set(brdtwsRef.current, { opacity: 0, height: "0%" })
-          .set(srvBgimg.current, { opacity: 0})
-          .set(srvsVct.current, { opacity: 0})
-          .set(srvsCntb.current, { opacity: 0})
-          .set(srvsArrw.current, { opacity: 0})
-          .set(srvsRghtBx.current, { opacity: 0, x: 0})
-          .set(srvLftBx.current, { opacity: 0, x: 0})
+          .set(srvBgimg.current, { opacity: 0 })
+          .set(srvsVct.current, { opacity: 0 })
+          .set(srvsCntb.current, { opacity: 0 })
+          .set(srvsArrw.current, { opacity: 0 })
+          .set(srvsRghtBx.current, { opacity: 0, x: 0 })
+          .set(srvLftBx.current, { opacity: 0, x: 0 })
 
           .fromTo(
             srvBgimg.current,
-            {  opacity: 0 },
-            { opacity: 1, duration: 1.5,  ease: "power3.out", transformOrigin: "50% 50%",  }
+            { opacity: 0 },
+            {
+              opacity: 1,
+              duration: 1.5,
+              ease: "power3.out",
+              transformOrigin: "50% 50%",
+            }
           )
           .fromTo(
             srvLftBx.current,
-            {  opacity: 0 },
-            { opacity: 1, duration: 0.5,  ease: "power3.out",  },'-=0.5'
+            { opacity: 0 },
+            { opacity: 1, duration: 0.5, ease: "power3.out" },
+            "-=0.5"
           )
           .fromTo(
             srvttlRef.current,
             { x: -30, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.5, delay: 0, ease: "power3.out" }, '-=0.5'
+            { x: 0, opacity: 1, duration: 0.5, delay: 0, ease: "power3.out" },
+            "-=0.5"
           )
-        
-       
+
           .fromTo(
             brdonRef.current,
             { x: -30, opacity: 0 },
@@ -584,7 +610,7 @@ const mapactive = useRef([]);
             },
             "-=0.5"
           )
-           .fromTo(
+          .fromTo(
             textItemsRef.current,
             { y: 30, opacity: 0 },
             {
@@ -593,12 +619,14 @@ const mapactive = useRef([]);
               stagger: 0.1,
               duration: 0.8,
               ease: "power3.out",
-            },"-=1"
+            },
+            "-=1"
           )
-            .fromTo(
+          .fromTo(
             srvsRghtBx.current,
             { x: 30, opacity: 0 },
-            { x: 0, opacity: 1, duration: 1.5,  ease: "power3.out" },"-=1.5"
+            { x: 0, opacity: 1, duration: 1.5, ease: "power3.out" },
+            "-=1.5"
           )
           .fromTo(
             srvsImgRef.current,
@@ -620,7 +648,8 @@ const mapactive = useRef([]);
               opacity: 1,
               duration: 0.5,
               ease: "power3.inOut",
-            }, "-=0.5"
+            },
+            "-=0.5"
           )
           .fromTo(
             srvsCntb.current,
@@ -630,7 +659,8 @@ const mapactive = useRef([]);
               opacity: 1,
               duration: 1.5,
               ease: "power3.inOut",
-            }, "-=1"
+            },
+            "-=1"
           )
           .fromTo(
             srvsArrw.current,
@@ -640,21 +670,19 @@ const mapactive = useRef([]);
               opacity: 1,
               duration: 0.5,
               ease: "power3.inOut",
-            }, "-=0.5"
-          )
-          
-
-         ;
+            },
+            "-=0.5"
+          );
         break;
-        case 4:
-           e1.set(maptitle.current, { opacity: 0 })
+      case 4:
+        e1.set(maptitle.current, { opacity: 0 })
           .set(mapimage.current, { opacity: 0 })
           .set(mapdots.current, { opacity: 0 })
           .set(mapactive.current, { opacity: 0 })
           .fromTo(
             maptitle.current,
             { x: -50, opacity: 0 },
-            { x: 0, opacity: 1, duration: 1.5, delay: 1.5, ease: "power1.out" },
+            { x: 0, opacity: 1, duration: 1.5, delay: 1.4, ease: "power1.out" },
             "-=0.5"
           )
           .fromTo(
@@ -667,119 +695,42 @@ const mapactive = useRef([]);
               ease: "power1.out",
             },
             "-=0.5"
-          )
-          /* .fromTo(
-            mapsItems,
-            {  opacity: 0, scale: 0 },
-            {
-              scale: 1,
-              opacity: 1,
-              duration: 1,
-              delay: -0.5,
-              ease: "power3.out",
-            },
-            "-=0"
-          ) */;
+          );
         
         break;
-        case 5:
-           f1.set(talenttitle.current, { opacity: 0, x: 0 })
-          .set(talentlist.current, { opacity: 0, x: 0 })
-          .set(talentimage.current, { opacity: 0, x: 0, width: "0%"})
-          .set(talentdtls.current, { opacity: 0, x: 0 })
-          .set(talentdtlsItems.current, { opacity: 0, x: 0 })
+      case 5:
+        f1.set(talenttitle.current, { opacity: 0 })
+          .set(talentlist.current, { opacity: 0 })
+          .set(talentimage.current, { opacity: 0, width: "0%" })
           .fromTo(
             talenttitle.current,
-            { x: -30, opacity: 0 },
-            { x: 0, opacity: 1, duration: 1.5, delay: 1.5, ease: "power1.out" },
+          { x: -30, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5, delay: 0.1, ease: "power3.out" },
             "-=0.5"
           )
+         
           .fromTo(
             talentlist.current,
-            { x: -30, opacity: 0 },
-            { x: 0, opacity: 1, duration: 1.5, ease: "power1.out" },
+         { x: -30, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5, delay: 0, ease: "power3.out" },
             "-=0.5"
           )
-       
-          .fromTo(
+           .fromTo(
             talentimage.current,
-            { width: "0%", opacity: 0 },
-            {
-              width: "100%",
-              opacity: 1,
-              duration: 1,
-              delay: 0,
-              ease: "power3.out",
-            },
-            "-=1"
-          ) .fromTo(
-            talentdtls.current,
-            { x: -30, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.8, ease: "power1.out" },
-            "-=1"
-          )  .fromTo(
-            talentdtlsItems,
-            {  opacity: 0, x: -30 },
+            { x: -50, opacity: 0, width: "0%" },
             {
               x: 0,
               opacity: 1,
-              duration: 1,
-              ease: "power3.out",
-              stagger: 0.2,
+              width: "100%",
+              duration: 0.8,
+              delay: -0.5,
+              ease: "power1.out",
             },
-            "-=0.3"
+            "-=0.5"
           );
-           
+        
         break;
-        case 6:
-          g1.set(cutltttl.current, { opacity: 0, x: 0 })
-          .set(cultlist.current, { opacity: 0, x: 0 })
-          .set(cultlistItems.current, { opacity: 0, x: 0 })
-          .set(cutltdtls.current, { opacity: 0, x: 0 })
-          .set(cutltimg.current, { opacity: 0, x: 0, width: "0%"})
-           .fromTo(
-            cutltimg.current,
-            { width: "0%", opacity: 0 },
-            {
-              width: "100%",
-              opacity: 1,
-              duration: 1,
-              delay: 2,
-              ease: "power3.out",
-            },
-            "-=0"
-          )
-          .fromTo(
-            cutltttl.current,
-            { x: -30, opacity: 0 },
-            { x: 0, opacity: 1, duration: 1.5, delay: 0, ease: "power1.out" },
-            "-=0.3"
-          )
-          .fromTo(
-            cultlist.current,
-            { x: -30, opacity: 0 },
-            { x: 0, opacity: 1, duration: 1, delay: 0, ease: "power1.out" },
-            "-=2"
-          )
-          
-           .fromTo(
-            cultlistItems,
-            {  opacity: 0, x: -30 },
-            {
-              x: 0,
-              opacity: 1,
-              duration: 1,
-              ease: "power3.out",
-              stagger: 0.2,
-            },
-            "-=1.5"
-          )
-         .fromTo(
-            cutltdtls.current,
-            { x: -30, opacity: 0 },
-            { x: 0, opacity: 1, duration: 1.5, delay: 0, ease: "power1.out" },
-            "-=1"
-          );
+      case 6:
         break;
     }
   };
@@ -791,7 +742,6 @@ const mapactive = useRef([]);
     const d2 = gsap.timeline();
     const e2 = gsap.timeline();
     const f2 = gsap.timeline();
-    const g2 = gsap.timeline();
     const t1 = gsap.timeline({ onComplete });
     switch (index) {
       case 0:
@@ -861,69 +811,67 @@ const mapactive = useRef([]);
           { x: -800, opacity: 0, duration: 1.2, ease: "power1.inOut" },
           0
         );
-        
-        
-        
-      /*   .to(leftContentRef.current, {
-          x: -50,
-          opacity: 0,
-          duration: 1,
-          delay: -0.5,
-          ease: "power1.out",
-        })
-          .to(rightImageRef.current, {
-            x: 50,
+
+        /*   .to(leftContentRef.current, {
+            x: -50,
             opacity: 0,
             duration: 1,
-            delay: -1,
+            delay: -0.5,
             ease: "power1.out",
           })
-          .fromTo(
-            swiperRef.current,
-            { x: 0, opacity: 1 },
-            {
-              x: 300,
+            .to(rightImageRef.current, {
+              x: 50,
               opacity: 0,
-              duration: 1.5,
-              delay: -1.5,
-              ease: "power1.in",
-            }
-          )
-          .to(
-            bgdivRef.current,
-            { scale: 1.5, opacity: 0, ease: "power1.inOut", duration: 2 },
-            "-=1.2"
-          )
-          .fromTo(
-            bottomTextRef.current,
-            { x: 0, opacity: 1 },
-            {
-              x: 30,
-              opacity: 0,
-              duration: 0.5,
-              delay: -0.8,
-              ease: "power1.in",
-            },
-            "-=1"
-          )
-          .fromTo(
-            polygon1Ref.current,
-            { drawSVG: "-100%" },
-            { drawSVG: "0%", duration: 1, ease: "power1.inOut" },
-            "-=1.8"
-          )
-          .fromTo(
-            polygon2Ref.current,
-            { drawSVG: "-100%" },
-            { drawSVG: "0%", duration: 1, ease: "power1.inOut" },
-            "-=1.8"
-          )
-          .fromTo(
-            polygon3Ref.current,
-            { drawSVG: "-100%" },
-            { drawSVG: "0%", duration: 0.5, ease: "power1.inOut", opacity: 0 },
-            "-=2.5"
-          ); */
+              duration: 1,
+              delay: -1,
+              ease: "power1.out",
+            })
+            .fromTo(
+              swiperRef.current,
+              { x: 0, opacity: 1 },
+              {
+                x: 300,
+                opacity: 0,
+                duration: 1.5,
+                delay: -1.5,
+                ease: "power1.in",
+              }
+            )
+            .to(
+              bgdivRef.current,
+              { scale: 1.5, opacity: 0, ease: "power1.inOut", duration: 2 },
+              "-=1.2"
+            )
+            .fromTo(
+              bottomTextRef.current,
+              { x: 0, opacity: 1 },
+              {
+                x: 30,
+                opacity: 0,
+                duration: 0.5,
+                delay: -0.8,
+                ease: "power1.in",
+              },
+              "-=1"
+            )
+            .fromTo(
+              polygon1Ref.current,
+              { drawSVG: "-100%" },
+              { drawSVG: "0%", duration: 1, ease: "power1.inOut" },
+              "-=1.8"
+            )
+            .fromTo(
+              polygon2Ref.current,
+              { drawSVG: "-100%" },
+              { drawSVG: "0%", duration: 1, ease: "power1.inOut" },
+              "-=1.8"
+            )
+            .fromTo(
+              polygon3Ref.current,
+              { drawSVG: "-100%" },
+              { drawSVG: "0%", duration: 0.5, ease: "power1.inOut", opacity: 0 },
+              "-=2.5"
+            ); */
         /*   gsap.fromTo(
             bgImageRef.current,
             { x: 0, opacity: 1 },
@@ -936,16 +884,18 @@ const mapactive = useRef([]);
           srvLftBx.current,
           { x: -100, opacity: 0, duration: 1, ease: "power1.in" },
           0
-        ).to(
-          srvsRghtBx.current,
-          { x: 800, opacity: 0, duration: 1, ease: "power1.in" },
-          0
         )
-         .fromTo(
-          srvBgimg.current,
-          {  opacity: 1 },
-          {  opacity: 0, duration: 1, ease: "power3.out" }, '-=0.8'
-        );
+          .to(
+            srvsRghtBx.current,
+            { x: 800, opacity: 0, duration: 1, ease: "power1.in" },
+            0
+          )
+          .fromTo(
+            srvBgimg.current,
+            { opacity: 1 },
+            { opacity: 0, duration: 1, ease: "power3.out" },
+            "-=0.8"
+          );
         /* .fromTo(
           srvttlRef.current,
           { x: 0, opacity: 1 },
@@ -1005,50 +955,44 @@ const mapactive = useRef([]);
           "-=0.5"
         ); */
         break;
-           case 4:
-              e2.to(
+      case 4:
+        e2.to(
           maptitle.current,
-          { x: -30, opacity: 0, duration: 1, ease: "power1.in" },
+          { x: -100, opacity: 0, duration: 1, ease: "power1.in" },
           0
         ).to(
           mapimage.current,
-          { opacity: 0, scale: 0.9, duration: 1.2, ease: "power1.in" },
+          { x: -100, opacity: 0, duration: 1, ease: "power1.in" },
           "-=0.5"
         );
+        // .to(
+        //   mapdots.current,
+        //   { x: -100, opacity: 0, duration: 1, ease: "power1.in" },
+        //   "-=0.5"
+        // )
+        // .to(
+        //   mapactive.current,
+        //   { x: -100, opacity: 0, duration: 1, ease: "power1.in" },
+        //   "-=0.5"
+        // )
         break;
-        case 5:
-               f2.to(
+      case 5:
+         f2.to(
           talenttitle.current,
-          { x: -30, opacity: 0, duration: 1, ease: "power1.in" },
+          { x: -100, opacity: 0, duration: 1, ease: "power1.in" },
           0
-        ).to(
-          talentlist.current,
-          { x: -30, opacity: 0, duration: 1, ease: "power1.in" },
-          "-=0.5"
         ).to(
           talentimage.current,
-          { x: 100, opacity: 0, duration: 1, ease: "power1.in" },
+          { x: -100, opacity: 0, duration: 1, ease: "power1.in" },
+          "-=0.5"
+        )
+        .to(
+          talentlist.current,
+          { x: -100, opacity: 0, duration: 1, ease: "power1.in" },
           "-=0.5"
         );
         break;
-        case 6:
-                g2.to(
-          cutltttl.current,
-          { x: -30, opacity: 0, duration: 1, ease: "power1.in" },
-          0
-        ).to(
-          cultlist.current,
-          { x: -30, opacity: 0, duration: 1, ease: "power1.in" },
-          "-=0.5"
-        ).to(
-          cutltdtls.current,
-          { x: 100, opacity: 0, duration: 1, ease: "power1.in" },
-          "-=1.2"
-        ).to(
-          cutltimg.current,
-          { x: 100, opacity: 0, duration: 1.5, ease: "power1.in" },
-          "-=1.2"
-        );
+      case 6:
         break;
     }
   };
@@ -1134,7 +1078,7 @@ const mapactive = useRef([]);
   };
 
   useEffect(() => {
-    if(currentIndex !== indexToScroll){
+    if (currentIndex !== indexToScroll) {
       updateSlides(indexToScroll);
     }
   }, [indexToScroll]);
@@ -1163,41 +1107,47 @@ const mapactive = useRef([]);
     {
       image: "/assets/images/services/engineering-construction.jpg",
       title: "Engineering & Construction",
-      description: "Delivering complex infrastructure and building projects with precision, safety, and quality at the core. We bring engineering excellence to life across industries and geographies.",
+      description:
+        "Delivering complex infrastructure and building projects with precision, safety, and quality at the core. We bring engineering excellence to life across industries and geographies.",
     },
     {
       image: "/assets/images/services/servicemain.jpg",
       title: "Design Studio",
-      description: "Our design studio blends creativity with functionality to craft innovative, human-centric spaces. From concept to detail, we create solutions that inspire and endure.",
+      description:
+        "Our design studio blends creativity with functionality to craft innovative, human-centric spaces. From concept to detail, we create solutions that inspire and endure.",
     },
     {
       image: "/assets/images/services/mep.jpg",
       title: "MEP",
-      description: "We provide fully integrated MEP services that ensure efficiency, sustainability, and performance in every built environment. Tailored solutions backed by technical expertise.",
+      description:
+        "We provide fully integrated MEP services that ensure efficiency, sustainability, and performance in every built environment. Tailored solutions backed by technical expertise.",
     },
     {
       image: "/assets/images/services/interior-fit-out.jpg",
       title: "Interior Fit-out",
-      description: "Transforming interiors into purposeful and aesthetically refined spaces. We manage complete fit-out solutions with attention to detail and commitment to quality delivery.",
+      description:
+        "Transforming interiors into purposeful and aesthetically refined spaces. We manage complete fit-out solutions with attention to detail and commitment to quality delivery.",
     },
     {
       image: "/assets/images/services/Facade.jpg",
       title: "Façade",
-      description: "Specializing in advanced façade systems that merge architecture and engineering. We design and execute high-performance, energy-efficient, and visually striking exteriors.",
+      description:
+        "Specializing in advanced façade systems that merge architecture and engineering. We design and execute high-performance, energy-efficient, and visually striking exteriors.",
     },
     {
       image: "/assets/images/services/Facility-Management.jpg",
       title: "Facilities Management",
-      description: "Comprehensive facility management services focused on operational efficiency, asset longevity, and user satisfaction. We ensure smooth day-to-day operations with proactive care.",
+      description:
+        "Comprehensive facility management services focused on operational efficiency, asset longevity, and user satisfaction. We ensure smooth day-to-day operations with proactive care.",
     },
     {
       image: "/assets/images/services/Water.jpg",
       title: "Water",
-      description: "Sustainable water infrastructure solutions that address urban and industrial needs. Our expertise spans treatment, distribution, and management systems with a focus on resilience.",
+      description:
+        "Sustainable water infrastructure solutions that address urban and industrial needs. Our expertise spans treatment, distribution, and management systems with a focus on resilience.",
     },
   ];
 
-  
   const [activeService, setActiveService] = useState({
     image: content[0].image,
     title: content[0].title,
@@ -1205,8 +1155,7 @@ const mapactive = useRef([]);
     index: 0,
   });
 
-
-   const sectors = [
+  const sectors = [
     {
       name: "Industrial",
       icon: "../assets/images/sectors/icons/hospitality-icon.svg",
@@ -1257,86 +1206,85 @@ const mapactive = useRef([]);
       ongoingProjects: "12+",
     },
   ];
-   const [activeIndex, setActiveIndex] = useState(3);
-    const [isAnimating, setIsAnimating] = useState(false);
-    const [animationDirection, setAnimationDirection] = useState(0); // 1 for down, -1 for up
-    const [displayedIndex, setDisplayedIndex] = useState(activeIndex);
-    const animationRef = useRef(null);
-  
-    const handleSlideClick = (targetIndex) => {
-      if (isAnimating || targetIndex === activeIndex) return;
-  
-      // Clear any existing animation
-      if (animationRef.current) {
-        clearInterval(animationRef.current);
-      }
-  
-      const totalSectors = sectors.length;
-  
-      // Calculate shortest path
-      let diff = targetIndex - activeIndex;
-  
-      // Normalize difference to shortest path
-      while (diff > totalSectors / 2) diff -= totalSectors;
-      while (diff < -totalSectors / 2) diff += totalSectors;
-  
-      const direction = diff > 0 ? 1 : -1;
-      const steps = Math.abs(diff);
-  
-      if (steps === 0) return;
-  
-      setAnimationDirection(direction); // Set direction for animation
-      setIsAnimating(true);
-  
-      // Create array of indices to visit
-      const path = [];
-      let current = activeIndex;
-      for (let i = 0; i < steps; i++) {
-        current = (current + direction + totalSectors) % totalSectors;
-        path.push(current);
-      }
-  
-      // Animate through the path
-      let stepIndex = 0;
-      animationRef.current = setInterval(() => {
-        setActiveIndex(path[stepIndex]);
-        stepIndex++;
-  
-        if (stepIndex >= path.length) {
-          clearInterval(animationRef.current);
-          animationRef.current = null;
-          setIsAnimating(false);
-          setAnimationDirection(0);
-          setDisplayedIndex(path[path.length - 1]); // ✅ update right-side content only now
-        }
-      }, 400);
-    };
-  
-    const getVisibleSectors = () => {
-      const result = [];
-      const totalSectors = sectors.length;
-  
-      for (let i = -3; i <= 3; i++) {
-        const index = (activeIndex + i + totalSectors) % totalSectors;
-        result.push({
-          ...sectors[index],
-          originalIndex: index,
-          position: i,
-        });
-      }
-  
-      return result;
-    };
-  
-    const visibleSectors = getVisibleSectors();
-    const activeSector = sectors[displayedIndex];
+  const [activeIndex, setActiveIndex] = useState(3);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [animationDirection, setAnimationDirection] = useState(0); // 1 for down, -1 for up
+  const [displayedIndex, setDisplayedIndex] = useState(activeIndex);
+  const animationRef = useRef(null);
 
+  const handleSlideClick = (targetIndex) => {
+    if (isAnimating || targetIndex === activeIndex) return;
+
+    // Clear any existing animation
+    if (animationRef.current) {
+      clearInterval(animationRef.current);
+    }
+
+    const totalSectors = sectors.length;
+
+    // Calculate shortest path
+    let diff = targetIndex - activeIndex;
+
+    // Normalize difference to shortest path
+    while (diff > totalSectors / 2) diff -= totalSectors;
+    while (diff < -totalSectors / 2) diff += totalSectors;
+
+    const direction = diff > 0 ? 1 : -1;
+    const steps = Math.abs(diff);
+
+    if (steps === 0) return;
+
+    setAnimationDirection(direction); // Set direction for animation
+    setIsAnimating(true);
+
+    // Create array of indices to visit
+    const path = [];
+    let current = activeIndex;
+    for (let i = 0; i < steps; i++) {
+      current = (current + direction + totalSectors) % totalSectors;
+      path.push(current);
+    }
+
+    // Animate through the path
+    let stepIndex = 0;
+    animationRef.current = setInterval(() => {
+      setActiveIndex(path[stepIndex]);
+      stepIndex++;
+
+      if (stepIndex >= path.length) {
+        clearInterval(animationRef.current);
+        animationRef.current = null;
+        setIsAnimating(false);
+        setAnimationDirection(0);
+        setDisplayedIndex(path[path.length - 1]); // ✅ update right-side content only now
+      }
+    }, 400);
+  };
+
+  const getVisibleSectors = () => {
+    const result = [];
+    const totalSectors = sectors.length;
+
+    for (let i = -3; i <= 3; i++) {
+      const index = (activeIndex + i + totalSectors) % totalSectors;
+      result.push({
+        ...sectors[index],
+        originalIndex: index,
+        position: i,
+      });
+    }
+
+    return result;
+  };
+
+  const visibleSectors = getVisibleSectors();
+  const activeSector = sectors[displayedIndex];
   return (
     <div
       ref={containerRef}
       className="relative h-screen w-screen overflow-hidden"
     >
-      <div className="fixed w-screen h-screen z-[500] mswd pointer-events-none grid content-center load-sec2">
+      {/*   <div className="fixed w-screen h-screen z-[500] mswd pointer-events-none grid content-center load-sec2">
         <svg className="h-full w-full absolute left-0 right-0 z-20 object-cover loader-im scale-[1.2]" id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1920 1080">
 
   <defs>
@@ -1350,35 +1298,9 @@ const mapactive = useRef([]);
     <polygon  ref={polygon5Ref} class="st11" points="960.4 356.5 739.4 481.5 737.7 482.8 736 484 734.2 485.2 732.3 486.4 730.5 487.7 728.5 488.9 726.7 490.2 724.7 491.6 722 493.5 719.2 495.7 717.9 496.8 716.6 497.8 715.3 499 714.1 500.1 712.9 501.3 711.7 502.6 710.7 503.8 709.7 505 708.7 506.4 707.7 507.7 706.9 509.1 706.2 510.5 705.4 512.2 704.7 513.9 704 515.6 703.4 517.5 702.9 519.2 702.4 521.1 702 522.9 701.6 524.9 701.3 526.8 701 528.7 700.8 530.6 700.7 532.5 700.5 534.4 700.4 536.4 700.3 538.3 700.3 540.3 700.3 544 700.3 547.8 700.3 551.6 700.3 555.4 700.3 559.2 700.3 563 700.3 566.8 700.3 570.5 700.3 574.3 700.3 578 700.3 581.6 700.3 585.2 700.4 588.8 700.4 592.3 700.4 595.7 700.4 599 700.5 602.1 700.5 605 700.6 607.7 700.7 610.3 700.9 612.7 701.1 614.9 701.3 616 701.5 617 701.7 618 701.9 618.9 702.1 619.8 702.4 620.6 702.6 621.5 703 622.2 703.3 623 703.7 623.6 704.1 624.3 704.6 624.9 705 625.4 705.6 625.9 706.1 626.4 706.7 626.9 707.3 627.3 707.9 627.7 708.7 627.9 709.4 628.2 710.5 628.5 711.5 628.8 712.8 629 714.1 629.2 715.5 629.3 717 629.4 718.6 629.3 720.3 629.3 722.1 629.1 724 628.9 726 628.6 728.1 628.2 730.2 627.8 732.4 627.1 734.7 626.4 737.1 625.7 882.4 568.7 883.9 568.1 885.2 567.7 886.4 567.4 887.5 567.2 888 567.1 888.5 567.1 889 567.1 889.4 567.1 889.8 567.2 890.1 567.3 890.6 567.4 890.9 567.6 891.2 567.7 891.5 568 891.7 568.2 891.9 568.5 892.2 568.8 892.4 569.1 892.5 569.4 892.7 569.8 892.9 570.6 893 571.4 893.1 572.5 893.1 573.6 893 586 893 586.6 892.9 587.3 892.7 587.8 892.6 588.3 892.4 588.8 892.1 589.1 891.8 589.6 891.5 589.9 891.1 590.2 890.7 590.6 890.2 590.9 889.7 591.2 888.7 591.7 887.6 592.1 886.2 592.7 884.8 593.3 883.4 593.9 882 594.5 880.6 595 879.2 595.5 877.8 596 876.3 596.6 699.8 659.3 699.9 723.5 925.4 654.1 928.1 652.9 930.6 651.9 932.9 650.7 935 649.5 937 648.2 938.8 646.9 940.4 645.6 941.9 644.2 943.3 642.9 944.5 641.4 945.6 639.9 946.6 638.5 947.5 636.9 948.2 635.4 948.9 633.8 949.5 632.3 950 630.8 950.4 629.2 950.7 627.7 951.1 626.2 951.3 624.7 951.5 623.1 951.7 621.7 951.8 620.2 951.9 617.3 952 614.6 952.1 612 952.2 609.6 952.3 525 952.4 521.1 952.2 517.4 951.9 514 951.4 510.9 950.7 508 949.9 505.4 949 503 947.9 500.9 946.7 499 945.4 497.2 944 495.7 942.5 494.3 940.9 493.2 939.2 492.2 937.5 491.4 935.7 490.7 933.9 490.2 932 489.8 930.2 489.6 928.3 489.4 926.4 489.4 924.5 489.5 922.7 489.6 920.9 489.8 919.1 490.1 917.4 490.5 915.6 490.9 914 491.3 912.5 491.8 911 492.3 909.7 492.8 908.5 493.4 767.8 557.3 766.7 557.6 765.8 557.8 765 557.9 764.2 558 763.5 558 762.9 557.9 762.5 557.7 762 557.4 761.6 557.1 761.3 556.8 761 556.4 760.9 556 760.7 555.7 760.6 555.2 760.5 554.9 760.5 554.4 760.5 552.8 760.5 551.3 760.5 549.8 760.5 548.5 760.5 547.1 760.5 545.7 760.5 544.2 760.5 542.6 760.6 541.7 760.8 541 761 540.4 761.3 539.7 761.8 539.1 762.2 538.6 762.7 538.1 763.3 537.6 764 537.2 764.7 536.7 765.5 536.3 766.2 535.8 767.8 534.9 769.5 534 961.4 425.6 960.4 356.5"/>
   </g>
 </svg>
-      {/*   <svg
-          className="h-[370px] w-[370px] 3xl:h-[450px] 3xl:w-[450px] absolute left-0 right-0 z-20"
-          id="Layer_1"
-          xmlns="http://www.w3.org/2000/svg"
-          version="1.1"
-          viewBox="0 0 151 106.8"
-        >
-          <defs>
-            <style></style>
-          </defs>
-          <polygon
-            ref={polygon4Ref}
-            class="st0"
-            points="75.6 .5 75.6 20.3 128.1 49 128.5 49.3 129 49.5 129.6 49.8 130.1 50.1 130.7 50.4 131.2 50.7 131.4 50.8 131.6 51 131.8 51.1 132 51.3 132.1 51.4 132.2 51.5 132.4 51.6 132.5 51.8 132.6 51.9 132.7 52.1 132.7 52.2 132.8 52.4 132.9 52.5 132.9 52.7 133 52.9 133 53.1 133 53.3 133.1 53.5 133.1 53.7 133.1 53.9 133.1 54.3 133.1 54.6 133.1 54.9 133.1 55.2 133.1 55.5 133.1 55.8 133.1 56.3 133 56.8 133 57 133 57.1 132.9 57.3 132.9 57.4 132.8 57.6 132.7 57.7 132.6 57.9 132.5 58 132.3 58.1 132.2 58.2 132 58.2 131.8 58.3 131.6 58.3 131.4 58.3 131.1 58.2 130.9 58.2 90.7 40.6 90 40.3 89.3 40 88.6 39.8 87.9 39.6 87.2 39.4 86.6 39.2 86 39.1 85.4 38.9 84.8 38.9 84.3 38.8 83.8 38.8 83.3 38.8 82.8 38.8 82.3 38.8 81.9 38.9 81.5 39.1 81.1 39.2 80.8 39.4 80.4 39.6 80.1 39.9 79.8 40.2 79.5 40.5 79.3 40.9 79.1 41.4 78.9 41.8 78.7 42.3 78.5 42.9 78.4 43.4 78.3 44.1 78.2 44.7 78.2 45.4 78.1 46.2 78.2 80.4 78.2 82.1 78.2 82.5 78.2 82.9 78.2 83.2 78.2 83.5 78.2 83.9 78.3 84.2 78.3 84.5 78.4 84.7 78.5 85 78.5 85.3 78.6 85.5 78.7 85.7 78.8 86 78.9 86.2 79 86.3 79.1 86.5 79.2 86.7 79.4 86.9 79.5 87 79.6 87.2 79.9 87.5 80.1 87.7 80.4 87.9 80.7 88.2 81 88.4 81.3 88.5 95.5 97.4 95.5 64.8 95.5 64.3 95.6 63.7 95.6 63.4 95.6 63.1 95.7 62.8 95.8 62.5 95.8 62.4 95.9 62.3 96 62.1 96 62 96.1 62 96.2 61.9 96.3 61.8 96.5 61.8 96.6 61.7 96.8 61.7 96.9 61.7 97.1 61.7 97.3 61.7 97.5 61.8 97.8 61.8 98 61.9 138.1 77.4 139.1 77.8 140 78.1 140.8 78.3 141.5 78.5 142.2 78.7 142.8 78.8 143.3 78.8 143.8 78.8 144.3 78.8 144.7 78.8 145.1 78.7 145.4 78.7 145.7 78.6 146 78.5 146.3 78.4 146.6 78.2 146.8 78.1 147 78 147.2 77.9 147.4 77.7 147.5 77.6 147.7 77.4 147.9 77.2 148 77.1 148.2 76.9 148.3 76.7 148.5 76.5 148.6 76.2 148.8 76 148.9 75.8 149 75.5 149.1 75.3 149.3 75 149.4 74.8 149.5 74.5 149.6 74.2 149.7 73.9 149.8 73.6 149.8 73.3 149.9 73 150.1 72.3 150.2 71.7 150.2 70.9 150.3 70.2 150.3 69 150.4 67.8 150.4 66.5 150.5 65.2 150.5 63.9 150.5 62.6 150.5 61.3 150.5 60 150.5 58.6 150.5 57.3 150.4 56 150.4 54.7 150.4 53.4 150.4 52.2 150.3 50.9 150.3 49.7 150.3 49.2 150.2 48.6 150.2 48 150.1 47.5 150 47 149.9 46.4 149.8 45.9 149.7 45.4 149.6 45 149.4 44.5 149.3 44 149.1 43.6 148.9 43.1 148.7 42.7 148.5 42.3 148.3 41.9 148.1 41.5 147.8 41.1 147.6 40.8 147.3 40.4 147.1 40.1 146.8 39.8 146.5 39.5 146.2 39.2 145.9 38.9 145.6 38.6 145.3 38.4 145 38.2 144.7 37.9 144.3 37.7 144 37.5 143.6 37.4 140 35.4 136.2 33.3 132.2 31.1 128.1 28.9 123.8 26.6 119.5 24.2 115.1 21.8 110.6 19.4 106.2 17 101.6 14.6 97.2 12.1 92.7 9.7 88.3 7.3 84 5 79.8 2.7 75.6 .5"
-          />
-          <polygon
-            ref={polygon5Ref}
-            class="st1"
-            points="75.6 .5 11.9 36.5 11.4 36.9 10.9 37.2 10.4 37.6 9.9 37.9 9.4 38.3 8.8 38.7 8.3 39 7.7 39.4 6.9 40 6.1 40.6 5.7 40.9 5.3 41.2 5 41.6 4.6 41.9 4.3 42.2 4 42.6 3.6 42.9 3.4 43.3 3.1 43.7 2.8 44.1 2.6 44.5 2.4 44.9 2.1 45.4 1.9 45.9 1.7 46.4 1.5 46.9 1.4 47.4 1.3 47.9 1.1 48.5 1 49 .9 49.6 .9 50.1 .8 50.7 .8 51.2 .7 51.8 .7 52.3 .7 52.9 .7 53.5 .7 54.5 .7 55.6 .7 56.7 .7 57.8 .7 58.9 .7 60 .7 61.1 .7 62.2 .7 63.3 .7 64.3 .7 65.4 .7 66.4 .7 67.4 .7 68.4 .7 69.4 .7 70.4 .7 71.3 .7 72.1 .7 72.9 .8 73.6 .8 74.3 .9 75 .9 75.3 1 75.6 1.1 75.8 1.1 76.1 1.2 76.4 1.3 76.6 1.3 76.9 1.4 77.1 1.5 77.3 1.6 77.5 1.8 77.7 1.9 77.8 2 78 2.2 78.1 2.3 78.3 2.5 78.4 2.7 78.5 2.9 78.6 3.1 78.7 3.3 78.8 3.6 78.9 3.9 79 4.3 79 4.6 79.1 5.1 79.1 5.5 79.1 5.9 79.1 6.4 79.1 6.9 79.1 7.5 79 8.1 78.9 8.7 78.8 9.3 78.7 9.9 78.5 10.6 78.3 11.3 78.1 53.1 61.7 53.6 61.5 53.9 61.4 54.3 61.3 54.6 61.2 54.7 61.2 54.9 61.2 55 61.2 55.1 61.2 55.3 61.2 55.4 61.3 55.5 61.3 55.6 61.3 55.7 61.4 55.8 61.4 55.8 61.5 55.9 61.6 55.9 61.7 56 61.8 56.1 61.9 56.1 62 56.2 62.2 56.2 62.4 56.2 62.8 56.2 63.1 56.2 66.6 56.2 66.8 56.2 67 56.1 67.2 56.1 67.3 56 67.4 55.9 67.5 55.8 67.7 55.8 67.8 55.6 67.9 55.5 68 55.4 68.1 55.2 68.1 54.9 68.3 54.6 68.4 54.2 68.6 53.8 68.7 53.4 68.9 53 69.1 52.6 69.2 52.2 69.4 51.8 69.5 51.4 69.7 .5 87.8 .5 106.3 65.5 86.3 66.3 85.9 67 85.6 67.7 85.3 68.3 84.9 68.9 84.6 69.4 84.2 69.9 83.8 70.3 83.4 70.7 83 71 82.6 71.4 82.2 71.6 81.8 71.9 81.3 72.1 80.9 72.3 80.4 72.5 80 72.6 79.5 72.7 79.1 72.8 78.7 72.9 78.2 73 77.8 73.1 77.3 73.1 76.9 73.1 76.5 73.2 75.7 73.2 74.9 73.2 74.1 73.3 73.4 73.3 49.1 73.3 47.9 73.3 46.9 73.2 45.9 73 45 72.8 44.2 72.6 43.4 72.3 42.7 72 42.1 71.7 41.6 71.3 41 70.9 40.6 70.5 40.2 70 39.9 69.5 39.6 69 39.4 68.5 39.2 68 39 67.4 38.9 66.9 38.8 66.4 38.8 65.8 38.8 65.3 38.8 64.7 38.8 64.2 38.9 63.7 39 63.2 39.1 62.7 39.2 62.3 39.4 61.8 39.5 61.4 39.6 61 39.8 60.7 39.9 20.1 58.4 19.8 58.4 19.5 58.5 19.3 58.5 19.1 58.6 18.9 58.6 18.7 58.5 18.6 58.5 18.4 58.4 18.3 58.3 18.2 58.2 18.2 58.1 18.1 58 18.1 57.9 18 57.8 18 57.7 18 57.5 18 57.1 18 56.6 18 56.2 18 55.8 18 55.4 18 55 18 54.6 18 54.1 18 53.9 18.1 53.7 18.2 53.5 18.2 53.3 18.4 53.1 18.5 53 18.6 52.8 18.8 52.7 19 52.6 19.2 52.4 19.4 52.3 19.7 52.2 20.1 51.9 20.6 51.6 75.9 20.4 75.6 .5"
-          />
-        </svg> */}
+     
         <div className="ovrlywht absolute w-full h-full z-[19] bg-white"></div>
-       {/*  <img
-          src="../assets/images/loader.svg"
-          alt=""
-          className="w-screen h-full z-10 absolute object-cover loader-im"
-          width={1920}
-          height={1080}
-        /> */}
+
 
         <div className="h-full absolute top-0 left-0 w-full bg-amber-50">
           <video
@@ -1390,7 +1312,7 @@ const mapactive = useRef([]);
           ></video>
         </div>
       </div>
-
+ */}
       {/* Menu */}
       {/* {currentIndex > 0 && (
         <div className="fixed top-0 left-0 z-50 flex flex-col gap-3">
@@ -1553,12 +1475,11 @@ const mapactive = useRef([]);
               ref={leftSecRef}
               className="relative py-4 xl:py-[50px] xl:pl-[150px] overflow-hidden"
             >
-             
               <div
                 className="absolute top-0 w-full z-10 h-full right-0 "
                 ref={leftBgRef}
               >
-                 <div className="absolute top-0 left-0 z-20 w-full h-full bg-gradient-to-l from-black/30 from-0% to-black/80 to-100%"></div>
+                <div className="absolute top-0 left-0 z-20 w-full h-full bg-gradient-to-l from-black/30 from-0% to-black/80 to-100%"></div>
                 <img
                   src={aboutData.leftBgImage}
                   alt=""
@@ -1573,12 +1494,11 @@ const mapactive = useRef([]);
               ref={rightSecRef}
               className="relative flex flex-col h-full px-10 xl:px-[90px] pb-20 xl:pb-[93px] pt-20 xl:pt-[50px] overflow-hidden"
             >
-             
               <div
                 className="absolute top-0 w-full z-10 h-full right-0 opacity-0"
                 ref={videoBgRef}
               >
-                 <div className="absolute top-0 left-0 z-[22] w-full h-full bg-gradient-to-r from-black/85 from-0% via-black/65 via-75% to-black/60 to-100% "></div>
+                <div className="absolute top-0 left-0 z-[22] w-full h-full bg-gradient-to-r from-black/85 from-0% via-black/65 via-75% to-black/60 to-100% "></div>
                 <video
                   src="../assets/videos/hero.mp4"
                   autoPlay
@@ -1672,28 +1592,50 @@ const mapactive = useRef([]);
         >
           <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full bg-transparent">
             <div className="lftblc relative right-0" ref={splftimng}>
-               <div className="bg-primary absolute w-full right-0 h-full top-0 z-[-1]" ref={splftbg}></div>
+              <div
+                className="bg-primary absolute w-full right-0 h-full top-0 z-[-1]"
+                ref={splftbg}
+              ></div>
               <img
-                src={'../assets/images/abut-sp.jpg'}
+                src={"../assets/images/abut-sp.jpg"}
                 alt=""
                 width={2000}
                 height={1500}
                 className="w-full h-full object-cover absolute object-center"
               />
             </div>
-            <div className=" flex flex-col h-full px-[70px] 3xl:px-[100px] pb-[120px] 3xl:pb-[150px] pt-[120px] 3xl:pt-[150px] overflow-hidden relative" ref={sprghtBx}>
-              <div className="bg-primary absolute w-full left-0 h-full top-0 z-[-1]"  ref={sprgtbg}></div>
-              <img ref={sprIcnim} src="/assets/images/svg/sv-02.svg" width={600} height={600} className="absolute right-0 w-[250px] 3xl:w-[300px]"/>
+            <div
+              className=" flex flex-col h-full px-[70px] 3xl:px-[100px] pb-[120px] 3xl:pb-[150px] pt-[120px] 3xl:pt-[150px] overflow-hidden relative"
+              ref={sprghtBx}
+            >
+              <div
+                className="bg-primary absolute w-full left-0 h-full top-0 z-[-1]"
+                ref={sprgtbg}
+              ></div>
+              <img
+                ref={sprIcnim}
+                src="/assets/images/svg/sv-02.svg"
+                width={600}
+                height={600}
+                className="absolute right-0 w-[250px] 3xl:w-[300px]"
+              />
               <div className="">
-                <h1 ref={sptitle} className="text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light  mb-8 xl:mb-[25px] text-white">
+                <h1
+                  ref={sptitle}
+                  className="text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light  mb-8 xl:mb-[25px] text-white"
+                >
                   About SP <br></br>International
                 </h1>
-                <p ref={spdscrpt} className="text-18 text-white font-light leading-[1.5] max-w-[90%]  3xl:max-w-[75%] mb-[30px]">
+                <p
+                  ref={spdscrpt}
+                  className="text-18 text-white font-light leading-[1.5] max-w-[90%]  3xl:max-w-[75%] mb-[30px]"
+                >
                   Shapoorji Pallonji International (SPINT) is the international
                   arm of Shapoorji Pallonji Engineering & Construction (SP E&C)
                   for its construction operations outside India.
                 </p>
-                <a ref={spbtn}
+                <a
+                  ref={spbtn}
                   href={"/"}
                   className="text-16 leading-[1.75] font-light text-white uppercase flex items-center gap-2 cursor-pointer group "
                 >
@@ -1724,33 +1666,36 @@ const mapactive = useRef([]);
                 </a>
               </div>
               <div className="mt-auto relative">
-                <hr ref={spBrdOne} className="border-white opacity-20 absolute top-[55%] left-[-30%] right-0"/>
-                  <div className="grid grid-cols-3 " ref={spStats}>
-                         <div className="text-white">
-                        <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
-                          350+
-                        </h1>
-                        <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
-                          Iconic Projects
-                        </p>
-                      </div>
-                     <div className="text-white">
-                        <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
-                         6000+
-                        </h1>
-                        <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
-                       Dedicated Workforce
-                        </p>
-                      </div>
-                       <div className="text-white">
-                        <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
-                        250+
-                        </h1>
-                        <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
-                       Happy Clients
-                        </p>
-                      </div>
+                <hr
+                  ref={spBrdOne}
+                  className="border-white opacity-20 absolute top-[55%] left-[-30%] right-0"
+                />
+                <div className="grid grid-cols-3 " ref={spStats}>
+                  <div className="text-white">
+                    <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
+                      350+
+                    </h1>
+                    <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
+                      Iconic Projects
+                    </p>
                   </div>
+                  <div className="text-white">
+                    <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
+                      6000+
+                    </h1>
+                    <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
+                      Dedicated Workforce
+                    </p>
+                  </div>
+                  <div className="text-white">
+                    <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
+                      250+
+                    </h1>
+                    <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
+                      Happy Clients
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1896,14 +1841,24 @@ const mapactive = useRef([]);
           id="section4"
           className="h-screen relative overflow-hidden whitebgref scroll-area"
         >
-          <figure className="absolute w-full h-full bg-white z-[-1]" ref={srvBgimg}>
-            <img className="absolute w-full h-full object-cover" src="../assets/images/services-bg.jpg" alt="" />
+          <figure
+            className="absolute w-full h-full bg-white z-[-1]"
+            ref={srvBgimg}
+          >
+            <img
+              className="absolute w-full h-full object-cover"
+              src="../assets/images/services-bg.jpg"
+              alt=""
+            />
           </figure>
           <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
             {/* left */}
             <div className="flex h-full">
-         {/*      <div className="w-1/3"></div> */}
-              <div className="w-full pt-33 pl-[245px] 3xl:pl-[310px]" ref={srvLftBx}>
+              {/*      <div className="w-1/3"></div> */}
+              <div
+                className="w-full pt-33 pl-[245px] 3xl:pl-[310px]"
+                ref={srvLftBx}
+              >
                 <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
                   <h1
                     ref={srvttlRef}
@@ -1912,10 +1867,8 @@ const mapactive = useRef([]);
                     Our Services
                   </h1>
                   <div className="w-full flex flex-col h-full justify-end   mt-15 relative">
-                  
                     <div className="pb-4 relative">
-                    
-                   {/*    <p
+                      {/*    <p
                         ref={countRef}
                         className="text-60 font-light text-[#62626210]"
                       >
@@ -1961,9 +1914,9 @@ const mapactive = useRef([]);
             </div>
             {/* left */}
 
-            <div className="relative w-full h-[100vh] z-[-1]"  ref={srvsRghtBx}>
+            <div className="relative w-full h-[100vh] z-[-1]" ref={srvsRghtBx}>
               <div className="absolute h-full w-full" ref={srvsImgRef}>
-                              <div className="absolute z-10 top-0 left-0 w-full h-full bg-gradient-to-r from-black/60 from-0% via-black/60 via-52% to-black/60 to-100%"></div>
+                <div className="absolute z-10 top-0 left-0 w-full h-full bg-gradient-to-r from-black/60 from-0% via-black/60 via-52% to-black/60 to-100%"></div>
 
                 <img
                   src={activeService?.image}
@@ -1972,7 +1925,10 @@ const mapactive = useRef([]);
                   className="object-cover absolute w-full h-full"
                 />
               </div>
-              <div className="absolute bottom-0 right-0  w-[40%] " ref={srvsVct}>
+              <div
+                className="absolute bottom-0 right-0  w-[40%] "
+                ref={srvsVct}
+              >
                 <img
                   src="../assets/images/svg/srv-vct.svg"
                   alt="Logo"
@@ -1981,15 +1937,18 @@ const mapactive = useRef([]);
                   height={914}
                 />
               </div>
-              <div className="absolute bottom-[245px] 3xl:bottom-[300px]  left-[40px] 3xl:left-[58px] z-10" ref={srvsCntb}>
-                  <hr
-                        ref={brdonRef}
-                        className="absolute right-[25%] left-[-85%] 3xl:left-[-78%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
-                      />
-                  <hr
-                        ref={brdonRef}
-                        className="absolute  left-[-40px] 3xl:left-[-58px] right-[25%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-white "
-                      />
+              <div
+                className="absolute bottom-[245px] 3xl:bottom-[300px]  left-[40px] 3xl:left-[58px] z-10"
+                ref={srvsCntb}
+              >
+                <hr
+                  ref={brdonRef}
+                  className="absolute right-[25%] left-[-85%] 3xl:left-[-78%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
+                />
+                <hr
+                  ref={brdonRef}
+                  className="absolute  left-[-40px] 3xl:left-[-58px] right-[25%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-white "
+                />
                 <h3 className="text-29 leading-[1.344827586206897] font-light text-white">
                   {activeService?.title}
                 </h3>
@@ -1997,7 +1956,10 @@ const mapactive = useRef([]);
                   {activeService?.description}
                 </p>
               </div>
-              <div className="absolute bottom-10 3xl:bottom-[50px] left-[45px] 3xl:left-[58px] z-10" ref={srvsArrw}>
+              <div
+                className="absolute bottom-10 3xl:bottom-[50px] left-[45px] 3xl:left-[58px] z-10"
+                ref={srvsArrw}
+              >
                 <img
                   src="../assets/images/services/arrow-up.svg"
                   alt="Arrow"
@@ -2013,7 +1975,7 @@ const mapactive = useRef([]);
         </section>
       </div>
       {/* Slide 4 */}
-          {/* Slide 5 */}
+      {/* Slide 5 */}
       <div
         ref={section5Ref}
         className="absolute top-0 left-0 w-full h-full bg-transparent"
@@ -2021,9 +1983,9 @@ const mapactive = useRef([]);
       >
         <section
           id="section5"
-          className="h-screen relative overflow-hidden whitebgref scroll-area"
+          className="h-screen relative overflow-hidden whitebgref scroll-area bg-white"
         >
-  <div className="w-full pt-25 3xl:pt-33 pl-[245px] 3xl:pl-[310px]">
+          <div className="w-full pt-25 3xl:pt-33 pl-[245px] 3xl:pl-[310px]">
             <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
               <h1
                 ref={maptitle}
@@ -2032,7 +1994,7 @@ const mapactive = useRef([]);
                 Our Presence is Steadily Expanding
               </h1>
             </div>
-            <div className="  flex justify-center" ref={mapimage}>
+            <div className="  flex justify-center    " ref={mapimage}>
               <div
                 className="relative md:w-[1000px] md:h-[70%] 3xl:w-[1158px] 3xl:h-[70%] "
                 ref={containersRef}
@@ -2050,7 +2012,7 @@ const mapactive = useRef([]);
                   <div
                     key={city.id}
                     ref={mapactive}
-                    className={`absolute   transition-all duration-300 md:w-[43%] md:h-[76%] 3xl:w-[41.5%] 3xl:h-[76%]  flex items-center justify-center itmbsx ${
+                    className={`absolute   transition-all duration-300 md:w-[43%] md:h-[76%] 3xl:w-[41.5%] 3xl:h-[76%]  flex items-center justify-center ${
                       activeDot === city.id ? "z-[999]" : ""
                     }`}
                     style={{ left: city.left, top: city.top }}
@@ -2155,8 +2117,9 @@ const mapactive = useRef([]);
           </div>
         </section>
       </div>
-       {/* Slide 5 */}
-          {/* Slide 6 */}
+      {/* Slide 5 */}
+
+      {/* Slide 6 */}
       <div
         ref={section6Ref}
         className="absolute top-0 left-0 w-full h-full bg-transparent"
@@ -2166,7 +2129,7 @@ const mapactive = useRef([]);
           id="section6"
           className="h-screen relative overflow-hidden whitebgref scroll-area"
         >
-            <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
+          <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
             {/* left start */}
             <div className="flex h-full">
               <div className="w-full pt-10 xl:pt-15 3xl:pt-33 pl-[245px] 3xl:pl-[310px]">
@@ -2318,7 +2281,6 @@ const mapactive = useRef([]);
                 {/* hear the absolute positioned box with project details */}
                 {/* Absolute positioned box with project details */}
                 <div
-               
                   className="absolute bottom-20 left-0 bg-primary text-white z-50 cursor-pointer"
                   style={{
                     transition:
@@ -2329,9 +2291,9 @@ const mapactive = useRef([]);
                     opacity: isAnimating ? 0.8 : 1,
                   }}
                 >
-                  <div ref={talentdtls} >
-                    <div  className="flex gap-5 xl:gap-[77px] px-15 py-6 xl:pt-[28px] xl:pb-[33px] border-b border-white/20">
-                      <div class="tlnits">
+                  <div>
+                    <div className="flex gap-5 xl:gap-[77px] px-15 py-6 xl:pt-[28px] xl:pb-[33px] border-b border-white/20">
+                      <div>
                         <div
                           style={{ position: "relative", overflow: "hidden" }}
                         >
@@ -2350,7 +2312,7 @@ const mapactive = useRef([]);
                           Completed Projects
                         </p>
                       </div>
-                      <div className="tlnits">
+                      <div>
                         <div
                           style={{ position: "relative", overflow: "hidden" }}
                         >
@@ -2370,7 +2332,7 @@ const mapactive = useRef([]);
                         </p>
                       </div>
                     </div>
-                    <div className="tlnits px-15 py-6 xl:pt-[42px] xl:pb-[49px] group cursor-pointer">
+                    <div className="px-15 py-6 xl:pt-[42px] xl:pb-[49px] group cursor-pointer">
                       <a href="/sectors" className="flex items-center gap-2">
                         View All Projects
                         <img
@@ -2386,11 +2348,11 @@ const mapactive = useRef([]);
             </div>
             {/* right end*/}
           </div>
-
         </section>
       </div>
-       {/* Slide 6 */}
-          {/* Slide 7 */}
+      {/* Slide 6 */}
+
+      {/* Slide 7 */}
       <div
         ref={section7Ref}
         className="absolute top-0 left-0 w-full h-full bg-transparent"
@@ -2399,29 +2361,30 @@ const mapactive = useRef([]);
         <section
           id="section7"
           className="h-screen relative overflow-hidden whitebgref scroll-area "
+          style={{
+            backgroundImage: `url(../assets/images/driven_force.jpg)`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
         >
-          <figure ref={cutltimg} className="absolute w-full h-full z-[-1] mx-auto my-0 left-0 right-0">
-           <img className="absolute object-cover w-full h-full z-0" src="../assets/images/driven_force.jpg" alt=""/>
-           <div className="bg-[linear-gradient(270deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.65)_51.29%,rgba(0,0,0,0.75)_100%)] absolute w-full h-full z-10"></div>
-          </figure>
-  <div
+          <div
             className="grid grid-cols-[950px_auto] 2xl:grid-cols-[950px_auto] 3xl:grid-cols-[1201px_auto] h-full 
-      "
+      bg-[linear-gradient(270deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.65)_51.29%,rgba(0,0,0,0.75)_100%)]"
           >
             {/* LEFT SIDE */}
             <div className="w-full pt-33 pl-[245px] 3xl:pl-[300px] pb-[120px] 3xl:pb-[212px]">
               <div className="ml-[80px] 3xl:ml-[110px] flex flex-col justify-between h-full">
                 <h1
-                  ref={cutltttl}
+                  
                   className="max-w-[14ch] text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light mb-8 xl:mb-[25px] text-white"
                 >
                   Driven by Talent. <br /> Defined by Culture.
                 </h1>
 
                 <div>
-                  <div className="flex items-center gap-5" ref={cultlist}>
+                  <div className="flex items-center gap-5">
                     {items.map((item) => (
-                      <div className="ctitm">
                       <div
                         key={item.id}
                         onClick={() => setActiveItem(item)}
@@ -2447,7 +2410,6 @@ const mapactive = useRef([]);
                           ))}
                         </p>
                       </div>
-                           </div>
                     ))}
                   </div>
                 </div>
@@ -2460,9 +2422,8 @@ const mapactive = useRef([]);
 
             {/* RIGHT SIDE */}
             <div className="flex flex-col justify-end h-full pb-[120px] 3xl:pb-[212px] pt-[120px] 3xl:pt-[150px] overflow-hidden relative border-l border-white/25">
-              <AnimatePresence mode="wait" >
+              <AnimatePresence mode="wait">
                 <motion.div
-                ref={cutltdtls}
                   key={activeItem.id}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -2498,7 +2459,7 @@ const mapactive = useRef([]);
           </div>
         </section>
       </div>
-       {/* Slide 7 */}
+      {/* Slide 7 */}
     </div>
   );
 };
