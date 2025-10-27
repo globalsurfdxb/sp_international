@@ -1967,22 +1967,19 @@ const SlideScrollThree = ({
           <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
             {/* left start */}
             <div className="flex h-full bg-white">
-              <div className="w-full pt-10 3xl:pt-33 pl-[245px] 3xl:pl-[310px]">
+              <div className="w-full pt-10 xl:pt-15 3xl:pt-33 pl-[245px] 3xl:pl-[310px]">
                 <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
-                  <h1
-                    ref={srvttlRef}
-                    className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px] max-w-[13ch]"
-                  >
+                  <h1 ref={srvttlRef} className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[1.166666666666667] max-w-[13ch]">
                     Shaping Diverse Sectors
                   </h1>
-                  <div className="w-full flex flex-col justify-center h-[541px] mt-5 relative">
+                  <div className="w-full flex flex-col justify-center h-[450px] 3xl:h-[541px] mt-10 relative overflow-y-hidden 3xl:overflow-visible pl-4 3xl:pl-0">
                     <div className="pb-4 relative h-full flex items-center">
                       {/* curved line svg */}
                       <div className="absolute top-0 left-0 h-full flex flex-col justify-center">
                         <img src="../assets/images/sectors/svg-crv.svg" alt="curved line svg" />
                       </div>
 
-                      <div className="flex flex-col gap-1 pl-4 pb-6 sectors-list">
+                      <div className="flex flex-col 3xl:gap-1 pl-4 pb-6 sectors-list">
                         {visibleSectors.map((sector) => {
                           const isActive = sector.position === 0;
                           const opacity = Math.abs(sector.position) > 3 ? 0 : 1 - Math.abs(sector.position) * 0.2;
