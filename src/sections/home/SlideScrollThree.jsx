@@ -121,9 +121,13 @@ const SlideScrollThree = ({
   const maptitle = useRef([]);
   const mapimage = useRef([]);
   const mapdots = useRef([]);
-  const mapactive = useRef([]);
+  const mapactive = useRef([]); 
 
   const section6Ref = useRef(null);
+  const talenttitle = useRef([]);
+  const talentlist = useRef([]);
+  const talentdetails = useRef([]);
+  const talentimage = useRef([]);
 
   const section7Ref = useRef(null);
 
@@ -249,6 +253,7 @@ const SlideScrollThree = ({
     const c1 = gsap.timeline();
     const d1 = gsap.timeline();
     const e1 = gsap.timeline();
+    const f1 = gsap.timeline();
 
     switch (index) {
       case 0:
@@ -627,8 +632,53 @@ const SlideScrollThree = ({
             },
             "-=0.5"
           )
+          // .fromTo(
+          //   mapdots.current,
+          //   { scale: 0, opacity: 0 },
+          //   {
+          //     scale: 1,
+          //     opacity: 1,
+          //     duration: 1.9, 
+          //     ease: "power1.out",
+          //   },
+          //   "-=0.5"
+          // )
+          // .fromTo(
+          //   mapactive.current,
+          //   { opacity: 0 },
+          //   {
+          //     opacity: 1,
+          //     duration: 1.9, 
+          //     ease: "power1.out",
+          //   },
+          //   "-=0.5"
+          // )
+          ;
+        break;
+      case 5:
+        f1.set(talenttitle.current, { opacity: 0 })
+          .set(talentlist.current, { opacity: 0 })
+          .set(talentdetails.current, { opacity: 0 })
+          .set(talentimage.current, { opacity: 0 })
           .fromTo(
-            mapdots.current,
+            talenttitle.current,
+            { x: -50, opacity: 0, },
+            { x: 0, opacity: 1, 
+              duration: 1.5, delay: 3.4, ease: "power1.out" }, '-=0.5'
+          )
+          .fromTo(
+            talentimage.current,
+            { scale: 0.9, opacity: 0 },
+            {
+              scale: 1,
+              opacity: 1,
+              duration: 0.9, 
+              ease: "power1.out",
+            },
+            "-=0.5"
+          )
+          .fromTo(
+            talentlist.current,
             { scale: 0, opacity: 0 },
             {
               scale: 1,
@@ -639,7 +689,7 @@ const SlideScrollThree = ({
             "-=0.5"
           )
           .fromTo(
-            mapactive.current,
+            talentdetails.current,
             { opacity: 0 },
             {
               opacity: 1,
@@ -647,11 +697,7 @@ const SlideScrollThree = ({
               ease: "power1.out",
             },
             "-=0.5"
-          )
-          ;
-        break;
-      case 5:
-        
+          );
         break;
       case 6:
         break;
@@ -662,7 +708,8 @@ const SlideScrollThree = ({
     const a2 = gsap.timeline();
     const b2 = gsap.timeline();
     const c2 = gsap.timeline();
-    const d2 = gsap.timeline();
+    const d2 = gsap.timeline(); 
+    const e2 = gsap.timeline();
     const t1 = gsap.timeline({ onComplete });
     switch (index) {
       case 0:
@@ -877,6 +924,27 @@ const SlideScrollThree = ({
         ); */
         break;
       case 4:
+        e2.to(
+            maptitle.current,
+          { x: -100, opacity: 0, duration: 1, ease: "power1.in" },
+          0
+        )
+          .to(
+            mapimage.current, 
+            { x: -100, opacity: 0, duration: 1, ease: "power1.in" },
+            "-=0.5"
+          )
+          // .to(
+          //   mapdots.current, 
+          //   { x: -100, opacity: 0, duration: 1, ease: "power1.in" },
+          //   "-=0.5"
+          // )
+          // .to(
+          //   mapactive.current, 
+          //   { x: -100, opacity: 0, duration: 1, ease: "power1.in" },
+          //   "-=0.5"
+          // )
+          ;
         break;
       case 5:
         break;
@@ -1962,8 +2030,8 @@ const SlideScrollThree = ({
       {/* Slide 5 */}
 
       {/* Slide 6 */}
-      <div ref={section6Ref} className="absolute top-0 left-0 w-full h-full bg-transparent" style={{ visibility: "hidden", zIndex: 0 }} >
-        <section id="section6" className="h-screen relative overflow-hidden whitebgref scroll-area bg-white">
+      <div ref={section7Ref} className="absolute top-0 left-0 w-full h-full bg-transparent" style={{ visibility: "hidden", zIndex: 0 }} >
+        <section id="section7" className="h-screen relative overflow-hidden whitebgref scroll-area bg-white">
           <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
             {/* left start */}
             <div className="flex h-full bg-white">
@@ -2163,12 +2231,12 @@ const SlideScrollThree = ({
 
       {/* Slide 7 */}
       <div
-        ref={section7Ref}
+        ref={section6Ref}
         className="absolute top-0 left-0 w-full h-full bg-transparent"
         style={{ visibility: "hidden", zIndex: 0 }}
       >
         <section
-          id="section7"
+          id="section6"
           className="h-screen relative overflow-hidden whitebgref scroll-area " style={{
                             backgroundImage: `url(../assets/images/driven_force.jpg)`,
                             backgroundSize: "cover",
@@ -2183,7 +2251,7 @@ const SlideScrollThree = ({
       {/* LEFT SIDE */}
       <div className="w-full pt-33 pl-[245px] 3xl:pl-[300px] pb-[120px] 3xl:pb-[212px]">
         <div className="ml-[80px] 3xl:ml-[110px] flex flex-col justify-between h-full">
-          <h1 className="max-w-[14ch] text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light mb-8 xl:mb-[25px] text-white">
+          <h1 ref={talenttitle} className="max-w-[14ch] text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light mb-8 xl:mb-[25px] text-white">
             Driven by Talent. <br /> Defined by Culture.
           </h1>
 
