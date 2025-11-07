@@ -66,7 +66,7 @@ const Strength = () => {
           <h2 className="text-60 font-light leading-[1.166666666666667] text-black mb-[30px]">
             {careersData.title}
           </h2>
-          <p className="text-19 font-light leading-[1.473684210526316] text-paragraph">
+          <p className="text-19 font-light leading-[1.473684210526316] text-paragraph max-w-[72ch]">
             {careersData.description}
           </p>
           <div className="border-b border-gray-200 mt-[30px] xl:mt-[50px] 2xl:mt-[70px]" />

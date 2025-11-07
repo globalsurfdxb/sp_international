@@ -1,21 +1,31 @@
- 
-import Banner from '../../components/common/Banner' 
-import About from '../../components/AboutUS/About' 
-import VisionMission from '../../components/AboutUS/VisionMission' 
-import OurValues from '../../components/AboutUS/OurValues' 
-import Trusted from '../../components/AboutUS/Trusted' 
-import Legacy from '../../components/AboutUS/Legacy' 
-const Index = () => { 
-  return (
-   <>
-    <Banner />
-    <About />
-    <VisionMission />
-    <OurValues />
-    <Legacy/>
-    <Trusted/>
-   </>
-  )
-}
+import Banner from "../../components/common/Banner";
+import About from "../../components/AboutUS/About";
+import VisionMission from "../../components/AboutUS/VisionMission";
+import OurValues from "../../components/AboutUS/OurValues";
+import Trusted from "../../components/AboutUS/Trusted";
+import Legacy from "../../components/AboutUS/Legacy";
+import MainNavbar from "../../MainLayout/MainNavbar";
+import Footer from "../../MainLayout/Footer";
 
-export default Index
+const Index = () => {
+  return (
+    <>
+      <header>
+        <MainNavbar />
+      </header>
+      <main>
+        <Banner />
+        <About />
+        <VisionMission />
+        <OurValues />
+        <Legacy />
+        <Trusted />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </>
+  );
+};
+
+export default Index;

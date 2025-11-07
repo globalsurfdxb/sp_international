@@ -36,28 +36,27 @@ const ImageCarousel = () => {
           <Swiper
             modules={[Autoplay]}
             centeredSlides
-            loop
+            loop={true}
             spaceBetween={15}
             autoplay={{
-              delay: 2500,
+              delay: 2000,
               disableOnInteraction: false,
             }}
-            speed={1000}
+            speed={1400}
             breakpoints={{
-              1536: { slidesPerView: 3.6 }, // 2XL
+              1536: { slidesPerView: 3.6165 }, // 2XL
               1280: { slidesPerView: 3.45 }, // XL
               1024: { slidesPerView: 2.2 }, // LG
               768: { slidesPerView: 2.2 }, // MD
               0: { slidesPerView: 1.2 }, // SM
             }}
             onSwiper={(swiper) => {
-              // move one slide forward after short delay to stabilize layout
               setTimeout(() => {
                 swiper.slideNext(0);
               }, 50);
             }}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-            className="!overflow-visible"
+            className="h-[455px] xl:h-[536px] 2xl:h-[679px]"
           >
             {[...images, ...images].map((img, i) => (
               <SwiperSlide
