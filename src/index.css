@@ -13,6 +13,7 @@ html {
   --primary: #1E45A2;
   --secondary: #30B6F9;
   --color-light-gray: #626262;
+  --color-f5f5: #F5F5F5; 
   --color-paragraph: #464646;
   --text-12: clamp(0.7rem, 1.5vw + 0.5rem, 12px);
   --text-13: clamp(0.8rem, 1.8vw + 0.5rem, 13px);
@@ -49,6 +50,7 @@ html {
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
+  --color-f5f5: var(--color-f5f5); 
   --font-sans: var(--font-dm-sans);
   --breakpoint-7xl: 103.125rem;
   --container-7xl: 98.125rem;
