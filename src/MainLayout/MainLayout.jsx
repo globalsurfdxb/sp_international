@@ -4,6 +4,7 @@ import V2 from "../Pages/V2/IndexV2";
 import Error from "../Pages/Error/Error";
 import V3 from "../Pages/V3/IndexV3";
 import Careers from "../Pages/Careers/Careers";
+import AboutUs from "../Pages/about-us/Index";
 
 const MainLayout = () => {
   return (
@@ -13,6 +14,7 @@ const MainLayout = () => {
         <Route path="/careers" element={<Careers />} />
         <Route path="/version-two" element={<V2 />} />
         <Route path="/version-three" element={<V3 />} />
+        <Route path="/about-us" element={<AboutUs />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
