@@ -26,7 +26,7 @@ const ValueItem = ({ item }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     > 
-      <h3 className="text-29 font-light leading-[2.43] text-4646">
+      <h3 className="text-29 font-light leading-[2.43] text-paragraph">
         {item.label}
       </h3>
  

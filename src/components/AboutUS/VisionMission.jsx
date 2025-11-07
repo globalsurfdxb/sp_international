@@ -23,7 +23,7 @@ const VisionMission = () => {
                 <h3 className='text-60 font-light leading-[1.18] text-black mb-6'>
                   {item.title}
                 </h3>
-                <p className='text-19 font-light leading-[1.474] text-4646'>{item.desc}</p>
+                <p className='text-19 font-light leading-[1.474] text-paragraph'>{item.desc}</p>
               </div>
             ))}
           </div>
