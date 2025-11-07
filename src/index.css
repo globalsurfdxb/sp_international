@@ -488,3 +488,22 @@ body::-webkit-scrollbar {
     transform: scale(1);
   }
 }
+
+
+.legacy-year-swiper .swiper-slide-thumb-active p {
+  color: #fff;
+  opacity: 1 !important;
+  z-index: 9999 !important;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+.legacy-year-swiper .swiper-slide-thumb-active::after{
+      content: "";
+    width: 190%;
+    height: 1px;
+    background-color: #fff;
+    position: absolute;
+    opacity: 0.3;
+    top: 34px;
+    left: 177px;
+}

@@ -7,14 +7,14 @@ const About = () => {
         <section className="py-12 xl:py-15 2xl:pt-25 2xl:pb-30">
           <div className="container">
              <div
-      className={`grid grid-cols-1 lg:grid-cols-[1fr_520px] gap-[167px]`}
+      className={`grid grid-cols-1 lg:grid-cols-[1fr_520px] gap-7 2xl:gap-[167px]`}
     >
       {/* Left Column */}
       <div>
         <p className='text-29 font-light leading-[1.345]'>
           {data.left.text}
         </p>
-        <div className='mt-23 pt-12 border-t border-black/20'>
+        <div className='mt-10 xl:mt-23 pt-12 border-t border-black/20'>
           <div className='text-19 font-light leading-[1.474] flex flex-col gap-7 text-paragraph'>
             {data.left.paragraphs.map((p, i) => (
               <p key={i}>{p}</p>

@@ -4,6 +4,7 @@ import About from '../../components/AboutUS/About'
 import VisionMission from '../../components/AboutUS/VisionMission' 
 import OurValues from '../../components/AboutUS/OurValues' 
 import Trusted from '../../components/AboutUS/Trusted' 
+import Legacy from '../../components/AboutUS/Legacy' 
 const Index = () => { 
   return (
    <>
@@ -11,6 +12,7 @@ const Index = () => {
     <About />
     <VisionMission />
     <OurValues />
+    <Legacy/>
     <Trusted/>
    </>
   )
