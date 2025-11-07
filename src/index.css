@@ -13,6 +13,7 @@ html {
   --primary: #1E45A2;
   --secondary: #30B6F9;
   --color-light-gray: #626262;
+  --color-paragraph: #464646;
   --text-12: clamp(0.7rem, 1.5vw + 0.5rem, 12px);
   --text-13: clamp(0.8rem, 1.8vw + 0.5rem, 13px);
   --text-14: clamp(0.9rem, 2vw + 0.5rem, 14px);
@@ -72,6 +73,7 @@ html {
   --text-70: var(--text-70);
 
   --color-light-gray: var(--color-light-gray);
+  --color-paragraph: var(--color-paragraph);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -261,12 +263,14 @@ body::-webkit-scrollbar {
   pointer-events: none;
 }
 
-.sectors-list>div:nth-child(2){
-  opacity: .5!important;
+.sectors-list>div:nth-child(2) {
+  opacity: .5 !important;
 }
-.sectors-list>div:nth-child(3){
-  opacity: .75!important;
+
+.sectors-list>div:nth-child(3) {
+  opacity: .75 !important;
 }
+
 /* .sectors-list>div:nth-child(8){
   opacity: .75!important;
 }
@@ -275,18 +279,23 @@ body::-webkit-scrollbar {
 }
  */
 
-      @keyframes pulse-glow {
-  0%, 100% {
+@keyframes pulse-glow {
+
+  0%,
+  100% {
     box-shadow: 0 0 25px #00ff88, 0 0 50px rgba(0, 255, 136, 0.4);
   }
+
   50% {
     box-shadow: 0 0 35px #00ff88, 0 0 70px rgba(0, 255, 136, 0.8);
   }
 }
+
 .animate-glow {
   animation: pulse-glow 1.5s infinite;
 }
-      .dot {
+
+.dot {
   width: 12px;
   height: 12px;
   background-color: #22d3ee;
@@ -311,9 +320,12 @@ body::-webkit-scrollbar {
 
 /* Pulsing animation for active dot */
 @keyframes pulseDot {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 25px #00ff88, 0 0 50px rgba(0, 255, 136, 0.4);
   }
+
   50% {
     box-shadow: 0 0 35px #00ff88, 0 0 70px rgba(0, 255, 136, 0.8);
   }
@@ -326,7 +338,7 @@ body::-webkit-scrollbar {
   left: 50%;
   transform: translateX(-50%);
   background-color: #3b82f6;
-  
+
   color: white;
   padding: 4px 10px;
   border-radius: 6px;
@@ -352,20 +364,29 @@ body::-webkit-scrollbar {
 }
 
 .bubble {
-      width: 150px;
-    height: 150px; 
-    text-align: center; 
-    border-radius: 9999px;
-    box-shadow: 0 0 25px rgba(59, 130, 246, 0.6);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  border-radius: 9999px;
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 @keyframes scale-loop {
-  0%   { transform: scale(.98); }
-  50%  { transform: scale(1); }
-  100% { transform: scale(.98); }
+  0% {
+    transform: scale(.98);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(.98);
+  }
 }
 
 .scale-pulse {
@@ -373,22 +394,39 @@ body::-webkit-scrollbar {
 }
 
 @keyframes float-bubble {
-  0%   { transform: translateY(0px) translateX(0px); }
-  25%  { transform: translateY(-6px) translateX(3px); }
-  50%  { transform: translateY(0px) translateX(6px); }
-  75%  { transform: translateY(6px) translateX(3px); }
-  100% { transform: translateY(0px) translateX(0px); }
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+
+  25% {
+    transform: translateY(-6px) translateX(3px);
+  }
+
+  50% {
+    transform: translateY(0px) translateX(6px);
+  }
+
+  75% {
+    transform: translateY(6px) translateX(3px);
+  }
+
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
 }
 
 .float-bubble1 {
   animation: float-bubble 14s ease-in-out infinite;
 }
+
 .float-bubble2 {
   animation: float-bubble 12s ease-in-out infinite;
 }
+
 .float-bubble3 {
   animation: float-bubble 10s ease-in-out infinite;
 }
+
 @keyframes fadeInScale {
   from {
     opacity: 0;
