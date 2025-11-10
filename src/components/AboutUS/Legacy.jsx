@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Thumbs, EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css"; 
 import "swiper/css/effect-fade";
 import "swiper/css/thumbs";
+ 
 
 const legacyData = [
   {
@@ -40,6 +41,7 @@ const legacyData = [
 ];
 const Legacy = () => {
    const [thumbsSwiper, setThumbsSwiper] = useState(null);
+ 
   return (
     <>
       <section className="py-12 xl:py-15 2xl:pt-[108px] 2xl:pb-30 bg-primary relative">
@@ -52,24 +54,27 @@ const Legacy = () => {
           Legacy
         </h2>
 
-         <div className="flex    md:gap-[306px] lg:gap-[106px] xl:gap-[100px] 2xl:gap-[306px] justify-between items-end">
+         <div className="flex flex-col md:flex-row gap-3 md:gap-[106px] lg:gap-[106px] xl:gap-[100px] 2xl:gap-[306px] justify-between md:items-end">
           {/* LEFT: Vertical Year Thumbs */}
-          <div className="text-white font-light text-29 leading-[2.42] lg:mb-7 w-[200px] relative">
-            <Swiper
-              direction="vertical"
-              slidesPerView={5}
+          <div className="text-white font-light text-24 xl:text-29 leading-[1.42]  xl:leading-[2.42] lg:mb-7 w-full lg:w-[200px] relative">
+            <Swiper 
+              slidesPerView={3}
               spaceBetween={10}
+              direction="horizontal"
               onSwiper={setThumbsSwiper}
               watchSlidesProgress={true}
               modules={[Thumbs, Autoplay]}
+              breakpoints={{ 
+                768: {
+                  direction: "vertical",
+                  slidesPerView: 5,
+                },
+              }}
               autoplay={{
                 delay: 4000, // 4 seconds
                 disableOnInteraction: false,
               }}
-              className="legacy-year-swiper !overflow-visible"
-              style={{
-                height: "350px",
-              }}
+              className="legacy-year-swiper !overflow-visible h-auto md:h-[280px] xl:h-[350px]" 
             >
               {legacyData.map((item, i) => { 
   const opacity = 1 - i * 0.20;  
@@ -92,7 +97,7 @@ const Legacy = () => {
            </div>
 
           {/* RIGHT: Main Content */}
-          <div className="  md:max-w-[350px] lg:max-w-[400px] xl:max-w-[705px] 2xl:max-w-[825px] w-full">
+          <div className="  md:max-w-[450px] lg:max-w-[600px] xl:max-w-[705px] 2xl:max-w-[825px]  w-full">
             <Swiper
               modules={[Thumbs, EffectFade, Autoplay]}
               thumbs={{ swiper: thumbsSwiper }}
@@ -109,10 +114,10 @@ const Legacy = () => {
               {legacyData.map((item, i) => (
                 <SwiperSlide key={i}>
                   <div className="mb-4 lg:mb-[53px]">
-                    <h2 className="text-60 font-light leading-[1.18] text-white mb-5 lg:mb-15">
+                    <h2 className="text-60 font-light leading-[1.18] text-white mb-5 xl:mb-15">
                       {item.title}
                     </h2>
-                    <p className="text-29 font-light leading-[1.374] text-white">
+                    <p className="text-19 lg:text-29 font-light leading-[1.374] text-white">
                       {item.text}
                     </p>
                   </div>

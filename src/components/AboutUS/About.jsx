@@ -14,8 +14,8 @@ const About = () => {
         <p className='text-29 font-light leading-[1.345]'>
           {data.left.text}
         </p>
-        <div className='mt-10 xl:mt-23 pt-12 border-t border-black/20'>
-          <div className='text-19 font-light leading-[1.474] flex flex-col gap-7 text-paragraph'>
+        <div className='mt-7 xl:mt-23 pt-7  xl:pt-12  border-t border-black/20'>
+          <div className='text-19 font-light leading-[1.474] flex flex-col gap-4 lg:gap-7 text-paragraph'>
             {data.left.paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
