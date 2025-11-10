@@ -13,7 +13,7 @@ const Index = () => {
         <MainNavbar />
       </header>
       <main>
-        <Banner />
+        <Banner title="careers" image="/assets/images/careers/banner.jpg" />
         <Strength />
         <ImageCarousel />
         <Empowerment />

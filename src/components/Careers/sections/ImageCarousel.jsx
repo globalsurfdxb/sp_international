@@ -50,11 +50,6 @@ const ImageCarousel = () => {
               768: { slidesPerView: 2.2 }, // MD
               0: { slidesPerView: 1.2 }, // SM
             }}
-            onSwiper={(swiper) => {
-              setTimeout(() => {
-                swiper.slideNext(0);
-              }, 50);
-            }}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
             className="h-[455px] xl:h-[536px] 2xl:h-[679px]"
           >
