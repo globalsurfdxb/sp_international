@@ -2,13 +2,13 @@ const Footer = () => {
   return (
     <div className="bg-[#191919] pt-[153px] text-white">
       <div className="container">
-        <div className="border-b border-white/30 grid grid-cols-[549px_auto]">
+        <div className="border-b border-white/30 grid grid-cols-1 xl:grid-cols-[549px_auto]">
           <div className="border-r border-white/30">
             <img src="./assets/images/logo.svg" alt="logo" className="w-[169px] h-auto" />
           </div>
-          <div className="pl-[107px] pb-20">
+          <div className="xl:pl-[107px] pb-20">
             <p className="text-19 font-300 leading-[1.578947368421053] text-white/70 mb-[22px] max-w-[35ch]">Al Hudaiba Mall, Al Mina Street P.O. Box No. 118219 Dubai, UAE, Office 307, 3rd Floor</p>
-            <div className="flex items-center gap-[22px] mb-[22px]">
+            <div className="flex flex-wrap items-center gap-[22px] mb-[22px]">
               <a href="tel:+97142156222" className="text-29 font-300 leading-[1.344827586206897]">+971 42156222</a>
               <a href="mailto:info@spinternational.com" className="text-29 font-300 leading-[1.344827586206897]">info@spinternational.com</a>
             </div>
