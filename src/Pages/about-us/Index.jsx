@@ -14,7 +14,10 @@ const Index = () => {
         <MainNavbar />
       </header>
       <main>
-        <Banner title="about us" image="/assets/images/about-us/about-banner.jpg" />
+        <Banner
+          title="about us"
+          image="/assets/images/about-us/about-banner.jpg"
+        />
         <About />
         <VisionMission />
         <OurValues />
