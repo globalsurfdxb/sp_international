@@ -5,6 +5,8 @@ import Workplace from "./sections/Workplace";
 import MainNavbar from "../../MainLayout/MainNavbar";
 import Footer from "../../MainLayout/Footer";
 import Banner from "../../components/common/Banner";
+import OurValues from "./sections/OurValues";
+import PartOfUs from "./sections/PartOfUs";
 
 const Index = () => {
   return (
@@ -18,6 +20,8 @@ const Index = () => {
         <ImageCarousel />
         <Empowerment />
         <Workplace />
+        <OurValues />
+        <PartOfUs />
       </main>
       <footer>
         <Footer />
