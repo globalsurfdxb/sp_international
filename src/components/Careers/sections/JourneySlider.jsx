@@ -52,7 +52,7 @@ const JourneySlider = () => {
               grabCursor
               centeredSlides
               loop
-              //   autoplay={{ delay: 2500, disableOnInteraction: false }}
+              autoplay={{ delay: 2500, disableOnInteraction: false }}
               slidesPerView="auto"
               coverflowEffect={{
                 rotate: 0,
