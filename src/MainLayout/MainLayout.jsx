@@ -5,7 +5,8 @@ import Error from "../Pages/Error/Error";
 import V3 from "../Pages/V3/IndexV3";
 import Careers from "../Pages/Careers/Careers";
 import AboutUs from "../Pages/about-us/Index";
-import PressReleases from "../Pages/press-releases/Index";import ProjectDetails from "../Pages/project-details/Index";
+import PressReleases from "../Pages/press-releases/Index";
+import ProjectDetails from "../Pages/project-details/Index";
 const MainLayout = () => {
   return (
     <BrowserRouter>
