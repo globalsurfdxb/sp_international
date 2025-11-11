@@ -1,28 +1,34 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { EffectCoverflow, Autoplay } from "swiper/modules";
 import { journeyData } from "../data";
 
 const JourneySlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMdUp, setIsMdUp] = useState(false);
   const swiperRef = useRef(null);
 
+  // Detect screen size (runs once + on resize)
+  useEffect(() => {
+    const handleResize = () => setIsMdUp(window.innerWidth >= 768); // Tailwind md breakpoint
+    handleResize(); // run initially
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <section className="overflow-hidden max-w-[1920px] bg-white pt-30">
-      <div className="container">
-        {/* Section Title */}
+    <section className="overflow-hidden max-w-[1920px] bg-white 2xl:pt-30 pt-8 md:pt-17 xl:pt-22">
+      <div className={isMdUp ? "container" : "px-[15px]"}>
         <h2 className="text-60 font-light leading-[1.166666666666667] mb-10">
           {journeyData.title}
         </h2>
 
-        <div className="container relative">
+        <div className={isMdUp ? "container relative" : "relative"}>
           {/* Decorative SVGs */}
-          <div>
+          <div className="hidden lg:block">
             <div className="absolute top-30 left-0">
               <img
                 src="/assets/images/careers/journey-slider/svg/left.svg"
@@ -38,16 +44,15 @@ const JourneySlider = () => {
           </div>
 
           {/* Swiper */}
-          <div className="journey-slider container relative">
+          <div
+            className={`journey-slider relative ${isMdUp ? "container" : ""}`}
+          >
             <Swiper
               effect="coverflow"
-              grabCursor={true}
-              centeredSlides={true}
-              loop={true}
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
+              grabCursor
+              centeredSlides
+              loop
+              //   autoplay={{ delay: 2500, disableOnInteraction: false }}
               slidesPerView="auto"
               coverflowEffect={{
                 rotate: 0,
@@ -58,19 +63,19 @@ const JourneySlider = () => {
               onBeforeInit={(swiper) => (swiperRef.current = swiper)}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
               modules={[EffectCoverflow, Autoplay]}
-              className="swiper_container relative flex justify-center !pt-15 !pb-20"
+              className="swiper_container relative flex justify-center lg:!pt-15 lg:!pb-20"
             >
               {journeyData.slides.map((item, index) => {
                 const isActive = index === activeIndex;
                 return (
                   <SwiperSlide key={index} className="swiper-slide relative">
-                    {/* Image Container */}
                     <div
                       className="relative overflow-hidden transition-all duration-500"
                       style={{
-                        boxShadow: isActive
-                          ? "0px 10px 60px 0px #00041680"
-                          : "none",
+                        boxShadow:
+                          isActive && isMdUp
+                            ? "0px 10px 60px 0px #00041680"
+                            : "none",
                       }}
                     >
                       <img
@@ -78,7 +83,6 @@ const JourneySlider = () => {
                         alt={item.alt || `slide_image_${index + 1}`}
                         className="w-full h-full object-cover"
                       />
-                      {/* Overlay for active / non-active slides */}
                       <div
                         className="absolute inset-0 transition-all duration-500"
                         style={{
@@ -87,16 +91,15 @@ const JourneySlider = () => {
                             : "#0A0A0A80",
                         }}
                       />
-                      {/* Text (only visible on active slide) */}
                       <div
-                        className={`absolute bottom-[32px] left-[38px] font-light z-10 transition-all duration-500 ${
+                        className={`absolute bottom-[20px] left-[20px] md:bottom-[32px] md:left-[38px] font-light z-10 transition-all duration-500 ${
                           isActive ? "opacity-100" : "opacity-0"
                         }`}
                       >
-                        <h2 className="text-white text-[29px] mb-[7px] leading-[1.310344827586207]">
+                        <h2 className="text-white text-[29px] mb-[4px] md:mb-[7px] leading-[1.31]">
                           {item.name}
                         </h2>
-                        <p className="text-white text-[19px] leading-[1.473684210526316]">
+                        <p className="text-white text-[19px] leading-[1.47]">
                           {item.designation}
                         </p>
                       </div>
@@ -107,8 +110,7 @@ const JourneySlider = () => {
             </Swiper>
 
             {/* Pagination + Arrows */}
-            <div className="flex items-center justify-center gap-x-[14px] -mt-[20px]">
-              {/* Left Arrow */}
+            <div className="flex items-center justify-center gap-x-[14px] mt-4 lg:-mt-[20px]">
               <button
                 onClick={() => swiperRef.current?.slidePrev()}
                 className="w-[52px] h-[52px] flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
@@ -119,8 +121,6 @@ const JourneySlider = () => {
                   className="w-[28px] h-[28px]"
                 />
               </button>
-
-              {/* Counter */}
               <div className="text-16 leading-[2.4] text-color-paragraph">
                 <span className="font-bold">
                   {String(activeIndex + 1).padStart(2, "0")}
@@ -130,8 +130,6 @@ const JourneySlider = () => {
                   {String(journeyData.slides.length).padStart(2, "0")}
                 </span>
               </div>
-
-              {/* Right Arrow */}
               <button
                 onClick={() => swiperRef.current?.slideNext()}
                 className="w-[52px] h-[52px] flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
