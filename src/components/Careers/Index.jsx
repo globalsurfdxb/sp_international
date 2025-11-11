@@ -7,6 +7,7 @@ import Footer from "../../MainLayout/Footer";
 import Banner from "../../components/common/Banner";
 import OurValues from "./sections/OurValues";
 import PartOfUs from "./sections/PartOfUs";
+import JourneySlider from "./sections/JourneySlider";
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
         <Empowerment />
         <Workplace />
         <OurValues />
+        <JourneySlider />
         <PartOfUs />
       </main>
       <footer>

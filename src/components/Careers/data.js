@@ -58,52 +58,52 @@ export const journeyData = {
   title: "Journeys That Inspire",
   slides: [
     {
-      image: "/assets/images/careers/journeys/1.jpg",
+      image: "/assets/images/careers/journey-slider/1.jpg",
       name: "Hadley Vaughn",
       designation: "Designer",
     },
     {
-      image: "/assets/images/careers/journeys/2.jpg",
+      image: "/assets/images/careers/journey-slider/2.jpg",
       name: "Michael Rivera",
       designation: "Manager",
     },
     {
-      image: "/assets/images/careers/journeys/3.jpg",
+      image: "/assets/images/careers/journey-slider/3.jpg",
       name: "Liam Carter",
       designation: "Engineer",
     },
     {
-      image: "/assets/images/careers/journeys/4.jpg",
+      image: "/assets/images/careers/journey-slider/4.jpg",
       name: "Sophia Turner",
       designation: "Developer",
     },
     {
-      image: "/assets/images/careers/journeys/5.jpg",
+      image: "/assets/images/careers/journey-slider/5.jpg",
       name: "Ava Martinez",
       designation: "Analyst",
     },
     {
-      image: "/assets/images/careers/journeys/1.jpg",
+      image: "/assets/images/careers/journey-slider/1.jpg",
       name: "Hadley Vaughn",
       designation: "Designer",
     },
     {
-      image: "/assets/images/careers/journeys/2.jpg",
+      image: "/assets/images/careers/journey-slider/2.jpg",
       name: "Michael Rivera",
       designation: "Manager",
     },
     {
-      image: "/assets/images/careers/journeys/3.jpg",
+      image: "/assets/images/careers/journey-slider/3.jpg",
       name: "Liam Carter",
       designation: "Engineer",
     },
     {
-      image: "/assets/images/careers/journeys/4.jpg",
+      image: "/assets/images/careers/journey-slider/4.jpg",
       name: "Sophia Turner",
       designation: "Developer",
     },
     {
-      image: "/assets/images/careers/journeys/5.jpg",
+      image: "/assets/images/careers/journey-slider/5.jpg",
       name: "Ava Martinez",
       designation: "Analyst",
     },
