@@ -5,6 +5,9 @@ import Workplace from "./sections/Workplace";
 import MainNavbar from "../../MainLayout/MainNavbar";
 import Footer from "../../MainLayout/Footer";
 import Banner from "../../components/common/Banner";
+import OurValues from "./sections/OurValues";
+import PartOfUs from "./sections/PartOfUs";
+import JourneySlider from "./sections/JourneySlider";
 
 const Index = () => {
   return (
@@ -13,11 +16,14 @@ const Index = () => {
         <MainNavbar />
       </header>
       <main>
-        <Banner />
+        <Banner title="careers" image="/assets/images/careers/banner.jpg" />
         <Strength />
         <ImageCarousel />
         <Empowerment />
         <Workplace />
+        <OurValues />
+        <JourneySlider />
+        <PartOfUs />
       </main>
       <footer>
         <Footer />

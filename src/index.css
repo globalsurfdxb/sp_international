@@ -13,9 +13,9 @@ html {
   --primary: #1E45A2;
   --secondary: #30B6F9;
   --color-light-gray: #626262;
-  --color-f5f5: #F5F5F5; 
+  --color-f5f5: #F5F5F5;
   --color-paragraph: #464646;
-  --cmn-border-color:#cccccc;
+  --cmn-border-color: #cccccc;
   --text-12: clamp(0.7rem, 1.5vw + 0.5rem, 12px);
   --text-13: clamp(0.8rem, 1.8vw + 0.5rem, 13px);
   --text-14: clamp(0.9rem, 2vw + 0.5rem, 14px);
@@ -54,8 +54,8 @@ html {
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
-  --color-f5f5: var(--color-f5f5); 
-  --color-cmnbdr:var(--cmn-border-color);
+  --color-f5f5: var(--color-f5f5);
+  --color-cmnbdr: var(--cmn-border-color);
   --font-sans: var(--font-dm-sans);
   --breakpoint-7xl: 103.125rem;
   --container-7xl: 98.125rem;
@@ -91,7 +91,7 @@ html {
   :root {
     --background: #fff;
     --foreground: #171717;
-    --cmn-border-color:#cccccc;
+    --cmn-border-color: #cccccc;
   }
 }
 
@@ -507,26 +507,29 @@ body::-webkit-scrollbar {
   font-weight: 700;
   transition: all 0.3s ease;
 }
-.legacy-year-swiper .swiper-slide-active::after{
-      content: "";
-    width: 190%;
-    height: 1px;
-    background-color: #fff;
-    position: absolute;
-    opacity: 0.3;
-    top: 34px;
-    left: 177px;
+
+.legacy-year-swiper .swiper-slide-active::after {
+  content: "";
+  width: 190%;
+  height: 1px;
+  background-color: #fff;
+  position: absolute;
+  opacity: 0.3;
+  top: 34px;
+  left: 177px;
 }
+
 @media (max-width: 1279px) {
- .legacy-year-swiper .swiper-slide-active::after{ 
-    top: 17px; 
+  .legacy-year-swiper .swiper-slide-active::after {
+    top: 17px;
     left: 147px;
+  }
 }
-}
+
 @media (max-width: 767px) {
- .legacy-year-swiper .swiper-slide-active::after{ 
+  .legacy-year-swiper .swiper-slide-active::after {
     display: none;
-}
+  }
 }
 
 @keyframes gradient {
@@ -543,16 +546,69 @@ body::-webkit-scrollbar {
   }
 }
 
- @keyframes gradient {
-   0% {
-     background-position: 0% 50%;
-   }
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
 
-   50% {
-     background-position: 100% 50%;
-   }
+  50% {
+    background-position: 100% 50%;
+  }
 
-   100% {
-     background-position: 0% 50%;
-   }
- }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+
+
+
+/* ---------- Journey Slider Specific Styles ---------- */
+
+.journey-slider .swiper-slide {
+  width: 507px;
+  height: 558px;
+  position: relative;
+}
+
+.journey-slider .swiper-slide img {
+  height: 558px;
+  width: 507px;
+}
+
+
+@media (min-width: 1280px) {
+  .journey-slider .swiper_container {
+    margin: 0 80px !important;
+  }
+}
+
+@media (min-width: 1580px) {
+  .journey-slider .swiper_container {
+    margin: 0 110px !important;
+  }
+}
+
+@media (max-width: 500px) {
+  /* .journey-slider .swiper_container {
+    height: 47rem;
+  } */
+
+  .journey-slider .swiper-slide {
+    width: 20rem !important;
+    height: 23rem !important;
+  }
+
+  .journey-slider .swiper-slide img {
+    width: 20rem !important;
+    height: 23rem !important;
+  }
+}
+
+
+.journey-slider .swiper-slide-shadow-left,
+.journey-slider .swiper-slide-shadow-right {
+  display: none;
+}
