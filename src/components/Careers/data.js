@@ -102,10 +102,5 @@ export const journeyData = {
       name: "Sophia Turner",
       designation: "Developer",
     },
-    {
-      image: "/assets/images/careers/journey-slider/5.jpg",
-      name: "Ava Martinez",
-      designation: "Analyst",
-    },
   ],
 };

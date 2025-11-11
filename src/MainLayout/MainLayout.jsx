@@ -7,6 +7,7 @@ import Careers from "../Pages/Careers/Careers";
 import AboutUs from "../Pages/about-us/Index";
 import PressReleases from "../Pages/press-releases/Index";
 import ProjectDetails from "../Pages/project-details/Index";
+import Projects from "../Pages/projects/Index";
 const MainLayout = () => {
   return (
     <BrowserRouter>
@@ -18,6 +19,7 @@ const MainLayout = () => {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/press-releases" element={<PressReleases />} />
         <Route path="/project-details" element={<ProjectDetails />} />
+        <Route path="/projects" element={<Projects />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>

@@ -1,5 +1,5 @@
 'use client'; 
-import { projectdetails } from "./data";
+import { projectdetails } from "../data";
 const Banner = () => {
  
   return (
