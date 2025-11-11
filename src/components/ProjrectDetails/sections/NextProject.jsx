@@ -1,5 +1,5 @@
 'use client'; 
-import { nextpjt} from "./data";
+import { nextpjt} from "../data";
 const NextProject = () => {
  
   return (

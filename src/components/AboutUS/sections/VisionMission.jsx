@@ -1,5 +1,5 @@
 'use client'; 
-import { Vision } from "./data";
+import { Vision } from "../data";
 const VisionMission = () => {
  
   return (
