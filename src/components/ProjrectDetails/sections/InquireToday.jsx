@@ -1,5 +1,5 @@
 'use client'; 
-import { Inquiretoday} from "./data";
+import { Inquiretoday} from "../data";
 const InquireToday = () => {
  
   return (

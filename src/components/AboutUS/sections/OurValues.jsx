@@ -1,5 +1,5 @@
 "use client"; 
-import { values } from "./data";
+import { values } from "../data";
 import ValueItem from "./ValueItem";
 
 const OurValues = () => {

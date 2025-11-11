@@ -1,5 +1,5 @@
 'use client'; 
-import { moredetrails} from "./data";
+import { moredetrails} from "../data";
 const MoreDetrails = () => {
  
   return (

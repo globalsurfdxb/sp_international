@@ -1,5 +1,5 @@
 'use client'; 
-import { keyfactors} from "./data";
+import { keyfactors} from "../data";
 const KeyFacts = () => {
  
   return (
