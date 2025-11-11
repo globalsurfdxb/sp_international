@@ -24,9 +24,9 @@ const Index = () => {
       <header>
         <MainNavbar />
       </header>
-      <section>
-        <div className="container">
-          <div className="mb-10 xl:mb-20 mt-15 xl:mt-30">
+      <section className="relative">
+        <div className="container ">
+          <div className="mb-10 xl:mb-20 pt-15 xl:pt-30">
             <h1 className="text-70 font-light leading-[1.071428571428571]">Press Releases</h1>
           </div>
           <div className="flex gap-15 xl:gap-[90px] border-y border-cmnbdr py-35px mb-15 xl:mb-20">
@@ -65,9 +65,9 @@ const Index = () => {
               </Listbox>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-15 xl:gap-y-30 mb-10 xl:mb-30">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-15 xl:gap-y-30 pb-10 xl:pb-[90px]">
             {pressReleases.items.map((item) => (
-              <div key={item.id} className="bg-white">
+              <div key={item.id} >
                 <img src={item.image} alt={item.title} width={520} height={339} className="w-full h-[339px] object-cover" />
                 <div className="pt-5">
                   <div className="flex items-center justify-between pt-[14px] pb-[13px] pl-[23.15px] pr-[23.17px] bg-f5f5">
@@ -81,9 +81,30 @@ const Index = () => {
                   <h2 className="text-29 leading-[1.344827586206897] font-light mt-30px xl:max-w-[90%]">{item.title}</h2>
                 </div>
               </div>
-            ))}
+            ))} 
+          </div>
+       
+          <div className="flex items-center justify-center gap-2 w-full pb-10 lg:pb-[120px]">
+            <img src="./assets/images/projects/lt.svg" alt=""/>
+          <div className="text-lg font-semibold text-black flex items-center gap-1">
+            <span className="font-bold text-gray-800">
+              2
+            </span>
+            <span className="text-paragraph font-light text-16 ">/</span>
+            <span className="text-paragraph font-light text-16">
+              23
+            </span>
+          </div>
+            <img src="./assets/images/projects/rt.svg" alt=""/>
           </div>
         </div>
+        <div className="absolute top-0 right-0  ">
+            <img src="/assets/images/project-details/bannerbg.svg" alt="" className=" object-fit" />
+          </div>  
+           <div className="absolute bottom-1/7 left-0 z-[-1] ">
+            <img src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit" />
+          </div>
+          
       </section>
       <footer>
         <Footer />
