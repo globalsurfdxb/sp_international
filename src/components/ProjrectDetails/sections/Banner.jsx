@@ -4,8 +4,7 @@ const Banner = () => {
  
   return (
     <section>
-        <div className="pt-12 xl:pt-25  2xl:pt-30 pb-20  md:pb-[200px] xl:pb-[230px]  2xl:pb-[232px] bg-f5f5 bg-[url('/assets/images/project-details/bannerbg.svg')]
-        bg-no-repeat bg-contain bg-right">
+        <div className="pt-12 xl:pt-25  2xl:pt-30 pb-20  md:pb-[200px] xl:pb-[230px]  2xl:pb-[232px] bg-f5f5 ">
           <div className="container relative">
              <div className="flex  justify-between items-center ">
                <div>
@@ -67,6 +66,9 @@ const Banner = () => {
                 </div>
              </div>
              
+          </div>
+          <div className="absolute top-0 right-0  ">
+            <img src="/assets/images/project-details/bannerbg.svg" alt="" className=" object-fit" />
           </div>
     </section>
   );

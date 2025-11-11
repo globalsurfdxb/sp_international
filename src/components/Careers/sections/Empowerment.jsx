@@ -76,7 +76,7 @@ const EmpowerSection = () => {
                 </h3>
 
                 {/* Mobile Divider */}
-                <div className="xl:hidden border-b border-white/40 w-full" />
+                <div className="xl:hidden border-b border-white/30 w-full" />
 
                 <p className="text-[16px] sm:text-[17px] md:text-[18px] xl:text-[19px] text-white/70 leading-[1.5]">
                   {stat.label}
