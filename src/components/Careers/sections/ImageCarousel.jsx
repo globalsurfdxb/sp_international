@@ -82,11 +82,7 @@ const ImageCarousel = () => {
                     width: "100%",
                   }}
                 >
-                  <img
-                    src={img}
-                    alt={`slide-${i}`}
-                    className="w-full h-full object-cover"
-                  />
+                  <img src={img} alt={`slide-${i}`} className="w-full h-full object-cover" />
                 </div>
               </SwiperSlide>
             ))}

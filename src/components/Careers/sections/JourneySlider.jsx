@@ -67,9 +67,18 @@ const JourneySlider = () => {
             >
               {journeyData.slides.map((item, index) => {
                 const isActive = index === activeIndex;
+                const totalSlides = journeyData.slides.length;
+                // Custom delay order: first two slides in order, rest in reverse
+                const getDelayMultiplier = (idx, total) => {
+                  if (idx < 2) {
+                    return idx; // 0, 1
+                  } else {
+                    return total - 1 - (idx - 2); // Reverse for the rest
+                  }
+                };
                 return (
                   <SwiperSlide key={index} className="swiper-slide relative">
-                    <motion.div variants={fadeIn(0.2*index)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="relative overflow-hidden transition-all duration-500"
+                    <motion.div variants={fadeIn(0.15 * getDelayMultiplier(index, totalSlides))} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="relative overflow-hidden transition-all duration-500"
                       style={{
                         boxShadow:
                           isActive && isMdUp
@@ -77,11 +86,7 @@ const JourneySlider = () => {
                             : "none",
                       }}
                     >
-                      <img
-                        src={item.image}
-                        alt={item.alt || `slide_image_${index + 1}`}
-                        className="w-full h-full object-cover"
-                      />
+                      <img src={item.image} alt={item.alt || `slide_image_${index + 1}`} className="w-full h-full object-cover" />
                       <div
                         className="absolute inset-0 transition-all duration-500"
                         style={{
@@ -109,15 +114,8 @@ const JourneySlider = () => {
 
             {/* Pagination + Arrows */}
             <div className="flex items-center justify-center gap-x-[14px] mt-4 lg:-mt-[20px]">
-              <button
-                onClick={() => swiperRef.current?.slidePrev()}
-                className="w-[52px] h-[52px] flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
-              >
-                <img
-                  src="/assets/images/careers/journey-slider/svg/arrow-left.svg"
-                  alt="Previous"
-                  className="w-[28px] h-[28px]"
-                />
+              <button onClick={() => swiperRef.current?.slidePrev()} className="w-[52px] h-[52px] flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110">
+                <img src="/assets/images/careers/journey-slider/svg/arrow-left.svg" alt="Previous" className="w-[28px] h-[28px]" />
               </button>
               <div className="text-16 leading-[2.4] text-color-paragraph">
                 <span className="font-bold">
