@@ -76,7 +76,7 @@ const MainNavbar = () => {
 
   return (
     <>
-      <nav className="pt-[16px] pb-[17px] border-b border-[#f0f0f0]">
+      <nav className="pt-[16px] pb-[17px] border-b border-[#f0f0f0] bg-[#ffffff]">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
