@@ -5,6 +5,8 @@ import { EffectCoverflow, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import { journeyData } from "../data";
+import { motion } from "framer-motion";
+import { fadeIn, moveUp } from "../../../motionVarients";
 
 const JourneySlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -22,9 +24,9 @@ const JourneySlider = () => {
   return (
     <section className="overflow-hidden max-w-[1920px] bg-white 2xl:pt-30 pt-8 md:pt-17 xl:pt-22">
       <div className={isMdUp ? "container" : "px-[15px]"}>
-        <h2 className="text-60 font-light leading-[1.166666666666667] mb-10">
+        <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 font-light leading-[1.166666666666667] mb-10">
           {journeyData.title}
-        </h2>
+        </motion.h2>
 
         <div className={isMdUp ? "container relative" : "relative"}>
           {/* Decorative SVGs */}
@@ -44,9 +46,7 @@ const JourneySlider = () => {
           </div>
 
           {/* Swiper */}
-          <div
-            className={`journey-slider relative ${isMdUp ? "container" : ""}`}
-          >
+          <div className={`journey-slider relative ${isMdUp ? "container" : ""}`}>
             <Swiper
               effect="coverflow"
               grabCursor
@@ -69,8 +69,7 @@ const JourneySlider = () => {
                 const isActive = index === activeIndex;
                 return (
                   <SwiperSlide key={index} className="swiper-slide relative">
-                    <div
-                      className="relative overflow-hidden transition-all duration-500"
+                    <motion.div variants={fadeIn(0.2*index)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="relative overflow-hidden transition-all duration-500"
                       style={{
                         boxShadow:
                           isActive && isMdUp
@@ -92,9 +91,8 @@ const JourneySlider = () => {
                         }}
                       />
                       <div
-                        className={`absolute bottom-[20px] left-[20px] md:bottom-[32px] md:left-[38px] font-light z-10 transition-all duration-500 ${
-                          isActive ? "opacity-100" : "opacity-0"
-                        }`}
+                        className={`absolute bottom-[20px] left-[20px] md:bottom-[32px] md:left-[38px] font-light z-10 transition-all duration-500 ${isActive ? "opacity-100" : "opacity-0"
+                          }`}
                       >
                         <h2 className="text-white text-[29px] mb-[4px] md:mb-[7px] leading-[1.31]">
                           {item.name}
@@ -103,7 +101,7 @@ const JourneySlider = () => {
                           {item.designation}
                         </p>
                       </div>
-                    </div>
+                    </motion.div>
                   </SwiperSlide>
                 );
               })}
