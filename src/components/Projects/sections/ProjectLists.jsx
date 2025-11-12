@@ -1,5 +1,6 @@
 import { Listbox } from "@headlessui/react";
-import { pressReleases } from "../data";
+import { pjtList } from "../data";
+import { useState, useMemo } from "react";
 const sector = [
   { id: 1, title: "All" },
   { id: 2, title: "Press Releases 1" },
@@ -33,18 +34,62 @@ const service = [
   { id: 5, title: "Press Releases 4" },
   { id: 6, title: "Press Releases 5" },
 ];
+
+
+  
+  const ITEMS_PER_PAGE = 12;
+  
 const ProjectLists = () => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const [isAnimating, setIsAnimating] = useState(false); 
+  
+    // Calculate total pages based on actual data
+    const totalPages = Math.ceil(pjtList.items.length / ITEMS_PER_PAGE);
+  
+    // Get current items for the page
+    const currentItems = useMemo(() => {
+      const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+      const endIndex = startIndex + ITEMS_PER_PAGE;
+      return pjtList.items.slice(startIndex, endIndex);
+    }, [currentPage]);
+  
+    const handlePageChange = (newPage) => {
+      if (newPage < 1 || newPage > totalPages || isAnimating) return;
+  
+      setIsAnimating(true);
+      setCurrentPage(newPage);
+  
+      // Scroll to top of section smoothly
+      const section = document.querySelector('section');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+  
+      // Reset animation state
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 300);
+    };
+  
+    const handlePrev = () => {
+      handlePageChange(currentPage - 1);
+    };
+  
+    const handleNext = () => {
+      handlePageChange(currentPage + 1);
+    };
+  
   return (
     <>
       <section className="relative">
         <div className="container">
-          <div className=" border-y border-cmnbdr mt-12 xl:mt-25 mb-8 xl:mb-15 py-6 xl:py-[35px]">
-            <div className="flex justify-between">
-                  <div className="flex gap-[174px]">
-              <div className="flex gap-15 xl:gap-[90px] ">
-                <div className="w-fit">
+          <div className=" border-y border-cmnbdr mt-10 xl:mt-25 mb-8 xl:mb-15 py-4 md:py-6 xl:py-[35px]">
+            <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-0">
+                  <div className="flex flex-col md:flex-row gap-8  2xl:gap-25  3xl:gap-[174px] justify-between">
+              <div className="flex flex-col md:flex-row gap-6 2xl:gap-[90px] ">
+                <div className="w-full lg:w-fit">
                   <Listbox>
-                    <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-3 outline-0 border-0">
+                    <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-3 outline-0 border-0 justify-between">
                       <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                         Sector
                       </span>
@@ -78,9 +123,9 @@ const ProjectLists = () => {
                     </Listbox.Options>
                   </Listbox>
                 </div>
-                <div className="w-fit">
+                <div className="w-full lg:w-fit">
                   <Listbox>
-                    <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-3 outline-0 border-0">
+                    <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-3 outline-0 border-0 justify-between">
                       <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                         Status
                       </span>
@@ -114,9 +159,9 @@ const ProjectLists = () => {
                     </Listbox.Options>
                   </Listbox>
                 </div>
-                <div className="w-fit">
+                <div className="w-full lg:w-fit">
                   <Listbox>
-                    <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-3 outline-0 border-0">
+                    <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-3 outline-0 border-0 justify-between">
                       <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                         country
                       </span>
@@ -150,9 +195,9 @@ const ProjectLists = () => {
                     </Listbox.Options>
                   </Listbox>
                 </div>
-                <div className="w-fit">
+                <div className="w-full lg:w-fit">
                   <Listbox>
-                    <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-3 outline-0 border-0">
+                    <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-3 outline-0 border-0 justify-between">
                       <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                         Service
                       </span>
@@ -203,7 +248,7 @@ const ProjectLists = () => {
                   <p className="uppercase text-16 text-paragraph font-light">Clear Filter</p></div>
               </div>
             </div>
-            <div className="flex items-center gap-6 lg:gap-[30px]">
+            <div className="flex items-center gap-6 lg:gap-[30px] justify-end">
                <div className="flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
               <rect width="8" height="8" fill="#30B6F9"/>
@@ -223,49 +268,88 @@ const ProjectLists = () => {
             </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-12 xl:gap-y-[80px] pb-10 xl:pb-[80px]">
-            {pressReleases.items.map((item) => (
+          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px  gap-y-10 md:gap-y-12 xl:gap-y-[80px] pb-10 xl:pb-[80px] transition-all duration-300 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+              }`}
+            style={{
+              transform: isAnimating ? 'translateY(16px)' : 'translateY(0)',
+              transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out'
+            }}>
+            {currentItems.map((item) => (
               <div key={item.id}  >
                 <img
                   src={item.image}
                   alt={item.title}
                   width={520}
                   height={395}
-                  className="w-full h-[395px] object-cover"
+                  className="w-full h-[250px] lg:h-[395px] object-cover"
                 />
                 <div > 
-                  <h2 className="text-29 leading-[1.344827586206897] font-light py-6 xl:max-w-[90%]">
+                  <h2 className="text-29 leading-[1.344827586206897] font-light py-4 md:py-6 xl:max-w-[90%]">
                     {item.title}
                   </h2>
                 </div>
                 <div className="flex justify-between border-t border-t-black/20 border-b border-b-black/20">
-                  <p className="text-paragraph text-16 font-light leading-[2.44]">
+                  <p className="text-paragraph text-19 font-light leading-[2.44]">
                     Sector: {item.sector}
                   </p>
-                  <p className="text-paragraph text-16 font-light leading-[2.44] xl:pe-6">
+                  <p className="text-paragraph text-19 font-light leading-[2.44] xl:pe-6">
                     BUA (Sq.ft): {item.sqft}
                   </p>
                 </div>
                 <div className="border-b border-b-black/20">
-                     <p className="text-paragraph text-16 font-light leading-[2.44]">
+                     <p className="text-paragraph text-19 font-light leading-[2.44]">
                     Location: {item.location}
                   </p>
                 </div>
               </div>
             ))}
           </div>
-          <div className="flex items-center justify-center gap-2 w-full pb-10 lg:pb-[131px]">
-            <img src="./assets/images/projects/lt.svg" alt=""/>
-          <div className="text-lg font-semibold text-black flex items-center gap-1">
-            <span className="font-bold text-gray-800">
-              2
-            </span>
-            <span className="text-paragraph font-light text-16 ">/</span>
-            <span className="text-paragraph font-light text-16">
-              23
-            </span>
-          </div>
-            <img src="./assets/images/projects/rt.svg" alt=""/>
+          <div className="flex items-center justify-center gap-2 w-full pb-10 lg:pb-[120px]"> 
+        <div className="pagination flex items-center gap-2 justify-center ">
+            <button
+              className={`prev cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === 1 || isAnimating ? 'opacity-30' : 'opacity-100'
+                }`}
+              onClick={handlePrev}
+              disabled={currentPage === 1 || isAnimating}
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M9.7549 1.25L1.25 9.7549M1.25 9.7549L9.75297 18.2579M1.25 9.7549L18.2169 9.79374"
+                  stroke="#30B6F9"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+
+            <p>
+              <span className="current-page font-bold text-16 leading-[2.4375]">
+                {String(currentPage).padStart(2, "0")}
+              </span>
+              {" / "}
+              <span className="total-pages">
+                {String(totalPages).padStart(2, "0")}
+              </span>
+            </p>
+
+            <button
+              className={`next cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === totalPages || isAnimating ? 'opacity-30' : 'opacity-100'
+                }`}
+              onClick={handleNext}
+              disabled={currentPage === totalPages || isAnimating}
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M9.71189 1.25L18.2168 9.7549M18.2168 9.7549L9.71383 18.2579M18.2168 9.7549L1.24994 9.79374"
+                  stroke="#30B6F9"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div> 
           </div>
         </div>
         <div className="absolute bottom-3/7 translate-y-[-45px] -left-1 z-[-1]   ">

@@ -10,7 +10,7 @@ const InquireToday = () => {
              <div className="flex  justify-between items-center ">
                <div className="mb-5 xl:mb-[68px]">
                  <h2 className="text-60 font-light leading-[1.17] mb-3 lg:mb-[21px] text-white">{Inquiretoday.title}</h2> 
-                 <p className="text-29 font-light leading-[1.474] text-white">{Inquiretoday.subtitle}</p>
+                 <p className="text-29 font-light leading-[1.35] text-white">{Inquiretoday.subtitle}</p>
                </div>
               
              </div>

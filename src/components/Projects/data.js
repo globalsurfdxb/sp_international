@@ -1,21 +1,6 @@
-export const pressReleases = {
+export const pjtList = {
 
-    title: "Press Releases",
-    topics:[
-      "All",
-      "Press Releases 1",
-      "Press Releases 2",
-      "Press Releases 3",
-      "Press Releases 4",
-      "Press Releases 5",
-    ],
-    years:[
-      "2024",
-      "2023",
-      "2022",
-      "2021",
-      "2020",
-    ],
+  
     items:[
       {
         image:"./assets/images/projects/pjt1.jpg",
@@ -118,6 +103,113 @@ export const pressReleases = {
         sqft:"500000" ,
         location:"Oman"
       }, 
+
+      {
+        image:"./assets/images/projects/pjt9.jpg",
+        title:"Oman Across Ages Museum",
+        sector:"Social Infrstrucure",
+        link:"#",
+        sqft:"500000" ,
+        location:"Oman"
+      }, 
+      
+      {
+        image:"./assets/images/projects/pjt10.jpg",
+        title:"Oman Across Ages Museum",
+        sector:"Social Infrstrucure",
+        link:"#",
+        sqft:"500000" ,
+        location:"Oman"
+      }, 
+      
+      {
+        image:"./assets/images/projects/pjt11.jpg",
+        title:"Oman Across Ages Museum",
+        sector:"Social Infrstrucure",
+        link:"#",
+        sqft:"500000" ,
+        location:"Oman"
+      }, 
+      
+      {
+        image:"./assets/images/projects/pjt12.jpg",
+        title:"Oman Across Ages Museum",
+        sector:"Social Infrstrucure",
+        link:"#",
+        sqft:"500000" ,
+        location:"Oman"
+      }, 
+
+      {
+        image:"./assets/images/projects/pjt9.jpg",
+        title:"Oman Across Ages Museum",
+        sector:"Social Infrstrucure",
+        link:"#",
+        sqft:"500000" ,
+        location:"Oman"
+      }, 
+      
+      {
+        image:"./assets/images/projects/pjt10.jpg",
+        title:"Oman Across Ages Museum",
+        sector:"Social Infrstrucure",
+        link:"#",
+        sqft:"500000" ,
+        location:"Oman"
+      }, 
+      
+      {
+        image:"./assets/images/projects/pjt11.jpg",
+        title:"Oman Across Ages Museum",
+        sector:"Social Infrstrucure",
+        link:"#",
+        sqft:"500000" ,
+        location:"Oman"
+      }, 
+      
+      {
+        image:"./assets/images/projects/pjt12.jpg",
+        title:"Oman Across Ages Museum",
+        sector:"Social Infrstrucure",
+        link:"#",
+        sqft:"500000" ,
+        location:"Oman"
+      }, 
+
+      {
+        image:"./assets/images/projects/pjt9.jpg",
+        title:"Oman Across Ages Museum",
+        sector:"Social Infrstrucure",
+        link:"#",
+        sqft:"500000" ,
+        location:"Oman"
+      }, 
+      
+      {
+        image:"./assets/images/projects/pjt10.jpg",
+        title:"Oman Across Ages Museum",
+        sector:"Social Infrstrucure",
+        link:"#",
+        sqft:"500000" ,
+        location:"Oman"
+      }, 
+      
+      {
+        image:"./assets/images/projects/pjt11.jpg",
+        title:"Oman Across Ages Museum",
+        sector:"Social Infrstrucure",
+        link:"#",
+        sqft:"500000" ,
+        location:"Oman"
+      },  
+       {
+        image:"./assets/images/projects/pjt1.jpg",
+        title:"Oman Across Ages Museum",
+        sector:"Social Infrstrucure",
+        link:"#",
+        sqft:"500000" ,
+        location:"Oman"
+      }
       
     ]
 }

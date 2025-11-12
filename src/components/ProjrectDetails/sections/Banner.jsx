@@ -3,13 +3,13 @@ import { projectdetails } from "../data";
 const Banner = () => {
  
   return (
-    <section>
-        <div className="pt-12 xl:pt-25  2xl:pt-30 pb-20  md:pb-[200px] xl:pb-[230px]  2xl:pb-[232px] bg-f5f5 ">
-          <div className="container relative">
+    <section className=" ">
+        <div className="pt-12 xl:pt-25  2xl:pt-30 pb-20  md:pb-[200px] xl:pb-[230px] bg-f5f5 2xl:pb-[232px]  ">
+          <div className="container relative   z-[2]">
              <div className="flex  justify-between items-center ">
                <div>
                  <h1 className="text-70 font-light leading-[1.07] mb-3 lg:mb-5">{projectdetails.title}</h1>
-                <p className="text-29 font-light text-paragraph">{projectdetails.subtitle}</p>
+                <p className="text-29 font-light text-paragraph leading-[1.33]">{projectdetails.subtitle}</p>
                </div>
                <div>
                 <p className="font-18 font-light text-paragraph/70 leading-[1.8] border-b [border-image-source:linear-gradient(270deg,#30B6F9_0%,#1E45A2_100%)] [border-image-slice:1]">{projectdetails.sector}</p>
@@ -19,7 +19,7 @@ const Banner = () => {
           </div> 
         
         </div> 
-        <div className="container relative bottom-[50px] md:bottom-[150px] left-0">
+        <div className="container relative bottom-[50px] md:bottom-[150px] left-0 z-[2]">
             <img src={projectdetails.image} alt="" className="w-full h-full object-cover" />
           </div>
           <div className="container relative md:bottom-[70px] bottom-[10px] left-0 pb-[50px]">
@@ -67,7 +67,7 @@ const Banner = () => {
              </div>
              
           </div>
-          <div className="absolute top-0 right-0  ">
+          <div className="absolute top-0 right-0   z-[1] ">
             <img src="/assets/images/project-details/bannerbg.svg" alt="" className=" object-fit" />
           </div>
     </section>

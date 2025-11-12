@@ -85,12 +85,12 @@ const MainNavbar = () => {
             </div>
 
             {/* Desktop Menu */}
-            <ul className="hidden lg:flex items-center gap-[35px]">
+            <ul className="hidden lg:flex items-center gap-2 xl:gap-3 3xl:gap-[35px]">
               {menuItems.map((item, index) => (
                 <li key={index} className="relative group">
                   <a
                     href="#"
-                    className="text-16 leading-[1.75] font-300 uppercase hover:font-bold active:font-bold focus-within:font-bold transition-all duration-300 flex items-center gap-1"
+                    className="text-[12px] xl:text-14 3xl:text-16 leading-[1.75] font-300 uppercase hover:font-bold active:font-bold focus-within:font-bold transition-all duration-300 flex items-center gap-1"
                   >
                     {item.name}
                     {item.submenu && (
@@ -119,18 +119,19 @@ const MainNavbar = () => {
               ))}
             </ul>
 
-            {/* Desktop Actions */}
+           <div className="flex items-center gap-3">
+             {/* Desktop Actions */}
             <div className="hidden md:flex items-center">
               <button className="bg-gradient-to-r from-[#30B6F9] to-[#1E45A2] text-white text-13 leading-[1.230769230769231] font-300 uppercase rounded-full px-[22px] py-[7.5px] cursor-pointer mr-3 hover:scale-[1.03] transition-all duration-300">
                 العربية
               </button>
-              <div className="p-[1px] rounded-full bg-gradient-to-r from-[#30B6F9] via-[#1E45A2] to-[#30B6F9] animate-[gradient_3s_linear_infinite] bg-[length:200%_200%] inline-block transition-all duration-300 hover:shadow-[0_0_12px_rgba(48,182,249,0.6)] hover:scale-[1.03] cursor-pointer">
-                <button className="uppercase text-16 leading-[1.75] font-300 px-[18px] py-[1.5px] bg-white rounded-full transition-all duration-300 hover:bg-[#f7faff]">
+              <div className="leading-[1] p-[1px] rounded-full bg-gradient-to-r from-[#30B6F9] via-[#1E45A2] to-[#30B6F9] animate-[gradient_3s_linear_infinite] bg-[length:200%_200%] inline-block transition-all duration-300 hover:shadow-[0_0_12px_rgba(48,182,249,0.6)] hover:scale-[1.03] cursor-pointer">
+                <button className="uppercase text-[10px] xl:text-16 leading-[1.75] font-300 px-[10px] xl:px-[18px] py-[1.5px] bg-white rounded-full transition-all duration-300 hover:bg-[#f7faff]">
                   Employee login
                 </button>
               </div>
-              <button className="cursor-pointer bg-[#000000CC] rounded-full p-[2px] w-[45px] h-[45px] flex items-center justify-center ml-5 transition-all duration-300 hover:shadow-[0_0_12px_rgba(48,182,249,0.6)] group">
-                <img src="./assets/images/icons/search-icon.svg" alt="search" className="group-hover:scale-[1.1] transition-all duration-300" />
+              <button className="cursor-pointer bg-[#000000CC] rounded-full p-[2px] w-[30px] h-[30px]  xl:w-[45px] xl:h-[45px] flex items-center justify-center ml-3 xl:ml-5 transition-all duration-300 hover:shadow-[0_0_12px_rgba(48,182,249,0.6)] group">
+                <img src="./assets/images/icons/search-icon.svg" alt="search" className="group-hover:scale-[1.1] transition-all duration-300 w-[12px] h-[12px] xl:w-[18px] xl:h-[18px]" />
               </button>
             </div>
 
@@ -171,6 +172,7 @@ const MainNavbar = () => {
                 </div>
               )}
             </button>
+           </div>
           </div>
         </div>
       </nav>
