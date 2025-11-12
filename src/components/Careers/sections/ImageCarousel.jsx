@@ -5,7 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
-
+import { moveLeft } from "../../../motionVarients";
+import { motion } from "framer-motion";
 const images = [
   "/assets/images/careers/carousel/car-1.jpg",
   "/assets/images/careers/carousel/car-2.jpg",
@@ -32,7 +33,7 @@ const ImageCarousel = () => {
   return (
     <section className="max-w-[1920px] mx-auto">
       <div className="w-full bg-white pb-30">
-        <div className="overflow-hidden">
+        <motion.div variants={moveLeft(0.3)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="overflow-hidden">
           <Swiper
             modules={[Autoplay]}
             centeredSlides
@@ -63,8 +64,7 @@ const ImageCarousel = () => {
                   transition: "height 0.6s ease",
                 }}
               >
-                <div
-                  className="overflow-hidden transition-all duration-500 ease-in-out"
+                <div className="overflow-hidden transition-all duration-500 ease-in-out"
                   style={{
                     // Dynamically scale height based on screen width
                     height: computeHeight(
@@ -91,7 +91,7 @@ const ImageCarousel = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
