@@ -45,19 +45,20 @@ const Legacy = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
-      <section className="py-12 xl:py-15 2xl:pt-[108px] 2xl:pb-30 bg-primary relative">
-        <div className="absolute bottom-0 left-0 ">
+      <section className="py-10 xl:py-15 2xl:pt-[108px] 2xl:pb-30 bg-primary relative">
+        <div className="absolute bottom-0 left-0 w-[25%] xl:w-full">
           <img src="../assets/images/about-us/lcbanner.svg" alt="" />
         </div>
         <div className="container">
-          <div className="xl:max-w-[1200px] 2xl:max-w-[1310px] ml-auto">
+        <div>
+            <div className="xl:max-w-[1200px] 2xl:max-w-[80.9%] ml-auto">
             <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 font-light leading-[1.18] text-white mb-5 lg:mb-15">
               Legacy
             </motion.h2>
 
-            <div className="flex flex-col md:flex-row gap-3 md:gap-[106px] lg:gap-[106px] xl:gap-[100px] 2xl:gap-[306px] justify-between md:items-end">
+            <div className="flex flex-col-reverse md:flex-row gap-7 md:gap-5 2xl:gap-[20%]  3xl:gap-[23.3%] justify-between md:items-end">
               {/* LEFT: Vertical Year Thumbs */}
-              <div className="text-white font-light text-24 xl:text-29 leading-[1.42]  xl:leading-[2.42] lg:mb-7 w-full lg:w-[200px] relative">
+              <div className="text-white font-light text-24 xl:text-29 leading-[1.42]  xl:leading-[2.42] lg:mb-7 w-full  relative">
                 <Swiper
                   slidesPerView={3}
                   spaceBetween={10}
@@ -81,7 +82,7 @@ const Legacy = () => {
                     const opacity = 1 - i * 0.20;
                     return (
                       <SwiperSlide key={i}>
-                        <p className="cursor-pointer transition-all duration-300 hover:text-[#fff]" style={{ opacity: opacity }}>{item.year}</p>
+                        <p className="text-[15px] sm:text-16 md:text-16 lg:text-29 cursor-pointer transition-all duration-300 hover:text-[#fff]" style={{ opacity: opacity }}>{item.year}</p>
                       </SwiperSlide>
                     );
                   })}
@@ -91,7 +92,7 @@ const Legacy = () => {
               </div>
 
               {/* RIGHT: Main Content */}
-              <div className="  md:max-w-[450px] lg:max-w-[600px] xl:max-w-[705px] 2xl:max-w-[825px]  w-full">
+              <div className="  md:max-w-[450px] lg:max-w-[600px] xl:max-w-[705px] 2xl:max-w-[63%]  w-full ">
                 <Swiper
                   modules={[Thumbs, EffectFade, Autoplay]}
                   thumbs={{ swiper: thumbsSwiper }}
@@ -107,7 +108,7 @@ const Legacy = () => {
                 >
                   {legacyData.map((item, i) => (
                     <SwiperSlide key={i}>
-                      <div className="mb-4 lg:mb-[53px]"><h2 className="text-60 font-light leading-[1.18] text-white mb-5 xl:mb-15">{item.title}</h2><p className="text-19 lg:text-29 font-light leading-[1.374] text-white">{item.text}</p></div>
+                      <div className="mb-4 lg:mb-[53px]"><h2 className="text-60 font-light leading-[1.18] text-white mb-5 xl:mb-[37px]">{item.title}</h2><p className="text-19 lg:text-29 font-light leading-[1.374] text-white">{item.text}</p></div>
                       <div><img src={item.image} alt={item.title} className="w-full object-cover" /></div>
                     </SwiperSlide>
                   ))}
@@ -115,6 +116,7 @@ const Legacy = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </section>
 

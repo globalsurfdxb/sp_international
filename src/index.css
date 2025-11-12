@@ -508,7 +508,7 @@ body::-webkit-scrollbar {
   transition: all 0.3s ease;
 }
 
-.legacy-year-swiper .swiper-slide-active::after {
+.legacy-year-swiper .swiper-slide-thumb-active::after {
   content: "";
   width: 190%;
   height: 1px;
@@ -520,14 +520,14 @@ body::-webkit-scrollbar {
 }
 
 @media (max-width: 1279px) {
-  .legacy-year-swiper .swiper-slide-active::after {
+  .legacy-year-swiper .swiper-slide-thumb-active::after {
     top: 17px;
     left: 147px;
   }
 }
 
 @media (max-width: 767px) {
-  .legacy-year-swiper .swiper-slide-active::after {
+  .legacy-year-swiper .swiper-slide-thumb-active::after {
     display: none;
   }
 }

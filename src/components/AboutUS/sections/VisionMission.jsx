@@ -27,7 +27,7 @@ const VisionMission = () => {
 
   return (
     <>
-      <section ref={sectionRef} className="py-12 xl:py-15 2xl:py-25  bg-f5f5 relative overflow-hidden">
+      <section ref={sectionRef} className="py-10 xl:py-15 2xl:py-25  bg-f5f5 relative overflow-hidden">
         <div className="reveal-overlay absolute inset-0 bg-white z-20"></div>
         <div className="container">
           <div className={`grid grid-cols-1 lg:grid-cols-[1fr_567px] gap-10 lg:gap-[90px] items-center`}>
@@ -39,7 +39,7 @@ const VisionMission = () => {
             {/* Right Column */}
             <div>
               <div className="z-10 relative">
-                <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-8 2xl:gap-[56px]">
                   {Vision.right.map((item, i) => (
                     <motion.div variants={moveUp(0.5*i)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="z-10" key={i}>
                       <h3 className='text-60 font-light leading-[1.18] text-black mb-4 lg:mb-6'>
