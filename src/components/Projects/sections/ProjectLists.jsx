@@ -1,6 +1,8 @@
 import { Listbox } from "@headlessui/react";
 import { pjtList } from "../data";
 import { useState, useMemo } from "react";
+import { motion } from "framer-motion";
+import { moveUp } from "../../../motionVarients";
 const sector = [
   { id: 1, title: "All" },
   { id: 2, title: "Press Releases 1" },
@@ -36,56 +38,55 @@ const service = [
 ];
 
 
-  
-  const ITEMS_PER_PAGE = 12;
-  
+
+const ITEMS_PER_PAGE = 12;
+
 const ProjectLists = () => {
-    const [currentPage, setCurrentPage] = useState(1);
-    const [isAnimating, setIsAnimating] = useState(false); 
-  
-    // Calculate total pages based on actual data
-    const totalPages = Math.ceil(pjtList.items.length / ITEMS_PER_PAGE);
-  
-    // Get current items for the page
-    const currentItems = useMemo(() => {
-      const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-      const endIndex = startIndex + ITEMS_PER_PAGE;
-      return pjtList.items.slice(startIndex, endIndex);
-    }, [currentPage]);
-  
-    const handlePageChange = (newPage) => {
-      if (newPage < 1 || newPage > totalPages || isAnimating) return;
-  
-      setIsAnimating(true);
-      setCurrentPage(newPage);
-  
-      // Scroll to top of section smoothly
-      const section = document.querySelector('section');
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-  
-      // Reset animation state
-      setTimeout(() => {
-        setIsAnimating(false);
-      }, 300);
-    };
-  
-    const handlePrev = () => {
-      handlePageChange(currentPage - 1);
-    };
-  
-    const handleNext = () => {
-      handlePageChange(currentPage + 1);
-    };
-  
+  const [currentPage, setCurrentPage] = useState(1);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  // Calculate total pages based on actual data
+  const totalPages = Math.ceil(pjtList.items.length / ITEMS_PER_PAGE);
+
+  // Get current items for the page
+  const currentItems = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    return pjtList.items.slice(startIndex, endIndex);
+  }, [currentPage]);
+
+  const handlePageChange = (newPage) => {
+    if (newPage < 1 || newPage > totalPages || isAnimating) return;
+
+    setIsAnimating(true);
+    setCurrentPage(newPage);
+
+    // Scroll to top of section smoothly
+    const section = document.querySelector('section');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Reset animation state
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 300);
+  };
+
+  const handlePrev = () => {
+    handlePageChange(currentPage - 1);
+  };
+
+  const handleNext = () => {
+    handlePageChange(currentPage + 1);
+  };
+
   return (
-    <>
-      <section className="relative">
-        <div className="container">
-          <div className=" border-y border-cmnbdr mt-10 xl:mt-25 mb-8 xl:mb-15 py-4 md:py-6 xl:py-[35px]">
-            <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-0">
-                  <div className="flex flex-col md:flex-row gap-8  2xl:gap-25  3xl:gap-[174px] justify-between">
+    <section className="relative">
+      <div className="container">
+        <motion.div variants={moveUp(2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="border-y border-cmnbdr mt-10 xl:mt-25 mb-8 xl:mb-15 py-4 md:py-6 xl:py-[35px]">
+          <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-0">
+            <div className="flex flex-col md:flex-row gap-8  2xl:gap-25  3xl:gap-[174px] justify-between">
               <div className="flex flex-col md:flex-row gap-6 2xl:gap-[90px] ">
                 <div className="w-full lg:w-fit">
                   <Listbox>
@@ -235,77 +236,77 @@ const ProjectLists = () => {
               <div>
                 <div className="flex items-center gap-2 cursor-pointer">
                   <svg xmlns="http://www.w3.org/2000/svg" width="27" height="17" viewBox="0 0 27 17" fill="none">
-                  <g clip-path="url(#clip0_3119_4427)">
-                  <path d="M9.36719 1.93262L1.98894 8.5134L9.34206 15.0679" stroke="#30B6F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M2.40464 8.5H25.0195" stroke="#30B6F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </g>
-                  <defs>
-                  <clipPath id="clip0_3119_4427">
-                  <rect width="27" height="17" fill="white" transform="matrix(-1 0 0 1 27 0)"/>
-                  </clipPath>
-                  </defs>
+                    <g clip-path="url(#clip0_3119_4427)">
+                      <path d="M9.36719 1.93262L1.98894 8.5134L9.34206 15.0679" stroke="#30B6F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M2.40464 8.5H25.0195" stroke="#30B6F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_3119_4427">
+                        <rect width="27" height="17" fill="white" transform="matrix(-1 0 0 1 27 0)" />
+                      </clipPath>
+                    </defs>
                   </svg>
                   <p className="uppercase text-16 text-paragraph font-light">Clear Filter</p></div>
               </div>
             </div>
             <div className="flex items-center gap-6 lg:gap-[30px] justify-end">
-               <div className="flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
-              <rect width="8" height="8" fill="#30B6F9"/>
-              <rect y="11" width="8" height="8" fill="#30B6F9"/>
-              <rect x="11" width="8" height="8" fill="#30B6F9"/>
-              <rect x="11" y="11" width="8" height="8" fill="#30B6F9"/>
-              </svg>
-              <p className="uppercase text-16 text-paragraph font-light">Grid View</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="13" viewBox="0 0 19 13" fill="none">
-              <line y1="0.5" x2="19" y2="0.5" stroke="#464646"/>
-              <line y1="12.5" x2="19" y2="12.5" stroke="#464646"/>
-              </svg>
-              <p className="uppercase text-16 text-paragraph font-light">list View</p>
-            </div>
-            </div>
-            </div>
-          </div>
-          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px  gap-y-10 md:gap-y-12 xl:gap-y-[80px] pb-10 xl:pb-[80px] transition-all duration-300 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
-              }`}
-            style={{
-              transform: isAnimating ? 'translateY(16px)' : 'translateY(0)',
-              transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out'
-            }}>
-            {currentItems.map((item) => (
-              <div key={item.id}  >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  width={520}
-                  height={395}
-                  className="w-full h-[250px] lg:h-[395px] object-cover"
-                />
-                <div > 
-                  <h2 className="text-29 leading-[1.344827586206897] font-light py-4 md:py-6 xl:max-w-[90%]">
-                    {item.title}
-                  </h2>
-                </div>
-                <div className="flex justify-between border-t border-t-black/20 border-b border-b-black/20">
-                  <p className="text-paragraph text-19 font-light leading-[2.44]">
-                    Sector: {item.sector}
-                  </p>
-                  <p className="text-paragraph text-19 font-light leading-[2.44] xl:pe-6">
-                    BUA (Sq.ft): {item.sqft}
-                  </p>
-                </div>
-                <div className="border-b border-b-black/20">
-                     <p className="text-paragraph text-19 font-light leading-[2.44]">
-                    Location: {item.location}
-                  </p>
-                </div>
+              <div className="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                  <rect width="8" height="8" fill="#30B6F9" />
+                  <rect y="11" width="8" height="8" fill="#30B6F9" />
+                  <rect x="11" width="8" height="8" fill="#30B6F9" />
+                  <rect x="11" y="11" width="8" height="8" fill="#30B6F9" />
+                </svg>
+                <p className="uppercase text-16 text-paragraph font-light">Grid View</p>
               </div>
-            ))}
+              <div className="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="13" viewBox="0 0 19 13" fill="none">
+                  <line y1="0.5" x2="19" y2="0.5" stroke="#464646" />
+                  <line y1="12.5" x2="19" y2="12.5" stroke="#464646" />
+                </svg>
+                <p className="uppercase text-16 text-paragraph font-light">list View</p>
+              </div>
+            </div>
           </div>
-          <div className="flex items-center justify-center gap-2 w-full pb-10 lg:pb-[120px]"> 
-        <div className="pagination flex items-center gap-2 justify-center ">
+        </motion.div>
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px  gap-y-10 md:gap-y-12 xl:gap-y-[80px] pb-10 xl:pb-[80px] transition-all duration-300 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+          }`}
+          style={{
+            transform: isAnimating ? 'translateY(16px)' : 'translateY(0)',
+            transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out'
+          }}>
+          {currentItems.map((item,index) => (
+            <motion.div key={item.id} variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}  >
+              <img
+                src={item.image}
+                alt={item.title}
+                width={520}
+                height={395}
+                className="w-full h-[250px] lg:h-[395px] object-cover"
+              />
+              <div >
+                <h2 className="text-29 leading-[1.344827586206897] font-light py-4 md:py-6 xl:max-w-[90%]">
+                  {item.title}
+                </h2>
+              </div>
+              <div className="flex justify-between border-t border-t-black/20 border-b border-b-black/20">
+                <p className="text-paragraph text-19 font-light leading-[2.44]">
+                  Sector: {item.sector}
+                </p>
+                <p className="text-paragraph text-19 font-light leading-[2.44] xl:pe-6">
+                  BUA (Sq.ft): {item.sqft}
+                </p>
+              </div>
+              <div className="border-b border-b-black/20">
+                <p className="text-paragraph text-19 font-light leading-[2.44]">
+                  Location: {item.location}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+        <div className="flex items-center justify-center gap-2 w-full pb-10 lg:pb-[120px]">
+          <div className="pagination flex items-center gap-2 justify-center ">
             <button
               className={`prev cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === 1 || isAnimating ? 'opacity-30' : 'opacity-100'
                 }`}
@@ -349,17 +350,16 @@ const ProjectLists = () => {
                 />
               </svg>
             </button>
-          </div> 
           </div>
         </div>
-        <div className="absolute bottom-3/7 translate-y-[-45px] -left-1 z-[-1]   ">
-          <img src="./assets/images/projects/pjtbdy1.svg" alt="" className="w-[670px] object-contain"/>
-        </div>
-        <div className="absolute bottom-0 right-0 z-[-1]   ">
-          <img src="./assets/images/projects/pjtbdy2.svg" alt="" className="w-[670px] object-contain"/>
-        </div>
-      </section>
-    </>
+      </div>
+      <div className="absolute bottom-3/7 translate-y-[-45px] -left-1 z-[-1]   ">
+        <img src="./assets/images/projects/pjtbdy1.svg" alt="" className="w-[670px] object-contain" />
+      </div>
+      <div className="absolute bottom-0 right-0 z-[-1]   ">
+        <img src="./assets/images/projects/pjtbdy2.svg" alt="" className="w-[670px] object-contain" />
+      </div>
+    </section>
   );
 };
 export default ProjectLists;
