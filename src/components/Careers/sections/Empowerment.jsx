@@ -2,10 +2,34 @@
 
 import React, { useEffect, useState } from "react";
 import { empowerData } from "../data";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { paragraphItem, moveUp } from "../../../motionVarients";
+import { motion } from "framer-motion";
 
 const EmpowerSection = () => {
   const { svgSrc, heading, description, stats } = empowerData;
   const [rightPadding, setRightPadding] = useState(0);
+
+  const sectionRef = useRef(null);
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const overlay = sectionRef.current.querySelector(".reveal-overlay4");
+
+    gsap.set(overlay, { xPercent: 0 }); // start covering
+    gsap.to(overlay, {
+      xPercent: 100, // slide out to the right
+      duration: 2.7,
+      ease: "expo.out",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 50%", // when section comes into view
+        toggleActions: "play none none none",
+      },
+    });
+  }, []);
 
   useEffect(() => {
     const updatePadding = () => {
@@ -31,12 +55,13 @@ const EmpowerSection = () => {
   }, []);
 
   return (
-    <section
-      className="w-full bg-primary text-white lg:max-h-[611px] lg:overflow-hidden py-10 lg:py-0"
+    <section ref={sectionRef}
+      className="w-full bg-primary text-white lg:max-h-[611px] lg:overflow-hidden py-10 lg:py-0 relative overflow-hidden"
       style={{
         paddingRight: rightPadding > 0 ? `${rightPadding}px` : undefined,
       }}
     >
+      <div className="reveal-overlay4 absolute inset-0 bg-black/20 z-20"></div>
       {/* Below XL: custom padding; XL and up: container */}
       <div
         className={
@@ -46,28 +71,24 @@ const EmpowerSection = () => {
         }
       >
         {/* Left SVG */}
-        <div className="hidden xl:block pt-[62px] flex-shrink-0">
-          <img
-            src={svgSrc}
-            alt="logo-svg"
-            className="2xl:w-[394px] 2xl:h-[549px] object-contain"
-          />
-        </div>
+        <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="hidden xl:block pt-[62px] flex-shrink-0">
+          <img src={svgSrc} alt="logo-svg" className="2xl:w-[394px] 2xl:h-[549px] object-contain" />
+        </motion.div>
 
         {/* Right Content */}
         <div className="w-full flex flex-col justify-center">
-          <h2 className="text-60 leading-[1.1666666667] font-light mb-[30px] max-w-[20ch]">
+          <motion.h2 variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 leading-[1.1666666667] font-light mb-[30px] max-w-[20ch]">
             {heading}
-          </h2>
+          </motion.h2>
 
-          <p className="text-19 text-white font-light leading-[1.4736842105] mb-[62px] max-w-[72ch]">
+          <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 text-white font-light leading-[1.4736842105] mb-[62px] max-w-[72ch]">
             {description}
-          </p>
+          </motion.p>
 
           {/* Stats */}
           <div className="relative flex flex-col xl:flex-row w-full">
             {stats.map((stat, index) => (
-              <div
+              <motion.div variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}
                 key={index}
                 className="flex flex-col items-start text-left gap-[20px] xl:gap-[54px] min-w-[290px] mb-10 xl:mb-0"
               >
@@ -77,11 +98,10 @@ const EmpowerSection = () => {
 
                 {/* Mobile Divider */}
                 <div className="xl:hidden border-b border-white/30 w-full" />
-
                 <p className="text-[16px] sm:text-[17px] md:text-[18px] xl:text-[19px] text-white/70 leading-[1.5]">
                   {stat.label}
                 </p>
-              </div>
+              </motion.div>
             ))}
 
             {/* Desktop Full Divider */}
