@@ -1,23 +1,84 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 const Banner = ({ title, image }) => {
+  const sectionRef = useRef(null);
+  const imgRef = useRef(null);
+  const overlayRef = useRef(null);
+  const titleRef = useRef(null);
+  const maskRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        defaults: { ease: "power3.out", duration: 1.4 },
+      });
+
+      tl
+        // Step 1: mask slides left → right revealing the overlay + image
+        .fromTo(
+          maskRef.current,
+          {
+            x: "0%",
+          },
+          {
+            x: "100%",
+            duration: 1.6,
+            ease: "power4.inOut",
+          }
+        )
+        // Step 2: subtle image zoom-out
+        .fromTo(
+          imgRef.current,
+          { scale: 1.15 },
+          { scale: 1, duration: 1.6, ease: "power3.out" },
+          "-=1.2"
+        )
+        // Step 3: text fade-in after reveal
+        .fromTo(
+          titleRef.current,
+          { opacity: 0, x: -40 },
+          { opacity: 1, x: 0, duration: 1, ease: "power3.out" },
+          "-=0.6"
+        );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="relative w-full h-[280px] lg:h-[560px] bg-secondary/20">
+    <section
+      ref={sectionRef}
+      className="relative w-full h-[280px] lg:h-[560px] overflow-hidden bg-secondary/20"
+    >
       {/* Background Image */}
       <img
+        ref={imgRef}
         src={image}
         alt={title}
-        className="absolute top-0 left-0 w-full h-full object-cover object-center z-0"
+        className="absolute inset-0 w-full h-full object-cover object-center z-0"
       />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.75)_18.92%,rgba(0,0,0,0)_72.69%)]"></div>
+      {/* Single Gradient Overlay (dark bottom → transparent top) */}
+      <div
+        ref={overlayRef}
+        className="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.75)_20%,rgba(0,0,0,0)_80%)] z-10"
+      ></div>
+
+      {/* White mask that slides away to reveal the gradient */}
+      <div
+        ref={maskRef}
+        className="absolute inset-0 bg-white z-20"
+      ></div>
 
       {/* Content */}
-      <div className="container relative z-10 h-full">
+      <div className="container relative z-30 h-full">
         <div className="flex flex-col justify-end h-full pb-10 lg:pb-15 xl:pb-26">
-          <h1 className="text-white text-70 font-light leading-[1.08] capitalize">
+          <h1
+            ref={titleRef}
+            className="text-white text-70 font-light leading-[1.08] capitalize"
+          >
             {title}
           </h1>
         </div>
