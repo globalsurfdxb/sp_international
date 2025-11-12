@@ -5,6 +5,8 @@ import { EffectFade, Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
+import { motion } from "framer-motion";
+import { moveUp } from "../../../motionVarients";
 
 const legacyData = [
   { image: "/assets/images/project-details/abtsl1.jpg" },
@@ -25,7 +27,7 @@ const ProjectSlider = () => {
   const containerRef = useRef(null);
   const targetRef = useRef(null);
 
-useEffect(() => {
+  useEffect(() => {
     const containerEl = containerRef.current;
     const targetEl = targetRef.current;
 
@@ -53,9 +55,8 @@ useEffect(() => {
 
   return (
     <section className="py-10 xl:py-15 2xl:pt-[80px] 2xl:pb-25 relative">
-      
-        <div className="container  " ref={containerRef}></div>
-      <div className=" px-[15px] md:pe-0 relative"  ref={targetRef}>
+      <div className="container  " ref={containerRef}></div>
+      <div className=" px-[15px] md:pe-0 relative" ref={targetRef}>
         {/* Counter + Arrows */}
         <div className="flex justify-between items-center mb-5">
           <div className="text-lg font-semibold text-black flex items-center gap-1">
@@ -72,7 +73,7 @@ useEffect(() => {
             <button
               className="custom-prev  w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] flex items-center justify-center cursor-pointer rounded-full group border border-black/20   hover:bg-secondary hover:text-white transition"
             >
-              
+
               <img src="/assets/images/project-details/rightarrow.svg" className="rotate-180 group-hover:brightness-0 group-hover:invert-100 transition-all duration-300" alt="" width={14} height={14} />
             </button>
             <button
@@ -88,7 +89,7 @@ useEffect(() => {
           <div className="w-full">
             <Swiper
               ref={swiperRef}
-              modules={[EffectFade, Autoplay, Navigation]}  
+              modules={[EffectFade, Autoplay, Navigation]}
               spaceBetween={0}
               slidesPerView={1}
               centeredSlides={false}
@@ -115,11 +116,7 @@ useEffect(() => {
               {legacyData.map((item, i) => (
                 <SwiperSlide key={i}>
                   <div className="overflow-hidden ">
-                    <img
-                      src={item.image}
-                      alt={`slide-${i}`}
-                      className="w-full h-auto object-cover"
-                    />
+                    <motion.img variants={moveUp(0.1*i)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src={item.image} alt={`slide-${i}`} className="w-full h-auto object-cover" />
                   </div>
                 </SwiperSlide>
               ))}
