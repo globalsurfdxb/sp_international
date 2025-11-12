@@ -5,7 +5,7 @@ import { paragraphItem, moveUp, moveLeft } from "../../../motionVarients";
 const About = () => {
 
   return (
-      <section className="py-12 xl:py-15 2xl:pt-25 2xl:pb-30">
+      <section className="py-10 xl:py-15 2xl:pt-25 2xl:pb-30">
         <div className="container">
           <div className={`grid grid-cols-1 lg:grid-cols-[1fr_520px] gap-7 2xl:gap-[167px]`}>
             {/* Left Column */}
@@ -25,7 +25,7 @@ const About = () => {
             {/* Right Column */}
             <div>
               <motion.div variants={moveLeft(2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} 
-              className="bg-primary p-12 2xl:py-[48px] 2xl:px-15 h-full bg-[url('/assets/images/svg/sv-02.svg')] bg-auto bg-right-bottom bg-no-repeat">
+              className="bg-primary p-8 md:p-12 2xl:py-[48px] 2xl:px-15 h-full bg-[url('/assets/images/svg/sv-02.svg')] bg-auto bg-right-bottom bg-no-repeat">
                 <div className="flex flex-col gap-8">
                   {data.right.map((item, i) => (
                     <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} key={i}>

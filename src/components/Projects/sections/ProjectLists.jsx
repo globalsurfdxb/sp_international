@@ -37,8 +37,6 @@ const service = [
   { id: 6, title: "Press Releases 5" },
 ];
 
-
-
 const ITEMS_PER_PAGE = 12;
 
 const ProjectLists = () => {
@@ -62,9 +60,9 @@ const ProjectLists = () => {
     setCurrentPage(newPage);
 
     // Scroll to top of section smoothly
-    const section = document.querySelector('section');
+    const section = document.querySelector("section");
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     // Reset animation state
@@ -81,10 +79,17 @@ const ProjectLists = () => {
     handlePageChange(currentPage + 1);
   };
 
+  const [view, setView] = useState("grid"); // "grid" or "list"
   return (
     <section className="relative">
       <div className="container">
-        <motion.div variants={moveUp(2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="border-y border-cmnbdr mt-10 xl:mt-25 mb-8 xl:mb-15 py-4 md:py-6 xl:py-[35px]">
+        <motion.div
+          variants={moveUp(2)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ amount: 0.2, once: true }}
+          className="border-y border-cmnbdr mt-10 xl:mt-25 mb-8 xl:mb-15 py-4 md:py-6 xl:py-[35px]"
+        >
           <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-0">
             <div className="flex flex-col md:flex-row gap-8  2xl:gap-25  3xl:gap-[174px] justify-between">
               <div className="flex flex-col md:flex-row gap-6 2xl:gap-[90px] ">
@@ -235,48 +240,116 @@ const ProjectLists = () => {
               </div>
               <div>
                 <div className="flex items-center gap-2 cursor-pointer">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="27" height="17" viewBox="0 0 27 17" fill="none">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="27"
+                    height="17"
+                    viewBox="0 0 27 17"
+                    fill="none"
+                  >
                     <g clip-path="url(#clip0_3119_4427)">
-                      <path d="M9.36719 1.93262L1.98894 8.5134L9.34206 15.0679" stroke="#30B6F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M2.40464 8.5H25.0195" stroke="#30B6F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M9.36719 1.93262L1.98894 8.5134L9.34206 15.0679"
+                        stroke="#30B6F9"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M2.40464 8.5H25.0195"
+                        stroke="#30B6F9"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
                     </g>
                     <defs>
                       <clipPath id="clip0_3119_4427">
-                        <rect width="27" height="17" fill="white" transform="matrix(-1 0 0 1 27 0)" />
+                        <rect
+                          width="27"
+                          height="17"
+                          fill="white"
+                          transform="matrix(-1 0 0 1 27 0)"
+                        />
                       </clipPath>
                     </defs>
                   </svg>
-                  <p className="uppercase text-16 text-paragraph font-light">Clear Filter</p></div>
+                  <p className="uppercase text-16 text-paragraph font-light">
+                    Clear Filter
+                  </p>
+                </div>
               </div>
             </div>
             <div className="flex items-center gap-6 lg:gap-[30px] justify-end">
-              <div className="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+              <div
+                className="flex group items-center gap-2 cursor-pointer"
+                onClick={() => setView("grid")}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="19"
+                  height="19"
+                  viewBox="0 0 19 19"
+                  fill="none"
+                  className={`brightness-0 group-hover:brightness-100 transition-all duration-300 ${
+            view === "grid"
+              ? "brightness-100"
+              : "brightness-0"
+          }`}
+                >
                   <rect width="8" height="8" fill="#30B6F9" />
                   <rect y="11" width="8" height="8" fill="#30B6F9" />
                   <rect x="11" width="8" height="8" fill="#30B6F9" />
                   <rect x="11" y="11" width="8" height="8" fill="#30B6F9" />
                 </svg>
-                <p className="uppercase text-16 text-paragraph font-light">Grid View</p>
+                <p className="uppercase text-16 text-paragraph font-light ">
+                  Grid View
+                </p>
               </div>
-              <div className="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="13" viewBox="0 0 19 13" fill="none">
-                  <line y1="0.5" x2="19" y2="0.5" stroke="#464646" />
-                  <line y1="12.5" x2="19" y2="12.5" stroke="#464646" />
+              <div
+                className="flex group items-center gap-2 cursor-pointer"
+                onClick={() => setView("list")}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg"
+                className={`brightness-0 group-hover:brightness-100 transition-all duration-300 ${
+            view === "list"
+              ? "brightness-100"
+              : "brightness-0"
+          }`}
+                width="19" height="13" viewBox="0 0 19 13" fill="none">
+                <line y1="0.5" x2="19" y2="0.5" stroke="#30B6F9"/>
+                <line y1="12.5" x2="19" y2="12.5" stroke="#30B6F9"/>
                 </svg>
-                <p className="uppercase text-16 text-paragraph font-light">list View</p>
+                <p className="uppercase text-16 text-paragraph font-light ">
+                  list View
+                </p>
               </div>
             </div>
           </div>
         </motion.div>
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px  gap-y-10 md:gap-y-12 xl:gap-y-[80px] pb-10 xl:pb-[80px] transition-all duration-300 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+        <div
+          className={`gap-x-30px  gap-y-10 md:gap-y-12 xl:gap-y-[80px] pb-10 xl:pb-[80px] transition-all duration-300 
+        ${
+          isAnimating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
+        } ${
+            view === "grid"
+              ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+              : "hidden"
           }`}
           style={{
-            transform: isAnimating ? 'translateY(16px)' : 'translateY(0)',
-            transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out'
-          }}>
-          {currentItems.map((item,index) => (
-            <motion.div key={item.id} variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}  >
+            transform: isAnimating ? "translateY(16px)" : "translateY(0)",
+            transition:
+              "opacity 300ms ease-in-out, transform 300ms ease-in-out",
+          }}
+        >
+          {currentItems.map((item, index) => (
+            <motion.div
+              key={item.id}
+              variants={moveUp(0.2 * index)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ amount: 0.2, once: true }}
+            >
               <img
                 src={item.image}
                 alt={item.title}
@@ -284,7 +357,7 @@ const ProjectLists = () => {
                 height={395}
                 className="w-full h-[250px] lg:h-[395px] object-cover"
               />
-              <div >
+              <div>
                 <h2 className="text-29 leading-[1.344827586206897] font-light py-4 md:py-6 xl:max-w-[90%]">
                   {item.title}
                 </h2>
@@ -305,15 +378,108 @@ const ProjectLists = () => {
             </motion.div>
           ))}
         </div>
+        <div
+          className={`   pb-10 xl:pb-[80px] transition-all duration-300 
+        ${
+          isAnimating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
+        } ${view === "list" ? "flex flex-col " : "hidden"}`}
+          style={{
+            transform: isAnimating ? "translateY(16px)" : "translateY(0)",
+            transition:
+              "opacity 300ms ease-in-out, transform 300ms ease-in-out",
+          }}
+        >
+          {currentItems.map((item, index) => (
+            <motion.div
+              key={item.id}
+              variants={moveUp(0.2 * index)}
+              initial="hidden"
+              whileInView="show"
+              className="border-b border-black/20 pb-7 mb-7 group"
+              viewport={{ amount: 0.2, once: true }}
+            >
+              <div className="flex flex-col lg:flex-row gap-3 md:gap-10 2xl:gap-[69px] ">
+                <div className="w-full lg:w-[274px]">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    width={274}
+                    height={208}
+                    className="w-full h-full lg:min-w-[274px] lg:h-[208px] object-fit"
+                  />
+                </div>
+                <div className="flex flex-col lg:flex-row justify-between gap-1 md:gap-10 2xl:gap-[104px] w-full">
+                  <div>
+                  <div>
+                    <h2 className="text-29 leading-[1.344827586206897] font-light py-4 md:py-6 ">
+                      {item.title}
+                    </h2>
+                  </div>
+                </div>
+                <div>
+                 <div className="bg-f5f5 p-5 xl:py-[18px] xl:px-7">
+                   <div className="flex gap-5 2xl:gap-[168px] justify-between border-b border-b-black/20  ">
+                    <p className="text-paragraph text-19 font-light leading-[2] ">
+                      Sector: {item.sector}
+                    </p>
+                    <p className="text-paragraph text-19 font-light leading-[2] xl:pe-6">
+                      BUA (Sq.ft): {item.sqft}
+                    </p>
+                  </div>
+                  <div className="">
+                    <p className="text-paragraph text-19 font-light leading-[2]">
+                      Location: {item.location}
+                    </p>
+                  </div>
+                 </div>
+                </div>
+                  <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 hidden lg:block">
+                     <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="cursor-pointer w-[32px] h-[32px]  "
+              width="71"
+              height="71"
+              viewBox="0 0 71 71"
+              fill="none"
+            >
+              <path
+                d="M4.75781 4.76465H66.2437V66.2365"
+                stroke="#30B6F9"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M66.2468 4.76465L5.05469 66.2365"
+                stroke="#30B6F9"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+                  </div>
+
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
         <div className="flex items-center justify-center gap-2 w-full pb-10 lg:pb-[120px]">
           <div className="pagination flex items-center gap-2 justify-center ">
             <button
-              className={`prev cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === 1 || isAnimating ? 'opacity-30' : 'opacity-100'
-                }`}
+              className={`prev cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${
+                currentPage === 1 || isAnimating ? "opacity-30" : "opacity-100"
+              }`}
               onClick={handlePrev}
               disabled={currentPage === 1 || isAnimating}
             >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M9.7549 1.25L1.25 9.7549M1.25 9.7549L9.75297 18.2579M1.25 9.7549L18.2169 9.79374"
                   stroke="#30B6F9"
@@ -335,12 +501,21 @@ const ProjectLists = () => {
             </p>
 
             <button
-              className={`next cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === totalPages || isAnimating ? 'opacity-30' : 'opacity-100'
-                }`}
+              className={`next cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${
+                currentPage === totalPages || isAnimating
+                  ? "opacity-30"
+                  : "opacity-100"
+              }`}
               onClick={handleNext}
               disabled={currentPage === totalPages || isAnimating}
             >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M9.71189 1.25L18.2168 9.7549M18.2168 9.7549L9.71383 18.2579M18.2168 9.7549L1.24994 9.79374"
                   stroke="#30B6F9"
@@ -354,10 +529,18 @@ const ProjectLists = () => {
         </div>
       </div>
       <div className="absolute bottom-3/7 translate-y-[-45px] -left-1 z-[-1]   ">
-        <img src="./assets/images/projects/pjtbdy1.svg" alt="" className="w-[670px] object-contain" />
+        <img
+          src="./assets/images/projects/pjtbdy1.svg"
+          alt=""
+          className="w-[670px] object-contain"
+        />
       </div>
       <div className="absolute bottom-0 right-0 z-[-1]   ">
-        <img src="./assets/images/projects/pjtbdy2.svg" alt="" className="w-[670px] object-contain" />
+        <img
+          src="./assets/images/projects/pjtbdy2.svg"
+          alt=""
+          className="w-[670px] object-contain"
+        />
       </div>
     </section>
   );

@@ -43,9 +43,9 @@ const NextProject = () => {
   }, []);
 
   return (
-    <section className="py-10 lg:py-[120px]">
+    <section className="py-10 xl:py-15 lg:py-[120px]">
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] 2xl:grid-cols-[auto_961px] gap-5 lg:gap-[137px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[auto_550px] xl:grid-cols-[auto_1fr] 3xl:grid-cols-[auto_961px] gap-8 lg:gap-20 xl:gap-[137px]">
           <div className="flex flex-col justify-between items-left pt-0 2xl:pt-[45px] pb-0 2xl:pb-[50px]">
             <div className="mb-5 xl:mb-[68px]">
               <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-29 font-light leading-[1.17] mb-3 lg:mb-[21px] text-paragraph">
