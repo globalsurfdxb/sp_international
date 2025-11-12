@@ -72,7 +72,7 @@ const Index = () => {
         <img src="./assets/images/shape-right.svg" alt="" className="absolute top-0 right-0 z-[-1]" />
       </header>
       <section className="relative">
-        <img src="./assets/images/shape-left.svg" alt="" className="absolute  bottom-30 left-0 z-[-1]" />
+        {/* <img src="./assets/images/shape-left.svg" alt="" className="absolute  bottom-30 left-0 z-[-1]" /> */}
         <div className="container">
           <div className="mb-10 xl:mb-20 mt-15 xl:mt-30">
             <h1 className="text-70 font-light leading-[1.071428571428571]">Press Releases</h1>
@@ -221,9 +221,9 @@ const Index = () => {
             </button>
           </div>
         </div>
-        <div className="absolute top-0 right-0  ">
+        {/* <div className="absolute top-0 right-0  ">
             <img src="/assets/images/project-details/bannerbg.svg" alt="" className=" object-fit" />
-          </div>  
+          </div>   */}
            <div className="absolute bottom-1/7 left-0 z-[-1] ">
             <img src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit" />
           </div>
