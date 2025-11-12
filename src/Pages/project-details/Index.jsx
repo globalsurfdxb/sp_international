@@ -1,22 +1,12 @@
-import Banner from "../../components/ProjrectDetails/Banner"; 
-import MainNavbar from "../../MainLayout/MainNavbar";
-import Footer from "../../MainLayout/Footer";
+import Index from "../../components/ProjrectDetails/Index";
 
-const Index = () => {
+const ProjectDetails = () => {
   return (
     <>
-      <header>
-        <MainNavbar />
-      </header>
-      <main>
-        <Banner />
-        
-      </main>
-      <footer>
-        <Footer />
-      </footer>
+      <Index />
     </>
   );
 };
 
-export default Index;
+export default ProjectDetails;
+

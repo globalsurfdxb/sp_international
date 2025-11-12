@@ -1,0 +1,30 @@
+'use client'; 
+import { moredetrails} from "../data";
+const MoreDetrails = () => {
+ 
+  return (
+    <section>
+        <div className="py-12   2xl:py-[80px] bg-f5f5 bg-[url('/assets/images/project-details/bg-svg.svg')] bg-no-repeat    bg-[position:left_-160px] bg-size-[445px]">
+          <div className="container relative">
+          <div className=" xl:max-w-[1200px] 2xl:max-w-[1208px] ml-auto">
+             <div className="flex  justify-between items-center border-b border-black/20">
+               <div>
+                 <h2 className="text-60 font-light leading-[1.17] mb-3 lg:mb-7 text-black">{moredetrails.title}</h2>  
+                 {moredetrails.paragraphs.map((paragraph, index) => (
+                   <p key={index} className="text-19 font-light text-paragraph mb-3 xl:mb-5 last:lg:mb-[80px]">{paragraph}</p>
+                 ))}
+               </div>
+              
+             </div>
+           
+              
+          </div> 
+
+          </div>
+        
+        </div>  
+    </section>
+  );
+};
+
+export default MoreDetrails;

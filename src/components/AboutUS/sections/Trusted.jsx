@@ -1,5 +1,4 @@
-'use client'; 
-import { data } from "./data";
+'use client';  
 const Trusted = () => {
  
   return (

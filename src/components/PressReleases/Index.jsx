@@ -172,7 +172,7 @@ const Index = () => {
                   </h2>
                 </div>
               </div>
-            ))}
+            ))} 
           </div>
 
           <div className="pagination flex items-center gap-2 justify-center mb-15 xl:mb-[131.68px]">
@@ -221,6 +221,13 @@ const Index = () => {
             </button>
           </div>
         </div>
+        <div className="absolute top-0 right-0  ">
+            <img src="/assets/images/project-details/bannerbg.svg" alt="" className=" object-fit" />
+          </div>  
+           <div className="absolute bottom-1/7 left-0 z-[-1] ">
+            <img src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit" />
+          </div>
+          
       </section>
       <footer>
         <Footer />
