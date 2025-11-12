@@ -39,16 +39,16 @@ const Banner = () => {
         <div className="container  " ref={containerRef}></div>
         <div className=" relative z-2 h-full " ref={targetRef}>
           <div className="flex flex-col justify-end h-full  ">
-            <div className="flex justify-between">
+            <div className="flex flex-col md:flex-row justify-between ps-3 gap-5 lg:gap-0">
               <h1 className="text-white  text-70  font-light leading-[1.08]  ">
                 Projects
               </h1>
-                <div className="py-6 lg:py-[48px] ps-6 lg:ps-[83px] pe-6 bg-primary min-w-[1250px]">
+                <div className="py-3 lg:py-[48px] ps-6 lg:ps-[83px] pe-6 bg-primary min-w-[70.68%]">
                   <div className="flex items-center gap-12 xl:gap-[148px]">
                     {projectDetails.list.map((item, i) => (
                                 <div key={i}>
                                   <h3 className="text-40 font-light leading-[1.5] text-white">{item.value}</h3>
-                                  <p className="text-19 font-light leading-[1.2] text-white/70">{item.title}</p>
+                                  <p className="text-[16px] md:text-19 font-light leading-[1.2] text-white/70">{item.title}</p>
                                 </div>
                               ))}
                   </div>

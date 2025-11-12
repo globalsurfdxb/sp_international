@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -22,10 +22,40 @@ const legacyData = [
 const ProjectSlider = () => {
   const swiperRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(1);
+  const containerRef = useRef(null);
+  const targetRef = useRef(null);
+
+useEffect(() => {
+    const containerEl = containerRef.current;
+    const targetEl = targetRef.current;
+
+    if (!containerEl || !targetEl) return;
+
+    const updateMargin = () => {
+      if (window.innerWidth > 768) {
+        // Only apply margin-left on screens wider than 768px
+        const computedStyle = window.getComputedStyle(containerEl);
+        const marginLeft = computedStyle.marginLeft;
+        targetEl.style.marginLeft = marginLeft;
+      } else {
+        // Reset for mobile
+        targetEl.style.marginLeft = "0px";
+      }
+    };
+
+    // Initial call
+    updateMargin();
+
+    // Watch for resize
+    window.addEventListener("resize", updateMargin);
+    return () => window.removeEventListener("resize", updateMargin);
+  }, []);
 
   return (
     <section className="py-10 xl:py-15 2xl:pt-[80px] 2xl:pb-25 relative">
-      <div className="container relative">
+      
+        <div className="container  " ref={containerRef}></div>
+      <div className=" px-[15px] md:pe-0 relative"  ref={targetRef}>
         {/* Counter + Arrows */}
         <div className="flex justify-between items-center mb-5">
           <div className="text-lg font-semibold text-black flex items-center gap-1">
@@ -38,7 +68,7 @@ const ProjectSlider = () => {
             </span>
           </div>
 
-          <div className="flex gap-3 absolute right-[15px] md:right-[28%] md:translate-x-[28%]  xl:right-[26%] xl:translate-x-[26%] top-[-5px] xl:-top-5">
+          <div className="flex gap-3 absolute right-[15px] md:right-[26.5%] md:translate-x-[26.5%] lg:right-[25.5%] lg:translate-x-[25.5%]  3xl:right-[25.2%] 3xl:translate-x-[25.2%] top-[-5px] xl:-top-5">
             <button
               className="custom-prev  w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] flex items-center justify-center cursor-pointer rounded-full group border border-black/20   hover:bg-secondary hover:text-white transition"
             >
@@ -59,8 +89,8 @@ const ProjectSlider = () => {
             <Swiper
               ref={swiperRef}
               modules={[EffectFade, Autoplay, Navigation]}  
-              spaceBetween={20}
-              slidesPerView={1.5}
+              spaceBetween={0}
+              slidesPerView={1}
               centeredSlides={false}
               loop={true}
               navigation={{
