@@ -28,14 +28,15 @@ const InquireToday = () => {
   return (
     <section ref={sectionRef} className="relative overflow-hidden">
       <div className="reveal-overlay3 absolute inset-0 bg-black/20 z-20"></div>
-      <div className=" bg-primary">
-        <div className="container relative py-12  2xl:py-[108px] overflow-hidden">
+      <div className="bg-primary">
+        <div className="container relative py-12 2xl:py-[108px] overflow-hidden">
           <motion.img variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} width={"313px"} height={"440px"} src="/assets/images/svg/sv-02.svg" alt="" className="absolute left-0 bottom-0 z-10 object-contain" />
-          <div className=" xl:max-w-[1200px] 2xl:max-w-[1208px] ml-auto">
-            <div className="flex  justify-between items-center ">
+          <div className="xl:max-w-[1200px] 2xl:max-w-[1208px] ml-auto">
+            <div className="flex justify-between items-center ">
               <div className="mb-5 xl:mb-[68px]">
                 <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 font-light leading-[1.17] mb-3 lg:mb-[21px] text-white">{Inquiretoday.title}</motion.h2>
-                <motion.p variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-29 font-light leading-[1.35] text-white">{Inquiretoday.subtitle}</motion.p>
+                <motion.p variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-29 font-light leading-[1.35] text-white">
+                  {Inquiretoday.subtitle}</motion.p>
               </div>
             </div>
             <div className="flex items-center gap-2">
