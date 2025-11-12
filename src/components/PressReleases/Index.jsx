@@ -77,15 +77,15 @@ const Index = () => {
       <section className="relative">
         {/* <img src="./assets/images/shape-left.svg" alt="" className="absolute  bottom-30 left-0 z-[-1]" /> */}
         <div className="container">
-          <div className="mb-10 xl:mb-20 mt-15 xl:mt-30">
+          <div className="mb-10 xl:mb-15 2xl:mb-20 mt-12 xl:mt-25 2xl:mt-30">
             <motion.h1 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-70 font-light leading-[1.071428571428571]">Press Releases</motion.h1>
           </div>
 
-          <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex justify-between border-y border-cmnbdr py-35px mb-15 xl:mb-20">
-            <div className="flex gap-15 xl:gap-[90px]">
-              <div className="w-full max-w-[200px] min-w-[180px] relative">
+          <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between border-y border-cmnbdr py-35px mb-10 lg:mb-15 2xl:mb-20">
+            <div className="flex flex-col md:flex-row gap-5 md:gap-15 xl:gap-[90px]">
+              <div className="w-full min-w-full md:max-w-[200px] md:min-w-[77px] relative">
                 <Listbox value={selectedTopic} onChange={setSelectedTopic}>
-                  <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-3 outline-0 border-0">
+                  <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-3 outline-0 border-0 justify-between">
                     <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                       {selectedTopic.title}
                     </span>
@@ -93,7 +93,7 @@ const Index = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>
                   </Listbox.Button>
-                  <Listbox.Options className="border-0 outline-0 absolute w-full bg-white rounded-sm shadow-sm z-10">
+                  <Listbox.Options className="border-0 outline-0 absolute md:w-[200px] w-full bg-white rounded-sm shadow-sm z-10">
                     {topics.map((topic) => (
                       <Listbox.Option
                         key={topic.id}
@@ -107,9 +107,9 @@ const Index = () => {
                 </Listbox>
               </div>
 
-              <div className="w-fit relative">
+              <div className="w-full min-w-full md:max-w-[200px] md:min-w-[77px] relative">
                 <Listbox value={selectedYear} onChange={setSelectedYear}>
-                  <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-3 outline-0 border-0">
+                  <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-3 outline-0 border-0 justify-between">
                     <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                       {selectedYear.title}
                     </span>
@@ -117,7 +117,7 @@ const Index = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>
                   </Listbox.Button>
-                  <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm z-10">
+                  <Listbox.Options className="md:w-[200px] w-full border-0 outline-0 absolute   bg-white rounded-sm shadow-sm z-10">
                     {years.map((year) => (
                       <Listbox.Option
                         key={year.id}
@@ -131,13 +131,13 @@ const Index = () => {
                 </Listbox>
               </div>
             </div>
-            <div className="flex items-center gap-3 group cursor-pointer">
+            <div className="flex items-center gap-3 group cursor-pointer justify-end">
               <img src="./assets/images/icons/arrow-tail-left.svg" alt="" className="group-hover:translate-x-[-3px] transition-all duration-300" />
               <p className="text-paragraph text-16 font-light leading-[1.75] uppercase transition-all duration-300">Clear Filter</p>
             </div>
           </motion.div>
 
-          <div className={`relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-15 xl:gap-y-30 mb-10 xl:mb-[100.32px] transition-all duration-300 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+          <div className={`relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-10 xl:gap-y-15 2xl:gap-y-30 mb-10 xl:mb-12 2xl:mb-[100.32px] transition-all duration-300 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
             }`}
             style={{
               transform: isAnimating ? 'translateY(16px)' : 'translateY(0)',
@@ -178,7 +178,7 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="pagination flex items-center gap-2 justify-center mb-15 xl:mb-[131.68px]">
+          <div className="pagination flex items-center gap-2 justify-center mb-10 xl:mb-15 2xl:mb-[131.68px]">
             <button
               className={`prev cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === 1 || isAnimating ? 'opacity-30' : 'opacity-100'
                 }`}
@@ -224,10 +224,8 @@ const Index = () => {
             </button>
           </div>
         </div>
-        {/* <div className="absolute top-0 right-0  ">
-            <img src="/assets/images/project-details/bannerbg.svg" alt="" className=" object-fit" />
-          </div>   */}
-        <div className="absolute bottom-1/7 left-0 z-[-1] ">
+        
+        <div className="absolute bottom-1/8 left-0 z-[-1] ">
           <img src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit" />
         </div>
 

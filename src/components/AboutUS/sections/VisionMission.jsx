@@ -30,10 +30,10 @@ const VisionMission = () => {
       <section ref={sectionRef} className="py-10 xl:py-15 2xl:py-25  bg-f5f5 relative overflow-hidden">
         <div className="reveal-overlay absolute inset-0 bg-white z-20"></div>
         <div className="container">
-          <div className={`grid grid-cols-1 lg:grid-cols-[1fr_567px] gap-10 lg:gap-[90px] items-center`}>
+          <div className={`grid grid-cols-1 lg:grid-cols-[1fr_567px] gap-10 lg:gap-[90px] items-center justify-stretch`}>
             {/* Left Column */}
-            <div>
-              <motion.img variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="z-10 relative" src={Vision.image} alt="" />
+            <div className="h-full">
+              <motion.img variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="z-10 relative h-full" src={Vision.image} alt="" />
             </div>
 
             {/* Right Column */}
