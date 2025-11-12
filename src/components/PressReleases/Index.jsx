@@ -1,9 +1,12 @@
+
+'use client';
 import MainNavbar from "../../MainLayout/MainNavbar";
 import Footer from "../../MainLayout/Footer";
 import { Listbox } from "@headlessui/react";
 import { pressReleases } from "./data";
 import { useState, useMemo } from "react";
-
+import { motion } from "framer-motion";
+import { moveUp } from "../../motionVarients";
 const topics = [
   { id: 1, title: "All" },
   { id: 2, title: "Press Releases 1" },
@@ -75,10 +78,10 @@ const Index = () => {
         {/* <img src="./assets/images/shape-left.svg" alt="" className="absolute  bottom-30 left-0 z-[-1]" /> */}
         <div className="container">
           <div className="mb-10 xl:mb-20 mt-15 xl:mt-30">
-            <h1 className="text-70 font-light leading-[1.071428571428571]">Press Releases</h1>
+            <motion.h1 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-70 font-light leading-[1.071428571428571]">Press Releases</motion.h1>
           </div>
 
-          <div className="flex justify-between border-y border-cmnbdr py-35px mb-15 xl:mb-20">
+          <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex justify-between border-y border-cmnbdr py-35px mb-15 xl:mb-20">
             <div className="flex gap-15 xl:gap-[90px]">
               <div className="w-full max-w-[200px] min-w-[180px] relative">
                 <Listbox value={selectedTopic} onChange={setSelectedTopic}>
@@ -127,25 +130,25 @@ const Index = () => {
                   </Listbox.Options>
                 </Listbox>
               </div>
-           </div>
-           <div className="flex items-center gap-3 group cursor-pointer">
-            <img src="./assets/images/icons/arrow-tail-left.svg" alt="" className="group-hover:translate-x-[-3px] transition-all duration-300" />
+            </div>
+            <div className="flex items-center gap-3 group cursor-pointer">
+              <img src="./assets/images/icons/arrow-tail-left.svg" alt="" className="group-hover:translate-x-[-3px] transition-all duration-300" />
               <p className="text-paragraph text-16 font-light leading-[1.75] uppercase transition-all duration-300">Clear Filter</p>
-           </div>
-          </div>
+            </div>
+          </motion.div>
 
           <div className={`relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-15 xl:gap-y-30 mb-10 xl:mb-[100.32px] transition-all duration-300 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
-              }`}
+            }`}
             style={{
               transform: isAnimating ? 'translateY(16px)' : 'translateY(0)',
               transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out'
             }}
           >
-           
-            {currentItems.map((item) => (
-              <div
+
+            {currentItems.map((item, index) => (
+              <motion.div variants={moveUp(0.1*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}
                 key={item.id}
-                className="transition-all duration-300 "
+                className=""
               >
                 <img
                   src={item.image}
@@ -171,8 +174,8 @@ const Index = () => {
                     {item.title}
                   </h2>
                 </div>
-              </div>
-            ))} 
+              </motion.div>
+            ))}
           </div>
 
           <div className="pagination flex items-center gap-2 justify-center mb-15 xl:mb-[131.68px]">
@@ -224,10 +227,10 @@ const Index = () => {
         {/* <div className="absolute top-0 right-0  ">
             <img src="/assets/images/project-details/bannerbg.svg" alt="" className=" object-fit" />
           </div>   */}
-           <div className="absolute bottom-1/7 left-0 z-[-1] ">
-            <img src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit" />
-          </div>
-          
+        <div className="absolute bottom-1/7 left-0 z-[-1] ">
+          <img src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit" />
+        </div>
+
       </section>
       <footer>
         <Footer />
