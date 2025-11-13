@@ -11,7 +11,8 @@ const RelatedNews = () => {
           <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 font-light leading-[1.17] mb-4 xl:mb-17">Related News</motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-10 md:gap-y-15 xl:gap-y-30 ">
             {pressReleases.items.slice(0, 3).map((item,index) => (
-              <motion.div variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} key={item.id} className="bg-white">
+              <motion.div variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} key={item.id}
+               className=" border-b border-black/20 pb-5 lg:border-b-0 lg:pb-0">
                 <img src={item.image} alt={item.title} width={520} height={339} className="w-full h-[339px] object-cover" />
                 <div className="pt-5">
                   <div className="flex items-center justify-between pt-[14px] pb-[13px] pl-[23.15px] pr-[23.17px] bg-f5f5">

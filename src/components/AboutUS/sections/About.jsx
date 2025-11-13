@@ -5,7 +5,7 @@ import { paragraphItem, moveUp, moveLeft } from "../../../motionVarients";
 const About = () => {
 
   return (
-      <section className="py-10 xl:py-15 2xl:pt-25 2xl:pb-30">
+      <section className="py-10 xl:py-15 2xl:pt-25 2xl:pb-30 overflow-hidden">
         <div className="container">
           <div className={`grid grid-cols-1 lg:grid-cols-[1fr_520px] gap-7 2xl:gap-[167px]`}>
             {/* Left Column */}

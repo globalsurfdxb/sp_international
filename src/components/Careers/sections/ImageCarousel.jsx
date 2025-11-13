@@ -32,7 +32,7 @@ const ImageCarousel = () => {
 
   return (
     <section className="max-w-[1920px] mx-auto">
-      <div className="w-full bg-white pb-30">
+      <div className="w-full bg-white pb-10 xl:pb-15 2xl:pb-30">
         <motion.div variants={moveLeft(0.3)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="overflow-hidden">
           <Swiper
             modules={[Autoplay]}
@@ -52,7 +52,7 @@ const ImageCarousel = () => {
               0: { slidesPerView: 1.2 }, // SM
             }}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-            className="h-[455px] xl:h-[536px] 2xl:h-[679px]"
+            className="h-[400px] md:h-[470px]  lg:h-[570px] xl:h-[586px] 2xl:h-[611px] 3xl:h-[679px]"
           >
             {[...images, ...images].map((img, i) => (
               <SwiperSlide
