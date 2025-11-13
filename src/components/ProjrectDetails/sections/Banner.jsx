@@ -24,9 +24,9 @@ const Banner = () => {
         <motion.img variants={moveRight(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={projectdetails.image} alt="" className="w-full h-full object-cover" />
       </div>
       <div className="container relative md:bottom-[70px] bottom-12 left-0 2xl:pb-[50px]">
-        <motion.h2 variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 font-light mb-5 lg:mb-[58px] leading-[1.17]">About Project</motion.h2>
+        <motion.h2 variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 font-light mb-7  xl:mb-10  2xl:mb-[58px] leading-[1.17]">About Project</motion.h2>
         <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="grid grid-cols-1 md:grid-cols-2  border-t border-black/20  ">
-          <div className="flex items-center  py-3 lg:py-6">
+          <div className="flex items-center  py-3 lg:py-6 border-b border-black/20 md:border-b-0">
             <p className="font-19 font-light text-paragraph leading-[1.8] min-w-[13ch]">Project:</p>
             <p className="font-19 font-light   leading-[1.8] text-black">{projectdetails.title}</p>
           </div>
@@ -36,7 +36,7 @@ const Banner = () => {
           </div> </motion.div>
 
         <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="grid grid-cols-1 md:grid-cols-2  border-t border-black/20  ">
-          <div className="flex items-center  py-3 lg:py-6">
+          <div className="flex items-center  py-3 lg:py-6 border-b border-black/20 md:border-b-0">
             <p className="font-19 font-light text-paragraph leading-[1.8] min-w-[13ch]">Sector:</p>
             <p className="font-19 font-light   leading-[1.8] text-black">{projectdetails.sector}</p>
           </div>
@@ -47,7 +47,7 @@ const Banner = () => {
         </motion.div>
 
         <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="grid grid-cols-1 md:grid-cols-2  border-t border-black/20  ">
-          <div className="flex items-center  py-3 lg:py-6">
+          <div className="flex items-center  py-3 lg:py-6  border-b border-black/20 md:border-b-0 ">
             <p className="font-19 font-light text-paragraph leading-[1.8] min-w-[13ch]">Client:</p>
             <p className="font-19 font-light   leading-[1.8] text-black">{projectdetails.client}</p>
           </div>
@@ -57,7 +57,7 @@ const Banner = () => {
           </div>
         </motion.div>
         <div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="grid grid-cols-1 md:grid-cols-2  border-t border-b border-black/20  ">
-          <div className="flex items-center  py-3 lg:py-6">
+          <div className="flex items-center  py-3 lg:py-6 border-b border-black/20 md:border-b-0">
             <p className="font-19 font-light text-paragraph leading-[1.8] min-w-[13ch]">Consultant:</p>
             <p className="font-19 font-light   leading-[1.8] text-black">{projectdetails.Consultant}</p>
           </div>

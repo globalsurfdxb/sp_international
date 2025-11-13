@@ -11,6 +11,7 @@ import { fadeIn, moveUp } from "../../../motionVarients";
 const JourneySlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMdUp, setIsMdUp] = useState(false);
+  const [isXlUp, setIsXlUp] = useState(false);
   const swiperRef = useRef(null);
 
   // Detect screen size (runs once + on resize)
@@ -20,11 +21,17 @@ const JourneySlider = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+    useEffect(() => {
+    const handleResize = () => setIsXlUp(window.innerWidth >= 1024); // Tailwind md breakpoint
+    handleResize(); // run initially
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <section className="overflow-hidden max-w-[1920px] bg-white 2xl:pt-30 pt-8 md:pt-17 xl:pt-22">
+    <section className="overflow-hidden max-w-[1920px] bg-white 2xl:pt-30 pt-10 xl:pt-15 ">
       <div className={isMdUp ? "container" : "px-[15px]"}>
-        <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 font-light leading-[1.166666666666667] mb-10">
+        <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 font-light leading-[1.166666666666667] mb-4 lg:mb-0">
           {journeyData.title}
         </motion.h2>
 
@@ -63,7 +70,7 @@ const JourneySlider = () => {
               onBeforeInit={(swiper) => (swiperRef.current = swiper)}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
               modules={[EffectCoverflow, Autoplay]}
-              className="swiper_container relative flex justify-center lg:!pt-15 lg:!pb-20"
+              className="swiper_container relative flex justify-center !pt-5 lg:!pt-15 lg:!pb-15"
             >
               {journeyData.slides.map((item, index) => {
                 const isActive = index === activeIndex;
@@ -81,8 +88,8 @@ const JourneySlider = () => {
                     <motion.div variants={fadeIn(0.15 * getDelayMultiplier(index, totalSlides))} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="relative overflow-hidden transition-all duration-500"
                       style={{
                         boxShadow:
-                          isActive && isMdUp
-                            ? "0px 10px 60px 0px #00041680"
+                          isActive && isXlUp
+                            ? "0px 10px 44px 0px #00041680"
                             : "none",
                       }}
                     >

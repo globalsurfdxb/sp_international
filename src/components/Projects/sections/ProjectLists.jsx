@@ -114,7 +114,7 @@ const ProjectLists = () => {
                         />
                       </svg>
                     </Listbox.Button>
-                    <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm">
+                    <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm z-[1]">
                       {sector.map((sector) => (
                         <Listbox.Option
                           key={sector.id}
@@ -150,7 +150,7 @@ const ProjectLists = () => {
                         />
                       </svg>
                     </Listbox.Button>
-                    <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm">
+                    <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm z-[1]">
                       {status.map((status) => (
                         <Listbox.Option
                           key={status.id}
@@ -186,7 +186,7 @@ const ProjectLists = () => {
                         />
                       </svg>
                     </Listbox.Button>
-                    <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm">
+                    <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm z-[1]">
                       {country.map((country) => (
                         <Listbox.Option
                           key={country.id}
@@ -222,7 +222,7 @@ const ProjectLists = () => {
                         />
                       </svg>
                     </Listbox.Button>
-                    <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm">
+                    <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm z-[1]">
                       {service.map((service) => (
                         <Listbox.Option
                           key={service.id}
@@ -405,7 +405,7 @@ const ProjectLists = () => {
                     alt={item.title}
                     width={274}
                     height={208}
-                    className="w-full h-full lg:min-w-[274px] lg:h-[208px] object-fit"
+                    className="w-full h-full   md:h-[350px] lg:min-w-[274px] lg:h-[208px] object-fit"
                   />
                 </div>
                 <div className="flex flex-col lg:flex-row justify-between gap-1 md:gap-10 2xl:gap-[104px] w-full">
@@ -464,7 +464,7 @@ const ProjectLists = () => {
             </motion.div>
           ))}
         </div>
-        <div className="flex items-center justify-center gap-2 w-full pb-10 lg:pb-[120px]">
+        <div className="flex items-center justify-center gap-2 w-full pb-10 xl:pb-15 2xl:pb-[120px]">
           <div className="pagination flex items-center gap-2 justify-center ">
             <button
               className={`prev cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${
