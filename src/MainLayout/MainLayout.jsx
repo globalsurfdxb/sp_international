@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import Home from "../Pages/Home/Home";
 import V2 from "../Pages/V2/IndexV2";
+import V2backup from "../Pages/V2-backup/IndexV2";
 import Error from "../Pages/Error/Error";
 import V3 from "../Pages/V3/IndexV3";
 import Careers from "../Pages/Careers/Careers";
@@ -16,6 +17,7 @@ const MainLayout = () => {
         <Route path="/" element={<Home />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/version-two" element={<V2 />} />
+        <Route path="/version-two-backup" element={<V2backup />} />
         <Route path="/version-three" element={<V3 />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/press-releases" element={<PressReleases />} />

@@ -515,7 +515,7 @@ const items = [
 ];
 
 
-const SlideScrollThree = ({
+const SlideScrollThreebackup = ({
   setActiveSection,
   indexToScroll,
   setIndexToScroll,
@@ -1658,7 +1658,6 @@ const mapactive = useRef([]);
     description: content[0].description,
     index: 0,
   });
-  const [activeServiceIndex, setActiveServiceIndex] = useState(0);
 
 
    const sectors = [
@@ -1884,9 +1883,9 @@ const mapactive = useRef([]);
                 autoPlay
                 loop
                 muted
-                className=" w-full h-full object-cover absolute top-0 left-0 right-0 z-[1]"
+                className="w-full h-full object-cover absolute top-0 left-0 right-0 z-[1]"
               ></video>
-               
+
               {/* Block 1 */}
               <div
                 ref={(el) => (blockRefs.current[0] = el)}
@@ -1914,24 +1913,23 @@ const mapactive = useRef([]);
 
           <div className="relative z-[1] h-full">
             <div className="flex flex-col justify-end h-full">
-              <div className="w-full px-5 lg:p-0 lg:w-[79%] ml-auto text-white">
-                <div className="border-b border-white/30 pb-[33px] mb-1 lg:border-b-0 lg:pb-0 lg:mb-0"  ref={titleOneRef}>
-                  <h1 
-                  className="text-[40px] lg:text-70 font-light text-[#FFFBFB] max-w-[20ch] leading-[1.15] lg:leading-[80px] "
+              <div className="w-[79%] ml-auto text-white">
+                <h1
+                  ref={titleOneRef}
+                  className="text-70 font-light max-w-[20ch] leading-[80px]"
                 >
                   Trusted Legacy of Engineering Excellence
                 </h1>
-                </div>
               </div>
 
               <div
                 ref={brdrRef}
-                className="hidden lg:block my-10 w-full border-t border-white/30"
+                className="my-10 w-full border-t border-white/30"
               ></div>
 
-              <div className="w-full lg:w-[44%] ml-auto px-5 lg:px-0 text-white mb-[179px] lg:mb-19 flex justify-between items-center mr-38">
-                <div className="flex flex-col lg:flex-row lg:items-center gap-[17px] lg:gap-2" ref={subtitleRef}>
-                  <h2 className="text-[22px] lg:text-32 font-light leading-[2.05] lg:leading-[1.5] lg:max-w-[14ch]">
+              <div className="w-[44%] ml-auto text-white mb-19 flex justify-between items-center mr-38">
+                <div className="flex items-center gap-2" ref={subtitleRef}>
+                  <h2 className="text-32 font-light max-w-[14ch]">
                     Changing Skylines Since 1865
                   </h2>
                   <img
@@ -1939,12 +1937,11 @@ const mapactive = useRef([]);
                     alt="Logo"
                     width={71}
                     height={71}
-                    className="w-[30px] h-[30px] lg:w-[71px] lg:h-[71px] "
                   />
                 </div>
 
                 <div
-                  className="hidden lg:flex flex-col items-center gap-3"
+                  className="flex flex-col items-center gap-3"
                   ref={iconsRef}
                 >
                   <p className="text-13 uppercase font-light">Stay Connected</p>
@@ -1976,7 +1973,6 @@ const mapactive = useRef([]);
                   </div>
                 </div>
               </div>
-              
             </div>
           </div>
 
@@ -1984,7 +1980,7 @@ const mapactive = useRef([]);
           {
             <div
               ref={overlayRef}
-              className="absolute inset-0 bg-black/55 lg:bg-black/35 h-[100dvh]"
+              className="absolute inset-0 bg-black/35 h-[100dvh]"
             ></div>
           }
         </section>
@@ -2004,12 +2000,12 @@ const mapactive = useRef([]);
                            <img src={sprintData.mainBgImage} alt="" width={2000} height={1500} className="w-full h-full object-cover" ref={bgImageRef} />
                          </div> */}
           <div
-            className="lg:grid lg:grid-cols-[2fr_5fr] 3xl:grid-cols-[657px_auto] h-full bg-transparent"
+            className="grid grid-cols-[2fr_5fr] 3xl:grid-cols-[657px_auto] h-full bg-transparent"
             ref={ttbxsRef}
           >
             <div
               ref={leftSecRef}
-              className="relative py-4 xl:py-[50px] xl:pl-[150px] overflow-hidden hidden lg:block"
+              className="relative py-4 xl:py-[50px] xl:pl-[150px] overflow-hidden"
             >
              
               <div
@@ -2029,7 +2025,7 @@ const mapactive = useRef([]);
 
             <div
               ref={rightSecRef}
-              className="relative flex flex-col  px-10 xl:px-[90px] pb-20 xl:pb-[93px] pt-20 xl:pt-[50px] overflow-hidden h-[62.15dvh] lg:h-full"
+              className="relative flex flex-col h-full px-10 xl:px-[90px] pb-20 xl:pb-[93px] pt-20 xl:pt-[50px] overflow-hidden"
             >
              
               <div
@@ -2047,13 +2043,13 @@ const mapactive = useRef([]);
               </div>
 
               <div
-                className=" z-40 pt-6 xl:pt-[35px] text-white absolute bottom-0 lg:relative left-0 lg:left-auto px-5 lg:px-0"
+                className="relative z-40 pt-6 xl:pt-[35px] text-white"
                 ref={title2Ref}
               >
-                <h1 className="text-[36px] lg:text-48 3xl:text-60 font-light leading-[1.166666666666667] mb-[15px] lg:mb-3 3xl:mb-[25px]">
+                <h1 className="text-48 3xl:text-60 font-light leading-[1.166666666666667] mb-3 3xl:mb-[25px]">
                   {aboutData.title}
                 </h1>
-                <h3 className="text-[20px] lg:text-18 xl:text-24 font-light max-w-xl mb-[33px] lg:mb-0">
+                <h3 className="text-18 xl:text-24 font-light max-w-xl">
                   With a rich legacy of more than{" "}
                   <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                     160 years
@@ -2065,7 +2061,7 @@ const mapactive = useRef([]);
               <div className="relative z-40 mt-auto ml-auto">
                 <div
                   ref={dsrnBxRef}
-                  className="p-10 w-fit xl:w-[550px] px-15 py-10 text-white relative  hidden lg:block"
+                  className="p-10 w-fit xl:w-[550px] px-15 py-10 text-white relative"
                 >
                   <div
                     ref={dsrnRef}
@@ -2081,7 +2077,7 @@ const mapactive = useRef([]);
               </div>
 
               <div
-                className="relative hidden lg:flex z-40  pt-6 xl:pt-[30px] gap-6 xl:gap-[75px] text-white"
+                className="relative z-40  pt-6 xl:pt-[30px] flex gap-6 xl:gap-[75px] text-white"
                 ref={statsRef}
               >
                 <hr
@@ -2114,40 +2110,6 @@ const mapactive = useRef([]);
                 </div>
               </div>
             </div>
-            <div
-                className=" grid grid-cols-2  relative  pt-[33px] xl:pt-[30px]  text-black lg:hidden px-5 bg-white"
-                ref={title2Ref}
-              >
-              
-                <div className="border-b border-[#0a000020] lg:border-b-0 pb-5 mb-5">
-                  <h3 className="text-26 md:text-40 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    160+
-                  </h3>
-                  <p className="text-[14px] md:text-[18px]  font-light leading-[1.555555555555556]">
-                    Years of Legacy
-                  </p>
-                </div>
-                <div className="border-b border-[#00000020] lg:border-b-0 pb-5 mb-5">
-                  <h3 className="text-26 md:text-40 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    33000+
-                  </h3>
-                  <p className="text-[14px] md:text-[18px]  font-light leading-[1.555555555555556]">
-                    Employees Strength
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-24 md:text-40 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    40+
-                  </h3>
-                  <p className="text-[14px] md:text-[18px]  font-light leading-[1.555555555555556]">
-                    Countries Globally Reached
-                  </p>
-                </div>
-              </div>
-              <div className="block lg:hidden   ">
-               <img ref={sprIcnim} src="/assets/images/svg/sv-02.svg" width={600} height={600} className=" w-full absolute  left-0 bottom-0 z-[1]"/>
-            
-              </div>
           </div>
         </section>
       </div>
@@ -2162,39 +2124,32 @@ const mapactive = useRef([]);
           id="section3"
           className="h-screen overflow-hidden relative scroll-area"
         >
-          <div className="lg:grid lg:grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full bg-transparent">
-            <div className="lftblc relative right-0 h-[52.6dvh] lg:h-auto" ref={splftimng}>
+          <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full bg-transparent">
+            <div className="lftblc relative right-0" ref={splftimng}>
                <div className="bg-primary absolute w-full right-0 h-full top-0 z-[-1]" ref={splftbg}></div>
               <img
                 src={'../assets/images/abut-sp.jpg'}
                 alt=""
                 width={2000}
                 height={1500}
-                className="w-full h-full object-cover absolute object-center hidden lg:block"
-              />
-              <img
-                src={'../assets/images/home/imgbn3.jpg'}
-                alt=""
-                width={2000}
-                height={1500}
-                className="w-full h-full object-cover absolute object-center lg:hidden"
+                className="w-full h-full object-cover absolute object-center"
               />
             </div>
-            <div className=" flex flex-col h-full px-5 lg:px-[70px] 3xl:px-[100px] pb-[120px] 3xl:pb-[150px] pt-[60px] lg:pt-[120px] 3xl:pt-[150px] overflow-hidden relative" ref={sprghtBx}>
-              <div className="bg-white lg:bg-primary absolute w-full left-0 h-full top-0 z-[-1]"  ref={sprgtbg}></div>
-              <img ref={sprIcnim} src="/assets/images/svg/sv-02.svg" width={600} height={600} className="hidden lg:block absolute right-0 w-[250px] 3xl:w-[300px]"/>
+            <div className=" flex flex-col h-full px-[70px] 3xl:px-[100px] pb-[120px] 3xl:pb-[150px] pt-[120px] 3xl:pt-[150px] overflow-hidden relative" ref={sprghtBx}>
+              <div className="bg-primary absolute w-full left-0 h-full top-0 z-[-1]"  ref={sprgtbg}></div>
+              <img ref={sprIcnim} src="/assets/images/svg/sv-02.svg" width={600} height={600} className="absolute right-0 w-[250px] 3xl:w-[300px]"/>
               <div className="">
-                <h1 ref={sptitle} className="text-[36px] lg:text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] lg:max-w-[8ch] font-light mb-[15px] lg:mb-8 xl:mb-[25px] text-black lg:text-white">
-                  About SP International
+                <h1 ref={sptitle} className="text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light  mb-8 xl:mb-[25px] text-white">
+                  About SP <br></br>International
                 </h1>
-                <p ref={spdscrpt} className="text-[14px] lg:text-18 text-[#464646] lg:text-white font-light leading-[1.5] lg:max-w-[90%]  3xl:max-w-[75%] mb-15 lg:mb-[30px]">
+                <p ref={spdscrpt} className="text-18 text-white font-light leading-[1.5] max-w-[90%]  3xl:max-w-[75%] mb-[30px]">
                   Shapoorji Pallonji International (SPINT) is the international
                   arm of Shapoorji Pallonji Engineering & Construction (SP E&C)
                   for its construction operations outside India.
                 </p>
                 <a ref={spbtn}
                   href={"/"}
-                  className="text-[14px] lg:text-16 leading-[1.75] font-light text-[#464646] lg:text-white uppercase flex items-center gap-2 cursor-pointer group "
+                  className="text-16 leading-[1.75] font-light text-white uppercase flex items-center gap-2 cursor-pointer group "
                 >
                   <span>READ MORE</span>
                   <svg
@@ -2224,7 +2179,7 @@ const mapactive = useRef([]);
               </div>
               <div className="mt-auto relative">
                 <hr ref={spBrdOne} className="border-white opacity-20 absolute top-[55%] left-[-30%] right-0"/>
-                  <div className="hidden lg:grid grid-cols-3 " ref={spStats}>
+                  <div className="grid grid-cols-3 " ref={spStats}>
                          <div className="text-white">
                         <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
                           350+
@@ -2252,8 +2207,6 @@ const mapactive = useRef([]);
                   </div>
               </div>
             </div>
-            <img ref={sprIcnim} src="/assets/images/svg/sv-02.svg" width={600} height={600} 
-            className=" lg:hidden absolute bottom-0 right-0 w-full 3xl:w-[300px]"/>
           </div>
           {/* <div className="absolute top-0 left-0 z-0 w-full h-full bg-transparent">
             <img
@@ -2400,21 +2353,21 @@ const mapactive = useRef([]);
           <figure className="absolute w-full h-full bg-white z-[-1]" ref={srvBgimg}>
             <img className="absolute w-full h-full object-cover" src="../assets/images/services-bg.jpg" alt="" />
           </figure>
-          <div className="lg:grid lg:grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
+          <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
             {/* left */}
-            <div className="flex lg:h-full">
+            <div className="flex h-full">
          {/*      <div className="w-1/3"></div> */}
-              <div className="w-full pt-[143px] lg:pt-33 pl-5 lg:pl-[245px] 3xl:pl-[310px] bg-primary lg:bg-transparent" ref={srvLftBx}>
-                <div className="lg:ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
+              <div className="w-full pt-33 pl-[245px] 3xl:pl-[310px]" ref={srvLftBx}>
+                <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
                   <h1
                     ref={srvttlRef}
-                    className="text-[36px] lg:text-34 xl:text-48 3xl:text-60 font-light gradient-text lg:leading-[70px]"
+                    className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px]"
                   >
                     Our Services
                   </h1>
-                  <div className="w-full flex lg:flex-col h-full lg:justify-end   lg:mt-15 relative">
+                  <div className="w-full flex flex-col h-full justify-end   mt-15 relative">
                   
-                    <div className="lg:pb-4 relative">
+                    <div className="pb-4 relative">
                     
                    {/*    <p
                         ref={countRef}
@@ -2423,24 +2376,22 @@ const mapactive = useRef([]);
                         0{activeService.index + 1}/ 06
                       </p> */}
                     </div>
-                    <div className=" flex lg:flex-col gap-6 lg:gap-0 overflow-x-auto scroll-bar-hide whitespace-nowrap lg:whitespace-normal lg:overflow-x-hidden   border-b border-[#ffffff20]  mb-5 lg:mb-0 pt-10 lg:pt-18 lg:pb-21 3xl:pt-14 3xl:pb-21 pr-2">
+                    <div className="flex flex-col pt-18 pb-21 3xl:pt-14 3xl:pb-21 pr-2">
                       {content.map((service, index) => (
                         <div
                           key={index}
-                          className={`flex items-center gap-3 cursor-pointer group ${activeServiceIndex === index ? "border-b border-white" : "border-0"} pb-[7px]`}
+                          className="flex items-center gap-3 cursor-pointer group"
                           ref={(el) => (textItemsRef.current[index] = el)}
                         >
                           <p
-                            className={`${activeServiceIndex === index ? "text-white lg:text-black font-bold bo " : "text-white/70 lg:text-black font-light"} text-14px lg:text-[24px] 3xl:text-28 leading-[1.607142857142857]  cursor-pointer group-hover:text-black group-hover:font-bold `}
+                            className="text-[24px] 3xl:text-28 leading-[1.607142857142857] font-light cursor-pointer group-hover:text-black group-hover:font-bold text-black"
                             onMouseOver={() =>
-                            [setActiveService({
+                              setActiveService({
                                 image: service.image,
                                 title: service.title,
                                 description: service.description,
                                 index,
-                              }),
-                              
-                              setActiveServiceIndex(index)]
+                              })
                             }
                           >
                             <span className="duration-100">
@@ -2450,7 +2401,7 @@ const mapactive = useRef([]);
                           </p>
                           <img
                             src="../assets/images/services/arrowblw.svg"
-                            className={`${activeServiceIndex === index ? "hidden lg:block" : "hidden "} transform-all duration-300 delay-300   group-hover:block `}
+                            className={`transform-all duration-300 hidden  group-hover:block`}
                             alt="Arrow"
                             width={21}
                             height={21}
@@ -2464,7 +2415,7 @@ const mapactive = useRef([]);
             </div>
             {/* left */}
 
-            <div className="relative w-full h-full lg:h-[100vh] z-[-1]"  ref={srvsRghtBx}>
+            <div className="relative w-full h-[100vh] z-[-1]"  ref={srvsRghtBx}>
               <div className="absolute h-full w-full" ref={srvsImgRef}>
                               <div className="absolute z-10 top-0 left-0 w-full h-full bg-gradient-to-r from-black/60 from-0% via-black/60 via-52% to-black/60 to-100%"></div>
 
@@ -2484,7 +2435,7 @@ const mapactive = useRef([]);
                   height={914}
                 />
               </div>
-              <div className="absolute top-[77px] lg:top-auto lg:bottom-[245px] 3xl:bottom-[300px]  left-[40px] 3xl:left-[58px] z-10" ref={srvsCntb}>
+              <div className="absolute bottom-[245px] 3xl:bottom-[300px]  left-[40px] 3xl:left-[58px] z-10" ref={srvsCntb}>
                   <hr
                         ref={brdonRef}
                         className="absolute right-[25%] left-[-85%] 3xl:left-[-78%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
@@ -3011,4 +2962,4 @@ const mapactive = useRef([]);
   );
 };
 
-export default SlideScrollThree;
+export default SlideScrollThreebackup;
