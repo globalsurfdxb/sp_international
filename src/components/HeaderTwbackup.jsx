@@ -18,7 +18,7 @@ const sections = [
   { id: "section7", label: "PEOPLE" },
 ];
 
-const HeaderTw = ({ activeSection, setActiveSection,setIndexToScroll }) => {
+const HeaderTwbackup = ({ activeSection, setActiveSection,setIndexToScroll }) => {
 
 const headerRef = useRef(null);
 const navItemsRef = useRef([]);
@@ -158,35 +158,29 @@ const scrollStep = 700;
 
   return (
     <>
-   <div className="fixed top-13 right-0 lg:right-10 3xl:right-38 z-50 w-full ">
-        <div className='flex gap-8 items-center justify-between lg:justify-end ps-5 lg:ps-0'>
-           <div className="flex justify-center items-center lg:hidden">
-                <img className="logsc" src="/assets/images/logo.svg" alt="Logo" width={90} height={55} />
-              </div>
-          <div className='flex gap-6 lg:gap-2'>
+   <div className="fixed top-13 right-38 z-50">
+        <div className='flex gap-8 items-center'>
+          <div className='flex gap-2'>
             <a href="#">
               <div className='flex items-center justify-center z-[1]  cursor-pointer relative  h-[31px] bg-[#00000040] rounded-[15px]'>
                 <img src="../assets/images/grbdr.svg" alt="Logo" className="absolute w-full h-full" width={18} height={31} />
                 <p className='mb-0 text-white font-[300] text-[16px] px-5'>العربية</p>
               </div>
             </a>
-             <div className="flex lg:hidden justify-center items-center ">
-                <img src="/assets/images/menu-crbs.svg" className="mnsc cursor-pointer" alt="Menu" width={31} height={24} />
-              </div>
             <a href="#">
-              <div className='hidden lg:flex items-center justify-center z-[1]  cursor-pointer relative  h-[31px] bg-[#00000040] rounded-[15px]'>
+              <div className='flex items-center justify-center z-[1]  cursor-pointer relative  h-[31px] bg-[#00000040] rounded-[15px]'>
                 <img src="../assets/images/grbdr.svg" alt="Logo" className="absolute w-full h-full" width={18} height={31} />
                 <p className='mb-0 text-white font-[300] text-[16px] px-4'>HRMS</p>
               </div>
             </a>
           </div>
-          <div className="hidden lg:flex items-center justify-center bg-black rounded-full p-2 w-11 h-11">
+          <div className="flex items-center justify-center bg-black rounded-full p-2 w-11 h-11">
             <img src="../assets/images/search.svg" alt="Logo" width={18} height={18} />
           </div>
         </div>
       </div>
 
-      <header className="fixed top-0 left-0 z-50 hidden lg:block">
+      <header className="fixed top-0 left-0 z-50">
         <div className="flex">
           <div className="flex w-[150px] h-screen">
             {activeSection !== "section1" && 
@@ -248,15 +242,8 @@ const scrollStep = 700;
           </div>
         </div>
       </header>
-      <div className="block lg:hidden absolute bottom-0 z-20 right-1/2 translate-x-1/2 " onClick={()=>handleScroll(nextSection.id)}>
-                <div className="w-[35px] h-[35px] bg-primary flex items-center justify-center  mx-auto mb-7">
-                  <div className="w-[22px] h-[22px] border border-white rounded-full flex items-center justify-center ">
-                    <img src="../assets/images/home/downarrow.svg" />
-                  </div>
-                </div>
-              </div>
     </>
   );
 };
 
-export default HeaderTw;
+export default HeaderTwbackup;
