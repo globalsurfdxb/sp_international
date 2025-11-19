@@ -622,3 +622,11 @@ body::-webkit-scrollbar {
 .journey-slider .swiper-slide-shadow-right {
   display: none;
 }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.scrollbar-hide {
+  scrollbar-width: none;
+}

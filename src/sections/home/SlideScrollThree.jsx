@@ -18,7 +18,7 @@ const cities = [
     id: "canada",
     name: "Canada",
     left: "3%",
-    top: "-5%",
+    top: "0%",
     iconicpjts: "200+",
     pjtcompleted: "320+",
     dedicatedemployees: "5000+",
@@ -98,8 +98,8 @@ const cities = [
   { 
     id: "unitedkingdom",
     name: "United Kingdom",
-    left: "32.5%",
-    top: "-2%",
+    left: "30.5%",
+    top: "-1%",
     iconicpjts: "200+",
     pjtcompleted: "320+",
     dedicatedemployees: "5000+",
@@ -2405,6 +2405,15 @@ const mapactive = useRef([]);
             <div className="flex lg:h-full">
          {/*      <div className="w-1/3"></div> */}
               <div className="w-full pt-[143px] lg:pt-33 pl-5 lg:pl-[245px] 3xl:pl-[310px] bg-primary lg:bg-transparent" ref={srvLftBx}>
+                 <div className="absolute -top-58 right-0    " ref={srvsVct}>
+                <img
+                  src="../assets/images/svg/srv-vct.svg"
+                  alt="Logo"
+                  className="h-full w-full"
+                  width={254}
+                  height={356}
+                />
+              </div>
                 <div className="lg:ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
                   <h1
                     ref={srvttlRef}
@@ -2423,11 +2432,11 @@ const mapactive = useRef([]);
                         0{activeService.index + 1}/ 06
                       </p> */}
                     </div>
-                    <div className=" flex lg:flex-col gap-6 lg:gap-0 overflow-x-auto scroll-bar-hide whitespace-nowrap lg:whitespace-normal lg:overflow-x-hidden   border-b border-[#ffffff20]  mb-5 lg:mb-0 pt-10 lg:pt-18 lg:pb-21 3xl:pt-14 3xl:pb-21 pr-2">
+                    <div className=" flex lg:flex-col gap-6 lg:gap-0 overflow-x-auto scrollbar-hide whitespace-nowrap lg:whitespace-normal lg:overflow-x-hidden   border-b border-[#ffffff20]  mb-5 lg:mb-0 pt-10 lg:pt-18 lg:pb-21 3xl:pt-14 3xl:pb-21 pr-2">
                       {content.map((service, index) => (
                         <div
                           key={index}
-                          className={`flex items-center gap-3 cursor-pointer group ${activeServiceIndex === index ? "border-b border-white" : "border-0"} pb-[7px]`}
+                          className={`flex items-center gap-3 cursor-pointer group `}
                           ref={(el) => (textItemsRef.current[index] = el)}
                         >
                           <p
@@ -2464,18 +2473,18 @@ const mapactive = useRef([]);
             </div>
             {/* left */}
 
-            <div className="relative w-full h-full lg:h-[100vh] z-[-1]"  ref={srvsRghtBx}>
-              <div className="absolute h-full w-full" ref={srvsImgRef}>
-                              <div className="absolute z-10 top-0 left-0 w-full h-full bg-gradient-to-r from-black/60 from-0% via-black/60 via-52% to-black/60 to-100%"></div>
+            <div className="relative w-full lg:h-full lg:h-[100vh] z-[-1]"  ref={srvsRghtBx}>
+              <div className="lg:absolute h-full w-full" ref={srvsImgRef}>
+                              <div className="lg:absolute z-10 top-0 left-0 w-full lg:h-full lg:bg-gradient-to-r lg:from-black/60 from-0% lg:via-black/60 via-52% lg:to-black/60 to-100%"></div>
 
-                <img
-                  src={activeService?.image}
-                  alt="Service Image"
-                  fill
-                  className="object-cover absolute w-full h-full"
-                />
+                              <img
+                                src={activeService?.image}
+                                alt="Service Image"
+                                fill
+                                className="object-cover object-top lg:absolute w-full h-[277px] lg:h-full"
+                              />
               </div>
-              <div className="absolute bottom-0 right-0  w-[40%] " ref={srvsVct}>
+              <div className="hidden lg:block lg:absolute bottom-0 right-0  w-[40%] " ref={srvsVct}>
                 <img
                   src="../assets/images/svg/srv-vct.svg"
                   alt="Logo"
@@ -2484,23 +2493,43 @@ const mapactive = useRef([]);
                   height={914}
                 />
               </div>
-              <div className="absolute top-[77px] lg:top-auto lg:bottom-[245px] 3xl:bottom-[300px]  left-[40px] 3xl:left-[58px] z-10" ref={srvsCntb}>
+              <div className="lg:absolute top-[77px] lg:top-auto lg:bottom-[245px] 3xl:bottom-[300px]  left-[40px] 3xl:left-[58px] z-10 px-5 lg:px-0 pt-7 lg:pt-0" ref={srvsCntb}>
                   <hr
                         ref={brdonRef}
-                        className="absolute right-[25%] left-[-85%] 3xl:left-[-78%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
+                        className="hidden lg:block lg:absolute right-[25%] left-[-85%] 3xl:left-[-78%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
                       />
                   <hr
                         ref={brdonRef}
-                        className="absolute  left-[-40px] 3xl:left-[-58px] right-[25%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-white "
+                        className=" lg:absolute  left-[-40px] 3xl:left-[-58px] right-[25%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-white "
                       />
-                <h3 className="text-29 leading-[1.344827586206897] font-light text-white">
+                <div className="flex gap-2 items-center">
+                  <div className="flex items-center justify-center lg:hidden bg-secondary rounded-full bottom-10 3xl:bottom-[50px] left-[45px] 3xl:left-[58px] z-10 w-7 h-7" ref={srvsArrw}>
+                    <img
+                      src="../assets/images/services/icn1.svg"
+                      alt="Arrow"
+                      className=""
+                      width={19}
+                      height={19}
+                    />
+                  </div>
+                  <h3 className="text-[20px] lg:text-29 leading-[1.344827586206897] font-light text-black lg:text-white">
                   {activeService?.title}
                 </h3>
-                <p className="text-18 text-white mt-[80px] w-[75%] 3xl:w-[55%]">
+                 <div className=" lg:hidden    bottom-10 3xl:bottom-[50px] left-[45px] 3xl:left-[58px] z-10" ref={srvsArrw}>
+                    <img
+                      src="../assets/images/services/thickarrow.svg"
+                      alt="Arrow"
+                      className=""
+                      width={19}
+                      height={19}
+                    />
+                  </div>
+                </div>
+                <p className="text-[14px] lg:text-18 text-paragraph lg:text-white mt-5 lg:mt-[80px] w-full lg:w-[75%] 3xl:w-[55%]">
                   {activeService?.description}
                 </p>
               </div>
-              <div className="absolute bottom-10 3xl:bottom-[50px] left-[45px] 3xl:left-[58px] z-10" ref={srvsArrw}>
+              <div className="hidden lg:block absolute bottom-10 3xl:bottom-[50px] left-[45px] 3xl:left-[58px] z-10" ref={srvsArrw}>
                 <img
                   src="../assets/images/services/arrow-up.svg"
                   alt="Arrow"
@@ -2526,28 +2555,37 @@ const mapactive = useRef([]);
           id="section5"
           className="h-screen relative overflow-hidden whitebgref scroll-area"
         >
-            <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
+            <div className="lg:grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
             {/* left start */}
-            <div className="flex h-full">
-              <div className="w-full pt-10 xl:pt-15 3xl:pt-33 pl-[245px] 3xl:pl-[310px]">
-                <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
+            <div className="flex lg:h-full bg-primary lg:bg-white">
+              <div className="w-full pt-[143px] pl-5 lg:pt-10 xl:pt-15 3xl:pt-33 lg:pl-[245px] 3xl:pl-[310px]">
+                 <div className="absolute -top-58 right-0    " ref={srvsVct}>
+                <img
+                  src="../assets/images/svg/srv-vct.svg"
+                  alt="Logo"
+                  className="h-full w-full"
+                  width={254}
+                  height={356}
+                />
+              </div>
+                <div className="lg:ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
                   <h1
                    ref={talenttitle}
-                    className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[1.166666666666667] max-w-[13ch]"
+                    className="text-[36px] lg:text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[1.166666666666667] max-w-[13ch]"
                   >
                     Shaping Diverse Sectors
                   </h1>
-                  <div ref={talentlist} className="w-full flex flex-col justify-center h-[450px] 3xl:h-[541px] mt-10 relative overflow-y-hidden 3xl:overflow-visible pl-4 3xl:pl-0">
-                    <div className="pb-4 relative h-full flex items-center">
+                  <div ref={talentlist} className="scrollbar-hide w-full flex flex-col justify-center lg:h-[450px] 3xl:h-[541px] mt-10 relative overflow-y-hidden 3xl:overflow-visible lg:pl-4 3xl:pl-0">
+                    <div className="lg:pb-4 relative h-full flex items-center">
                       {/* curved line svg */}
-                      <div className="absolute top-0 left-0 h-full flex flex-col justify-center">
+                      <div className="  absolute top-0 left-0 h-full hidden lg:flex flex-col justify-center">
                         <img
                           src="../assets/images/sectors/svg-crv.svg"
                           alt="curved line svg"
                         />
                       </div>
 
-                      <div className="flex flex-col 3xl:gap-1 pl-4 pb-6 sectors-list">
+                      <div className="flex flex-row lg:flex-col 3xl:gap-1 lg:pl-4 lg:pb-6 sectors-list gap-5 lg:gap-0 border-b border-white/20 lg:border-b-0 mb-5 lg:mb-0">
                         {visibleSectors.map((sector) => {
                           const isActive = sector.position === 0;
                           const opacity =
@@ -2577,7 +2615,7 @@ const mapactive = useRef([]);
                             <div
                               key={`${sector.originalIndex}-${sector.position}`}
                               className={`flex items-center gap-5 cursor-pointer ${
-                                isActive ? "ml-[-27px] py-5" : "py-1"
+                                isActive ? "ml-[-27px] lg:py-5" : "lg:py-1"
                               }`}
                               style={{
                                 opacity: opacity,
@@ -2593,7 +2631,7 @@ const mapactive = useRef([]);
                             >
                               {/* Show icon ONLY when at center */}
                               {isActive && (
-                                <div className="bg-[#30B6F94D] rounded-full w-[83px] h-[83px] flex items-center justify-center relative opacity-0">
+                                <div className="hidden lg:flex bg-[#30B6F94D] rounded-full w-[83px] h-[83px]  items-center justify-center relative opacity-0">
                                   <img
                                     src={sector.icon}
                                     alt={`${sector.name} icon`}
@@ -2609,10 +2647,10 @@ const mapactive = useRef([]);
                               )}
 
                               <h3
-                                className={`hover:opacity-100 hover:text-[#30B6F9] transition-opacity duration-500 ${
+                                className={`hover:opacity-100 hover:text-[#30B6F9] transition-opacity duration-500 text-white lg:text-black ${
                                   isActive
-                                    ? "text-29 leading-[1.842105263157895] font-semibold"
-                                    : "text-19 leading-[1.842105263157895]"
+                                    ? "text-[14px] lg:text-29 leading-[1.842105263157895] lg:font-semibold border-b border-white lg:border-b-0"
+                                    : "text-[14px] lg:text-19 leading-[1.842105263157895]"
                                 }`}
                                 style={{
                                   transition: "all 0.5s ease-out",
@@ -2626,7 +2664,7 @@ const mapactive = useRef([]);
                         })}
                       </div>
 
-                      <div className="absolute left-[-10px] top-1/2 -translate-y-[75%] z-10">
+                      <div className="hidden lg:block absolute left-[-10px] top-1/2 -translate-y-[75%] z-10">
                         <div className="bg-[#30B6F94D] rounded-full w-[83px] h-[83px] flex items-center justify-center relative">
                           <img
                             key={activeSector.icon}
@@ -2649,7 +2687,7 @@ const mapactive = useRef([]);
             </div>
             {/* left end*/}
             {/* right start */}
-            <div className="relative w-full h-[100vh] z-0" >
+            <div className="relative w-full h-[303px] lg:h-[100vh] z-0" >
               <div ref={talentimage} className="absolute h-full w-full">
                 {/* hear the image that changes according to the vertical slider */}
                 {/* Image section */}
@@ -2676,12 +2714,27 @@ const mapactive = useRef([]);
                       />
                     </div>
                   ))}
+                  <div className=" lg:hidden absolute inset-0 w-full h-full" style={{
+                        background: "linear-gradient(0deg, rgb(0 0 0 / 6%), rgb(0 0 0 / 0%)), linear-gradient(rgba(0, 0, 0, 0) 58.01%, rgba(0, 0, 0, 0.8) 100%)",
+                    }}>
+
+                    </div>
+                   <div className=" lg:hidden tlnits p-5 group cursor-pointer absolute bottom-0 left-0">
+                      <a href="/sectors" className="flex items-center gap-2 uppercase font-light text-[14px] text-white">
+                        View All Projects
+                        <img
+                          src="../assets/images/icons/arrow-right.svg"
+                          alt="arrow right"
+                          className="group-hover:translate-x-2 transition-all duration-300"
+                        />
+                      </a>
+                    </div>
                 </div>
                 {/* hear the absolute positioned box with project details */}
                 {/* Absolute positioned box with project details */}
                 <div
                
-                  className="absolute bottom-20 left-0 bg-primary text-white z-50 cursor-pointer"
+                  className="lg:absolute bottom-20 left-0 lg:bg-primary text-black lg:text-white z-50 cursor-pointer"
                   style={{
                     transition:
                       "transform 0.5s ease-out, opacity 0.5s ease-out",
@@ -2692,14 +2745,15 @@ const mapactive = useRef([]);
                   }}
                 >
                   <div ref={talentdtls} >
-                    <div  className="flex gap-5 xl:gap-[77px] px-15 py-6 xl:pt-[28px] xl:pb-[33px] border-b border-white/20">
+                    <div  className="flex gap-[56px] lg:gap-5 xl:gap-[77px] pb-6   lg:px-15 pt-7 lg:py-6 xl:pt-[28px] xl:pb-[33px]
+                     border-b  border-black/20 lg:border-white/20 mx-5 lg:mx-0">
                       <div class="tlnits">
                         <div
                           style={{ position: "relative", overflow: "hidden" }}
                         >
                           <h3
                             key={`projects-${displayedIndex}`}
-                            className="text-40 font-light mb-2"
+                            className="text-[26px] lg:text-40 font-light lg:mb-2"
                             style={{
                               animation: "slideUpFadeIn 0.6s ease-out",
                               animationFillMode: "both",
@@ -2708,7 +2762,7 @@ const mapactive = useRef([]);
                             {activeSector.projectsCompleted}
                           </h3>
                         </div>
-                        <p className="text-19 font-light text-white/70 leading-[1.473684210526316]">
+                        <p className="text-[14px] lg:text-19 font-light text-paragraph lg:text-white/70 leading-[1.473684210526316]">
                           Completed Projects
                         </p>
                       </div>
@@ -2718,7 +2772,7 @@ const mapactive = useRef([]);
                         >
                           <h3
                             key={`projects-${displayedIndex}`}
-                            className="text-40 font-light mb-2"
+                            className="text-[26px] lg:text-40 font-light lg:mb-2"
                             style={{
                               animation: "slideUpFadeIn 0.6s ease-out 0.1s",
                               animationFillMode: "both",
@@ -2727,12 +2781,12 @@ const mapactive = useRef([]);
                             {activeSector.ongoingProjects}
                           </h3>
                         </div>
-                        <p className="text-19 font-light text-white/70 leading-[1.473684210526316]">
+                        <p className="text-[14px] lg:text-19 font-light text-paragraph lg:text-white/70 leading-[1.473684210526316]">
                           Ongoing Projects
                         </p>
                       </div>
                     </div>
-                    <div className="tlnits px-15 py-6 xl:pt-[42px] xl:pb-[49px] group cursor-pointer">
+                    <div className="hidden lg:block tlnits px-15 py-6 xl:pt-[42px] xl:pb-[49px] group cursor-pointer">
                       <a href="/sectors" className="flex items-center gap-2">
                         View All Projects
                         <img
@@ -2761,9 +2815,9 @@ const mapactive = useRef([]);
       >
          <section
           id="section6"
-          className="h-screen relative overflow-hidden whitebgref scroll-area bg-white"
+          className="h-screen relative md:overflow-hidden whitebgref scroll-area bg-white"
         >
-  <div className="w-full pt-25 3xl:pt-33 pl-[245px] 3xl:pl-[310px]">
+  <div className="w-full pt-25 3xl:pt-33 lg:pl-[245px] 3xl:pl-[310px]">
             <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
               <h1
                 ref={maptitle}
@@ -2773,18 +2827,26 @@ const mapactive = useRef([]);
               </h1>
             </div>
             <div className="  flex justify-center" ref={mapimage}>
-              <div
-                className="relative md:w-[1000px] md:h-[70%] 3xl:w-[1158px] 3xl:h-[70%] "
+             <div className="overflow-x-auto overflow-y-visible ">
+               <div
+                className="relative min-w-[733px]  "
                 ref={containersRef}
               >
+                <img
+                  src="../assets/images/mobilebmap.png"
+                  alt="Arrow"
+                  width={733}
+                  height={355}
+                  className="object-cover img-f select-none min-w-[733px] lg:hidden  "
+                />
                 <img
                   src="../assets/images/world_map.png"
                   alt="Arrow"
                   width={1158}
                   height={679}
-                  className="object-cover img-f select-none md:w-[1000px] md:h-[70%] 3xl:w-[1158px] 3xl:h-[70%] "
+                  className="object-cover img-f select-none min-w-[733px] hidden lg:block "
                 />
-
+              <div className="absolute top-[111px] -right-[93px] lg:initial lg:top-0 lg:right-0 overflow-auto w-full h-full">
                 {/* Dots */}
                 {cities.map((city) => (
                   <div
@@ -2826,10 +2888,10 @@ const mapactive = useRef([]);
                         ref={activeDot === city.id ? outsideRef : null}
                         className={` transition-all duration-500  outside `}
                       >
-                        <div>
+                        <div className="flex lg:block gap-2">
                           <div
                             className={`bubble  bg-[#0015FF66] transition-all duration-500 delay-100 border  border-[#0015FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)] 
-                                absolute left-[0%] top-[21%] ${
+                                lg:absolute left-[0%] top-[21%] ${
                                   activeDot === city.id
                                     ? "opacity-100 scale-full float-bubble1"
                                     : "scale-80 opacity-0 "
@@ -2845,7 +2907,7 @@ const mapactive = useRef([]);
 
                           <div
                             className={`bubble  bg-[#00C8FF80] border border-[#00C8FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)] 
-                                absolute left-[48.3%] top-[5%] ${
+                                lg:absolute left-[48.3%] top-[5%] ${
                                   activeDot === city.id
                                     ? "opacity-100 scale-full float-bubble2"
                                     : "scale-80 opacity-0 "
@@ -2860,7 +2922,7 @@ const mapactive = useRef([]);
                           </div>
                           <div
                             className={`bubble  bg-[#0066EB80] border border-[#0066EB26] backdrop-blur-sm  text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)]
-                                absolute left-[51%] top-[55%] ${
+                                lg:absolute left-[51%] top-[55%] ${
                                   activeDot === city.id
                                     ? "opacity-100 scale-full float-bubble3"
                                     : "scale-80 opacity-0 "
@@ -2893,6 +2955,8 @@ const mapactive = useRef([]);
                   </div>
                 ))}
               </div>
+              </div>
+             </div>
             </div>
           </div>
         </section>
@@ -2913,52 +2977,95 @@ const mapactive = useRef([]);
            <div className="bg-[linear-gradient(270deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.65)_51.29%,rgba(0,0,0,0.75)_100%)] absolute w-full h-full z-10"></div>
           </figure>
   <div
-            className="grid grid-cols-[950px_auto] 2xl:grid-cols-[950px_auto] 3xl:grid-cols-[1201px_auto] h-full 
+            className="lg:grid grid-cols-[950px_auto] 2xl:grid-cols-[950px_auto] 3xl:grid-cols-[1201px_auto] h-full 
       "
           >
             {/* LEFT SIDE */}
-            <div className="w-full pt-33 pl-[245px] 3xl:pl-[300px] pb-[120px] 3xl:pb-[212px]">
-              <div className="ml-[80px] 3xl:ml-[110px] flex flex-col justify-between h-full">
+            <div className="w-full pt-33 px-5 lg:pl-[245px] 3xl:pl-[300px] lg:pb-[120px] 3xl:pb-[212px] h-full lg:h-auto">
+              <div className="lg:ml-[80px] 3xl:ml-[110px] flex flex-col lg:justify-between h-full gap-[129px] lg:gap-0">
                 <h1
                   ref={cutltttl}
-                  className="max-w-[14ch] text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light mb-8 xl:mb-[25px] text-white"
+                  className="max-w-[14ch] text-[36px] lg:text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light mb-8 xl:mb-[25px] text-white"
                 >
                   Driven by Talent. <br /> Defined by Culture.
                 </h1>
-
+            <div>
+              <div className="flex lg:hidden flex-col lg:justify-end lg:h-full pb-4   overflow-hidden relative gap-2 lg:gap-0 ">
+              <AnimatePresence mode="wait" >
+                <motion.div
+                ref={cutltdtls}
+                  key={activeItem.id}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="p-5 lg:p-7 3xl:py-12 3xl:px-15 bg-primary w-fit 2xl:w-[400px] 3xl:w-[550px] text-white relative "
+                >
+                  <div className="h-fit mb-5 overflow-hidden">
+                    <motion.h3
+                      key={activeItem.id}
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -30 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      className="text-29 font-light leading-[1] "
+                    >
+                      {activeItem.title}
+                    </motion.h3>
+                  </div>
+                  <motion.p
+                    key={activeItem.id}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    className="text-16 xl:text-19 font-light leading-[1.5]"
+                  >
+                    {activeItem.desc}
+                  </motion.p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
                 <div>
-                  <div className="flex items-center gap-5" ref={cultlist}>
+                  <div className="flex flex-col lg:flex-row lg:flex-wrap lg:items-center lg:gap-5" ref={cultlist}>
                     {items.map((item) => (
                       <div className="ctitm">
                       <div
                         key={item.id}
                         onClick={() => setActiveItem(item)}
-                        className={`hover:border-b-[2px] hover:border-primary border-b-2 ${
+                        className={`hover:lg:border-b-[2px] hover:lg:border-primary lg:border-b-2 border-b border-white/30  ${
                           activeItem.id === item.id
-                            ? "border-primary"
+                            ? "lg:border-primary"
                             : "border-transparent"
-                        } pb-1 transition-all duration-300`}
+                        } lg:pb-1 transition-all duration-300 `}
                       >
                         <p
-                          className={`text-[15px] 3xl:text-19 min-w-[110px] 3xl:min-w-[130px]  text-white/80 leading-[1.473684210526316] 
-                    transition-all duration-300 cursor-pointer ${
+                          className={`py-1 lg:py-0  ${
                       activeItem.id === item.id
-                        ? "font-bold text-white"
-                        : "hover:font-bold hover:text-white font-light"
+                        ? "   bg-[linear-gradient(90deg,rgba(30,69,162,0.35)_0%,rgba(48,182,249,0)_100%)] lg:bg-none"
+                        : ""
                     }`}
                         >
-                          {item.title.split(" ").map((word, i) => (
+                       <div className={`text-[15px] 3xl:text-19 lg:min-w-[110px] py-1 lg:py-0 3xl:min-w-[130px]  text-white/80 leading-[1.473684210526316] 
+                    transition-all duration-300 cursor-pointer ps-2 lg:ps-0  ${
+                      activeItem.id === item.id
+                        ? "font-bold text-white border-l-[2px] border-secondary lg:border-l-0 "
+                        : "hover:font-bold hover:text-white font-light "
+                    }`}>
+                           {item.title.split(" ").map((word, i) => (
                             <span key={i}>
                               {word}
-                              <br />
+                              <br className="hidden lg:block" />
                             </span>
                           ))}
+                       </div>
                         </p>
                       </div>
                            </div>
                     ))}
                   </div>
                 </div>
+            </div>
               </div>
 
               <div className="relative">
@@ -2967,7 +3074,7 @@ const mapactive = useRef([]);
             </div>
 
             {/* RIGHT SIDE */}
-            <div className="flex flex-col justify-end h-full pb-[120px] 3xl:pb-[212px] pt-[120px] 3xl:pt-[150px] overflow-hidden relative border-l border-white/25">
+            <div className="hidden lg:flex flex-col justify-end h-full pb-[120px] 3xl:pb-[212px] pt-[120px] 3xl:pt-[150px] overflow-hidden relative border-l border-white/25">
               <AnimatePresence mode="wait" >
                 <motion.div
                 ref={cutltdtls}
