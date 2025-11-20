@@ -98,7 +98,7 @@ const cities = [
   { 
     id: "unitedkingdom",
     name: "United Kingdom",
-    left: "30.5%",
+    left: "32.5%",
     top: "-1%",
     iconicpjts: "200+",
     pjtcompleted: "320+",
@@ -615,13 +615,14 @@ const mapactive = useRef([]);
   
 
   const [activeDot, setActiveDot] = useState("false");
-  
+  const [selectedCity, setSelectedCity] = useState(null);
     const [adjustY, setAdjustY] = useState(0);
   
     const bubbleRef = useRef(null);
     const containersRef = useRef(null);
   
     useEffect(() => {
+       if (window.innerWidth >= 1024) {
       if (!activeDot || !bubbleRef.current || !containersRef.current) return;
   
       const bubble = bubbleRef.current.getBoundingClientRect();
@@ -634,6 +635,7 @@ const mapactive = useRef([]);
         offsetY = container.bottom - bubble.bottom; // push up
       }
       setAdjustY(offsetY);
+    }
     }, [activeDot]);
   
     const outsideRef = useRef(null);
@@ -1718,54 +1720,62 @@ const mapactive = useRef([]);
     const [displayedIndex, setDisplayedIndex] = useState(activeIndex);
     const animationRef = useRef(null);
   
-    const handleSlideClick = (targetIndex) => {
-      if (isAnimating || targetIndex === activeIndex) return;
-  
-      // Clear any existing animation
-      if (animationRef.current) {
-        clearInterval(animationRef.current);
-      }
-  
-      const totalSectors = sectors.length;
-  
-      // Calculate shortest path
-      let diff = targetIndex - activeIndex;
-  
-      // Normalize difference to shortest path
-      while (diff > totalSectors / 2) diff -= totalSectors;
-      while (diff < -totalSectors / 2) diff += totalSectors;
-  
-      const direction = diff > 0 ? 1 : -1;
-      const steps = Math.abs(diff);
-  
-      if (steps === 0) return;
-  
-      setAnimationDirection(direction); // Set direction for animation
-      setIsAnimating(true);
-  
-      // Create array of indices to visit
-      const path = [];
-      let current = activeIndex;
-      for (let i = 0; i < steps; i++) {
-        current = (current + direction + totalSectors) % totalSectors;
-        path.push(current);
-      }
-  
-      // Animate through the path
-      let stepIndex = 0;
-      animationRef.current = setInterval(() => {
-        setActiveIndex(path[stepIndex]);
-        stepIndex++;
-  
-        if (stepIndex >= path.length) {
-          clearInterval(animationRef.current);
-          animationRef.current = null;
-          setIsAnimating(false);
-          setAnimationDirection(0);
-          setDisplayedIndex(path[path.length - 1]); // ✅ update right-side content only now
-        }
-      }, 400);
-    };
+  const handleSlideClick = (targetIndex) => {
+  const isMobile = window.matchMedia("(max-width:1023px)").matches;
+
+  // 🔥 MOBILE BEHAVIOR — no rotation, no step animation
+  if (isMobile) {
+    setIsAnimating(false);
+    setAnimationDirection(0);
+    setActiveIndex(targetIndex);        // highlight clicked item
+    setDisplayedIndex(targetIndex);     // update right-side content
+    return;
+  }
+
+  // ========= DESKTOP (your original rotation logic) =========
+  if (isAnimating || targetIndex === activeIndex) return;
+
+  if (animationRef.current) {
+    clearInterval(animationRef.current);
+  }
+
+  const totalSectors = sectors.length;
+
+  let diff = targetIndex - activeIndex;
+
+  while (diff > totalSectors / 2) diff -= totalSectors;
+  while (diff < -totalSectors / 2) diff += totalSectors;
+
+  const direction = diff > 0 ? 1 : -1;
+  const steps = Math.abs(diff);
+
+  if (steps === 0) return;
+
+  setAnimationDirection(direction);
+  setIsAnimating(true);
+
+  const path = [];
+  let current = activeIndex;
+  for (let i = 0; i < steps; i++) {
+    current = (current + direction + totalSectors) % totalSectors;
+    path.push(current);
+  }
+
+  let stepIndex = 0;
+  animationRef.current = setInterval(() => {
+    setActiveIndex(path[stepIndex]);
+    stepIndex++;
+
+    if (stepIndex >= path.length) {
+      clearInterval(animationRef.current);
+      animationRef.current = null;
+      setIsAnimating(false);
+      setAnimationDirection(0);
+      setDisplayedIndex(path[path.length - 1]);
+    }
+  }, 400);
+};
+
   
     const getVisibleSectors = () => {
       const result = [];
@@ -1917,7 +1927,7 @@ const mapactive = useRef([]);
               <div className="w-full px-5 lg:p-0 lg:w-[79%] ml-auto text-white">
                 <div className="border-b border-white/30 pb-[33px] mb-1 lg:border-b-0 lg:pb-0 lg:mb-0"  ref={titleOneRef}>
                   <h1 
-                  className="text-[40px] lg:text-70 font-light text-[#FFFBFB] max-w-[20ch] leading-[1.15] lg:leading-[80px] "
+                  className="text-[40px] lg:text-70 font-light text-[#FFFBFB] max-w-[20ch] leading-[1.15] lg:leading-[80px] pe-2"
                 >
                   Trusted Legacy of Engineering Excellence
                 </h1>
@@ -1929,7 +1939,7 @@ const mapactive = useRef([]);
                 className="hidden lg:block my-10 w-full border-t border-white/30"
               ></div>
 
-              <div className="w-full lg:w-[44%] ml-auto px-5 lg:px-0 text-white mb-[179px] lg:mb-19 flex justify-between items-center mr-38">
+              <div className="w-full lg:w-[50%] xl:w-[44%] ml-auto px-5 lg:px-0 text-white mb-[22dvh] lg:mb-19 flex justify-between items-center mr-38 gap-7">
                 <div className="flex flex-col lg:flex-row lg:items-center gap-[17px] lg:gap-2" ref={subtitleRef}>
                   <h2 className="text-[22px] lg:text-32 font-light leading-[2.05] lg:leading-[1.5] lg:max-w-[14ch]">
                     Changing Skylines Since 1865
@@ -2162,7 +2172,7 @@ const mapactive = useRef([]);
           id="section3"
           className="h-screen overflow-hidden relative scroll-area"
         >
-          <div className="lg:grid lg:grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full bg-transparent">
+          <div className="lg:grid lg:grid-cols-[500px_auto] xl:grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full bg-transparent">
             <div className="lftblc relative right-0 h-[52.6dvh] lg:h-auto" ref={splftimng}>
                <div className="bg-primary absolute w-full right-0 h-full top-0 z-[-1]" ref={splftbg}></div>
               <img
@@ -2170,7 +2180,7 @@ const mapactive = useRef([]);
                 alt=""
                 width={2000}
                 height={1500}
-                className="w-full h-full object-cover absolute object-center hidden lg:block"
+                className="w-full h-full object-cover absolute object-right hidden lg:block"
               />
               <img
                 src={'../assets/images/home/imgbn3.jpg'}
@@ -2180,14 +2190,14 @@ const mapactive = useRef([]);
                 className="w-full h-full object-cover absolute object-center lg:hidden"
               />
             </div>
-            <div className=" flex flex-col h-full px-5 lg:px-[70px] 3xl:px-[100px] pb-[120px] 3xl:pb-[150px] pt-[60px] lg:pt-[120px] 3xl:pt-[150px] overflow-hidden relative" ref={sprghtBx}>
+            <div className=" flex flex-col h-full px-5 lg:px-[70px] 3xl:px-[100px] pb-[120px] 3xl:pb-[150px] pt-[7dvh] lg:pt-[120px] 3xl:pt-[150px] overflow-hidden relative" ref={sprghtBx}>
               <div className="bg-white lg:bg-primary absolute w-full left-0 h-full top-0 z-[-1]"  ref={sprgtbg}></div>
               <img ref={sprIcnim} src="/assets/images/svg/sv-02.svg" width={600} height={600} className="hidden lg:block absolute right-0 w-[250px] 3xl:w-[300px]"/>
               <div className="">
                 <h1 ref={sptitle} className="text-[36px] lg:text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] lg:max-w-[8ch] font-light mb-[15px] lg:mb-8 xl:mb-[25px] text-black lg:text-white">
                   About SP International
                 </h1>
-                <p ref={spdscrpt} className="text-[14px] lg:text-18 text-[#464646] lg:text-white font-light leading-[1.5] lg:max-w-[90%]  3xl:max-w-[75%] mb-15 lg:mb-[30px]">
+                <p ref={spdscrpt} className="text-[14px] lg:text-18 text-[#464646] lg:text-white font-light leading-[1.5] lg:max-w-[90%]  3xl:max-w-[75%] mb-[7dvh] lg:mb-[30px]">
                   Shapoorji Pallonji International (SPINT) is the international
                   arm of Shapoorji Pallonji Engineering & Construction (SP E&C)
                   for its construction operations outside India.
@@ -2400,11 +2410,11 @@ const mapactive = useRef([]);
           <figure className="absolute w-full h-full bg-white z-[-1]" ref={srvBgimg}>
             <img className="absolute w-full h-full object-cover" src="../assets/images/services-bg.jpg" alt="" />
           </figure>
-          <div className="lg:grid lg:grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
+          <div className="lg:grid lg:grid-cols-[600px_auto] xl:grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
             {/* left */}
             <div className="flex lg:h-full">
          {/*      <div className="w-1/3"></div> */}
-              <div className="w-full pt-[143px] lg:pt-33 pl-5 lg:pl-[245px] 3xl:pl-[310px] bg-primary lg:bg-transparent" ref={srvLftBx}>
+              <div className="w-full pt-[21dvh] lg:pt-33 pl-5 lg:pl-[205px] xl:pl-[245px] 3xl:pl-[310px] bg-primary lg:bg-transparent" ref={srvLftBx}>
                  <div className="absolute -top-58 right-0    " ref={srvsVct}>
                 <img
                   src="../assets/images/svg/srv-vct.svg"
@@ -2414,7 +2424,7 @@ const mapactive = useRef([]);
                   height={356}
                 />
               </div>
-                <div className="lg:ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
+                <div className=" 3xl:ml-[110px] flex flex-col h-full">
                   <h1
                     ref={srvttlRef}
                     className="text-[36px] lg:text-34 xl:text-48 3xl:text-60 font-light gradient-text lg:leading-[70px]"
@@ -2432,7 +2442,7 @@ const mapactive = useRef([]);
                         0{activeService.index + 1}/ 06
                       </p> */}
                     </div>
-                    <div className=" flex lg:flex-col gap-6 lg:gap-0 overflow-x-auto scrollbar-hide whitespace-nowrap lg:whitespace-normal lg:overflow-x-hidden   border-b border-[#ffffff20]  mb-5 lg:mb-0 pt-10 lg:pt-18 lg:pb-21 3xl:pt-14 3xl:pb-21 pr-2">
+                    <div className=" flex lg:flex-col gap-6 lg:gap-0 overflow-x-auto scrollbar-hide whitespace-nowrap lg:whitespace-normal lg:overflow-x-hidden   border-b border-[#ffffff20]  mb-5 lg:mb-0 pt-[4dvh] lg:pt-18 lg:pb-21 3xl:pt-14 3xl:pb-21 pr-2">
                       {content.map((service, index) => (
                         <div
                           key={index}
@@ -2440,7 +2450,7 @@ const mapactive = useRef([]);
                           ref={(el) => (textItemsRef.current[index] = el)}
                         >
                           <p
-                            className={`${activeServiceIndex === index ? "text-white lg:text-black font-bold bo " : "text-white/70 lg:text-black font-light"} text-14px lg:text-[24px] 3xl:text-28 leading-[1.607142857142857]  cursor-pointer group-hover:text-black group-hover:font-bold `}
+                            className={`${activeServiceIndex === index ? "text-white lg:text-black font-bold bo " : "text-white/70 lg:text-black font-light"} text-14px lg:text-[22px] 3xl:text-28 leading-[1.607142857142857] lg:leading-[1.9]  2xl:leading-[1.70]  3xl:leading-[1.607142857142857]  cursor-pointer group-hover:text-black group-hover:font-bold `}
                             onMouseOver={() =>
                             [setActiveService({
                                 image: service.image,
@@ -2473,7 +2483,7 @@ const mapactive = useRef([]);
             </div>
             {/* left */}
 
-            <div className="relative w-full lg:h-full lg:h-[100vh] z-[-1]"  ref={srvsRghtBx}>
+            <div className="relative w-full   lg:h-[100vh] z-[-1]"  ref={srvsRghtBx}>
               <div className="lg:absolute h-full w-full" ref={srvsImgRef}>
                               <div className="lg:absolute z-10 top-0 left-0 w-full lg:h-full lg:bg-gradient-to-r lg:from-black/60 from-0% lg:via-black/60 via-52% lg:to-black/60 to-100%"></div>
 
@@ -2496,7 +2506,7 @@ const mapactive = useRef([]);
               <div className="lg:absolute top-[77px] lg:top-auto lg:bottom-[245px] 3xl:bottom-[300px]  left-[40px] 3xl:left-[58px] z-10 px-5 lg:px-0 pt-7 lg:pt-0" ref={srvsCntb}>
                   <hr
                         ref={brdonRef}
-                        className="hidden lg:block lg:absolute right-[25%] left-[-85%] 3xl:left-[-78%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
+                        className="hidden lg:block lg:absolute right-[25%] left-[-85%] lg:left-[-434px] xl:left-[-594px] 2xl:left-[-594px] 3xl:left-[-658px] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
                       />
                   <hr
                         ref={brdonRef}
@@ -2555,10 +2565,10 @@ const mapactive = useRef([]);
           id="section5"
           className="h-screen relative overflow-hidden whitebgref scroll-area"
         >
-            <div className="lg:grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
+            <div className="lg:grid lg:grid-cols-[600px_auto] xl:grid-cols-[800px_auto]  3xl:grid-cols-[1021px_auto] h-full">
             {/* left start */}
             <div className="flex lg:h-full bg-primary lg:bg-white">
-              <div className="w-full pt-[143px] pl-5 lg:pt-10 xl:pt-15 3xl:pt-33 lg:pl-[245px] 3xl:pl-[310px]">
+              <div className="w-full pt-[16.5dvh] pl-5 lg:pt-25 xl:pt-25 3xl:pt-33 lg:pl-[205px] xl:pl-[245px] 3xl:pl-[310px]">
                  <div className="absolute -top-58 right-0    " ref={srvsVct}>
                 <img
                   src="../assets/images/svg/srv-vct.svg"
@@ -2568,14 +2578,14 @@ const mapactive = useRef([]);
                   height={356}
                 />
               </div>
-                <div className="lg:ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
+                <div className=" 3xl:ml-[110px] flex flex-col h-full">
                   <h1
                    ref={talenttitle}
                     className="text-[36px] lg:text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[1.166666666666667] max-w-[13ch]"
                   >
                     Shaping Diverse Sectors
                   </h1>
-                  <div ref={talentlist} className="scrollbar-hide w-full flex flex-col justify-center lg:h-[450px] 3xl:h-[541px] mt-10 relative overflow-y-hidden 3xl:overflow-visible lg:pl-4 3xl:pl-0">
+                  <div ref={talentlist} className="scrollbar-hide w-full flex flex-col justify-center lg:h-full mt-[4.5dvh] lg:mt-3 relative overflow-y-hidden 3xl:overflow-visible lg:pl-4 3xl:pl-0">
                     <div className="lg:pb-4 relative h-full flex items-center">
                       {/* curved line svg */}
                       <div className="  absolute top-0 left-0 h-full hidden lg:flex flex-col justify-center">
@@ -2615,7 +2625,7 @@ const mapactive = useRef([]);
                             <div
                               key={`${sector.originalIndex}-${sector.position}`}
                               className={`flex items-center gap-5 cursor-pointer ${
-                                isActive ? "ml-[-27px] lg:py-5" : "lg:py-1"
+                                isActive ? "lg:ml-[-27px] lg:py-5" : "lg:py-1"
                               }`}
                               style={{
                                 opacity: opacity,
@@ -2687,7 +2697,7 @@ const mapactive = useRef([]);
             </div>
             {/* left end*/}
             {/* right start */}
-            <div className="relative w-full h-[303px] lg:h-[100vh] z-0" >
+            <div className="relative w-full h-[35dvh] lg:h-[100vh] z-0" >
               <div ref={talentimage} className="absolute h-full w-full">
                 {/* hear the image that changes according to the vertical slider */}
                 {/* Image section */}
@@ -2817,51 +2827,52 @@ const mapactive = useRef([]);
           id="section6"
           className="h-screen relative md:overflow-hidden whitebgref scroll-area bg-white"
         >
-  <div className="w-full pt-25 3xl:pt-33 lg:pl-[245px] 3xl:pl-[310px]">
-            <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
+  <div className="w-full pt-[11.5dvh] 3xl:pt-33 lg:pl-[205px] xl:pl-[245px] 3xl:pl-[310px]">
+            <div className="px-5 lg:px-0 pt-[4.7dvh] lg:pt-0 pb-6 lg:pb-0   3xl:ml-[110px] flex flex-col h-full">
               <h1
                 ref={maptitle}
-                className="text-34 xl:text-40 3xl:text-60 font-light gradient-text leading-[1.2] 3xl:leading-[1.18] max-w-[15ch]"
+                className="text-[36px] lg:text-34 xl:text-48 3xl:text-60  font-light gradient-text text-bl leading-[1.2] 3xl:leading-[1.18] max-w-[15ch]"
               >
                 Our Presence is Steadily Expanding
               </h1>
             </div>
             <div className="  flex justify-center" ref={mapimage}>
-             <div className="overflow-x-auto overflow-y-visible ">
-               <div
-                className="relative min-w-[733px]  "
+             <div className="[position:initial] lg:relative  overflow-x-scroll lg:overflow-x-visible  scrollbar-hide  ">
+               <div  
+                className="relative lg:[position:initial] min-w-[86.2dvh]  lg:min-w-[118.2dvh]  xl:min-w-[86.2dvh] overflow-hide   "
                 ref={containersRef}
               >
-                <img
+                {/* <img
                   src="../assets/images/mobilebmap.png"
                   alt="Arrow"
                   width={733}
                   height={355}
-                  className="object-cover img-f select-none min-w-[733px] lg:hidden  "
-                />
+                  className="object-cover img-f select-none min-w-[86.2dvh] max-h-[355px] lg:hidden  "
+                /> */}
                 <img
                   src="../assets/images/world_map.png"
                   alt="Arrow"
                   width={1158}
                   height={679}
-                  className="object-cover img-f select-none min-w-[733px] hidden lg:block "
+                  className="object-cover img-f select-none xl:w-[1156px]  "
                 />
-              <div className="absolute top-[111px] -right-[93px] lg:initial lg:top-0 lg:right-0 overflow-auto w-full h-full">
+              <div className="  overflow-hidden w-full  h-full">
                 {/* Dots */}
                 {cities.map((city) => (
                   <div
                     key={city.id}
                     ref={mapactive}
-                    className={`absolute   transition-all duration-300 md:w-[43%] md:h-[76%] 3xl:w-[41.5%] 3xl:h-[76%]  flex items-center justify-center  ${
+                    className={`absolute   transition-all duration-300 w-[46%] h-[74%]  md:w-[44%] md:h-[74%] lg:w-[43%] lg:h-[76%] 3xl:w-[41.5%] 3xl:h-[76%]  flex items-center justify-center  ${
                       activeDot === city.id ? "z-[999]" : ""
                     }`}
                     style={{ left: city.left, top: city.top }}
                   >
-                    <div
-                  
-                  
-                      onClick={() => setActiveDot(city.id)}
-                      className={`w-[15px] h-[15px] group cursor-pointer relative z-10 rounded-full transition-all duration-500 itmbsx backdrop-blur-[4px] ${
+                    <div                    
+                      onClick={() => {
+                    setActiveDot(city.id); 
+                    setSelectedCity({ id: city.id, pjtcompleted: city.pjtcompleted,iconicpjts: city.iconicpjts ,dedicatedemployees: city.dedicatedemployees });
+                  }}
+                      className={`w-[8px] h-[8px] lg:w-[15px] lg:h-[15px] group cursor-pointer relative  z-10 rounded-full transition-all duration-500 itmbsx backdrop-blur-[4px] ${
                         activeDot === city.id
                           ? "bg-[#30F955] shadow-[0_0_35px_#30F955,0_0_50px_rgba(0,255,136,0.6)] border border-[#97DCFF] scale-full"
                           : "bg-[#30B6F9]   border border-[#97DCFF] scale-85"
@@ -2879,7 +2890,7 @@ const mapactive = useRef([]);
                     </span>
                     <div
                   
-                      className={`translate-x-[50%] -left-1/2 top-0  rounded-full transition-all duration-500 absolute  w-full h-full  
+                      className={`hidden lg:block translate-x-[50%] -left-1/2 top-0  rounded-full transition-all duration-500 absolute  w-full h-full  
                        `}
                       ref={activeDot === city.id ? bubbleRef : undefined}
                       style={{ transform: `translateY(${adjustY}px)` }}
@@ -2888,10 +2899,10 @@ const mapactive = useRef([]);
                         ref={activeDot === city.id ? outsideRef : null}
                         className={` transition-all duration-500  outside `}
                       >
-                        <div className="flex lg:block gap-2">
+                        <div>
                           <div
                             className={`bubble  bg-[#0015FF66] transition-all duration-500 delay-100 border  border-[#0015FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)] 
-                                lg:absolute left-[0%] top-[21%] ${
+                                absolute left-[0%] top-[21%] ${
                                   activeDot === city.id
                                     ? "opacity-100 scale-full float-bubble1"
                                     : "scale-80 opacity-0 "
@@ -2907,7 +2918,7 @@ const mapactive = useRef([]);
 
                           <div
                             className={`bubble  bg-[#00C8FF80] border border-[#00C8FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)] 
-                                lg:absolute left-[48.3%] top-[5%] ${
+                                absolute left-[48.3%] top-[5%] ${
                                   activeDot === city.id
                                     ? "opacity-100 scale-full float-bubble2"
                                     : "scale-80 opacity-0 "
@@ -2922,7 +2933,7 @@ const mapactive = useRef([]);
                           </div>
                           <div
                             className={`bubble  bg-[#0066EB80] border border-[#0066EB26] backdrop-blur-sm  text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)]
-                                lg:absolute left-[51%] top-[55%] ${
+                                absolute left-[51%] top-[55%] ${
                                   activeDot === city.id
                                     ? "opacity-100 scale-full float-bubble3"
                                     : "scale-80 opacity-0 "
@@ -2955,10 +2966,88 @@ const mapactive = useRef([]);
                   </div>
                 ))}
               </div>
+              
               </div>
              </div>
             </div>
+             {selectedCity ? (
+               <div
+                  
+                      className={`lg:hidden px-5 top-0    transition-all duration-500    w-full h-full overflow-x-auto scrollbar-hide
+                       `} >
+                      <div
+                        
+                        className={` transition-all duration-500  outside `}
+                      >
+                        <div className="flex lg:block gap-2">
+                          <div
+                            className={`me-2 bubble  bg-[#0015FF66] transition-all duration-500 delay-100 border  border-[#0015FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full  
+                                lg:absolute left-[0%] top-[21%] ${
+                                  activeDot === selectedCity.id
+                                    ? "opacity-100 scale-full float-bubble1"
+                                    : "scale-80 opacity-0 "
+                                }   `}
+                          >
+                            <p className="text-[24px] font-[200] leading-tight">
+                              {selectedCity.iconicpjts}
+                            </p>
+                            <p className="text-[14px] font-[200]">
+                              Iconic Projects
+                            </p>
+                          </div>
+
+                          <div
+                            className={`me-2  bubble  bg-[#00C8FF80] border border-[#00C8FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full  
+                                lg:absolute left-[48.3%] top-[5%] ${
+                                  activeDot === selectedCity.id
+                                    ? "opacity-100 scale-full float-bubble2"
+                                    : "scale-80 opacity-0 "
+                                }   transition-all duration-500 delay-200`}
+                          >
+                            <p className="text-[24px] font-[200] leading-tight">
+                              {selectedCity.pjtcompleted}
+                            </p>
+                            <p className="text-[14px] font-[200]">
+                              Project Completed
+                            </p>
+                          </div>
+                          <div
+                            className={`bubble  bg-[#0066EB80] border border-[#0066EB26] backdrop-blur-sm  text-white text-center p-3 rounded-full 
+                                lg:absolute left-[51%] top-[55%] ${
+                                  activeDot === selectedCity.id
+                                    ? "opacity-100 scale-full float-bubble3"
+                                    : "scale-80 opacity-0 "
+                                }   transition-all duration-500 delay-300`}
+                          >
+                            <p className="text-[24px] font-[200] leading-tight">
+                              {selectedCity.dedicatedemployees}
+                            </p>
+                            <p className="text-[14px] font-[200]">
+                              Dedicated Employees
+                            </p>
+                          </div>
+                        </div>
+
+                        <div
+                          className={`hidden lg:block absolute -left-[50px] w-[100%] h-[100%] rounded-full z-[-1] scale-pulse ${
+                            activeDot === selectedCity.id
+                              ? "opacity-100 scale-full"
+                              : "opacity-0 "
+                          }   transition-all duration-500 delay-300`}
+                          style={{
+                            backgroundImage: `url(../assets/images/ring3.svg)`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                          }}
+                        ></div>
+                      </div>
+                    </div>
+                      ) : (
+   ""
+               )}
           </div>
+          
         </section>
       </div>
        {/* Slide 6 */}
@@ -2974,23 +3063,24 @@ const mapactive = useRef([]);
         >
           <figure ref={cutltimg} className="absolute w-full h-full z-[-1] mx-auto my-0 left-0 right-0">
            <img className="absolute object-cover w-full h-full z-0" src="../assets/images/driven_force.jpg" alt=""/>
-           <div className="bg-[linear-gradient(270deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.65)_51.29%,rgba(0,0,0,0.75)_100%)] absolute w-full h-full z-10"></div>
+           <div className="bg-[linear-gradient(180deg,rgba(0,0,0,0.35)_0%,rgba(0,0,0,0.75)_82.45%)] 
+           lg:bg-[linear-gradient(270deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.65)_51.29%,rgba(0,0,0,0.75)_100%)] absolute w-full h-full z-10"></div>
           </figure>
   <div
-            className="lg:grid grid-cols-[950px_auto] 2xl:grid-cols-[950px_auto] 3xl:grid-cols-[1201px_auto] h-full 
+            className="lg:grid lg:grid-cols-[620px_auto] xl:grid-cols-[800px_auto] 2xl:grid-cols-[950px_auto] 3xl:grid-cols-[1201px_auto] h-full 
       "
           >
             {/* LEFT SIDE */}
-            <div className="w-full pt-33 px-5 lg:pl-[245px] 3xl:pl-[300px] lg:pb-[120px] 3xl:pb-[212px] h-full lg:h-auto">
-              <div className="lg:ml-[80px] 3xl:ml-[110px] flex flex-col lg:justify-between h-full gap-[129px] lg:gap-0">
+            <div className="w-full pt-33 px-5 lg:pe-0 lg:pl-[205px] xl:pl-[245px] 3xl:pl-[300px] lg:pb-[120px] 3xl:pb-[212px] h-full lg:h-auto">
+              <div className="  3xl:ml-[110px] flex flex-col justify-between h-full  lg:gap-0">
                 <h1
                   ref={cutltttl}
                   className="max-w-[14ch] text-[36px] lg:text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light mb-8 xl:mb-[25px] text-white"
                 >
                   Driven by Talent. <br /> Defined by Culture.
                 </h1>
-            <div>
-              <div className="flex lg:hidden flex-col lg:justify-end lg:h-full pb-4   overflow-hidden relative gap-2 lg:gap-0 ">
+            <div className="mb-[35%] md:mb-[15%] lg:mb-[15%] xl:mb-[35%]">
+              <div className="max-w-[34ch] flex lg:hidden flex-col lg:justify-end lg:h-full mb-4  relative gap-2 lg:gap-0  before:content-[''] before:absolute before:right-[50px]   before:bg-primary before:w-full before:h-full ">
               <AnimatePresence mode="wait" >
                 <motion.div
                 ref={cutltdtls}
@@ -2999,27 +3089,16 @@ const mapactive = useRef([]);
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="p-5 lg:p-7 3xl:py-12 3xl:px-15 bg-primary w-fit 2xl:w-[400px] 3xl:w-[550px] text-white relative "
+                  className="p-5 md:p-10 lg:p-7 3xl:py-12 3xl:px-15 bg-primary w-fit 2xl:w-[400px] 3xl:w-[550px] text-white relative "
                 >
-                  <div className="h-fit mb-5 overflow-hidden">
-                    <motion.h3
-                      key={activeItem.id}
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -30 }}
-                      transition={{ duration: 0.5, ease: "easeInOut" }}
-                      className="text-29 font-light leading-[1] "
-                    >
-                      {activeItem.title}
-                    </motion.h3>
-                  </div>
+                  
                   <motion.p
                     key={activeItem.id}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="text-16 xl:text-19 font-light leading-[1.5]"
+                    className="text-[14px] xl:text-19 font-light leading-[1.5]"
                   >
                     {activeItem.desc}
                   </motion.p>
@@ -3046,10 +3125,10 @@ const mapactive = useRef([]);
                         : ""
                     }`}
                         >
-                       <div className={`text-[15px] 3xl:text-19 lg:min-w-[110px] py-1 lg:py-0 3xl:min-w-[130px]  text-white/80 leading-[1.473684210526316] 
-                    transition-all duration-300 cursor-pointer ps-2 lg:ps-0  ${
+                       <div className={`text-[15px] lg:text-[20px] 3xl:text-19 lg:min-w-[110px] py-1 lg:py-0 3xl:min-w-[130px]  text-white/80 leading-[1.473684210526316] 
+                    transition-all duration-300 cursor-pointer  ${
                       activeItem.id === item.id
-                        ? "font-bold text-white border-l-[2px] border-secondary lg:border-l-0 "
+                        ? "font-bold text-white border-l-[2px] border-secondary lg:border-l-0  ps-2 lg:ps-0 "
                         : "hover:font-bold hover:text-white font-light "
                     }`}>
                            {item.title.split(" ").map((word, i) => (

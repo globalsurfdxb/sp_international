@@ -233,7 +233,7 @@ body::-webkit-scrollbar {
 } */
 
 .left-spacing {
-  @apply pl-[15px] lg:pl-[calc((100%-930px)/2)] xl:pl-[calc((100%-79rem)/2)] 2xl:pl-[calc((100%-75rem)/2)] 3xl:pl-[calc((100%-98.125rem)/2)];
+  @apply pl-[15px] lg:pl-[4%] xl:pl-[5%] 2xl:pl-[5%] 3xl:pl-[9.1%];
 }
 
 .st0 {
@@ -427,17 +427,7 @@ body::-webkit-scrollbar {
   }
 }
 
-.float-bubble1 {
-  animation: float-bubble 14s ease-in-out infinite;
-}
 
-.float-bubble2 {
-  animation: float-bubble 12s ease-in-out infinite;
-}
-
-.float-bubble3 {
-  animation: float-bubble 10s ease-in-out infinite;
-}
 
 @keyframes fadeInScale {
   from {
@@ -579,7 +569,26 @@ body::-webkit-scrollbar {
 }
 
 
+@media (min-width: 1024px) {
+  .float-bubble1 {
+  animation: float-bubble 14s ease-in-out infinite;
+}
+
+.float-bubble2 {
+  animation: float-bubble 12s ease-in-out infinite;
+}
+
+.float-bubble3 {
+  animation: float-bubble 10s ease-in-out infinite;
+}
+}
 @media (max-width: 1023px) {
+  
+  
+.bubble {
+  min-width: 140px;
+  min-height: 140px;
+  box-shadow: none;}
   .gradient-text{
     background: none;
     -webkit-background-clip: text;
@@ -587,6 +596,12 @@ body::-webkit-scrollbar {
     background-clip: text;
     color: white;
   }
+  .text-bl{
+    background: none;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: black;
+    background-clip: text;
+    color: black;}
 
 }
 @media (min-width: 1280px) {
