@@ -74,6 +74,7 @@ const MainNavbar = () => {
     })
   };
 
+
   return (
     <>
       <nav className="pt-[16px] pb-[17px] border-b border-[#f0f0f0] relative z-50 bg-white">
