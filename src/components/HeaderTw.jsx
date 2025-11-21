@@ -108,9 +108,14 @@ useGSAP(() => {
 }, []);
 
   
+    const [logostatus, setLogostatus] = useState(false);
 
 const length = activeSection.length
 console.log(activeSection[length-1])
+    if(activeSection[length-1] == 6){ 
+      setLogostatus( true )
+    }
+    console.log('logostatus')
 const nextSection = sections.find((section) => section.id === `section${parseInt(activeSection[length-1])+1}`);
 const scrollStep = 700;
 
@@ -137,7 +142,8 @@ const scrollStep = 700;
         setIndexToScroll(6);
         break;
     }
-
+    
+ 
     const index = sections.findIndex((s) => s.id === sectionId);
 
   
@@ -160,8 +166,13 @@ const scrollStep = 700;
     <>
    <div className="fixed top-13 right-0 lg:right-10 3xl:right-38 z-50 w-full ">
         <div className='flex gap-8 items-center justify-between lg:justify-end ps-5 lg:ps-0'>
-           <div className="flex justify-center items-center lg:hidden">
-                <img className="logsc" src="/assets/images/logo.svg" alt="Logo" width={90} height={55} />
+            
+              <div className="flex justify-center items-center lg:hidden">
+  
+                  <img src="/assets/images/main-logo.svg" width={90} height={55} className={`logsc ${logostatus === true ? 'block' : 'hidden'}`}/>
+              
+                  <img src="/assets/images/logo.svg" width={90} height={55} className={`logsc ${logostatus === true ? 'hidden' : 'block'}`}/>
+              
               </div>
           <div className='flex gap-6 lg:gap-2'>
             <a href="#">
