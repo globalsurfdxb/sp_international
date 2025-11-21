@@ -36,7 +36,7 @@ const cities = [
     id: "argentina",
     name: "Argentina",
     left: "16%",
-    top: "38%",
+    top: "35%",
     iconicpjts: "200+",
     pjtcompleted: "320+",
     dedicatedemployees: "5000+",
@@ -2839,7 +2839,7 @@ const mapactive = useRef([]);
             <div className="  flex justify-center" ref={mapimage}>
              <div className="[position:initial] lg:relative  overflow-x-scroll lg:overflow-x-visible  scrollbar-hide  ">
                <div  
-                className="relative lg:[position:initial] min-w-[86.2dvh]  lg:min-w-[118.2dvh]  xl:min-w-[86.2dvh] overflow-hide   "
+                className="relative lg:[position:initial]   overflow-hide   "
                 ref={containersRef}
               >
                 {/* <img
@@ -2854,16 +2854,16 @@ const mapactive = useRef([]);
                   alt="Arrow"
                   width={1158}
                   height={679}
-                  className="object-cover img-f select-none xl:w-[1156px]  "
+                  className="object-cover img-f select-none min-w-[733px] w-[733px] h-[355px] lg:h-full lg:min-w-[1156px] lg:w-[1156px]  "
                 />
-              <div className="  overflow-hidden w-full  h-full">
+              <div className="absolute top-[-121px] lg:top-0 left-[-69px] lg:left-0 min-w-[733px] w-[733px] h-[436px] lg:h-full lg:w-[1156px]  overflow-hidden  lg:overflow-visible    ">
                 {/* Dots */}
                 {cities.map((city) => (
                   <div
                     key={city.id}
                     ref={mapactive}
-                    className={`absolute   transition-all duration-300 w-[46%] h-[74%]  md:w-[44%] md:h-[74%] lg:w-[43%] lg:h-[76%] 3xl:w-[41.5%] 3xl:h-[76%]  flex items-center justify-center  ${
-                      activeDot === city.id ? "z-[999]" : ""
+                    className={` absolute   transition-all duration-300 flex items-center justify-center    w-[480px] h-[480px] ${
+                      activeDot === city.id ? "z-[999]   " : ""
                     }`}
                     style={{ left: city.left, top: city.top }}
                   >
@@ -2890,7 +2890,7 @@ const mapactive = useRef([]);
                     </span>
                     <div
                   
-                      className={`hidden lg:block translate-x-[50%] -left-1/2 top-0  rounded-full transition-all duration-500 absolute  w-full h-full  
+                      className={`hidden     lg:block translate-x-[50%] -left-1/2 top-0  rounded-full transition-all duration-500 absolute  w-full h-full  
                        `}
                       ref={activeDot === city.id ? bubbleRef : undefined}
                       style={{ transform: `translateY(${adjustY}px)` }}
@@ -2973,7 +2973,7 @@ const mapactive = useRef([]);
              {selectedCity ? (
                <div
                   
-                      className={`lg:hidden px-5 top-0    transition-all duration-500    w-full h-full overflow-x-auto scrollbar-hide
+                      className={`lg:hidden px-5 pt-5 top-0    transition-all duration-500    w-full h-full overflow-x-auto scrollbar-hide
                        `} >
                       <div
                         
