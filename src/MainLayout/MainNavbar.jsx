@@ -188,18 +188,59 @@ const MainNavbar = () => {
               exit="closed"
               variants={overlayVariants}
               onClick={toggleMenu}
-              className="fixed inset-0 bg-black bg-opacity-30 z-40 lg:hidden"
+              className="fixed inset-0 bg-black bg-opacity-30 z-50 lg:hidden"
             />
             <motion.div
               initial="closed"
               animate="open"
               exit="closed"
               variants={menuVariants}
-              className="fixed top-0 right-0 h-full w-full max-w-[450px] bg-white shadow-2xl z-50 lg:hidden overflow-y-auto"
+              className="fixed top-0 right-0 h-full w-full max-w-[320px] bg-white shadow-2xl z-50 lg:hidden overflow-y-auto"
             >
-              <div className="p-8 pt-24">
+              <div className='absolute right-5 top-5'>
+                 <button
+              onClick={toggleMenu}
+              className="lg:hidden z-[60] w-10 h-10 flex items-center justify-center transition-all duration-300 relative"
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? (
+                // Close Icon (X)
+                <div className="relative w-6 h-6 flex items-center justify-center">
+                  <motion.span
+                    initial={{ rotate: 0, scale: 0 }}
+                    animate={{ rotate: 45, scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-6 h-0.5 bg-black block absolute"
+                  />
+                  <motion.span
+                    initial={{ rotate: 0, scale: 0 }}
+                    animate={{ rotate: -45, scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-6 h-0.5 bg-black block absolute"
+                  />
+                </div>
+              ) : (
+                // Hamburger Icon
+                <div className="flex flex-col gap-1.5">
+                  <motion.span
+                    className="w-6 h-0.5 bg-black block"
+                  />
+                  <motion.span
+                    className="w-6 h-0.5 bg-black block"
+                  />
+                  <motion.span
+                    className="w-6 h-0.5 bg-black block"
+                  />
+                </div>
+              )}
+            </button>
+              </div>
+              <div className="flex items-center p-3 absolute">
+                <img src="./assets/images/main-logo.svg" alt="logo" />
+              </div>
+              <div className="p-8 pt-28 flex flex-col gap-2 justify-between h-full">
                 {/* Mobile Menu Items */}
-                <ul className="space-y-6 mb-8">
+                <ul className="space-y-3 ">
                   {menuItems.map((item, index) => (
                     <motion.li
                       key={index}
@@ -220,7 +261,7 @@ const MainNavbar = () => {
                                 toggleSubmenu(item.name);
                               }
                             }}
-                            className="text-xl font-light uppercase hover:font-bold transition-all duration-300 flex-1"
+                            className="text-16 font-light uppercase hover:font-bold transition-all duration-300 flex-1"
                           >
                             {item.name}
                           </a>

@@ -60,19 +60,19 @@ const WorkplaceSection = () => {
   }, []);
 
   return (
-    <section className="w-full bg-white text-black py-8 md:py-17 xl:py-22 2xl:py-30">
-      <motion.h1 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 container font-light mb-[50px] leading-[1.166666666666667]">
+    <section className="w-full bg-white text-black py-10   xl:py-15 2xl:py-30">
+      <motion.h1 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 container font-light mb-6 md:mb-[50px] leading-[1.166666666666667]">
         {heading}
       </motion.h1>
 
       <div className="container">
-        <div className="flex flex-col xl:flex-row items-center gap-10 2xl:gap-[108px]">
+        <div className="flex flex-col lg:flex-row items-center gap-10 2xl:gap-[108px]">
           {/* Left Side - Image */}
           <div className="flex-shrink-0 relative overflow-hidden" ref={imageContainerRefTwo}>
             <img
               src={image}
               alt="Workplace environment"
-              className="object-cover 2xl:w-[916px] 2xl:h-[660px] xl:w-[760px] xl:h-[540px] lg:w-[640px] lg:h-[460px] md:w-[540px] md:h-[380px] w-full h-auto"
+              className="object-cover 3xl:w-[916px] 2xl:w-[650px] 2xl:h-[660px] xl:w-[760px] xl:h-[540px] lg:w-[540px] lg:h-[460px]  w-full h-auto"
             />
             {/* Overlay that reveals from right to left */}
             <div
@@ -82,7 +82,7 @@ const WorkplaceSection = () => {
           </div>
 
           {/* Right Side - Text Content */}
-          <div className="flex flex-col justify-start">
+          <div className="flex flex-col justify-start w-full">
             <div className="flex flex-col border-t border-b border-black/20 lg:max-w-[40ch]">
               {points.map((point, index) => {
                 const isActive = getIsActive(index);
@@ -92,7 +92,7 @@ const WorkplaceSection = () => {
                     onMouseEnter={() => !isMobile && setHoverIndex(index)}
                     onMouseLeave={() => !isMobile && setHoverIndex(null)}
                     onClick={() => setActiveIndex(index)}
-                    className={`relative  text-24 lg:text-29 leading-[1.344827586206897] cursor-pointer border-b border-black/20 last:border-b-0 py-[31px] ${
+                    className={`relative  text-24 lg:text-29 leading-[1.344827586206897] cursor-pointer border-b border-black/20 last:border-b-0 py-5 xl:py-[31px] ${
                       isActive
                         ? "text-black pl-[30px]"
                         : "text-paragraph font-light"

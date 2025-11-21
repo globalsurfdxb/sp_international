@@ -148,7 +148,7 @@ const Index = () => {
             {currentItems.map((item, index) => (
               <motion.div variants={moveUp(0.1*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}
                 key={item.id}
-                className=""
+                className="border-b border-black/20 pb-5 lg:border-b-0 lg:pb-0"
               >
                 <img
                   src={item.image}

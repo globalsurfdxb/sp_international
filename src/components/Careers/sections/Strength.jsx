@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import { moveLeft, moveRight, moveUp } from "../../../motionVarients";
 const Strength = () => {
   return (
-    <section className="py-8 md:py-15 xl:py-20 2xl:py-25">
-      <div className="container flex flex-col md:flex-row items-start 2xl:gap-[190px]">
+    <section className="py-10 xl:py-15 2xl:py-25">
+      <div className="container flex flex-col md:flex-row items-start gap-5 2xl:gap-[190px]">
         {/* Left Button */}
-        <motion.div variants={moveRight(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="mb-10 md:mb-0 md:mt-[10px] flex justify-center md:justify-start">
+        <motion.div variants={moveRight(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="mb-6 md:mb-0 md:mt-[10px] flex justify-center md:justify-start">
           <div className="relative inline-block">
             {/* SVG Gradient Border */}
             <svg width="223" height="45" viewBox="0 0 223 45" xmlns="http://www.w3.org/2000/svg" className="w-[223px] h-[45px]">
@@ -30,7 +30,7 @@ const Strength = () => {
 
         {/* Right Text Section */}
         <div className="text-left">
-          <motion.h2 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 font-light leading-[1.166666666666667] text-black mb-[30px]">{careersData.title}</motion.h2>
+          <motion.h2 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 font-light leading-[1.166666666666667] text-black mb-5">{careersData.title}</motion.h2>
           <motion.p variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 font-light leading-[1.473684210526316] text-paragraph max-w-[72ch]">{careersData.description}</motion.p>
           <motion.div variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="border-b border-gray-200 mt-[30px] xl:mt-[50px] 2xl:mt-[70px]" />
         </div>

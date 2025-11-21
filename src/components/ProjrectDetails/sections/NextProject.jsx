@@ -43,7 +43,7 @@ const NextProject = () => {
   }, []);
 
   return (
-    <section className="py-10 xl:py-15 lg:py-[120px]">
+    <section className="py-10 md:py-13 xl:py-15 2xl:py-[120px]">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-[auto_550px] xl:grid-cols-[auto_1fr] 3xl:grid-cols-[auto_961px] gap-8 lg:gap-20 xl:gap-[137px]">
           <div className="flex flex-col justify-between items-left pt-0 2xl:pt-[45px] pb-0 2xl:pb-[50px]">

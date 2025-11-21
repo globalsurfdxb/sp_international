@@ -18,7 +18,7 @@ const cities = [
     id: "canada",
     name: "Canada",
     left: "3%",
-    top: "0%",
+    top: "-5%",
     iconicpjts: "200+",
     pjtcompleted: "320+",
     dedicatedemployees: "5000+",
@@ -99,7 +99,7 @@ const cities = [
     id: "unitedkingdom",
     name: "United Kingdom",
     left: "32.5%",
-    top: "-1%",
+    top: "-2%",
     iconicpjts: "200+",
     pjtcompleted: "320+",
     dedicatedemployees: "5000+",
@@ -515,7 +515,7 @@ const items = [
 ];
 
 
-const SlideScrollThree = ({
+const SlideScrollThreebackup = ({
   setActiveSection,
   indexToScroll,
   setIndexToScroll,
@@ -615,14 +615,13 @@ const mapactive = useRef([]);
   
 
   const [activeDot, setActiveDot] = useState("false");
-  const [selectedCity, setSelectedCity] = useState(null);
+  
     const [adjustY, setAdjustY] = useState(0);
   
     const bubbleRef = useRef(null);
     const containersRef = useRef(null);
   
     useEffect(() => {
-       if (window.innerWidth >= 1024) {
       if (!activeDot || !bubbleRef.current || !containersRef.current) return;
   
       const bubble = bubbleRef.current.getBoundingClientRect();
@@ -635,7 +634,6 @@ const mapactive = useRef([]);
         offsetY = container.bottom - bubble.bottom; // push up
       }
       setAdjustY(offsetY);
-    }
     }, [activeDot]);
   
     const outsideRef = useRef(null);
@@ -1660,7 +1658,6 @@ const mapactive = useRef([]);
     description: content[0].description,
     index: 0,
   });
-  const [activeServiceIndex, setActiveServiceIndex] = useState(0);
 
 
    const sectors = [
@@ -1720,62 +1717,54 @@ const mapactive = useRef([]);
     const [displayedIndex, setDisplayedIndex] = useState(activeIndex);
     const animationRef = useRef(null);
   
-  const handleSlideClick = (targetIndex) => {
-  const isMobile = window.matchMedia("(max-width:1023px)").matches;
-
-  // 🔥 MOBILE BEHAVIOR — no rotation, no step animation
-  if (isMobile) {
-    setIsAnimating(false);
-    setAnimationDirection(0);
-    setActiveIndex(targetIndex);        // highlight clicked item
-    setDisplayedIndex(targetIndex);     // update right-side content
-    return;
-  }
-
-  // ========= DESKTOP (your original rotation logic) =========
-  if (isAnimating || targetIndex === activeIndex) return;
-
-  if (animationRef.current) {
-    clearInterval(animationRef.current);
-  }
-
-  const totalSectors = sectors.length;
-
-  let diff = targetIndex - activeIndex;
-
-  while (diff > totalSectors / 2) diff -= totalSectors;
-  while (diff < -totalSectors / 2) diff += totalSectors;
-
-  const direction = diff > 0 ? 1 : -1;
-  const steps = Math.abs(diff);
-
-  if (steps === 0) return;
-
-  setAnimationDirection(direction);
-  setIsAnimating(true);
-
-  const path = [];
-  let current = activeIndex;
-  for (let i = 0; i < steps; i++) {
-    current = (current + direction + totalSectors) % totalSectors;
-    path.push(current);
-  }
-
-  let stepIndex = 0;
-  animationRef.current = setInterval(() => {
-    setActiveIndex(path[stepIndex]);
-    stepIndex++;
-
-    if (stepIndex >= path.length) {
-      clearInterval(animationRef.current);
-      animationRef.current = null;
-      setIsAnimating(false);
-      setAnimationDirection(0);
-      setDisplayedIndex(path[path.length - 1]);
-    }
-  }, 400);
-};
-
+    const handleSlideClick = (targetIndex) => {
+      if (isAnimating || targetIndex === activeIndex) return;
+  
+      // Clear any existing animation
+      if (animationRef.current) {
+        clearInterval(animationRef.current);
+      }
+  
+      const totalSectors = sectors.length;
+  
+      // Calculate shortest path
+      let diff = targetIndex - activeIndex;
+  
+      // Normalize difference to shortest path
+      while (diff > totalSectors / 2) diff -= totalSectors;
+      while (diff < -totalSectors / 2) diff += totalSectors;
+  
+      const direction = diff > 0 ? 1 : -1;
+      const steps = Math.abs(diff);
+  
+      if (steps === 0) return;
+  
+      setAnimationDirection(direction); // Set direction for animation
+      setIsAnimating(true);
+  
+      // Create array of indices to visit
+      const path = [];
+      let current = activeIndex;
+      for (let i = 0; i < steps; i++) {
+        current = (current + direction + totalSectors) % totalSectors;
+        path.push(current);
+      }
+  
+      // Animate through the path
+      let stepIndex = 0;
+      animationRef.current = setInterval(() => {
+        setActiveIndex(path[stepIndex]);
+        stepIndex++;
+  
+        if (stepIndex >= path.length) {
+          clearInterval(animationRef.current);
+          animationRef.current = null;
+          setIsAnimating(false);
+          setAnimationDirection(0);
+          setDisplayedIndex(path[path.length - 1]); // ✅ update right-side content only now
+        }
+      }, 400);
+    };
   
     const getVisibleSectors = () => {
       const result = [];
@@ -1894,9 +1883,9 @@ const mapactive = useRef([]);
                 autoPlay
                 loop
                 muted
-                className=" w-full h-full object-cover absolute top-0 left-0 right-0 z-[1]"
+                className="w-full h-full object-cover absolute top-0 left-0 right-0 z-[1]"
               ></video>
-               
+
               {/* Block 1 */}
               <div
                 ref={(el) => (blockRefs.current[0] = el)}
@@ -1924,24 +1913,23 @@ const mapactive = useRef([]);
 
           <div className="relative z-[1] h-full">
             <div className="flex flex-col justify-end h-full">
-              <div className="w-full px-5 lg:p-0 lg:w-[79%] ml-auto text-white">
-                <div className="border-b border-white/30 pb-[33px] mb-1 lg:border-b-0 lg:pb-0 lg:mb-0"  ref={titleOneRef}>
-                  <h1 
-                  className="text-[40px] lg:text-70 font-light text-[#FFFBFB] max-w-[20ch] leading-[1.15] lg:leading-[80px] pe-2"
+              <div className="w-[79%] ml-auto text-white">
+                <h1
+                  ref={titleOneRef}
+                  className="text-70 font-light max-w-[20ch] leading-[80px]"
                 >
                   Trusted Legacy of Engineering Excellence
                 </h1>
-                </div>
               </div>
 
               <div
                 ref={brdrRef}
-                className="hidden lg:block my-10 w-full border-t border-white/30"
+                className="my-10 w-full border-t border-white/30"
               ></div>
 
-              <div className="w-full lg:w-[50%] xl:w-[44%] ml-auto px-5 lg:px-0 text-white mb-[22dvh] lg:mb-19 flex justify-between items-center mr-38 gap-7">
-                <div className="flex flex-col lg:flex-row lg:items-center gap-[17px] lg:gap-2" ref={subtitleRef}>
-                  <h2 className="text-[22px] lg:text-32 font-light leading-[2.05] lg:leading-[1.5] lg:max-w-[14ch]">
+              <div className="w-[44%] ml-auto text-white mb-19 flex justify-between items-center mr-38">
+                <div className="flex items-center gap-2" ref={subtitleRef}>
+                  <h2 className="text-32 font-light max-w-[14ch]">
                     Changing Skylines Since 1865
                   </h2>
                   <img
@@ -1949,12 +1937,11 @@ const mapactive = useRef([]);
                     alt="Logo"
                     width={71}
                     height={71}
-                    className="w-[30px] h-[30px] lg:w-[71px] lg:h-[71px] "
                   />
                 </div>
 
                 <div
-                  className="hidden lg:flex flex-col items-center gap-3"
+                  className="flex flex-col items-center gap-3"
                   ref={iconsRef}
                 >
                   <p className="text-13 uppercase font-light">Stay Connected</p>
@@ -1986,7 +1973,6 @@ const mapactive = useRef([]);
                   </div>
                 </div>
               </div>
-              
             </div>
           </div>
 
@@ -1994,7 +1980,7 @@ const mapactive = useRef([]);
           {
             <div
               ref={overlayRef}
-              className="absolute inset-0 bg-black/55 lg:bg-black/35 h-[100dvh]"
+              className="absolute inset-0 bg-black/35 h-[100dvh]"
             ></div>
           }
         </section>
@@ -2014,12 +2000,12 @@ const mapactive = useRef([]);
                            <img src={sprintData.mainBgImage} alt="" width={2000} height={1500} className="w-full h-full object-cover" ref={bgImageRef} />
                          </div> */}
           <div
-            className="lg:grid lg:grid-cols-[2fr_5fr] 3xl:grid-cols-[657px_auto] h-full bg-transparent"
+            className="grid grid-cols-[2fr_5fr] 3xl:grid-cols-[657px_auto] h-full bg-transparent"
             ref={ttbxsRef}
           >
             <div
               ref={leftSecRef}
-              className="relative py-4 xl:py-[50px] xl:pl-[150px] overflow-hidden hidden lg:block"
+              className="relative py-4 xl:py-[50px] xl:pl-[150px] overflow-hidden"
             >
              
               <div
@@ -2039,7 +2025,7 @@ const mapactive = useRef([]);
 
             <div
               ref={rightSecRef}
-              className="relative flex flex-col  px-10 xl:px-[90px] pb-20 xl:pb-[93px] pt-20 xl:pt-[50px] overflow-hidden h-[62.15dvh] lg:h-full"
+              className="relative flex flex-col h-full px-10 xl:px-[90px] pb-20 xl:pb-[93px] pt-20 xl:pt-[50px] overflow-hidden"
             >
              
               <div
@@ -2057,13 +2043,13 @@ const mapactive = useRef([]);
               </div>
 
               <div
-                className=" z-40 pt-6 xl:pt-[35px] text-white absolute bottom-0 lg:relative left-0 lg:left-auto px-5 lg:px-0"
+                className="relative z-40 pt-6 xl:pt-[35px] text-white"
                 ref={title2Ref}
               >
-                <h1 className="text-[36px] lg:text-48 3xl:text-60 font-light leading-[1.166666666666667] mb-[15px] lg:mb-3 3xl:mb-[25px]">
+                <h1 className="text-48 3xl:text-60 font-light leading-[1.166666666666667] mb-3 3xl:mb-[25px]">
                   {aboutData.title}
                 </h1>
-                <h3 className="text-[20px] lg:text-18 xl:text-24 font-light max-w-xl mb-[33px] lg:mb-0">
+                <h3 className="text-18 xl:text-24 font-light max-w-xl">
                   With a rich legacy of more than{" "}
                   <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                     160 years
@@ -2075,7 +2061,7 @@ const mapactive = useRef([]);
               <div className="relative z-40 mt-auto ml-auto">
                 <div
                   ref={dsrnBxRef}
-                  className="p-10 w-fit xl:w-[550px] px-15 py-10 text-white relative  hidden lg:block"
+                  className="p-10 w-fit xl:w-[550px] px-15 py-10 text-white relative"
                 >
                   <div
                     ref={dsrnRef}
@@ -2091,7 +2077,7 @@ const mapactive = useRef([]);
               </div>
 
               <div
-                className="relative hidden lg:flex z-40  pt-6 xl:pt-[30px] gap-6 xl:gap-[75px] text-white"
+                className="relative z-40  pt-6 xl:pt-[30px] flex gap-6 xl:gap-[75px] text-white"
                 ref={statsRef}
               >
                 <hr
@@ -2124,40 +2110,6 @@ const mapactive = useRef([]);
                 </div>
               </div>
             </div>
-            <div
-                className=" grid grid-cols-2  relative  pt-[33px] xl:pt-[30px]  text-black lg:hidden px-5 bg-white"
-                ref={title2Ref}
-              >
-              
-                <div className="border-b border-[#0a000020] lg:border-b-0 pb-5 mb-5">
-                  <h3 className="text-26 md:text-40 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    160+
-                  </h3>
-                  <p className="text-[14px] md:text-[18px]  font-light leading-[1.555555555555556]">
-                    Years of Legacy
-                  </p>
-                </div>
-                <div className="border-b border-[#00000020] lg:border-b-0 pb-5 mb-5">
-                  <h3 className="text-26 md:text-40 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    33000+
-                  </h3>
-                  <p className="text-[14px] md:text-[18px]  font-light leading-[1.555555555555556]">
-                    Employees Strength
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-24 md:text-40 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    40+
-                  </h3>
-                  <p className="text-[14px] md:text-[18px]  font-light leading-[1.555555555555556]">
-                    Countries Globally Reached
-                  </p>
-                </div>
-              </div>
-              <div className="block lg:hidden   ">
-               <img ref={sprIcnim} src="/assets/images/svg/sv-02.svg" width={600} height={600} className=" w-full absolute  left-0 bottom-0 z-[1]"/>
-            
-              </div>
           </div>
         </section>
       </div>
@@ -2172,39 +2124,32 @@ const mapactive = useRef([]);
           id="section3"
           className="h-screen overflow-hidden relative scroll-area"
         >
-          <div className="lg:grid lg:grid-cols-[500px_auto] xl:grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full bg-transparent">
-            <div className="lftblc relative right-0 h-[52.6dvh] lg:h-auto" ref={splftimng}>
+          <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full bg-transparent">
+            <div className="lftblc relative right-0" ref={splftimng}>
                <div className="bg-primary absolute w-full right-0 h-full top-0 z-[-1]" ref={splftbg}></div>
               <img
                 src={'../assets/images/abut-sp.jpg'}
                 alt=""
                 width={2000}
                 height={1500}
-                className="w-full h-full object-cover absolute object-right hidden lg:block"
-              />
-              <img
-                src={'../assets/images/home/imgbn3.jpg'}
-                alt=""
-                width={2000}
-                height={1500}
-                className="w-full h-full object-cover absolute object-center lg:hidden"
+                className="w-full h-full object-cover absolute object-center"
               />
             </div>
-            <div className=" flex flex-col h-full px-5 lg:px-[70px] 3xl:px-[100px] pb-[120px] 3xl:pb-[150px] pt-[7dvh] lg:pt-[120px] 3xl:pt-[150px] overflow-hidden relative" ref={sprghtBx}>
-              <div className="bg-white lg:bg-primary absolute w-full left-0 h-full top-0 z-[-1]"  ref={sprgtbg}></div>
-              <img ref={sprIcnim} src="/assets/images/svg/sv-02.svg" width={600} height={600} className="hidden lg:block absolute right-0 w-[250px] 3xl:w-[300px]"/>
+            <div className=" flex flex-col h-full px-[70px] 3xl:px-[100px] pb-[120px] 3xl:pb-[150px] pt-[120px] 3xl:pt-[150px] overflow-hidden relative" ref={sprghtBx}>
+              <div className="bg-primary absolute w-full left-0 h-full top-0 z-[-1]"  ref={sprgtbg}></div>
+              <img ref={sprIcnim} src="/assets/images/svg/sv-02.svg" width={600} height={600} className="absolute right-0 w-[250px] 3xl:w-[300px]"/>
               <div className="">
-                <h1 ref={sptitle} className="text-[36px] lg:text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] lg:max-w-[8ch] font-light mb-[15px] lg:mb-8 xl:mb-[25px] text-black lg:text-white">
-                  About SP International
+                <h1 ref={sptitle} className="text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light  mb-8 xl:mb-[25px] text-white">
+                  About SP <br></br>International
                 </h1>
-                <p ref={spdscrpt} className="text-[14px] lg:text-18 text-[#464646] lg:text-white font-light leading-[1.5] lg:max-w-[90%]  3xl:max-w-[75%] mb-[7dvh] lg:mb-[30px]">
+                <p ref={spdscrpt} className="text-18 text-white font-light leading-[1.5] max-w-[90%]  3xl:max-w-[75%] mb-[30px]">
                   Shapoorji Pallonji International (SPINT) is the international
                   arm of Shapoorji Pallonji Engineering & Construction (SP E&C)
                   for its construction operations outside India.
                 </p>
                 <a ref={spbtn}
                   href={"/"}
-                  className="text-[14px] lg:text-16 leading-[1.75] font-light text-[#464646] lg:text-white uppercase flex items-center gap-2 cursor-pointer group "
+                  className="text-16 leading-[1.75] font-light text-white uppercase flex items-center gap-2 cursor-pointer group "
                 >
                   <span>READ MORE</span>
                   <svg
@@ -2234,7 +2179,7 @@ const mapactive = useRef([]);
               </div>
               <div className="mt-auto relative">
                 <hr ref={spBrdOne} className="border-white opacity-20 absolute top-[55%] left-[-30%] right-0"/>
-                  <div className="hidden lg:grid grid-cols-3 " ref={spStats}>
+                  <div className="grid grid-cols-3 " ref={spStats}>
                          <div className="text-white">
                         <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
                           350+
@@ -2262,8 +2207,6 @@ const mapactive = useRef([]);
                   </div>
               </div>
             </div>
-            <img ref={sprIcnim} src="/assets/images/svg/sv-02.svg" width={600} height={600} 
-            className=" lg:hidden absolute bottom-0 right-0 w-full 3xl:w-[300px]"/>
           </div>
           {/* <div className="absolute top-0 left-0 z-0 w-full h-full bg-transparent">
             <img
@@ -2410,30 +2353,21 @@ const mapactive = useRef([]);
           <figure className="absolute w-full h-full bg-white z-[-1]" ref={srvBgimg}>
             <img className="absolute w-full h-full object-cover" src="../assets/images/services-bg.jpg" alt="" />
           </figure>
-          <div className="lg:grid lg:grid-cols-[600px_auto] xl:grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
+          <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
             {/* left */}
-            <div className="flex lg:h-full">
+            <div className="flex h-full">
          {/*      <div className="w-1/3"></div> */}
-              <div className="w-full pt-[21dvh] lg:pt-33 pl-5 lg:pl-[205px] xl:pl-[245px] 3xl:pl-[310px] bg-primary lg:bg-transparent" ref={srvLftBx}>
-                 <div className="absolute -top-58 right-0    " ref={srvsVct}>
-                <img
-                  src="../assets/images/svg/srv-vct.svg"
-                  alt="Logo"
-                  className="h-full w-full"
-                  width={254}
-                  height={356}
-                />
-              </div>
-                <div className=" 3xl:ml-[110px] flex flex-col h-full">
+              <div className="w-full pt-33 pl-[245px] 3xl:pl-[310px]" ref={srvLftBx}>
+                <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
                   <h1
                     ref={srvttlRef}
-                    className="text-[36px] lg:text-34 xl:text-48 3xl:text-60 font-light gradient-text lg:leading-[70px]"
+                    className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[70px]"
                   >
                     Our Services
                   </h1>
-                  <div className="w-full flex lg:flex-col h-full lg:justify-end   lg:mt-15 relative">
+                  <div className="w-full flex flex-col h-full justify-end   mt-15 relative">
                   
-                    <div className="lg:pb-4 relative">
+                    <div className="pb-4 relative">
                     
                    {/*    <p
                         ref={countRef}
@@ -2442,24 +2376,22 @@ const mapactive = useRef([]);
                         0{activeService.index + 1}/ 06
                       </p> */}
                     </div>
-                    <div className=" flex lg:flex-col gap-6 lg:gap-0 overflow-x-auto scrollbar-hide whitespace-nowrap lg:whitespace-normal lg:overflow-x-hidden   border-b border-[#ffffff20]  mb-5 lg:mb-0 pt-[4dvh] lg:pt-18 lg:pb-21 3xl:pt-14 3xl:pb-21 pr-2">
+                    <div className="flex flex-col pt-18 pb-21 3xl:pt-14 3xl:pb-21 pr-2">
                       {content.map((service, index) => (
                         <div
                           key={index}
-                          className={`flex items-center gap-3 cursor-pointer group `}
+                          className="flex items-center gap-3 cursor-pointer group"
                           ref={(el) => (textItemsRef.current[index] = el)}
                         >
                           <p
-                            className={`${activeServiceIndex === index ? "text-white lg:text-black font-bold bo " : "text-white/70 lg:text-black font-light"} text-14px lg:text-[22px] 3xl:text-28 leading-[1.607142857142857] lg:leading-[1.9]  2xl:leading-[1.70]  3xl:leading-[1.607142857142857]  cursor-pointer group-hover:text-black group-hover:font-bold `}
+                            className="text-[24px] 3xl:text-28 leading-[1.607142857142857] font-light cursor-pointer group-hover:text-black group-hover:font-bold text-black"
                             onMouseOver={() =>
-                            [setActiveService({
+                              setActiveService({
                                 image: service.image,
                                 title: service.title,
                                 description: service.description,
                                 index,
-                              }),
-                              
-                              setActiveServiceIndex(index)]
+                              })
                             }
                           >
                             <span className="duration-100">
@@ -2469,7 +2401,7 @@ const mapactive = useRef([]);
                           </p>
                           <img
                             src="../assets/images/services/arrowblw.svg"
-                            className={`${activeServiceIndex === index ? "hidden lg:block" : "hidden "} transform-all duration-300 delay-300   group-hover:block `}
+                            className={`transform-all duration-300 hidden  group-hover:block`}
                             alt="Arrow"
                             width={21}
                             height={21}
@@ -2483,18 +2415,18 @@ const mapactive = useRef([]);
             </div>
             {/* left */}
 
-            <div className="relative w-full   lg:h-[100vh] z-[-1]"  ref={srvsRghtBx}>
-              <div className="lg:absolute h-full w-full" ref={srvsImgRef}>
-                              <div className="lg:absolute z-10 top-0 left-0 w-full lg:h-full lg:bg-gradient-to-r lg:from-black/60 from-0% lg:via-black/60 via-52% lg:to-black/60 to-100%"></div>
+            <div className="relative w-full h-[100vh] z-[-1]"  ref={srvsRghtBx}>
+              <div className="absolute h-full w-full" ref={srvsImgRef}>
+                              <div className="absolute z-10 top-0 left-0 w-full h-full bg-gradient-to-r from-black/60 from-0% via-black/60 via-52% to-black/60 to-100%"></div>
 
-                              <img
-                                src={activeService?.image}
-                                alt="Service Image"
-                                fill
-                                className="object-cover object-top lg:absolute w-full h-[277px] lg:h-full"
-                              />
+                <img
+                  src={activeService?.image}
+                  alt="Service Image"
+                  fill
+                  className="object-cover absolute w-full h-full"
+                />
               </div>
-              <div className="hidden lg:block lg:absolute bottom-0 right-0  w-[40%] " ref={srvsVct}>
+              <div className="absolute bottom-0 right-0  w-[40%] " ref={srvsVct}>
                 <img
                   src="../assets/images/svg/srv-vct.svg"
                   alt="Logo"
@@ -2503,43 +2435,23 @@ const mapactive = useRef([]);
                   height={914}
                 />
               </div>
-              <div className="lg:absolute top-[77px] lg:top-auto lg:bottom-[245px] 3xl:bottom-[300px]  left-[40px] 3xl:left-[58px] z-10 px-5 lg:px-0 pt-7 lg:pt-0" ref={srvsCntb}>
+              <div className="absolute bottom-[245px] 3xl:bottom-[300px]  left-[40px] 3xl:left-[58px] z-10" ref={srvsCntb}>
                   <hr
                         ref={brdonRef}
-                        className="hidden lg:block lg:absolute right-[25%] left-[-85%] lg:left-[-434px] xl:left-[-594px] 2xl:left-[-594px] 3xl:left-[-658px] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
+                        className="absolute right-[25%] left-[-85%] 3xl:left-[-78%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-gradient-to-r from-black to-white "
                       />
                   <hr
                         ref={brdonRef}
-                        className=" lg:absolute  left-[-40px] 3xl:left-[-58px] right-[25%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-white "
+                        className="absolute  left-[-40px] 3xl:left-[-58px] right-[25%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-white "
                       />
-                <div className="flex gap-2 items-center">
-                  <div className="flex items-center justify-center lg:hidden bg-secondary rounded-full bottom-10 3xl:bottom-[50px] left-[45px] 3xl:left-[58px] z-10 w-7 h-7" ref={srvsArrw}>
-                    <img
-                      src="../assets/images/services/icn1.svg"
-                      alt="Arrow"
-                      className=""
-                      width={19}
-                      height={19}
-                    />
-                  </div>
-                  <h3 className="text-[20px] lg:text-29 leading-[1.344827586206897] font-light text-black lg:text-white">
+                <h3 className="text-29 leading-[1.344827586206897] font-light text-white">
                   {activeService?.title}
                 </h3>
-                 <div className=" lg:hidden    bottom-10 3xl:bottom-[50px] left-[45px] 3xl:left-[58px] z-10" ref={srvsArrw}>
-                    <img
-                      src="../assets/images/services/thickarrow.svg"
-                      alt="Arrow"
-                      className=""
-                      width={19}
-                      height={19}
-                    />
-                  </div>
-                </div>
-                <p className="text-[14px] lg:text-18 text-paragraph lg:text-white mt-5 lg:mt-[80px] w-full lg:w-[75%] 3xl:w-[55%]">
+                <p className="text-18 text-white mt-[80px] w-[75%] 3xl:w-[55%]">
                   {activeService?.description}
                 </p>
               </div>
-              <div className="hidden lg:block absolute bottom-10 3xl:bottom-[50px] left-[45px] 3xl:left-[58px] z-10" ref={srvsArrw}>
+              <div className="absolute bottom-10 3xl:bottom-[50px] left-[45px] 3xl:left-[58px] z-10" ref={srvsArrw}>
                 <img
                   src="../assets/images/services/arrow-up.svg"
                   alt="Arrow"
@@ -2565,37 +2477,28 @@ const mapactive = useRef([]);
           id="section5"
           className="h-screen relative overflow-hidden whitebgref scroll-area"
         >
-            <div className="lg:grid lg:grid-cols-[600px_auto] xl:grid-cols-[800px_auto]  3xl:grid-cols-[1021px_auto] h-full">
+            <div className="grid grid-cols-[800px_auto] 3xl:grid-cols-[1021px_auto] h-full">
             {/* left start */}
-            <div className="flex lg:h-full bg-primary lg:bg-white">
-              <div className="w-full pt-[16.5dvh] pl-5 lg:pt-25 xl:pt-25 3xl:pt-33 lg:pl-[205px] xl:pl-[245px] 3xl:pl-[310px]">
-                 <div className="absolute -top-58 right-0    " ref={srvsVct}>
-                <img
-                  src="../assets/images/svg/srv-vct.svg"
-                  alt="Logo"
-                  className="h-full w-full"
-                  width={254}
-                  height={356}
-                />
-              </div>
-                <div className=" 3xl:ml-[110px] flex flex-col h-full">
+            <div className="flex h-full">
+              <div className="w-full pt-10 xl:pt-15 3xl:pt-33 pl-[245px] 3xl:pl-[310px]">
+                <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
                   <h1
                    ref={talenttitle}
-                    className="text-[36px] lg:text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[1.166666666666667] max-w-[13ch]"
+                    className="text-34 xl:text-48 3xl:text-60 font-light gradient-text leading-[1.166666666666667] max-w-[13ch]"
                   >
                     Shaping Diverse Sectors
                   </h1>
-                  <div ref={talentlist} className="scrollbar-hide w-full flex flex-col justify-center lg:h-full mt-[4.5dvh] lg:mt-3 relative overflow-y-hidden 3xl:overflow-visible lg:pl-4 3xl:pl-0">
-                    <div className="lg:pb-4 relative h-full flex items-center">
+                  <div ref={talentlist} className="w-full flex flex-col justify-center h-[450px] 3xl:h-[541px] mt-10 relative overflow-y-hidden 3xl:overflow-visible pl-4 3xl:pl-0">
+                    <div className="pb-4 relative h-full flex items-center">
                       {/* curved line svg */}
-                      <div className="  absolute top-0 left-0 h-full hidden lg:flex flex-col justify-center">
+                      <div className="absolute top-0 left-0 h-full flex flex-col justify-center">
                         <img
                           src="../assets/images/sectors/svg-crv.svg"
                           alt="curved line svg"
                         />
                       </div>
 
-                      <div className="flex flex-row lg:flex-col 3xl:gap-1 lg:pl-4 lg:pb-6 sectors-list gap-5 lg:gap-0 border-b border-white/20 lg:border-b-0 mb-5 lg:mb-0">
+                      <div className="flex flex-col 3xl:gap-1 pl-4 pb-6 sectors-list">
                         {visibleSectors.map((sector) => {
                           const isActive = sector.position === 0;
                           const opacity =
@@ -2625,7 +2528,7 @@ const mapactive = useRef([]);
                             <div
                               key={`${sector.originalIndex}-${sector.position}`}
                               className={`flex items-center gap-5 cursor-pointer ${
-                                isActive ? "lg:ml-[-27px] lg:py-5" : "lg:py-1"
+                                isActive ? "ml-[-27px] py-5" : "py-1"
                               }`}
                               style={{
                                 opacity: opacity,
@@ -2641,7 +2544,7 @@ const mapactive = useRef([]);
                             >
                               {/* Show icon ONLY when at center */}
                               {isActive && (
-                                <div className="hidden lg:flex bg-[#30B6F94D] rounded-full w-[83px] h-[83px]  items-center justify-center relative opacity-0">
+                                <div className="bg-[#30B6F94D] rounded-full w-[83px] h-[83px] flex items-center justify-center relative opacity-0">
                                   <img
                                     src={sector.icon}
                                     alt={`${sector.name} icon`}
@@ -2657,10 +2560,10 @@ const mapactive = useRef([]);
                               )}
 
                               <h3
-                                className={`hover:opacity-100 hover:text-[#30B6F9] transition-opacity duration-500 text-white lg:text-black ${
+                                className={`hover:opacity-100 hover:text-[#30B6F9] transition-opacity duration-500 ${
                                   isActive
-                                    ? "text-[14px] lg:text-29 leading-[1.842105263157895] lg:font-semibold border-b border-white lg:border-b-0"
-                                    : "text-[14px] lg:text-19 leading-[1.842105263157895]"
+                                    ? "text-29 leading-[1.842105263157895] font-semibold"
+                                    : "text-19 leading-[1.842105263157895]"
                                 }`}
                                 style={{
                                   transition: "all 0.5s ease-out",
@@ -2674,7 +2577,7 @@ const mapactive = useRef([]);
                         })}
                       </div>
 
-                      <div className="hidden lg:block absolute left-[-10px] top-1/2 -translate-y-[75%] z-10">
+                      <div className="absolute left-[-10px] top-1/2 -translate-y-[75%] z-10">
                         <div className="bg-[#30B6F94D] rounded-full w-[83px] h-[83px] flex items-center justify-center relative">
                           <img
                             key={activeSector.icon}
@@ -2697,7 +2600,7 @@ const mapactive = useRef([]);
             </div>
             {/* left end*/}
             {/* right start */}
-            <div className="relative w-full h-[35dvh] lg:h-[100vh] z-0" >
+            <div className="relative w-full h-[100vh] z-0" >
               <div ref={talentimage} className="absolute h-full w-full">
                 {/* hear the image that changes according to the vertical slider */}
                 {/* Image section */}
@@ -2724,27 +2627,12 @@ const mapactive = useRef([]);
                       />
                     </div>
                   ))}
-                  <div className=" lg:hidden absolute inset-0 w-full h-full" style={{
-                        background: "linear-gradient(0deg, rgb(0 0 0 / 6%), rgb(0 0 0 / 0%)), linear-gradient(rgba(0, 0, 0, 0) 58.01%, rgba(0, 0, 0, 0.8) 100%)",
-                    }}>
-
-                    </div>
-                   <div className=" lg:hidden tlnits p-5 group cursor-pointer absolute bottom-0 left-0">
-                      <a href="/sectors" className="flex items-center gap-2 uppercase font-light text-[14px] text-white">
-                        View All Projects
-                        <img
-                          src="../assets/images/icons/arrow-right.svg"
-                          alt="arrow right"
-                          className="group-hover:translate-x-2 transition-all duration-300"
-                        />
-                      </a>
-                    </div>
                 </div>
                 {/* hear the absolute positioned box with project details */}
                 {/* Absolute positioned box with project details */}
                 <div
                
-                  className="lg:absolute bottom-20 left-0 lg:bg-primary text-black lg:text-white z-50 cursor-pointer"
+                  className="absolute bottom-20 left-0 bg-primary text-white z-50 cursor-pointer"
                   style={{
                     transition:
                       "transform 0.5s ease-out, opacity 0.5s ease-out",
@@ -2755,15 +2643,14 @@ const mapactive = useRef([]);
                   }}
                 >
                   <div ref={talentdtls} >
-                    <div  className="flex gap-[56px] lg:gap-5 xl:gap-[77px] pb-6   lg:px-15 pt-7 lg:py-6 xl:pt-[28px] xl:pb-[33px]
-                     border-b  border-black/20 lg:border-white/20 mx-5 lg:mx-0">
+                    <div  className="flex gap-5 xl:gap-[77px] px-15 py-6 xl:pt-[28px] xl:pb-[33px] border-b border-white/20">
                       <div class="tlnits">
                         <div
                           style={{ position: "relative", overflow: "hidden" }}
                         >
                           <h3
                             key={`projects-${displayedIndex}`}
-                            className="text-[26px] lg:text-40 font-light lg:mb-2"
+                            className="text-40 font-light mb-2"
                             style={{
                               animation: "slideUpFadeIn 0.6s ease-out",
                               animationFillMode: "both",
@@ -2772,7 +2659,7 @@ const mapactive = useRef([]);
                             {activeSector.projectsCompleted}
                           </h3>
                         </div>
-                        <p className="text-[14px] lg:text-19 font-light text-paragraph lg:text-white/70 leading-[1.473684210526316]">
+                        <p className="text-19 font-light text-white/70 leading-[1.473684210526316]">
                           Completed Projects
                         </p>
                       </div>
@@ -2782,7 +2669,7 @@ const mapactive = useRef([]);
                         >
                           <h3
                             key={`projects-${displayedIndex}`}
-                            className="text-[26px] lg:text-40 font-light lg:mb-2"
+                            className="text-40 font-light mb-2"
                             style={{
                               animation: "slideUpFadeIn 0.6s ease-out 0.1s",
                               animationFillMode: "both",
@@ -2791,12 +2678,12 @@ const mapactive = useRef([]);
                             {activeSector.ongoingProjects}
                           </h3>
                         </div>
-                        <p className="text-[14px] lg:text-19 font-light text-paragraph lg:text-white/70 leading-[1.473684210526316]">
+                        <p className="text-19 font-light text-white/70 leading-[1.473684210526316]">
                           Ongoing Projects
                         </p>
                       </div>
                     </div>
-                    <div className="hidden lg:block tlnits px-15 py-6 xl:pt-[42px] xl:pb-[49px] group cursor-pointer">
+                    <div className="tlnits px-15 py-6 xl:pt-[42px] xl:pb-[49px] group cursor-pointer">
                       <a href="/sectors" className="flex items-center gap-2">
                         View All Projects
                         <img
@@ -2825,54 +2712,45 @@ const mapactive = useRef([]);
       >
          <section
           id="section6"
-          className="h-screen relative md:overflow-hidden whitebgref scroll-area bg-white"
+          className="h-screen relative overflow-hidden whitebgref scroll-area bg-white"
         >
-  <div className="w-full pt-[11.5dvh] 3xl:pt-33 lg:pl-[205px] xl:pl-[245px] 3xl:pl-[310px]">
-            <div className="px-5 lg:px-0 pt-[4.7dvh] lg:pt-0 pb-6 lg:pb-0   3xl:ml-[110px] flex flex-col h-full">
+  <div className="w-full pt-25 3xl:pt-33 pl-[245px] 3xl:pl-[310px]">
+            <div className="ml-[80px] 3xl:ml-[110px] flex flex-col h-full">
               <h1
                 ref={maptitle}
-                className="text-[36px] lg:text-34 xl:text-48 3xl:text-60  font-light gradient-text text-bl leading-[1.2] 3xl:leading-[1.18] max-w-[15ch]"
+                className="text-34 xl:text-40 3xl:text-60 font-light gradient-text leading-[1.2] 3xl:leading-[1.18] max-w-[15ch]"
               >
                 Our Presence is Steadily Expanding
               </h1>
             </div>
             <div className="  flex justify-center" ref={mapimage}>
-             <div className="[position:initial] lg:relative  overflow-x-scroll lg:overflow-x-visible  scrollbar-hide  ">
-               <div  
-                className="relative lg:[position:initial] min-w-[86.2dvh]  lg:min-w-[118.2dvh]  xl:min-w-[86.2dvh] overflow-hide   "
+              <div
+                className="relative md:w-[1000px] md:h-[70%] 3xl:w-[1158px] 3xl:h-[70%] "
                 ref={containersRef}
               >
-                {/* <img
-                  src="../assets/images/mobilebmap.png"
-                  alt="Arrow"
-                  width={733}
-                  height={355}
-                  className="object-cover img-f select-none min-w-[86.2dvh] max-h-[355px] lg:hidden  "
-                /> */}
                 <img
                   src="../assets/images/world_map.png"
                   alt="Arrow"
                   width={1158}
                   height={679}
-                  className="object-cover img-f select-none xl:w-[1156px]  "
+                  className="object-cover img-f select-none md:w-[1000px] md:h-[70%] 3xl:w-[1158px] 3xl:h-[70%] "
                 />
-              <div className="  overflow-hidden w-full  h-full">
+
                 {/* Dots */}
                 {cities.map((city) => (
                   <div
                     key={city.id}
                     ref={mapactive}
-                    className={`absolute   transition-all duration-300 w-[46%] h-[74%]  md:w-[44%] md:h-[74%] lg:w-[43%] lg:h-[76%] 3xl:w-[41.5%] 3xl:h-[76%]  flex items-center justify-center  ${
+                    className={`absolute   transition-all duration-300 md:w-[43%] md:h-[76%] 3xl:w-[41.5%] 3xl:h-[76%]  flex items-center justify-center  ${
                       activeDot === city.id ? "z-[999]" : ""
                     }`}
                     style={{ left: city.left, top: city.top }}
                   >
-                    <div                    
-                      onClick={() => {
-                    setActiveDot(city.id); 
-                    setSelectedCity({ id: city.id, pjtcompleted: city.pjtcompleted,iconicpjts: city.iconicpjts ,dedicatedemployees: city.dedicatedemployees });
-                  }}
-                      className={`w-[8px] h-[8px] lg:w-[15px] lg:h-[15px] group cursor-pointer relative  z-10 rounded-full transition-all duration-500 itmbsx backdrop-blur-[4px] ${
+                    <div
+                  
+                  
+                      onClick={() => setActiveDot(city.id)}
+                      className={`w-[15px] h-[15px] group cursor-pointer relative z-10 rounded-full transition-all duration-500 itmbsx backdrop-blur-[4px] ${
                         activeDot === city.id
                           ? "bg-[#30F955] shadow-[0_0_35px_#30F955,0_0_50px_rgba(0,255,136,0.6)] border border-[#97DCFF] scale-full"
                           : "bg-[#30B6F9]   border border-[#97DCFF] scale-85"
@@ -2890,7 +2768,7 @@ const mapactive = useRef([]);
                     </span>
                     <div
                   
-                      className={`hidden lg:block translate-x-[50%] -left-1/2 top-0  rounded-full transition-all duration-500 absolute  w-full h-full  
+                      className={`translate-x-[50%] -left-1/2 top-0  rounded-full transition-all duration-500 absolute  w-full h-full  
                        `}
                       ref={activeDot === city.id ? bubbleRef : undefined}
                       style={{ transform: `translateY(${adjustY}px)` }}
@@ -2966,88 +2844,8 @@ const mapactive = useRef([]);
                   </div>
                 ))}
               </div>
-              
-              </div>
-             </div>
             </div>
-             {selectedCity ? (
-               <div
-                  
-                      className={`lg:hidden px-5 top-0    transition-all duration-500    w-full h-full overflow-x-auto scrollbar-hide
-                       `} >
-                      <div
-                        
-                        className={` transition-all duration-500  outside `}
-                      >
-                        <div className="flex lg:block gap-2">
-                          <div
-                            className={`me-2 bubble  bg-[#0015FF66] transition-all duration-500 delay-100 border  border-[#0015FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full  
-                                lg:absolute left-[0%] top-[21%] ${
-                                  activeDot === selectedCity.id
-                                    ? "opacity-100 scale-full float-bubble1"
-                                    : "scale-80 opacity-0 "
-                                }   `}
-                          >
-                            <p className="text-[24px] font-[200] leading-tight">
-                              {selectedCity.iconicpjts}
-                            </p>
-                            <p className="text-[14px] font-[200]">
-                              Iconic Projects
-                            </p>
-                          </div>
-
-                          <div
-                            className={`me-2  bubble  bg-[#00C8FF80] border border-[#00C8FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full  
-                                lg:absolute left-[48.3%] top-[5%] ${
-                                  activeDot === selectedCity.id
-                                    ? "opacity-100 scale-full float-bubble2"
-                                    : "scale-80 opacity-0 "
-                                }   transition-all duration-500 delay-200`}
-                          >
-                            <p className="text-[24px] font-[200] leading-tight">
-                              {selectedCity.pjtcompleted}
-                            </p>
-                            <p className="text-[14px] font-[200]">
-                              Project Completed
-                            </p>
-                          </div>
-                          <div
-                            className={`bubble  bg-[#0066EB80] border border-[#0066EB26] backdrop-blur-sm  text-white text-center p-3 rounded-full 
-                                lg:absolute left-[51%] top-[55%] ${
-                                  activeDot === selectedCity.id
-                                    ? "opacity-100 scale-full float-bubble3"
-                                    : "scale-80 opacity-0 "
-                                }   transition-all duration-500 delay-300`}
-                          >
-                            <p className="text-[24px] font-[200] leading-tight">
-                              {selectedCity.dedicatedemployees}
-                            </p>
-                            <p className="text-[14px] font-[200]">
-                              Dedicated Employees
-                            </p>
-                          </div>
-                        </div>
-
-                        <div
-                          className={`hidden lg:block absolute -left-[50px] w-[100%] h-[100%] rounded-full z-[-1] scale-pulse ${
-                            activeDot === selectedCity.id
-                              ? "opacity-100 scale-full"
-                              : "opacity-0 "
-                          }   transition-all duration-500 delay-300`}
-                          style={{
-                            backgroundImage: `url(../assets/images/ring3.svg)`,
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            backgroundRepeat: "no-repeat",
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-                      ) : (
-   ""
-               )}
           </div>
-          
         </section>
       </div>
        {/* Slide 6 */}
@@ -3063,88 +2861,55 @@ const mapactive = useRef([]);
         >
           <figure ref={cutltimg} className="absolute w-full h-full z-[-1] mx-auto my-0 left-0 right-0">
            <img className="absolute object-cover w-full h-full z-0" src="../assets/images/driven_force.jpg" alt=""/>
-           <div className="bg-[linear-gradient(180deg,rgba(0,0,0,0.35)_0%,rgba(0,0,0,0.75)_82.45%)] 
-           lg:bg-[linear-gradient(270deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.65)_51.29%,rgba(0,0,0,0.75)_100%)] absolute w-full h-full z-10"></div>
+           <div className="bg-[linear-gradient(270deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.65)_51.29%,rgba(0,0,0,0.75)_100%)] absolute w-full h-full z-10"></div>
           </figure>
   <div
-            className="lg:grid lg:grid-cols-[620px_auto] xl:grid-cols-[800px_auto] 2xl:grid-cols-[950px_auto] 3xl:grid-cols-[1201px_auto] h-full 
+            className="grid grid-cols-[950px_auto] 2xl:grid-cols-[950px_auto] 3xl:grid-cols-[1201px_auto] h-full 
       "
           >
             {/* LEFT SIDE */}
-            <div className="w-full pt-33 px-5 lg:pe-0 lg:pl-[205px] xl:pl-[245px] 3xl:pl-[300px] lg:pb-[120px] 3xl:pb-[212px] h-full lg:h-auto">
-              <div className="  3xl:ml-[110px] flex flex-col justify-between h-full  lg:gap-0">
+            <div className="w-full pt-33 pl-[245px] 3xl:pl-[300px] pb-[120px] 3xl:pb-[212px]">
+              <div className="ml-[80px] 3xl:ml-[110px] flex flex-col justify-between h-full">
                 <h1
                   ref={cutltttl}
-                  className="max-w-[14ch] text-[36px] lg:text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light mb-8 xl:mb-[25px] text-white"
+                  className="max-w-[14ch] text-34 xl:text-48 3xl:text-60 leading-[1.083333333333333] font-light mb-8 xl:mb-[25px] text-white"
                 >
                   Driven by Talent. <br /> Defined by Culture.
                 </h1>
-            <div className="mb-[35%] md:mb-[15%] lg:mb-[15%] xl:mb-[35%]">
-              <div className="max-w-[34ch] flex lg:hidden flex-col lg:justify-end lg:h-full mb-4  relative gap-2 lg:gap-0  before:content-[''] before:absolute before:right-[50px]   before:bg-primary before:w-full before:h-full ">
-              <AnimatePresence mode="wait" >
-                <motion.div
-                ref={cutltdtls}
-                  key={activeItem.id}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="p-5 md:p-10 lg:p-7 3xl:py-12 3xl:px-15 bg-primary w-fit 2xl:w-[400px] 3xl:w-[550px] text-white relative "
-                >
-                  
-                  <motion.p
-                    key={activeItem.id}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="text-[14px] xl:text-19 font-light leading-[1.5]"
-                  >
-                    {activeItem.desc}
-                  </motion.p>
-                </motion.div>
-              </AnimatePresence>
-            </div>
+
                 <div>
-                  <div className="flex flex-col lg:flex-row lg:flex-wrap lg:items-center lg:gap-5" ref={cultlist}>
+                  <div className="flex items-center gap-5" ref={cultlist}>
                     {items.map((item) => (
                       <div className="ctitm">
                       <div
                         key={item.id}
                         onClick={() => setActiveItem(item)}
-                        className={`hover:lg:border-b-[2px] hover:lg:border-primary lg:border-b-2 border-b border-white/30  ${
+                        className={`hover:border-b-[2px] hover:border-primary border-b-2 ${
                           activeItem.id === item.id
-                            ? "lg:border-primary"
+                            ? "border-primary"
                             : "border-transparent"
-                        } lg:pb-1 transition-all duration-300 `}
+                        } pb-1 transition-all duration-300`}
                       >
                         <p
-                          className={`py-1 lg:py-0  ${
+                          className={`text-[15px] 3xl:text-19 min-w-[110px] 3xl:min-w-[130px]  text-white/80 leading-[1.473684210526316] 
+                    transition-all duration-300 cursor-pointer ${
                       activeItem.id === item.id
-                        ? "   bg-[linear-gradient(90deg,rgba(30,69,162,0.35)_0%,rgba(48,182,249,0)_100%)] lg:bg-none"
-                        : ""
+                        ? "font-bold text-white"
+                        : "hover:font-bold hover:text-white font-light"
                     }`}
                         >
-                       <div className={`text-[15px] lg:text-[20px] 3xl:text-19 lg:min-w-[110px] py-1 lg:py-0 3xl:min-w-[130px]  text-white/80 leading-[1.473684210526316] 
-                    transition-all duration-300 cursor-pointer  ${
-                      activeItem.id === item.id
-                        ? "font-bold text-white border-l-[2px] border-secondary lg:border-l-0  ps-2 lg:ps-0 "
-                        : "hover:font-bold hover:text-white font-light "
-                    }`}>
-                           {item.title.split(" ").map((word, i) => (
+                          {item.title.split(" ").map((word, i) => (
                             <span key={i}>
                               {word}
-                              <br className="hidden lg:block" />
+                              <br />
                             </span>
                           ))}
-                       </div>
                         </p>
                       </div>
                            </div>
                     ))}
                   </div>
                 </div>
-            </div>
               </div>
 
               <div className="relative">
@@ -3153,7 +2918,7 @@ const mapactive = useRef([]);
             </div>
 
             {/* RIGHT SIDE */}
-            <div className="hidden lg:flex flex-col justify-end h-full pb-[120px] 3xl:pb-[212px] pt-[120px] 3xl:pt-[150px] overflow-hidden relative border-l border-white/25">
+            <div className="flex flex-col justify-end h-full pb-[120px] 3xl:pb-[212px] pt-[120px] 3xl:pt-[150px] overflow-hidden relative border-l border-white/25">
               <AnimatePresence mode="wait" >
                 <motion.div
                 ref={cutltdtls}
@@ -3197,4 +2962,4 @@ const mapactive = useRef([]);
   );
 };
 
-export default SlideScrollThree;
+export default SlideScrollThreebackup;
