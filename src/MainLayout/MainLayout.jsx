@@ -10,6 +10,7 @@ import PressReleases from "../Pages/press-releases/Index";
 import ProjectDetails from "../Pages/project-details/Index";
 import Projects from "../Pages/projects/Index";
 import NewsDetails from "../Pages/news-details/Index";
+import EngineeringConstruction from "../Pages/engineering-construction/Index";
 const MainLayout = () => {
   return (
     <BrowserRouter>
@@ -24,6 +25,7 @@ const MainLayout = () => {
         <Route path="/project-details" element={<ProjectDetails />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/news-details" element={<NewsDetails />} />
+        <Route path="/engineering-construction" element={<EngineeringConstruction />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
