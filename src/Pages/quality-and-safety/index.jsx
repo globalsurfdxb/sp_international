@@ -1,11 +1,11 @@
-import Index from "../../components/QualitySafety/Index";
+import QualitySafety from "../../components/QualitySafety/Index";
 
-const QualitySafety = () => {
+const Index = () => {
   return (
     <>
-      <Index />
+      <QualitySafety />
     </>
   );
 };
 
-export default QualitySafety;
+export default Index;
