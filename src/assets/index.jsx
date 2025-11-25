@@ -4,4 +4,5 @@ import mainShape from "../../public/assets/images/svg/sv-02.svg";
 import mainShape2 from "../../public/assets/images/svg/main-shape-2.svg";
 import arrowLeft2 from "../../public/assets/images/icons/arrow-left-2.svg";
 import arrowRight2 from "../../public/assets/images/icons/arrow-right-2.svg";
-export const assets = { vdoPlayIcon, mainShape, vdoPauseIcon, mainShape2, arrowLeft2, arrowRight2 };
+import arrowDown from "../../public/assets/images/icons/arrow-down.svg"
+export const assets = { vdoPlayIcon, mainShape, vdoPauseIcon, mainShape2, arrowLeft2, arrowRight2, arrowDown };
