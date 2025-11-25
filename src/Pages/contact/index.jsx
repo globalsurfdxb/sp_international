@@ -1,11 +1,11 @@
-import Index from "../../components/Contact/Index";
+import Contact from "../../components/Contact/Index";
 
-const Contact = () => {
+const Index = () => {
   return (
     <>
-      <Index />
+      <Contact />
     </>
   );
 };
 
-export default Contact;
+export default Index;

@@ -1,7 +1,7 @@
  
 import MainNavbar from "../../MainLayout/MainNavbar";
 import Footer from "../../MainLayout/Footer";
-import Banner from "../../components/common/Banner"; 
+import Banner from "../common/Banner"; 
 import EmpoweringCommunities from "./sections/EmpoweringCommunities"; 
 const Index = () => {
   return (

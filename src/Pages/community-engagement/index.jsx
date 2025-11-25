@@ -1,11 +1,11 @@
-import Index from "../../components/communityEngagement/Index";
+import CommunityEngagement from "../../components/CommunityEngagement/Index";
 
-const communityEngagement = () => {
+const Index = () => {
   return (
     <>
-      <Index />
+      <CommunityEngagement />
     </>
   );
 };
 
-export default communityEngagement;
+export default Index;
