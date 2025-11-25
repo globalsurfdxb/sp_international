@@ -15,7 +15,28 @@ export const engineeringData = {
           subTitle:"Key Services",
           desc: ["Commercial Complexes & Office Spaces", "Residential Townships & High-Rise Buildings", "Mixed-Use Developments","Retail & Hospitality Projects"],
           img:"./assets/images/eng-constructions/expertise/exp1.jpg"
-      }
+      },
+      {
+          mainTitle:"Commercial & Residential Projects",
+          mainDesc:"Creating functional, sustainable, and aesthetically appealing spaces for businesses and communities.",
+          subTitle:"Key Services",
+          desc: ["Commercial Complexes & Office Spaces", "Residential Townships & High-Rise Buildings", "Mixed-Use Developments","Retail & Hospitality Projects"],
+          img:"./assets/images/eng-constructions/expertise/exp1.jpg"
+      },
+      {
+          mainTitle:"Commercial & Residential Projects",
+          mainDesc:"Creating functional, sustainable, and aesthetically appealing spaces for businesses and communities.",
+          subTitle:"Key Services",
+          desc: ["Commercial Complexes & Office Spaces", "Residential Townships & High-Rise Buildings", "Mixed-Use Developments","Retail & Hospitality Projects"],
+          img:"./assets/images/eng-constructions/expertise/exp1.jpg"
+      },
+      {
+          mainTitle:"Commercial & Residential Projects",
+          mainDesc:"Creating functional, sustainable, and aesthetically appealing spaces for businesses and communities.",
+          subTitle:"Key Services",
+          desc: ["Commercial Complexes & Office Spaces", "Residential Townships & High-Rise Buildings", "Mixed-Use Developments","Retail & Hospitality Projects"],
+          img:"./assets/images/eng-constructions/expertise/exp1.jpg"
+      },
     ]
  }   
 }
