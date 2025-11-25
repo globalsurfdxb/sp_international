@@ -12,6 +12,7 @@ const Index = () => {
       <main>
         <Banner title="Community Engagement" image="/assets/images/ec/banner.jpg" />
         <EmpoweringCommunities /> 
+        
           
       </main>
       <footer>
