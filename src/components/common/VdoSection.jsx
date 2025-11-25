@@ -8,7 +8,7 @@ const VdoSection = ({data}) => {
       <div className="container">
         <div>
           <div>
-            <div className="max-w-[795px] ml-auto mb-5 xl:mb-[70px]">
+            <div className="max-w-[932px] ml-auto mb-5 xl:mb-[70px]">
               <h2 className="text-60 font-light leading-[1.166666666666667] mb-6 xl:mb-10">{data.title}</h2>
               {
                 data.desc.map((item)=>(
