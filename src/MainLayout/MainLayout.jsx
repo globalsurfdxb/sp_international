@@ -31,7 +31,7 @@ const MainLayout = () => {
         <Route path="/news-details" element={<NewsDetails />} />
         <Route path="/engineering-construction" element={<EngineeringConstruction />} />
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/quality-and-safety" element={<QualitySafety />} /> 
+        <Route path="/quality-safety" element={<QualitySafety />} /> 
         <Route path="/contact" element={<Contact />} /> 
         <Route path="/community-engagement" element={<CommunityEngagement />} /> 
         <Route path="*" element={<Error />} />
