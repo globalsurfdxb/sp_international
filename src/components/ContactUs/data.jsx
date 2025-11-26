@@ -1,130 +1,145 @@
-import WhyChooseSec from "./sections/WhyChooseSec";
+export const contactData = { 
+  image:"/assets/images/qualitysafety/qmain.jpg",
+  title: "Contact",
+  name:"SP International",
+  address:"Al Hudaiba Mall, Al Mina Street Dubai, UAE P.O. Box No. 118219, Office 307, 3rd Floor Dubai, UAE",
+  phone:"+971-42156222",
+  email:"info@spinternational.ae",
+  location:"",
 
-export const engineeringData = {
- mainSection:{
-    title:"A Legacy of Engineering & Construction Excellence",
-    desc: ["Shapoorji Pallonji International’s Engineering & Construction (E&C) Division has been at the forefront of building iconic infrastructure across the world. With over a century of expertise, we combine innovative engineering, robust project management, and sustainable practices to deliver high-quality, timely, and cost-effective solutions.","From industrial complexes and commercial hubs to residential and infrastructure projects, we transform visions into reality while ensuring safety, compliance, and operational efficiency."],
-    vdo:"./assets/videos/cmn-dummy-vdo.mp4",
-    vdoPoster:"./assets/images/eng-constructions/vdo-poster.jpg"
- },
- expertiseData:{
-   title:"Our Expertise",
-    desc:"Our multidisciplinary approach enables us to manage complex projects from concept to completion, across various sectors and geographies.",
-    items:[
-      {
-          mainTitle:"Commercial & Residential Projects",
-          mainDesc:"Creating functional, sustainable, and aesthetically appealing spaces for businesses and communities.",
-          subTitle:"Key Services",
-          desc: ["Commercial Complexes & Office Spaces", "Residential Townships & High-Rise Buildings", "Mixed-Use Developments","Retail & Hospitality Projects"],
-          img:"./assets/images/eng-constructions/expertise/exp1.jpg"
-      },
-      {
-          mainTitle:"Commercial & Residential Projects",
-          mainDesc:"Creating functional, sustainable, and aesthetically appealing spaces for businesses and communities.",
-          subTitle:"Key Services",
-          desc: ["Commercial Complexes & Office Spaces", "Residential Townships & High-Rise Buildings", "Mixed-Use Developments","Retail & Hospitality Projects"],
-          img:"./assets/images/eng-constructions/expertise/exp1.jpg"
-      },
-      {
-          mainTitle:"Commercial & Residential Projects",
-          mainDesc:"Creating functional, sustainable, and aesthetically appealing spaces for businesses and communities.",
-          subTitle:"Key Services",
-          desc: ["Commercial Complexes & Office Spaces", "Residential Townships & High-Rise Buildings", "Mixed-Use Developments","Retail & Hospitality Projects"],
-          img:"./assets/images/eng-constructions/expertise/exp1.jpg"
-      },
-      {
-          mainTitle:"Commercial & Residential Projects",
-          mainDesc:"Creating functional, sustainable, and aesthetically appealing spaces for businesses and communities.",
-          subTitle:"Key Services",
-          desc: ["Commercial Complexes & Office Spaces", "Residential Townships & High-Rise Buildings", "Mixed-Use Developments","Retail & Hospitality Projects"],
-          img:"./assets/images/eng-constructions/expertise/exp1.jpg"
-      },
-    ]
- },
- approachesData:{
-    title:"Our Approach",
-    items:[
-        {
-            icon:"./assets/images/eng-constructions/icons/apr1.svg",
-            title:"Global Standards, Local Expertise",
-            desc:"We leverage international best practices while complying with local regulations and standards."
-        },
-        {
-            icon:"./assets/images/eng-constructions/icons/apr2.svg",
-            title:"Technology-Driven Construction",
-            desc:"Advanced project management tools, BIM, and predictive analytics ensure efficiency, safety, and quality."
-        },
-        {
-            icon:"./assets/images/eng-constructions/icons/apr3.svg",
-            title:"Sustainability Focus",
-            desc:"We integrate eco-friendly practices, energy-efficient design, and sustainable materials into all projects."
-        },
-        {
-            icon:"./assets/images/eng-constructions/icons/apr4.svg",
-            title:"Client-Centric Governance",
-            desc:"End-to-end project accountability and seamless communication for timely, cost-effective delivery."
-        }
-    ]
- },
- featuredProjectsData:{
-    title:"",
-    items:[
-        {
-            image:"./assets/images/eng-constructions/featured-projects/prj1.jpg",
-            title:"Oman Across Ages Museum",
-            sector:"Social Infrastructure",
-            sqft:"500000",
-            location:"Oman"
-        },
-        {
-            image:"./assets/images/eng-constructions/featured-projects/prj2.jpg",
-            title:"Rove Downtown Hotel",
-            sector:"Hospitality",
-            sqft:"500000",
-            location:"Dubai"
-        },
-        {
-            image:"./assets/images/eng-constructions/featured-projects/prj3.jpg",
-            title:"Altair",
-            sector:"Hospitality",
-            sqft:"500000",
-            location:"Srilanka"
-        },
-        {
-            image: "./assets/images/eng-constructions/featured-projects/prj2.jpg",
-            title:"Oman Across Ages Museum",
-            sector: "Hospitality",
-            sqft: "500000",
-            location: "Oman"
-        },
-       
-    ]
- },
- WhyChooseData:{
-     title:"Why Choose Us",
-     desc:"With over a century of experience, SP International is committed to",
-     items:[
-         {
-             title: "On-Time, On-Budget Delivery",
-             content: "We ensure your projects are completed within the agreed timeline and budget constraints, with transparent communication and efficient resource management throughout the entire process."
-         },
-         {
-             title: "High-Quality Construction & Engineering Standards",
-             content: "Our team of experienced professionals adheres to the highest industry standards, implementing rigorous quality control measures and innovative engineering solutions to deliver exceptional results."
-         },
-         {
-             title: "Innovative & Sustainable Practices",
-             content: "We integrate cutting-edge sustainable technologies and eco-friendly materials into our projects, reducing environmental impact while maximizing efficiency and long-term value."
-         },
-         {
-             title: "End-to-End Project Management",
-             content: "From initial concept to final delivery, we provide comprehensive project management services, coordinating all aspects of construction to ensure seamless execution and client satisfaction."
-         },
-         {
-             title: "Global Expertise, Local Execution",
-             content: "Combining international best practices with local knowledge, we deliver world-class solutions tailored to your specific regional requirements and cultural context."
-         }
-     ]
- }
 
-}
+ };  
+ 
+ export const regionalData = { 
+  title: "Regional Offices",
+  offices:[
+    {
+      name:"Shapoorji Pallonji Mideast LLC",
+  address:"Office 307, Al Hudaiba Mall,<br> Al Mina Road,Satwa, PO Box 118219<br> Dubai, UAE ",
+  phone:["+971 4 2156222"],
+  fax:"+971 4 2690335",
+  location:"",
+    },
+    {
+      name:"Shapoorji Pallonji Mideast LLC – Abu Dhabi Branch",
+  address:"Office No. 607 Lamar Tower<br> Al Nahyan Camp, Delma Street, PO Box 38149,<br> Abu Dhabi, UAE",
+  phone:["+971 2 4434358"],
+  fax:"+971 2 4434396",
+  location:"",
+    },
+    {
+      name:"Shapoorji Pallonji International FZE",
+  address:"Dubai Airport Free Zone (DAFZA)<br> Building 5WA, Office #212, 2nd Floor, PO Box<br> 54449, Dubai, UAE",
+  phone: ["+971 4 2993880"],
+  fax:"+971 4 2993881",
+  location:"",
+    },
+    {
+      name:"Qatar-Shapoorji Pallonji Qatar WLL",
+  address:"Al Emadi Financial Square<br> Building 2, 1st Floor, Office No. 05, C-Ring Road,<br> PO Box 22587, Doha, Qatar",
+  phone: ["+974 44566024/26"],
+  fax:"+974 44566025",
+  location:"",
+    },
+    {
+      name:"Shapoorji Pallonji Mideast LLC MEP Division",
+  address:"City Business Bay Center,<br> Abu Hail, Office-202, Hor Al Anz East,<br> Dubai, UAE",
+  phone: ["+971 4 2869327"],
+  fax:"",
+  location:"",
+    },
+    {
+      name:"Saudi Arabia-Shapoorji Pallonji Mideast LLC –KSA",
+  address:"Rahmaniah District, Takhassusi St.<br> Building No. 7069, Unit No. 16, P.O.Box: 300587,<br> Postal Code: 11372, Riyadh – KSA",
+  phone: ["+966 11 407 9550"],
+  fax:"",
+  location:"",
+    },
+    {
+      name:"Shapoorji Pallonji Mideast LLC Façade Division",
+  address:"Office 307, Al Hudaiba Mall,<br> Al Mina Road, Satwa, PO Box 118219<br> Dubai, UAE",
+  phone: ["+971 4 2156222"],
+  fax:"",
+  location:"",
+    },
+    {
+      name:"Saudi Arabia-Shapoorji Pallonji Mideast L.L.C.MEP - Division",
+  address:"Rahmaniah District, Takhassusi St.<br> Building No. 7069, Unit No. 16, PO Box 300587,<br> Riyadh 11372, Riyadh – KSA", 
+   phone:["+966 11 464 2487"],
+  fax:"+966 11 279 1928",
+  location:"",
+    },
+    {
+      name:"KUWAIT-Shapoorji Pallonji Kuwait WL",
+  address:"Area: Qibla, Block: 06, Al Awtad Building<br> Building No: 66, Floor: 02 Office: 03<br> Salmiya, 22097, PO Box 9669, Kuwait ",
+  phone:["+965 22054700","+965 22054703"],
+  fax:"+965 22054798",
+  location:"",
+    },
+    {
+      name:"NIGERIA-Shapoorji Pallonji Nigeria Ltd.",
+  address:"Plot 634, Eleganza Plaza, Suite 15, 5th Floor,<br> Alakija Adeyemo St., Victoria Island,<br> Postal Code: 10241, Lagos, Nigeria",
+  phone: ["+234 88052294779"],
+  fax:"",
+  location:"",
+    },
+    {
+      name:"OMAN-Oman Shapoorji Company LLC - (OSCO) Oman Branch",
+  address:"Ghala Industrial Area, Office No. 504, Way: 6605,<br> Al Omran St., P.O.BOX: 2156, Postal Code: 130<br> Muscat, Sultanate of Oman",
+  phone: ["+968 240 35650/51"],
+  fax:"",
+  location:"",
+    },
+    {
+      name:"BAHRAIN-Shapoorji Pallonji Mideast LLC",
+  address:"Lehmedeh Tower, Office 23, Building 2317,<br> Road 2830, Block 428, Seef Area, Bahrain",
+  phone:"",
+  fax:"",
+  location:"",
+    },
+    {
+      name:"SRI LANKA-Shapoorji Pallonji Lanka Pvt. Ltd.",
+  address:"Geethanjali Place,<br> 4 - 1/1, 02nd Floor,<br> Colombo – 03, Sri Lanka",
+  phone: ["94 112 508 246"],
+  fax:"",
+  location:"",
+    },
+    {
+      name:"ALGERIA-Shapoorji Pallonji and Company Private Ltd.",
+  address:"Sidi Abderrahmen, D 01 Groupe-865<br> Texraine, Birkhadem, Algiers-161000, Algeria.",
+  phone: ["+213 23460401/415"],
+  fax:"+ 213 23460400",
+  location:"",
+    },
+    {
+      name:"IRAQ-Shapoorji Pallonji Mideast LLC - Al Basra, Iraq",
+  address:"Villa No. 03, Area Name: Manawi Basha (BASRA)<br> Street Name: Manawi Basha, Landmark: Near Manawi Basha, Child School, Al Basra, Iraq",
+  phone:"",
+  fax:"",
+  location:"",
+    },
+    {
+      name:"Gambia-Shapoorji Pallonji Mideast L.L.C.",
+  address:"University of The Gambia (UTG) Campus, <br>Block “B” Faraba Banta, P.O Box: 1977, Kombo East,  <br>West Coast Region, Republic of The Gambia",
+  phone:[" +220 336 0022"],
+  fax:"",
+  location:"",
+    },
+    {
+      name:"GHANA-Shapoorji Pallonji Ghana Limited",
+  address:"Flat No. 1, IROKO B, Sethi Nyame Dua Apartments <br> Community 26, Tema, Post Code: GK-0077-0729<br>Ghana",
+  phone:["+233 539 944 807"],
+  fax:"",
+  location:"",
+    },
+    {
+      name:"Zimbabwe-Oman Shapoorji Company LLC",
+  address:"Zimbabwe Branch, Unit D&H Block 1, Celestial Park,<br> Borrowdale Road, Harare, Zimbabwe",
+  phone:"",
+  fax:"",
+  location:"",
+    },
+     
+  ]
+
+ };
