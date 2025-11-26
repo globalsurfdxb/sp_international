@@ -6,6 +6,7 @@ import ExpertiseSec from "./sections/ExpertiseSec";
 // import OurApproach from "./sections/OurApproach";
 import FeaturedProjectSlider from "../common/FeaturedProjectSlider";
 import WhyChooseSec from "./sections/WhyChooseSec";
+import InnovationSustainability from "./sections/InnovationSustainability";
 import { mepData } from "./data";
 const MEP = () => {
   return (
@@ -19,6 +20,7 @@ const MEP = () => {
       <ExpertiseSec data={mepData.expertiseData} />
       <WhyChooseSec data={mepData.whyChooseData} />
       <FeaturedProjectSlider data={mepData.featuredProjectsData} />
+      <InnovationSustainability />
       {/* <OurApproach data={mepData.approachesData}/> */}
       <footer>
         <Footer />
