@@ -61,7 +61,7 @@ useEffect(() => {
   };
   return (
     <section className="pt-10 xl:pt-15 2xl:pt-25 overflow-hidden">
-         <div className="w-full h-[760px] flex justify-center  gap-3">
+         <div className="w-full h-[670px] flex justify-center  gap-3">
 
       {/* LEFT SIDE */} 
 
@@ -107,7 +107,12 @@ useEffect(() => {
 
     </div>
 
-
+    <div className="container">
+      <div className="pb-10 xl:pb-15 2xl:pb-30">
+        <h1 className="text-60 font-light leading-[1.18] max-w-[20ch] text-center mb-5 2xl:mb-10 m-auto ">Empowering Communities, Enriching Lives</h1>
+        <p className="text-29 text-paragraph font-light leading-[1.285] max-w-[46ch] m-auto text-center">Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people</p>
+      </div>
+    </div>
     </section>
   );
 };
