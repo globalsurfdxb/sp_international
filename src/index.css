@@ -648,5 +648,19 @@ body::-webkit-scrollbar {
   scrollbar-width: none;
 }
 
+@media (min-width: 768px) and (max-width: 1359px){
+  .no-border-right:nth-child(1n) {
+    @apply border-l;
+  }
+}
+@media (min-width: 1360px){
+ .no-border-right:nth-child(3n) {
+    border-right: none !important;
+  }
+  .no-pl0:nth-child(3n+1) {
+    padding-left: 0 !important;
+  }
+}
+
 
  

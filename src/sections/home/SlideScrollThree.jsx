@@ -3079,7 +3079,7 @@ const mapactive = useRef([]);
                 >
                   Driven by Talent. <br /> Defined by Culture.
                 </h1>
-            <div className="mb-[35%] md:mb-[15%] lg:mb-[15%] xl:mb-[35%]">
+            <div className="mb-[35%] md:mb-[15%] lg:mb-0">
               <div className="max-w-[34ch] flex lg:hidden flex-col lg:justify-end lg:h-full mb-4  relative gap-2 lg:gap-0  before:content-[''] before:absolute before:right-[50px]   before:bg-primary before:w-full before:h-full ">
               <AnimatePresence mode="wait" >
                 <motion.div
