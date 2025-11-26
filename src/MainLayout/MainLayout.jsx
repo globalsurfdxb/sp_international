@@ -14,6 +14,8 @@ import EngineeringConstruction from "../Pages/engineering-construction/Index";
 import MEP from "../Pages/mep/Index";
 import Gallery from "../Pages/gallery/Index";   
 import ContactUs from "../Pages/contact-us/Index"
+import QualitySafty from "../Pages/quality-safety/"
+
 const MainLayout = () => {
   return (
     <BrowserRouter>
@@ -30,6 +32,8 @@ const MainLayout = () => {
         <Route path="/news-details" element={<NewsDetails />} /> 
         <Route path="/engineering-construction" element={<EngineeringConstruction />} /> 
         <Route path="/contact-us" element={<ContactUs />} /> 
+        <Route path="/quality-safety" element={<QualitySafty />} /> 
+        
         <Route path="/mep" element={<MEP />} />
         <Route path="/gallery" element={<Gallery />} />    
         <Route path="*" element={<Error />} />
