@@ -26,7 +26,7 @@ html {
   --text-24: clamp(1.4rem, 4vw + 0.5rem, 24px);
   --text-26: clamp(1.6rem, 4.5vw + 0.5rem, 26px);
   --text-28: clamp(1.8rem, 4.5vw + 0.5rem, 28px);
-  --text-29: clamp(1.9rem, 4.5vw + 0.5rem, 29px);
+  --text-29: clamp(1.8rem, 5.5vw + 0.5rem, 29px);
   --text-32: clamp(2rem, 5vw + 0.5rem, 32px);
   --text-36: clamp(2.1rem, 5vw + 0.5rem, 36px);
   --text-40: clamp(2.2rem, 5.5vw + 0.5rem, 40px);
@@ -661,6 +661,15 @@ body::-webkit-scrollbar {
     padding-left: 0 !important;
   }
 }
-
-
  
+/* hide native scrollbar when desired */
+.scrollbar-hidden::-webkit-scrollbar { display: none; }
+.scrollbar-hidden { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* left-side native scrollbar (if you still use native scrollbar) */
+.custom-scroll-left { direction: rtl; }
+.custom-scroll-left > * { direction: ltr; }
+
+/* optional styling for native scrollbar thumb (if kept) */
+.custom-scroll-left::-webkit-scrollbar { width: 2px;background: #cccccc }
+.custom-scroll-left::-webkit-scrollbar-thumb { background: #30B6F9; border-radius: 4px; }

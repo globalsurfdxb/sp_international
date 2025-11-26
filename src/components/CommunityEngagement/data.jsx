@@ -79,7 +79,62 @@
 
 
  };  
- 
+  export const focusData = { 
+  title: "Focus Areas",
+  areas:[
+    {
+      title:"Education",
+  description:"Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people ", 
+  icon:"./assets/images/community-engagement/fa1.svg",
+  image:"./assets/images/community-engagement/faimg1.jpg",
+    },
+    {
+      title:"Healthcare",
+  description:"Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people", 
+  icon:"./assets/images/community-engagement/fa2.svg",
+  image:"./assets/images/community-engagement/faimg2.jpg",
+    },
+    {
+      title:"Skills Development",
+  description:"Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people", 
+  icon:"./assets/images/community-engagement/fa3.svg",
+  image:"./assets/images/community-engagement/faimg3.jpg",
+    },
+    {
+      title:"Infrastructure",
+  description:"Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people", 
+  icon:"./assets/images/community-engagement/fa4.svg",
+  image:"./assets/images/community-engagement/faimg4.jpg",
+    }, 
+    {
+      title:"Education",
+  description:"Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people ", 
+  icon:"./assets/images/community-engagement/fa1.svg",
+  image:"./assets/images/community-engagement/faimg1.jpg",
+    },
+    {
+      title:"Healthcare",
+  description:"Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people", 
+  icon:"./assets/images/community-engagement/fa2.svg",
+  image:"./assets/images/community-engagement/faimg2.jpg",
+    },
+    {
+      title:"Skills Development",
+  description:"Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people", 
+  icon:"./assets/images/community-engagement/fa3.svg",
+  image:"./assets/images/community-engagement/faimg3.jpg",
+    },
+    {
+      title:"Infrastructure",
+  description:"Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people", 
+  icon:"./assets/images/community-engagement/fa4.svg",
+  image:"./assets/images/community-engagement/faimg4.jpg",
+    }, 
+     
+     
+  ]
+
+ };
  export const regionalData = { 
   title: "Regional Offices",
   offices:[
@@ -212,4 +267,66 @@
      
   ]
 
- };
+ }; 
+export const engineeringData = {
+  
+ expertiseData:{
+   title:"Highlighted Programs",
+     items:[
+      {
+          mainTitle:"Improved Nutrition for infants by providing 1.5MLN feeds",
+          mainDesc:"Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people",
+             img:"./assets/images/eng-constructions/expertise/exp1.jpg"
+      },
+      {
+          mainTitle:"Improved Nutrition for infants by providing 1.5MLN feeds",
+          mainDesc:"Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people",
+           img:"./assets/images/eng-constructions/expertise/exp1.jpg"
+      },
+      {
+          mainTitle:"Improved Nutrition for infants by providing 1.5MLN feeds",
+          mainDesc:"Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people",
+           img:"./assets/images/eng-constructions/expertise/exp1.jpg"
+      },
+      {
+          mainTitle:"Improved Nutrition for infants by providing 1.5MLN feeds",
+          mainDesc:"Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people",
+           img:"./assets/images/eng-constructions/expertise/exp1.jpg"
+      },
+    ]
+ }, 
+  featuredProjectsData:{
+    title:"",
+    items:[
+        {
+            image:"./assets/images/community-engagement/evs1.jpg",
+            title:"Improved Nutrition for infants by providing 1.5MLN feeds",
+            date:"10-08-205"
+        },
+        {
+            image:"./assets/images/community-engagement/evs2.jpg", 
+            title:"Improved Nutrition for infants by providing 1.5MLN feeds",
+            date:"10-08-205"
+        },
+        {
+            image:"./assets/images/community-engagement/evs3.jpg", 
+            title:"Improved Nutrition for infants by providing 1.5MLN feeds",
+            date:"10-08-205"
+        },
+        {
+            image: "./assets/images/community-engagement/evs4.jpg",
+            title:"Improved Nutrition for infants by providing 1.5MLN feeds",
+            date:"10-08-205"
+        },
+        {
+            image: "./assets/images/community-engagement/evs5.jpg",
+            title:"Improved Nutrition for infants by providing 1.5MLN feeds",
+            date:"10-08-205"
+        },
+       
+    ]
+ }
+
+}
+
+ 
