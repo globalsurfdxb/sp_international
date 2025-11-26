@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ecs1,ecs2,ecs3,ecs4,ecs5,ecs6,ecs7,ecs8,ecs9 } from "../data"; 
 import { motion, AnimatePresence } from "framer-motion";
  
+import { assets } from "../../../assets/index"
  
 
 const config = [
@@ -60,7 +61,7 @@ useEffect(() => {
     exit:    { opacity: .9 ,  scale: 1.02 }
   };
   return (
-    <section className="pt-10 xl:pt-15 2xl:pt-25 overflow-hidden">
+    <section className="pt-10 xl:pt-15 2xl:pt-25 overflow-hidden relative">
          <div className="w-full h-[670px] flex justify-center  gap-3">
 
       {/* LEFT SIDE */} 
@@ -113,6 +114,7 @@ useEffect(() => {
         <p className="text-29 text-paragraph font-light leading-[1.285] max-w-[46ch] m-auto text-center">Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people</p>
       </div>
     </div>
+          <div className="absolute top-15 right-0 z-[-1] w-[700px] h-[980px]"><img src={assets.mainShape} alt="" /></div>
     </section>
   );
 };
