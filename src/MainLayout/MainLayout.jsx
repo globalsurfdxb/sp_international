@@ -13,8 +13,8 @@ import NewsDetails from "../Pages/news-details/Index";
 import EngineeringConstruction from "../Pages/engineering-construction/Index"; 
 import MEP from "../Pages/mep/Index";
 import Gallery from "../Pages/gallery/Index";   
-import ContactUs from "../Pages/contact-us/Index"
-import QualitySafety from "../Pages/quality-safety/"
+import ContactUs from "../Pages/contact-us/Index" 
+import QualitySafety from "../Pages/quality-safety/Index" 
 
 const MainLayout = () => {
   return (
@@ -31,8 +31,8 @@ const MainLayout = () => {
         <Route path="/projects" element={<Projects />} />
         <Route path="/news-details" element={<NewsDetails />} /> 
         <Route path="/engineering-construction" element={<EngineeringConstruction />} /> 
-        <Route path="/contact-us" element={<ContactUs />} /> 
-        <Route path="/quality-safety" element={<QualitySafety />} /> 
+        <Route path="/contact-us" element={<ContactUs />} />  
+        <Route path="/quality-safety" element={<QualitySafety />} />  
         
         <Route path="/mep" element={<MEP />} />
         <Route path="/gallery" element={<Gallery />} />    
