@@ -9,26 +9,26 @@ const RegionalOffices = () => {
        <div className="grid md:grid-cols-2 2xl:grid-cols-3 md:gap-y-8 lg:gap-y-17">
        {regionalData.offices.map((office, index) => (
         <div key={index} className="px-0 md:px-5  p-5 py-8   3xl:px-15  3xl:pb-15    md:border-r md:border-t border-b border-[#CCCCCC] no-border-right no-pl0 ">
-         <div className="mb-5"> <h3 className="font-19 font-bold">{office.name}</h3></div>
-          <p className="font-19 font-light  mb-4 lg:mb-[45px]">{office.address}</p>
+         <div className="mb-5"> <h3 className="font-19 font-bold max-w-[32ch]">{office.name}</h3></div>
+          <p className="font-19 font-light  mb-4 lg:mb-[45px]" dangerouslySetInnerHTML={{__html: office.address}}></p>
                 {
                   office.phone || office.fax ? (
                   <div className="bg-f5f5 p-5 lg:py-10 3xl:px-[34px]">
                   <div className="flex flex-col md:flex-row   justify-between mb-5 lg:mb-[35px] ">
                    {office.phone ? (
                    <div >
-                     <p className="text-paragraph text-19 font-light mb-[4px] leading-[1.48] uppercase">Phone</p>
+                     <p className="text-paragraph text-19 font-light mb-[4px] leading-[1.48] ">Phone</p>
                      <div>
                      {office.phone.map((phone, index) => (
-                      <p key={index} className="text-paragraph text-19 font-bold leading-[1.31] uppercase">{phone}</p>
+                      <p key={index} className="text-paragraph text-19 font-bold leading-[1.31] ">{phone}</p>
                     ))}
                      </div>
                    </div>
                    ) : null}
                    {office.fax ? (
                    <div>
-                     <p className="text-paragraph text-19 font-light mb-[4px] leading-[1.48] uppercase">Fax</p>
-                      <p className="text-paragraph text-19 font-bold leading-[1.31] uppercase">{office.fax}</p>
+                     <p className="text-paragraph text-19 font-light mb-[4px] leading-[1.48] ">Fax</p>
+                      <p className="text-paragraph text-19 font-bold leading-[1.31] ">{office.fax}</p>
                    </div>
                    ) : null}
                   </div>

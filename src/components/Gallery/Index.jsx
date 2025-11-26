@@ -211,7 +211,7 @@ function moveUp(delay = 0) {
                 <button
                   onClick={prev}
                   aria-label="Previous image"
-                  className="w-12 h-12 flex items-center justify-center absolute -left-15 top-1/2 -translate-y-1/2 z-20 p-2 border border-white cursor-pointer transition-all duration-300 hover:bg-black/40 rounded-full"
+                  className="w-12 h-12 flex items-center justify-center absolute -left-20 top-1/2 -translate-y-1/2 z-20 p-2 border border-white cursor-pointer transition-all duration-300 hover:bg-black/40 rounded-full"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20" fill="none">
                   <g clip-path="url(#clip0_3796_3103)">
@@ -229,7 +229,7 @@ function moveUp(delay = 0) {
                 <button
                   onClick={next}
                   aria-label="Next image"
-                  className="w-12 h-12 flex items-center justify-center absolute -right-15 top-1/2 z-20 p-2 border border-white cursor-pointer transition-all duration-300 hover:bg-black/40 rounded-full"
+                  className="w-12 h-12 flex items-center justify-center absolute -right-20 top-1/2 z-20 p-2 border border-white cursor-pointer transition-all duration-300 hover:bg-black/40 rounded-full"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20" fill="none" className="rotate-180">
                     <g clip-path="url(#clip0_3796_3103)">
