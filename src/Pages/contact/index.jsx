@@ -1,9 +1,9 @@
-import ContactUs from "../../components/Contact/Index";
+import Contact from "../../components/Contact/Index";
 
 const Index = () => {
   return (
     <>
-      <ContactUs />
+      <Contact />
     </>
   );
 };

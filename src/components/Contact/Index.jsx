@@ -2,7 +2,7 @@ import MainNavbar from "../../MainLayout/MainNavbar";
 import Footer from "../../MainLayout/Footer"; 
 import ContactDetails from "./sections/ContactDetails";
 import RegionalOffices from "./sections/RegionalOffices";
-const ContactUs = () => {
+const Contact = () => {
   return (
     <>
       <header>
@@ -20,4 +20,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default Contact;
