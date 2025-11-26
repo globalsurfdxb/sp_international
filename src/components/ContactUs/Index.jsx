@@ -1,3 +1,4 @@
+'use client';
 import MainNavbar from "../../MainLayout/MainNavbar";
 import Footer from "../../MainLayout/Footer"; 
 import ContactDetails from "./sections/ContactDetails";
