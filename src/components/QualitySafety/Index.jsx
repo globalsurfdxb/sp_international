@@ -2,10 +2,10 @@
 import MainNavbar from "../../MainLayout/MainNavbar";
 import Footer from "../../MainLayout/Footer";  
 import Banner from "../../components/common/Banner"; 
-import CoreValues from "../../components/QualitySafety/sections/CoreValues"
-import Certifications from "../../components/QualitySafety/sections/Certifications"
-import SaftySlider from "../../components/QualitySafety/sections/SaftySlider"
-import EnsuringSafety from "../../components/QualitySafety/sections/EnsuringSafety"
+import CoreValues from "./sections/CoreValues"
+import Certifications from "./sections/Certifications"
+import SaftySlider from "./sections/SaftySlider"
+import EnsuringSafety from "./sections/EnsuringSafety"
 const QualitySafety = () => {
   return (
     <>
