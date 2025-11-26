@@ -11,6 +11,7 @@ import ProjectDetails from "../Pages/project-details/Index";
 import Projects from "../Pages/projects/Index";
 import NewsDetails from "../Pages/news-details/Index"; 
 import EngineeringConstruction from "../Pages/engineering-construction/Index";
+import Contact from "../Pages/contact/Index";
 import MEP from "../Pages/mep/Index";
 import Gallery from "../Pages/gallery/Index";   
 const MainLayout = () => {
@@ -28,6 +29,7 @@ const MainLayout = () => {
         <Route path="/projects" element={<Projects />} />
         <Route path="/news-details" element={<NewsDetails />} /> 
         <Route path="/engineering-construction" element={<EngineeringConstruction />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/mep" element={<MEP />} />
         <Route path="/gallery" element={<Gallery />} />    
         <Route path="*" element={<Error />} />
