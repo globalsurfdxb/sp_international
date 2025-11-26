@@ -43,19 +43,19 @@ const [subject, setSubject] = useState(null);
     <section className="py-10 lg:pb-0 xl:pt-15 2xl:pt-30 bg-f5f5">
       <div className="container ">
         <h1 className="text-70 font-light leading-[1.071428571428571] pb-10 xl:pb-15 2xl:pb-31">{contactData.title}</h1>
-        <div className="grid grid-cols-1   lg:grid-cols-2  gap-8 lg:gap-0">
+        <div className="grid grid-cols-1   lg:grid-cols-[auto_886px]  gap-8 lg:gap-0">
           <div >
           <p className="text-19 font-light text-paragraph mb-6">Head office</p>
           <p className="  text-29 font-bold leading-[1.31] ">{contactData.name}</p>
-          <p className="text-paragraph text-29 font-light leading-[1.35] max-w-[27ch]">{contactData.address}</p>
+          <p className="text-paragraph text-29 font-light leading-[1.35] max-w-[25ch]">{contactData.address}</p>
          <div className="flex   gap-5 md:gap-15 xl:gap-[130px] my-10 xl:my-15 2xl:my-20">
           <div >
-            <p className="text-paragraph text-19 font-light mb-[10px] leading-[1.48] uppercase">Phone</p>
-             <p className="text-paragraph text-19 xl:text-29 font-light leading-[1.31] uppercase">{contactData.phone}</p>
+            <p className="text-paragraph text-19 font-light mb-[10px] leading-[1.48] ">Phone</p>
+             <p className="text-black text-19 xl:text-29 font-light leading-[1.31] ">{contactData.phone}</p>
           </div>
           <div>
-            <p className="text-paragraph text-19 font-light mb-[10px] leading-[1.48] uppercase">Email</p>
-             <p className="text-paragraph text-19 xl:text-29 leading-[1.31] uppercase">{contactData.email}</p>
+            <p className="text-paragraph text-19 font-light mb-[10px] leading-[1.48] ">Email</p>
+             <p className="text-black text-19 xl:text-29 leading-[1.31]   font-light">{contactData.email}</p>
           </div>
          </div>
          
@@ -226,7 +226,7 @@ const [subject, setSubject] = useState(null);
                     class="   bg-white/25 text-white rounded-full hover:bg-gray-800 transition uppercase"
                   > 
                   <div class="relative p-[1px] rounded-full cursor-pointer">
-                    <div class="absolute inset-0 rounded-full bg-gradient-to-r from-[#1E45A2] to-[#30B6F9]"></div>
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-r from-[#30B6F9] to-[#1E45A2]"></div>
 
                     <div class="relative rounded-full bg-[#5974b7] py-2 px-4 text-white">
                     Send Message
