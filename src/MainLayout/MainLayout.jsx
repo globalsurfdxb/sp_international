@@ -12,6 +12,7 @@ import Projects from "../Pages/projects/Index";
 import NewsDetails from "../Pages/news-details/Index"; 
 import EngineeringConstruction from "../Pages/engineering-construction/Index"; 
 import MEP from "../Pages/mep/Index";
+import DesignStudio from "../Pages/design-studio/Index";
 import Gallery from "../Pages/gallery/Index";   
 import ContactUs from "../Pages/contact-us/Index" 
 import QualitySafety from "../Pages/quality-safety/Index" 
@@ -32,6 +33,7 @@ const MainLayout = () => {
         <Route path="/projects" element={<Projects />} />
         <Route path="/news-details" element={<NewsDetails />} /> 
         <Route path="/engineering-construction" element={<EngineeringConstruction />} /> 
+        <Route path="/design-studio" element={<DesignStudio />} /> 
         <Route path="/contact-us" element={<ContactUs />} />  
         <Route path="/quality-safety" element={<QualitySafety />} />  
         <Route path="/community-engagement" element={<CommunityEngagement />} />  
