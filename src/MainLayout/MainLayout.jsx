@@ -18,7 +18,7 @@ import Gallery from "../Pages/gallery/Index";
 import ContactUs from "../Pages/contact-us/Index" 
 import QualitySafety from "../Pages/quality-safety/Index" 
 import CommunityEngagement from "../Pages/community-engagement/Index" 
-
+import Facade from "../Pages/facade/Index";
 const MainLayout = () => {
   return (
     <BrowserRouter>
@@ -36,6 +36,7 @@ const MainLayout = () => {
         <Route path="/engineering-construction" element={<EngineeringConstruction />} /> 
         <Route path="/design-studio" element={<DesignStudio />} /> 
         <Route path="/interior-design" element={<InteriorDesign />} /> 
+        <Route path="/facade" element={<Facade />} /> 
         <Route path="/contact-us" element={<ContactUs />} />  
         <Route path="/quality-safety" element={<QualitySafety />} />  
         <Route path="/community-engagement" element={<CommunityEngagement />} />  
