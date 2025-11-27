@@ -1,0 +1,78 @@
+import H2Title from "../../common/H2Title";
+import { assets } from "../../../assets/index";
+import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay, Controller } from "swiper/modules";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+const ExpertiseSec = ({data}) => {
+  const [swiperRef, setSweiperRef] = useState(null)
+  return (
+    <section className="relative pt-12 pb-16 xl:pt-20 xl:pb-32 bg-primary text-white overflow-hidden">
+      <div className="container">
+        <div className="flex justify-between mb-50px ">
+          <H2Title titleText="Our Expertise" />
+          {/* Navigation - Fixed */}
+          <div className="flex items-center gap-4 ">
+            <button onClick={() => swiperRef?.slidePrev()}
+              className="w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors"
+              aria-label="Previous slide"
+            >
+              <img src={assets.arrowLeft2} alt="" />
+            </button>
+            <button onClick={() => swiperRef?.slideNext()}
+              className="w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors"
+              aria-label="Next slide"
+            >
+              <img src={assets.arrowRight2} alt="" />
+            </button>
+            
+          </div>
+          </div>
+          <div>
+            <Swiper 
+            modules={[Navigation, Pagination, Autoplay, Controller]}
+            spaceBetween={40}
+            slidesPerView={1}
+            speed={700}
+            onSwiper={setSweiperRef}
+            autoplay={{
+              delay: 7000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            breakpoints={
+              {
+                0: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+              }
+            }
+            className="expertise-swiper !overflow-visible"
+            >
+              {data.items.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <div className="relative overflow-hidden border-l border-white/30">
+                    <img src={item.img} alt={item.slideTitle} className="w-full h-[300px] xl:h-[333px]  object-cover" />
+                    <div className="p-4 xl:p-10">
+                      <h3 className="text-29 leading-[1.724137931034483] font-light mb-2">{item.slideTitle}</h3>
+                      <p className="text-19 leading-[1.526315789473684] font-light">{item.slideDesc}</p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
+    </section>
+  );
+}
+
+export default ExpertiseSec;
