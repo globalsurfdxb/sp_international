@@ -42,7 +42,7 @@ const FeaturedProjectSlider = ({data}) => {
   }, []);
 
   return (
-    <section className="py-10 xl:py-15 2xl:pt-[80px] 2xl:pb-25 relative bg-f5f5">
+    <section className="py-10 xl:py-15 2xl:pt-[80px] 2xl:pb-25 relative bg-f5f5 overflow-hidden">
       <div className="px-[15px] md:pe-0 relative">
         {/* Counter + Arrows */}
         <div className="container" ref={containerRef}>

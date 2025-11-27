@@ -2,7 +2,7 @@ import React from "react";
 import { CertificationsData } from "../data"; 
 const Certifications = () => {
   return (
-    <section className="py-10 xl:py-15 2xl:pt-23 2xl:pb-25 bg-primary">
+    <section className="py-10 xl:py-15 2xl:py-22 3xl:pt-23 3xl:pb-25 bg-primary">
       <div className="container ">
          <div>
             <h2 className="text-60 font-light leading-[1.18] mb-7 text-white">{CertificationsData.title}</h2>

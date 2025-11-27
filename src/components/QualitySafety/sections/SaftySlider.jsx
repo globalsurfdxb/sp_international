@@ -27,10 +27,10 @@ const SaftySlider = () => {
   };
 
   return (
-    <section className="max-w-[1920px] mx-auto ">
+    <section className="max-w-[1920px] mx-auto overflow-hidden ">
      <div className="relative">
       <img src="/assets/images/svg/sv-02.svg" alt="" className="absolute bottom-0 left-0 z-[-1]" width={468} height={655} /> 
-      <div className="container pt-10 xl:pt-15 2xl:pt-30">   
+      <div className="container pt30">   
         <div className=" max-w-[1206px] ml-auto  ">
             
           <div >
@@ -48,7 +48,7 @@ const SaftySlider = () => {
         </div>
       </div>
      </div>
-      <div className="w-full bg-white pb-10 xl:pb-15 2xl:pb-30">
+      <div className="w-full bg-white pb30">
         <motion.div variants={moveLeft(0.3)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="overflow-hidden">
           <Swiper
             modules={[Autoplay]}
