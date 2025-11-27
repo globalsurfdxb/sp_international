@@ -60,13 +60,13 @@ const EnsuringSafety = () => {
   }, []);
 
   return (
-    <section className="w-full bg-f5f5 text-black py-10   xl:py-15 2xl:pt-23 2xl:pb-25">
+    <section className="w-full bg-f5f5 text-black py-10   xl:py-15  2xl:py-22 3xl:pb-25 3xl:pt-23">
       <motion.h1 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 container font-light mb-6 md:mb-[50px] leading-[1.166666666666667]">
         {heading}
       </motion.h1>
 
       <div className="container">
-        <div className="flex flex-col lg:flex-row items-center gap-10 2xl:gap-[108px]">
+        <div className="flex flex-col lg:flex-row items-center gap-10 2xl:gap-17 3xl:gap-[108px]">
           {/* Left Side - Image */}
           <div className="flex-shrink-0 relative overflow-hidden" ref={imageContainerRefTwo}>
             <img

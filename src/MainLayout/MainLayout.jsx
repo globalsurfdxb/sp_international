@@ -18,6 +18,8 @@ import Gallery from "../Pages/gallery/Index";
 import ContactUs from "../Pages/contact-us/Index" 
 import QualitySafety from "../Pages/quality-safety/Index" 
 import CommunityEngagement from "../Pages/community-engagement/Index" 
+import GlobalPresence from "../Pages/global-presence/Index" 
+import Water from "../Pages/water/Index" 
 import Facade from "../Pages/facade/Index";
 import IntegratedFacilityManagement from "../Pages/integrated-facility-management/Index";
 const MainLayout = () => {
@@ -42,6 +44,8 @@ const MainLayout = () => {
         <Route path="/contact-us" element={<ContactUs />} />  
         <Route path="/quality-safety" element={<QualitySafety />} />  
         <Route path="/community-engagement" element={<CommunityEngagement />} />  
+        <Route path="/global-presence" element={<GlobalPresence />} />  
+        <Route path="/water" element={<Water />} />  
         
         <Route path="/mep" element={<MEP />} />
         <Route path="/gallery" element={<Gallery />} />    

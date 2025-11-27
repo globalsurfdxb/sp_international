@@ -40,15 +40,15 @@ const [subject, setSubject] = useState(null);
     }),
   };
   return (
-    <section className="py-10 lg:pb-0 xl:pt-15 2xl:pt-30 bg-f5f5">
+    <section className="pt30 bg-f5f5 pb-10 lg:pb-0">
       <div className="container ">
-        <h1 className="text-70 font-light leading-[1.071428571428571] pb-10 xl:pb-15 2xl:pb-31">{contactData.title}</h1>
-        <div className="grid grid-cols-1   lg:grid-cols-[auto_886px]  gap-8 lg:gap-0">
+        <h1 className="text-70 font-light leading-[1.071428571428571] pb-5 xl:pb-15 3xl:pb-22 3xl:pb-31">{contactData.title}</h1>
+        <div className="grid grid-cols-1   lg:grid-cols-[auto_54.7%]  gap-8 3xl:gap-2">
           <div >
-          <p className="text-19 font-light text-paragraph mb-6">Head office</p>
+          <p className="text-19 font-light text-paragraph mb-3 lg:mb-6 ">Head office</p>
           <p className="  text-29 font-bold leading-[1.31] ">{contactData.name}</p>
           <p className="text-paragraph text-29 font-light leading-[1.35] max-w-[25ch]">{contactData.address}</p>
-         <div className="flex   gap-5 md:gap-15 xl:gap-[130px] my-10 xl:my-15 2xl:my-20">
+         <div className="flex flex-col sm:flex-row  gap-5 md:gap-15 xl:gap-[130px] my-6 lg:my-10 xl:my-15 2xl:my-20">
           <div >
             <p className="text-paragraph text-19 font-light mb-[10px] leading-[1.48] ">Phone</p>
              <p className="text-black text-19 xl:text-29 font-light leading-[1.31] ">{contactData.phone}</p>
@@ -74,11 +74,11 @@ const [subject, setSubject] = useState(null);
             </svg>
           </div>
           </div>
-          <div className="bg-primary p-6 lg:p-8 xl:p-17  xl:pt-15">
-            <h2 className="text-60 font-light leading-[1.344827586206897] text-white mb-12">General Inquiry</h2>
+          <div className="bg-primary p-6 lg:p-8 xl:p-10 3xl:p-17    3xl:pt-15">
+            <h2 className="text-60 font-light leading-[1.344827586206897] text-white mb-4 lg:mb-6 2xl:mb-8 3xl:mb-12">General Inquiry</h2>
               <form >
  
-                  <div className="flex gap-12 w-full mb-6 lg:mb-15">
+                  <div className="flex gap-12 w-full mb-6 xl:mb-8 3xl:mb-15">
                     <div class="relative w-full">
                     <input
                       id="name"
@@ -123,7 +123,7 @@ const [subject, setSubject] = useState(null);
                   </div>
 
                 
-                <div className="flex gap-12 w-full mb-6 lg:mb-15">
+                <div className="flex gap-12 w-full mb-6 xl:mb-8 3xl:mb-15">
                   <div class="relative w-full">
                     <input
                       id="organization"
@@ -167,7 +167,7 @@ const [subject, setSubject] = useState(null);
                     </label>
                   </div>
                 </div>
-                   <div className="relative mb-6 lg:mb-15">
+                   <div className="relative mb-6 xl:mb-8 3xl:mb-15">
       {/* Floating Label */}
       <label
         className={`

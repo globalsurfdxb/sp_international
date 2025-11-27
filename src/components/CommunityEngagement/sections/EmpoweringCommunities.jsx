@@ -20,11 +20,11 @@ const all = [ecs1, ecs2, ecs3, ecs4, ecs5, ecs6, ecs7, ecs8,ecs9];
 
 // Sizes
 const size = {
-  big:    "2xl:min-w-full h-[405px]",
-  large: "2xl:min-w-full h-[345px]",
-  medium: "2xl:w-full h-[244px]", 
-  small:  "2xl:w-full h-[182px]",
-  extrasmall:  "2xl:w-full h-[218px]",
+  big:    "2xl:min-w-full h-[150px] lg:h-[405px]",
+  large: "2xl:min-w-full h-[125px] lg:h-[345px]",
+  medium: "2xl:w-full h-[104px] lg:h-[244px]", 
+  small:  "2xl:w-full h-[104px] lg:h-[182px]",
+  extrasmall:  "2xl:w-full h-[104px] lg:h-[218px]",
 };
 
 const EmpoweringCommunities  = () => {
@@ -62,22 +62,22 @@ useEffect(() => {
   };
   return (
     <section className="pt-10 xl:pt-15 2xl:pt-25 overflow-hidden relative">
-         <div className="w-full h-[670px] flex justify-center  gap-3">
+         <div className="w-full h-[360px] lg:h-[670px] flex justify-center  gap-3">
 
       {/* LEFT SIDE */} 
 
         {/* Set 1 - small */}
-        <div className="mt-[350px] min-w-[15.27%]">
+        <div className="mt-[150px] lg:mt-[350px] min-w-[15.27%]">
         <Block src={all[0][idx[0]]} size={size.extrasmall} fade={fade} />
         </div>
 
          {/* Set 3 + Set 4 column */}
-        <div className="flex flex-col gap-4 mt-[218px] min-w-[15.27%]">
+        <div className="flex flex-col gap-4 mt-[100px] lg:mt-[218px] min-w-[15.27%]">
         <Block src={all[1][idx[1]]} size={size.small} fade={fade} />
           <Block src={all[3][idx[3]]} size={size.medium} fade={fade} />
         </div>
       
-        <div className={`mt-[136px] min-w-[15.74%]`}>
+        <div className={`mt-[40px] lg:mt-[136px] min-w-[15.74%]`}>
           <Block src={all[2][idx[2]]} size={size.large} fade={fade} />
           </div>
        
@@ -91,18 +91,18 @@ useEffect(() => {
       {/* RIGHT SIDE */} 
 
         {/* Set 6 - large */}
-        <div className={ `mt-[136px] min-w-[15.74%]`}>
+        <div className={ `mt-[40px] lg:mt-[136px] min-w-[15.74%]`}>
         <Block src={all[5][idx[5]]} size={size.large} fade={fade}  />
         </div>
 
 
         {/* Set 8 + Set 9 column */}
-        <div className="flex flex-col gap-4 mt-[218px] min-w-[15.27%]">
+        <div className="flex flex-col gap-4 mt-[100px] lg:mt-[218px] min-w-[15.27%]">
           <Block src={all[7][idx[7]]} size={size.small} fade={fade} />
           <Block src={all[8][idx[8]]} size={size.medium} fade={fade} />
         </div> 
         {/* Set 7 - small */}
-        <div className="mt-[350px] min-w-[15.27%]">
+        <div className="mt-[150px] lg:mt-[350px] min-w-[15.27%]">
         <Block src={all[6][idx[6]]} size={size.extrasmall} fade={fade} />
         </div>
 

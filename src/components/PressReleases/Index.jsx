@@ -77,7 +77,7 @@ const Index = () => {
       <section className="relative">
         {/* <img src="./assets/images/shape-left.svg" alt="" className="absolute  bottom-30 left-0 z-[-1]" /> */}
         <div className="container">
-          <div className="mb-10 xl:mb-15 2xl:mb-20 mt-12 xl:mt-25 2xl:mt-30">
+          <div className="mb-10 xl:mb-12 3xl:mb-20 mt-12 xl:mt-15 3xl:mt-30">
             <motion.h1 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-70 font-light leading-[1.071428571428571]">Press Releases</motion.h1>
           </div>
 

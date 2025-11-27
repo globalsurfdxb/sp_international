@@ -6,10 +6,9 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import { motion } from "framer-motion";
-import { moveUp } from "../../../motionVarients";
-import H2Title from "./H2Title";
+import { moveUp } from "../../../motionVarients"; 
 
-const EmployeeInvolvementSlider = ({data}) => {
+const DivisionExpertise = ({data}) => {
   const swiperRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(1);
   const containerRef = useRef(null);
@@ -42,14 +41,14 @@ const EmployeeInvolvementSlider = ({data}) => {
   }, []);
 
   return (
-    <section className="py-10 xl:py-15 2xl:pt-[80px] 2xl:pb-30 relative bg-f5f5 overflow-hidden">
+    <section className="py-10 xl:py-15 2xl:py-30 relative  overflow-hidden">
       <div className="px-[15px] md:pe-0 relative">
         {/* Counter + Arrows */}
         <div className="container" ref={containerRef}>
-          <div className="flex justify-between items-center mb-5 xl:mb-17">
-            <div className="text-lg font-semibold text-black flex items-center gap-1">
-              <H2Title titleText="Employee Involvement" titleColor="black" marginClass="mb-0" />
-            </div> 
+          <div className="flex justify-between items-center mb-5 xl:mb-12">
+            <h2 className="text-60 font-light leading-[1.166666666666667] ">
+          {data.title}
+          </h2>  
           </div>
         </div>
         {/* Swiper */}
@@ -77,25 +76,23 @@ const EmployeeInvolvementSlider = ({data}) => {
               // }}
               breakpoints={{
                 768: {
-                  slidesPerView:3.1,
-                  spaceBetween: 10,
+                  slidesPerView: 3.2,
+                  spaceBetween: 40,
                 },
               }}
               className="!overflow-visible"
             >
-              {[...data.items,...data.items].map((item, i) => (
+              {data.items.map((item, i) => (
                 <SwiperSlide key={i}>
-                  <div className="overflow-hidden ">
-                    <div className="after:h-full after:w-full  after:bg-[linear-gradient(180deg,rgba(0,0,0,0)_42.43%,rgba(0,0,0,0.75)_91.64%)] after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0">
+                  <div className="overflow-hidden border-l border-black/20">
+                    <div>
                       <motion.img variants={moveUp(0.1 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={item.image} alt={`slide-${i}`} className="w-full h-auto object-cover" />
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 px-5 lg:px-8 xl:px-15">
-                      <div className=" pb-5 xl:pb-[42px]">
-                        <p className="text-19 mb-3 xl:mb-[18px] leading-[1.344827586206897] font-light text-white">{item.date}</p>
-                        <h3 className="text-[20px] md:text-29 leading-[1.1] md:leading-[1.344827586206897] font-light text-white">{item.title}</h3>
+                    <div className="pt-6 pl-6 pb-6 lg:pt-8 lg:pl-8 lg:pb-8 2xl:pt-10 2xl:pl-10 2xl:pb-12">
+                      <div >
+                        <h3 className="text-29 leading-[1.344827586206897] font-light mb-2">{item.title}</h3>
                       </div>
-                       
-                       
+                      <p className="text-19 font-light font-paragraph leading-[1.5]">{item.desc}</p>
                     </div>
                   </div>
                 </SwiperSlide>
@@ -109,4 +106,4 @@ const EmployeeInvolvementSlider = ({data}) => {
   );
 };
 
-export default EmployeeInvolvementSlider;
+export default DivisionExpertise;

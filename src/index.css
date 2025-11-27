@@ -660,7 +660,25 @@ body::-webkit-scrollbar {
   .no-pl0:nth-child(3n+1) {
     padding-left: 0 !important;
   }
+  
 }
+@media (min-width: 1280px){
+  .bdrrst:nth-child(3n), .bdrrst:nth-child(7n) {
+    @apply border-r 
+  }
+}
+@media (max-width: 1279px){
+  .bdrrst:nth-child(2n), .bdrrst:nth-child(7n) {
+    @apply border-r 
+  }
+}
+@media (max-width: 767px){
+  .bdrrst {
+    @apply border-r 
+  }
+}
+
+
  
 /* hide native scrollbar when desired */
 .scrollbar-hidden::-webkit-scrollbar { display: none; }
@@ -673,3 +691,17 @@ body::-webkit-scrollbar {
 /* optional styling for native scrollbar thumb (if kept) */
 .custom-scroll-left::-webkit-scrollbar { width: 2px;background: #cccccc }
 .custom-scroll-left::-webkit-scrollbar-thumb { background: #30B6F9; border-radius: 4px; }
+.ulst li:nth-last-child(1) .laststs{
+  display: none;
+}
+.pt25{
+  @apply pt-10 xl:pt-15 2xl:pt-22 3xl:pt-25;
+}  
+.pb25{
+  @apply pb-10 xl:pb-15 2xl:pb-22 3xl:pb-25;} 
+.py25{
+  @apply py-10 xl:py-15 2xl:py-22 3xl:py-25;} 
+
+.pt30{ @apply pt-10 xl:pt-15 2xl:pt-22 3xl:pt-30;} 
+.pb30{ @apply pb-10 xl:pb-15 2xl:pb-22 3xl:pb-30;} 
+.py30{ @apply py-10 xl:py-15 2xl:py-22 3xl:py-30;}

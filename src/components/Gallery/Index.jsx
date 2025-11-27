@@ -108,32 +108,32 @@ function moveUp(delay = 0) {
       <section className="relative">
         {/* <img src="./assets/images/shape-left.svg" alt="" className="absolute  bottom-30 left-0 z-[-1]" /> */}
         <div className="container">
-          <div className="mb-10 xl:mb-15 2xl:mb-20 mt-12 xl:mt-25 2xl:mt-30">
+          <div className="mb-7 md:mb-10 xl:mb-12 3xl:mb-20 mt-12 xl:mt-15 3xl:mt-30">
             <motion.h1 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-70 font-light leading-[1.071428571428571]">{pressReleases.title}</motion.h1>
           </div>
 
-          <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between border-y border-cmnbdr pt-35px mb-10 lg:mb-15 2xl:mb-25">
-            <div className="flex flex-col md:flex-row gap-5 md:gap-15 xl:gap-[75px]">
-              <div className=" relative pb-35px    transition-all duration-300 group">
+          <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between border-y border-cmnbdr pt-35px mb-10 lg:mb-15 3xl:mb-25">
+            <div className="flex flex-col md:flex-row gap-3 md:gap-15 xl:gap-[75px] mb-4 md:mb-0">
+              <div className=" relative pb-0 md:pb-35px    transition-all duration-300 group">
                 <span className= "cursor-pointer   text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                     All
                     </span>
                     <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
               </div>
-               <div className=" relative pb-35px transition-all duration-300 group">
+               <div className=" relative pb-0 md:pb-35px transition-all duration-300 group">
                 <span className="cursor-pointer  text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                     Events
                     </span>         
                     <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
            
               </div>
-               <div className=" relative pb-35px transition-all duration-300 group">
+               <div className=" relative pb-0 md:pb-35px transition-all duration-300 group">
                 <span className="cursor-pointer  text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                     Activities
                     </span>
                     <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
               </div>
-               <div className=" relative pb-35px transition-all duration-300 group">
+               <div className=" relative pb-0 md:pb-35px transition-all duration-300 group">
                 <span className="cursor-pointer  text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                     Achievements
                     </span>
@@ -146,7 +146,7 @@ function moveUp(delay = 0) {
 
         
  
-        <div className={`relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-10 xl:gap-y-15 2xl:gap-y-20 mb-10 xl:mb-12 2xl:mb-[100.32px] transition-all duration-300 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+        <div className={`relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-10 xl:gap-y-15 2xl:gap-y-18 3xl:gap-y-20 mb-10 xl:mb-12 2xl:mb-18 3xl:mb-[100.32px] transition-all duration-300 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
             }`}
             style={{
               transform: isAnimating ? 'translateY(16px)' : 'translateY(0)',
@@ -186,7 +186,7 @@ function moveUp(delay = 0) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-6"
+            className="fixed inset-0 z-50 flex items-center justify-center p-2 md:p-6"
             aria-modal="true"
             role="dialog"
             onClick={closeModal} // close when clicking backdrop
@@ -200,7 +200,7 @@ function moveUp(delay = 0) {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.98, opacity: 0 }}
               transition={{ duration: 0.18 }}
-              className="relative z-10 max-w-[1100px] w-full mx-auto bg-transparent"
+              className="relative z-10 max-w-[1100px]  w-full md:w-[79%] xl:w-full mx-auto bg-transparent"
               onClick={(e) => e.stopPropagation()} // prevent backdrop close when clicking content
             >
               {/* top bar: close */}
@@ -245,7 +245,7 @@ function moveUp(delay = 0) {
                 </button>
 
                 {/* animate image change */}
-                <div className="w-full h-[60vh] sm:h-[70vh] flex items-center justify-center">
+                <div className="w-full h-full lg:h-[60vh] flex items-center justify-center">
                   <motion.img
                     key={images[index]} // important so framer animates on src change
                     src={images[index]}
@@ -285,7 +285,7 @@ function moveUp(delay = 0) {
       </AnimatePresence>
           </div>
 
-          <div className="pagination flex items-center gap-2 justify-center mb-10 xl:mb-15 2xl:mb-[131.68px]">
+          <div className="pagination flex items-center gap-2 justify-center mb-10 xl:mb-15 3xl:mb-[131.68px]">
             <button
               className={`prev cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === 1 || isAnimating ? 'opacity-30' : 'opacity-100'
                 }`}
