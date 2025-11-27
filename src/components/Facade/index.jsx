@@ -5,7 +5,6 @@ import { facadeData } from "./data";
 import VdoSection from "../common/VdoSection";
 import Banner from "../common/Banner";
 import ExpertiseSec from "./sections/ExpertiseSec";
-import DesignExcellence from "./sections/DesignExcellence";
 import FeaturedProjectSlider from "./sections/FeaturedProjectSlider";
 import LastSection from "./sections/LastSection";
 import OurStrengthSec from "./sections/OurStrengthSec";
