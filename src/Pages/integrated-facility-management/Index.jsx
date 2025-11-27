@@ -1,4 +1,4 @@
-import IntegratedFacilityManagement from "../../components/IntegratedFacilityManagement";
+import IntegratedFacilityManagement from "../../components/IntegratedFacilityManagement/Index";
 const Index = () => {
   return ( 
     <IntegratedFacilityManagement />
