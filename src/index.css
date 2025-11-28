@@ -21,7 +21,7 @@ html {
     --text-14: clamp(0.70rem, 1.6vw + 0.4rem, 14px);
     --text-16: clamp(0.80rem, 2vw + 0.4rem, 16px);
     --text-18: clamp(0.90rem, 2.3vw + 0.45rem, 18px);
-    --text-19: clamp(0.95rem, 2.4vw + 0.45rem, 19px);
+    --text-19: clamp(0.95rem, 2.4vw + 0.1rem, 19px);
     --text-20: clamp(1rem, 2.8vw + 0.45rem, 20px);
     --text-24: clamp(1.20rem, 3vw + 0.5rem, 24px);
     --text-26: clamp(1.25rem, 3.4vw + 0.5rem, 26px);
@@ -714,4 +714,41 @@ body::-webkit-scrollbar {
 }
 .pt-text90{
   @apply pt-6 md:pt-8 xl:pt-10 2xl:pt-20 3xl:pt-[90px];
+}
+
+
+.mt25 {
+  @apply mt-10 xl:mt-15 2xl:mt-22 3xl:mt-25;
+}
+
+.mb25 {
+  @apply mb-10 xl:mb-15 2xl:mb-22 3xl:mb-25;
+}
+
+.my25 {
+  @apply my-10 xl:my-15 2xl:my-22 3xl:my-25;
+}
+
+.mt30 {
+  @apply mt-10 xl:mt-15 2xl:mt-22 3xl:mt-30;
+}
+
+.mb30 {
+  @apply mb-10 xl:mb-15 2xl:mb-22 3xl:mb-30;
+}
+
+.my30 {
+  @apply my-10 xl:my-15 2xl:my-22 3xl:my-30;
+}
+
+.mt-text30 {
+  @apply mt-7 lg:mt-12 xl:mt-20 3xl:mt-30;
+}
+
+.mt-text25 {
+  @apply pt-5 md:mt-8 xl:mt-10 2xl:mt-22 3xl:mt-25;
+}
+
+.mt-text90 {
+  @apply mt-6 md:mt-8 xl:mt-10 2xl:mt-20 3xl:mt-[90px];
 }

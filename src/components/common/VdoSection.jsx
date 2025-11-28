@@ -3,7 +3,7 @@ import H2Title from "./H2Title";
 import VideoPlayer from "./VideoPlayer";
 const VdoSection = ({data}) => {
   return ( 
-    <section className="relative overflow-hidden pt-text25 pb30">
+    <section className="relative overflow-hidden mt-text25 pb30">
       <div className="absolute bottom-0 left-0 h-full w-full z-0"><img src={assets.mainShape2} alt="" className="w-[250px] lg:w-[400px] xl:w-[500px] 3xl:w-[709px] h-auto max-w-[702px] object-contain" /></div>
       <div className="container">
         <div className="w-full lg:w-[700px] xl:w-[1238px] mx-auto relative z-10">

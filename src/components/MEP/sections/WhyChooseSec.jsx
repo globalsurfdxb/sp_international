@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import H2Title from "../../common/H2Title";
 const WhyChooseSec = ({data}) => {
   const { heading, image, points } = data;
   const [activeIndex, setActiveIndex] = useState(null); // selected item
@@ -59,30 +60,30 @@ const WhyChooseSec = ({data}) => {
   }, []);
 
   return (
-    <section className="w-full bg-white text-black py-10   xl:py-15 2xl:py-30">
-      <motion.h1 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 container font-light mb-6 md:mb-[50px] leading-[1.166666666666667]">
-        {heading}
-      </motion.h1>
+    <section className="w-full bg-white text-black pt-text30 pb30">
 
       <div className="container">
-        <div className="flex flex-col lg:flex-row items-center gap-10 2xl:gap-[108px]">
+      <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}>
+        <H2Title titleText={heading} titleColor="black" marginClass="mb-4 xl:mb-50px"/>
+      </motion.div>
+        <div className="grid lg:grid-cols-[0.8fr_1fr] 2xl:grid-cols-[1fr_1fr] 3xl:grid-cols-[916px_auto] xl:items-center gap-8 xl:gap-10 3xl:gap-[108px]">
           {/* Left Side - Image */}
           <div className="flex-shrink-0 relative overflow-hidden" ref={imageContainerRefTwo}>
             <img
               src={image}
               alt="Workplace environment"
-              className="object-cover 3xl:w-[916px] 2xl:w-[650px] 2xl:h-[660px] xl:w-[760px] xl:h-[540px] lg:w-[540px] lg:h-[460px]  w-full h-auto"
+              className="object-cover w-auto h-[250px] md:h-[300px] g:w-[540px] lg:h-[460px] xl:w-[760px] xl:h-[540px] 2xl:w-full 2xl:h-[660px] 3xl:w-[916px]   l  "
             />
             {/* Overlay that reveals from right to left */}
             <div
               ref={overlayRefTwo}
-              className="absolute inset-0 bg-white"
+              className="xl:absolute inset-0 bg-white"
             />
           </div>
 
           {/* Right Side - Text Content */}
           <div className="flex flex-col justify-start w-full">
-            <div className="flex flex-col border-t border-b border-black/20 lg:max-w-[40ch]">
+            <div className="flex flex-col border-t border-b border-black/20 3xl:max-w-[40ch]">
               {points.map((point, index) => {
                 const isActive = getIsActive(index);
                 return (
@@ -91,7 +92,7 @@ const WhyChooseSec = ({data}) => {
                     onMouseEnter={() => !isMobile && setHoverIndex(index)}
                     onMouseLeave={() => !isMobile && setHoverIndex(null)}
                     onClick={() => setActiveIndex(index)}
-                    className={`relative  text-24 lg:text-29 leading-[1.344827586206897] cursor-pointer border-b border-black/20 last:border-b-0 py-5 xl:py-[31px] ${
+                    className={`relative text-24 xl:text-29 leading-[1.344827586206897] cursor-pointer border-b border-black/20 last:border-b-0 py-5 xl:py-[31px] ${
                       isActive
                         ? "text-black pl-[30px]"
                         : "text-paragraph font-light"
