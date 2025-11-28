@@ -45,7 +45,7 @@ const Legacy = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
-      <section className="py-10 xl:py-15 2xl:pt-[108px] 2xl:pb-30 bg-primary relative overflow-hidden">
+      <section className="py-7 xl:py-15 2xl:pt-22 3xl:pt-[108px] pb30 bg-primary relative overflow-hidden">
         <div className="absolute bottom-0 left-0 w-[25%] xl:w-full">
           <img src="../assets/images/about-us/lcbanner.svg" alt="" />
         </div>

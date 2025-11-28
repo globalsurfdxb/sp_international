@@ -715,3 +715,6 @@ body::-webkit-scrollbar {
 .pt-text90{
   @apply pt-6 md:pt-8 xl:pt-10 2xl:pt-20 3xl:pt-[90px];
 }
+.pb-text30{
+  @apply pb-7 lg:pb-12 xl:pb-20 3xl:pb-30;
+}

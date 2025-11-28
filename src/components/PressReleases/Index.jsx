@@ -77,11 +77,11 @@ const Index = () => {
       <section className="relative">
         {/* <img src="./assets/images/shape-left.svg" alt="" className="absolute  bottom-30 left-0 z-[-1]" /> */}
         <div className="container">
-          <div className="mb-10 xl:mb-12 3xl:mb-20 mt-12 xl:mt-15 3xl:mt-30">
+          <div className="mb-7 md:mb-10 xl:mb-12 3xl:mb-20 mt-12 xl:mt-15 3xl:mt-30">
             <motion.h1 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-70 font-light leading-[1.071428571428571]">Press Releases</motion.h1>
           </div>
 
-          <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between border-y border-cmnbdr py-35px mb-10 lg:mb-15 2xl:mb-20">
+          <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between border-y border-cmnbdr py-35px mb-10 lg:mb-12  3xl:mb-20">
             <div className="flex flex-col md:flex-row gap-5 md:gap-15 xl:gap-[90px]">
               <div className="w-full min-w-full md:max-w-[200px] md:min-w-[77px] relative">
                 <Listbox value={selectedTopic} onChange={setSelectedTopic}>
@@ -170,7 +170,7 @@ const Index = () => {
                       {item.category}
                     </h4>
                   </div>
-                  <h2 className="text-29 leading-[1.344827586206897] font-light mt-30px xl:max-w-[90%]">
+                  <h2 className="text-29 leading-[1.344827586206897] font-light mt-30px 3xl:max-w-[90%]">
                     {item.title}
                   </h2>
                 </div>

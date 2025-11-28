@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <div className="bg-[#191919] pt-12 lg:pt-20 2xl:pt-[153px] text-white">
+    <div className="bg-[#191919] pt-10 md:pt-12 lg:pt-20 2xl:pt-[153px] text-white">
       <div className="container">
         <div className="border-b border-white/30 grid gap-6 lg:gap-0 grid-cols-1 lg:grid-cols-[350px_auto] xl:grid-cols-[549px_auto]">
           <div className="lg:border-r border-white/30">
@@ -38,7 +38,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="grid gap-y-4 md:gap-y-8 lg:gap-3 md:grid-cols-2 lg:grid-cols-5 2xl:grid-cols-5 pt-5 md:pt-8 lg:pt-12 xl:pt-[53px] pb-5 md:pb-8 lg:pb-12 xl:pb-[45px]">
+        <div className="grid gap-y-4 md:gap-y-8 lg:gap-3 sm:grid-cols-2 lg:grid-cols-5 2xl:grid-cols-5 pt-5 md:pt-8 lg:pt-12 xl:pt-[53px] pb-10 md:pb-8 lg:pb-12 xl:pb-[45px]">
           <motion.div variants={moveUp(0.2)} initial="hidden" animate="show">
             <h3 className="text-24 lg:text-29 leading-[1.344827586206897] font-light mb-2 lg:mb-[27px]">About</h3>
             <ul>
