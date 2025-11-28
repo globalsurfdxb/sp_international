@@ -4,7 +4,7 @@ import{assets} from "../../../assets"
 const WhyChooseSec = ({data}) => {
 
   return ( 
-    <section className="py-20 lg:py-25 xl:py-30 relative">
+    <section className="pt-text30 pb30 relative">
       <div className="absolute bottom-0 left-0 w-full h-fit pb-20 lg:pb-25 xl:pb-30">
           <img src={assets.mainShape2} alt="" className="object-contain w-[425px] h-[594px]" />
         </div>
