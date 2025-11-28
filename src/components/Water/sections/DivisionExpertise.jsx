@@ -41,18 +41,18 @@ const DivisionExpertise = ({data}) => {
   }, []);
 
   return (
-    <section className="py-10 xl:py-15 2xl:py-30 relative  overflow-hidden">
+    <section className="py30 relative  overflow-hidden">
       <div className="px-[15px] md:pe-0 relative">
         {/* Counter + Arrows */}
         <div className="container" ref={containerRef}>
-          <div className="flex justify-between items-center mb-5 xl:mb-12">
-            <h2 className="text-60 font-light leading-[1.166666666666667] ">
+          <div className="flex justify-between items-center ">
+            <h2 className="text-60 mb-50px font-light leading-[1.166666666666667] ">
           {data.title}
           </h2>  
           </div>
         </div>
         {/* Swiper */}
-        <div className="flex flex-col md:flex-row gap-3 px-[15px] md:pe-0" >
+        <div className="flex flex-col md:flex-row gap-3   md:pe-0" >
           <div className="container">
             <Swiper
               ref={swiperRef}
@@ -70,17 +70,29 @@ const DivisionExpertise = ({data}) => {
               //   setCurrentSlide((swiper.realIndex % engineeringData.featuredProjectsData.items.length) + 1)
               // }
               speed={800}
-              // autoplay={{
-              //   delay: 4000,
-              //   disableOnInteraction: false,
-              // }}
+              autoplay={{
+                delay: 4000,
+                disableOnInteraction: false,
+              }}
               breakpoints={{
+                 300: {
+                  slidesPerView: 1,
+                  spaceBetween: 10,
+                },
                 768: {
+                  slidesPerView: 2.2,
+                  spaceBetween: 40,
+                },
+                1200: {
+                  slidesPerView: 3,
+                  spaceBetween: 40,
+                },
+                1400: {
                   slidesPerView: 3.2,
                   spaceBetween: 40,
                 },
               }}
-              className="!overflow-visible"
+              className="md:!overflow-visible"
             >
               {data.items.map((item, i) => (
                 <SwiperSlide key={i}>

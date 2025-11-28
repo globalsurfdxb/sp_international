@@ -63,25 +63,25 @@ const ExpertiseSec = () => {
 console.log(activelist)
 
   return (
-    <section className="relative pt-12 pb-16 xl:pt-[90px] xl:pb-25 bg-primary text-white overflow-hidden">
+    <section className="relative pt-12 xl:pt-15 2xl:pt-22 3xl:pt-[90px] pb25 bg-primary text-white overflow-hidden">
       <div className="absolute bottom-0 right-0 w-[519px] h-[725px]"><img src={assets.mainShape} alt="" /></div>
       <div className="container">
         {/* Header */}
-        <div className="mb-50px">
-          <h2 className="text-60 font-light leading-[1.166666666666667] ">
+        <div className="">
+          <h2 className="text-60 mb-50px font-light leading-[1.166666666666667] ">
             {expertiseData.title}
           </h2> 
         </div>
 
         {/* Swiper Slider */}
         <div className="relative">
-          <div className="grid grid-cols-1 lg:grid-cols-[961px_1fr] gap-8 xl:gap-16  " >
+          <div className="grid grid-cols-1 md:grid-cols-[50%_1fr] 2xl:grid-cols-[55%_1fr] 3xl:grid-cols-[961px_1fr] gap-8 xl:gap-16  " >
              
             <div  >
-              <img src={activeImage} alt="" />
+              <img src={activeImage} alt="" className='h-full object-cover'/>
             </div> 
             <div> 
-            <div className="flex flex-col gap-8 lg:gap-[80px] justify-between mt-12">
+            <div className="flex flex-col gap-8 lg:gap-[80px] justify-between 3xl:mt-12">
       <div
         // attach pointer handlers here so child items don't each need them
         onTouchMove={handleTouchMove}
@@ -143,7 +143,7 @@ console.log(activelist)
         
               <ul className="list-disc max-w-[39ch] ml-[18px]"  >
                 {activelist.map((desc, i) => (
-                  <li key={i}>{desc}</li>
+                  <li key={i} className='text-19 font-light'>{desc}</li>
                 ))}
               </ul>
            

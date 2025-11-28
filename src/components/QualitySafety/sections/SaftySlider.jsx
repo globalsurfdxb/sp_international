@@ -34,7 +34,7 @@ const SaftySlider = () => {
         <div className=" max-w-[1206px] ml-auto  ">
             
           <div >
-            <h2 className="text-60 font-light leading-[1.18] mb-6 lg:mb-12 max-w-[15ch]">{saftyData.title}</h2>
+            <h2 className="text-60 font-light leading-[1.18] mb-50px max-w-[15ch]">{saftyData.title}</h2>
                     <p className="text-19 font-light leading-[1.474] max-w-[59ch] text-paragraph">{saftyData.description}</p>
           </div>
           <div className="flex flex-col md:flex-row p-5 lg:px-12  lg:py-10 bg-f5f5 mb-3 gap-8 md:gap-0">

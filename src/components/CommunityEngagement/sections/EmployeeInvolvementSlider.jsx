@@ -42,23 +42,23 @@ const EmployeeInvolvementSlider = ({data}) => {
   }, []);
 
   return (
-    <section className="py-10 xl:py-15 2xl:pt-[80px] 2xl:pb-30 relative bg-f5f5 overflow-hidden">
+    <section className="py-10 xl:py-15 2xl:pt-22 3xl:pt-[80px] pb30 relative bg-f5f5 overflow-hidden">
       <div className="px-[15px] md:pe-0 relative">
         {/* Counter + Arrows */}
         <div className="container" ref={containerRef}>
-          <div className="flex justify-between items-center mb-5 xl:mb-17">
+          <div className="flex justify-between items-center mb-50px">
             <div className="text-lg font-semibold text-black flex items-center gap-1">
               <H2Title titleText="Employee Involvement" titleColor="black" marginClass="mb-0" />
             </div> 
           </div>
         </div>
         {/* Swiper */}
-        <div className="flex flex-col md:flex-row gap-3 px-[15px] md:pe-0" >
+        <div className="flex flex-col md:flex-row gap-3   md:pe-0" >
           <div className="container">
             <Swiper
               ref={swiperRef}
               modules={[EffectFade, Autoplay, Navigation]}
-              spaceBetween={0}
+              spaceBetween={5}
               slidesPerView={1}
               loop={true}
               loopedSlides={6}
@@ -71,13 +71,18 @@ const EmployeeInvolvementSlider = ({data}) => {
               //   setCurrentSlide((swiper.realIndex % engineeringData.featuredProjectsData.items.length) + 1)
               // }
               speed={800}
-              // autoplay={{
-              //   delay: 4000,
-              //   disableOnInteraction: false,
-              // }}
+              autoplay={{
+                delay: 4000,
+                disableOnInteraction: false,
+              }}
               breakpoints={{
-                768: {
-                  slidesPerView:3.1,
+                
+                  768: {
+                    slidesPerView:2,
+                    spaceBetween: 10,
+                  },
+                  1224: {
+                  slidesPerView:3,
                   spaceBetween: 10,
                 },
               }}
@@ -87,12 +92,12 @@ const EmployeeInvolvementSlider = ({data}) => {
                 <SwiperSlide key={i}>
                   <div className="overflow-hidden ">
                     <div className="after:h-full after:w-full  after:bg-[linear-gradient(180deg,rgba(0,0,0,0)_42.43%,rgba(0,0,0,0.75)_91.64%)] after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0">
-                      <motion.img variants={moveUp(0.1 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={item.image} alt={`slide-${i}`} className="w-full h-auto object-cover" />
+                      <motion.img variants={moveUp(0.1 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={item.image} alt={`slide-${i}`} className="w-full h-[350px] md:h-[400px] 2xl:h-auto object-cover" />
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 px-5 lg:px-8 xl:px-15">
-                      <div className=" pb-5 xl:pb-[42px]">
-                        <p className="text-19 mb-3 xl:mb-[18px] leading-[1.344827586206897] font-light text-white">{item.date}</p>
-                        <h3 className="text-[20px] md:text-29 leading-[1.1] md:leading-[1.344827586206897] font-light text-white">{item.title}</h3>
+                    <div className="absolute bottom-0 left-0 right-0 px-5 lg:px-8 3xl:px-12">
+                      <div className=" pb-5 lg:pb-8 3xl:pb-[42px]">
+                        <p className="text-19  mb-2 3xl:mb-[18px] leading-[1.344827586206897] font-light text-white">{item.date}</p>
+                        <h3 className="text-[20px] md:text-29 leading-[1.1] 2xl:leading-[1.2] 3xl:leading-[1.344827586206897] font-light text-white">{item.title}</h3>
                       </div>
                        
                        

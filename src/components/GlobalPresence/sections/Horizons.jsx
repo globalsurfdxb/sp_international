@@ -5,7 +5,7 @@ const Horizons = ({data}) => {
     <section className="relative overflow-hidden pt25 pb30 bg-f5f5"> 
       <div className="container">
          
-           <h2 className="text-60 font-light leading-[1.166666666666667] mb-6 xl:mb-12 max-w-[22ch]">{data.title}</h2>
+           <h2 className="text-60 font-light leading-[1.166666666666667] mb-50px max-w-[22ch]">{data.title}</h2>
            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-6 lg:gap-y-10 xl:gap-y-[120px]">
             {
               data.items.map((item)=>(
