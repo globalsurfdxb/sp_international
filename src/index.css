@@ -21,7 +21,7 @@ html {
     --text-14: clamp(0.70rem, 1.6vw + 0.4rem, 14px);
     --text-16: clamp(0.80rem, 2vw + 0.4rem, 16px);
     --text-18: clamp(0.90rem, 2.3vw + 0.45rem, 18px);
-    --text-19: clamp(0.95rem, 2.4vw + 0.1rem, 19px);
+    --text-19: clamp(0.95rem, 1.4vw + 0.1rem, 19px);
     --text-20: clamp(1rem, 2.8vw + 0.45rem, 20px);
     --text-24: clamp(1.20rem, 3vw + 0.5rem, 24px);
     --text-26: clamp(1.25rem, 3.4vw + 0.5rem, 26px);

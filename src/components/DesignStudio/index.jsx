@@ -6,7 +6,7 @@ import VdoSection from "../common/VdoSection";
 import Banner from "../common/Banner";
 import ExpertiseSec from "./sections/ExpertiseSec";
 import DesignExcellence from "./sections/DesignExcellence";
-import FeaturedProjectSlider from "./sections/FeaturedProjectSlider";
+import FeaturedProjectSlider from "./../common/FeaturedProjectSlider";
 import LastSection from "./sections/LastSection";
 const DesignStudio = () => {
   
