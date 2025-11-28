@@ -9,9 +9,9 @@ import 'swiper/css/pagination';
 const ExpertiseSec = ({data}) => {
   const [swiperRef, setSweiperRef] = useState(null)
   return (
-    <section className="relative pt-12 pb-16 xl:pt-20 xl:pb-32 bg-primary text-white overflow-hidden">
+    <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden">
       <div className="container">
-        <div className="flex justify-between mb-50px ">
+        <div className="flex justify-between mb-3 lg:mb-6 xl:mb-50px ">
           <H2Title titleText="Our Expertise" />
           {/* Navigation - Fixed */}
           <div className="flex items-center gap-4 ">
@@ -59,11 +59,11 @@ const ExpertiseSec = ({data}) => {
             >
               {data.items.map((item, index) => (
                 <SwiperSlide key={index}>
-                  <div className="relative overflow-hidden border-l border-white/30">
-                    <img src={item.img} alt={item.slideTitle} className="w-full h-[300px] xl:h-[333px]  object-cover" />
-                    <div className="p-4 xl:p-10">
-                      <h3 className="text-29 leading-[1.724137931034483] font-light mb-2">{item.slideTitle}</h3>
-                      <p className="text-19 leading-[1.526315789473684] font-light">{item.slideDesc}</p>
+                  <div className="relative overflow-hidden xl:border-l border-white/30">
+                    <img src={item.img} alt={item.slideTitle} className="w-full h-[250px] lg:h-[300px] xl:h-[333px]  object-cover" />
+                    <div className="pl-0 pt-4 xl:p-10">
+                      <h3 className="text-20 xl:text-29 leading-[1.2] 3xl:leading-[1.724137931034483] font-normal xl:font-extralight mb-2 xl:mb-2">{item.slideTitle}</h3>
+                      <p className="text-19 leading-[1.526315789473684] font-extralight">{item.slideDesc}</p>
                     </div>
                   </div>
                 </SwiperSlide>
