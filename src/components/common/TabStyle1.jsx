@@ -33,7 +33,7 @@ export default function TabStyle1({ data }) {
     <div className="w-full">
       {/* Tabs */}
       <div className="max-w-[1345px]">
-        <div ref={tabsContainerRef} className={`flex w-full overflow-hidden `}>
+        <div ref={tabsContainerRef} className={`flex flex-wrap w-full overflow-hidden `}>
           {data.map((tab, index) => (
             <button
               key={tab.id}
