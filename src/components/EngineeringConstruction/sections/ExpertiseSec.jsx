@@ -5,6 +5,7 @@ import { assets } from "../../../assets/index"
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import H2Title from "../../common/H2Title";
 import { engineeringData } from '../data';
 
 const ExpertiseSec = () => {
@@ -12,26 +13,24 @@ const ExpertiseSec = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [imageSwiper, setImageSwiper] = useState(null);
   const [contentSwiper, setContentSwiper] = useState(null);
-
+  
   return (
-    <section className="relative pt-12 pb-16 xl:pt-20 xl:pb-32 bg-primary text-white overflow-hidden">
+    <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden">
       <div className="absolute bottom-0 right-0 w-[519px] h-[725px]"><img src={assets.mainShape} alt="" /></div>
       <div className="container">
         {/* Header */}
         <div className="mb-50px">
-          <h2 className="text-60 font-light leading-[1.166666666666667] mb-3 xl:mb-5">
-            {expertiseData.title}
-          </h2>
-          <p className="text-19 leading-[1.473684210526316] opacity-90 font-light max-w-5xl">
+          <H2Title titleText={expertiseData.title} titleColor="white" marginClass="mb-2 xl:mb-5" />
+          <p className="text-19 leading-[1.473684210526316] opacity-90 font-light max-w-5xl pb-2 sm:pb-0">
             {expertiseData.desc}
           </p>
         </div>
 
         {/* Swiper Slider */}
         <div className="relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 3xl:gap-16">
             {/* Image Section - Swiper */}
-            <div className="order-2 lg:order-1">
+            <div className="">
               <Swiper
                 modules={[Navigation, Pagination, Autoplay, Controller]}
                 spaceBetween={50}
@@ -52,7 +51,7 @@ const ExpertiseSec = () => {
                 {expertiseData.items.map((item, index) => (
                   <SwiperSlide key={index}>
                     <div className="relative overflow-hidden shadow-2xl">
-                      <img src={item.img} alt={item.mainTitle} className="w-full h-[300px] xl:h-[625px]  object-cover" />
+                      <img src={item.img} alt={item.mainTitle} className="w-full h-[300px] lg:h-[400px] xl:h-[500px] 3xl:h-[625px]  object-cover" />
                     </div>
                   </SwiperSlide>
                 ))}
@@ -60,9 +59,9 @@ const ExpertiseSec = () => {
             </div>
 
             {/* Content Section - Static with Navigation */}
-            <div className="order-1 lg:order-2 pt-10">
+            <div className="">
               {/* Navigation - Fixed */}
-              <div className="flex items-center gap-4 mb-8 border-b border-white/20 pb-8">
+              <div className="flex items-center gap-4 mb-5 xl:mb-8 border-b border-white/20 pt-5 lg:pt-10 pb-4 xl:pb-8">
                 <button onClick={() => imageSwiper?.slidePrev()}
                   className="w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors"
                   aria-label="Previous slide"
@@ -99,7 +98,7 @@ const ExpertiseSec = () => {
                 {expertiseData.items.map((item, index) => (
                   <SwiperSlide key={index}>
                     <div>
-                      <h3 className="text-29 leading-[1.344827586206897] font-light mb-4">
+                      <h3 className="text-29 leading-[1.344827586206897] font-light mb-2 xl:mb-4">
                         {item.mainTitle}
                       </h3>
                       <p className="text-white/80 text-19 leading-[1.473684210526316] font-light mb-8">

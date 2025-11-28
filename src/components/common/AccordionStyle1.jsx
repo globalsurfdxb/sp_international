@@ -51,7 +51,7 @@ console.log(accData)
               className="w-full py-5 flex items-center justify-between text-left group"
             >
               <div className="flex-1">
-                <h3 className="text-32 leading-[1.3125] font-normal text-gray-900">
+                <h3 className="text-24 xl:text-32 leading-[1.3125] font-normal text-gray-900">
                   {item.title}
                 </h3>
                 {item.subtitle && openIndex === index && (
@@ -68,13 +68,13 @@ console.log(accData)
               <motion.div
                 animate={{ rotate: openIndex === index ? 180 : 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className={`flex-shrink-0 ml-4 w-8 h-8 xl:w-[50px] xl:h-[50px] rounded-full border  flex items-center justify-center transition-colors duration-300 ${openIndex === index
+                className={`flex-shrink-0 ml-4 w-6 h-6 md:w-10 md:h-10 xl:w-[50px] xl:h-[50px] rounded-full border  flex items-center justify-center transition-colors duration-300 ${openIndex === index
                   ? 'bg-[#30B6F9] text-white border-[#30B6F9]'
                   : 'bg-white border-black/20'
                   }`}
               >
                 {/* <ChevronDown size={18} /> */}
-                <img src={assets.arrowDown} alt="" className={`${openIndex === index
+                <img src={assets.arrowDown} alt="" width={15} height={15} className={`xl:w-auto xl:h-auto ${openIndex === index
                   ? 'brightness-0 invert-100'
                   : ''
                   }`} />

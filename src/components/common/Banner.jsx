@@ -48,39 +48,20 @@ const Banner = ({ title, image }) => {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full h-[280px] lg:h-[560px] overflow-hidden bg-secondary/20"
-    >
+    <section ref={sectionRef} className="relative w-full h-[280px] lg:h-[350px] xl:h-[560px] overflow-hidden bg-secondary/20">
       {/* Background Image */}
-      <img
-        ref={imgRef}
-        src={image}
-        alt={title}
-        className="absolute inset-0 w-full h-full object-cover object-center z-0"
-      />
+      <img ref={imgRef} src={image} alt={title} className="absolute inset-0 w-full h-full object-cover object-center z-0" />
 
       {/* Single Gradient Overlay (dark bottom → transparent top) */}
-      <div
-        ref={overlayRef}
-        className="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.75)_20%,rgba(0,0,0,0)_80%)] z-10"
-      ></div>
+      <div ref={overlayRef} className="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.75)_20%,rgba(0,0,0,0)_80%)] z-10"></div>
 
       {/* White mask that slides away to reveal the gradient */}
-      <div
-        ref={maskRef}
-        className="absolute inset-0 bg-white z-20"
-      ></div>
+      <div ref={maskRef} className="absolute inset-0 bg-white z-20"></div>
 
       {/* Content */}
       <div className="container relative z-30 h-full">
         <div className="flex flex-col justify-end h-full pb-5 sm:pb-8  md:pb-8 lg:pb-10 2xl:pb-12 3xl:pb-26">
-          <h1
-            ref={titleRef}
-            className="text-white text-70 font-light leading-[1.08] capitalize"
-          >
-            {title}
-          </h1>
+          <h1 ref={titleRef} className="text-white text-60 xl:text-70 font-light leading-[1.08] capitalize">{title}</h1>
         </div>
       </div>
     </section>

@@ -42,8 +42,8 @@ const FeaturedProjectSlider = ({data}) => {
   }, []);
 
   return (
-    <section className="py-10 xl:py-15 2xl:pt-[80px] 2xl:pb-25 relative bg-f5f5 overflow-hidden">
-      <div className="px-[15px] md:pe-0 relative">
+    <section className="pt-text90 pb25 relative bg-f5f5 overflow-hidden">
+      <div className="xl:px-[15px] md:pe-0 relative">
         {/* Counter + Arrows */}
         <div className="container" ref={containerRef}>
           <div className="flex justify-between items-center mb-5 xl:mb-17">
@@ -67,12 +67,12 @@ const FeaturedProjectSlider = ({data}) => {
           </div>
         </div>
         {/* Swiper */}
-        <div className="flex flex-col md:flex-row gap-3 px-[15px] md:pe-0" >
+        <div className="flex flex-col md:flex-row gap-3 xl:px-[15px] md:pe-0" >
           <div className="container">
             <Swiper
               ref={swiperRef}
               modules={[EffectFade, Autoplay, Navigation]}
-              spaceBetween={0}
+              spaceBetween={40}
               slidesPerView={1}
               loop={true}
               loopedSlides={6}
@@ -90,7 +90,7 @@ const FeaturedProjectSlider = ({data}) => {
                 disableOnInteraction: false,
               }}
               breakpoints={{
-                768: {
+                1024: {
                   slidesPerView: 2.2,
                   spaceBetween: 40,
                 },
@@ -107,8 +107,8 @@ const FeaturedProjectSlider = ({data}) => {
                       <div className="border-b border-cmnbdr pt-5 xl:pt-7 pb-5 xl:pb-7">
                         <h3 className="text-29 leading-[1.344827586206897] font-light">{item.title}</h3>
                       </div>
-                      <div className="border-b border-cmnbdr grid grid-cols-2 items-center">
-                        <h4 className="text-19 leading-[2.052631578947368] font-light text-paragraph"><span>Sector: </span>{item.sector}</h4>
+                      <div className="border-b border-cmnbdr grid lg:grid-cols-2 items-center">
+                        <h4 className="text-19 leading-[2.052631578947368] font-light text-paragraph border-b border-cmnbdr lg:border-0"><span>Sector: </span>{item.sector}</h4>
                         <h4 className="text-19 leading-[2.052631578947368] font-light text-paragraph"><span>BUA (Sq.ft): </span>500000</h4>
                       </div>
                       <div className="border-b border-cmnbdr">
