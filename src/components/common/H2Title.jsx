@@ -4,4 +4,4 @@ const H2Title = ({ titleText, titleColor, marginClass }) => {
   );
 }
 
-export default H2Title;
+export default H2Title; 

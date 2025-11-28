@@ -5,9 +5,9 @@ import { facadeData } from "./data";
 import VdoSection from "../common/VdoSection";
 import Banner from "../common/Banner";
 import ExpertiseSec from "./sections/ExpertiseSec";
-import FeaturedProjectSlider from "./sections/FeaturedProjectSlider";
+import FeaturedProjectSlider from "../common/FeaturedProjectSlider";
+import ImgPointsComponent from "../common/ImgPointsComponent";
 import LastSection from "./sections/LastSection";
-import OurStrengthSec from "./sections/OurStrengthSec";
 const Facade = () => {
   
   return ( 
@@ -19,7 +19,7 @@ const Facade = () => {
         <Banner title="Façade" image="./assets/images/facade/banner.jpg" />
         <VdoSection data={facadeData.mainSection} />
         <ExpertiseSec data={facadeData.expertiseData} />
-        <OurStrengthSec data={facadeData.ourStrengthData} />
+        <ImgPointsComponent data={facadeData.ourStrengthData} />
         <FeaturedProjectSlider data={facadeData.featuredProjectsData} />
         <LastSection/>
     </main>
