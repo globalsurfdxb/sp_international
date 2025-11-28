@@ -6,7 +6,7 @@ import { moveUp, moveLeft } from "../../../motionVarients";
 const OurValues = () => {
   return (
     // <section className="py-12 xl:py-15 2xl:py-30 bg-[url('/assets/images/about-us/valuebg.svg')] bg-auto bg-right-bottom bg-no-repeat">
-    <section className="py-10 xl:py-15 2xl:py-30 relative overflow-hidden">
+    <section className="pt-text30 pb30 relative overflow-hidden">
       <motion.img variants={moveLeft(1)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src="/assets/images/svg/sv-02.svg" alt="" width={"432px"} height={"607px"} className="absolute bottom-0 right-0 z-[-1]" />
       <div className="container">
         <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}

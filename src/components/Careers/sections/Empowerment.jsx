@@ -56,7 +56,7 @@ const EmpowerSection = () => {
 
   return (
     <section ref={sectionRef}
-      className="w-full py-10 xl:py-15 2xl:py-23 bg-primary text-white lg:max-h-[611px] lg:overflow-hidden   relative overflow-hidden "
+      className="w-full py-8 xl:py-15 2xl:py-22 3xl:py-23 bg-primary text-white lg:max-h-[611px] lg:overflow-hidden   relative overflow-hidden "
        
     >
       <div className="reveal-overlay4 absolute inset-0 bg-black/20 z-20"></div>

@@ -60,7 +60,7 @@ const WorkplaceSection = () => {
   }, []);
 
   return (
-    <section className="w-full bg-white text-black py-10   xl:py-15 2xl:py-30">
+    <section className="w-full bg-white text-black  pt-text30 pb30">
       <motion.h1 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 container font-light mb-6 md:mb-[50px] leading-[1.166666666666667]">
         {heading}
       </motion.h1>

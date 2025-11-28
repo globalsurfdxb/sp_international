@@ -6,7 +6,7 @@ const RelatedNews = () => {
 
   return (
     <section>
-      <div className="pb-12 2xl:pb-30">
+      <div className="pb30">
         <div className="container relative ">
           <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 font-light leading-[1.17] mb-4 xl:mb-17">Related News</motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-10 md:gap-y-15 xl:gap-y-30 ">

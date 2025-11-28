@@ -32,7 +32,7 @@ const ImageCarousel = () => {
 
   return (
     <section className="max-w-[1920px] mx-auto">
-      <div className="w-full bg-white pb-10 xl:pb-15 2xl:pb-30">
+      <div className="w-full bg-white pb30">
         <motion.div variants={moveLeft(0.3)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="overflow-hidden">
           <Swiper
             modules={[Autoplay]}

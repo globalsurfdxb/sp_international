@@ -1,22 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { ecs1,ecs2,ecs3,ecs4,ecs5,ecs6,ecs7,ecs8,ecs9 } from "../data"; 
+import { ecs0,ecs1,ecs2,ecs3,ecs4,ecs5,ecs6,ecs7,ecs8 } from "../data"; 
 import { motion, AnimatePresence } from "framer-motion";
  
 import { assets } from "../../../assets/index"
  
-
-const config = [
-  {   duration: 0.8, delay: 0.1 },
-  {   duration: 1.2, delay: 0.3 },
-  {   duration: 0.9, delay: 0.5 },
-  {  duration: 1.4, delay: 0.2 },
-  { duration: 1.0, delay: 0.0 },
-  {  duration: 1.3, delay: 0.4 },
-  {  duration: 0.7, delay: 0.6 },
-  { duration: 1.1, delay: 0.3 },
-  {  duration: 0.9, delay: 0.2 },
-];
-const all = [ecs1, ecs2, ecs3, ecs4, ecs5, ecs6, ecs7, ecs8,ecs9];
+ 
+const all = [ecs0,ecs1, ecs2, ecs3, ecs4, ecs5, ecs6, ecs7, ecs8];
 
 // Sizes
 const size = {
@@ -123,15 +112,14 @@ function Block({ src, size, fade }) {
     <div className={`${size} relative`}>
       <AnimatePresence mode="wait">
         <motion.div
-      // key={src}
+      key={src}
           className={`absolute inset-0 `}
           initial={fade.initial}
           animate={fade.animate}
           exit={fade.exit}
           transition={{ duration: 1.6 }}
         >
-          {/* <img src={src} className="w-full h-full object-cover" /> */}
-          <img src={ecs1[1]} className="w-full h-full object-cover" />
+          <img src={src} className="w-full h-full object-cover" /> 
         </motion.div>
       </AnimatePresence>
     </div>

@@ -26,7 +26,7 @@ const KeyFacts = () => {
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden">
-      <div className="py-12  2xl:pt-[88px]  2xl:pb-[80px] bg-primary  ">
+      <div className="py-8 xl:py-15 2xl:py-22  3xl:pt-[88px]  3xl:pb-[80px] bg-primary  ">
         <div className="reveal-overlay2 absolute inset-0 bg-black/20 z-20"></div>
         <div className="container relative">
           <div className="  2xl:max-w-[1208px] ml-auto">
