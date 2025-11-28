@@ -25,7 +25,7 @@ export default function VideoPlayer({ src, poster }) {
       onMouseLeave={() => setIsHovering(false)}
       onClick={togglePlay}
     >
-      <video ref={videoRef} src={src} poster={poster} className="w-full h-[523px] object-cover" />
+      <video ref={videoRef} src={src} poster={poster} className="w-full h-[200px] md:h-[300px] xl:h-[523px] object-cover" />
       {
         !isPlaying && (
           <div className="absolute top-0 left-0 w-full h-full bg-black/20"></div>
@@ -37,9 +37,9 @@ export default function VideoPlayer({ src, poster }) {
         ${(isHovering || !isPlaying) ? "opacity-100" : "opacity-0"}`}
       >
         {!isPlaying ? (
-          <img src={assets.vdoPlayIcon} alt="" />
+          <img src={assets.vdoPlayIcon} className="w-10 h-10 xl:w-[50px] xl:h-[50px]" alt="" />
         ) : (
-          <img src={assets.vdoPauseIcon} alt="" />
+          <img src={assets.vdoPauseIcon} className="w-10 h-10 xl:w-[50px] xl:h-[50px]" alt="" />
         )}
       </div>
     </div>
