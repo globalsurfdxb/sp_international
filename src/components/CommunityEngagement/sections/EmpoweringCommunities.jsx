@@ -20,11 +20,11 @@ const all = [ecs1, ecs2, ecs3, ecs4, ecs5, ecs6, ecs7, ecs8,ecs9];
 
 // Sizes
 const size = {
-  big:    "2xl:min-w-full h-[150px] lg:h-[405px]",
-  large: "2xl:min-w-full h-[125px] lg:h-[345px]",
-  medium: "2xl:w-full h-[104px] lg:h-[244px]", 
-  small:  "2xl:w-full h-[104px] lg:h-[182px]",
-  extrasmall:  "2xl:w-full h-[104px] lg:h-[218px]",
+  big:    "2xl:min-w-full h-[120px] sm:h-[160px] md:h-[200px]  lg:h-[200px] xl:h-[240px] 2xl:h-[305px] 3xl:h-[405px]",
+  large: "2xl:min-w-full h-[100px] sm:h-[120px] md:h-[140px] lg:h-[180px] xl:h-[200px] 2xl:h-[235px] 3xl:h-[345px]",
+  medium: "2xl:w-full h-[70px] sm:h-[80px] md:h-[110px] lg:h-[174px] 3xl:h-[244px]", 
+  small:  "2xl:w-full h-[70px] sm:h-[80px]  md:h-[100px] lg:h-[182px] 3xl:h-[182px]",
+  extrasmall:  "2xl:w-full h-[74px] sm:h-[90px]  md:h-[100px] lg:h-[218px]",
 };
 
 const EmpoweringCommunities  = () => {
@@ -62,56 +62,56 @@ useEffect(() => {
   };
   return (
     <section className="pt-10 xl:pt-15 2xl:pt-25 overflow-hidden relative">
-         <div className="w-full h-[360px] lg:h-[670px] flex justify-center  gap-3">
+         <div className="w-full h-[260px] sm:h-[320px] lg:h-[600px]  3xl:h-[670px] flex justify-center  gap-1 lg:gap-3">
 
       {/* LEFT SIDE */} 
 
         {/* Set 1 - small */}
-        <div className="mt-[150px] lg:mt-[350px] min-w-[15.27%]">
+        <div className="mt-[120px] sm:mt-[200px] lg:mt-[280px] min-w-[15.27%]">
         <Block src={all[0][idx[0]]} size={size.extrasmall} fade={fade} />
         </div>
 
          {/* Set 3 + Set 4 column */}
-        <div className="flex flex-col gap-4 mt-[100px] lg:mt-[218px] min-w-[15.27%]">
+        <div className="flex flex-col gap-1  lg:gap-4 mt-[100px] sm:mt-[120px] lg:mt-[218px] min-w-[15.27%]">
         <Block src={all[1][idx[1]]} size={size.small} fade={fade} />
           <Block src={all[3][idx[3]]} size={size.medium} fade={fade} />
         </div>
       
-        <div className={`mt-[40px] lg:mt-[136px] min-w-[15.74%]`}>
+        <div className={`mt-[60px] sm:mt-[60px]  lg:mt-[136px] min-w-[20%] md:min-w-[15.74%]`}>
           <Block src={all[2][idx[2]]} size={size.large} fade={fade} />
           </div>
        
  
 
       {/* CENTER */}
-        <div className={` min-w-[21.71%]`}>
+        <div className={`min-w-[30%]  md:min-w-[21.71%]`}>
       <Block src={all[4][idx[4]]} size={size.big} fade={fade} />
       </div>
 
       {/* RIGHT SIDE */} 
 
         {/* Set 6 - large */}
-        <div className={ `mt-[40px] lg:mt-[136px] min-w-[15.74%]`}>
+        <div className={ `mt-[60px] sm:mt-[60px] lg:mt-[136px] min-w-[20%] md:min-w-[15.74%]`}>
         <Block src={all[5][idx[5]]} size={size.large} fade={fade}  />
         </div>
 
 
         {/* Set 8 + Set 9 column */}
-        <div className="flex flex-col gap-4 mt-[100px] lg:mt-[218px] min-w-[15.27%]">
+        <div className="flex flex-col gap-1  lg:gap-3 mt-[100px] sm:mt-[120px] lg:mt-[218px] min-w-[15.27%]">
           <Block src={all[7][idx[7]]} size={size.small} fade={fade} />
           <Block src={all[8][idx[8]]} size={size.medium} fade={fade} />
         </div> 
         {/* Set 7 - small */}
-        <div className="mt-[150px] lg:mt-[350px] min-w-[15.27%]">
+        <div className="mt-[150px] sm:mt-[200px] lg:mt-[350px] min-w-[15.27%]">
         <Block src={all[6][idx[6]]} size={size.extrasmall} fade={fade} />
         </div>
 
     </div>
 
     <div className="container">
-      <div className="pb-10 xl:pb-15 2xl:pb-30">
-        <h1 className="text-60 font-light leading-[1.18] max-w-[20ch] text-center mb-5 2xl:mb-10 m-auto ">Empowering Communities, Enriching Lives</h1>
-        <p className="text-29 text-paragraph font-light leading-[1.285] max-w-[46ch] m-auto text-center">Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people</p>
+      <div className="pb30">
+        <h1 className="text-[32px] lg:text-60 font-light leading-[1.18] max-w-[20ch] text-center mb-5 2xl:mb-10 m-auto ">Empowering Communities, Enriching Lives</h1>
+        <p className="text-19 lg:text-29 text-paragraph font-light leading-[1.285] max-w-[46ch] m-auto text-center">Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people</p>
       </div>
     </div>
           <div className="absolute top-15 right-0 z-[-1] w-[700px] h-[980px]"><img src={assets.mainShape} alt="" /></div>
@@ -123,14 +123,15 @@ function Block({ src, size, fade }) {
     <div className={`${size} relative`}>
       <AnimatePresence mode="wait">
         <motion.div
-      key={src}
+      // key={src}
           className={`absolute inset-0 `}
           initial={fade.initial}
           animate={fade.animate}
           exit={fade.exit}
           transition={{ duration: 1.6 }}
         >
-          <img src={src} className="w-full h-full object-cover" />
+          {/* <img src={src} className="w-full h-full object-cover" /> */}
+          <img src={ecs1[1]} className="w-full h-full object-cover" />
         </motion.div>
       </AnimatePresence>
     </div>

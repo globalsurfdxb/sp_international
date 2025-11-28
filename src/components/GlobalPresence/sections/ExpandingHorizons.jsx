@@ -8,7 +8,7 @@ const ExpandingHorizons = ({data}) => {
         <div>
           <div>
             <div className="2xl:max-w-[85%] 3xl:max-w-[67.84%]  ml-auto ">
-              <h2 className="text-60 font-light leading-[1.166666666666667] mb-6 xl:mb-12 max-w-[22ch]">{data.title}</h2>
+              <h2 className="text-60 font-light leading-[1.166666666666667] mb-50px max-w-[22ch]">{data.title}</h2>
               {
                 data.desc.map((item)=>(
                   <p className="mb-4 xl:mb-8 last:mb-0 text-29 font-light leading-[1.35] text-paragraph max-w-[48ch]">{item}</p>
