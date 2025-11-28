@@ -75,7 +75,7 @@ const [subject, setSubject] = useState(null);
           </div>
           </div>
           <div className="bg-primary p-6 lg:p-8 xl:p-10 3xl:p-17    3xl:pt-15">
-            <h2 className="text-60 font-light leading-[1.344827586206897] text-white mb-4 lg:mb-6 2xl:mb-8 3xl:mb-12">General Inquiry</h2>
+            <h2 className="text-60 font-light leading-[1.344827586206897] text-white mb-50px">General Inquiry</h2>
               <form >
  
                   <div className="flex gap-12 w-full mb-6 xl:mb-8 3xl:mb-15">
@@ -200,7 +200,7 @@ const [subject, setSubject] = useState(null);
     </div>
 
                 
-                  <div class="relative mb-6 lg:mb-12">
+                  <div class="relative mb-50px">
                     <textarea
                       id="message"
                       rows="3"

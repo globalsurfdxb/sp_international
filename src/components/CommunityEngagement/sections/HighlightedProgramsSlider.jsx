@@ -14,7 +14,7 @@ const HighlightedProgramsSlider = () => {
   const [contentSwiper, setContentSwiper] = useState(null);
 
   return (
-    <section className="relative pt-12 pb-16 xl:pt-[90px] xl:pb-25 bg-primary text-white overflow-hidden">
+    <section className="relative pt-12 xl:pt-15 2xl:pt-22 3xl:pt-[90px] pb25 bg-primary text-white overflow-hidden">
       <div className="absolute bottom-0 right-0 w-[519px] h-[725px]"><img src={assets.mainShape} alt="" /></div>
       <div className="container">
         {/* Header */}
@@ -59,7 +59,7 @@ const HighlightedProgramsSlider = () => {
             {/* Content Section - Static with Navigation */}
             <div className="order-1 lg:order-2 lg:pt-10 lg:w-[45%] 2xl:w-[37.5%]">
               {/* Navigation - Fixed */}
-              <div className="flex items-center gap-4 mb-8 border-b border-white/20 pb-8">
+              <div className="flex items-center gap-4  border-b border-white/20 pb-4 2xl:pb-8 lg:pb-6 mb-4 lg:mb-6 2xl:mb-8">
                 <button onClick={() => imageSwiper?.slidePrev()}
                   className="cursor-pointer w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors"
                   aria-label="Previous slide"
@@ -99,7 +99,7 @@ const HighlightedProgramsSlider = () => {
                       <h3 className="text-29 leading-[1.344827586206897] font-light mb-6">
                         {item.mainTitle}
                       </h3>
-                      <p className="text-white/80 text-19 leading-[1.473684210526316] font-light mb-8">
+                      <p className="text-white/80 text-19 leading-[1.473684210526316] font-light xl:mb-8">
                         {item.mainDesc}
                       </p>
 
