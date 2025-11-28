@@ -78,7 +78,7 @@ const FocusArea  = () => {
       > 
       {/* <h2 className='text-60 font-light leading-[1.18] mb-5 lg:mb-8 xl:mb-25 invisible'>ss</h2> */}
         {focusData.areas.map((area, i) => (
-          <div key={i} className=" mb-6 xl:mb-[63px] last:mb-0 last:xl:mb-0 h-[262px] md:h-[226px] xl:h-[262px] pt-2" >
+          <div key={i} className=" last:mb-0 last:xl:mb-0 h-[262px] md:h-[226px] xl:h-[262px] pt-2" >
             <img src={area.icon} alt=''/>  
           </div>
         ))}

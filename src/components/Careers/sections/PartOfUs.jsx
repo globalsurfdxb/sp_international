@@ -69,7 +69,7 @@ const CultureSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="container py-10   xl:py-15 2xl:py-30">
+    <section ref={sectionRef} className="container pb30 pt-text30">
       <div
         className="relative w-full h-[420px] xl:h-[490px] overflow-hidden flex items-center"
       >

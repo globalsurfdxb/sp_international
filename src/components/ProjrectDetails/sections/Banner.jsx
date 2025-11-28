@@ -6,7 +6,7 @@ const Banner = () => {
 
   return (
     <section className=" ">
-      <div className="pt-12 xl:pt-25  2xl:pt-30 pb-32 md:pb-38  lg:pb-[170px] xl:pb-[230px] bg-f5f5 2xl:pb-[232px]  ">
+      <div className="pt-12 xl:pt-15  3xl:pt-30 pb-32 md:pb-38  lg:pb-[170px] xl:pb-[230px] bg-f5f5 2xl:pb-[232px]  ">
         <div className="container relative   z-[2]">
           <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-5 lg:gap-0 ">
             <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} > 

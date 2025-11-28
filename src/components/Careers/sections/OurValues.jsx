@@ -29,7 +29,7 @@ const ValuesSection = () => {
   }, []);
 
   return (
-    <section className="bg-primary text-white w-full flex flex-col md:flex-row xl:h-[600px] 2xl:h-[656px] overflow-hidden py-10 md:py-0">
+    <section className="bg-primary text-white w-full flex flex-col md:flex-row xl:h-[600px] 2xl:h-[656px] overflow-hidden pt-8 pb-10 md:py-0">
       {/* Wrapper */}
       <div className="flex flex-col md:flex-row w-full " style={{ paddingLeft: isWideScreen ? `${leftOffset}px` : undefined }}>
         {/* Left Section */}
