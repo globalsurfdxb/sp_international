@@ -1,4 +1,4 @@
-import WhyChooseSec from "./sections/WhyChooseSec";
+import WhyChooseSec from "../common/ImgPointsComponent";
 
 export const mepData = {
     mainSection: {
@@ -39,7 +39,7 @@ export const mepData = {
             "Expertise in handling complex, large-scale projects"
         ],
     },
- 
+
     featuredProjectsData: {
         title: "",
         items: [

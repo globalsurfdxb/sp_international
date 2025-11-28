@@ -14,7 +14,7 @@ const ExpertiseSec = ({data}) => {
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-y-10 gap-30px">
             {
               data.items.map((item, index) => (
-                <div className="relative overflow-hidden border-b lg:border-l border-cmnbdr">
+                <div className="relative overflow-hidden border-b lg:border-l lg:border-b-0 border-cmnbdr">
                   <img src={item.img} alt={item.title} className="w-full h-[200px] lg:h-[250px] 2xl:h-[300px] 3xl:h-[333px]  object-cover" />
                   <div className="p-4 xl:p-10">
                     <h3 className="text-29 leading-[1.724137931034483] font-light mb-2">{item.title}</h3>
