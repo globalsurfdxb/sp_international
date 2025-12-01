@@ -46,7 +46,7 @@ const SectorsSec = ({data}) => {
             <SwiperSlide key={index} className="cursor-grab">
               <div className="relative overflow-hidden border-l border-white/30">
                 <div className="w-15 h-15 xl:w-20 xl:h-20 bg-secondary rounded-full flex items-center justify-center mb-5">
-                  <img src={item.icon} alt={item.title} className="w-auto h-[36px] object-cover" />
+                  <img src={item.icon} alt={item.title} className="w-auto h-5 md:h-6 2xl:h-[36px] object-contain" />
                 </div>
                 <div className="">
                   <h3 className="text-32 leading-[1.3125] font-light mb-2 xl:mb-3">{item.title}</h3>
