@@ -15,7 +15,7 @@ const Index = () => {
       </header>
       <main>
         <Banner
-          title="about us"
+          title="About SP International"
           image="/assets/images/about-us/about-banner.jpg"
         />
         <About />

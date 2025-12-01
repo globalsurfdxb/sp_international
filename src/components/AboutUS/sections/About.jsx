@@ -10,7 +10,7 @@ const About = () => {
           <div className={`grid grid-cols-1 lg:grid-cols-[1fr_520px] gap-7 2xl:gap-[167px]`}>
             {/* Left Column */}
             <div>
-              <motion.p variants={moveUp(2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className='text-29 font-light leading-[1.345]'>
+              <motion.p variants={moveUp(2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className='text-29 text-paragraph font-light leading-[1.345]'>
                 {data.left.text}
               </motion.p>
               <div className='mt-7 xl:mt-23 pt-7  xl:pt-12  border-t border-black/20'>
@@ -25,11 +25,11 @@ const About = () => {
             {/* Right Column */}
             <div>
               <motion.div variants={moveLeft(2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} 
-              className="bg-primary p-8 md:p-12 2xl:py-[48px] 2xl:px-15 h-full bg-[url('/assets/images/svg/sv-02.svg')] bg-auto bg-right-bottom bg-no-repeat">
-                <div className="flex flex-col gap-8">
+              className="bg-primary p-8 md:p-12 2xl:pt-[48px] 2xl:pb-[117px] 2xl:px-15 h-full bg-[url('/assets/images/svg/sv-02.svg')]   bg-right-bottom bg-no-repeat bg-size bg-auto md:bg-[length:308px]">
+                <div className="flex flex-col gap-12 md:gap-20  2xl:gap-15 3xl:gap-[35px]">
                   {data.right.map((item, i) => (
                     <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} key={i}>
-                      <h3 className='text-40 font-light leading-[1.474] text-white'>
+                      <h3 className='text-40 font-light leading-[1] mb-3 text-white'>
                         {item.value}
                       </h3>
                       <p className='text-19 font-light leading-[1.474] text-white/70'>{item.label}</p>

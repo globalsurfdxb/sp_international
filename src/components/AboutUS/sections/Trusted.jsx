@@ -4,6 +4,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 import { moveUp, moveLeft } from "../../../motionVarients";
+import { Link } from "react-router-dom";
+ 
 gsap.registerPlugin(ScrollTrigger);
 
 const Trusted = () => {
@@ -46,14 +48,15 @@ const Trusted = () => {
             className="trusted-title text-60 max-w-[18.14ch] font-light leading-[1.18] text-black mb-5 lg:mb-0"
           >
             Your Trusted Construction Partner for Quality and Innovation
-          </h2>
-
-          <div className="flex flex-col justify-end items-end">
+          </h2> 
+       <Link to="/Projects">
+          <div className="flex flex-col justify-end items-end sdsd">
             <motion.img variants={moveUp(1)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src="../assets/images/about-us/toarrow.svg" width={71} height={71} alt="arrow" className="w-5 h-5 sm:w-[71px] sm:h-[71px]" />
             <p className="text-16 font-light leading-[1.474] text-paragraph uppercase pt-3">
               View projects
             </p>
           </div>
+          </Link>
         </div>
       </div>
     </section>
