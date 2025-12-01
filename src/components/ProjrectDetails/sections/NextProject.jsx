@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
 
 // Register ScrollTrigger plugin
 if (typeof window !== 'undefined') {
@@ -51,10 +52,11 @@ const NextProject = () => {
               <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-29 font-light leading-[1.17] mb-3 lg:mb-[21px] text-paragraph">
                 {nextpjt.title}
               </motion.h2>
-              <motion.p variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 font-light leading-[1.17] text-black max-w-[11ch]">
+              <motion.p variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 font-light leading-[1.17] text-black max-w-[12ch]">
                 {nextpjt.subtitle}
               </motion.p>
             </div>
+            <Link to="/project-details" className='w-fit'>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="cursor-pointer w-[35px] h-[35px] xl:w-[71px] xl:h-[71px]"
@@ -78,6 +80,7 @@ const NextProject = () => {
                 strokeLinejoin="round"
               />
             </svg>
+            </Link>
           </div>
           <div ref={imageContainerRef} className="relative overflow-hidden">
             <img

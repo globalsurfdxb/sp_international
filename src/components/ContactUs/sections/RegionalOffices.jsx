@@ -9,8 +9,8 @@ const RegionalOffices = () => {
        <div className="grid md:grid-cols-2 2xl:grid-cols-3 md:gap-y-8 lg:gap-y-17">
        {regionalData.offices.map((office, index) => (
         <div key={index} className="px-0 md:px-5  p-5 py-8   3xl:px-15  3xl:pb-15    md:border-r md:border-t border-b border-[#CCCCCC] no-border-right no-pl0 ">
-         <div className="mb-2 md:mb-5"> <h3 className="font-19 font-bold max-w-[32ch]">{office.name}</h3></div>
-          <p className="font-19 font-light  mb-4 lg:mb-[45px] leading-[1.5] md:leading-[1.6] lg:leading-[1.75]" dangerouslySetInnerHTML={{__html: office.address}}></p>
+         <div className="mb-2 md:mb-5"> <h3 className="text-19 font-bold max-w-[32ch]">{office.name}</h3></div>
+          <p className="text-19 font-light  mb-4 lg:mb-[45px] leading-[1.5] md:leading-[1.6] lg:leading-[1.75]" dangerouslySetInnerHTML={{__html: office.address}}></p>
                 {
                   office.phone || office.fax ? (
                   <div className="bg-f5f5 p-5 lg:py-10 3xl:px-[34px]">

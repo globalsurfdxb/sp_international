@@ -285,7 +285,7 @@ function moveUp(delay = 0) {
       </AnimatePresence>
           </div>
 
-          <div className="pagination flex items-center gap-2 justify-center mb-10 xl:mb-15 3xl:mb-[131.68px]">
+          <div className="pagination flex items-center  gap-5 justify-center mb-10 xl:mb-15 3xl:mb-[131.68px]">
             <button
               className={`prev cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === 1 || isAnimating ? 'opacity-30' : 'opacity-100'
                 }`}

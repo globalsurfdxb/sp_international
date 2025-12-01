@@ -3,6 +3,7 @@ import { pjtList } from "../data";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { moveUp } from "../../../motionVarients";
+import { Link } from "react-router-dom";
 const sector = [
   { id: 1, title: "All" },
   { id: 2, title: "Press Releases 1" },
@@ -88,31 +89,20 @@ const ProjectLists = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ amount: 0.2, once: true }}
-          className="border-y border-cmnbdr mt-10 xl:mt-25 mb-8 xl:mb-15 py-4 md:py-6 xl:py-[35px]"
+          className="border-y border-cmnbdr mt-10 xl:mt-25 mb-8 xl:mb-15 3xl:mb-30 py-4 md:py-6 xl:py-[35px]"
         >
           <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-0">
             <div className="flex flex-col md:flex-row gap-8  2xl:gap-25  3xl:gap-[174px] justify-between">
               <div className="flex flex-col md:flex-row gap-6 2xl:gap-[90px] ">
                 <div className="w-full lg:w-fit">
                   <Listbox>
-                    <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-3 outline-0 border-0 justify-between">
+                    <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-[16px] outline-0 border-0 justify-between">
                       <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                         Sector
                       </span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="size-6"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                        />
-                      </svg>
+                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="7" viewBox="0 0 16 9" fill="none">
+<path d="M15 1L7.9992 8L1 1.00159" stroke="#464646" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
                     </Listbox.Button>
                     <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm z-[1]">
                       {sector.map((sector) => (
@@ -131,24 +121,13 @@ const ProjectLists = () => {
                 </div>
                 <div className="w-full lg:w-fit">
                   <Listbox>
-                    <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-3 outline-0 border-0 justify-between">
+                    <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-[16px] outline-0 border-0 justify-between">
                       <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                         Status
                       </span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="size-6"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                        />
-                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="7" viewBox="0 0 16 9" fill="none">
+<path d="M15 1L7.9992 8L1 1.00159" stroke="#464646" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
                     </Listbox.Button>
                     <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm z-[1]">
                       {status.map((status) => (
@@ -167,24 +146,13 @@ const ProjectLists = () => {
                 </div>
                 <div className="w-full lg:w-fit">
                   <Listbox>
-                    <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-3 outline-0 border-0 justify-between">
+                    <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-[16px] outline-0 border-0 justify-between">
                       <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                         country
                       </span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="size-6"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                        />
-                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="7" viewBox="0 0 16 9" fill="none">
+<path d="M15 1L7.9992 8L1 1.00159" stroke="#464646" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
                     </Listbox.Button>
                     <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm z-[1]">
                       {country.map((country) => (
@@ -203,24 +171,13 @@ const ProjectLists = () => {
                 </div>
                 <div className="w-full lg:w-fit">
                   <Listbox>
-                    <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-3 outline-0 border-0 justify-between">
+                    <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-[16px] outline-0 border-0 justify-between">
                       <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                         Service
                       </span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="size-6"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                        />
-                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="7" viewBox="0 0 16 9" fill="none">
+<path d="M15 1L7.9992 8L1 1.00159" stroke="#464646" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
                     </Listbox.Button>
                     <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm z-[1]">
                       {service.map((service) => (
@@ -239,7 +196,7 @@ const ProjectLists = () => {
                 </div>
               </div>
               <div>
-                <div className="flex items-center gap-2 cursor-pointer">
+                <div className="flex items-center gap-[10px] cursor-pointer">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="27"
@@ -282,7 +239,7 @@ const ProjectLists = () => {
             </div>
             <div className="flex items-center gap-6 lg:gap-[30px] justify-end">
               <div
-                className="flex group items-center gap-2 cursor-pointer"
+                className="flex group items-center gap-[6px] cursor-pointer"
                 onClick={() => setView("grid")}
               >
                 <svg
@@ -307,7 +264,7 @@ const ProjectLists = () => {
                 </p>
               </div>
               <div
-                className="flex group items-center gap-2 cursor-pointer"
+                className="flex group items-center gap-[6px] cursor-pointer"
                 onClick={() => setView("list")}
               >
                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -349,14 +306,24 @@ const ProjectLists = () => {
               initial="hidden"
               whileInView="show"
               viewport={{ amount: 0.2, once: true }}
+              className="group"
             >
-              <img
+             <Link to="/project-details">
+              <div className="relative">
+                <img
                 src={item.image}
                 alt={item.title}
                 width={520}
                 height={395}
                 className="w-full h-[250px] lg:h-[395px] object-cover"
               />
+              <div className=" opacity-0 group-hover:opacity-100 transition-all duration-300 absolute left-0 bottom-0 w-[50px] h-[50px]  xl:w-[80px] xl:h-[80px] flex items-center justify-center bg-primary">
+               <svg xmlns="http://www.w3.org/2000/svg" className="-translate-x-2 group-hover:translate-x-0 translate-y-2 group-hover:translate-y-0 transition-all duration-500 w-[25px] h-[25px] lg:w-[25px] lg:h-[25px]" width="35" height="35" viewBox="0 0 35 35" fill="none">
+              <path d="M1.25 1.25H33.2484V33.2411" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M33.2498 1.25L1.4043 33.2411" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              </div>
+              </div>
               <div>
                 <h2 className="text-29 leading-[1.344827586206897] font-light py-4 md:py-6 xl:max-w-[90%]">
                   {item.title}
@@ -375,6 +342,7 @@ const ProjectLists = () => {
                   Location: {item.location}
                 </p>
               </div>
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -395,10 +363,11 @@ const ProjectLists = () => {
               variants={moveUp(0.2 * index)}
               initial="hidden"
               whileInView="show"
-              className="border-b border-black/20 pb-7 mb-7 group"
+              className="border-b border-black/20 pb-[30px] mb-[30px] group"
               viewport={{ amount: 0.2, once: true }}
             >
-              <div className="flex flex-col lg:flex-row gap-3 md:gap-10 2xl:gap-[69px] ">
+              <Link to="/project-details">
+              <div className="flex flex-col lg:flex-row gap-3 md:gap-10 3xl:gap-[69px] ">
                 <div className="w-full lg:w-[274px]">
                   <img
                     src={item.image}
@@ -408,17 +377,17 @@ const ProjectLists = () => {
                     className="w-full h-full   md:h-[350px] lg:min-w-[274px] lg:h-[208px] object-fit"
                   />
                 </div>
-                <div className="flex flex-col lg:flex-row justify-between gap-1 md:gap-10 2xl:gap-[104px] w-full">
+                <div className="flex flex-col lg:flex-row justify-between gap-1 md:gap-10 2xl:gap-10 3xl:gap-[104px] w-full">
                   <div>
                   <div>
-                    <h2 className="text-29 leading-[1.344827586206897] font-light py-4 md:py-6 ">
+                    <h2 className="text-29 leading-[1.344827586206897] font-light  ">
                       {item.title}
                     </h2>
                   </div>
                 </div>
                 <div>
-                 <div className="bg-f5f5 p-5 xl:py-[18px] xl:px-7">
-                   <div className="flex gap-5 2xl:gap-[168px] justify-between border-b border-b-black/20  ">
+                 <div className="bg-f5f5 p-5 xl:py-[18px] xl:px-[30px]">
+                   <div className="flex gap-5 3xl:gap-[168px] justify-between border-b border-b-black/20 pb-[11px] mb-[7px] ">
                     <p className="text-paragraph text-19 font-light leading-[2] ">
                       Sector: {item.sector}
                     </p>
@@ -434,38 +403,20 @@ const ProjectLists = () => {
                  </div>
                 </div>
                   <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 hidden lg:block">
-                     <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="cursor-pointer w-[32px] h-[32px]  "
-              width="71"
-              height="71"
-              viewBox="0 0 71 71"
-              fill="none"
-            >
-              <path
-                d="M4.75781 4.76465H66.2437V66.2365"
-                stroke="#30B6F9"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M66.2468 4.76465L5.05469 66.2365"
-                stroke="#30B6F9"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+<path d="M1.25 1.25H33.2484V33.2411" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M33.2498 1.25L1.4043 33.2411" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
                   </div>
 
                 </div>
               </div>
+              </Link>
             </motion.div>
           ))}
         </div>
         <div className="flex items-center justify-center gap-2 w-full pb-10 xl:pb-15 2xl:pb-[120px]">
-          <div className="pagination flex items-center gap-2 justify-center ">
+          <div className="pagination flex items-center gap-5 justify-center ">
             <button
               className={`prev cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${
                 currentPage === 1 || isAnimating ? "opacity-30" : "opacity-100"
@@ -528,11 +479,13 @@ const ProjectLists = () => {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-3/7 translate-y-[-45px] -left-1 z-[-1]   ">
-        <img
-          src="./assets/images/projects/pjtbdy1.svg"
-          alt=""
-          className="w-[670px] object-contain"
+      {view === "grid" && (
+       <>
+        <div className="absolute bottom-3/7 translate-y-[-78px] left-0 z-[-1]   ">
+          <img
+            src="./assets/images/projects/pjtbdy1.svg"
+            alt=""
+            className="w-[670px] object-contain"
         />
       </div>
       <div className="absolute bottom-0 right-0 z-[-1]   ">
@@ -542,6 +495,8 @@ const ProjectLists = () => {
           className="w-[670px] object-contain"
         />
       </div>
+      </>
+      )}
     </section>
   );
 };

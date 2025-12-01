@@ -21,7 +21,7 @@ const ValueItem = ({ item }) => {
 
   return (
     <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}
-      className="group flex flex-col lg:flex-row lg:justify-between  py-[16px] cursor-pointer border-b border-[#E5E5E5] first:border-t"
+      className="group flex flex-col lg:flex-row lg:justify-between  py-[16px] cursor-pointer border-b border-black/20 first:border-t"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
