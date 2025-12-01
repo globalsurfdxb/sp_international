@@ -48,7 +48,7 @@ console.log(accData)
               }`}/>
             <button
               onClick={() => toggleAccordion(index)}
-              className="w-full py-5 flex items-center justify-between text-left group"
+              className={`w-full ${openIndex === index ? 'pt-30px pb-2 xl:pb-[15px] ' : 'pt-30px pb-30px' } flex items-center justify-between text-left group`}
             >
               <div className="flex-1">
                 <h3 className="text-24 xl:text-32 leading-[1.3125] font-normal text-gray-900">
@@ -59,7 +59,7 @@ console.log(accData)
                     initial={{ opacity: 0, y: -5 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.1 }}
-                    className="text-sm text-gray-600"
+                    className="text-19 leading-[1.526315789473684] text-paragraph"
                   >
                     {item.subtitle}
                   </motion.p>

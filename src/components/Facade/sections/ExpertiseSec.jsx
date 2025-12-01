@@ -5,7 +5,7 @@ const ExpertiseSec = ({ data }) => {
     <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden">
       <div className="container">
         <H2Title titleText="Our Expertise" marginClass="mb-50px" />
-        <div className='grid grid-cols-2 xl:grid-cols-4 gap-30px gap-y-15 xl:gap-y-18'>
+        <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-30px gap-y-15 xl:gap-y-18'>
           {
             data.items.map((item) => (
               <div>

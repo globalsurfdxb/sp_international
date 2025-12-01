@@ -12,7 +12,7 @@ const VdoSection = ({data}) => {
               <H2Title titleText={data.title} titleColor="primary" marginClass="mb-4 3xl:mb-10" />
               {
                 data.desc.map((item)=>(
-                  <p className="mb-4 xl:mb-8 last:mb-0">{item}</p>
+                  <p className="text-19 leading-[1.473684210526316] font-light text-paragraph mb-4 xl:mb-8 last:mb-0">{item}</p>
                 ))
               }
             </div>

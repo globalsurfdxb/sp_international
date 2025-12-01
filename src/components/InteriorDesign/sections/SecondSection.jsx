@@ -11,7 +11,7 @@ const SecondSection = ({data}) => {
           <h2 className="text-60 font-light leading-[1.166666666666667] mb-30px">
             {data.title}
           </h2>
-          <p className='text-19 leading-[1.473684210526316] font-extralight'>{data.desc}</p>
+          <p className='text-19 leading-[1.473684210526316] font-extralight max-w-6xl'>{data.desc}</p>
         </div>
         <div className='grid lg:grid-cols-2 xl:grid-cols-3 gap-30px'>
             {

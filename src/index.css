@@ -713,7 +713,7 @@ body::-webkit-scrollbar {
   @apply pt-5 md:pt-8 xl:pt-10 2xl:pt-22 3xl:pt-25;
 }
 .pt-text90{
-  @apply pt-6 md:pt-8 xl:pt-10 2xl:pt-20 3xl:pt-[90px];
+  @apply pt-6 md:pt-8 xl:pt-10 2xl:pt-12 3xl:pt-[90px];
 }
 
 
@@ -746,9 +746,9 @@ body::-webkit-scrollbar {
 }
 
 .mt-text25 {
-  @apply pt-5 md:mt-8 xl:mt-10 2xl:mt-22 3xl:mt-25;
+  @apply pt-5 lg:mt-8 xl:mt-10 2xl:mt-20 3xl:mt-25;
 }
 
 .mt-text90 {
-  @apply mt-6 md:mt-8 xl:mt-10 2xl:mt-20 3xl:mt-[90px];
+  @apply mt-6 md:mt-8 xl:mt-10 2xl:mt-15 3xl:mt-[90px];
 }
