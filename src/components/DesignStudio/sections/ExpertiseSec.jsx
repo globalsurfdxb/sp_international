@@ -16,16 +16,16 @@ const ExpertiseSec = ({data}) => {
           {/* Navigation - Fixed */}
           <div className="flex items-center gap-4 ">
             <button onClick={() => swiperRef?.slidePrev()}
-              className="w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors"
+              className="w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] rounded-full border border-white/20 flex items-center justify-center transition-colors"
               aria-label="Previous slide"
             >
-              <img src={assets.arrowLeft2} alt="" />
+              <img src={assets.arrowLeft2} width={13.89} height={13.89} alt="" className="w-[13.89px] h-[13.89px] xl:w-5 xl:h-5" />
             </button>
             <button onClick={() => swiperRef?.slideNext()}
-              className="w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors"
+              className="w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] rounded-full border border-white/20 flex items-center justify-center transition-colors"
               aria-label="Next slide"
             >
-              <img src={assets.arrowRight2} alt="" />
+              <img src={assets.arrowRight2} width={13.89} height={13.89} alt="" className="w-[13.89px] h-[13.89px] xl:w-5 xl:h-5" />
             </button>
             
           </div>
@@ -59,9 +59,9 @@ const ExpertiseSec = ({data}) => {
             >
               {data.items.map((item, index) => (
                 <SwiperSlide key={index}>
-                  <div className="relative overflow-hidden xl:border-l border-white/30">
+                  <div className="relative overflow-hidden ">
                     <img src={item.img} alt={item.slideTitle} className="w-full h-[250px] lg:h-[300px] xl:h-[333px]  object-cover" />
-                    <div className="pl-0 pt-4 xl:p-10">
+                    <div className="pl-0 pt-4 xl:p-10 xl:border-l border-white/30">
                       <h3 className="text-20 xl:text-29 leading-[1.2] 3xl:leading-[1.724137931034483] font-normal xl:font-extralight mb-2 xl:mb-2">{item.slideTitle}</h3>
                       <p className="text-19 leading-[1.526315789473684] font-extralight">{item.slideDesc}</p>
                     </div>

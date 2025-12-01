@@ -46,7 +46,7 @@ const FeaturedProjectSlider = ({data}) => {
       <div className="xl:px-[15px] md:pe-0 relative">
         {/* Counter + Arrows */}
         <div className="container" ref={containerRef}>
-          <div className="flex justify-between items-center mb-5 xl:mb-17">
+          <div className="flex justify-between items-center mb-5 3xl:mb-17">
             <div className="text-lg font-semibold text-black flex items-center gap-1">
               <H2Title titleText="Featured Projects" titleColor="black" marginClass="mb-0" />
             </div>
@@ -56,12 +56,12 @@ const FeaturedProjectSlider = ({data}) => {
                 className="custom-prev  w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] flex items-center justify-center cursor-pointer rounded-full group border border-black/20   hover:bg-secondary hover:text-white transition"
               >
 
-                <img src="/assets/images/project-details/rightarrow.svg" className="rotate-180 group-hover:brightness-0 group-hover:invert-100 transition-all duration-300" alt="" width={14} height={14} />
+                <img src="/assets/images/project-details/rightarrow.svg" className="w-[13.89px] h-[13.89px] xl:w-5 xl:h-5 rotate-180 group-hover:brightness-0 group-hover:invert-100 transition-all duration-300" alt="" width={14} height={14} />
               </button>
               <button
                 className="custom-next w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] flex items-center justify-center cursor-pointer rounded-full group border border-black/20   hover:bg-secondary hover:text-white transition"
               >
-                <img src="/assets/images/project-details/rightarrow.svg" className="group-hover:brightness-0 group-hover:invert-100 transition-all duration-300" alt="" width={14} height={14} />
+                <img src="/assets/images/project-details/rightarrow.svg" className="w-[13.89px] h-[13.89px] xl:w-5 xl:h-5 group-hover:brightness-0 group-hover:invert-100 transition-all duration-300" alt="" width={14} height={14} />
               </button>
             </div>
           </div>

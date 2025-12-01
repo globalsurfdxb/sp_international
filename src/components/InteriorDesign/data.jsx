@@ -117,23 +117,23 @@ export const interiorData = {
         items: [
             {
                 title: "Decades of Experiencey",
-                content: "We ensure your projects are completed within the agreed timeline and budget constraints, with transparent communication and efficient resource management throughout the entire process."
+                content: "Designers, engineers, and project managers aligned for excellence"
             },
             {
                 title: "Skilled Multidisciplinary Team",
-                content: "Our team of experienced professionals adheres to the highest industry standards, implementing rigorous quality control measures and innovative engineering solutions to deliver exceptional results."
+                content: "Designers, engineers, and project managers aligned for excellence"
             },
             {
                 title: "Proven Track Record",
-                content: "We integrate cutting-edge sustainable technologies and eco-friendly materials into our projects, reducing environmental impact while maximizing efficiency and long-term value."
+                content: "Designers, engineers, and project managers aligned for excellence"
             },
             {
                 title: "Uncompromising Quality & Safety",
-                content: "From initial concept to final delivery, we provide comprehensive project management services, coordinating all aspects of construction to ensure seamless execution and client satisfaction."
+                content: "Designers, engineers, and project managers aligned for excellence"
             },
             {
                 title: "Client-First Approach",
-                content: "Combining international best practices with local knowledge, we deliver world-class solutions tailored to your specific regional requirements and cultural context."
+                content: "Designers, engineers, and project managers aligned for excellence"
             }
         ]
     }

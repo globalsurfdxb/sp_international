@@ -84,8 +84,7 @@ const InnovationSustainability = () => {
           {/* LEFT SIDE */}
           <div className="relative h-full">
             {/* Vertical line – perfectly centered with circles */}
-            <div className="pointer-events-none absolute top-0 bottom-0 left-4 w-px bg-[#1E45A2]" />
-
+            <div className="pointer-events-none absolute top-0 bottom-0 left-4 w-px bg-gradient-to-b from-primary to-secondary" />
             <div className="flex flex-col justify-center h-full">
               {accordionData.map((item, index) => (
                 <motion.div
