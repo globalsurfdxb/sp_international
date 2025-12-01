@@ -5,7 +5,7 @@ import VdoSection from "../common/VdoSection";
 import ExpertiseSec from "./sections/ExpertiseSec";
 // import OurApproach from "./sections/OurApproach";
 import FeaturedProjectSlider from "../common/FeaturedProjectSlider";
-import WhyChooseSec from "./sections/WhyChooseSec";
+import WhyChooseSec from "../common/ImgPointsComponent";
 import InnovationSustainability from "./sections/InnovationSustainability";
 import { mepData } from "./data";
 const MEP = () => {

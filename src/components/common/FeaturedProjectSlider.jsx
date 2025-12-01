@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import { motion } from "framer-motion";
-import { moveUp } from "../../motionVarients";
+import { moveLeft } from "../../motionVarients";
 import H2Title from "./H2Title";
 
 const FeaturedProjectSlider = ({data}) => {
@@ -90,8 +90,16 @@ const FeaturedProjectSlider = ({data}) => {
                 disableOnInteraction: false,
               }}
               breakpoints={{
+                600: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
                 1024: {
-                  slidesPerView: 2.2,
+                  slidesPerView: 2,
                   spaceBetween: 40,
                 },
               }}
@@ -101,7 +109,7 @@ const FeaturedProjectSlider = ({data}) => {
                 <SwiperSlide key={i}>
                   <div className="overflow-hidden ">
                     <div>
-                      <motion.img variants={moveUp(0.1 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={item.image} alt={`slide-${i}`} className="w-full h-auto object-cover" />
+                      <motion.img variants={moveLeft(0.1 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={item.image} alt={`slide-${i}`} className="w-full h-[250px] xl:h-[520px] object-cover" />
                     </div>
                     <div>
                       <div className="border-b border-cmnbdr pt-5 xl:pt-7 pb-5 xl:pb-7">

@@ -6,7 +6,7 @@ const ExpertiseSec = ({data}) => {
  
 
   return (
-    <section className="relative pt-12 pb-16 xl:pt-20 xl:pb-32 bg-primary text-white overflow-hidden">
+    <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden">
       <div className="absolute bottom-0 right-0 w-[519px] h-[725px]"><img src={assets.mainShape3} alt="" /></div>
       <div className="container">
         {/* Header */}

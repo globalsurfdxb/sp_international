@@ -3,15 +3,15 @@ import H2Title from "../../common/H2Title";
 
 const LastSection = () => {
   return ( 
-    <section className="py-20 lg:py-25 xl:py-30 relative">
+    <section className="py30 relative overflow-hidden">
       <img src={assets.mainShape2} alt="" className="absolute bottom-0 left-0 w-[45%] xl:w-[465px] h-auto object-contain" />
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] items-center">
-          <div>
-            <H2Title titleText="Design That Inspires Progress" titleColor="black" marginClass="mb-0" />
-            <p>We believe that great design merges creativity with engineering precision. Our multidisciplinary approach ensures that every project is not only visually compelling but also technically sound, sustainable, and aligned with client vision.</p>
+        <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] items-center lg:gap-10 xl:gap-x-18 gap-y-6">
+          <div className="order-2 xl:order-1">
+            <H2Title titleText="Design That Inspires Progress" titleColor="black" marginClass="mb-3 xl:mb-10" />
+            <p className="text-19 leading-[1.473684210526316] font-light text-paragraph ">We believe that great design merges creativity with engineering precision. Our multidisciplinary approach ensures that every project is not only visually compelling but also technically sound, sustainable, and aligned with client vision.</p>
           </div>
-          <div>
+          <div className="order-1 xl:order-2">
             <img src="../../assets/images/design-studio/design-inpires.jpg" alt="" />
           </div>
         </div>

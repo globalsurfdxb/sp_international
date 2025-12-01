@@ -5,7 +5,7 @@ import 'swiper/css/navigation';
 import H2Title from "../../common/H2Title";
 const SectorsSec = ({data}) => {
   return (
-    <section className="py-20 xl:py-30">
+    <section className="pt-text30 pb30 overflow-hidden">
       <div className="container">
         <div>
           <H2Title titleText="Sectors We Serve" titleColor="black" marginClass="mb-50px" />
@@ -26,10 +26,16 @@ const SectorsSec = ({data}) => {
               0: {
                 slidesPerView: 1,
               },
+              480: {
+                slidesPerView: 2,
+              },
               768: {
                 slidesPerView: 2,
               },
               1024: {
+                slidesPerView: 3,
+              },
+              1400: {
                 slidesPerView: 4,
               },
             }

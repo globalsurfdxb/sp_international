@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useMediaQuery } from "react-responsive";
 import { motion, AnimatePresence } from "framer-motion";
 import H2Title from "../../common/H2Title";
 import { assets } from "../../../assets";
@@ -56,12 +57,29 @@ const InnovationSustainability = () => {
     if (activeIndex === index + 1) return "64px";
     return "32px";
   };
+  const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
+
+  let activeSize;
+  let inactiveSize;
+
+  if (isMobile) {
+    activeSize = 50;
+    inactiveSize = 16;
+  } else if (isTablet) {
+    activeSize = 50;
+    inactiveSize = 18;
+  } else {
+    // Desktop / Larger
+    activeSize = 72;
+    inactiveSize = 20;
+  }
 
   return (
-    <section className="relative overflow-hidden py-10 lg:py-20 xl:py-30 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section className="relative overflow-hidden pt-text30 pb30 bg-gradient-to-br from-slate-50 to-blue-50">
       <img src={assets.mainShape2} alt="" className="absolute bottom-0 left-0 w-[50%] 2xl:w-[960px] h-auto object-contain" />
       <div className="container mx-auto px-4">
-        <H2Title titleText="Innovation & Sustainability in MEP" titleColor="black" marginClass="mb-18"/>
+        <H2Title titleText="Innovation & Sustainability in MEP" titleColor="black" marginClass="mb-50px 3xl:mb-18"/>
         <div className="grid lg:grid-cols-2 xl:grid-cols-[0.8fr_1.1fr] gap-8 lg:gap-12 items-center">
           {/* LEFT SIDE */}
           <div className="relative h-full">
@@ -93,9 +111,8 @@ const InnovationSustainability = () => {
                       <motion.div
                         animate={{
                           backgroundColor: "#30B6F94D",
-                          width: activeIndex === index ? 72 : 20,
-                          height: activeIndex === index ? 72 : 20,
-                          
+                          width: activeIndex === index ? activeSize : inactiveSize,
+                          height: activeIndex === index ? activeSize : inactiveSize,
                         }}
                         transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                         className="rounded-full flex items-center justify-center backdrop-blur-[10px]"
@@ -110,7 +127,7 @@ const InnovationSustainability = () => {
                               transition={{ duration: 0.3 }}
                               src={item.icon}
                               alt={item.title}
-                              className="w-[32px] h-auto object-contain"
+                              className="w-5 md:w-6 xl:w-[32px] h-auto object-contain"
                             />
                           )}
                         </AnimatePresence>
@@ -177,15 +194,15 @@ const InnovationSustainability = () => {
           <div className="relative">
             <motion.div
               ref={imageRef}
-              className="relative overflow-hidden"
-              style={{ aspectRatio: "4/3" }}
+              className="relative overflow-hidden xl:aspect-[4/3]"
+              
             >
               <AnimatePresence mode="wait">
                 <motion.img
                   key={activeIndex}
                   src={accordionData[activeIndex]?.image}
                   alt={accordionData[activeIndex]?.title}
-                  className="w-full h-full min-h-[400px] lg:min-h-[500px] 2xl:min-h-[706px] object-cover"
+                  className="w-full h-[200px] md:h-[300px] lg:h-[450px] xl:h-[500px] 2xl:h-[706px] object-cover"
                   initial={{ opacity: 0, scale: 1.1 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
@@ -193,7 +210,7 @@ const InnovationSustainability = () => {
                 />
               </AnimatePresence>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+              <div className="absolute h-fit inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
             </motion.div>
 
             <motion.div
