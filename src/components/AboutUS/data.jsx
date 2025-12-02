@@ -10,7 +10,7 @@ export const data = {
         ], 
     },
     right:   [
-          { value: "350+", label: "Projects" },
+          { value: "350+", label: "Iconic Projects" },
           { value: "6000+", label: "Dedicated Workforce" },
           { value: "250+", label: "Happy Clients" },
         ] 

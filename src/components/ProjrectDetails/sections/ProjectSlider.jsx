@@ -54,22 +54,22 @@ const ProjectSlider = () => {
   }, []);
 
   return (
-    <section className="py-10 xl:py-15 2xl:pt-22 3xl:pt-[80px] pb25 relative">
+    <section className="pb-10 xl:pb-15  pb25 relative">
       <div className="container  " ref={containerRef}></div>
       <div className=" px-[15px] md:pe-0 relative" ref={targetRef}>
         {/* Counter + Arrows */}
-        <div className="flex justify-between items-center mb-5">
-          <div className="text-lg font-semibold text-black flex items-center gap-1">
-            <span className="font-bold text-gray-800">
+        <div className="flex justify-between items-center mb-5    h-[35px]   xl:h-[50px] ">
+          <div className="  flex items-center gap-1">
+            <span className="font-bold text-paragraph text-[16px] ">
               {String(currentSlide).padStart(2, "0")}
             </span>
-            <span className="text-paragraph font-light text-16 ">/</span>
-            <span className="text-paragraph font-light text-16">
+            <span className="text-paragraph font-light text-[16px]  ">/</span>
+            <span className="text-paragraph font-light text-[16px] ">
               {String(legacyData.length).padStart(2, "0")}
             </span>
           </div>
 
-          <div className="flex gap-3 absolute right-[15px] md:right-[26.5%] md:translate-x-[26.5%] lg:right-[25.5%] lg:translate-x-[25.5%]  3xl:right-[25.2%] 3xl:translate-x-[25.2%] top-[-5px] xl:-top-5">
+          <div className="flex gap-3 absolute right-[15px] md:right-[26.5%] md:translate-x-[26.5%] lg:right-[25.5%] lg:translate-x-[25.5%]  3xl:right-[25.2%] 3xl:translate-x-[25.2%] top-0">
             <button
               className="custom-prev  w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] flex items-center justify-center cursor-pointer rounded-full group border border-black/20   hover:bg-secondary hover:text-white transition"
             >
