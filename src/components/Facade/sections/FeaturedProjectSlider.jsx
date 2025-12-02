@@ -121,7 +121,6 @@ const FeaturedProjectSlider = ({data}) => {
             </Swiper>
           </div>
         </div>
-       
       </div>
     </section>
   );

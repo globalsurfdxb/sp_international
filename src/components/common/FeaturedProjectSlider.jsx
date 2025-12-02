@@ -6,10 +6,10 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import { motion } from "framer-motion";
-import { moveLeft } from "../../motionVarients";
+import { moveLeft, moveUp } from "../../motionVarients";
 import H2Title from "./H2Title";
 
-const FeaturedProjectSlider = ({data}) => {
+const FeaturedProjectSlider = ({ data }) => {
   const swiperRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(1);
   const containerRef = useRef(null);
@@ -47,20 +47,15 @@ const FeaturedProjectSlider = ({data}) => {
         {/* Counter + Arrows */}
         <div className="container" ref={containerRef}>
           <div className="flex justify-between items-center mb-5 3xl:mb-17">
-            <div className="text-lg font-semibold text-black flex items-center gap-1">
+            <motion.div variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} >
               <H2Title titleText="Featured Projects" titleColor="black" marginClass="mb-0" />
-            </div>
+            </motion.div>
 
             <div className="flex gap-3 ">
-              <button
-                className="custom-prev  w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] flex items-center justify-center cursor-pointer rounded-full group border border-black/20   hover:bg-secondary hover:text-white transition"
-              >
-
+              <button className="custom-prev  w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] flex items-center justify-center cursor-pointer rounded-full group border border-black/20   hover:bg-secondary hover:text-white transition">
                 <img src="/assets/images/project-details/rightarrow.svg" className="w-[13.89px] h-[13.89px] xl:w-5 xl:h-5 rotate-180 group-hover:brightness-0 group-hover:invert-100 transition-all duration-300" alt="" width={14} height={14} />
               </button>
-              <button
-                className="custom-next w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] flex items-center justify-center cursor-pointer rounded-full group border border-black/20   hover:bg-secondary hover:text-white transition"
-              >
+              <button className="custom-next w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] flex items-center justify-center cursor-pointer rounded-full group border border-black/20   hover:bg-secondary hover:text-white transition">
                 <img src="/assets/images/project-details/rightarrow.svg" className="w-[13.89px] h-[13.89px] xl:w-5 xl:h-5 group-hover:brightness-0 group-hover:invert-100 transition-all duration-300" alt="" width={14} height={14} />
               </button>
             </div>
@@ -75,8 +70,10 @@ const FeaturedProjectSlider = ({data}) => {
               spaceBetween={40}
               slidesPerView={1}
               loop={true}
-              loopedSlides={6}
               centeredSlides={false}
+              loopAdditionalSlides={1}
+              watchSlidesProgress={true}
+              // loopedSlides={data.items.length}
               navigation={{
                 prevEl: ".custom-prev",
                 nextEl: ".custom-next",
@@ -88,6 +85,7 @@ const FeaturedProjectSlider = ({data}) => {
               autoplay={{
                 delay: 4000,
                 disableOnInteraction: false,
+                waitForTransition: true,
               }}
               breakpoints={{
                 600: {
@@ -107,20 +105,21 @@ const FeaturedProjectSlider = ({data}) => {
             >
               {data.items.map((item, i) => (
                 <SwiperSlide key={i}>
-                  <div className="overflow-hidden ">
+                  <div className="">
                     <div>
-                      <motion.img variants={moveLeft(0.1 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={item.image} alt={`slide-${i}`} className="w-full h-[250px] xl:h-[520px] object-cover" />
+                      <motion.img variants={moveUp(0.1 * i)} initial="hidden" animate="show" viewport={{ amount: 0.2, once: false }} src={item.image} alt={`slide-${i}`} className="w-full h-[250px] xl:h-[520px] object-cover" />
                     </div>
                     <div>
-                      <div className="border-b border-cmnbdr pt-5 xl:pt-7 pb-5 xl:pb-7">
-                        <h3 className="text-29 leading-[1.344827586206897] font-light">{item.title}</h3>
+                      <div  className="border-b border-cmnbdr pt-5 xl:pt-7 pb-5 xl:pb-7">
+                        <motion.h3 variants={moveUp(0.2 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: false }} className="text-29 leading-[1.344827586206897] font-light">{item.title}</motion.h3>
                       </div>
                       <div className="border-b border-cmnbdr grid lg:grid-cols-2 items-center">
-                        <h4 className="text-19 leading-[2.052631578947368] font-light text-paragraph border-b border-cmnbdr lg:border-0"><span>Sector: </span>{item.sector}</h4>
-                        <h4 className="text-19 leading-[2.052631578947368] font-light text-paragraph"><span>BUA (Sq.ft): </span>500000</h4>
+                        <motion.h4 variants={moveUp(0.2 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: false }} className="text-19 leading-[2.052631578947368] font-light text-paragraph border-b border-cmnbdr lg:border-0"><span>Sector: </span>{item.sector}</motion.h4>
+                        <motion.h4 variants={moveUp(0.2 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: false }} className="text-19 leading-[2.052631578947368] font-light text-paragraph"><span>BUA (Sq.ft): </span>500000</motion.h4>
                       </div>
-                      <div className="border-b border-cmnbdr">
-                        <h4 className="text-19 leading-[2.052631578947368] font-light text-paragraph"><span>Location: </span>{item.location}</h4>
+                      <div className="border-b border-cmnbdr py-1">
+                        <motion.h4 variants={moveUp(0.25 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: false }}
+                          className="opacity-0 text-19 leading-[2.052631578947368] font-light text-paragraph"><span>Location: </span>{item.location}</motion.h4>
                       </div>
                     </div>
                   </div>
@@ -129,7 +128,7 @@ const FeaturedProjectSlider = ({data}) => {
             </Swiper>
           </div>
         </div>
-       
+
       </div>
     </section>
   );

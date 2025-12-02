@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { paragraphItem, moveUp } from "../../../motionVarients";
 import { motion } from "framer-motion";
 
+
 const EmpowerSection = () => {
   const { svgSrc, heading, description, stats } = empowerData;
   const [rightPadding, setRightPadding] = useState(0);

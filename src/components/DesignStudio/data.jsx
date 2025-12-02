@@ -32,8 +32,13 @@ export const designStudioData = {
       },
       {
         img: "./assets/images/design-studio/expertise/exp2.jpg",
-        slideTitle: "Preliminary Designs",
+        slideTitle: "Master Planing",
         slideDesc: "Conceptualizing design intent and scope.",
+      },
+      {
+        img: "./assets/images/design-studio/expertise/exp3.jpg",
+        slideTitle: "Urban Development Schemes",
+        slideDesc: "Sustainable and smart city planning.",
       },
     ]
   },
