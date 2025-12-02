@@ -1,6 +1,8 @@
+"use client";
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { assets } from '../../assets';
+import { paragraphItem } from '../../motionVarients';
 
 const AccordionStyle1 = ({accData}) => {
 console.log(accData)
@@ -35,7 +37,7 @@ console.log(accData)
   };
 
   return (
-    <div className="">
+    <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}>
       <div className="space-y-1">
         {accData.items.map((item, index) => (
           <div key={index} className={`border-b border-cmnbdr relative  ${openIndex === index
@@ -114,7 +116,7 @@ console.log(accData)
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

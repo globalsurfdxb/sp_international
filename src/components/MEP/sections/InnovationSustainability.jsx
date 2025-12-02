@@ -1,8 +1,11 @@
+
+"use client";
 import React, { useState, useRef } from "react";
 import { useMediaQuery } from "react-responsive";
 import { motion, AnimatePresence } from "framer-motion";
 import H2Title from "../../common/H2Title";
 import { assets } from "../../../assets";
+import { moveUp, moveLeft } from "../../../motionVarients";
 const accordionData = [
   {
     id: 1,
@@ -79,7 +82,9 @@ const InnovationSustainability = () => {
     <section className="relative overflow-hidden pt-text30 pb30 bg-gradient-to-br from-slate-50 to-blue-50">
       <img src={assets.mainShape2} alt="" className="absolute bottom-0 left-0 w-[50%] 2xl:w-[960px] h-auto object-contain" />
       <div className="container mx-auto px-4">
-        <H2Title titleText="Innovation & Sustainability in MEP" titleColor="black" marginClass="mb-50px 3xl:mb-18"/>
+        <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount:0.6, once:true}} >
+          <H2Title titleText="Innovation & Sustainability in MEP" titleColor="black" marginClass="mb-50px 3xl:mb-18" />
+        </motion.div>
         <div className="grid lg:grid-cols-2 xl:grid-cols-[0.8fr_1.1fr] gap-8 lg:gap-12 items-center">
           {/* LEFT SIDE */}
           <div className="relative h-full">
@@ -102,7 +107,7 @@ const InnovationSustainability = () => {
                   transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                 >
                   {/* Timeline cell: circles + line center aligned */}
-                  <div className="w-8 flex items-start justify-center">
+                  <motion.div variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{amount:0.6, once:true}} className="w-8 flex items-start justify-center">
                     <motion.button
                       onClick={() => handleAccordionClick(index)}
                       className="relative z-10 flex items-center justify-center cursor-pointer"
@@ -132,10 +137,10 @@ const InnovationSustainability = () => {
                         </AnimatePresence>
                       </motion.div>
                     </motion.button>
-                  </div>
+                  </motion.div>
 
                   {/* Content cell */}
-                  <div className="flex-1 pl-10">
+                  <motion.div variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{amount:0.6, once:true}} className="flex-1 pl-10">
                     <motion.button
                       onClick={() => handleAccordionClick(index)}
                       className="w-full text-left group flex items-start"
@@ -183,14 +188,14 @@ const InnovationSustainability = () => {
                         </motion.div>
                       )}
                     </AnimatePresence>
-                  </div>
+                  </motion.div>
                 </motion.div>
               ))}
             </div>
           </div>
 
           {/* RIGHT SIDE – unchanged */}
-          <div className="relative">
+          <motion.div variants={moveLeft(0.2)} initial="hidden" whileInView="show" viewport={{amount:0.6, once:true}} className="relative">
             <motion.div
               ref={imageRef}
               className="relative overflow-hidden xl:aspect-[4/3]"
@@ -236,7 +241,7 @@ const InnovationSustainability = () => {
               }}
               className="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-400/10 rounded-full blur-2xl -z-10"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,4 +1,9 @@
-import React, { useRef, useState } from 'react';
+"use client";
+import {motion} from 'framer-motion'
+import { moveUp, paragraphItem, moveLeft, moveRight } from '../../../motionVarients';
+import React, { useRef, useState, useEffect } from 'react';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, Controller } from 'swiper/modules';
 import { assets } from "../../../assets/index"
@@ -13,24 +18,43 @@ const ExpertiseSec = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [imageSwiper, setImageSwiper] = useState(null);
   const [contentSwiper, setContentSwiper] = useState(null);
-  
+
+  const sectionRef = useRef(null);
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const overlay = sectionRef.current.querySelector(".reveal-overlay4");
+
+    gsap.set(overlay, { xPercent: 0 }); // start covering
+    gsap.to(overlay, {
+      xPercent: 100, // slide out to the right
+      duration: 2.7,
+      ease: "expo.out",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 50%", // when section comes into view
+        toggleActions: "play none none none",
+      },
+    });
+  }, []);
   return (
-    <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden">
+    <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden" ref={sectionRef}>
+      <div className="reveal-overlay4 absolute inset-0 bg-black/20 z-20"></div>
       <div className="absolute bottom-0 right-0 w-[519px] h-[725px]"><img src={assets.mainShape} alt="" /></div>
       <div className="container">
         {/* Header */}
         <div className="mb-50px">
-          <H2Title titleText={expertiseData.title} titleColor="white" marginClass="mb-2 xl:mb-5" />
-          <p className="text-19 leading-[1.473684210526316] opacity-90 font-light max-w-5xl pb-2 sm:pb-0">
+            <H2Title titleText={expertiseData.title} titleColor="white" marginClass="mb-2 xl:mb-5" />
+            <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 leading-[1.473684210526316] opacity-90 font-light max-w-5xl pb-2 sm:pb-0">
             {expertiseData.desc}
-          </p>
+          </motion.p>
         </div>
 
         {/* Swiper Slider */}
         <div className="relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 3xl:gap-16">
             {/* Image Section - Swiper */}
-            <div className="">
+            <motion.div variants={moveRight(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}>
               <Swiper
                 modules={[Navigation, Pagination, Autoplay, Controller]}
                 spaceBetween={50}
@@ -56,10 +80,10 @@ const ExpertiseSec = () => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-            </div>
+            </motion.div>
 
             {/* Content Section - Static with Navigation */}
-            <div className="">
+            <motion.div variants={moveLeft(0.6)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}>
               {/* Navigation - Fixed */}
               <div className="flex items-center gap-4 mb-5 xl:mb-8 border-b border-white/20 pt-5 lg:pt-10 pb-4 xl:pb-8">
                 <button onClick={() => imageSwiper?.slidePrev()}
@@ -123,7 +147,7 @@ const ExpertiseSec = () => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
