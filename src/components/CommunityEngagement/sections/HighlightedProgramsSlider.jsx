@@ -14,7 +14,7 @@ const HighlightedProgramsSlider = () => {
   const [contentSwiper, setContentSwiper] = useState(null);
 
   return (
-    <section className="relative pt-12 xl:pt-15 2xl:pt-22 3xl:pt-[90px] pb25 bg-primary text-white overflow-hidden">
+    <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden">
       <div className="absolute bottom-0 right-0 w-[519px] h-[725px]"><img src={assets.mainShape} alt="" /></div>
       <div className="container">
         {/* Header */}

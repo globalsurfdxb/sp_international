@@ -3,24 +3,24 @@
 import MainNavbar from "../../MainLayout/MainNavbar";
 import Footer from "../../MainLayout/Footer";
 import { Listbox } from "@headlessui/react";
-import { pressReleases } from "./data"; 
+import { pressReleases } from "./data";
 import { moveUp } from "../../motionVarients";
- 
-import { useEffect, useState, useCallback,useMemo } from "react";
+
+import { useEffect, useState, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
- 
+
 
 const ITEMS_PER_PAGE = 12;
 
 const Index = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [isAnimating, setIsAnimating] = useState(false);  
-function moveUp(delay = 0) {
-  return {
-    hidden: { opacity: 0, y: 8 },
-    show: { opacity: 1, y: 0, transition: { delay, duration: 0.5 } },
-  };
-}
+  const [isAnimating, setIsAnimating] = useState(false);
+  function moveUp(delay = 0) {
+    return {
+      hidden: { opacity: 0, y: 8 },
+      show: { opacity: 1, y: 0, transition: { delay, duration: 0.5 } },
+    };
+  }
 
   // Calculate total pages based on actual data
   const totalPages = Math.ceil(pressReleases.items.length / ITEMS_PER_PAGE);
@@ -56,7 +56,7 @@ function moveUp(delay = 0) {
 
   const handleNext = () => {
     handlePageChange(currentPage + 1);
-  }; 
+  };
   const [isOpen, setIsOpen] = useState(false);
   const [images, setImages] = useState([]); // array of image urls for modal
   const [index, setIndex] = useState(0); // current slide index
@@ -113,161 +113,157 @@ function moveUp(delay = 0) {
           </div>
 
           <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between border-y border-cmnbdr pt-35px mb-10 lg:mb-15 3xl:mb-25">
-            <div className="flex flex-col md:flex-row gap-3 md:gap-15 xl:gap-[75px] mb-4 md:mb-0">
-              <div className=" relative pb-0 md:pb-35px    transition-all duration-300 group">
-                <span className= "cursor-pointer   text-paragraph text-16 font-semibold leading-[1.75] uppercase">
-                    All
-                    </span>
-                    <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
+            <div className="flex flex-wrap justify-between xl:justify-start gap-3 md:gap-15 xl:gap-[75px] mb-4 md:mb-0">
+              <div className="relative pb-0 md:pb-35px    transition-all duration-300 group">
+                <span className="cursor-pointer   text-paragraph text-16 font-semibold leading-[1.75] uppercase">
+                  All
+                </span>
+                <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
               </div>
-               <div className=" relative pb-0 md:pb-35px transition-all duration-300 group">
+              <div className=" relative pb-0 md:pb-35px transition-all duration-300 group">
                 <span className="cursor-pointer  text-paragraph text-16 font-semibold leading-[1.75] uppercase">
-                    Events
-                    </span>         
-                    <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
-           
-              </div>
-               <div className=" relative pb-0 md:pb-35px transition-all duration-300 group">
-                <span className="cursor-pointer  text-paragraph text-16 font-semibold leading-[1.75] uppercase">
-                    Activities
-                    </span>
-                    <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
-              </div>
-               <div className=" relative pb-0 md:pb-35px transition-all duration-300 group">
-                <span className="cursor-pointer  text-paragraph text-16 font-semibold leading-[1.75] uppercase">
-                    Achievements
-                    </span>
-                    <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
-              </div>
+                  Events
+                </span>
+                <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
 
-           
-            </div> 
+              </div>
+              <div className=" relative pb-0 md:pb-35px transition-all duration-300 group">
+                <span className="cursor-pointer  text-paragraph text-16 font-semibold leading-[1.75] uppercase">
+                  Activities
+                </span>
+                <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
+              </div>
+              <div className=" relative pb-0 md:pb-35px transition-all duration-300 group">
+                <span className="cursor-pointer  text-paragraph text-16 font-semibold leading-[1.75] uppercase">
+                  Achievements
+                </span>
+                <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
+              </div>
+            </div>
           </motion.div>
 
-        
- 
-        <div className={`relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-10 xl:gap-y-15 2xl:gap-y-18 3xl:gap-y-20 mb-10 xl:mb-12 2xl:mb-18 3xl:mb-[100.32px] transition-all duration-300 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+          <div className={`relative grid xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-10 xl:gap-y-15 2xl:gap-y-18 3xl:gap-y-20 mb-10 xl:mb-12 2xl:mb-18 3xl:mb-[100.32px] transition-all duration-300 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
             }`}
             style={{
               transform: isAnimating ? 'translateY(16px)' : 'translateY(0)',
               transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out'
             }}
-          > 
-          {currentItems.map((item, idx) => (
-         
-             <motion.div variants={moveUp(0.1*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}
+          >
+            {currentItems.map((item, idx) => (
+
+              <motion.div variants={moveUp(0.1 * index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}
                 key={item.id}
                 className="border-b border-black/20 pb-5 lg:border-b-0 lg:pb-0 cursor-pointer"
-            onClick={() => openModal(item, 0)}
-              > 
-            <img
-              src={item.image}
-              alt={item.title}
-              width={520}
-              height={339}
-              className="w-full h-[339px] 2xl:h-[442px] object-cover"
-            />
-            <div className="pt-7">
-              <h4 className="text-paragraph text-16 font-light leading-[1.75] uppercase pb-3">
-                {item.category}
-              </h4>
+                onClick={() => openModal(item, 0)}
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  width={520}
+                  height={339}
+                  className="w-full h-[200px] xl:h-[339px] 2xl:h-[442px] object-cover"
+                />
+                <div className="pt-7">
+                  <h4 className="text-paragraph text-sm 2xl:text-16 font-light leading-[1.75] uppercase 2xl:pb-3">
+                    {item.category}
+                  </h4>
 
-              <h2 className="text-29 leading-[1.344827586206897] font-light xl:max-w-[90%]">
-                {item.title}
-              </h2>
-            </div>
-          </motion.div>
-        ))} 
-      </div>
-       <AnimatePresence>
-        {isOpen && images.length > 0 && (
-          <motion.div
-            key="modal"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-2 md:p-6"
-            aria-modal="true"
-            role="dialog"
-            onClick={closeModal} // close when clicking backdrop
-          >
-            {/* backdrop */}
-            <div className="absolute inset-0 bg-black/75" />
-
-            {/* dialog */}
-            <motion.div
-              initial={{ scale: 0.98, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.98, opacity: 0 }}
-              transition={{ duration: 0.18 }}
-              className="relative z-10 max-w-[1100px]  w-full md:w-[79%] xl:w-full mx-auto bg-transparent"
-              onClick={(e) => e.stopPropagation()} // prevent backdrop close when clicking content
-            >
-              {/* top bar: close */}
-               
-
-              {/* main image area */}
-              <div className="relative   rounded-md  ">
-                <button
-                  onClick={prev}
-                  aria-label="Previous image"
-                  className="w-12 h-12 flex items-center justify-center absolute -left-20 top-1/2 -translate-y-1/2 z-20 p-2 border border-white cursor-pointer transition-all duration-300 hover:bg-black/40 rounded-full"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20" fill="none">
-                  <g clip-path="url(#clip0_3796_3103)">
-                  <path d="M9.82093 18.325L1.31602 9.82006L9.81899 1.31709" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M1.31759 9.82016L18.2848 9.78147" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </g>
-                  <defs>
-                  <clipPath id="clip0_3796_3103">
-                  <rect width="13.8889" height="13.8889" fill="white" transform="translate(9.82093 19.6419) rotate(-135)"/>
-                  </clipPath>
-                  </defs>
-                  </svg>
-                </button>
-
-                <button
-                  onClick={next}
-                  aria-label="Next image"
-                  className="w-12 h-12 flex items-center justify-center absolute -right-20 top-1/2 z-20 p-2 border border-white cursor-pointer transition-all duration-300 hover:bg-black/40 rounded-full"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20" fill="none" className="rotate-180">
-                    <g clip-path="url(#clip0_3796_3103)">
-                    <path d="M9.82093 18.325L1.31602 9.82006L9.81899 1.31709" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1.31759 9.82016L18.2848 9.78147" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </g>
-                    <defs>
-                    <clipPath id="clip0_3796_3103">
-                    <rect width="13.8889" height="13.8889" fill="white" transform="translate(9.82093 19.6419) rotate(-135)"/>
-                    </clipPath>
-                    </defs>
-                    </svg>
-                </button>
-
-                {/* animate image change */}
-                <div className="w-full h-full lg:h-[60vh] flex items-center justify-center">
-                  <motion.img
-                    key={images[index]} // important so framer animates on src change
-                    src={images[index]}
-                    alt={`Gallery image ${index + 1}`}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.25 }}
-                    className="max-h-[60vh] sm:max-h-[70vh] object-cover w-full"
-                  />
+                  <h2 className="text-16 2xl:text-29 leading-[1.344827586206897] font-light xl:max-w-[90%]">
+                    {item.title}
+                  </h2>
                 </div>
+              </motion.div>
+            ))}
+          </div>
+          <AnimatePresence>
+            {isOpen && images.length > 0 && (
+              <motion.div
+                key="modal"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-50 flex items-center justify-center p-2 md:p-6"
+                aria-modal="true"
+                role="dialog"
+                onClick={closeModal} // close when clicking backdrop
+              >
+                {/* backdrop */}
+                <div className="absolute inset-0 bg-black/75" />
 
-                {/* caption / count */}
-                <div className="w-fit mx-auto text-white z-20 mt-[17px]">
-                  <div >
-                    <span className="text-16 font-bold">{index + 1}</span> / <span className="text-16 font-light">{images.length}</span>
+                {/* dialog */}
+                <motion.div
+                  initial={{ scale: 0.98, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.98, opacity: 0 }}
+                  transition={{ duration: 0.18 }}
+                  className="relative z-10 max-w-[1100px]  w-full md:w-[79%] xl:w-full mx-auto bg-transparent"
+                  onClick={(e) => e.stopPropagation()} // prevent backdrop close when clicking content
+                >
+                  {/* top bar: close */}
+
+
+                  {/* main image area */}
+                  <div className="relative   rounded-md  ">
+                    <button
+                      onClick={prev}
+                      aria-label="Previous image"
+                      className="w-12 h-12 flex items-center justify-center absolute -left-20 top-1/2 -translate-y-1/2 z-20 p-2 border border-white cursor-pointer transition-all duration-300 hover:bg-black/40 rounded-full"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20" fill="none">
+                        <g clip-path="url(#clip0_3796_3103)">
+                          <path d="M9.82093 18.325L1.31602 9.82006L9.81899 1.31709" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                          <path d="M1.31759 9.82016L18.2848 9.78147" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_3796_3103">
+                            <rect width="13.8889" height="13.8889" fill="white" transform="translate(9.82093 19.6419) rotate(-135)" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </button>
+
+                    <button
+                      onClick={next}
+                      aria-label="Next image"
+                      className="w-12 h-12 flex items-center justify-center absolute -right-20 top-1/2 z-20 p-2 border border-white cursor-pointer transition-all duration-300 hover:bg-black/40 rounded-full"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20" fill="none" className="rotate-180">
+                        <g clip-path="url(#clip0_3796_3103)">
+                          <path d="M9.82093 18.325L1.31602 9.82006L9.81899 1.31709" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                          <path d="M1.31759 9.82016L18.2848 9.78147" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_3796_3103">
+                            <rect width="13.8889" height="13.8889" fill="white" transform="translate(9.82093 19.6419) rotate(-135)" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </button>
+
+                    {/* animate image change */}
+                    <div className="w-full h-full lg:h-[60vh] flex items-center justify-center">
+                      <motion.img
+                        key={images[index]} // important so framer animates on src change
+                        src={images[index]}
+                        alt={`Gallery image ${index + 1}`}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.25 }}
+                        className="max-h-[60vh] sm:max-h-[70vh] object-cover w-full"
+                      />
+                    </div>
+
+                    {/* caption / count */}
+                    <div className="w-fit mx-auto text-white z-20 mt-[17px]">
+                      <div >
+                        <span className="text-16 font-bold">{index + 1}</span> / <span className="text-16 font-light">{images.length}</span>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
 
-              {/* thumbnails */}
-              {/* <div className="mt-4 flex items-center gap-2 overflow-x-auto py-2">
+                  {/* thumbnails */}
+                  {/* <div className="mt-4 flex items-center gap-2 overflow-x-auto py-2">
                 {images.map((src, i) => (
                   <button
                     key={i}
@@ -279,61 +275,57 @@ function moveUp(delay = 0) {
                   </button>
                 ))}
               </div> */}
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-          </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
 
-          <div className="pagination flex items-center  gap-5 justify-center mb-10 xl:mb-15 3xl:mb-[131.68px]">
-            <button
-              className={`prev cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === 1 || isAnimating ? 'opacity-30' : 'opacity-100'
-                }`}
-              onClick={handlePrev}
-              disabled={currentPage === 1 || isAnimating}
-            >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M9.7549 1.25L1.25 9.7549M1.25 9.7549L9.75297 18.2579M1.25 9.7549L18.2169 9.79374"
-                  stroke="#30B6F9"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+        <div className="pagination flex items-center gap-2 justify-center mb-10 xl:mb-15 3xl:mb-[131.68px]">
+          <button
+            className={`prev cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === 1 || isAnimating ? 'opacity-30' : 'opacity-100'
+              }`}
+            onClick={handlePrev}
+            disabled={currentPage === 1 || isAnimating}
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9.7549 1.25L1.25 9.7549M1.25 9.7549L9.75297 18.2579M1.25 9.7549L18.2169 9.79374"
+                stroke="#30B6F9"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
 
-            <p>
-              <span className="current-page font-bold text-16 leading-[2.4375]">
-                {String(currentPage).padStart(2, "0")}
-              </span>
-              {" / "}
-              <span className="total-pages">
-                {String(totalPages).padStart(2, "0")}
-              </span>
-            </p>
+          <p>
+            <span className="current-page font-bold text-16 leading-[2.4375]">
+              {String(currentPage).padStart(2, "0")}
+            </span>
+            {" / "}
+            <span className="total-pages">
+              {String(totalPages).padStart(2, "0")}
+            </span>
+          </p>
 
-            <button
-              className={`next cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === totalPages || isAnimating ? 'opacity-30' : 'opacity-100'
-                }`}
-              onClick={handleNext}
-              disabled={currentPage === totalPages || isAnimating}
-            >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M9.71189 1.25L18.2168 9.7549M18.2168 9.7549L9.71383 18.2579M18.2168 9.7549L1.24994 9.79374"
-                  stroke="#30B6F9"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
-          </div>
-       
-        
-       
-
+          <button
+            className={`next cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === totalPages || isAnimating ? 'opacity-30' : 'opacity-100'
+              }`}
+            onClick={handleNext}
+            disabled={currentPage === totalPages || isAnimating}
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9.71189 1.25L18.2168 9.7549M18.2168 9.7549L9.71383 18.2579M18.2168 9.7549L1.24994 9.79374"
+                stroke="#30B6F9"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
       </section>
       <footer>
         <Footer />

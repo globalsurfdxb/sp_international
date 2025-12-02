@@ -18,7 +18,7 @@ const MEP = () => {
       <Banner title="Mechanical, Electrical & Plumbing (MEP)" image="./assets/images/mep/banner.jpg" />
       <VdoSection data={mepData.mainSection} />
       <ExpertiseSec data={mepData.expertiseData} />
-      <WhyChooseSec data={mepData.whyChooseData} />
+      <WhyChooseSec data={mepData.whyChooseData} bgColor="white" sectionSpacing="pt-text30 pb30" />
       <FeaturedProjectSlider data={mepData.featuredProjectsData} />
       <InnovationSustainability />
       {/* <OurApproach data={mepData.approachesData}/> */}

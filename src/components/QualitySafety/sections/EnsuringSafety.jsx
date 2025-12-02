@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import H2Title from "../../common/H2Title";
 const EnsuringSafety = () => {
   const { heading, image, points } = EnsuringSafetyData;
   const [activeIndex, setActiveIndex] = useState(null); // selected item
@@ -60,25 +61,15 @@ const EnsuringSafety = () => {
   }, []);
 
   return (
-    <section className="w-full bg-f5f5 text-black py-10   xl:py-15  2xl:py-22 3xl:pb-25 3xl:pt-23">
-      <motion.h1 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 container font-light mb-6 md:mb-[50px] leading-[1.166666666666667]">
-        {heading}
-      </motion.h1>
-
+    <section className="w-full bg-f5f5 text-black pt-text30 pb30">
       <div className="container">
+      <H2Title titleText={heading} titleColor="black" marginClass="mb-4 2xl:mb-50px" />
         <div className="flex flex-col lg:flex-row items-center gap-10 2xl:gap-17 3xl:gap-[108px]">
           {/* Left Side - Image */}
           <div className="flex-shrink-0 relative overflow-hidden" ref={imageContainerRefTwo}>
-            <img
-              src={image}
-              alt="Workplace environment"
-              className="object-cover 3xl:w-[916px] 2xl:w-[650px] 2xl:h-[660px] xl:w-[760px] xl:h-[540px] lg:w-[540px] lg:h-[460px]  w-full h-auto"
-            />
+            <img src={image} alt="Workplace environment" className="object-cover 3xl:w-[916px] 2xl:w-[650px] 2xl:h-[660px] xl:w-[760px] xl:h-[540px] lg:w-[540px] lg:h-[460px]  w-full h-auto" />
             {/* Overlay that reveals from right to left */}
-            <div
-              ref={overlayRefTwo}
-              className="absolute inset-0 bg-white"
-            />
+            <div ref={overlayRefTwo} className="absolute inset-0 bg-white" />
           </div>
 
           {/* Right Side - Text Content */}

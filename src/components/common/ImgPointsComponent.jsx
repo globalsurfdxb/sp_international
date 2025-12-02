@@ -7,7 +7,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import H2Title from "./H2Title";
-const ImgPointsComponent = ({ data }) => {
+const ImgPointsComponent = ({ data, bgColor, sectionSpacing }) => {
   const { heading, image, points } = data;
   const [activeIndex, setActiveIndex] = useState(null); // selected item
   const [hoverIndex, setHoverIndex] = useState(null); // hovered item
@@ -60,8 +60,7 @@ const ImgPointsComponent = ({ data }) => {
   }, []);
 
   return (
-    <section className="w-full bg-white text-black pt-text30 pb30">
-
+    <section className={`w-full bg-${bgColor} text-black ${sectionSpacing}`}>
       <div className="container">
         <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}>
           <H2Title titleText={heading} titleColor="black" marginClass="mb-4 xl:mb-50px" />

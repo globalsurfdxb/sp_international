@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import { moveLeft } from "../../../motionVarients";
 import { motion } from "framer-motion";
-
+import H2Title from "../../common/H2Title";
 
 import { sliderImages,saftyData } from "../data"; 
 
@@ -30,12 +30,11 @@ const SaftySlider = () => {
     <section className="max-w-[1920px] mx-auto overflow-hidden ">
      <div className="relative">
       <img src="/assets/images/svg/sv-02.svg" alt="" className="absolute bottom-0 left-0 z-[-1]" width={468} height={655} /> 
-      <div className="container pt30">   
+      <div className="container pt-text30">   
         <div className=" max-w-[1206px] ml-auto  ">
-            
-          <div >
-            <h2 className="text-60 font-light leading-[1.18] mb-50px max-w-[15ch]">{saftyData.title}</h2>
-                    <p className="text-19 font-light leading-[1.474] max-w-[59ch] text-paragraph">{saftyData.description}</p>
+          <div>
+            <H2Title titleText={saftyData.title} titleColor="black" marginClass="mb-4 2xl:mb-50px" />
+              <p className="text-19 font-light leading-[1.474] max-w-[59ch] text-paragraph">{saftyData.description}</p>
           </div>
           <div className="flex flex-col md:flex-row p-5 lg:px-12  lg:py-10 bg-f5f5 mb-3 gap-8 md:gap-0">
             {saftyData.counts.map((item,index)=>(

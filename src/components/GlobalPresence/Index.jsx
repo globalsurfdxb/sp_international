@@ -14,7 +14,6 @@ const GlobalPresence = () => {
       <Banner title="Global Presence" image="./assets/images/global-presence/globalbanner.jpg" />
       <ExpandingHorizons data={globalPresenceData.mainSection} />
       <Horizons data={globalPresenceData.Horizons} />
-      
       <footer>
         <Footer />
       </footer>
