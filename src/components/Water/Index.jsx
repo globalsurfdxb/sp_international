@@ -4,7 +4,7 @@ import Footer from "../../MainLayout/Footer";
 import VdoSection from "../common/VdoSection";
 import ExpertiseSec from "./sections/ExpertiseSec"; 
 import FeaturedProjectSlider from "../common/FeaturedProjectSlider";
-import WhyChooseSec from "./sections/WhyChooseSec";
+// import WhyChooseSec from "./sections/WhyChooseSec";
 import { wtrData } from "./data";
 import DivisionExpertise from "./sections/DivisionExpertise";
 const Water = () => {
@@ -19,7 +19,7 @@ const Water = () => {
       <ExpertiseSec />
       <DivisionExpertise data={wtrData.DivisionEx} /> 
       <FeaturedProjectSlider data={wtrData.featuredProjectsData} />
-      <WhyChooseSec data={wtrData.WhyChooseData} />
+      {/* <WhyChooseSec data={wtrData.WhyChooseData} /> */}
       <footer>
         <Footer />
       </footer>

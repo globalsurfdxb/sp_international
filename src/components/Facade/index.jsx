@@ -19,7 +19,7 @@ const Facade = () => {
         <Banner title="Façade" image="./assets/images/facade/banner.jpg" />
         <VdoSection data={facadeData.mainSection} />
         <ExpertiseSec data={facadeData.expertiseData} />
-        <ImgPointsComponent data={facadeData.ourStrengthData} />
+        <ImgPointsComponent data={facadeData.ourStrengthData} bgColor="white" sectionSpacing="pt-text30 pb30" />
         <FeaturedProjectSlider data={facadeData.featuredProjectsData} />
         <LastSection/>
     </main>

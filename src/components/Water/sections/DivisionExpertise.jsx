@@ -7,7 +7,7 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import { motion } from "framer-motion";
 import { moveUp } from "../../../motionVarients"; 
-
+import H2Title from "../../common/H2Title";
 const DivisionExpertise = ({data}) => {
   const swiperRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(1);
@@ -41,15 +41,11 @@ const DivisionExpertise = ({data}) => {
   }, []);
 
   return (
-    <section className="py30 relative  overflow-hidden">
-      <div className="px-[15px] md:pe-0 relative">
+    <section className="pt-text30 pb30 relative  overflow-hidden">
+      <div className="xl:px-[15px] md:pe-0 relative">
         {/* Counter + Arrows */}
         <div className="container" ref={containerRef}>
-          <div className="flex justify-between items-center ">
-            <h2 className="text-60 mb-50px font-light leading-[1.166666666666667] ">
-          {data.title}
-          </h2>  
-          </div>
+          <H2Title titleText={data.title} titleColor="black" marginClass="mb-4 xl:mb-50px" /> 
         </div>
         {/* Swiper */}
         <div className="flex flex-col md:flex-row gap-3   md:pe-0" >
