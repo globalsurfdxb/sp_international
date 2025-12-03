@@ -7,9 +7,9 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import { motion } from "framer-motion";
 import { moveUp } from "../../../motionVarients";
-import H2Title from "./H2Title";
+import H2Title from "../../common/H2Title";
 
-const EmployeeInvolvementSlider = ({data}) => {
+const EmployeeInvolvementSlider = ({ data }) => {
   const swiperRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(1);
   const containerRef = useRef(null);
@@ -49,7 +49,7 @@ const EmployeeInvolvementSlider = ({data}) => {
           <div className="flex justify-between items-center mb-50px">
             <div className="text-lg font-semibold text-black flex items-center gap-1">
               <H2Title titleText="Employee Involvement" titleColor="black" marginClass="mb-0" />
-            </div> 
+            </div>
           </div>
         </div>
         {/* Swiper */}
@@ -76,19 +76,19 @@ const EmployeeInvolvementSlider = ({data}) => {
                 disableOnInteraction: false,
               }}
               breakpoints={{
-                
-                  768: {
-                    slidesPerView:2,
-                    spaceBetween: 10,
-                  },
-                  1224: {
-                  slidesPerView:3,
+
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
+                1224: {
+                  slidesPerView: 3,
                   spaceBetween: 10,
                 },
               }}
               className="!overflow-visible"
             >
-              {[...data.items,...data.items].map((item, i) => (
+              {[...data.items, ...data.items].map((item, i) => (
                 <SwiperSlide key={i}>
                   <div className="overflow-hidden ">
                     <div className="after:h-full after:w-full  after:bg-[linear-gradient(180deg,rgba(0,0,0,0)_42.43%,rgba(0,0,0,0.75)_91.64%)] after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0">
@@ -99,8 +99,6 @@ const EmployeeInvolvementSlider = ({data}) => {
                         <p className="text-19  mb-2 3xl:mb-[18px] leading-[1.344827586206897] font-light text-white">{item.date}</p>
                         <h3 className="text-[20px] md:text-29 leading-[1.1] 2xl:leading-[1.2] 3xl:leading-[1.344827586206897] font-light text-white">{item.title}</h3>
                       </div>
-                       
-                       
                     </div>
                   </div>
                 </SwiperSlide>
@@ -108,7 +106,7 @@ const EmployeeInvolvementSlider = ({data}) => {
             </Swiper>
           </div>
         </div>
-       
+
       </div>
     </section>
   );

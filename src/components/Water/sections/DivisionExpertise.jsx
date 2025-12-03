@@ -8,11 +8,21 @@ import "swiper/css/navigation";
 import { motion } from "framer-motion";
 import { moveUp } from "../../../motionVarients"; 
 import H2Title from "../../common/H2Title";
+import { useScroll, useTransform } from "framer-motion";
 const DivisionExpertise = ({data}) => {
   const swiperRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(1);
   const containerRef = useRef(null);
   const targetRef = useRef(null);
+
+  const imageContainerRefTwo = useRef(null);
+
+  // Parallax for main image container
+  const { scrollYProgress: imageProgress } = useScroll({
+    target: imageContainerRefTwo,
+    offset: ["start end", "end start"]
+  });
+  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
 
   useEffect(() => {
     const containerEl = containerRef.current;
@@ -93,8 +103,8 @@ const DivisionExpertise = ({data}) => {
               {data.items.map((item, i) => (
                 <SwiperSlide key={i}>
                   <div className="overflow-hidden md:border-l border-black/20">
-                    <div>
-                      <motion.img variants={moveUp(0.1 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={item.image} alt={`slide-${i}`} className="w-full h-auto object-cover" />
+                    <div className="relative overflow-hidden" ref={imageContainerRefTwo}>
+                      <motion.img style={{ y: imageY }} variants={moveUp(0.1 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={item.image} alt={`slide-${i}`} className="w-full h-auto object-cover" />
                     </div>
                     <div className="pt-6 md:pl-6   lg:pt-8 lg:pl-8 lg:pb-8 2xl:pt-10 2xl:pl-10 2xl:pb-12">
                       <div >
