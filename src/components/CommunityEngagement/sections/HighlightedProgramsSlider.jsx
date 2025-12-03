@@ -6,23 +6,37 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { engineeringData } from '../data';
+import H2Title from '../../common/H2Title';
+import {motion, useScroll, useTransform } from "framer-motion";
 
 const HighlightedProgramsSlider = () => {
   const { expertiseData } = engineeringData;
   const [currentSlide, setCurrentSlide] = useState(0);
   const [imageSwiper, setImageSwiper] = useState(null);
   const [contentSwiper, setContentSwiper] = useState(null);
+  const imageContainerRef = useRef(null);
+  const sectionRef = useRef(null)
+
+  // Parallax for main image container
+  const { scrollYProgress: imageProgress } = useScroll({
+    target: imageContainerRef,
+    offset: ["start end", "end start"]
+  });
+  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+  // Parallax for shape
+  const { scrollYProgress: shapeProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
 
   return (
-    <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden">
-      <div className="absolute bottom-0 right-0 w-[519px] h-[725px]"><img src={assets.mainShape} alt="" /></div>
+    <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden" ref={sectionRef}>
+      <div className="absolute bottom-0 right-0 w-[519px] h-[725px]"><motion.img style={{y:shapeY}} src={assets.mainShape} alt="" /></div>
       <div className="container">
         {/* Header */}
-        <div className="mb-50px">
-          <h2 className="text-60 font-light leading-[1.166666666666667] mb-3 xl:mb-5">
-            {expertiseData.title}
-          </h2> 
-        </div>
+        
+          <H2Title titleText={expertiseData.title} titleColor="white" marginClass="mb-4 lg:mb-6 2xl:mb-50px" />
 
         {/* Swiper Slider */}
         <div className="relative">
@@ -48,8 +62,8 @@ const HighlightedProgramsSlider = () => {
               >
                 {expertiseData.items.map((item, index) => (
                   <SwiperSlide key={index}>
-                    <div className="relative overflow-hidden shadow-2xl">
-                      <img src={item.img} alt={item.mainTitle} className="w-full h-[300px] xl:h-[576px]  object-cover" />
+                    <div className="relative overflow-hidden shadow-2xl" ref={imageContainerRef}>
+                      <motion.img style={{y:imageY}} src={item.img} alt={item.mainTitle} className="w-full h-[300px] xl:h-[576px]  object-cover" />
                     </div>
                   </SwiperSlide>
                 ))}
@@ -102,9 +116,7 @@ const HighlightedProgramsSlider = () => {
                       <p className="text-white/80 text-19 leading-[1.473684210526316] font-light xl:mb-8">
                         {item.mainDesc}
                       </p>
-
                       {/* Services */}
-                      
                     </div>
                   </SwiperSlide>
                 ))}

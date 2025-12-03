@@ -1,109 +1,113 @@
-import React, { useEffect, useState } from "react";
-import { ecs0,ecs1,ecs2,ecs3,ecs4,ecs5,ecs6,ecs7,ecs8 } from "../data"; 
-import { motion, AnimatePresence } from "framer-motion";
- 
+import React, { useEffect, useRef, useState } from "react";
+import { ecs0, ecs1, ecs2, ecs3, ecs4, ecs5, ecs6, ecs7, ecs8 } from "../data";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { moveUp } from "../../../motionVarients";
 import { assets } from "../../../assets/index"
- 
- 
-const all = [ecs0,ecs1, ecs2, ecs3, ecs4, ecs5, ecs6, ecs7, ecs8];
+const all = [ecs0, ecs1, ecs2, ecs3, ecs4, ecs5, ecs6, ecs7, ecs8];
 
 // Sizes
 const size = {
-  big:    "2xl:min-w-full h-[120px] sm:h-[160px] md:h-[200px]  lg:h-[200px] xl:h-[240px] 2xl:h-[305px] 3xl:h-[405px]",
+  big: "2xl:min-w-full h-[120px] sm:h-[160px] md:h-[200px]  lg:h-[200px] xl:h-[240px] 2xl:h-[305px] 3xl:h-[405px]",
   large: "2xl:min-w-full h-[100px] sm:h-[120px] md:h-[140px] lg:h-[180px] xl:h-[200px] 2xl:h-[235px] 3xl:h-[345px]",
-  medium: "2xl:w-full h-[70px] sm:h-[80px] md:h-[110px] lg:h-[174px] 3xl:h-[244px]", 
-  small:  "2xl:w-full h-[70px] sm:h-[80px]  md:h-[100px] lg:h-[182px] 3xl:h-[182px]",
-  extrasmall:  "2xl:w-full h-[74px] sm:h-[90px]  md:h-[100px] lg:h-[218px]",
+  medium: "2xl:w-full h-[70px] sm:h-[80px] md:h-[110px] lg:h-[174px] 3xl:h-[244px]",
+  small: "2xl:w-full h-[70px] sm:h-[80px]  md:h-[100px] lg:h-[182px] 3xl:h-[182px]",
+  extrasmall: "2xl:w-full h-[74px] sm:h-[90px]  md:h-[100px] lg:h-[218px]",
 };
 
-const EmpoweringCommunities  = () => {
-
+const EmpoweringCommunities = () => {
+  const sectionRef = useRef(null)
+  const { scrollYProgress: shapeProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
+  
   const [idx, setIdx] = useState(new Array(9).fill(0));
-const intervals = [
- 1200,  
-  1400, 
-  1300,  
-  1200,  
-  1400, 
-  1200,  
-  1300,  
-  1400,  
-  1200,
-];
-useEffect(() => {
-  const timers = all.map((arr, i) =>
-    setInterval(() => {
-      setIdx(prev => {
-        const updated = [...prev];
-        updated[i] = (prev[i] + 1) % arr.length;  
-        return updated;
-      });
-    }, intervals[i])  
-  );
+  const intervals = [
+    1200,
+    1400,
+    1300,
+    1200,
+    1400,
+    1200,
+    1300,
+    1400,
+    1200,
+  ];
+  useEffect(() => {
+    const timers = all.map((arr, i) =>
+      setInterval(() => {
+        setIdx(prev => {
+          const updated = [...prev];
+          updated[i] = (prev[i] + 1) % arr.length;
+          return updated;
+        });
+      }, intervals[i])
+    );
 
-  return () => timers.forEach(clearInterval);
-}, []);
+    return () => timers.forEach(clearInterval);
+  }, []);
 
   const fade = {
-    initial: { opacity: .8, scale: 1.02},
-    animate: { opacity: 1 , scale: 0.98  },
-    exit:    { opacity: .9 ,  scale: 1.02 }
+    initial: { opacity: .8, scale: 1.02 },
+    animate: { opacity: 1, scale: 0.98 },
+    exit: { opacity: .9, scale: 1.02 }
   };
   return (
-    <section className="pt-10 xl:pt-15 2xl:pt-25 overflow-hidden relative">
-         <div className="w-full h-[260px] sm:h-[320px] lg:h-[600px]  3xl:h-[670px] flex justify-center  gap-1 lg:gap-3">
+    <section className="pt-10 xl:pt-15 2xl:pt-25 overflow-hidden relative" ref={sectionRef}>
+      <div className="w-full h-[260px] sm:h-[320px] lg:h-[600px]  3xl:h-[670px] flex justify-center  gap-1 lg:gap-3">
 
-      {/* LEFT SIDE */} 
+        {/* LEFT SIDE */}
 
         {/* Set 1 - small */}
-        <div className="mt-[120px] sm:mt-[200px] lg:mt-[280px] min-w-[15.27%]">
-        <Block src={all[0][idx[0]]} size={size.extrasmall} fade={fade} />
-        </div>
+        <motion.div variants={moveUp(0.1 * idx[0])} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="mt-[120px] sm:mt-[200px] lg:mt-[280px] min-w-[15.27%]">
+          <Block src={all[0][idx[0]]} size={size.extrasmall} fade={fade} />
+        </motion.div>
 
-         {/* Set 3 + Set 4 column */}
-        <div className="flex flex-col gap-1  lg:gap-4 mt-[100px] sm:mt-[120px] lg:mt-[218px] min-w-[15.27%]">
-        <Block src={all[1][idx[1]]} size={size.small} fade={fade} />
+        {/* Set 3 + Set 4 column */}
+        <motion.div variants={moveUp(0.2 * idx[1])} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex flex-col gap-1  lg:gap-4 mt-[100px] sm:mt-[120px] lg:mt-[218px] min-w-[15.27%]">
+          <Block src={all[1][idx[1]]} size={size.small} fade={fade} />
           <Block src={all[3][idx[3]]} size={size.medium} fade={fade} />
-        </div>
-      
-        <div className={`mt-[60px] sm:mt-[60px]  lg:mt-[136px] min-w-[20%] md:min-w-[15.74%]`}>
+        </motion.div>
+
+        <motion.div variants={moveUp(0.3 * idx[2])} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className={`mt-[60px] sm:mt-[60px]  lg:mt-[136px] min-w-[20%] md:min-w-[15.74%]`}>
           <Block src={all[2][idx[2]]} size={size.large} fade={fade} />
-          </div>
-       
- 
+        </motion.div>
 
-      {/* CENTER */}
-        <div className={`min-w-[30%]  md:min-w-[21.71%]`}>
-      <Block src={all[4][idx[4]]} size={size.big} fade={fade} />
-      </div>
 
-      {/* RIGHT SIDE */} 
+
+        {/* CENTER */}
+        <motion.div variants={moveUp(0.4 * idx[3])} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className={`min-w-[30%]  md:min-w-[21.71%]`}>
+          <Block src={all[4][idx[4]]} size={size.big} fade={fade} />
+        </motion.div>
+
+        {/* RIGHT SIDE */}
 
         {/* Set 6 - large */}
-        <div className={ `mt-[60px] sm:mt-[60px] lg:mt-[136px] min-w-[20%] md:min-w-[15.74%]`}>
-        <Block src={all[5][idx[5]]} size={size.large} fade={fade}  />
-        </div>
+        <motion.div variants={moveUp(0.5 * idx[4])} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className={`mt-[60px] sm:mt-[60px] lg:mt-[136px] min-w-[20%] md:min-w-[15.74%]`}>
+          <Block src={all[5][idx[5]]} size={size.large} fade={fade} />
+        </motion.div>
 
 
         {/* Set 8 + Set 9 column */}
-        <div className="flex flex-col gap-1  lg:gap-3 mt-[100px] sm:mt-[120px] lg:mt-[218px] min-w-[15.27%]">
+        <motion.div variants={moveUp(0.6 * idx[5])} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex flex-col gap-1  lg:gap-3 mt-[100px] sm:mt-[120px] lg:mt-[218px] min-w-[15.27%]">
           <Block src={all[7][idx[7]]} size={size.small} fade={fade} />
           <Block src={all[8][idx[8]]} size={size.medium} fade={fade} />
-        </div> 
+        </motion.div>
         {/* Set 7 - small */}
-        <div className="mt-[150px] sm:mt-[200px] lg:mt-[350px] min-w-[15.27%]">
-        <Block src={all[6][idx[6]]} size={size.extrasmall} fade={fade} />
-        </div>
+        <motion.div variants={moveUp(0.7 * idx[6])} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="mt-[150px] sm:mt-[200px] lg:mt-[350px] min-w-[15.27%]">
+          <Block src={all[6][idx[6]]} size={size.extrasmall} fade={fade} />
+        </motion.div>
 
-    </div>
-
-    <div className="container">
-      <div className="pb30">
-        <h1 className="text-[32px] lg:text-60 font-light leading-[1.18] max-w-[20ch] text-center mb-5 2xl:mb-10 m-auto ">Empowering Communities, Enriching Lives</h1>
-        <p className="text-19 lg:text-29 text-paragraph font-light leading-[1.285] max-w-[46ch] m-auto text-center">Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people</p>
       </div>
-    </div>
-          <div className="absolute top-15 right-0 z-[-1] w-[700px] h-[980px]"><img src={assets.mainShape} alt="" /></div>
+
+      <div className="container">
+        <div className="pb30">
+          <motion.h1 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-[32px] lg:text-60 font-light leading-[1.18] max-w-[20ch] text-center mb-5 2xl:mb-10 m-auto ">Empowering Communities, Enriching Lives</motion.h1>
+          <motion.p variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 lg:text-29 text-paragraph font-light leading-[1.285] max-w-[46ch] m-auto text-center">Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people</motion.p>
+        </div>
+      </div>
+      <div className="absolute top-15 right-0 z-[-1] w-[700px] h-[980px]"><motion.img style={{ y: shapeY }} src={assets.mainShape} alt="" /></div>
     </section>
   );
 };
@@ -112,18 +116,18 @@ function Block({ src, size, fade }) {
     <div className={`${size} relative`}>
       <AnimatePresence mode="wait">
         <motion.div
-      key={src}
+          key={src}
           className={`absolute inset-0 `}
           initial={fade.initial}
           animate={fade.animate}
           exit={fade.exit}
           transition={{ duration: 1.6 }}
         >
-          <img src={src} className="w-full h-full object-cover" /> 
+          <img src={src} className="w-full h-full object-cover" />
         </motion.div>
       </AnimatePresence>
     </div>
   );
 }
 
-export default EmpoweringCommunities ;
+export default EmpoweringCommunities;
