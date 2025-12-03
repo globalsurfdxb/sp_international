@@ -1,5 +1,5 @@
 "use client";
-import {motion} from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { moveUp, paragraphItem, moveLeft, moveRight } from '../../../motionVarients';
 import React, { useRef, useState, useEffect } from 'react';
 import gsap from "gsap";
@@ -12,7 +12,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import H2Title from "../../common/H2Title";
 import { engineeringData } from '../data';
-
+gsap.registerPlugin(ScrollTrigger);
 const ExpertiseSec = () => {
   const { expertiseData } = engineeringData;
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -20,6 +20,7 @@ const ExpertiseSec = () => {
   const [contentSwiper, setContentSwiper] = useState(null);
 
   const sectionRef = useRef(null);
+  const imageParRef = useRef(null);
   useEffect(() => {
     if (!sectionRef.current) return;
 
@@ -37,6 +38,14 @@ const ExpertiseSec = () => {
       },
     });
   }, []);
+
+  // Parallax for main image container
+  const { scrollYProgress: imageProgress } = useScroll({
+    target: imageParRef,
+    offset: ["start end", "end start"]
+  });
+  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+
   return (
     <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden" ref={sectionRef}>
       <div className="reveal-overlay4 absolute inset-0 bg-black/20 z-20"></div>
@@ -74,8 +83,8 @@ const ExpertiseSec = () => {
               >
                 {expertiseData.items.map((item, index) => (
                   <SwiperSlide key={index}>
-                    <div className="relative overflow-hidden shadow-2xl">
-                      <img src={item.img} alt={item.mainTitle} className="w-full h-[300px] lg:h-[400px] xl:h-[500px] 3xl:h-[625px]  object-cover" />
+                    <div className="relative overflow-hidden shadow-2xl" ref={imageParRef}>
+                      <motion.img style={{y:imageY}} src={item.img} alt={item.mainTitle} className="w-full h-[300px] lg:h-[400px] xl:h-[500px] 3xl:h-[625px]  object-cover" />
                     </div>
                   </SwiperSlide>
                 ))}

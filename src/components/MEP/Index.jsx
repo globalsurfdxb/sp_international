@@ -20,7 +20,7 @@ const MEP = () => {
       <ExpertiseSec data={mepData.expertiseData} />
       <WhyChooseSec data={mepData.whyChooseData} bgColor="white" sectionSpacing="pt-text30 pb30" />
       <FeaturedProjectSlider data={mepData.featuredProjectsData} />
-      <InnovationSustainability />
+      <InnovationSustainability data={mepData.innovationSustainabilityData} />
       {/* <OurApproach data={mepData.approachesData}/> */}
       <footer>
         <Footer />

@@ -11,6 +11,7 @@ const VdoSection = ({data}) => {
 
   // Inside your component:
   const containerRef = useRef < HTMLDivElement > (null);
+  const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -31,9 +32,20 @@ const VdoSection = ({data}) => {
   const rotateX = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [45, 0, 0, -45]);
   const rotateY = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [-25, 0, 0, 25]);
   const rotateZ = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [-8, 0, 0, 8]);
+
+
+  // Parallax for shape
+  const { scrollYProgress: shapeProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
+
   return ( 
-    <section className="relative overflow-hidden mt-text25 pb30">
-      <div className="absolute bottom-0 left-0 h-full w-full z-0"><img src={assets.mainShape2} alt="" className="w-[250px] lg:w-[400px] xl:w-[500px] 3xl:w-[709px] h-auto max-w-[702px] object-contain" /></div>
+    <section className="relative overflow-hidden pt-text25 pb30" ref={sectionRef}>
+      <div className="absolute bottom-0 left-0 h-fit w-full z-0">
+        <motion.img style={{ y: shapeY }} src={assets.mainShape2} alt="" className="w-[250px] lg:w-[400px] xl:w-[500px] 3xl:w-[709px] h-auto max-w-[702px] object-contain" />
+      </div>
       <div className="container">
         <div className="w-full lg:w-[700px] xl:w-[1238px] mx-auto relative z-10">
           <div>

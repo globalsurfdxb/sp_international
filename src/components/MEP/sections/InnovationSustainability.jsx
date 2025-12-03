@@ -2,54 +2,31 @@
 "use client";
 import React, { useState, useRef } from "react";
 import { useMediaQuery } from "react-responsive";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import H2Title from "../../common/H2Title";
 import { assets } from "../../../assets";
 import { moveUp, moveLeft } from "../../../motionVarients";
-const accordionData = [
-  {
-    id: 1,
-    title: "BIM",
-    content:
-      "Shapoorji International brings decades of expertise in delivering end-to-end MEP solutions that power, connect, and sustain world-class projects. From designing efficient systems to executing large-scale installations.",
-    image:
-      "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=800&q=80",
-    icon: "https://api.iconify.design/mdi:cube-outline.svg?color=%231E45A2",
-  },
-  {
-    id: 2,
-    title: "Smart Systems",
-    content:
-      "Shapoorji International brings decades of expertise in delivering end-to-end MEP solutions that power, connect, and sustain world-class projects. From designing efficient systems to executing large-scale installations.",
-    image:
-      "../../assets/images/mep/smart-systems.jpg",
-    icon:
-      "../../assets/images/mep/icons/smart-systems.svg",
-  },
-  {
-    id: 3,
-    title: "Energy-Saving Solutions",
-    content:
-      "Shapoorji International brings decades of expertise in delivering end-to-end MEP solutions that power, connect, and sustain world-class projects. From designing efficient systems to executing large-scale installations.",
-    image:
-      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80",
-    icon: "https://api.iconify.design/mdi:leaf.svg?color=%231E45A2",
-  },
-  {
-    id: 4,
-    title: "Green Building Compliance",
-    content:
-      "Shapoorji International brings decades of expertise in delivering end-to-end MEP solutions that power, connect, and sustain world-class projects. From designing efficient systems to executing large-scale installations.",
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
-    icon:
-      "https://api.iconify.design/mdi:check-circle-outline.svg?color=%231E45A2",
-  },
-];
 
-const InnovationSustainability = () => {
+
+const InnovationSustainability = ({data}) => {
   const [activeIndex, setActiveIndex] = useState(1);
   const imageRef = useRef < HTMLDivElement | null > (null);
+
+  const sectionRef = useRef(null);
+  const imageContainerRef = useRef(null);
+  // Parallax for main image container
+  const { scrollYProgress: imageProgress } = useScroll({
+    target: imageContainerRef,
+    offset: ["start end", "end start"]
+  });
+  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+
+  // Parallax for shape
+  const { scrollYProgress: shapeProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
 
   const handleAccordionClick = (index) => {
     setActiveIndex(activeIndex === index ? index : index);
@@ -79,11 +56,11 @@ const InnovationSustainability = () => {
   }
 
   return (
-    <section className="relative overflow-hidden pt-text30 pb30 bg-gradient-to-br from-slate-50 to-blue-50">
-      <img src={assets.mainShape2} alt="" className="absolute bottom-0 left-0 w-[50%] 2xl:w-[960px] h-auto object-contain" />
+    <section ref={sectionRef} className="relative overflow-hidden pt-text30 pb30 bg-gradient-to-br from-slate-50 to-blue-50">
+      <motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="absolute bottom-0 left-0 w-[50%] 2xl:w-[960px] h-auto object-contain" />
       <div className="container mx-auto px-4">
         <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount:0.6, once:true}} >
-          <H2Title titleText="Innovation & Sustainability in MEP" titleColor="black" marginClass="mb-50px 3xl:mb-18" />
+          <H2Title titleText={data.title} titleColor="black" marginClass="mb-50px 3xl:mb-18" />
         </motion.div>
         <div className="grid lg:grid-cols-2 xl:grid-cols-[0.8fr_1.1fr] gap-8 lg:gap-12 items-center">
           {/* LEFT SIDE */}
@@ -91,18 +68,18 @@ const InnovationSustainability = () => {
             {/* Vertical line – perfectly centered with circles */}
             <div className="pointer-events-none absolute top-0 bottom-0 left-4 w-px bg-gradient-to-b from-primary to-secondary" />
             <div className="flex flex-col justify-center h-full">
-              {accordionData.map((item, index) => (
+              {data.accordionData.map((item, index) => (
                 <motion.div
                   key={item.id}
                   className="flex"
                   style={{
                     marginBottom:
-                      index < accordionData.length - 1 ? getSpacing(index) : "0",
+                      index < data.accordionData.length - 1 ? getSpacing(index) : "0",
                   }}
                   initial={false}
                   animate={{
                     marginBottom:
-                      index < accordionData.length - 1 ? getSpacing(index) : "0",
+                      index < data.accordionData.length - 1 ? getSpacing(index) : "0",
                   }}
                   transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                 >
@@ -198,14 +175,17 @@ const InnovationSustainability = () => {
           <motion.div variants={moveLeft(0.2)} initial="hidden" whileInView="show" viewport={{amount:0.6, once:true}} className="relative">
             <motion.div
               ref={imageRef}
-              className="relative overflow-hidden xl:aspect-[4/3]"
-              
+              className="relative overflow-hidden xl:aspect-[4/3]" 
             >
-              <AnimatePresence mode="wait">
+              <div ref={imageContainerRef}>
+
+              
+              <AnimatePresence mode="wait"  >
                 <motion.img
+                style={{ y: imageY }}
                   key={activeIndex}
-                  src={accordionData[activeIndex]?.image}
-                  alt={accordionData[activeIndex]?.title}
+                  src={data.accordionData[activeIndex]?.image}
+                  alt={data.accordionData[activeIndex]?.title}
                   className="w-full h-[200px] md:h-[300px] lg:h-[450px] xl:h-[500px] 2xl:h-[706px] object-cover"
                   initial={{ opacity: 0, scale: 1.1 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -213,7 +193,7 @@ const InnovationSustainability = () => {
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                 />
               </AnimatePresence>
-
+              </div>
               <div className="absolute h-fit inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
             </motion.div>
 

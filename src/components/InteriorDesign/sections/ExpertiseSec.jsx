@@ -2,22 +2,34 @@
 import { assets } from "../../../assets/index"
 import 'swiper/css';
 import H2Title from "../../common/H2Title";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { moveUp, moveDown } from "../../../motionVarients";
+import { useRef,useEffect } from "react";
+import ParallaxItem from "../../common/ParallaxItem";
+// import { useClassParallax } from "../../common/useClassParallax";
 const ExpertiseSec = ({data}) => {
+  
+  const sectionRef = useRef(null);
 
+
+  // Parallax for shape
+  const { scrollYProgress: shapeProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
 
   return (
-    <section className="relative pt-text30 overflow-hidden">
-      <div className="absolute top-12 lg:top-20 xl:top-30 2xl:top-[126px] left-0 w-[558px] h-[725px]"><img src={assets.mainShape2} alt="" /></div>
+    <section className="relative pt-text30 overflow-hidden" ref={sectionRef}>
+      <div className="absolute top-12 lg:top-20 xl:top-30 2xl:top-[126px] left-0 w-[558px] h-[725px]"><motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" /></div>
       <div className="container">
         <div className="lg:border-b pb-0 lg:pb-10 xl:pb-15 2xl:pb-22 3xl:pb-30 border-cmnbdr">
             <H2Title titleText="Our Expertise" titleColor="black" marginClass="mb-4 xl:mb-8 2xl:mb-50px" />
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-y-10 gap-30px 2xl:gap-10">
             {
               data.items.map((item, index) => (
-                <div className="relative overflow-hidden ">
-                  <motion.img variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.6, once: true }} src={item.img} alt={item.title} className="w-full h-[200px] lg:h-[250px] 2xl:h-[300px] 3xl:h-[333px]  object-cover" />
+                <div className="relative overflow-hidden" >
+                    <motion.img variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.6, once: true }} src={item.img} alt={item.title} className="w-full h-[200px] lg:h-[250px] 2xl:h-[300px] 3xl:h-[333px] object-cover " />
                   <div className="border-b lg:border-l lg:border-b-0 border-cmnbdr p-4 xl:p-10">
                     <motion.h3 variants={moveDown(0.2*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.6, once: true }} className="text-24 2xl:text-29 leading-tight 3xl:leading-[1.724137931034483] font-light mb-2 2xl:mb-3">{item.title}</motion.h3>
                     <motion.p variants={moveDown(0.2*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.6, once: true }} className="text-19 leading-[1.526315789473684] font-light">{item.desc}</motion.p>
