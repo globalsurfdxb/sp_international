@@ -1,12 +1,20 @@
+"use client";
+import {motion, useScroll, useTransform} from "framer-motion"
 import AccordionStyle1 from "../../common/AccordionStyle1";
 import H2Title from "../../common/H2Title";
 import{assets} from "../../../assets"
+import { useRef } from "react";
 const WhyChooseSec = ({data}) => {
-
+  const sectionRef = useRef(null);
+  const { scrollYProgress: shapeProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
   return ( 
-    <section className="pt-text30 pb30 relative">
+    <section className="pt-text30 pb30 relative" ref={sectionRef}>
       <div className="absolute bottom-0 left-0 w-full h-fit pb-20 lg:pb-25 xl:pb-30">
-          <img src={assets.mainShape2} alt="" className="object-contain w-[425px] h-[594px]" />
+          <motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="object-contain w-[425px] h-[594px]" />
         </div>
       <div className="container relative">
         <div className="max-w-[1207px] ml-auto">

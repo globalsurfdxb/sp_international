@@ -2,16 +2,30 @@
 
 import React, { useState, useEffect } from "react";
 import { moveUp } from "../../motionVarients";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import H2Title from "./H2Title";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const ImgPointsComponent = ({ data, bgColor, sectionSpacing }) => {
   const { heading, image, points } = data;
   const [activeIndex, setActiveIndex] = useState(null); // selected item
   const [hoverIndex, setHoverIndex] = useState(null); // hovered item
   const [isMobile, setIsMobile] = useState(false);
+
+  const imageContainerRefTwo = useRef(null);
+  const textContentRef = useRef(null);
+
+  // Parallax for main image
+  const { scrollYProgress: imageProgress } = useScroll({
+    target: imageContainerRefTwo,
+    offset: ["start end", "end start"]
+  });
+  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+
 
   // detect screen size to determine mobile vs desktop behavior
   useEffect(() => {
@@ -29,36 +43,6 @@ const ImgPointsComponent = ({ data, bgColor, sectionSpacing }) => {
       ? activeIndex === index // on mobile: only clicked item
       : hoverIndex === index || (hoverIndex === null && activeIndex === index); // on desktop: hover or clicked
 
-
-  const imageContainerRefTwo = useRef(null);
-  const overlayRefTwo = useRef(null);
-
-  useEffect(() => {
-    const container = imageContainerRefTwo.current;
-    const overlay = overlayRefTwo.current;
-
-    if (!container || !overlay) return;
-
-    // Set initial state - overlay covers the image
-    gsap.set(overlay, { scaleX: 1, transformOrigin: 'right' });
-
-    // Create ScrollTrigger animation with scrub
-    gsap.to(overlay, {
-      scaleX: 0,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: container,
-        start: 'top 80%',
-        end: 'top 20%',
-        scrub: 1,
-      }
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
-
   return (
     <section className={`w-full bg-${bgColor} text-black ${sectionSpacing}`}>
       <div className="container">
@@ -68,13 +52,20 @@ const ImgPointsComponent = ({ data, bgColor, sectionSpacing }) => {
         <div className="grid lg:grid-cols-[0.8fr_1fr] 2xl:grid-cols-[1fr_1fr] 3xl:grid-cols-[916px_auto] xl:items-center gap-8 xl:gap-10 3xl:gap-[108px] transition-all duration-300">
           {/* Left Side - Image */}
           <div className="flex-shrink-0 relative overflow-hidden h-full transition-all duration-300" ref={imageContainerRefTwo}>
-            <img src={image} alt="Workplace environment" className="object-cover w-full h-[250px] md:h-full md:max-h-[300px] lg:max-h-max transition-all duration-300" />
-            {/* Overlay that reveals from right to left */}
-            <div ref={overlayRefTwo} className="xl:absolute inset-0 bg-white" />
+            <motion.img
+              style={{ y: imageY }}
+              src={image}
+              alt="Workplace environment"
+              className="object-cover w-full h-[250px] md:h-full md:max-h-[300px] lg:max-h-max "
+            />
           </div>
 
           {/* Right Side - Text Content */}
-          <div className="flex flex-col justify-start w-full transition-all duration-300">
+          <motion.div
+            ref={textContentRef}
+            // style={{ y: textY }}
+            className="flex flex-col justify-start w-full transition-all duration-300"
+          >
             <div className="flex flex-col border-t border-b border-black/20 3xl:max-w-[50ch]">
               {points.map((point, index) => {
                 const isActive = getIsActive(index);
@@ -98,8 +89,8 @@ const ImgPointsComponent = ({ data, bgColor, sectionSpacing }) => {
                       {/* Animate movement visually instead of padding */}
                       <span
                         className={`inline-block transition-transform duration-300 max-w-[95%] ${isActive || hoverIndex === index
-                            ? "translate-x-[20px] xl:translate-x-[43px]"
-                            : "translate-x-0"
+                          ? "translate-x-[20px] xl:translate-x-[43px]"
+                          : "translate-x-0"
                           }`}
                       >
                         {point}
@@ -110,7 +101,7 @@ const ImgPointsComponent = ({ data, bgColor, sectionSpacing }) => {
                 );
               })}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

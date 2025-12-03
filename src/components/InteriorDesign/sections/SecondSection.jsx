@@ -4,7 +4,7 @@ import { assets } from "../../../assets/index"
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-import { motion } from "framer-motion";
+import { motion,useScroll,useTransform } from "framer-motion";
 import { moveUp } from "../../../motionVarients";
 import H2Title from '../../common/H2Title';
 const SecondSection = ({data}) => {
@@ -26,10 +26,18 @@ const SecondSection = ({data}) => {
       },
     });
   }, []);
+
+  // Parallax for shape
+  const { scrollYProgress: shapeProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
+
   return (
     <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden" ref={sectionRef}>
       <div className="reveal-overlay4 absolute inset-0 bg-black/20 z-20"></div>
-      <div className="absolute bottom-0 right-0 w-[519px] h-[725px] "><img src={assets.mainShape} className=' object-contain' alt="" /></div>
+      <div className="absolute bottom-0 right-0 w-[519px] h-[725px] "><motion.img style={{y:shapeY}} src={assets.mainShape} className=' object-contain' alt="" /></div>
       <div className="container relative z-10">
         {/* Header */}
         <div className="mb-50px">

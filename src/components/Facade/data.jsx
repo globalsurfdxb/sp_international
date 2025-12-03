@@ -83,7 +83,7 @@ export const facadeData = {
    designExcellenceData:{
     title:"Proven Design Excellence",
     desc:"With 50+ projects successfully executed under the Design & Build model, Shapoorji’s Design Division continues to demonstrate technical expertise and design innovation across diverse sectors — from residential and commercial developments to infrastructure and urban design projects.",
-    img:"./assets/images/design-studio/design-excellence.jpg"
+    img:"./assets/images/facade/design-excellence.jpg"
   }
 
 }

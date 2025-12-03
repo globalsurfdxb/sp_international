@@ -5,12 +5,29 @@ import H2Title from "../../common/H2Title";
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {motion} from "framer-motion"
+import {motion,useScroll,useTransform} from "framer-motion"
 import {moveUp, paragraphItem } from "../../../motionVarients";
 gsap.registerPlugin(ScrollTrigger);
 const DesignExcellence = ({ data }) => {
   const imageContainerRefTwo = useRef(null);
   const overlayRefTwo = useRef(null);
+
+  const sectionRef = useRef(null);
+  const imageContainerRefOne = useRef(null);
+
+  // Parallax for main image container
+  const { scrollYProgress: imageProgress } = useScroll({
+    target: imageContainerRefOne,
+    offset: ["start end", "end start"]
+  });
+  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+
+  // Parallax for shape
+  const { scrollYProgress: shapeProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
 
   useEffect(() => {
     const container = imageContainerRefTwo.current;
@@ -38,8 +55,8 @@ const DesignExcellence = ({ data }) => {
     };
   }, []);
   return (
-    <section className="relative overflow-hidden mt-8 lg:mt-18 xl:mt-20 2xl:mt-30 3xl:mt-[161px] pb-6 lg:pb-15 xl:pb-15 2xl:pb-22 3xl:pb-30;">
-      <div className="absolute bottom-0 left-0 h-full w-full z-0"><img src={assets.mainShape2} alt="" className="w-[30%] 2xl:w-[425px] h-auto max-w-[425px] object-contain" /></div>
+    <section className="relative overflow-hidden pt-8 lg:pt-18 xl:pt-20 2xl:pt-30 3xl:pt-[161px] pb-6 lg:pb-15 xl:pb-15 2xl:pb-22 3xl:pb-30;" ref={sectionRef}>
+      <div className="absolute bottom-0 pt-8 lg:pt-18 xl:pt-20 2xl:pt-30 3xl:pt-[161px] left-0 h-full w-full z-0"><motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="w-[30%] 2xl:w-[425px] h-auto max-w-[425px] object-contain" /></div>
       <div className="container">
         <div className="w-full lg:max-w-[800px] 2xl:max-w-[1207px] ml-auto flex flex-col gap-5 xl:gap-0">
           <div  className="mb-0 xl:mb-20 2xl:mb-18 order-2 xl:order-1">
@@ -47,7 +64,9 @@ const DesignExcellence = ({ data }) => {
               <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}  className="text-19 leading-[1.473684210526316] font-light text-paragraph max-w-3xl">{data.desc}</motion.p>
           </div>
           <div className="order-1 xl:order-2 relative overflow-hidden" ref={imageContainerRefTwo}>
-            <img src={data.img} alt="" width={1270} height={470} className="w-full xl:h-[300px] 2xl:w-[1270px] 2xl:h-[470px]  object-cover" />
+            <div ref={imageContainerRefOne} className="relative">
+              <motion.img style={{ y: imageY }} src={data.img} alt="" width={1270} height={470} className="w-full xl:h-[300px] 2xl:w-[1270px] 2xl:h-[470px]  object-cover" />
+            </div>
             <div ref={overlayRefTwo} className="absolute top-0 left-0 w-full h-full bg-white z-10"></div>
           </div>
         </div>
