@@ -27,10 +27,10 @@ const Horizons = ({data}) => {
                     </div>
                   <img src={item.image} alt="" className="h-[200px] lg:h-[310px] object-cover w-full" />
                   </div>
-                 <div className="p-4 lg:p-7 2xl:p-10">
+                 <div className="p-4 lg:p-7 2xl:p-10  2xl:pb-[35px]">
                    <div className="flex gap-5 lg:gap-[45px]   max-w-[413px]">
                     <div className="w-[185px]">
-                      <p className="text-[30px] xl:text-40 leading-[1.1] font-light mb-[2px]">{item.projects} +</p>
+                      <p className="text-[30px] xl:text-40 leading-[1.3] font-light mb-[2px]">{item.projects} +</p>
                       <p className="text-19 font-light text-black/70">Projects</p>
                     </div>
                     <div>

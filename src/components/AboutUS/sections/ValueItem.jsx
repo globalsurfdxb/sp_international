@@ -49,7 +49,7 @@ const ValueItem = ({ item }) => {
 
         <div className={`hidden lg:flex min-w-[35px] min-h-[35px] lg:w-[50px] lg:h-[50px] rounded-full border border-black/20 justify-center items-center transition-transform duration-500 ${isHovered ? "rotate-180" : ""
             }`}>
-          <img src="/assets/images/about-us/toparrow.svg" width={14} height={14} alt="arrow" />
+          <img src="/assets/images/about-us/arrow-top1.svg" width={20} height={20} alt="arrow" />
         </div>
       </div>
     </motion.div>

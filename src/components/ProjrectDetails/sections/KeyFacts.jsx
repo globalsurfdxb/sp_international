@@ -38,7 +38,7 @@ const KeyFacts = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 3xl:grid-cols-[364px_364px_364px]  gap-8 md:gap-6 xl:gap-0">
               {keyfactors.list.map((item, i) => (
                 <div key={i}>
-                  <h3 className="text-40 font-light leading-[1.474] text-white">{item.value}</h3>
+                  <h3 className="text-40 font-light leading-[1.3] text-white">{item.value}</h3>
                   <p className="text-19 font-light leading-[1.474] text-white/70">{item.title}</p>
                 </div>
               ))}
