@@ -7,6 +7,7 @@ import { pressReleases } from "./data";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { moveUp } from "../../motionVarients";
+import { Link } from "react-router-dom";
 const topics = [
   { id: 1, title: "Topic" },
   { id: 2, title: "Press Releases 1" },
@@ -170,9 +171,11 @@ const Index = () => {
                       {item.category}
                     </h4>
                   </div>
+                  <Link to="/news-details">
                   <h2 className="text-29 leading-[1.344827586206897] font-light mt-30px 3xl:max-w-[90%]">
                     {item.title}
                   </h2>
+                  </Link>
                 </div>
               </motion.div>
             ))}
