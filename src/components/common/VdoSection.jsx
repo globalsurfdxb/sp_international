@@ -61,7 +61,7 @@ const VdoSection = ({data,maxW,maxtextwidth}) => {
             </div>
           </div>
          
-          {/* <motion.div ref={containerRef}
+          <motion.div ref={containerRef}
             style={{
               scale,
               y,
@@ -74,9 +74,9 @@ const VdoSection = ({data,maxW,maxtextwidth}) => {
               transformStyle: 'preserve-3d'
 
             }}
-            className="container-scroll-effect"> */}
+            className="container-scroll-effect">
             <VideoPlayer src={data.vdo} poster={data.vdoPoster} />
-          {/* </motion.div> */}
+          </motion.div>
         </div>
       </div>
     </section>
