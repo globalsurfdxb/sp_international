@@ -56,7 +56,7 @@ const Banner = ({ title, image }) => {
       <div ref={overlayRef} className="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.75)_20%,rgba(0,0,0,0)_80%)] z-10"></div>
 
       {/* White mask that slides away to reveal the gradient */}
-      <div ref={maskRef} className="absolute inset-0 bg-white z-20"></div>
+      <div ref={maskRef} className="absolute inset-0 bg-primary z-20"></div>
 
       {/* Content */}
       <div className="container relative z-30 h-full">
