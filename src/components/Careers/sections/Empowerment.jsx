@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { empowerData } from "../data";
-import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { paragraphItem, moveUp } from "../../../motionVarients";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 
 const EmpowerSection = () => {
@@ -14,6 +13,12 @@ const EmpowerSection = () => {
   const [rightPadding, setRightPadding] = useState(0);
 
   const sectionRef = useRef(null);
+
+  const { scrollYProgress: shapeProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
   useEffect(() => {
     if (!sectionRef.current) return;
 
@@ -57,35 +62,33 @@ const EmpowerSection = () => {
 
   return (
     <section ref={sectionRef}
-      className="w-full py-8 xl:py-15 2xl:py-22 3xl:py-23 bg-primary text-white lg:max-h-[611px] lg:overflow-hidden   relative overflow-hidden "
-       
-    >
+      className="w-full py-8 xl:py-15 2xl:py-22 3xl:py-23 bg-primary text-white lg:max-h-[611px] lg:overflow-hidden relative overflow-hidden " >
       <div className="reveal-overlay4 absolute inset-0 bg-black/20 z-20"></div>
       {/* Below XL: custom padding; XL and up: container */}
-     <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="hidden xl:block flex-shrink-0">
-          <img src={svgSrc} alt="logo-svg" className="2xl:w-[394px] 2xl:h-[549px] object-contain absolute" />
-        </motion.div>  <div
+      <motion.div  className="hidden xl:block flex-shrink-0">
+        <motion.img style={{ y: shapeY }} src={svgSrc} alt="logo-svg" className="2xl:w-[394px] 2xl:h-[549px] object-contain absolute" />
+      </motion.div>  <div
         className={
           rightPadding > 0
             ? "flex flex-col xl:flex-row gap-x-[170px] container mx-auto"
             : "container mx-auto flex flex-col xl:flex-row gap-x-[170px]"
         }
       >
-        
+
         {/* Right Content */}
         <div className="w-full flex flex-col justify-center 2xl:max-w-[1208px] ml-auto">
-          <motion.h2 variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 leading-[1.1666666667] font-light mb-6 lg:mb-[30px] max-w-[20ch]">
+          <motion.h2 variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 leading-[1.1666666667] font-light mb-6 lg:mb-[30px] max-w-[20ch]">
             {heading}
           </motion.h2>
 
-          <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 text-white font-light leading-[1.4736842105] mb-8 md:mb-[62px] max-w-[72ch]">
+          <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 text-white font-light leading-[1.4736842105] mb-8 md:mb-[62px] max-w-[72ch]">
             {description}
           </motion.p>
 
           {/* Stats */}
           <div className="relative flex flex-col md:flex-row w-full gap-5 md:gap-0">
             {stats.map((stat, index) => (
-              <motion.div variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}
+              <motion.div variants={moveUp(0.2 * index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}
                 key={index}
                 className="flex flex-col items-start text-left   min-w-[25%]   xl:min-w-[290px] last:w-[100%] "
               >
@@ -93,7 +96,7 @@ const EmpowerSection = () => {
                   {stat.value}
                 </h3>
 
-                {/* Mobile Divider */} 
+                {/* Mobile Divider */}
                 <p className="text-[16px] sm:text-[17px] md:text-[18px] xl:text-[19px] text-white/70 leading-[1.5] word-break: break-all ">
                   {stat.label}
                 </p>

@@ -1,14 +1,31 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { valuesData } from "../data";
 import { moveLeft, moveUp, moveRight } from "../../../motionVarients";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform,  } from "framer-motion";
 
 const ValuesSection = () => {
   const { title, description, image, rightImage } = valuesData;
   const [leftOffset, setLeftOffset] = useState(0);
   const [isWideScreen, setIsWideScreen] = useState(false);
+
+  const sectionRef = useRef(null);
+    const imageContainerRefTwo = useRef(null);
+  
+    // Parallax for main image container
+    const { scrollYProgress: imageProgress } = useScroll({
+      target: imageContainerRefTwo,
+      offset: ["start end", "end start"]
+    });
+    const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+  
+    // Parallax for shape
+    const { scrollYProgress: shapeProgress } = useScroll({
+      target: sectionRef,
+      offset: ["start end", "end start"]
+    });
+    const shapeY = useTransform(shapeProgress, [0, 1], [100, -100]);
 
   useEffect(() => {
     const updateOffset = () => {
@@ -29,13 +46,13 @@ const ValuesSection = () => {
   }, []);
 
   return (
-    <section className="bg-primary text-white w-full flex flex-col md:flex-row xl:h-[600px] 2xl:h-[656px] overflow-hidden pt-8 pb-10 md:py-0">
+    <section className="bg-primary text-white w-full flex flex-col md:flex-row xl:h-[600px] 2xl:h-[656px] overflow-hidden pt-8 pb-10 md:py-0" ref={sectionRef}>
       {/* Wrapper */}
       <div className="flex flex-col md:flex-row w-full " style={{ paddingLeft: isWideScreen ? `${leftOffset}px` : undefined }}>
         {/* Left Section */}
         <div className="relative w-full md:w-1/2 flex flex-col justify-center pb-6 md:py-0 overflow-hidden">
           {/* Background SVG (always fixed bottom-right) */}
-          <motion.img variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src={image} alt="background design" className="absolute bottom-0 right-0 pointer-events-none object-contain md:object-cover opacity-90 w-[220px] sm:w-[300px] md:w-[360px] lg:w-[420px] xl:w-[425px] h-auto " />
+          <motion.img style={{ y: shapeY }} variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src={image} alt="background design" className="absolute bottom-0 right-0 pointer-events-none object-contain md:object-cover opacity-90 w-[220px] sm:w-[300px] md:w-[360px] lg:w-[420px] xl:w-[425px] h-auto " />
           <div className={`relative z-10 ${!isWideScreen ? "container" : ""}`}>
             <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 font-light leading-[1.166666666666667] max-w-[390px] mb-[24px] md:mb-[30px]">
               {title}
@@ -47,8 +64,8 @@ const ValuesSection = () => {
         </div>
 
         {/* Right Section */}
-        <motion.div variants={moveLeft(0.6)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="w-full md:w-1/2 h-[260px] sm:h-[340px] md:h-[420px] lg:h-auto px-[15px] md:px-0">
-          <img src={rightImage} alt="people" className="w-full h-full object-cover" />
+        <motion.div variants={moveLeft(0.6)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="w-full md:w-1/2 h-[260px] sm:h-[340px] md:h-[420px] lg:h-[90dvh] px-[15px] md:px-0 relative" ref={imageContainerRefTwo}>
+          <motion.img style={{y:imageY}} src={rightImage} alt="people" className="w-full h-full object-cover" />
         </motion.div>
       </div>
     </section>

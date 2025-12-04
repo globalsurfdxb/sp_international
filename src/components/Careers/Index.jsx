@@ -8,6 +8,8 @@ import Banner from "../../components/common/Banner";
 import OurValues from "./sections/OurValues";
 import PartOfUs from "./sections/PartOfUs";
 import JourneySlider from "./sections/JourneySlider";
+import ImgPointsComponent from "../common/ImgPointsComponent";
+import { workplaceData } from "./data";
 
 const Index = () => {
   return (
@@ -20,7 +22,8 @@ const Index = () => {
         <Strength />
         <ImageCarousel />
         <Empowerment />
-        <Workplace />
+        <ImgPointsComponent data={workplaceData} bgColor="bg-white" sectionSpacing="pt-text30 pb30"/>
+        {/* <Workplace /> */}
         <OurValues />
         <JourneySlider />
         <PartOfUs />
