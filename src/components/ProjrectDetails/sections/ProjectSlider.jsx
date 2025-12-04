@@ -93,6 +93,7 @@ const ProjectSlider = () => {
               spaceBetween={0}
               slidesPerView={1}
               centeredSlides={false}
+              speed={1200}
               loop={true}
               navigation={{
                 prevEl: ".custom-prev",

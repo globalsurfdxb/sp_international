@@ -1,11 +1,27 @@
 'use client';
 import { projectdetails } from "../data";
-import { motion } from "framer-motion";
+import { motion,useScroll,useTransform } from "framer-motion";
 import { moveRight, moveUp, paragraphItem } from "../../../motionVarients";
+import { useRef } from "react";
 const Banner = () => {
+  const sectionRef = useRef(null);
+  const imageContainerRefTwo = useRef(null);
 
+  // Parallax for main image container
+  const { scrollYProgress: imageProgress } = useScroll({
+    target: imageContainerRefTwo,
+    offset: ["start end", "end start"]
+  });
+  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+
+  // Parallax for shape
+  const { scrollYProgress: shapeProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
   return (
-    <section className=" ">
+    <section className="relative overflow-hidden" ref={sectionRef}>
       <div className="pt-12 xl:pt-15  3xl:pt-30 pb-32 md:pb-38  lg:pb-[170px] xl:pb-[230px] bg-f5f5 2xl:pb-[232px]  ">
         <div className="container relative   z-[2]">
           <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-5 lg:gap-0 ">
@@ -20,8 +36,8 @@ const Banner = () => {
         </div>
 
       </div>
-      <div className="container relative bottom-20 md:bottom-28 lg:bottom-[120px] xl:bottom-[150px] left-0 z-[2]">
-        <motion.img variants={moveRight(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={projectdetails.image} alt="" className="w-full h-full object-cover" />
+      <div className="container relative bottom-20 md:bottom-28 lg:bottom-[120px] xl:bottom-[150px] left-0 z-[2] overflow-hidden" ref={imageContainerRefTwo}>
+        <motion.img style={{y:imageY}} variants={moveRight(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={projectdetails.image} alt="" className="w-full h-full object-cover" />
       </div>
       <div className="container relative md:bottom-[70px] bottom-12 left-0 2xl:pb-[50px]">
         <motion.h2 variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 font-light mb-7  xl:mb-10  2xl:mb-[58px] leading-[1.17]">About Project</motion.h2>

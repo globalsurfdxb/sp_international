@@ -78,7 +78,21 @@ export const fadeIn = (delay: number = 0) => ({
     },
   },
 });
-
+export const zoomIn = (delay: number = 0) => ({
+  hidden: {
+    opacity: 0,
+    scale: 0.85, // Slight zoom-out start
+  },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delay: delay,
+      duration: 0.7, // Smooth but not too slow
+      ease: silkyEase,
+    },
+  },
+});
 export const paragraphItem = {
   hidden: { opacity: 0, y: 40 },
   show: {

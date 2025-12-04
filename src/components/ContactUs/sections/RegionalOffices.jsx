@@ -1,7 +1,8 @@
 import React from "react";
 import { regionalData } from "../data";
 import H2Title from "../../common/H2Title";
-
+import { motion } from "framer-motion";
+import { zoomIn,moveUp } from "../../../motionVarients";
 const RegionalOffices = () => {
   return (
     <section className="pt30  pb25">
@@ -9,7 +10,7 @@ const RegionalOffices = () => {
         <H2Title titleText={regionalData.title} titleColor="black" marginClass="mb-4 2xl:mb-50px" />
         <div className="grid md:grid-cols-2 2xl:grid-cols-3 md:gap-y-8 3xl:gap-y-17">
           {regionalData.offices.map((office, index) => (
-            <div key={index} className="px-0 md:px-5 p-5 py-8 3xl:px-15 3xl:pb-15 md:border-r md:border-t border-b border-[#CCCCCC] no-border-right no-pl0 ">
+            <motion.div variants={zoomIn(0.1*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} key={index} className="px-0 md:px-5 p-5 py-8 3xl:px-15 3xl:pb-15 md:border-r md:border-t border-b border-[#CCCCCC] no-border-right no-pl0 ">
               <div className="mb-2 md:mb-5"> <h3 className="text-19 font-bold max-w-[32ch]">{office.name}</h3></div>
               <p className="text-19 font-light mb-4 lg:mb-[45px] leading-[1.5] md:leading-[1.6] lg:leading-[1.48]" dangerouslySetInnerHTML={{ __html: office.address }}></p>
               {
@@ -50,7 +51,7 @@ const RegionalOffices = () => {
                     </div>
                   </div>
                 ) : null}
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
