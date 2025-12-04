@@ -99,6 +99,49 @@ export const mepData = {
                 content: "Combining international best practices with local knowledge, we deliver world-class solutions tailored to your specific regional requirements and cultural context."
             }
         ]
+    },
+    innovationSustainabilityData: {
+        title: "Innovation & Sustainability in MEP",
+        accordionData: [
+            {
+                id: 1,
+                title: "BIM",
+                content:
+                    "Shapoorji International brings decades of expertise in delivering end-to-end MEP solutions that power, connect, and sustain world-class projects. From designing efficient systems to executing large-scale installations.",
+                image:
+                    "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=800&q=80",
+                icon: "https://api.iconify.design/mdi:cube-outline.svg?color=%231E45A2",
+            },
+            {
+                id: 2,
+                title: "Smart Systems",
+                content:
+                    "Shapoorji International brings decades of expertise in delivering end-to-end MEP solutions that power, connect, and sustain world-class projects. From designing efficient systems to executing large-scale installations.",
+                image:
+                    "../../assets/images/mep/smart-systems.jpg",
+                icon:
+                    "../../assets/images/mep/icons/smart-systems.svg",
+            },
+            {
+                id: 3,
+                title: "Energy-Saving Solutions",
+                content:
+                    "Shapoorji International brings decades of expertise in delivering end-to-end MEP solutions that power, connect, and sustain world-class projects. From designing efficient systems to executing large-scale installations.",
+                image:
+                    "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80",
+                icon: "https://api.iconify.design/mdi:leaf.svg?color=%231E45A2",
+            },
+            {
+                id: 4,
+                title: "Green Building Compliance",
+                content:
+                    "Shapoorji International brings decades of expertise in delivering end-to-end MEP solutions that power, connect, and sustain world-class projects. From designing efficient systems to executing large-scale installations.",
+                image:
+                    "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+                icon:
+                    "https://api.iconify.design/mdi:check-circle-outline.svg?color=%231E45A2",
+            },
+        ]
     }
 
 }

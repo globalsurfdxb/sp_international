@@ -755,3 +755,4 @@ body::-webkit-scrollbar {
 .mt-text90 {
   @apply mt-6 md:mt-8 xl:mt-10 2xl:mt-15 3xl:mt-[90px];
 }
+

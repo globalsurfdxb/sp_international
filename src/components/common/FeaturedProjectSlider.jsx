@@ -9,9 +9,12 @@ import { motion } from "framer-motion";
 import { moveLeft, moveUp } from "../../motionVarients";
 import H2Title from "./H2Title";
 
+
+
 const FeaturedProjectSlider = ({ data }) => {
   const swiperRef = useRef(null);
-  const [currentSlide, setCurrentSlide] = useState(1);
+  const [slideKey, setSlideKey] = useState(0);
+
   const containerRef = useRef(null);
   const targetRef = useRef(null);
 
@@ -81,7 +84,8 @@ const FeaturedProjectSlider = ({ data }) => {
               // onSlideChange={(swiper) =>
               //   setCurrentSlide((swiper.realIndex % engineeringData.featuredProjectsData.items.length) + 1)
               // }
-              speed={800}
+              onSlideChange={() => setSlideKey(prev => prev + 1)}
+              speed={1200}
               // autoplay={{
               //   delay: 4000,
               //   disableOnInteraction: false,
@@ -106,20 +110,67 @@ const FeaturedProjectSlider = ({ data }) => {
               {data.items.map((item, i) => (
                 <SwiperSlide key={i}>
                   <div className="">
-                    <div>
-                      <motion.img variants={moveUp(0.1 * i)} initial="hidden" animate="show" viewport={{ amount: 0.2, once: false }} src={item.image} alt={`slide-${i}`} className="w-full h-[250px] xl:h-[520px] object-cover" />
+                    <div className="overflow-hidden">
+                      <motion.img
+                        key={`img-${slideKey}-${i}`}
+                        initial={{ x: 200, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 1.2, delay: 0.2 * i, ease: "easeOut" }}
+                        src={item.image}
+                        alt={`slide-${i}`}
+                        className="w-full h-[250px] xl:h-[520px] object-cover"
+                      />
                     </div>
-                    <div>
-                      <div  className="border-b border-cmnbdr pt-5 xl:pt-7 pb-5 xl:pb-7">
-                        <motion.h3 variants={moveUp(0.2 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: false }} className="text-29 leading-[1.344827586206897] font-light">{item.title}</motion.h3>
+                    <div key={`content-${slideKey}`}>
+                      <div className="border-b border-cmnbdr pt-5 xl:pt-7 pb-5 xl:pb-7">
+                        <div className="overflow-hidden">
+                          <motion.h3
+                            initial={{ y: 50 }}
+                            animate={{ y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="text-29 leading-[1.344827586206897] font-light"
+                          >
+                            {item.title}
+                          </motion.h3>
+                        </div>
                       </div>
                       <div className="border-b border-cmnbdr grid lg:grid-cols-2  2xl:grid-cols-[413px_1fr] items-center">
-                        <motion.h4 variants={moveUp(0.2 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: false }} className="text-19 leading-[2.052631578947368] font-light text-paragraph border-b border-cmnbdr lg:border-0"><span>Sector: </span>{item.sector}</motion.h4>
-                        <motion.h4 variants={moveUp(0.2 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: false }} className="text-19 leading-[2.052631578947368] font-light text-paragraph"><span>BUA (Sq.ft): </span>500000</motion.h4>
+                        <div className="border-b border-cmnbdr lg:border-0">
+                          <div className="overflow-hidden">
+                            <motion.h4
+                              initial={{ y: 50 }}
+                              animate={{ y: 0 }}
+                              transition={{ duration: 0.6, delay: 0.4 }}
+                              className="text-19 leading-[2.052631578947368] font-light text-paragraph"
+                            >
+                              <span>Sector: </span>{item.sector}
+                            </motion.h4>
+                          </div>
+                        </div>
+                        <div className="">
+                          <div className="overflow-hidden">
+                            <motion.h4
+                              initial={{ y: 50 }}
+                              animate={{ y: 0 }}
+                              transition={{ duration: 0.6, delay: 0.6 }}
+                              className="text-19 leading-[2.052631578947368] font-light text-paragraph"
+                            >
+                              <span>BUA (Sq.ft): </span>500000
+                            </motion.h4>
+                          </div>
+                        </div>
                       </div>
                       <div className="border-b border-cmnbdr py-1">
-                        <motion.h4 variants={moveUp(0.25 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: false }}
-                          className="opacity-0 text-19 leading-[2.052631578947368] font-light text-paragraph"><span>Location: </span>{item.location}</motion.h4>
+                        <div className="overflow-hidden">
+                          <motion.h4
+                            initial={{ y: 50 }}
+                            animate={{ y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.8 }}
+                            className="text-19 leading-[2.052631578947368] font-light text-paragraph"
+                          >
+                            <span>Location: </span>{item.location}
+                          </motion.h4>
+                        </div>
                       </div>
                     </div>
                   </div>

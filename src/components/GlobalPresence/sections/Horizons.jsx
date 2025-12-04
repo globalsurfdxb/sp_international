@@ -1,15 +1,17 @@
- 
+import H2Title from "../../common/H2Title";
+import { motion } from "framer-motion";
+import { moveUp } from "../../../motionVarients"; 
  
 const Horizons = ({data}) => {
   return ( 
     <section className="relative overflow-hidden pt-text90 pb30 bg-f5f5"> 
       <div className="container">
-           <h2 className="text-60 font-light leading-[1.166666666666667] mb-50px max-w-[22ch]">{data.title}</h2>
+           <H2Title titleText={data.title} titleColor="black" marginClass="mb-50px" />
            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-6 lg:gap-y-10 xl:gap-y-[120px]">
             {
               data.items.map((item)=>(
-                <div className="group border-l border-black/20 border-t-cmnbdr lg:border-t-transparent   lg:border-b-transparent border-t-2 border-b bdrrst hover:border-t-2 hover:border-t-[#30B6F9] hover:border-b-2 hover:border-b-[#30B6F9] transition-all duration-300">
-                  <h3 className="text-29 font-light leading-[1.311] mb-4 lg:mb-[22px]   px-3 lg:px-10 pt-4 lg:pt-7">{item.location}</h3>
+                <div className="group border-l border-black/20 border-t-cmnbdr lg:border-t-transparent   lg:border-b-transparent border-t-2 border-b-2 bdrrst hover:border-t-2 hover:border-t-[#30B6F9] hover:border-b-2 hover:border-b-[#30B6F9] transition-all duration-300">
+                  <h3 className="text-29 font-light leading-[1.311] mb-4 lg:mb-[22px]  px-3 lg:px-10 pt-4 lg:pt-7">{item.location}</h3>
                   <div className="relative">
                     <div className="absolute bottom-0 w-full h-0 group-hover:h-full group-hover:bg-[linear-gradient(180deg,rgba(48,182,249,0)_0%,rgba(48,182,249,0.75)_100%)] transition-all duration-300 ">
                       <div className="h-0 w-8 group-hover:h-8 lg:w-10 group-hover:lg:h-10 2xl:w-20 group-hover:2xl:h-20 bg-primary flex items-center justify-center absolute bottom-0 transition-all duration-300 delay-100 ">
@@ -44,7 +46,7 @@ const Horizons = ({data}) => {
                     }
                   </ul>
                  </div>
-                </div>
+                </motion.div>
               ))
             }
            </div>
