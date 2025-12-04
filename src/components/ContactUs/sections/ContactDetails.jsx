@@ -42,7 +42,7 @@ const ContactDetails = () => {
   };
   return (
     <section className="pt-text30 bg-f5f5 pb-10 lg:pb-0">
-      <div className="container ">
+      <div className="container">
         <h1 className="text-45 2xl:text-70 font-light leading-[1.071428571428571] pb-5 xl:pb-15 2xl:pb-22 3xl:pb-31">{contactData.title}</h1>
         <div className="grid grid-cols-1 lg:grid-cols-[0.6fr_1fr] xl:grid-cols-[1fr_1.6fr] 3xl:grid-cols-[auto_866px] gap-y-8 lg:gap-x-8 3xl:gap-[131px]">
           <div className="lg:pt-[56px]" >
