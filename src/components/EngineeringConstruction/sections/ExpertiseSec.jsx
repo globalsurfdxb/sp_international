@@ -18,7 +18,6 @@ const ExpertiseSec = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [imageSwiper, setImageSwiper] = useState(null);
   const [contentSwiper, setContentSwiper] = useState(null);
-
   const sectionRef = useRef(null);
   const imageParRef = useRef(null);
   useEffect(() => {
@@ -39,6 +38,13 @@ const ExpertiseSec = () => {
     });
   }, []);
 
+    // Parallax for shape
+    const { scrollYProgress: shapeProgress } = useScroll({
+      target: sectionRef,
+      offset: ["start end", "end start"]
+    });
+    const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
+
   // Parallax for main image container
   const { scrollYProgress: imageProgress } = useScroll({
     target: imageParRef,
@@ -49,7 +55,7 @@ const ExpertiseSec = () => {
   return (
     <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden" ref={sectionRef}>
       <div className="reveal-overlay4 absolute inset-0 bg-black/20 z-20"></div>
-      <div className="absolute bottom-0 right-0 w-[519px] h-[725px]"><img src={assets.mainShape} alt="" /></div>
+      <div className="absolute bottom-0 right-0 w-[519px] h-[725px]"><motion.img style={{y:shapeY}} src={assets.mainShape} alt="" /></div>
       <div className="container">
         {/* Header */}
         <div className="mb-50px">
