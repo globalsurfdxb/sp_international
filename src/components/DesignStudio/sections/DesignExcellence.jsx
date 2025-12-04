@@ -55,8 +55,8 @@ const DesignExcellence = ({ data }) => {
     };
   }, []);
   return (
-    <section className="relative overflow-hidden pt-8 lg:pt-18 xl:pt-20 2xl:pt-30 3xl:pt-[161px] pb-6 lg:pb-15 xl:pb-15 2xl:pb-22 3xl:pb-30;" ref={sectionRef}>
-      <div className="absolute bottom-0 pt-8 lg:pt-18 xl:pt-20 2xl:pt-30 3xl:pt-[161px] left-0 h-full w-full z-0"><motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="w-[30%] 2xl:w-[425px] h-auto max-w-[425px] object-contain" /></div>
+    <section className="relative overflow-hidden pt-8 lg:pt-18 xl:pt-20 2xl:pt-30 3xl:pt-[161px] pb30" ref={sectionRef}>
+      <div className="absolute bottom-[-140px] pt-8 lg:pt-18 xl:pt-20 2xl:pt-30 3xl:pt-[161px] left-0 h-full w-full z-0"><motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="w-[30%] 2xl:w-[425px] h-auto max-w-[425px] object-contain" /></div>
       <div className="container">
         <div className="w-full lg:max-w-[800px] 2xl:max-w-[1207px] ml-auto flex flex-col gap-5 xl:gap-0">
           <div  className="mb-0 xl:mb-20 2xl:mb-18 order-2 xl:order-1">

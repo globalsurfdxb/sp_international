@@ -74,18 +74,18 @@ const ExpertiseSec = ({ data }) => {
         <div className="flex justify-between mb-3 lg:mb-6 xl:mb-50px ">
           <H2Title titleText="Our Expertise" />
           {/* Navigation - Fixed */}
-          <div className="flex items-center gap-4 ">
+          <div className="flex items-center gap-[12px] ">
             <button onClick={() => swiperRef?.slidePrev()}
               className="w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] rounded-full border border-white/20 flex items-center justify-center transition-colors hover:bg-white/10"
               aria-label="Previous slide"
             >
-              <img src={assets.arrowLeft2} width={13.89} height={13.89} alt="" className="w-[13.89px] h-[13.89px] xl:w-5 xl:h-5" />
+              <img src={assets.arrowLeft2} width={13.89} height={13.89} alt="" className="w-[13.89px] h-[13.89px] " />
             </button>
             <button onClick={() => swiperRef?.slideNext()}
               className="w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] rounded-full border border-white/20 flex items-center justify-center transition-colors hover:bg-white/10"
               aria-label="Next slide"
             >
-              <img src={assets.arrowRight2} width={13.89} height={13.89} alt="" className="w-[13.89px] h-[13.89px] xl:w-5 xl:h-5" />
+              <img src={assets.arrowRight2} width={13.89} height={13.89} alt="" className="w-[13.89px] h-[13.89px] " />
             </button>
           </div>
         </div>
@@ -103,10 +103,10 @@ const ExpertiseSec = ({ data }) => {
             }}
             loopAdditionalSlides={1}
             watchSlidesProgress={true}
-            autoplay={{
-              delay: 7000,
-              disableOnInteraction: false,
-            }}
+            // autoplay={{
+            //   delay: 7000,
+            //   disableOnInteraction: false,
+            // }}
             loop={true}
             breakpoints={{
               0: {
@@ -114,11 +114,11 @@ const ExpertiseSec = ({ data }) => {
                 spaceBetween: 20,
               },
               768: {
-                slidesPerView: 2.2,
+                slidesPerView: 2.1,
                 spaceBetween: 30,
               },
               1024: {
-                slidesPerView: 3.15,
+                slidesPerView: 3,
                 spaceBetween: 40,
               },
             }}
@@ -153,11 +153,11 @@ const ExpertiseSec = ({ data }) => {
                         }}
                         style={{ transformStyle: "preserve-3d" }}
                       />
-                      <motion.div variants={moveDown(0.2 * index)} initial="hidden" animate="show" viewport={{ amount: 0.2, once: false }} className="pl-0 pt-4 xl:p-10 xl:border-l border-white/30">
-                        <motion.h3 variants={moveUp(0.1 * index)} initial="hidden" animate="show" viewport={{ amount: 0.2, once: false }} className="text-20 xl:text-29 leading-[1.2] 3xl:leading-[1.724137931034483] font-normal xl:font-extralight mb-2 xl:mb-2">
+                      <motion.div variants={moveDown(0.2 * index)} initial="hidden" animate="show" viewport={{ amount: 0.2, once: false }} className="pl-0 pt-4 xl:p-10 3xl:pb-[55px] xl:border-l border-white/30">
+                        <motion.h3 variants={moveUp(0.1 * index)} initial="hidden" animate="show" viewport={{ amount: 0.2, once: false }} className="text-20 xl:text-29 leading-[1.2] 3xl:leading-[1.724137931034483] font-light xl:font-extralight mb-2 xl:mb-[12px]">
                           {item.slideTitle}
                         </motion.h3>
-                        <motion.p variants={moveUp(0.15 * index)} initial="hidden" animate="show" viewport={{ amount: 0.2, once: false }} className="text-19 leading-[1.526315789473684] font-extralight">
+                        <motion.p variants={moveUp(0.15 * index)} initial="hidden" animate="show" viewport={{ amount: 0.2, once: false }} className="text-19 leading-[1.526315789473684] font-light">
                           {item.slideDesc}
                         </motion.p>
                       </motion.div>

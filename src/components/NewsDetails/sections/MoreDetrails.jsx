@@ -7,7 +7,7 @@ const MoreDetrails = () => {
     <section>
         <div className="py-8 xl:py-15 2xl:pt-22 3xl:pt-[80px] pb-text30 relative   ">
           <div className="absolute top-1/3 left-0 -translate-y-1/3  ">
-            <img src="/assets/images/press-releases/newsbody.svg" alt="" className="w-full h-full object-cover" />
+            <img src="/assets/images/press-releases/newsbody.svg" alt="" className="w-full h-full 2xl:w-[478px] 2xl:h-[669px] object-cover" />
           </div>
           <div className="container relative border-b border-[#cccccc] pb-text30">
           <div className="   2xl:max-w-[1208px] ml-auto">

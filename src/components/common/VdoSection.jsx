@@ -6,7 +6,7 @@ import H2Title from "./H2Title";
 import VideoPlayer from "./VideoPlayer";
 import { motion } from "framer-motion";
 import { moveUp, paragraphItem } from "../../motionVarients";
-const VdoSection = ({data}) => {
+const VdoSection = ({data,maxW,maxtextwidth}) => {
 
 
   // Inside your component:
@@ -42,20 +42,20 @@ const VdoSection = ({data}) => {
   const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
 
   return ( 
-    <section className="relative overflow-hidden pt-text25 pb30" ref={sectionRef}>
-      <div className="absolute bottom-0 left-0 h-fit w-full z-0">
-        <motion.img style={{ y: shapeY }} src={assets.mainShape2} alt="" className="w-[250px] lg:w-[400px] xl:w-[500px] 3xl:w-[709px] h-auto max-w-[702px] object-contain" />
+    <section className="relative overflow-hidden pt-text25 pb-12 xl:pb-15 2xl:pb-22 3xl:pb-[90px]" ref={sectionRef}>
+      <div className="absolute bottom-[-30px] left-[0px] h-fit w-full z-0 ">
+        <motion.img style={{ y: shapeY }} src={assets.mainShape2} alt="" className="w-[250px] lg:w-[400px] xl:w-[500px] 3xl:w-[702px] h-auto 3xl:h-[983px] max-w-[702px] object-contain" />
       </div>
       <div className="container">
         <div className="w-full lg:w-[700px] xl:w-[1238px] mx-auto relative z-10">
           <div>
             <div className="lg:max-w-[600px] xl:max-w-[795px] ml-auto mb-5 xl:mb-[70px]">
              <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}> 
-                <H2Title titleText={data.title} titleColor="primary" marginClass="mb-4 3xl:mb-10" />
+                <H2Title titleText={data.title} titleColor="primary" marginClass="mb-4 3xl:mb-10 " maxW={maxW}  />
              </motion.div>
               {
                 data.desc.map((item)=>(
-                  <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 leading-[1.473684210526316] font-light text-paragraph mb-4 xl:mb-8 last:mb-0">{item}</motion.p>
+                  <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className={`${maxtextwidth} text-19 leading-[1.473684210526316] font-light text-paragraph mb-4 xl:mb-8 last:mb-0`}>{item}</motion.p>
                 ))
               }
             </div>
