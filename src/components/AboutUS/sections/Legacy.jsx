@@ -52,13 +52,13 @@ const Legacy = () => {
   });
   const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
   return (
-      <section className="py-7 xl:py-15 2xl:pt-22 3xl:pt-[108px] pb30 bg-primary relative overflow-hidden">
+      <section className="py-7 xl:py-15 2xl:pt-18 3xl:pt-[108px] pb30 bg-primary relative overflow-hidden">
         <div className="absolute bottom-0 -left-25 3xl:left-0 w-[25%] 3xl:w-full">
           <img src="../assets/images/about-us/lcbanner.svg" alt="" />
         </div>
         <div className="container">
         <div>
-            <div className="xl:max-w-[1200px] 2xl:max-w-[80.9%] ml-auto">
+            <div className="md:max-w-[650px] lg:max-w-[800px]  xl:max-w-[950px] 2xl:max-w-[80.9%] ml-auto">
             <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 font-light leading-[1.18] text-white mb-5 lg:mb-15">
               Legacy
             </motion.h2>
@@ -83,7 +83,7 @@ const Legacy = () => {
                     delay: 4000, // 4 seconds
                     disableOnInteraction: false,
                   }}
-                  className="legacy-year-swiper !overflow-visible h-auto md:h-[280px] xl:h-[350px]"
+                  className="legacy-year-swiper !overflow-visible h-auto md:h-[220px] lg:h-[280px] xl:h-[320px] 2xl:h-[350px]"
                 >
                   {legacyData.map((item, i) => {
                     const opacity = 1 - i * 0.20;
@@ -99,7 +99,7 @@ const Legacy = () => {
               </div>
 
               {/* RIGHT: Main Content */}
-              <div className="  md:max-w-[450px] lg:max-w-[600px] xl:max-w-[705px] 2xl:max-w-[63%]  w-full ">
+              <div className="  md:max-w-[450px] lg:max-w-[550px] xl:max-w-[600px] 2xl:max-w-[63%]  w-full ">
                 <Swiper
                   modules={[Thumbs, EffectFade, Autoplay]}
                   thumbs={{ swiper: thumbsSwiper }}
@@ -115,7 +115,7 @@ const Legacy = () => {
                 >
                   {legacyData.map((item, i) => (
                     <SwiperSlide key={i}>
-                      <div className="mb-4 lg:mb-[53px]"><h2 className="text-45 3xl:text-60 font-light leading-[1.18] text-white mb-5 xl:mb-[37px]">{item.title}</h2><p className="text-19 3xl:text-29 font-light leading-[1.374] text-white">{item.text}</p></div>
+                      <div className="mb-4 md:mb-[30px] lg:mb-[53px]"><h2 className="text-45 3xl:text-60 font-light leading-[1.18] text-white mb-5 xl:mb-[37px]">{item.title}</h2><p className="text-19 3xl:text-29 font-light leading-[1.374] text-white">{item.text}</p></div>
                       <div className="relative overflow-hidden" ref={imageContainerRefTwo}><motion.img style={{y:imageY}} src={item.image} alt={item.title} className="w-full object-cover" /></div>
                     </SwiperSlide>
                   ))}

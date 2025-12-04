@@ -517,9 +517,16 @@ body::-webkit-scrollbar {
 @media (max-width: 1279px) {
   .legacy-year-swiper .swiper-slide-thumb-active::after {
     top: 17px;
-    left: 147px;
+    left: 165px;
   }
 }
+@media (max-width: 1023px) {
+  .legacy-year-swiper .swiper-slide-thumb-active::after {
+    top: 11px;
+        left: 105px;
+  }
+}
+
 
 @media (max-width: 767px) {
   .legacy-year-swiper .swiper-slide-thumb-active::after {

@@ -39,10 +39,10 @@ const VisionMission = () => {
       <section ref={sectionRef} className="py25  bg-f5f5 relative overflow-hidden">
         <div className="reveal-overlay absolute inset-0 bg-white z-20"></div>
         <div className="container">
-          <div className={`grid grid-cols-1 lg:grid-cols-[1fr_567px] gap-10 lg:gap-[90px] items-center justify-stretch`}>
+          <div className={`grid grid-cols-1 lg:grid-cols-[1fr_400px]  2xl:grid-cols-[1fr_500px] 3xl:grid-cols-[1fr_567px] gap-10 2xl:gap-[60px] 3xl:gap-[90px] items-center justify-stretch`}>
             {/* Left Column */}
             <div className="h-full relative overflow-hidden" ref={imageContainerRefTwo}>
-              <motion.img style={{y:imageY}} variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="z-10 relative h-full" src={Vision.image} alt="" />
+              <motion.img style={{y:imageY}} variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="z-10 relative h-full objct-fit" src={Vision.image} alt="" />
             </div>
 
             {/* Right Column */}
