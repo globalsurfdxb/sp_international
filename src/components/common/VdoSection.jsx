@@ -55,7 +55,7 @@ const VdoSection = ({ data, maxW, maxtextwidth }) => {
   const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
 
   return (
-    <section className="relative overflow-hidden pt-text25 pb-12 xl:pb-15 2xl:pb-22 3xl:pb-[90px]" ref={sectionRef}>
+    <section className="relative overflow-hidden pt-text25 pb-12 xl:pb-15 2xl:pb-22 3xl:pb-[120px]" ref={sectionRef}>
       <div className="absolute bottom-[-30px] left-[0px] h-fit w-full z-0 ">
         <motion.img style={{ y: shapeY }} src={assets.mainShape2} alt="" className="w-[250px] lg:w-[400px] xl:w-[500px] 3xl:w-[702px] h-auto 3xl:h-[983px] max-w-[702px] object-contain" />
       </div>

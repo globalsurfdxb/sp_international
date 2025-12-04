@@ -7,7 +7,7 @@ const About = () => {
   return (
       <section className="pt-7 xl:py-15 2xl:pt-22 pb-10  3xl:pt-25 pb30 overflow-hidden">
         <div className="container">
-          <div className={`grid grid-cols-1 lg:grid-cols-[1fr_520px] gap-7 2xl:gap-[167px]`}>
+          <div className={`grid grid-cols-1 lg:grid-cols-[1fr_480px] 3xl:grid-cols-[1fr_520px] gap-7 2xl:gap-[100px] 3xl:gap-[167px]`}>
             {/* Left Column */}
             <div>
               <motion.p variants={moveUp(2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className='text-29 text-paragraph font-light leading-[1.345]'>
