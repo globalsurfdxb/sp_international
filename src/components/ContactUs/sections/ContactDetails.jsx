@@ -1,8 +1,10 @@
+
 import React, { useState } from "react";
 import Select from "react-select";
 import { contactData } from "../data";
 import H2Title from "../../common/H2Title";
-
+import { motion } from "framer-motion";
+import { moveUp } from "../../../motionVarients";
 const ContactDetails = () => {
   const [subject, setSubject] = useState(null);
 
@@ -43,20 +45,20 @@ const ContactDetails = () => {
   return (
     <section className="pt-text30 bg-f5f5 pb-10 lg:pb-0">
       <div className="container">
-        <h1 className="text-45 2xl:text-70 font-light leading-[1.071428571428571] pb-5 xl:pb-15 2xl:pb-22 3xl:pb-31">{contactData.title}</h1>
+        <motion.h1 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-45 2xl:text-70 font-light leading-[1.071428571428571] pb-5 xl:pb-15 2xl:pb-22 3xl:pb-31">{contactData.title}</motion.h1>
         <div className="grid grid-cols-1 lg:grid-cols-[0.6fr_1fr] xl:grid-cols-[1fr_1.6fr] 3xl:grid-cols-[auto_866px] gap-y-8 lg:gap-x-8 3xl:gap-[131px]">
           <div className="lg:pt-[56px]" >
-            <p className="text-19 font-light text-paragraph mb-3 lg:mb-6 ">Head office</p>
-            <p className="text-29 font-bold leading-[1.31] ">{contactData.name}</p>
-            <p className="text-paragraph text-20 2xl:text-29 font-light leading-[1.35] max-w-[25ch]">{contactData.address}</p>
+            <motion.h3 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-19 font-light text-paragraph mb-3 lg:mb-6 ">Head office</motion.h3>
+            <motion.p variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-29 font-bold leading-[1.31] ">{contactData.name}</motion.p>
+            <motion.p variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-paragraph text-20 2xl:text-29 font-light leading-[1.35] max-w-[25ch]">{contactData.address}</motion.p>
             <div className="flex flex-col sm:flex-row  gap-5 md:gap-15 xl:gap-[130px] my-6 lg:my-10 xl:my-15 2xl:my-20">
               <div>
-                <p className="text-paragraph text-19 font-light mb-[10px] leading-[1.48] ">Phone</p>
-                <p className="text-black text-19 xl:text-29 font-light leading-[1.31] ">{contactData.phone}</p>
+                <motion.p variants={moveUp(0.7)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-paragraph text-19 font-light mb-[10px] leading-[1.48] ">Phone</motion.p>
+                <motion.p variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-black text-19 xl:text-29 font-light leading-[1.31] ">{contactData.phone}</motion.p>
               </div>
               <div>
-                <p className="text-paragraph text-19 font-light mb-[10px] leading-[1.48] ">Email</p>
-                <p className="text-black text-19 xl:text-29 leading-[1.31]   font-light">{contactData.email}</p>
+                <motion.p variants={moveUp(0.7)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-paragraph text-19 font-light mb-[10px] leading-[1.48] ">Email</motion.p>
+                <motion.p variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-black text-19 xl:text-29 leading-[1.31]   font-light">{contactData.email}</motion.p>
               </div>
             </div>
 
@@ -79,33 +81,33 @@ const ContactDetails = () => {
             <H2Title titleText="General Inquiry" titleColor="white" marginClass="mb-4 3xl:mb-50px" />
             <form>
               <div className="grid sm:grid-cols-2 gap-5 2xl:gap-50px w-full mb-6 xl:mb-8 3xl:mb-15">
-                <div class="relative w-full ">
+                <motion.div variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} class="relative w-full ">
                   <input id="name" type="text" class="peer w-full bg-transparent text-19 font-light border-0 border-b border-white/30 py-3 
                             focus:border-white text-white focus:outline-none placeholder-transparent" placeholder=" " />
                   <label for="name" class="absolute left-0 top-1/2 -translate-y-1/2  text-white text-19 font-light transition-all duration-200 ease-out peer-focus:top-0 peer-focus:text-xs peer-focus:text-white peer-focus:-translate-y-full peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base 2xl:peer-placeholder-shown:text-19 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-full peer-not-placeholder-shown:text-19 peer-not-placeholder-shown:text-white">Name*</label>
-                </div>
+                </motion.div>
 
-                <div class="relative w-full ">
+                <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} class="relative w-full ">
                   <input id="email" type="email" class="peer w-full bg-transparent text-19 font-light border-0 border-b border-white/30 py-3 
                             focus:border-white text-white focus:outline-none placeholder-transparent" placeholder=" " />
                   <label for="email" class="absolute left-0 top-1/2 -translate-y-1/2  text-white text-19 font-light transition-all duration-200 ease-out peer-focus:top-0 peer-focus:text-xs peer-focus:text-white peer-focus:-translate-y-full peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base 2xl:peer-placeholder-shown:text-19 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-full peer-not-placeholder-shown:text-19 peer-not-placeholder-shown:text-white">Email*</label>
-                </div>
+                </motion.div>
               </div>
               <div className="grid sm:grid-cols-2 gap-5 2xl:gap-12 w-full mb-6 xl:mb-8 3xl:mb-15">
-                <div class="relative w-full">
+                <motion.div variants={moveUp(0.7)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} class="relative w-full">
                   <input id="organization" type="text" class="peer w-full bg-transparent text-19 font-light border-0 border-b border-white/30 py-3 
                             focus:border-white text-white focus:outline-none placeholder-transparent" placeholder=" " />
                   <label for="organization" class="absolute left-0 top-1/2 -translate-y-1/2  text-white text-19 font-light transition-all duration-200 ease-out peer-focus:top-0 peer-focus:text-xs peer-focus:text-white peer-focus:-translate-y-full peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base 2xl:peer-placeholder-shown:text-19 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-full peer-not-placeholder-shown:text-19 peer-not-placeholder-shown:text-white">Your Organization*</label>
-                </div>
+                </motion.div>
 
 
-                <div class="relative w-full">
+                <motion.div variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} class="relative w-full">
                   <input id="country" type="text" class="peer w-full bg-transparent text-19 font-light border-0 border-b border-white/30 py-3 
                             focus:border-white text-white focus:outline-none placeholder-transparent" placeholder=" " />
                   <label for="country" class="absolute left-0 top-1/2 -translate-y-1/2  text-white text-19 font-light transition-all duration-200 ease-out peer-focus:top-0 peer-focus:text-xs peer-focus:text-white peer-focus:-translate-y-full peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base 2xl:peer-placeholder-shown:text-19 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-full peer-not-placeholder-shown:text-19 peer-not-placeholder-shown:text-white">Country*</label>
-                </div>
+                </motion.div>
               </div>
-              <div className="relative mb-6 xl:mb-8 3xl:mb-15">
+              <motion.div variants={moveUp(0.9)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="relative mb-6 xl:mb-8 3xl:mb-15">
                 {/* Floating Label */}
                 <label
                   className={`
@@ -131,10 +133,10 @@ const ContactDetails = () => {
                     classNamePrefix="react-select font-light text-19 !px-0 " 
                   />
                 </div>
-              </div>
+              </motion.div>
 
 
-              <div class="relative mb-50px">
+              <motion.div variants={moveUp(1)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} class="relative mb-50px">
                 <textarea
                   id="message"
                   rows="3"
@@ -153,11 +155,10 @@ const ContactDetails = () => {
                 >
                   Message*
                 </label>
-              </div>
+              </motion.div>
 
-              <button
-                type="submit"
-                class="   bg-white/25 text-white rounded-full hover:bg-gray-800 transition uppercase"
+              <motion.button variants={moveUp(1)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} type="submit"
+                class="bg-white/25 text-white rounded-full hover:bg-gray-800  uppercase"
               >
                 <div class="relative p-[1px] rounded-full cursor-pointer">
                   <div class="absolute inset-0 rounded-full bg-gradient-to-r from-[#30B6F9] to-[#1E45A2]"></div>
@@ -167,7 +168,7 @@ const ContactDetails = () => {
                   </div>
                 </div>
 
-              </button>
+              </motion.button>
             </form>
 
           </div>

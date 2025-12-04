@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { moveUp, moveLeft } from "../../../motionVarients";
 import { Link } from "react-router-dom";
  
@@ -10,6 +10,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Trusted = () => {
   const titleRef = useRef(null);
+  const sectionRef = useRef(null);
+  const { scrollYProgress: shapeProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
 
   useEffect(() => {
     const el = titleRef.current;
@@ -38,8 +44,8 @@ const Trusted = () => {
   }, []);
 
   return (
-    <section className="py-10 xl:py-15 2xl:py-22 3xl:py-[92px] relative overflow-hidden">
-      <motion.img variants={moveLeft(1)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src="/assets/images/svg/sv-02.svg" alt="" width={"432px"} height={"607px"} className="absolute bottom-0 right-0 z-[-1]" />
+    <section className="py-10 xl:py-15 2xl:py-22 3xl:py-[92px] relative overflow-hidden" ref={sectionRef}>
+      <motion.img style={{y:shapeY}} variants={moveLeft(1)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src="/assets/images/svg/sv-02.svg" alt="" width={"432px"} height={"607px"} className="absolute bottom-0 right-0 z-[-1]" />
       <div className="container">
         <div className="flex flex-col sm:flex-row sm:items-center sm:gap-[84px] lg:gap-[104px]">
           {/* ✅ Add class name for GSAP animation */}
