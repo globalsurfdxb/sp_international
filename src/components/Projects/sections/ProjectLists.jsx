@@ -186,7 +186,7 @@ const ProjectLists = () => {
                         />
                       </svg>
                     </Listbox.Button>
-                    <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm z-[1]">
+                    <Listbox.Options className="border-0 outline-0 absolute w-[200px] bg-white rounded-sm shadow-sm z-[1]">
                       {sector.map((opt) => (
                         <Listbox.Option
                           key={opt.id}
@@ -227,7 +227,7 @@ const ProjectLists = () => {
                         />
                       </svg>
                     </Listbox.Button>
-                    <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm z-[1]">
+                    <Listbox.Options className="border-0 outline-0 absolute w-[120px] bg-white rounded-sm shadow-sm z-[1]">
                       {status.map((opt) => (
                         <Listbox.Option
                           key={opt.id}
@@ -271,7 +271,7 @@ const ProjectLists = () => {
                         />
                       </svg>
                     </Listbox.Button>
-                    <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm z-[1]">
+                    <Listbox.Options className="border-0 outline-0 absolute w-[150px] bg-white rounded-sm shadow-sm z-[1]">
                       {country.map((opt) => (
                         <Listbox.Option
                           key={opt.id}
@@ -315,7 +315,7 @@ const ProjectLists = () => {
                         />
                       </svg>
                     </Listbox.Button>
-                    <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm z-[1]">
+                    <Listbox.Options className="border-0 outline-0 absolute w-[200px] bg-white rounded-sm shadow-sm z-[1]">
                       {service.map((opt) => (
                         <Listbox.Option
                           key={opt.id}
