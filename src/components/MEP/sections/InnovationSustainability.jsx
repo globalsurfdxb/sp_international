@@ -62,7 +62,7 @@ const InnovationSustainability = ({data}) => {
         <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount:0.6, once:true}} >
           <H2Title titleText={data.title} titleColor="black" marginClass="mb-50px 3xl:mb-18" />
         </motion.div>
-        <div className="grid lg:grid-cols-2 xl:grid-cols-[0.8fr_1.1fr] 2xl:grid-cols-[1fr_916px] gap-8 lg:gap-13 items-center">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-[0.8fr_1.1fr] 3xl:grid-cols-[1fr_916px] gap-8 lg:gap-13 items-center">
           {/* LEFT SIDE */}
           <div className="relative h-full">
             {/* Vertical line – perfectly centered with circles */}

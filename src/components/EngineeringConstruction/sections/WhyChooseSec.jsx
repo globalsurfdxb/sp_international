@@ -16,7 +16,7 @@ const WhyChooseSec = ({data}) => {
   });
   const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
   return ( 
-    <section className="pt-text30 pb30 relative">
+    <section className="pt-text30 pb30 relative overflow-hidden">
       <div className="absolute bottom-0 left-0 w-full h-fit pb-20 lg:pb-25 xl:pb-30" ref={imageParRef}>
           <motion.img style={{y:imageY}} src={assets.mainShape2} alt="" className="object-contain w-[425px] h-[594px]" />
         </div>
