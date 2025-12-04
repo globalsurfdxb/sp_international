@@ -5,18 +5,48 @@ import { EffectFade, Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { moveLeft, moveUp } from "../../motionVarients";
+import "./featuredProjectSlider.css"
 import H2Title from "./H2Title";
-
-
 
 const FeaturedProjectSlider = ({ data }) => {
   const swiperRef = useRef(null);
-  const [slideKey, setSlideKey] = useState(0);
-
   const containerRef = useRef(null);
   const targetRef = useRef(null);
+
+  const [animatingSlide, setAnimatingSlide] = useState(null);
+  const [hasScrolledIntoView, setHasScrolledIntoView] = useState(false);
+  const [initialAnimating, setInitialAnimating] = useState(false);
+
+  const sectionRef = useRef(null);
+  const sectionInView = useInView(sectionRef, { once: true, amount: 0.2 });
+
+  useEffect(() => {
+    if (sectionInView && !hasScrolledIntoView) {
+      setHasScrolledIntoView(true);
+      setInitialAnimating(true);
+      // Stop initial animation after it completes
+      setTimeout(() => setInitialAnimating(false), 1200);
+    }
+  }, [sectionInView, hasScrolledIntoView]);
+
+  const handleSlideChange = (swiper) => {
+    const activeIndex = swiper.realIndex;
+    const slidesPerView = window.innerWidth >= 768 ? 2 : 1;
+
+    let slideToAnimate;
+    if (slidesPerView === 2) {
+      // On 2-slide view: animate the slide next to active
+      slideToAnimate = (activeIndex + 1) % data.items.length;
+    } else {
+      // On 1-slide view: animate the active slide
+      slideToAnimate = activeIndex;
+    }
+
+    setAnimatingSlide(slideToAnimate);
+    setTimeout(() => setAnimatingSlide(null), 1200);
+  };
 
   useEffect(() => {
     const containerEl = containerRef.current;
@@ -26,162 +56,162 @@ const FeaturedProjectSlider = ({ data }) => {
 
     const updateMargin = () => {
       if (window.innerWidth > 768) {
-        // Only apply margin-left on screens wider than 768px
         const computedStyle = window.getComputedStyle(containerEl);
         const marginLeft = computedStyle.marginLeft;
         targetEl.style.marginLeft = marginLeft;
       } else {
-        // Reset for mobile
         targetEl.style.marginLeft = "0px";
       }
     };
 
-    // Initial call
     updateMargin();
-
-    // Watch for resize
     window.addEventListener("resize", updateMargin);
     return () => window.removeEventListener("resize", updateMargin);
   }, []);
 
   return (
-    <section className="pt-text90 pb25 relative bg-f5f5 overflow-hidden">
-      <div className="xl:px-[15px] md:pe-0 relative">
-        {/* Counter + Arrows */}
-        <div className="container" ref={containerRef}>
-          <div className="flex justify-between items-center mb-5 3xl:mb-17">
-            <motion.div variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} >
-              <H2Title titleText="Featured Projects" titleColor="black" marginClass="mb-0" />
-            </motion.div>
+      <section className="pt-text90 pb25 relative bg-f5f5 overflow-hidden" ref={sectionRef}>
+        <div className="xl:px-[15px] md:pe-0 relative">
+          <div className="container" ref={containerRef}>
+            <div className="flex justify-between items-center mb-5 3xl:mb-17">
+              <motion.div variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} >
+                <H2Title titleText="Featured Projects" titleColor="black" marginClass="mb-0" />
+              </motion.div>
 
-            <div className="flex gap-5 ">
-              <button className="custom-prev  w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] flex items-center justify-center cursor-pointer rounded-full group border border-black/20   hover:bg-secondary hover:text-white transition">
-                <img src="/assets/images/project-details/rightarrow.svg" className="w-[13.89px] h-[13.89px] rotate-180 group-hover:brightness-0 group-hover:invert-100 transition-all duration-300" alt="" width={14} height={14} />
-              </button>
-              <button className="custom-next w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] flex items-center justify-center cursor-pointer rounded-full group border border-black/20   hover:bg-secondary hover:text-white transition">
-                <img src="/assets/images/project-details/rightarrow.svg" className="w-[13.89px] h-[13.89px] group-hover:brightness-0 group-hover:invert-100 transition-all duration-300" alt="" width={14} height={14} />
-              </button>
+              <div className="flex gap-5 ">
+                <button className="custom-prev  w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] flex items-center justify-center cursor-pointer rounded-full group border border-black/20   hover:bg-secondary hover:text-white transition">
+                  <img src="/assets/images/project-details/rightarrow.svg" className="w-[13.89px] h-[13.89px] rotate-180 group-hover:brightness-0 group-hover:invert-100 transition-all duration-300" alt="" width={14} height={14} />
+                </button>
+                <button className="custom-next w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] flex items-center justify-center cursor-pointer rounded-full group border border-black/20   hover:bg-secondary hover:text-white transition">
+                  <img src="/assets/images/project-details/rightarrow.svg" className="w-[13.89px] h-[13.89px] group-hover:brightness-0 group-hover:invert-100 transition-all duration-300" alt="" width={14} height={14} />
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        {/* Swiper */}
-        <div className="flex flex-col md:flex-row gap-3 xl:px-[15px] md:pe-0" >
-          <div className="container">
-            <Swiper
-              ref={swiperRef}
-              modules={[EffectFade, Autoplay, Navigation]}
-              spaceBetween={40}
-              slidesPerView={1}
-              loop={true}
-              centeredSlides={false}
-              loopAdditionalSlides={1}
-              watchSlidesProgress={true}
-              // loopedSlides={data.items.length}
-              navigation={{
-                prevEl: ".custom-prev",
-                nextEl: ".custom-next",
-              }}
-              // onSlideChange={(swiper) =>
-              //   setCurrentSlide((swiper.realIndex % engineeringData.featuredProjectsData.items.length) + 1)
-              // }
-              onSlideChange={() => setSlideKey(prev => prev + 1)}
-              speed={1200}
-              // autoplay={{
-              //   delay: 4000,
-              //   disableOnInteraction: false,
-              //   waitForTransition: true,
-              // }}
-              breakpoints={{
-                600: {
-                  slidesPerView: 1,
-                  spaceBetween: 20,
-                },
-                768: {
-                  slidesPerView: 2,
-                  spaceBetween: 10,
-                },
-                1024: {
-                  slidesPerView: 2,
-                  spaceBetween: 40,
-                },
-              }}
-              className="!overflow-visible"
-            >
-              {data.items.map((item, i) => (
-                <SwiperSlide key={i}>
-                  <div className="">
-                    <div className="overflow-hidden">
-                      <motion.img
-                        key={`img-${slideKey}-${i}`}
-                        initial={{ x: 200, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 1.2, delay: 0.2 * i, ease: "easeOut" }}
-                        src={item.image}
-                        alt={`slide-${i}`}
-                        className="w-full h-[250px] xl:h-[520px] object-cover"
-                      />
-                    </div>
-                    <div key={`content-${slideKey}`}>
-                      <div className="border-b border-cmnbdr pt-5 xl:pt-7 pb-5 xl:pb-7">
-                        <div className="overflow-hidden">
-                          <motion.h3
-                            initial={{ y: 50 }}
-                            animate={{ y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-29 leading-[1.344827586206897] font-light"
-                          >
-                            {item.title}
-                          </motion.h3>
-                        </div>
-                      </div>
-                      <div className="border-b border-cmnbdr grid lg:grid-cols-2  2xl:grid-cols-[413px_1fr] items-center">
-                        <div className="border-b border-cmnbdr lg:border-0">
-                          <div className="overflow-hidden">
-                            <motion.h4
-                              initial={{ y: 50 }}
-                              animate={{ y: 0 }}
-                              transition={{ duration: 0.6, delay: 0.4 }}
-                              className="text-19 leading-[2.052631578947368] font-light text-paragraph"
-                            >
-                              <span>Sector: </span>{item.sector}
-                            </motion.h4>
-                          </div>
-                        </div>
-                        <div className="">
-                          <div className="overflow-hidden">
-                            <motion.h4
-                              initial={{ y: 50 }}
-                              animate={{ y: 0 }}
-                              transition={{ duration: 0.6, delay: 0.6 }}
-                              className="text-19 leading-[2.052631578947368] font-light text-paragraph"
-                            >
-                              <span>BUA (Sq.ft): </span>500000
-                            </motion.h4>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="border-b border-cmnbdr py-1">
-                        <div className="overflow-hidden">
-                          <motion.h4
-                            initial={{ y: 50 }}
-                            animate={{ y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.8 }}
-                            className="text-19 leading-[2.052631578947368] font-light text-paragraph"
-                          >
-                            <span>Location: </span>{item.location}
-                          </motion.h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </div>
 
-      </div>
-    </section>
+          <div className="flex flex-col md:flex-row gap-3 xl:px-[15px] md:pe-0" >
+            <div className="container">
+              <Swiper
+                ref={swiperRef}
+                modules={[EffectFade, Autoplay, Navigation]}
+                spaceBetween={40}
+                slidesPerView={1}
+                loop={true}
+                centeredSlides={false}
+                loopAdditionalSlides={1}
+                watchSlidesProgress={true}
+                navigation={{
+                  prevEl: ".custom-prev",
+                  nextEl: ".custom-next",
+                }}
+                onSlideChange={handleSlideChange}
+                speed={1200}
+                autoplay={{
+                  delay: 4000,
+                  disableOnInteraction: false,
+                  waitForTransition: true,
+                }}
+                breakpoints={{
+                  600: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                  },
+                  768: {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                  },
+                  1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 40,
+                  },
+                }}
+                className="!overflow-visible"
+              >
+                {data.items.map((item, i) => (
+                  <SwiperSlide key={i}>
+                    <div>
+                      <div className="overflow-hidden">
+                        <img
+                          src={item.image}
+                          className={`w-full h-[250px] xl:h-[520px] object-cover ${!hasScrolledIntoView
+                              ? 'initial-hidden-img'
+                              : animatingSlide === i || initialAnimating
+                                ? 'animate-slide-img'
+                                : 'initial-visible'
+                            }`}
+                          alt={item.title}
+                        />
+                      </div>
+                      <div>
+                        <div className="border-b border-cmnbdr pt-5 xl:pt-7 pb-5 xl:pb-7">
+                          <div className="overflow-hidden">
+                            <h3
+                              className={`text-29 leading-[1.344827586206897] font-light ${!hasScrolledIntoView
+                                  ? 'initial-hidden-text'
+                                  : animatingSlide === i || initialAnimating
+                                    ? 'animate-slide-text-1'
+                                    : 'initial-visible'
+                                }`}
+                            >
+                              {item.title}
+                            </h3>
+                          </div>
+                        </div>
+                        <div className="border-b border-cmnbdr grid lg:grid-cols-2  2xl:grid-cols-[413px_1fr] items-center">
+                          <div className="border-b border-cmnbdr lg:border-0">
+                            <div className="overflow-hidden">
+                              <h4
+                                className={`text-19 leading-[2.052631578947368] font-light text-paragraph ${!hasScrolledIntoView
+                                    ? 'initial-hidden-text'
+                                    : animatingSlide === i || initialAnimating
+                                      ? 'animate-slide-text-2'
+                                      : 'initial-visible'
+                                  }`}
+                              >
+                                <span>Sector: </span>{item.sector}
+                              </h4>
+                            </div>
+                          </div>
+                          <div className="">
+                            <div className="overflow-hidden">
+                              <h4
+                                className={`text-19 leading-[2.052631578947368] font-light text-paragraph ${!hasScrolledIntoView
+                                    ? 'initial-hidden-text'
+                                    : animatingSlide === i || initialAnimating
+                                      ? 'animate-slide-text-3'
+                                      : 'initial-visible'
+                                  }`}
+                              >
+                                <span>BUA (Sq.ft): </span>500000
+                              </h4>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="border-b border-cmnbdr py-1">
+                          <div className="overflow-hidden">
+                            <h4
+                              className={`text-19 leading-[2.052631578947368] font-light text-paragraph ${!hasScrolledIntoView
+                                  ? 'initial-hidden-text'
+                                  : animatingSlide === i || initialAnimating
+                                    ? 'animate-slide-text-4'
+                                    : 'initial-visible'
+                                }`}
+                            >
+                              <span>Location: </span>{item.location}
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </div>
+
+        </div>
+      </section>
+ 
   );
 };
 

@@ -1,9 +1,12 @@
 import { Listbox } from "@headlessui/react";
 import { pjtList } from "../data";
 import { useState, useMemo } from "react";
-import { motion } from "framer-motion";
+import { motion,useScroll,useTransform } from "framer-motion";
 import { moveUp } from "../../../motionVarients";
 import { Link } from "react-router-dom";
+
+import { useRef } from "react";
+
 
 const sector = [
   { id: 1, title: "All" },
@@ -40,6 +43,12 @@ const ITEMS_PER_PAGE = 12;
 const ProjectLists = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isAnimating, setIsAnimating] = useState(false);
+  const sectionRef=useRef(null)
+    const { scrollYProgress: shapeProgress } = useScroll({
+      target: sectionRef,
+      offset: ["start end", "end start"]
+    });
+    const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
   const [view, setView] = useState("grid");
 
   // 🔹 Filter states
@@ -140,7 +149,7 @@ const ProjectLists = () => {
   };
 
   return (
-    <section className="relative">
+    <section className="relative" ref={sectionRef}>
       <div className="container">
         <motion.div
           variants={moveUp(2)}
@@ -672,15 +681,15 @@ const ProjectLists = () => {
 
       {view === "grid" && (
         <>
-          <div className="absolute bottom-3/7 translate-y-[-78px] left-0 z-[-1]   ">
-            <img
+          <div className="absolute bottom-3/7 translate-y-[-78px] left-0 z-[-1]">
+            <motion.img style={{y:shapeY}}
               src="./assets/images/projects/pjtbdy1.svg"
               alt=""
               className="w-[670px] object-contain"
             />
           </div>
           <div className="absolute bottom-0 right-0 z-[-1]   ">
-            <img
+            <motion.img style={{y:shapeY}}
               src="./assets/images/projects/pjtbdy2.svg"
               alt=""
               className="w-[670px] object-contain"

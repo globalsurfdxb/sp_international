@@ -91,12 +91,27 @@ export const engineeringData = {
             location:"Srilanka"
         },
         {
-            image: "./assets/images/eng-constructions/featured-projects/prj2.jpg",
+            image:"./assets/images/eng-constructions/featured-projects/prj1.jpg",
             title:"Oman Across Ages Museum",
-            sector: "Hospitality",
-            sqft: "500000",
-            location: "Oman"
+            sector:"Social Infrastructure",
+            sqft:"500000",
+            location:"Oman"
         },
+        {
+            image:"./assets/images/eng-constructions/featured-projects/prj2.jpg",
+            title:"Rove Downtown Hotel",
+            sector:"Hospitality",
+            sqft:"500000",
+            location:"Dubai"
+        },
+        {
+            image:"./assets/images/eng-constructions/featured-projects/prj3.jpg",
+            title:"Altair",
+            sector:"Hospitality",
+            sqft:"500000",
+            location:"Srilanka"
+        },
+       
        
     ]
  },

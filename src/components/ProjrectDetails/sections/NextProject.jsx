@@ -11,11 +11,21 @@ if (typeof window !== 'undefined') {
 
 // Import your data
 import { nextpjt } from "../data";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { moveUp } from "../../../motionVarients";
 const NextProject = () => {
   const imageContainerRef = useRef(null);
   const overlayRef = useRef(null);
+
+ 
+  const imageContainerRefTwo = useRef(null);
+  const { scrollYProgress: imageProgress } = useScroll({
+    target: imageContainerRefTwo,
+    offset: ["start end", "end start"]
+  });
+  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+
+
 
   useEffect(() => {
     const container = imageContainerRef.current;
@@ -24,17 +34,17 @@ const NextProject = () => {
     if (!container || !overlay) return;
 
     // Set initial state - overlay covers the image
-    gsap.set(overlay, { scaleX: 1, transformOrigin: 'right' });
+    gsap.set(overlay, { scaleX: 1, transformOrigin: "right" });
 
-    // Create ScrollTrigger animation with scrub
+    // Create ScrollTrigger animation - only once
     gsap.to(overlay, {
       scaleX: 0,
-      ease: 'none',
+      ease: "power2.out",
       scrollTrigger: {
         trigger: container,
-        start: 'top 80%',
-        end: 'top 20%',
-        scrub: 1,
+        start: "top 80%",
+        end: "top 20%",
+        toggleActions: "play none none none"
       }
     });
 
@@ -42,6 +52,7 @@ const NextProject = () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
+
 
   return (
     <section className="pt-text30 pb30">
@@ -83,16 +94,11 @@ const NextProject = () => {
             </Link>
           </div>
           <div ref={imageContainerRef} className="relative overflow-hidden">
-            <img
-              src={nextpjt.image}
-              alt=""
-              className="img-fluid"
-            />
+            <div className='relative overflow-hidden' ref={imageContainerRefTwo}>
+              <motion.img style={{ y: imageY }} src={nextpjt.image} alt="" className="img-fluid" />
+            </div>
             {/* Overlay that reveals from right to left */}
-            <div
-              ref={overlayRef}
-              className="absolute inset-0 bg-white"
-            />
+            <div ref={overlayRef} className="absolute inset-0 bg-white" />
           </div>
         </div>
       </div>

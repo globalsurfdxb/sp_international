@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Thumbs, EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/thumbs";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { moveUp } from "../../../motionVarients";
 
 
@@ -43,7 +43,14 @@ const legacyData = [
 ];
 const Legacy = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const imageContainerRefTwo = useRef(null);
 
+  // Parallax for main image container
+  const { scrollYProgress: imageProgress } = useScroll({
+    target: imageContainerRefTwo,
+    offset: ["start end", "end start"]
+  });
+  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
   return (
       <section className="py-7 xl:py-15 2xl:pt-22 3xl:pt-[108px] pb30 bg-primary relative overflow-hidden">
         <div className="absolute bottom-0 -left-25 3xl:left-0 w-[25%] 3xl:w-full">
@@ -109,7 +116,7 @@ const Legacy = () => {
                   {legacyData.map((item, i) => (
                     <SwiperSlide key={i}>
                       <div className="mb-4 lg:mb-[53px]"><h2 className="text-45 3xl:text-60 font-light leading-[1.18] text-white mb-5 xl:mb-[37px]">{item.title}</h2><p className="text-19 3xl:text-29 font-light leading-[1.374] text-white">{item.text}</p></div>
-                      <div><img src={item.image} alt={item.title} className="w-full object-cover" /></div>
+                      <div className="relative overflow-hidden" ref={imageContainerRefTwo}><motion.img style={{y:imageY}} src={item.image} alt={item.title} className="w-full object-cover" /></div>
                     </SwiperSlide>
                   ))}
                 </Swiper>

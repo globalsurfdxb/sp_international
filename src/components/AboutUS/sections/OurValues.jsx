@@ -1,13 +1,21 @@
 "use client"; 
 import { values } from "../data";
 import ValueItem from "./ValueItem";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { moveUp, moveLeft ,paragraphItem} from "../../../motionVarients";
 import { useRef, useState } from "react";
 const OurValues = () => {
    const listRef = useRef(null);
     const [isHovered, setIsHovered] = useState(1);
     const [height, setHeight] = useState(0);
+    const sectionRef=useRef(null)
+
+  // Parallax for shape
+  const { scrollYProgress: shapeProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
   
     const handleMouseEnter = (index) => {
       if (listRef.current) {
@@ -22,8 +30,8 @@ const OurValues = () => {
     };
   return (
     // <section className="py-12 xl:py-15 2xl:py-30 bg-[url('/assets/images/about-us/valuebg.svg')] bg-auto bg-right-bottom bg-no-repeat">
-    <section className="pt-text30 pb30 relative overflow-hidden">
-      <motion.img variants={moveLeft(1)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src="/assets/images/svg/sv-02.svg" alt="" width={"432px"} height={"607px"} className="absolute bottom-0 -right-25 3xl:right-0 z-[-1] w-[152px] h-full md:w-[232px] md:h-full lg:w-[432px] lg:h-[607px]" />
+    <section className="pt-text30 pb30 relative overflow-hidden" ref={sectionRef}>
+      <motion.img style={{y:shapeY}} ref={sectionRef} variants={moveLeft(1)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src="/assets/images/svg/sv-02.svg" alt="" width={"432px"} height={"607px"} className="absolute bottom-0 -right-25 3xl:right-0 z-[-1] w-[152px] h-full md:w-[232px] md:h-full lg:w-[432px] lg:h-[607px]" />
       <div className="container">
         <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}
          className="text-60 font-light leading-[1.18] text-black mb-5 2xl:mb-[54px]">

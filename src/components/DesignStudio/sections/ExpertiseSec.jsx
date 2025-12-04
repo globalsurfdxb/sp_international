@@ -132,7 +132,7 @@ const ExpertiseSec = ({ data }) => {
                 <SwiperSlide key={index}>
                   {({ isActive }) => (
                     <div
-                      key={`${index}-${slideKey}`}
+                      key={index}
                       className="relative"
                       
                     >
@@ -140,11 +140,16 @@ const ExpertiseSec = ({ data }) => {
                         src={item.img}
                         alt={item.slideTitle}
                         className="w-full h-[250px] lg:h-[300px] xl:h-[333px] object-cover"
-                        initial={{ rotateY: -90, opacity: 0 }}
+                        // variants={moveUp(0.2)}
+                        // initial="hidden"
+                        // whileInView="show"
+                        viewport={{amount:0.2, once:true}}
+                        initial={{ rotateY: 90, opacity: 1 }}
+                        // whileInView={{ rotateY: 0, opacity: 1 }}
                         animate={
-                          isInView && shouldShow
+                          isInView
                             ? { rotateY: 0, opacity: 1 }
-                            : { rotateY: -90, opacity: 0 }
+                            : { rotateY: 90, opacity: 0 }
                         }
                         transition={{
                           duration: 1,
@@ -153,14 +158,14 @@ const ExpertiseSec = ({ data }) => {
                         }}
                         style={{ transformStyle: "preserve-3d" }}
                       />
-                      <motion.div variants={moveDown(0.2 * index)} initial="hidden" animate="show" viewport={{ amount: 0.2, once: false }} className="pl-0 pt-4 xl:p-10 3xl:pb-[55px] xl:border-l border-white/30">
-                        <motion.h3 variants={moveUp(0.1 * index)} initial="hidden" animate="show" viewport={{ amount: 0.2, once: false }} className="text-20 xl:text-29 leading-[1.2] 3xl:leading-[1.724137931034483] font-light xl:font-extralight mb-2 xl:mb-[12px]">
+                      <div  className="pl-0 pt-4 xl:p-10 3xl:pb-[55px] xl:border-l border-white/30">
+                        <h3  className="text-20 xl:text-29 leading-[1.2] 3xl:leading-[1.724137931034483] font-light xl:font-extralight mb-2 xl:mb-[12px]">
                           {item.slideTitle}
-                        </motion.h3>
-                        <motion.p variants={moveUp(0.15 * index)} initial="hidden" animate="show" viewport={{ amount: 0.2, once: false }} className="text-19 leading-[1.526315789473684] font-light">
+                        </h3>
+                        <p className="text-19 leading-[1.526315789473684] font-light">
                           {item.slideDesc}
-                        </motion.p>
-                      </motion.div>
+                        </p>
+                      </div>
                     </div>
                   )}
                 </SwiperSlide>
