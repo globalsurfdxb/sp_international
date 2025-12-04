@@ -56,9 +56,9 @@ const InnovationSustainability = () => {
   };
 
   const getSpacing = (index) => {
-    if (activeIndex === index) return "64px";
-    if (activeIndex === index + 1) return "64px";
-    return "32px";
+    if (activeIndex === index) return "73px";
+    if (activeIndex === index + 1) return "73px";
+    return "26px";
   };
   const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
@@ -74,18 +74,18 @@ const InnovationSustainability = () => {
     inactiveSize = 18;
   } else {
     // Desktop / Larger
-    activeSize = 72;
+    activeSize = 79;
     inactiveSize = 20;
   }
 
   return (
     <section className="relative overflow-hidden pt-text30 pb30 bg-gradient-to-br from-slate-50 to-blue-50">
-      <img src={assets.mainShape2} alt="" className="absolute bottom-0 left-0 w-[50%] 2xl:w-[960px] h-auto object-contain" />
+      <img src={assets.mainShape2} alt="" className="absolute bottom-3 left-0 w-[50%] 2xl:w-[960px] h-auto object-contain" />
       <div className="container mx-auto px-4">
         <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount:0.6, once:true}} >
           <H2Title titleText="Innovation & Sustainability in MEP" titleColor="black" marginClass="mb-50px 3xl:mb-18" />
         </motion.div>
-        <div className="grid lg:grid-cols-2 xl:grid-cols-[0.8fr_1.1fr] gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-[0.8fr_1.1fr] 2xl:grid-cols-[1fr_916px] gap-8 lg:gap-13 items-center">
           {/* LEFT SIDE */}
           <div className="relative h-full">
             {/* Vertical line – perfectly centered with circles */}
@@ -140,7 +140,7 @@ const InnovationSustainability = () => {
                   </motion.div>
 
                   {/* Content cell */}
-                  <motion.div variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{amount:0.6, once:true}} className="flex-1 pl-10">
+                  <motion.div variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{amount:0.6, once:true}} className="flex-1 pl-10 2xl:pl-12 ">
                     <motion.button
                       onClick={() => handleAccordionClick(index)}
                       className="w-full text-left group flex items-start"
@@ -149,9 +149,11 @@ const InnovationSustainability = () => {
                     >
                       <motion.h3
                         animate={{
-                          fontSize: activeIndex === index ? "1.875rem" : "1.25rem",
+                          fontSize: activeIndex === index ? "1.875rem " : "1.25rem",
                           color:
                             activeIndex === index ? "#000000" : "#4B5563",
+                          marginTop:
+                            activeIndex === index ? "20px" : "",
                         }}
                         transition={{
                           duration: 0.5,
@@ -181,7 +183,7 @@ const InnovationSustainability = () => {
                             animate={{ y: 0 }}
                             exit={{ y: -10 }}
                             transition={{ duration: 0.4 }}
-                            className="text-19 leading-[1.473684210526316] text-paragraph font-light pr-8 mt-4"
+                            className="text-19 leading-[1.473684210526316] text-paragraph font-light pr-8 mt-4 2xl:mt-[25px] max-w-[37ch]"
                           >
                             {item.content}
                           </motion.p>

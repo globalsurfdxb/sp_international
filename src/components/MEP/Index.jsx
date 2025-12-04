@@ -16,7 +16,7 @@ const MEP = () => {
         <img src="./assets/images/shape-right.svg" alt="" className="absolute top-0 right-0 z-[-1]" />
       </header>
       <Banner title="Mechanical, Electrical & Plumbing (MEP)" image="./assets/images/mep/banner.jpg" />
-      <VdoSection data={mepData.mainSection} />
+      <VdoSection data={mepData.mainSection} maxW="max-w-[18ch]" />
       <ExpertiseSec data={mepData.expertiseData} />
       <WhyChooseSec data={mepData.whyChooseData} bgColor="white" sectionSpacing="pt-text30 pb30" />
       <FeaturedProjectSlider data={mepData.featuredProjectsData} />

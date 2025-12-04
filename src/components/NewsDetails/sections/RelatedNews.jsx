@@ -2,6 +2,7 @@
 import { pressReleases } from "../../PressReleases/data";
 import { motion } from "framer-motion";
 import { moveUp } from "../../../motionVarients";
+import { Link } from "react-router-dom";
 const RelatedNews = () => {
 
   return (
@@ -23,7 +24,9 @@ const RelatedNews = () => {
                     })}</h4>
                     <h4 className="text-paragraph text-16 font-light leading-[1.75] uppercase">{item.category}</h4>
                   </div>
+                  <Link to="/news-details">
                   <h2 className="text-29 leading-[1.344827586206897] font-light mt-30px xl:max-w-[90%]">{item.title}</h2>
+                  </Link>
                 </div>
               </motion.div>
             ))}

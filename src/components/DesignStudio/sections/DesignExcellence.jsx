@@ -38,8 +38,8 @@ const DesignExcellence = ({ data }) => {
     };
   }, []);
   return (
-    <section className="relative overflow-hidden mt-8 lg:mt-18 xl:mt-20 2xl:mt-30 3xl:mt-[161px] pb-6 lg:pb-15 xl:pb-15 2xl:pb-22 3xl:pb-30;">
-      <div className="absolute bottom-0 left-0 h-full w-full z-0"><img src={assets.mainShape2} alt="" className="w-[30%] 2xl:w-[425px] h-auto max-w-[425px] object-contain" /></div>
+    <section className="relative overflow-hidden mt-8 lg:mt-18 xl:mt-20 2xl:mt-30 3xl:mt-[161px] pb30">
+      <div className="absolute bottom-[-140px] left-0 h-full w-full z-0"><img src={assets.mainShape2} alt="" className="w-[30%] 2xl:w-[425px] h-auto max-w-[425px] object-contain" /></div>
       <div className="container">
         <div className="w-full lg:max-w-[800px] 2xl:max-w-[1207px] ml-auto flex flex-col gap-5 xl:gap-0">
           <div  className="mb-0 xl:mb-20 2xl:mb-18 order-2 xl:order-1">

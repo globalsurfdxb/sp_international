@@ -63,12 +63,12 @@ const ImgPointsComponent = ({ data, bgColor, sectionSpacing }) => {
     <section className={`w-full bg-${bgColor} text-black ${sectionSpacing}`}>
       <div className="container">
         <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}>
-          <H2Title titleText={heading} titleColor="black" marginClass="mb-4 xl:mb-50px" />
+          <H2Title titleText={heading} titleColor="black" marginClass="mb-4 lg:mb-8 2xl:mb-[70px]" />
         </motion.div>
         <div className="grid lg:grid-cols-[0.8fr_1fr] 2xl:grid-cols-[1fr_1fr] 3xl:grid-cols-[916px_auto] xl:items-center gap-8 xl:gap-10 3xl:gap-[108px] transition-all duration-300">
           {/* Left Side - Image */}
           <div className="flex-shrink-0 relative overflow-hidden h-full transition-all duration-300" ref={imageContainerRefTwo}>
-            <img src={image} alt="Workplace environment" className="object-cover w-full h-[250px] md:h-full md:max-h-[300px] lg:max-h-max transition-all duration-300" />
+            <img src={image} alt="Workplace environment" className="object-cover w-full h-[250px] md:h-full   transition-all duration-300" />
             {/* Overlay that reveals from right to left */}
             <div ref={overlayRefTwo} className="xl:absolute inset-0 bg-white" />
           </div>
@@ -84,10 +84,10 @@ const ImgPointsComponent = ({ data, bgColor, sectionSpacing }) => {
                     onMouseEnter={() => !isMobile && setHoverIndex(index)}
                     onMouseLeave={() => !isMobile && setHoverIndex(null)}
                     onClick={() => setActiveIndex(index)}
-                    className="border-b border-black/20 last:border-b-0 py-5 xl:py-6 pr-2"
+                    className="border-b border-black/20 last:border-b-0 py-5 xl:pt-[32px] xl:pb-[31px] last:xl:pb-[22px] pr-2"
                   >
                     <div
-                      className={`relative text-24 2xl:text-29 py-2 leading-[1.34] cursor-pointer select-none transition-all duration-300 ${isActive ? "text-black font-semibold" : "text-paragraph font-normal"}`}
+                      className={`relative text-24 2xl:text-29   leading-[1.34] cursor-pointer select-none transition-all duration-300 ${isActive ? "text-black font-bold" : "text-paragraph font-normal"}`}
                     >
                       {/* Animate-in left border without pushing layout */}
                       <span
@@ -97,7 +97,7 @@ const ImgPointsComponent = ({ data, bgColor, sectionSpacing }) => {
 
                       {/* Animate movement visually instead of padding */}
                       <span
-                        className={`inline-block transition-transform duration-300 max-w-[95%] ${isActive || hoverIndex === index
+                        className={`   inline-block transition-transform duration-300 max-w-[95%] ${isActive || hoverIndex === index
                             ? "translate-x-[20px] xl:translate-x-[43px]"
                             : "translate-x-0"
                           }`}

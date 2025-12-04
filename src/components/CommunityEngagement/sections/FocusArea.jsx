@@ -95,7 +95,7 @@ const FocusArea = () => {
                       <div className='flex gap-3 lg:block items-center'>
                         <img src={area.icon} alt='' className='lg:hidden w-[32px] h-[32px] mb-3 lg:mb-5' />
                         <p className='text-29 font-light mb-3 lg:mb-5 leading-[1.474]'>{area.title}</p></div>
-                      <div><p className='text-16 font-light leading-[1.75] text-paragraph max-w-[42ch]'>{area.description}</p></div>
+                      <div><p className='text-19 font-light leading-[1.527] text-paragraph max-w-[42ch] 3xl:min-w-[41.3ch]'>{area.description}</p></div>
                     </div>
                     <div   >
                       <img src={area.image} alt="" className='w-full h-[250px] md:h-[300px] object-cover lg:h-auto  min-w-[258px] lg:min-w-[358px] xl:min-w-[478px]' />

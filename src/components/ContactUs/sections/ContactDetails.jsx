@@ -45,7 +45,7 @@ const ContactDetails = () => {
       <div className="container ">
         <h1 className="text-45 2xl:text-70 font-light leading-[1.071428571428571] pb-5 xl:pb-15 2xl:pb-22 3xl:pb-31">{contactData.title}</h1>
         <div className="grid grid-cols-1 lg:grid-cols-[0.6fr_1fr] xl:grid-cols-[1fr_1.6fr] 3xl:grid-cols-[auto_866px] gap-y-8 lg:gap-x-8 3xl:gap-[131px]">
-          <div >
+          <div className="lg:pt-[56px]" >
             <p className="text-19 font-light text-paragraph mb-3 lg:mb-6 ">Head office</p>
             <p className="text-29 font-bold leading-[1.31] ">{contactData.name}</p>
             <p className="text-paragraph text-20 2xl:text-29 font-light leading-[1.35] max-w-[25ch]">{contactData.address}</p>
@@ -75,34 +75,34 @@ const ContactDetails = () => {
               </svg>
             </div>
           </div>
-          <div className="bg-primary p-5 lg:p-8 xl:p-10 3xl:p-17 3xl:pt-15">
+          <div className="bg-primary p-5 lg:p-8 xl:p-10 3xl:p-[70px] 3xl:pt-[59px]">
             <H2Title titleText="General Inquiry" titleColor="white" marginClass="mb-4 3xl:mb-50px" />
             <form>
               <div className="grid sm:grid-cols-2 gap-5 2xl:gap-50px w-full mb-6 xl:mb-8 3xl:mb-15">
                 <div class="relative w-full ">
-                  <input id="name" type="text" class="peer w-full bg-transparent text-19 border-0 border-b border-white/30 py-3 
+                  <input id="name" type="text" class="peer w-full bg-transparent text-19 font-light border-0 border-b border-white/30 py-3 
                             focus:border-white text-white focus:outline-none placeholder-transparent" placeholder=" " />
                   <label for="name" class="absolute left-0 top-1/2 -translate-y-1/2  text-white text-19 font-light transition-all duration-200 ease-out peer-focus:top-0 peer-focus:text-xs peer-focus:text-white peer-focus:-translate-y-full peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base 2xl:peer-placeholder-shown:text-19 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-full peer-not-placeholder-shown:text-19 peer-not-placeholder-shown:text-white">Name*</label>
                 </div>
 
                 <div class="relative w-full ">
-                  <input id="email" type="email" class="peer w-full bg-transparent text-19 border-0 border-b border-white/30 py-3 
+                  <input id="email" type="email" class="peer w-full bg-transparent text-19 font-light border-0 border-b border-white/30 py-3 
                             focus:border-white text-white focus:outline-none placeholder-transparent" placeholder=" " />
-                  <label for="email" class="absolute left-0 top-1/2 -translate-y-1/2  text-white text-19 font-light transition-all duration-200 ease-out peer-focus:top-0 peer-focus:text-xs peer-focus:text-white peer-focus:-translate-y-full peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base 2xl:peer-placeholder-shown:text-19 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-full peer-not-placeholder-shown:text-19 peer-not-placeholder-shown:text-white">Email</label>
+                  <label for="email" class="absolute left-0 top-1/2 -translate-y-1/2  text-white text-19 font-light transition-all duration-200 ease-out peer-focus:top-0 peer-focus:text-xs peer-focus:text-white peer-focus:-translate-y-full peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base 2xl:peer-placeholder-shown:text-19 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-full peer-not-placeholder-shown:text-19 peer-not-placeholder-shown:text-white">Email*</label>
                 </div>
               </div>
               <div className="grid sm:grid-cols-2 gap-5 2xl:gap-12 w-full mb-6 xl:mb-8 3xl:mb-15">
                 <div class="relative w-full">
-                  <input id="organization" type="text" class="peer w-full bg-transparent text-19 border-0 border-b border-white/30 py-3 
+                  <input id="organization" type="text" class="peer w-full bg-transparent text-19 font-light border-0 border-b border-white/30 py-3 
                             focus:border-white text-white focus:outline-none placeholder-transparent" placeholder=" " />
-                  <label for="organization" class="absolute left-0 top-1/2 -translate-y-1/2  text-white text-19 font-light transition-all duration-200 ease-out peer-focus:top-0 peer-focus:text-xs peer-focus:text-white peer-focus:-translate-y-full peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base 2xl:peer-placeholder-shown:text-19 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-full peer-not-placeholder-shown:text-19 peer-not-placeholder-shown:text-white">Your Organization</label>
+                  <label for="organization" class="absolute left-0 top-1/2 -translate-y-1/2  text-white text-19 font-light transition-all duration-200 ease-out peer-focus:top-0 peer-focus:text-xs peer-focus:text-white peer-focus:-translate-y-full peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base 2xl:peer-placeholder-shown:text-19 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-full peer-not-placeholder-shown:text-19 peer-not-placeholder-shown:text-white">Your Organization*</label>
                 </div>
 
 
                 <div class="relative w-full">
-                  <input id="country" type="text" class="peer w-full bg-transparent text-19 border-0 border-b border-white/30 py-3 
+                  <input id="country" type="text" class="peer w-full bg-transparent text-19 font-light border-0 border-b border-white/30 py-3 
                             focus:border-white text-white focus:outline-none placeholder-transparent" placeholder=" " />
-                  <label for="country" class="absolute left-0 top-1/2 -translate-y-1/2  text-white text-19 font-light transition-all duration-200 ease-out peer-focus:top-0 peer-focus:text-xs peer-focus:text-white peer-focus:-translate-y-full peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base 2xl:peer-placeholder-shown:text-19 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-full peer-not-placeholder-shown:text-19 peer-not-placeholder-shown:text-white">Country</label>
+                  <label for="country" class="absolute left-0 top-1/2 -translate-y-1/2  text-white text-19 font-light transition-all duration-200 ease-out peer-focus:top-0 peer-focus:text-xs peer-focus:text-white peer-focus:-translate-y-full peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base 2xl:peer-placeholder-shown:text-19 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-full peer-not-placeholder-shown:text-19 peer-not-placeholder-shown:text-white">Country*</label>
                 </div>
               </div>
               <div className="relative mb-6 xl:mb-8 3xl:mb-15">
@@ -117,7 +117,7 @@ const ContactDetails = () => {
                     }
         `}
                 >
-                  Subject
+                  Subject*
                 </label>
 
                 {/* Make this container act like peer */}
@@ -128,7 +128,7 @@ const ContactDetails = () => {
                     onChange={setSubject}
                     styles={customStyles}
                     placeholder="" // hide placeholder for floating label
-                    classNamePrefix="react-select"
+                    classNamePrefix="react-select font-light text-19 !px-0 " 
                   />
                 </div>
               </div>
@@ -138,7 +138,7 @@ const ContactDetails = () => {
                 <textarea
                   id="message"
                   rows="3"
-                  class="peer w-full bg-transparent text-base 2xl:text-19 border-0 border-b border-white/30 py-3 
+                  class="peer w-full bg-transparent text-base 2xl:text-19 font-light  border-0 border-b border-white/30   h-[95px]
                             focus:border-white text-white focus:outline-none
                             placeholder-transparent resize-none"
                   placeholder=" "
@@ -151,7 +151,7 @@ const ContactDetails = () => {
                             peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base 2xl:peer-placeholder-shown:text-19
                             peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-full peer-not-placeholder-shown:text-19 peer-not-placeholder-shown:text-white"
                 >
-                  Message
+                  Message*
                 </label>
               </div>
 

@@ -65,14 +65,14 @@ const ExpertiseSec = () => {
 
   return (
     <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden">
-      <div className="absolute bottom-0 right-0 w-[519px] h-[725px]"><img src={assets.mainShape} alt="" /></div>
+      <div className="absolute bottom-0 right-0 w-[573px] h-[803px]"><img src={assets.mainShape} alt="" /></div>
       <div className="container">
         {/* Header */}
         <H2Title titleText={expertiseData.title} titleColor="white" marginClass="mb-4 xl:mb-50px" />
 
         {/* Swiper Slider */}
         <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-[50%_1fr] 2xl:grid-cols-[55%_1fr] 3xl:grid-cols-[961px_1fr] gap-8 xl:gap-16  " >
+          <div className="grid grid-cols-1 md:grid-cols-[50%_1fr] 2xl:grid-cols-[55%_1fr] 3xl:grid-cols-[961px_1fr] gap-8 xl:gap-[70px]  " >
             <div className='h-full'>
               <img src={activeImage} alt="" className='max-h-[250px] md:max-h-full h-full w-full object-cover' />
             </div>
@@ -133,7 +133,7 @@ const ExpertiseSec = () => {
                     </svg>
                   </div>
                   <div className="mt-4 xl:mt-5 border-t border-white/20 pt-4 xl:pt-[28px]">
-                    <ul className="list-disc max-w-[39ch] ml-[18px]"  >
+                    <ul className="list-disc max-w-[45.5ch] ml-[18px]"  >
                       {activelist.map((desc, i) => (
                         <li key={i} className='text-19 font-light'>{desc}</li>
                       ))}

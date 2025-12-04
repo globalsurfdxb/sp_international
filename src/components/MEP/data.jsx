@@ -3,7 +3,7 @@ import WhyChooseSec from "../common/ImgPointsComponent";
 export const mepData = {
     mainSection: {
         title: "Driving Efficiency Through MEP Expertise",
-        desc: ["Shapoorji International brings decades of expertise in delivering end-to-end MEP solutions that power, connect, and sustain world-class projects. From designing efficient systems to executing large-scale installations, our MEP services ensure buildings and infrastructure perform seamlessly, safely, and sustainably."],
+        desc: ["Shapoorji Pallonji Water Division delivers end-to-end water infrastructure solutions, combining engineering excellence, cutting-edge technology, and rigorous quality standards. Our team has successfully executed projects across water transmission, reservoirs, desalination plants, and complex urban utility networks."],
         vdo: "./assets/videos/cmn-dummy-vdo.mp4",
         vdoPoster: "./assets/images/mep/vdo-poster.jpg"
     },

@@ -27,12 +27,12 @@ const ExpertiseSec = ({data}) => {
       });
     }, []);
   return (
-    <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden" ref={sectionRef}>
+    <section className="relative pt-text90 pb-12 md:pb-15 lg:pb-22 3xl:pb-[95px] bg-primary text-white overflow-hidden" ref={sectionRef}>
       <div className="reveal-overlay4 absolute inset-0 bg-black/20 z-20"></div>
-      <div className="absolute bottom-0 right-0 w-[519px] h-[725px] z-0"><img src={assets.mainShape} alt="" /></div>
+      <div className="absolute -top-3 right-0 w-[624px] h-[874px] z-0"><img src={assets.mainShape} alt="" /></div>
       <div className="container relative z-10">
         {/* Header */}
-          <H2Title titleText={data.title} titleColor="white" marginClass="mb-3 md:mb-5 lg:mb-6 3xl:mb-50px" />
+          <H2Title titleText={data.title} titleColor="white" marginClass="mb-3 md:mb-5 lg:mb-6 3xl:mb-[70px]" />
         <div className='grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-30px gap-y-5 lg:gap-y-8'>
             {
               data.items.map((item,i)=>(
@@ -47,9 +47,9 @@ const ExpertiseSec = ({data}) => {
                   viewport={{ once: true, amount: 0.6 }} // triggers when card is 30% visible
                   style={{ transformStyle: "preserve-3d" }}
                 >
-                  <img src={item.img} alt={item.title} className="w-full h-[250px] xl:h-[300px] 3xl:h-[333px]  object-cover" />
+                  <img src={item.img} alt={item.title} className="w-full h-[250px] xl:h-[300px] 3xl:h-[416px]  object-cover" />
                   <div className="pt-4 lg:pt-6 2xl:pt-30px">
-                    <h3 className="text-24 3xl:text-29 leading-[1.2] 3xl:leading-[1.724137931034483] font-light mb-2">{item.title}</h3>
+                    <h3 className="text-24 3xl:text-29 leading-[1.2] 3xl:leading-[1.35] font-light ">{item.title}</h3>
                     <p className="text-19 leading-[1.526315789473684] font-light">{item.desc}</p>
                   </div>
                 </motion.div>

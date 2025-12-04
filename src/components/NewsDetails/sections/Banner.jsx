@@ -24,7 +24,7 @@ const Banner = () => {
           </motion.div>
           <div className="flex  justify-between items-center my-6 lg:my-10">
             <div>
-              <motion.h1 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-70 font-light leading-[1.07] max-w-[26.35ch]">Shapoorji Pallonji Energy's FPSO Armada Sterling Commences Production</motion.h1>
+              <motion.h1 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-70 font-light leading-[1.143] max-w-[26.35ch]">Shapoorji Pallonji Energy's FPSO Armada Sterling Commences Production</motion.h1>
             </div>
           </div>
         </div>
