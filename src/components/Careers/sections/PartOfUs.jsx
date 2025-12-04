@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cultureData } from "../data";
+import { motion,useScroll, useTransform } from "framer-motion";
 
 // Register ScrollTrigger plugin
 if (typeof window !== "undefined") {
@@ -17,6 +18,15 @@ const CultureSection = () => {
   const contentRef = useRef(null);
   const overlayRef = useRef(null);
   const clipPathRef = useRef(null);
+
+  const imageContainerRefTwo = useRef(null);
+
+  // Parallax for main image container
+  const { scrollYProgress: imageProgress } = useScroll({
+    target: imageContainerRefTwo,
+    offset: ["start end", "end start"]
+  });
+  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -39,7 +49,7 @@ const CultureSection = () => {
         trigger: section,
         start: "top 70%",
         end: "top 20%",
-        scrub: 1,
+     
       }
     });
 
@@ -53,14 +63,14 @@ const CultureSection = () => {
       .to(overlay, {
         scaleX: 0,
         duration: 0.8,
-        ease: "power2.inOut"
+        ease: "power4.inOut"
       }, "-=0.5")
       // Fade in and slide up content
       .to(content, {
         opacity: 1,
         y: 0,
-        duration: 0.8,
-        ease: "power2.out"
+        duration: 1.2,
+        ease: "power4.out"
       }, "-=0.6");
 
     return () => {
@@ -71,23 +81,24 @@ const CultureSection = () => {
   return (
     <section ref={sectionRef} className="container pb30 pt-text30">
       <div
-        className="relative w-full h-[420px] xl:h-[490px] overflow-hidden flex items-center"
+        className="relative w-full h-[420px] xl:h-[490px] overflow-hidden flex items-center" ref={imageContainerRefTwo}
       >
         {/* Background image with clip path reveal */}
-        <div
+        <motion.div 
           ref={clipPathRef}
           className="absolute inset-0"
           style={{
             backgroundImage: `linear-gradient(90deg, rgba(0, 0, 0, 0.8) 7.22%, rgba(0, 0, 0, 0) 74.6%), url(${backgroundImage})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
+            y:imageY
           }}
         />
 
         {/* Overlay for additional reveal effect */}
         <div
           ref={overlayRef}
-          className="absolute inset-0 bg-gradient-to-r from-gray-900 to-gray-800"
+          className="absolute inset-0 bg-black/50"
           style={{ transformOrigin: "left" }}
         />
 

@@ -3,8 +3,8 @@ import MainNavbar from "../../MainLayout/MainNavbar";
 import Footer from "../../MainLayout/Footer";
 import { Listbox } from "@headlessui/react";
 import { pressReleases } from "./data";
-import { useState, useMemo } from "react";
-import { motion } from "framer-motion";
+import { useState, useMemo, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { moveUp } from "../../motionVarients";
 import { Link } from "react-router-dom";
 
@@ -32,7 +32,12 @@ const Index = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState(topics[0]);
   const [selectedYear, setSelectedYear] = useState(years[0]);
-
+  const sectionRef = useRef(null)
+  const { scrollYProgress: shapeProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
   // 🔹 Filter items by topic + year
   const filteredItems = useMemo(() => {
     let items = [...pressReleases.items];
@@ -109,13 +114,10 @@ const Index = () => {
     <>
       <header className="">
         <MainNavbar />
-        <img
-          src="./assets/images/shape-right.svg"
-          alt=""
-          className="absolute top-0 right-0 z-[-1]"
-        />
+        <motion.img style={{ y: shapeY }} src="./assets/images/shape-right.svg" alt="" className="absolute top-0 right-0 z-[-1]" />
       </header>
-      <section className="relative">
+      <section className="relative" ref={sectionRef}>
+        {/* <img src="./assets/images/shape-left.svg" alt="" className="absolute  bottom-30 left-0 z-[-1]" /> */}
         <div className="container">
           <div className="mb-7 md:mb-10 xl:mb-12 3xl:mb-20 mt-12 xl:mt-15 3xl:mt-30">
             <motion.h1
@@ -244,11 +246,7 @@ const Index = () => {
             }}
           >
             {currentItems.map((item, index) => (
-              <motion.div
-                variants={moveUp(0.1 * index)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ amount: 0.2, once: true }}
+              <motion.div variants={moveUp(0.1 * index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}
                 key={item.id}
                 className="border-b border-black/20 pb-5 lg:border-b-0 lg:pb-0"
               >
@@ -273,6 +271,9 @@ const Index = () => {
                     </h4>
                   </div>
                   <Link to="/news-details">
+                    <h2 className="text-29 leading-[1.344827586206897] font-light mt-30px 3xl:max-w-[90%]">
+                      {item.title}
+                    </h2>
                     <h2 className="text-29 leading-[1.344827586206897] font-light mt-30px 3xl:max-w-[90%]">
                       {item.title}
                     </h2>
@@ -353,12 +354,9 @@ const Index = () => {
           </div>
         </div>
 
+
         <div className="absolute bottom-1/8 left-0 z-[-1] ">
-          <img
-            src="/assets/images/press-releases/listbody.svg"
-            alt=""
-            className=" object-fit 2xl-w[754px] 2xl-h[1056px] relative 2xl:top-[14px] "
-          />
+          <motion.img style={{ y: shapeY }} src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit 2xl-w[754px] 2xl-h[1056px] relative 2xl:top-[14px] " />
         </div>
       </section>
       <footer>

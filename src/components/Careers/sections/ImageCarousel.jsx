@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { moveLeft } from "../../../motionVarients";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 const images = [
   "/assets/images/careers/carousel/car-1.jpg",
   "/assets/images/careers/carousel/car-2.jpg",
@@ -17,7 +17,14 @@ const images = [
 
 const ImageCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const imageContainerRefTwo = useRef(null);
 
+  // Parallax for main image container
+  const { scrollYProgress: imageProgress } = useScroll({
+    target: imageContainerRefTwo,
+    offset: ["start end", "end start"]
+  });
+  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
   const computeHeight = (i, scale = 1) => {
     const diff = Math.abs(activeIndex - i);
     let baseHeight = 455;
@@ -64,7 +71,7 @@ const ImageCarousel = () => {
                   transition: "height 0.6s ease",
                 }}
               >
-                <div className="overflow-hidden transition-all duration-500 ease-in-out"
+                <div className="overflow-hidden transition-all duration-500 ease-in-out relative" ref={imageContainerRefTwo}
                   style={{
                     // Dynamically scale height based on screen width
                     height: computeHeight(
@@ -82,7 +89,7 @@ const ImageCarousel = () => {
                     width: "100%",
                   }}
                 >
-                  <img src={img} alt={`slide-${i}`} className="w-full h-full object-cover" />
+                  <motion.img style={{ y: imageY }} src={img} alt={`slide-${i}`} className="w-full h-full object-cover" />
                 </div>
               </SwiperSlide>
             ))}
