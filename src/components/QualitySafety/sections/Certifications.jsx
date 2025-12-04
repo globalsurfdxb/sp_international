@@ -10,7 +10,7 @@ const Certifications = () => {
             <p className="text-19 font-light leading-[1.474] max-w-[85ch] text-white">{CertificationsData.description}</p>
           </div> 
           <div> 
-            <div className="grid grid-cols-1  md:grid-cols-3  gap-2 lg:gap-23 mt-5 xl:mt-50px border-t border-white/20">
+            <div className="grid grid-cols-1  md:grid-cols-3  3xl:grid-cols-[520px_550px_550px]  gap-2 lg:gap-23 3xl:gap-0 mt-5 xl:mt-50px border-t border-white/20">
               {CertificationsData.certificates.map((item,index)=>(
                 <div key={index} className="p-6 lg:p-10 md:border-l border-white/20 md:last:border-r border-b md:border-b-0">
                   <img src={item.image} alt="" />

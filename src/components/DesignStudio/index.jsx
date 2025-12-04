@@ -16,8 +16,8 @@ const DesignStudio = () => {
       <MainNavbar />
     </header>
     <main>
-        <Banner title="Design Studio" image="./assets/images/design-studio/banner.jpg" />
-        <VdoSection data={designStudioData.mainSection} />
+        <Banner title="Design Studio" image="./assets/images/design-studio/banner_01.jpg" />
+        <VdoSection data={designStudioData.mainSection} maxW="max-w-[18ch]" maxtextwidth="max-w-[60ch]"/>
         <ExpertiseSec data={designStudioData.expertiseData} />
         <DesignExcellence data={designStudioData.designExcellenceData} />
         <FeaturedProjectSlider data={designStudioData.featuredProjectsData} />

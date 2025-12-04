@@ -63,7 +63,7 @@ const DivisionExpertise = ({data}) => {
             <Swiper
               ref={swiperRef}
               modules={[EffectFade, Autoplay, Navigation]}
-              spaceBetween={0}
+              spaceBetween={0} 
               slidesPerView={1}
               loop={true}
               loopedSlides={6}
@@ -98,11 +98,11 @@ const DivisionExpertise = ({data}) => {
                   spaceBetween: 40,
                 },
               }}
-              className="md:!overflow-visible"
+              className="md:!overflow-visible h-full"
             >
               {data.items.map((item, i) => (
                 <SwiperSlide key={i}>
-                  <div className="overflow-hidden md:border-l border-black/20">
+                  <div className="overflow-hidden md:border-l border-black/20 h-full">
                     <div className="relative overflow-hidden" ref={imageContainerRefTwo}>
                       <motion.img style={{ y: imageY }} variants={moveUp(0.1 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={item.image} alt={`slide-${i}`} className="w-full h-auto object-cover" />
                     </div>

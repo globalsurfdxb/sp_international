@@ -10,18 +10,18 @@ const RegionalOffices = () => {
         <div className="grid md:grid-cols-2 2xl:grid-cols-3 md:gap-y-8 3xl:gap-y-17">
           {regionalData.offices.map((office, index) => (
             <div key={index} className="px-0 md:px-5 p-5 py-8 3xl:px-15 3xl:pb-15 md:border-r md:border-t border-b border-[#CCCCCC] no-border-right no-pl0 ">
-              <div className="mb-2 md:mb-5"> <h3 className="font-19 font-bold max-w-[32ch]">{office.name}</h3></div>
-              <p className="font-19 font-light mb-4 lg:mb-[45px] leading-[1.5] md:leading-[1.6] lg:leading-[1.75]" dangerouslySetInnerHTML={{ __html: office.address }}></p>
+              <div className="mb-2 md:mb-5"> <h3 className="text-19 font-bold max-w-[32ch]">{office.name}</h3></div>
+              <p className="text-19 font-light mb-4 lg:mb-[45px] leading-[1.5] md:leading-[1.6] lg:leading-[1.48]" dangerouslySetInnerHTML={{ __html: office.address }}></p>
               {
                 office.phone || office.fax ? (
-                  <div className="bg-f5f5 p-5 3xl:px-10 3xl:py-[34px]">
+                  <div className="bg-f5f5 p-5 3xl:px-10 3xl:pt-[34px] 3xl:pb-[36px]">
                     <div className="flex flex-wrap justify-between mb-5 lg:mb-[35px] ">
                       {office.phone ? (
                         <div>
                           <p className="text-paragraph text-19 font-light mb-[4px] leading-[1.48] ">Phone</p>
                           <div>
                             {office.phone.map((phone, index) => (
-                              <p key={index} className="text-paragraph text-19 font-bold leading-[1.31] ">{phone}</p>
+                              <p key={index} className="text-paragraph text-19 font-bold leading-[1.53] ">{phone}</p>
                             ))}
                           </div>
                         </div>
@@ -35,7 +35,7 @@ const RegionalOffices = () => {
                     </div>
 
                     <div className="flex gap-[6px] items-center cursor-pointer">
-                      <p className="text-16 font-light uppercase text-paragraph">Location</p>
+                      <p className="text-16 font-light leading-[1.75] uppercase text-paragraph">Location</p>
                       <svg xmlns="http://www.w3.org/2000/svg" width="15" height="19" viewBox="0 0 15 19" fill="none">
                         <g clip-path="url(#clip0_3796_2437)">
                           <path d="M7.49886 1.06396C3.95699 1.06396 1.08594 3.91705 1.08594 7.43674C1.08594 8.72329 1.47165 9.91985 2.12904 10.9198L7.43513 17.7258L12.8653 10.9198C13.5261 9.91652 13.9084 8.71996 13.9084 7.43674C13.9151 3.91705 11.0407 1.06396 7.49886 1.06396Z" stroke="#30B6F9" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" />

@@ -55,7 +55,7 @@ const EmpoweringCommunities = () => {
   };
   return (
     <section className="pt-10 xl:pt-15 2xl:pt-25 overflow-hidden relative" ref={sectionRef}>
-      <div className="w-full h-[260px] sm:h-[320px] lg:h-[600px]  3xl:h-[670px] flex justify-center  gap-1 lg:gap-3">
+      <div className="w-full h-[260px] sm:h-[320px] lg:h-[600px]  3xl:h-[670px] flex justify-center  gap-1 lg:gap-3 2xl:gap-[16px]">
 
         {/* LEFT SIDE */}
 
@@ -107,7 +107,7 @@ const EmpoweringCommunities = () => {
           <motion.p variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 lg:text-29 text-paragraph font-light leading-[1.285] max-w-[46ch] m-auto text-center">Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people</motion.p>
         </div>
       </div>
-      <div className="absolute top-15 right-0 z-[-1] w-[700px] h-[980px]"><motion.img style={{ y: shapeY }} src={assets.mainShape} alt="" /></div>
+      <div className="absolute top-15 right-0 z-[-1] w-[700px] h-[980px]"><motion.img style={{ y: shapeY }} src="/assets/images/svg/sv-02.svg" alt="" /></div>
     </section>
   );
 };

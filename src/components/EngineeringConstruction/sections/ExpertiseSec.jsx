@@ -67,7 +67,7 @@ const ExpertiseSec = () => {
 
         {/* Swiper Slider */}
         <div className="relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 3xl:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 3xl:gap-[70px]">
             {/* Image Section - Swiper */}
             <motion.div variants={moveRight(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}>
               <Swiper
@@ -100,8 +100,9 @@ const ExpertiseSec = () => {
             {/* Content Section - Static with Navigation */}
             <motion.div variants={moveLeft(0.6)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}>
               {/* Navigation - Fixed */}
-              <div className="flex items-center gap-4 mb-5 xl:mb-8 border-b border-white/20 pt-5 lg:pt-10 pb-4 xl:pb-8">
-                <button onClick={() => imageSwiper?.slidePrev()}
+              <div className="flex items-center gap-4  xl:gap-[51px] mb-5 xl:mb-[50px] border-b border-white/30 pt-5 lg:pt-10  pb-4 xl:pb-[30px]">
+                <div className='flex items-center gap-[12px]'>
+                  <button onClick={() => imageSwiper?.slidePrev()}
                   className="w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors"
                   aria-label="Previous slide"
                 >
@@ -113,8 +114,9 @@ const ExpertiseSec = () => {
                 >
                   <img src={assets.arrowRight2} alt="" />
                 </button>
+                </div>
                 <span className="text-19 leading-[1.473684210526316] ml-2">
-                  {String(currentSlide + 1).padStart(2, '0')}/{String(expertiseData.items.length).padStart(2, '0')}
+                 <span className='font-bold '> {String(currentSlide + 1).padStart(2, '0')}</span>/{String(expertiseData.items.length).padStart(2, '0')}
                 </span>
               </div>
 
@@ -137,10 +139,10 @@ const ExpertiseSec = () => {
                 {expertiseData.items.map((item, index) => (
                   <SwiperSlide key={index}>
                     <div>
-                      <h3 className="text-29 leading-[1.344827586206897] font-light mb-2 xl:mb-4">
+                      <h3 className="text-29 leading-[1.344827586206897] font-light mb-2 xl:mb-5">
                         {item.mainTitle}
                       </h3>
-                      <p className="text-white/80 text-19 leading-[1.473684210526316] font-light mb-8">
+                      <p className="text-white/80 text-19 leading-[1.473684210526316] font-light mb-8 2xl:mb-[45px]">
                         {item.mainDesc}
                       </p>
 
@@ -151,7 +153,7 @@ const ExpertiseSec = () => {
                         </h4>
                         <ul className="space-y-2">
                           {item.desc.map((service, idx) => (
-                            <li key={idx} className="text-white/80 text-sm xl:text-base flex items-start">
+                            <li key={idx} className="text-white/80 text-19 flex items-start">
                               <span className="mr-2">•</span>
                               <span>{service}</span>
                             </li>
