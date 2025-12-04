@@ -75,19 +75,19 @@ const FocusArea = () => {
   }, []);
   return (
     <section className="pt-text90 pb25 bg-f5f5 relative  overflow-hidden" ref={sectionRef}>
-      <div className="container">
-        <div className="w-[1316px] pr-4 flex justify-end ml-auto ">
-          <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className='w-full md:pl-6 lg:pl-10 2xl:pl-[107px] text-60 md:text-40 2xl:text-45 3xl:text-60 font-light leading-[1.18] mb-5 lg:mb-8 xl:mb-25'>{focusData.title}</motion.h2>
+      <div className="container relative">
+        <div className="w-[800px] 2xl:w-[1016px] 3xl:w-[1316px]  flex justify-end 3xl:ml-auto lg:absolute left-0 lg:left-[120px] xl:left-[160px] 3xl:right-0">
+          <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className='relative lg:before:absolute before:top-0 before:left-[-170px] before:w-[100px] before:h-[47px] before:2xl:h-[53px] before:3xl:h-[70px] before:bg-f5f5 before:z-10  bg-f5f5 z-10 w-full pl-0  xl:pl-[25px] 2xl:pl-[90px] 3xl:pl-[90px] text-60 md:text-40 2xl:text-45 3xl:text-60 font-light leading-[1.18] mb-5 lg:mb-8 xl:mb-[90px]'>{focusData.title}</motion.h2>
         </div>
         <div className="flex gap-6 xl:gap-[80px] justify-end relative z-[2]">
           {/* Left column */}
           <div
             ref={leftRef}
-            className="xl:max-h-[100dvh] overflow-y-auto  scrollbar-hidden hidden lg:block   "
+            className="xl:max-h-[100dvh] overflow-y-auto  scrollbar-hidden hidden lg:block lg:pt-[100px] 2xl:pt-25 3xl:pt-[180px]  "
           >
             {/* <h2 className='text-60 font-light leading-[1.18] mb-5 lg:mb-8 xl:mb-25 invisible'>ss</h2> */}
             {focusData.areas.map((area, i) => (
-              <div key={i} className=" last:mb-0 last:xl:mb-0 h-[262px] md:h-[226px] xl:h-[262px] pt-2" >
+              <div key={i} className=" last:mb-0 last:xl:mb-0 mb-6 xl:mb-[63px]  h-[262px] md:h-[226px] xl:h-[262px] pt-2" >
                 <img src={area.icon} alt='' />
               </div>
             ))}
@@ -96,9 +96,9 @@ const FocusArea = () => {
           {/* Right column */}
           <div
             ref={rightRef}
-            className="w-[1316px] xl:max-h-[100dvh] overflow-y-auto pr-4 custom-scroll-left "
+            className="w-[1316px] xl:max-h-[100dvh] overflow-y-auto   custom-scroll-left "
           >
-            <div className='pl-0 lg:pl-10 2xl:pl-[107px]'>
+            <div className='pl-0 lg:pl-10 2xl:pl-[107px] lg:pt-[100px] 2xl:pt-25 3xl:pt-[180px]'>
               {focusData.areas.map((area, i) => (
                 <div key={i} className="flex gap-3 pb-6 xl:pb-[63px] last:pb-0 last:xl:pb-0">
                   <div className='flex flex-col lg:flex-row gap-6 lg:gap-12 2xl:gap-[181px] justify-between w-full sdsdsd'>
@@ -118,7 +118,7 @@ const FocusArea = () => {
           </div>
         </div>
       </div>
-      <div className="absolute top-1/2 translate-y-[-50%] left-0 z-[1] w-[510px] h-[714px]"><motion.img style={{y:shapeY}} src={assets.mainShape} alt="" /></div>
+      <div className="absolute top-1/2 translate-y-[-20%] left-0 z-[1] w-[510px] h-[714px]"><motion.img style={{y:shapeY}} src={assets.mainShape} alt="" /></div>
     </section>
   );
 };
