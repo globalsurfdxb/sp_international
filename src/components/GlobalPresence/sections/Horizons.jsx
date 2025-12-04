@@ -9,8 +9,9 @@ const Horizons = ({data}) => {
            <H2Title titleText={data.title} titleColor="black" marginClass="mb-50px" />
            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-6 lg:gap-y-10 xl:gap-y-[120px]">
             {
-              data.items.map((item)=>(
-                <div className="group border-l border-black/20 border-t-cmnbdr lg:border-t-transparent   lg:border-b-transparent border-t-2 border-b-2 bdrrst hover:border-t-2 hover:border-t-[#30B6F9] hover:border-b-2 hover:border-b-[#30B6F9] transition-all duration-300">
+              data.items.map((item,index)=>( 
+                <motion.div variants={moveUp(0.1*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="group border-l border-black/20 border-t-cmnbdr lg:border-t-transparent border-b lg:border-b-transparent bdrrst hover:border-y-2 hover:border-y-[#30B6F9] 
+                  ">
                   <h3 className="text-29 font-light leading-[1.311] mb-4 lg:mb-[22px]  px-3 lg:px-10 pt-4 lg:pt-7">{item.location}</h3>
                   <div className="relative">
                     <div className="absolute bottom-0 w-full h-0 group-hover:h-full group-hover:bg-[linear-gradient(180deg,rgba(48,182,249,0)_0%,rgba(48,182,249,0.75)_100%)] transition-all duration-300 ">
