@@ -112,29 +112,29 @@ const Index = () => {
             <motion.h1 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-70 font-light leading-[1.071428571428571]">{pressReleases.title}</motion.h1>
           </div>
 
-          <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between border-y border-cmnbdr pt-35px mb-10 lg:mb-15 3xl:mb-25">
+          <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between border-y border-cmnbdr pt-[35px] mb-10 lg:mb-15 3xl:mb-25">
             <div className="flex flex-wrap justify-between xl:justify-start gap-3 md:gap-15 xl:gap-[75px] mb-4 md:mb-0">
               <div className="relative pb-0 md:pb-35px    transition-all duration-300 group">
-                <span className="cursor-pointer   text-paragraph text-16 font-semibold leading-[1.75] uppercase">
+                <span className="cursor-pointer   text-paragraph text-16 font-semibold leading-[1.75] uppercase group-hover:text-black">
                   All
                 </span>
                 <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
               </div>
               <div className=" relative pb-0 md:pb-35px transition-all duration-300 group">
-                <span className="cursor-pointer  text-paragraph text-16 font-semibold leading-[1.75] uppercase">
+                <span className="cursor-pointer  text-paragraph text-16 font-semibold leading-[1.75] uppercase group-hover:text-black">
                   Events
                 </span>
                 <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
 
               </div>
               <div className=" relative pb-0 md:pb-35px transition-all duration-300 group">
-                <span className="cursor-pointer  text-paragraph text-16 font-semibold leading-[1.75] uppercase">
+                <span className="cursor-pointer  text-paragraph text-16 font-semibold leading-[1.75] uppercase group-hover:text-black">
                   Activities
                 </span>
                 <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
               </div>
               <div className=" relative pb-0 md:pb-35px transition-all duration-300 group">
-                <span className="cursor-pointer  text-paragraph text-16 font-semibold leading-[1.75] uppercase">
+                <span className="cursor-pointer  text-paragraph text-16 font-semibold leading-[1.75] uppercase group-hover:text-black">
                   Achievements
                 </span>
                 <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
@@ -161,7 +161,7 @@ const Index = () => {
                   alt={item.title}
                   width={520}
                   height={339}
-                  className="w-full h-[200px] xl:h-[339px] 2xl:h-[442px] object-cover"
+                  className="w-full h-[200px] xl:h-[339px] 2xl:h-[422px] object-cover"
                 />
                 <div className="pt-7">
                   <h4 className="text-paragraph text-sm 2xl:text-16 font-light leading-[1.75] uppercase 2xl:pb-3">
@@ -196,7 +196,7 @@ const Index = () => {
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.98, opacity: 0 }}
                   transition={{ duration: 0.18 }}
-                  className="relative z-10 max-w-[1100px]  w-full md:w-[79%] xl:w-full mx-auto bg-transparent"
+                  className="relative z-10 max-w-[1100px]  3xl:max-w-[1436px]  w-full md:w-[79%] xl:w-full mx-auto bg-transparent"
                   onClick={(e) => e.stopPropagation()} // prevent backdrop close when clicking content
                 >
                   {/* top bar: close */}
@@ -241,7 +241,7 @@ const Index = () => {
                     </button>
 
                     {/* animate image change */}
-                    <div className="w-full h-full lg:h-[60vh] flex items-center justify-center">
+                    <div className="w-full  h-full lg:h-[60vh] 3xl:max-h-[91.7dvh]  flex items-center justify-center">
                       <motion.img
                         key={images[index]} // important so framer animates on src change
                         src={images[index]}
@@ -250,7 +250,7 @@ const Index = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.25 }}
-                        className="max-h-[60vh] sm:max-h-[70vh] object-cover w-full"
+                        className="max-h-[60vh] sm:max-h-[70vh] 3xl:max-h-[91.7dvh] object-cover w-full"
                       />
                     </div>
 
@@ -281,14 +281,14 @@ const Index = () => {
           </AnimatePresence>
         </div>
 
-        <div className="pagination flex items-center gap-2 justify-center mb-10 xl:mb-15 3xl:mb-[131.68px]">
+        <div className="pagination flex items-center gap-2 2xl:gap-5 justify-center mb-10 xl:mb-15 3xl:mb-[131.68px]">
           <button
             className={`prev cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === 1 || isAnimating ? 'opacity-30' : 'opacity-100'
               }`}
             onClick={handlePrev}
             disabled={currentPage === 1 || isAnimating}
           >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="17" height="17" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M9.7549 1.25L1.25 9.7549M1.25 9.7549L9.75297 18.2579M1.25 9.7549L18.2169 9.79374"
                 stroke="#30B6F9"
@@ -315,7 +315,7 @@ const Index = () => {
             onClick={handleNext}
             disabled={currentPage === totalPages || isAnimating}
           >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="17" height="17" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M9.71189 1.25L18.2168 9.7549M18.2168 9.7549L9.71383 18.2579M18.2168 9.7549L1.24994 9.79374"
                 stroke="#30B6F9"

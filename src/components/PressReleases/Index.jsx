@@ -8,7 +8,7 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { moveUp } from "../../motionVarients";
 const topics = [
-  { id: 1, title: "All" },
+  { id: 1, title: "Topic" },
   { id: 2, title: "Press Releases 1" },
   { id: 3, title: "Press Releases 2" },
   { id: 4, title: "Press Releases 3" },
@@ -17,7 +17,7 @@ const topics = [
 ];
 
 const years = [
-  { id: 1, title: "2024" },
+  { id: 1, title: "Year" },
   { id: 2, title: "2023" },
   { id: 3, title: "2022" },
   { id: 4, title: "2021" },
@@ -83,10 +83,10 @@ const Index = () => {
 
           <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between border-y border-cmnbdr py-35px mb-10 lg:mb-12  3xl:mb-20">
             <div className="flex flex-col md:flex-row gap-5 md:gap-15 xl:gap-[90px]">
-              <div className="w-full min-w-full md:max-w-[200px] md:min-w-[77px] relative">
+              <div className="w-full min-w-full   md:min-w-[77px] relative">
                 <Listbox value={selectedTopic} onChange={setSelectedTopic}>
-                  <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-3 outline-0 border-0 justify-between">
-                    <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
+                  <Listbox.Button className="relative w-fit cursor-pointer text-left flex items-center gap-3 2xl:gap-[16px] outline-0 border-0 justify-between">
+                    <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase whitespace-nowrap">
                       {selectedTopic.title}
                     </span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
@@ -100,16 +100,16 @@ const Index = () => {
                         value={topic}
                         className="py-1 px-4 hover:bg-[#f0f0f0] cursor-pointer group hover:font-bold transition-all duration-300 w-full"
                       >
-                        <span className="group-hover:scale-[1.03]">{topic.title}</span>
+                        <span className="group-hover:scale-[1.03] whitespace-nowrap">{topic.title}</span>
                       </Listbox.Option>
                     ))}
                   </Listbox.Options>
                 </Listbox>
               </div>
 
-              <div className="w-full min-w-full md:max-w-[200px] md:min-w-[77px] relative">
+              <div className="w-full min-w-full md:min-w-[77px] relative">
                 <Listbox value={selectedYear} onChange={setSelectedYear}>
-                  <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-3 outline-0 border-0 justify-between">
+                  <Listbox.Button className="relative w-fit cursor-pointer text-left flex items-center gap-3 2xl:gap-[16px] outline-0 border-0 justify-between">
                     <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                       {selectedYear.title}
                     </span>
@@ -131,7 +131,7 @@ const Index = () => {
                 </Listbox>
               </div>
             </div>
-            <div className="flex items-center gap-3 group cursor-pointer justify-end">
+            <div className="flex items-center gap-[10px] group cursor-pointer justify-end">
               <img src="./assets/images/icons/arrow-tail-left.svg" alt="" className="group-hover:translate-x-[-3px] transition-all duration-300" />
               <p className="text-paragraph text-16 font-light leading-[1.75] uppercase transition-all duration-300">Clear Filter</p>
             </div>
@@ -226,7 +226,7 @@ const Index = () => {
         </div>
         
         <div className="absolute bottom-1/8 left-0 z-[-1] ">
-          <img src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit" />
+          <img src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit 2xl-w[754px] 2xl-h[1056px] relative 2xl:top-[14px] " />
         </div>
 
       </section>

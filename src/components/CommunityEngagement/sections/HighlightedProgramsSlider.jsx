@@ -71,20 +71,20 @@ const HighlightedProgramsSlider = () => {
             </div>
 
             {/* Content Section - Static with Navigation */}
-            <div className="order-1 lg:order-2 lg:pt-10 lg:w-[45%] 2xl:w-[37.5%]">
+            <div className="order-1 lg:order-2   lg:w-[45%] 2xl:w-[37.5%]">
               {/* Navigation - Fixed */}
-              <div className="flex items-center gap-4  border-b border-white/20 pb-4 2xl:pb-8 lg:pb-6 mb-4 lg:mb-6 2xl:mb-8">
+              <div className="flex items-center gap-4   border-b border-white/20 pb-4 2xl:pb-[30px] lg:pb-6 mb-4 lg:mb-6 2xl:mb-[70px]">
                 <button onClick={() => imageSwiper?.slidePrev()}
                   className="cursor-pointer w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors"
                   aria-label="Previous slide"
                 >
-                  <img src={assets.arrowLeft2} alt="" />
+                  <img src={assets.arrowLeft2} alt="" className='w-[14px] h-[14px]'/>
                 </button>
                 <button onClick={() => imageSwiper?.slideNext()}
                   className="cursor-pointer w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors"
                   aria-label="Next slide"
                 >
-                  <img src={assets.arrowRight2} alt="" />
+                  <img src={assets.arrowRight2} alt="" className='w-[14px] h-[14px]' />
                 </button>
                 <span className="text-19 leading-[1.473684210526316] ml-2">
                   {String(currentSlide + 1).padStart(2, '0')}/{String(expertiseData.items.length).padStart(2, '0')}

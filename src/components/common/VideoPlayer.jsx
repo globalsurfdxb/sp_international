@@ -20,7 +20,7 @@ export default function VideoPlayer({ src, poster }) {
 
   return (
     <div
-      className="relative w-full max-w-6xl mx-auto cursor-pointer group"
+      className="relative w-full max-w-[1238px] mx-auto cursor-pointer group"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       onClick={togglePlay}
@@ -37,9 +37,9 @@ export default function VideoPlayer({ src, poster }) {
         ${(isHovering || !isPlaying) ? "opacity-100" : "opacity-0"}`}
       >
         {!isPlaying ? (
-          <img src={assets.vdoPlayIcon} className="w-10 h-10 xl:w-[50px] xl:h-[50px]" alt="" />
+          <img src={assets.vdoPlayIcon} className="w-10 h-10 xl:w-[75px] xl:h-[75px]" alt="" />
         ) : (
-          <img src={assets.vdoPauseIcon} className="w-10 h-10 xl:w-[50px] xl:h-[50px]" alt="" />
+          <img src={assets.vdoPauseIcon} className="w-10 h-10 xl:w-[75px] xl:h-[75px]" alt="" />
         )}
       </div>
     </div>

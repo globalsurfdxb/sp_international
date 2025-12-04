@@ -98,6 +98,37 @@ export const pressReleases = {
         date:"2024-01-01",
         link:"/press-releases/press-release-12",
         category:"Events" 
+      }, {
+        image:"./assets/images/gallery/gl9.jpg",
+        lmglist:['./assets/images/gallery/gl10.jpg','./assets/images/gallery/gl9.jpg','./assets/images/gallery/gl8.jpg'],
+        title:"Shapoorji Pallonji Energy's FPSO Armada Sterling..",
+        date:"2024-01-01",
+        link:"/press-releases/press-release-9",
+        category:"Events" 
+      },
+      {
+        image:"./assets/images/gallery/gl10.jpg",
+        lmglist:['./assets/images/gallery/gl10.jpg','./assets/images/gallery/gl9.jpg','./assets/images/gallery/gl8.jpg'],
+        title:"Shapoorji Pallonji Energy's FPSO Armada Sterling..",
+        date:"2024-01-01",
+        link:"/press-releases/press-release-10",
+        category:"Events" 
+      },
+      {
+        image:"./assets/images/gallery/gl11.jpg",
+        lmglist:['./assets/images/gallery/gl10.jpg','./assets/images/gallery/gl9.jpg','./assets/images/gallery/gl8.jpg'],
+        title:"Shapoorji Pallonji Energy's FPSO Armada Sterling..",
+        date:"2024-01-01",
+        link:"/press-releases/press-release-11",
+        category:"Events" 
+      },
+      {
+        image:"./assets/images/gallery/gl12.jpg",
+        lmglist:['./assets/images/gallery/gl10.jpg','./assets/images/gallery/gl9.jpg','./assets/images/gallery/gl8.jpg'],
+        title:"Shapoorji Pallonji Energy's FPSO Armada Sterling..",
+        date:"2024-01-01",
+        link:"/press-releases/press-release-12",
+        category:"Events" 
       }, 
  
       

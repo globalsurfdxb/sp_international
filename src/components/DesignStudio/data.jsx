@@ -3,7 +3,7 @@ import DesignExcellence from "./sections/DesignExcellence";
 export const designStudioData = {
   mainSection: {
     title: "Design Excellence. Engineered Precision.",
-    desc: ["The Design Division of Shapoorji International provides comprehensive professional services in architecture, engineering, and design management. Our team ensures end-to-end coordination between disciplines, managing diverse professionals and consultants to meet every client and authority requirement with precision and creativity., and sustainable practices to deliver high-quality, timely, and cost-effective solutions.", "With an in-house Design Studio, we streamline every aspect of design development — from feasibility to final delivery — ensuring quality, efficiency, and innovation in every phase."],
+    desc: ["The Design Division of Shapoorji International provides comprehensive professional services in architecture, engineering, and design management. Our team ensures end-to-end coordination between disciplines, managing diverse professionals and consultants to meet every client and authority requirement with precision and creativity.", "With an in-house Design Studio, we streamline every aspect of design development — from feasibility to final delivery — ensuring quality, efficiency, and innovation in every phase."],
     vdo: "./assets/videos/cmn-dummy-vdo.mp4",
     vdoPoster: "./assets/images/design-studio/vdo-poster.jpg"
   },

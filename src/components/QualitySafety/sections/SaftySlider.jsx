@@ -17,30 +17,30 @@ const SaftySlider = () => {
   const computeHeight = (i, scale = 1) => {
     const diff = Math.abs(activeIndex - i);
     let baseHeight = 455;
-    if (diff === 0) baseHeight = 679;
-    else if (diff === 1 && i > activeIndex) baseHeight = 536;
-    else if (diff === 1 && i < activeIndex) baseHeight = 593;
-    else if (diff === 2 && i < activeIndex) baseHeight = 517;
-    else if (diff === 2 && i > activeIndex) baseHeight = 455;
+    if (diff === 0) baseHeight = 597;
+    else if (diff === 1 && i > activeIndex) baseHeight = 471;
+    else if (diff === 1 && i < activeIndex) baseHeight = 521;
+    else if (diff === 2 && i < activeIndex) baseHeight = 455;
+    else if (diff === 2 && i > activeIndex) baseHeight = 400;
 
     return `${baseHeight * scale}px`;
   };
 
   return (
     <section className="max-w-[1920px] mx-auto overflow-hidden ">
-     <div className="relative">
-      <img src="/assets/images/svg/sv-02.svg" alt="" className="absolute bottom-0 left-0 z-[-1]" width={468} height={655} /> 
+     <div className="relative mb-3">
+      <img src="/assets/images/svg/sv-02.svg" alt="" className="absolute bottom-0 2xl:bottom-[-58px] left-0 z-[-1] w-[468px] h-[655px]" width={468} height={655} /> 
       <div className="container pt-text30">   
         <div className=" max-w-[1206px] ml-auto  ">
           <div>
-            <H2Title titleText={saftyData.title} titleColor="black" marginClass="mb-4 2xl:mb-50px" />
+            <H2Title titleText={saftyData.title} titleColor="black" marginClass="mb-4 2xl:mb-50px max-w-[15ch]" />
               <p className="text-19 font-light leading-[1.474] max-w-[59ch] text-paragraph">{saftyData.description}</p>
           </div>
-          <div className="flex flex-col md:flex-row p-5 lg:px-12  lg:py-10 bg-f5f5 mb-3 gap-8 md:gap-0">
+          <div className="flex flex-col md:flex-row p-5 lg:px-12  lg:py-10 bg-f5f5  gap-8 md:gap-0">
             {saftyData.counts.map((item,index)=>(
               <div key={index} className="">
                 <p className="text-40 font-light leading-[1.02] text-paragraph mb-3 lg:mb-[18px] ">{item.count}</p>
-                <p className="text-19 font-light leading-[1.48] pt-3 lg:pt-[14px] border-t border-[#cccccc] pr-5 lg:pr-[150px]">{item.title}</p>
+                <p className="text-19 font-light text-black/70 leading-[1.48] pt-3 lg:pt-[14px] border-t border-[#cccccc] xl:whitespace-nowrap pr-5 lg:pr-[150px]">{item.title}</p>
               </div>
             ))}
           </div>
@@ -67,7 +67,7 @@ const SaftySlider = () => {
               0: { slidesPerView: 1.2 }, // SM
             }}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-            className="h-[400px] md:h-[470px]  lg:h-[570px] xl:h-[586px] 2xl:h-[611px] 3xl:h-[679px]"
+            className="h-[400px] md:h-[470px]  lg:h-[570px] xl:h-[586px] 2xl:h-[611px] 3xl:h-[597px]"
           >
             {[...sliderImages, ...sliderImages].map((img, i) => (
               <SwiperSlide
