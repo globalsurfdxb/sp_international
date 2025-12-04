@@ -20,7 +20,7 @@ const WhyChooseSec = ({data}) => {
         <div className="max-w-[1207px] ml-auto">
           <div className="border-b border-cmnbdr pb-50px">
             <H2Title titleText="Why Choose Us" titleColor="black" marginClass="mb-5" />
-            <p className="text-19 leading-[1.526315789473684] font-light text-paragraph">With over a century of experience, SP International is committed to</p>
+            <p className="text-19 leading-[1.526315789473684] font-light text-paragraph">We are more than a service provider — we are a strategic partner committed to transforming your assets into high-performing, sustainable environments.</p>
           </div>
           <div className="">
             <AccordionStyle1 accData={data} />

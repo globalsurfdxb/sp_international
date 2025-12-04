@@ -48,7 +48,7 @@ export default function TabStyle1({ data }) {
       </div>
 
       {/* Content */}
-      <div className="max-w-[1345px] mt-12">
+      <div className="max-w-[1377px] mt-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab.id}
@@ -56,7 +56,7 @@ export default function TabStyle1({ data }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -18 }}
             transition={{ duration: 0.45, ease: "easeOut" }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-x-18 items-center"
+            className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[650px_auto] gap-10 xl:gap-x-18 items-center"
           >
             {/* Left image */}
             <motion.div
@@ -69,7 +69,7 @@ export default function TabStyle1({ data }) {
                 <img
                   src={activeTab.image}
                   alt={activeTab.title}
-                  className="w-full h-full max-h-[420px] object-cover"
+                  className="w-full h-full max-h-[445px] object-cover"
                 />
               </div>
             </motion.div>

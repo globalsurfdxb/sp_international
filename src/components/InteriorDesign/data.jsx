@@ -116,7 +116,7 @@ export const interiorData = {
         desc: "With over a century of experience, SP International is committed to",
         items: [
             {
-                title: "Decades of Experiencey",
+                title: "Decades of Experience",
                 content: "Designers, engineers, and project managers aligned for excellence"
             },
             {

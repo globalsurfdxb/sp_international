@@ -17,7 +17,7 @@ export const wtrData = {
       },
       {
           title:"Specialized Utility Solutions",
-          image:"./assets/images/water/expertise2.jpg", 
+          image:"./assets/images/water/rtd.jpg", 
           desc: [ "Ancillary works: disinfection and chemical buildings, pump stations, tanker filling stations, utility culverts, access roads, and attenuation ponds."],
             
       },

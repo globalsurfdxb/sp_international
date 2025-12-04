@@ -8,7 +8,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
       {
         image:"./assets/images/projects/pjt2.jpg",
@@ -16,7 +18,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Ongoing", 
+        service:"Service2",
       }, 
       {
         image:"./assets/images/projects/pjt3.jpg",
@@ -24,7 +28,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service2",
       }, 
       {
         image:"./assets/images/projects/pjt4.jpg",
@@ -32,7 +38,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service3",
       }, 
       {
         image:"./assets/images/projects/pjt5.jpg",
@@ -40,7 +48,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
       {
         image:"./assets/images/projects/pjt6.jpg",
@@ -48,7 +58,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
       {
         image:"./assets/images/projects/pjt7.jpg",
@@ -56,7 +68,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
       
       {
@@ -65,7 +79,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
 
       {
@@ -74,7 +90,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
       
       {
@@ -83,7 +101,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
       
       {
@@ -92,7 +112,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
       
       {
@@ -101,7 +123,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
 
       {
@@ -110,7 +134,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
       
       {
@@ -119,7 +145,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
       
       {
@@ -128,7 +156,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
       
       {
@@ -137,7 +167,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
 
       {
@@ -146,7 +178,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
       
       {
@@ -155,7 +189,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
       
       {
@@ -164,7 +200,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
       
       {
@@ -173,7 +211,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
 
       {
@@ -182,7 +222,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
       
       {
@@ -191,7 +233,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }, 
       
       {
@@ -200,7 +244,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       },  
        {
         image:"./assets/images/projects/pjt1.jpg",
@@ -208,7 +254,9 @@ export const pjtList = {
         sector:"Social Infrstrucure",
         link:"#",
         sqft:"500000" ,
-        location:"Oman"
+        country:"Oman", 
+        status:"Completed", 
+        service:"Service1",
       }
       
     ]

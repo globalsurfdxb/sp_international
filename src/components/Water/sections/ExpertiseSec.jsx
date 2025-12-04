@@ -55,24 +55,21 @@ const ExpertiseSec = () => {
     const idx = getIndexAtPoint(touch.clientX, touch.clientY);
     if (idx !== -1 && idx !== activeIndex) setActiveIndex(idx);
   };
-
-  // touch start (so immediate feedback when finger first touches)
+ 
   const handleTouchStart = (e) => {
     const touch = e.touches[0];
     if (!touch) return;
     const idx = getIndexAtPoint(touch.clientX, touch.clientY);
     if (idx !== -1) setActiveIndex(idx);
   };
-
-  // mouse move for desktop (optional but useful)
+ 
   const handleMouseMove = (e) => {
     const idx = getIndexAtPoint(e.clientX, e.clientY);
     if (idx !== -1 && idx !== activeIndex) setActiveIndex(idx);
   };
-
-  // when leaving the list area, fallback to first item (or you can set to null)
+ 
   const handleLeave = () => {
-    setActiveIndex(0);
+    setActiveIndex(activeIndex);
   };
 
   const activeImage = expertiseData?.items?.[activeIndex]?.image ?? expertiseData?.items?.[0]?.image;

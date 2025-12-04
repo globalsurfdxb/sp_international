@@ -1,25 +1,62 @@
-import { useState } from 'react';
+ 
 import { motion, AnimatePresence } from 'framer-motion';
+  import { useEffect,useRef, useState } from "react";
+  import { Link } from "react-router-dom";
 
 const MainNavbar = () => {
+ 
+ const [isSticky, setIsSticky] = useState(false);
+  const [navHeight, setNavHeight] = useState(0);
+  const navRef = useRef(null);
+
+  // Measure nav height once (to create spacer and avoid jump)
+  useEffect(() => {
+    if (navRef.current) {
+      setNavHeight(navRef.current.offsetHeight);
+    }
+  }, []);
+
+  // Scroll listener to toggle sticky
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
 
   const menuItems = [
-    { name: 'About', submenu: null },
+    { name: 'About', href:"/about-us", submenu: null },
     {
       name: 'Services',
-      submenu: ['Consulting', 'Development', 'Design', 'Marketing']
+      submenu: [
+        { name: 'Engineering & Construction', href:"/engineering-construction" },
+        { name: 'MEP', href:"/mep" },
+        { name: 'Design Studio', href:"/design-studio" },
+        { name: 'Interior Fit-out', href:"/interior-design" },
+        { name: 'Façade', href:"/facade" }, 
+        { name: 'Facilities Management', href:"/integrated-facility-management" }, 
+        { name: 'Water', href:"/water" }, 
+      ]
     },
-    { name: 'Global Presence', submenu: null },
+    { name: 'Global Presence', submenu: null,href:"/global-presence" },
     {
-      name: 'Projects',
-      submenu: ['Residential', 'Commercial', 'Industrial', 'Infrastructure']
+      name: 'Projects', href:"/projects"
+      // submenu: ['Residential', 'Commercial', 'Industrial', 'Infrastructure']
     },
-    { name: 'Our Commitments', submenu: null },
-    { name: 'Newsroom', submenu: null },
-    { name: 'Careers', submenu: null },
-    { name: 'Contact', submenu: null }
+    { name: 'Our Commitments',  submenu: [  
+        { name: 'Community Engagement', href:"/community-engagement" }, 
+        { name: 'Safety & Quality', href:"/quality-safety" }, 
+      ] },
+    { name: 'Newsroom',  submenu: [  
+        { name: 'Press Releases', href:"/press-releases" }, 
+        { name: 'Gallery', href:"/gallery" }, 
+      ]  },
+    { name: 'Careers', submenu: null,href:"/careers" },
+    { name: 'Contact', submenu: null,href:"/contact-us" }
   ];
 
   const toggleSubmenu = (itemName) => {
@@ -77,12 +114,26 @@ const MainNavbar = () => {
 
   return (
     <>
-      <nav className="pt-[16px] pb-[17px] border-b border-[#f0f0f0] relative z-50 bg-white">
+     <nav
+        ref={navRef}
+        className={`
+          pt-[16px] pb-[17px]
+          border-b border-[#f0f0f0]
+          bg-white
+          z-50 fixed
+          transition-all duration-300 w-full
+          ${
+            isSticky
+              ? " top-0 left-0 right-0 shadow-md translate-y-0"
+              : " shadow-none"
+          }
+        `}
+      >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center gap-[10px] z-[60]">
-              <img src="./assets/images/main-logo.svg" alt="logo" />
+             <Link to="#"> <img src="./assets/images/main-logo.svg" alt="logo" /></Link>
             </div>
 
             {/* Desktop Menu */}
@@ -90,7 +141,7 @@ const MainNavbar = () => {
               {menuItems.map((item, index) => (
                 <li key={index} className="relative group">
                   <a
-                    href="#"
+                    href= {item.href}
                     className="text-[12px] xl:text-14 3xl:text-16 leading-[1.75] font-300 uppercase hover:font-bold active:font-bold focus-within:font-bold transition-all duration-300 flex items-center gap-1"
                   >
                     {item.name}
@@ -101,15 +152,15 @@ const MainNavbar = () => {
                     )}
                   </a>
                   {item.submenu && (
-                    <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                    <div className="absolute top-full left-0 mt-2 w-70 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                       <ul className="py-2">
                         {item.submenu.map((subItem, subIndex) => (
                           <li key={subIndex}>
                             <a
-                              href="#"
+                              href= {subItem.href}
                               className="block px-4 py-2 text-sm font-300 hover:bg-gray-100 hover:font-bold transition-all duration-200"
                             >
-                              {subItem}
+                              {subItem.name}
                             </a>
                           </li>
                         ))}
@@ -177,7 +228,10 @@ const MainNavbar = () => {
           </div>
         </div>
       </nav>
-
+ <div
+        style={{ height: isSticky ? navHeight : navHeight }}
+        className="transition-[height] duration-300"
+      />
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMenuOpen && (
