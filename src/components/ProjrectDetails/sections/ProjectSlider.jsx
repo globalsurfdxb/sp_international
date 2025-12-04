@@ -54,7 +54,7 @@ const ProjectSlider = () => {
   }, []);
 
   return (
-    <section className="pb-10 xl:pb-15  pb25 relative">
+    <section className="pb-10 xl:pb-15  pb25 relative bg-f5f5">
       <div className="container  " ref={containerRef}></div>
       <div className=" px-[15px] md:pe-0 relative" ref={targetRef}>
         {/* Counter + Arrows */}
