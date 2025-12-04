@@ -4,41 +4,38 @@ import { useState, useMemo } from "react";
 import { motion,useScroll,useTransform } from "framer-motion";
 import { moveUp } from "../../../motionVarients";
 import { Link } from "react-router-dom";
+
 import { useRef } from "react";
 
 
 const sector = [
   { id: 1, title: "All" },
-  { id: 2, title: "Press Releases 1" },
-  { id: 3, title: "Press Releases 2" },
-  { id: 4, title: "Press Releases 3" },
-  { id: 5, title: "Press Releases 4" },
-  { id: 6, title: "Press Releases 5" },
+  { id: 2, title: "Social Infrstrucure" },
+  { id: 3, title: "Social Infrstrucure 2" },
+  { id: 4, title: "Social Infrstrucure 3" },
+  { id: 5, title: "Social Infrstrucure 4" },
+  { id: 6, title: "Social Infrstrucure 5" },
 ];
 
 const status = [
   { id: 1, title: "All" },
-  { id: 2, title: "Press Releases 1" },
-  { id: 3, title: "Press Releases 2" },
-  { id: 4, title: "Press Releases 3" },
-  { id: 5, title: "Press Releases 4" },
-  { id: 6, title: "Press Releases 5" },
+  { id: 2, title: "Completed" },
+  { id: 3, title: "Ongoing" },
 ];
+
 const country = [
   { id: 1, title: "All" },
-  { id: 2, title: "Press Releases 1" },
-  { id: 3, title: "Press Releases 2" },
-  { id: 4, title: "Press Releases 3" },
-  { id: 5, title: "Press Releases 4" },
-  { id: 6, title: "Press Releases 5" },
+  { id: 2, title: "Oman" },
+  { id: 3, title: "UAE" },
 ];
+
 const service = [
   { id: 1, title: "All" },
-  { id: 2, title: "Press Releases 1" },
-  { id: 3, title: "Press Releases 2" },
-  { id: 4, title: "Press Releases 3" },
-  { id: 5, title: "Press Releases 4" },
-  { id: 6, title: "Press Releases 5" },
+  { id: 2, title: "Service1" },
+  { id: 3, title: "Service2" },
+  { id: 4, title: "Service3" },
+  { id: 5, title: "Service4" },
+  { id: 6, title: "Service5" },
 ];
 
 const ITEMS_PER_PAGE = 12;
@@ -52,16 +49,50 @@ const ProjectLists = () => {
       offset: ["start end", "end start"]
     });
     const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
+  const [view, setView] = useState("grid");
 
-  // Calculate total pages based on actual data
-  const totalPages = Math.ceil(pjtList.items.length / ITEMS_PER_PAGE);
+  // 🔹 Filter states
+  const [selectedSector, setSelectedSector] = useState(sector[0]);
+  const [selectedStatus, setSelectedStatus] = useState(status[0]);
+  const [selectedCountry, setSelectedCountry] = useState(country[0]);
+  const [selectedService, setSelectedService] = useState(service[0]);
 
-  // Get current items for the page
+  // 🔹 Filter items based on all dropdowns
+  const filteredItems = useMemo(() => {
+    let items = [...pjtList.items];
+
+    if (selectedSector.id !== 1) {
+      items = items.filter((item) => item.sector === selectedSector.title);
+    }
+
+    if (selectedStatus.id !== 1) {
+      // assuming your data has item.status
+      items = items.filter((item) => item.status === selectedStatus.title);
+    }
+
+    if (selectedCountry.id !== 1) {
+      items = items.filter((item) => item.country === selectedCountry.title);
+    }
+
+    if (selectedService.id !== 1) {
+      // assuming your data has item.service
+      items = items.filter((item) => item.service === selectedService.title);
+    }
+
+    return items;
+  }, [selectedSector, selectedStatus, selectedCountry, selectedService]);
+
+  // 🔹 Total pages based on filtered data
+  const totalPages = useMemo(() => {
+    return Math.max(1, Math.ceil(filteredItems.length / ITEMS_PER_PAGE));
+  }, [filteredItems.length]);
+
+  // 🔹 Current page items from filtered list
   const currentItems = useMemo(() => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
-    return pjtList.items.slice(startIndex, endIndex);
-  }, [currentPage]);
+    return filteredItems.slice(startIndex, endIndex);
+  }, [currentPage, filteredItems]);
 
   const handlePageChange = (newPage) => {
     if (newPage < 1 || newPage > totalPages || isAnimating) return;
@@ -69,13 +100,11 @@ const ProjectLists = () => {
     setIsAnimating(true);
     setCurrentPage(newPage);
 
-    // Scroll to top of section smoothly
     const section = document.querySelector("section");
     if (section) {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
-    // Reset animation state
     setTimeout(() => {
       setIsAnimating(false);
     }, 300);
@@ -89,7 +118,36 @@ const ProjectLists = () => {
     handlePageChange(currentPage + 1);
   };
 
-  const [view, setView] = useState("grid"); // "grid" or "list"
+  // 🔹 Filter change handlers (reset page to 1)
+  const handleSectorChange = (opt) => {
+    setSelectedSector(opt);
+    setCurrentPage(1);
+  };
+
+  const handleStatusChange = (opt) => {
+    setSelectedStatus(opt);
+    setCurrentPage(1);
+  };
+
+  const handleCountryChange = (opt) => {
+    setSelectedCountry(opt);
+    setCurrentPage(1);
+  };
+
+  const handleServiceChange = (opt) => {
+    setSelectedService(opt);
+    setCurrentPage(1);
+  };
+
+  // 🔹 Clear all filters
+  const handleClearFilters = () => {
+    setSelectedSector(sector[0]);
+    setSelectedStatus(status[0]);
+    setSelectedCountry(country[0]);
+    setSelectedService(service[0]);
+    setCurrentPage(1);
+  };
+
   return (
     <section className="relative" ref={sectionRef}>
       <div className="container">
@@ -103,100 +161,169 @@ const ProjectLists = () => {
           <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-0">
             <div className="flex flex-col md:flex-row gap-8  2xl:gap-25  3xl:gap-[174px] justify-between">
               <div className="flex flex-col md:flex-row gap-6 2xl:gap-[90px] ">
-                <div className="w-full lg:w-fit">
-                  <Listbox>
+                {/* Sector */}
+                <div className="w-full lg:w-fit relative">
+                  <Listbox value={selectedSector} onChange={handleSectorChange}>
                     <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-[16px] outline-0 border-0 justify-between">
                       <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
-                        Sector
+                        {selectedSector.title === "All"
+                          ? "Sector"
+                          : selectedSector.title}
                       </span>
-                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="7" viewBox="0 0 16 9" fill="none">
-<path d="M15 1L7.9992 8L1 1.00159" stroke="#464646" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="7"
+                        viewBox="0 0 16 9"
+                        fill="none"
+                      >
+                        <path
+                          d="M15 1L7.9992 8L1 1.00159"
+                          stroke="#464646"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
                     </Listbox.Button>
-                    <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm z-[1]">
-                      {sector.map((sector) => (
+                    <Listbox.Options className="border-0 outline-0 absolute w-[200px] bg-white rounded-sm shadow-sm z-[1]">
+                      {sector.map((opt) => (
                         <Listbox.Option
-                          key={sector.id}
-                          value={sector.title}
+                          key={opt.id}
+                          value={opt}
                           className="py-1 px-4 hover:bg-[#f0f0f0] cursor-pointer group hover:font-bold transition-all duration-300 w-full"
                         >
                           <span className="group-hover:scale-[1.03]">
-                            {sector.title}
+                            {opt.title}
                           </span>
                         </Listbox.Option>
                       ))}
                     </Listbox.Options>
                   </Listbox>
                 </div>
-                <div className="w-full lg:w-fit">
-                  <Listbox>
+
+                {/* Status */}
+                <div className="w-full lg:w-fit relative">
+                  <Listbox value={selectedStatus} onChange={handleStatusChange}>
                     <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-[16px] outline-0 border-0 justify-between">
                       <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
-                        Status
+                        {selectedStatus.title === "All"
+                          ? "Status"
+                          : selectedStatus.title}
                       </span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="7" viewBox="0 0 16 9" fill="none">
-<path d="M15 1L7.9992 8L1 1.00159" stroke="#464646" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="7"
+                        viewBox="0 0 16 9"
+                        fill="none"
+                      >
+                        <path
+                          d="M15 1L7.9992 8L1 1.00159"
+                          stroke="#464646"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
                     </Listbox.Button>
-                    <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm z-[1]">
-                      {status.map((status) => (
+                    <Listbox.Options className="border-0 outline-0 absolute w-[120px] bg-white rounded-sm shadow-sm z-[1]">
+                      {status.map((opt) => (
                         <Listbox.Option
-                          key={status.id}
-                          value={status.title}
+                          key={opt.id}
+                          value={opt}
                           className="py-1 px-4 hover:bg-[#f0f0f0] cursor-pointer group hover:font-bold transition-all duration-300 w-full"
                         >
                           <span className="group-hover:scale-[1.03]">
-                            {status.title}
+                            {opt.title}
                           </span>
                         </Listbox.Option>
                       ))}
                     </Listbox.Options>
                   </Listbox>
                 </div>
-                <div className="w-full lg:w-fit">
-                  <Listbox>
+
+                {/* Country */}
+                <div className="w-full lg:w-fit relative">
+                  <Listbox
+                    value={selectedCountry}
+                    onChange={handleCountryChange}
+                  >
                     <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-[16px] outline-0 border-0 justify-between">
                       <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
-                        country
+                        {selectedCountry.title === "All"
+                          ? "Country"
+                          : selectedCountry.title}
                       </span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="7" viewBox="0 0 16 9" fill="none">
-<path d="M15 1L7.9992 8L1 1.00159" stroke="#464646" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="7"
+                        viewBox="0 0 16 9"
+                        fill="none"
+                      >
+                        <path
+                          d="M15 1L7.9992 8L1 1.00159"
+                          stroke="#464646"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
                     </Listbox.Button>
-                    <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm z-[1]">
-                      {country.map((country) => (
+                    <Listbox.Options className="border-0 outline-0 absolute w-[150px] bg-white rounded-sm shadow-sm z-[1]">
+                      {country.map((opt) => (
                         <Listbox.Option
-                          key={country.id}
-                          value={country.title}
+                          key={opt.id}
+                          value={opt}
                           className="py-1 px-4 hover:bg-[#f0f0f0] cursor-pointer group hover:font-bold transition-all duration-300 w-full"
                         >
                           <span className="group-hover:scale-[1.03]">
-                            {country.title}
+                            {opt.title}
                           </span>
                         </Listbox.Option>
                       ))}
                     </Listbox.Options>
                   </Listbox>
                 </div>
-                <div className="w-full lg:w-fit">
-                  <Listbox>
+
+                {/* Service */}
+                <div className="w-full lg:w-fit relative">
+                  <Listbox
+                    value={selectedService}
+                    onChange={handleServiceChange}
+                  >
                     <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-[16px] outline-0 border-0 justify-between">
                       <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
-                        Service
+                        {selectedService.title === "All"
+                          ? "Service"
+                          : selectedService.title}
                       </span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="7" viewBox="0 0 16 9" fill="none">
-<path d="M15 1L7.9992 8L1 1.00159" stroke="#464646" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="7"
+                        viewBox="0 0 16 9"
+                        fill="none"
+                      >
+                        <path
+                          d="M15 1L7.9992 8L1 1.00159"
+                          stroke="#464646"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
                     </Listbox.Button>
-                    <Listbox.Options className="border-0 outline-0 absolute w-fit bg-white rounded-sm shadow-sm z-[1]">
-                      {service.map((service) => (
+                    <Listbox.Options className="border-0 outline-0 absolute w-[200px] bg-white rounded-sm shadow-sm z-[1]">
+                      {service.map((opt) => (
                         <Listbox.Option
-                          key={service.id}
-                          value={service.title}
+                          key={opt.id}
+                          value={opt}
                           className="py-1 px-4 hover:bg-[#f0f0f0] cursor-pointer group hover:font-bold transition-all duration-300 w-full"
                         >
                           <span className="group-hover:scale-[1.03]">
-                            {service.title}
+                            {opt.title}
                           </span>
                         </Listbox.Option>
                       ))}
@@ -204,8 +331,14 @@ const ProjectLists = () => {
                   </Listbox>
                 </div>
               </div>
+
+              {/* Clear Filter */}
               <div>
-                <div className="flex items-center gap-[10px] cursor-pointer">
+                <button
+                  type="button"
+                  onClick={handleClearFilters}
+                  className="flex items-center gap-[10px] cursor-pointer"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="27"
@@ -213,20 +346,20 @@ const ProjectLists = () => {
                     viewBox="0 0 27 17"
                     fill="none"
                   >
-                    <g clip-path="url(#clip0_3119_4427)">
+                    <g clipPath="url(#clip0_3119_4427)">
                       <path
                         d="M9.36719 1.93262L1.98894 8.5134L9.34206 15.0679"
                         stroke="#30B6F9"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                       <path
                         d="M2.40464 8.5H25.0195"
                         stroke="#30B6F9"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </g>
                     <defs>
@@ -243,9 +376,11 @@ const ProjectLists = () => {
                   <p className="uppercase text-16 text-paragraph font-light">
                     Clear Filter
                   </p>
-                </div>
+                </button>
               </div>
             </div>
+
+            {/* View toggles */}
             <div className="flex items-center gap-6 lg:gap-[30px] justify-end">
               <div
                 className="flex group items-center gap-[6px] cursor-pointer"
@@ -258,10 +393,8 @@ const ProjectLists = () => {
                   viewBox="0 0 19 19"
                   fill="none"
                   className={`brightness-0 group-hover:brightness-100 transition-all duration-300 ${
-            view === "grid"
-              ? "brightness-100"
-              : "brightness-0"
-          }`}
+                    view === "grid" ? "brightness-100" : "brightness-0"
+                  }`}
                 >
                   <rect width="8" height="8" fill="#30B6F9" />
                   <rect y="11" width="8" height="8" fill="#30B6F9" />
@@ -276,15 +409,18 @@ const ProjectLists = () => {
                 className="flex group items-center gap-[6px] cursor-pointer"
                 onClick={() => setView("list")}
               >
-                <svg xmlns="http://www.w3.org/2000/svg"
-                className={`brightness-0 group-hover:brightness-100 transition-all duration-300 ${
-            view === "list"
-              ? "brightness-100"
-              : "brightness-0"
-          }`}
-                width="19" height="13" viewBox="0 0 19 13" fill="none">
-                <line y1="0.5" x2="19" y2="0.5" stroke="#30B6F9"/>
-                <line y1="12.5" x2="19" y2="12.5" stroke="#30B6F9"/>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className={`brightness-0 group-hover:brightness-100 transition-all duration-300 ${
+                    view === "list" ? "brightness-100" : "brightness-0"
+                  }`}
+                  width="19"
+                  height="13"
+                  viewBox="0 0 19 13"
+                  fill="none"
+                >
+                  <line y1="0.5" x2="19" y2="0.5" stroke="#30B6F9" />
+                  <line y1="12.5" x2="19" y2="12.5" stroke="#30B6F9" />
                 </svg>
                 <p className="uppercase text-16 text-paragraph font-light ">
                   list View
@@ -293,6 +429,8 @@ const ProjectLists = () => {
             </div>
           </div>
         </motion.div>
+
+        {/* GRID VIEW */}
         <div
           className={`gap-x-30px  gap-y-10 md:gap-y-12 xl:gap-y-[80px] pb-10 xl:pb-[80px] transition-all duration-300 
         ${
@@ -317,44 +455,71 @@ const ProjectLists = () => {
               viewport={{ amount: 0.2, once: true }}
               className="group"
             >
-             <Link to="/project-details">
-              <div className="relative">
-                <img
-                src={item.image}
-                alt={item.title}
-                width={520}
-                height={395}
-                className="w-full h-[250px] lg:h-[395px] object-cover"
-              />
-              <div className=" opacity-0 group-hover:opacity-100 transition-all duration-300 absolute left-0 bottom-0 w-[50px] h-[50px]  xl:w-[80px] xl:h-[80px] flex items-center justify-center bg-primary">
-               <svg xmlns="http://www.w3.org/2000/svg" className="-translate-x-2 group-hover:translate-x-0 translate-y-2 group-hover:translate-y-0 transition-all duration-500 w-[25px] h-[25px] lg:w-[25px] lg:h-[25px]" width="35" height="35" viewBox="0 0 35 35" fill="none">
-              <path d="M1.25 1.25H33.2484V33.2411" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M33.2498 1.25L1.4043 33.2411" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              </div>
-              </div>
-              <div>
-                <h2 className="text-29 leading-[1.344827586206897] font-light py-4 md:py-6 xl:max-w-[90%]">
-                  {item.title}
-                </h2>
-              </div>
-              <div className="flex justify-between border-t border-t-black/20 border-b border-b-black/20">
-                <p className="text-paragraph text-19 font-light leading-[2.44]">
-                  Sector: {item.sector}
-                </p>
-                <p className="text-paragraph text-19 font-light leading-[2.44] xl:pe-6">
-                  BUA (Sq.ft): {item.sqft}
-                </p>
-              </div>
-              <div className="border-b border-b-black/20">
-                <p className="text-paragraph text-19 font-light leading-[2.44]">
-                  Location: {item.location}
-                </p>
-              </div>
+              <Link to="/project-details">
+                <div className="relative">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    width={520}
+                    height={395}
+                    className="w-full h-[250px] lg:h-[395px] object-cover"
+                  />
+                  <div className=" opacity-0 group-hover:opacity-100 transition-all duration-300 absolute left-0 bottom-0 w-[50px] h-[50px]  xl:w-[80px] xl:h-[80px] flex items-center justify-center bg-primary">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="-translate-x-2 group-hover:translate-x-0 translate-y-2 group-hover:translate-y-0 transition-all duration-500 w-[25px] h-[25px] lg:w-[25px] lg:h-[25px]"
+                      width="35"
+                      height="35"
+                      viewBox="0 0 35 35"
+                      fill="none"
+                    >
+                      <path
+                        d="M1.25 1.25H33.2484V33.2411"
+                        stroke="#30B6F9"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M33.2498 1.25L1.4043 33.2411"
+                        stroke="#30B6F9"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div>
+                  <h2 className="text-29 leading-[1.344827586206897] font-light py-4 md:py-6 xl:max-w-[90%]">
+                    {item.title}
+                  </h2>
+                </div>
+                <div className="flex justify-between border-t border-t-black/20 border-b border-b-black/20">
+                  <p className="text-paragraph text-19 font-light leading-[2.44]">
+                    Sector: {item.sector}
+                  </p>
+                  <p className="text-paragraph text-19 font-light leading-[2.44] xl:pe-6">
+                    BUA (Sq.ft): {item.sqft}
+                  </p>
+                </div>
+                <div className="border-b border-b-black/20">
+                  <p className="text-paragraph text-19 font-light leading-[2.44]">
+                    Location: {item.country}
+                  </p>
+                </div>
               </Link>
             </motion.div>
           ))}
+
+          {currentItems.length === 0 && (
+            <div className="col-span-full text-center py-10 text-paragraph">
+              No projects found for selected filters.
+            </div>
+          )}
         </div>
+
+        {/* LIST VIEW */}
         <div
           className={`   pb-10 xl:pb-[80px] transition-all duration-300 
         ${
@@ -376,54 +541,79 @@ const ProjectLists = () => {
               viewport={{ amount: 0.2, once: true }}
             >
               <Link to="/project-details">
-              <div className="flex flex-col lg:flex-row gap-3 md:gap-10 3xl:gap-[69px] ">
-                <div className="w-full lg:w-[274px]">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    width={274}
-                    height={208}
-                    className="w-full h-full   md:h-[350px] lg:min-w-[274px] lg:h-[208px] object-fit"
-                  />
-                </div>
-                <div className="flex flex-col lg:flex-row justify-between gap-1 md:gap-10 2xl:gap-10 3xl:gap-[104px] w-full">
-                  <div>
-                  <div>
-                    <h2 className="text-29 leading-[1.344827586206897] font-light  ">
-                      {item.title}
-                    </h2>
+                <div className="flex flex-col lg:flex-row gap-3 md:gap-10 3xl:gap-[69px] ">
+                  <div className="w-full lg:w-[274px]">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      width={274}
+                      height={208}
+                      className="w-full h-full   md:h-[350px] lg:min-w-[274px] lg:h-[208px] object-fit"
+                    />
+                  </div>
+                  <div className="flex flex-col lg:flex-row justify-between gap-1 md:gap-10 2xl:gap-10 3xl:gap-[104px] w-full">
+                    <div>
+                      <div>
+                        <h2 className="text-29 leading-[1.344827586206897] font-light  ">
+                          {item.title}
+                        </h2>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="bg-f5f5 p-5 xl:py-[18px] xl:px-[30px]">
+                        <div className="flex gap-5 3xl:gap-[168px] justify-between border-b border-b-black/20 pb-[11px] mb-[7px] ">
+                          <p className="text-paragraph text-19 font-light leading-[2] ">
+                            Sector: {item.sector}
+                          </p>
+                          <p className="text-paragraph text-19 font-light leading-[2] xl:pe-6">
+                            BUA (Sq.ft): {item.sqft}
+                          </p>
+                        </div>
+                        <div className="">
+                          <p className="text-paragraph text-19 font-light leading-[2]">
+                            Location: {item.country}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 hidden lg:block">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="35"
+                        height="35"
+                        viewBox="0 0 35 35"
+                        fill="none"
+                      >
+                        <path
+                          d="M1.25 1.25H33.2484V33.2411"
+                          stroke="#30B6F9"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M33.2498 1.25L1.4043 33.2411"
+                          stroke="#30B6F9"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
                   </div>
                 </div>
-                <div>
-                 <div className="bg-f5f5 p-5 xl:py-[18px] xl:px-[30px]">
-                   <div className="flex gap-5 3xl:gap-[168px] justify-between border-b border-b-black/20 pb-[11px] mb-[7px] ">
-                    <p className="text-paragraph text-19 font-light leading-[2] ">
-                      Sector: {item.sector}
-                    </p>
-                    <p className="text-paragraph text-19 font-light leading-[2] xl:pe-6">
-                      BUA (Sq.ft): {item.sqft}
-                    </p>
-                  </div>
-                  <div className="">
-                    <p className="text-paragraph text-19 font-light leading-[2]">
-                      Location: {item.location}
-                    </p>
-                  </div>
-                 </div>
-                </div>
-                  <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 hidden lg:block">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
-<path d="M1.25 1.25H33.2484V33.2411" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M33.2498 1.25L1.4043 33.2411" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-                  </div>
-
-                </div>
-              </div>
               </Link>
             </motion.div>
           ))}
+
+          {currentItems.length === 0 && (
+            <div className="text-center py-10 text-paragraph">
+              No projects found for selected filters.
+            </div>
+          )}
         </div>
+
+        {/* Pagination */}
         <div className="flex items-center justify-center gap-2 w-full pb-10 xl:pb-15 2xl:pb-[120px]">
           <div className="pagination flex items-center gap-5 justify-center ">
             <button
@@ -488,25 +678,27 @@ const ProjectLists = () => {
           </div>
         </div>
       </div>
+
       {view === "grid" && (
-       <>
-        <div className="absolute bottom-3/7 translate-y-[-78px] left-0 z-[-1]">
-          <motion.img style={{y:shapeY}}
-            src="./assets/images/projects/pjtbdy1.svg"
-            alt=""
-            className="w-[670px] object-contain"
-        />
-      </div>
-      <div className="absolute bottom-0 right-0 z-[-1]   ">
-        <motion.img style={{y:shapeY}}
-          src="./assets/images/projects/pjtbdy2.svg"
-          alt=""
-          className="w-[670px] object-contain"
-        />
-      </div>
-      </>
+        <>
+          <div className="absolute bottom-3/7 translate-y-[-78px] left-0 z-[-1]">
+            <motion.img style={{y:shapeY}}
+              src="./assets/images/projects/pjtbdy1.svg"
+              alt=""
+              className="w-[670px] object-contain"
+            />
+          </div>
+          <div className="absolute bottom-0 right-0 z-[-1]   ">
+            <motion.img style={{y:shapeY}}
+              src="./assets/images/projects/pjtbdy2.svg"
+              alt=""
+              className="w-[670px] object-contain"
+            />
+          </div>
+        </>
       )}
     </section>
   );
 };
+
 export default ProjectLists;

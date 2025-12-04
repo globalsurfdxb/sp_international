@@ -53,7 +53,7 @@ const SectorsSec = ({data}) => {
                 </motion.div>
                 <div className="">
                   <h3 className="text-32 leading-[1.3125] font-light mb-2 xl:mb-3">{item.title}</h3>
-                  <p className="text-19 leading-[1.526315789473684] font-light">{item.desc}</p>
+                  <p className="text-19 leading-[1.526315789473684] font-light text-paragraph">{item.desc}</p>
                 </div>
               </div>
             </SwiperSlide>

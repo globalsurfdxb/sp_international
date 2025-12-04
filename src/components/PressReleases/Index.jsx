@@ -1,5 +1,4 @@
-
-'use client';
+"use client";
 import MainNavbar from "../../MainLayout/MainNavbar";
 import Footer from "../../MainLayout/Footer";
 import { Listbox } from "@headlessui/react";
@@ -8,8 +7,9 @@ import { useState, useMemo, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { moveUp } from "../../motionVarients";
 import { Link } from "react-router-dom";
+
 const topics = [
-  { id: 1, title: "Topic" },
+  { id: 1, title: "Topic" }, // default (no filter)
   { id: 2, title: "Press Releases 1" },
   { id: 3, title: "Press Releases 2" },
   { id: 4, title: "Press Releases 3" },
@@ -18,11 +18,11 @@ const topics = [
 ];
 
 const years = [
-  { id: 1, title: "Year" },
-  { id: 2, title: "2023" },
-  { id: 3, title: "2022" },
-  { id: 4, title: "2021" },
-  { id: 5, title: "2020" },
+  { id: 1, title: "Year" }, // default (no filter)
+  { id: 2, title: "2025" },
+  { id: 3, title: "2024" },
+  { id: 4, title: "2022" },
+  { id: 5, title: "2021" },
 ];
 
 const ITEMS_PER_PAGE = 12;
@@ -38,16 +38,34 @@ const Index = () => {
     offset: ["start end", "end start"]
   });
   const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
+  // 🔹 Filter items by topic + year
+  const filteredItems = useMemo(() => {
+    let items = [...pressReleases.items];
 
-  // Calculate total pages based on actual data
-  const totalPages = Math.ceil(pressReleases.items.length / ITEMS_PER_PAGE);
+    // Topic filter (ignore default "Topic")
+    if (selectedTopic.id !== 1) {
+    items = items.filter((item) => item.topic === selectedTopic.title);
+  }
 
-  // Get current items for the page
+    // Year filter (ignore default "Year")
+    if (selectedYear.id !== 1) {
+    items = items.filter((item) => item.year === selectedYear.title);
+  }
+
+    return items;
+  }, [selectedTopic, selectedYear]);
+
+  // 🔹 Total pages based on filtered data
+  const totalPages = useMemo(() => {
+    return Math.max(1, Math.ceil(filteredItems.length / ITEMS_PER_PAGE));
+  }, [filteredItems.length]);
+
+  // 🔹 Current page items from filtered list
   const currentItems = useMemo(() => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
-    return pressReleases.items.slice(startIndex, endIndex);
-  }, [currentPage]);
+    return filteredItems.slice(startIndex, endIndex);
+  }, [currentPage, filteredItems]);
 
   const handlePageChange = (newPage) => {
     if (newPage < 1 || newPage > totalPages || isAnimating) return;
@@ -55,13 +73,11 @@ const Index = () => {
     setIsAnimating(true);
     setCurrentPage(newPage);
 
-    // Scroll to top of section smoothly
-    const section = document.querySelector('section');
+    const section = document.querySelector("section");
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
-    // Reset animation state
     setTimeout(() => {
       setIsAnimating(false);
     }, 300);
@@ -75,6 +91,25 @@ const Index = () => {
     handlePageChange(currentPage + 1);
   };
 
+  // 🔹 When topic changes → reset to page 1
+  const handleTopicChange = (topic) => {
+    setSelectedTopic(topic);
+    setCurrentPage(1);
+  };
+
+  // 🔹 When year changes → reset to page 1
+  const handleYearChange = (year) => {
+    setSelectedYear(year);
+    setCurrentPage(1);
+  };
+
+  // 🔹 Clear all filters
+  const handleClearFilters = () => {
+    setSelectedTopic(topics[0]);
+    setSelectedYear(years[0]);
+    setCurrentPage(1);
+  };
+
   return (
     <>
       <header className="">
@@ -85,19 +120,45 @@ const Index = () => {
         {/* <img src="./assets/images/shape-left.svg" alt="" className="absolute  bottom-30 left-0 z-[-1]" /> */}
         <div className="container">
           <div className="mb-7 md:mb-10 xl:mb-12 3xl:mb-20 mt-12 xl:mt-15 3xl:mt-30">
-            <motion.h1 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-70 font-light leading-[1.071428571428571]">Press Releases</motion.h1>
+            <motion.h1
+              variants={moveUp(0.2)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ amount: 0.2, once: true }}
+              className="text-70 font-light leading-[1.071428571428571]"
+            >
+              Press Releases
+            </motion.h1>
           </div>
 
-          <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between border-y border-cmnbdr py-35px mb-10 lg:mb-12  3xl:mb-20">
+          <motion.div
+            variants={moveUp(0.5)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ amount: 0.2, once: true }}
+            className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between border-y border-cmnbdr py-35px mb-10 lg:mb-12  3xl:mb-20"
+          >
             <div className="flex flex-col md:flex-row gap-5 md:gap-15 xl:gap-[90px]">
+              {/* Topic filter */}
               <div className="w-full min-w-full   md:min-w-[77px] relative">
-                <Listbox value={selectedTopic} onChange={setSelectedTopic}>
+                <Listbox value={selectedTopic} onChange={handleTopicChange}>
                   <Listbox.Button className="relative w-fit cursor-pointer text-left flex items-center gap-3 2xl:gap-[16px] outline-0 border-0 justify-between">
                     <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase whitespace-nowrap">
                       {selectedTopic.title}
                     </span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="size-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                      />
                     </svg>
                   </Listbox.Button>
                   <Listbox.Options className="border-0 outline-0 absolute md:w-[200px] w-full bg-white rounded-sm shadow-sm z-10">
@@ -107,21 +168,35 @@ const Index = () => {
                         value={topic}
                         className="py-1 px-4 hover:bg-[#f0f0f0] cursor-pointer group hover:font-bold transition-all duration-300 w-full"
                       >
-                        <span className="group-hover:scale-[1.03] whitespace-nowrap">{topic.title}</span>
+                        <span className="group-hover:scale-[1.03] whitespace-nowrap">
+                          {topic.title}
+                        </span>
                       </Listbox.Option>
                     ))}
                   </Listbox.Options>
                 </Listbox>
               </div>
 
+              {/* Year filter */}
               <div className="w-full min-w-full md:min-w-[77px] relative">
-                <Listbox value={selectedYear} onChange={setSelectedYear}>
+                <Listbox value={selectedYear} onChange={handleYearChange}>
                   <Listbox.Button className="relative w-fit cursor-pointer text-left flex items-center gap-3 2xl:gap-[16px] outline-0 border-0 justify-between">
                     <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                       {selectedYear.title}
                     </span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="size-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                      />
                     </svg>
                   </Listbox.Button>
                   <Listbox.Options className="md:w-[200px] w-full border-0 outline-0 absolute   bg-white rounded-sm shadow-sm z-10">
@@ -131,27 +206,45 @@ const Index = () => {
                         value={year}
                         className="py-1 px-4 hover:bg-[#f0f0f0] cursor-pointer group hover:font-bold transition-all duration-300 w-full"
                       >
-                        <span className="group-hover:scale-[1.03]">{year.title}</span>
+                        <span className="group-hover:scale-[1.03]">
+                          {year.title}
+                        </span>
                       </Listbox.Option>
                     ))}
                   </Listbox.Options>
                 </Listbox>
               </div>
             </div>
-            <div className="flex items-center gap-[10px] group cursor-pointer justify-end">
-              <img src="./assets/images/icons/arrow-tail-left.svg" alt="" className="group-hover:translate-x-[-3px] transition-all duration-300" />
-              <p className="text-paragraph text-16 font-light leading-[1.75] uppercase transition-all duration-300">Clear Filter</p>
-            </div>
+
+            {/* Clear Filter */}
+            <button
+              type="button"
+              onClick={handleClearFilters}
+              className="flex items-center gap-[10px] group cursor-pointer justify-end"
+            >
+              <img
+                src="./assets/images/icons/arrow-tail-left.svg"
+                alt=""
+                className="group-hover:translate-x-[-3px] transition-all duration-300"
+              />
+              <p className="text-paragraph text-16 font-light leading-[1.75] uppercase transition-all duration-300">
+                Clear Filter
+              </p>
+            </button>
           </motion.div>
 
-          <div className={`relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-10 xl:gap-y-15 2xl:gap-y-30 mb-10 xl:mb-12 2xl:mb-[100.32px] transition-all duration-300 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+          {/* Grid */}
+          <div
+            className={`relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-10 xl:gap-y-15 2xl:gap-y-30 mb-10 xl:mb-12 2xl:mb-[100.32px] transition-all duration-300 ${
+              isAnimating
+                ? "opacity-0 translate-y-4"
+                : "opacity-100 translate-y-0"
             }`}
             style={{
-              transform: isAnimating ? 'translateY(16px)' : 'translateY(0)',
-              transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out'
+              transform: isAnimating ? "translateY(16px)" : "translateY(0)",
+              transition: "opacity 300ms ease-in-out, transform 300ms ease-in-out",
             }}
           >
-
             {currentItems.map((item, index) => (
               <motion.div variants={moveUp(0.1 * index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}
                 key={item.id}
@@ -181,20 +274,38 @@ const Index = () => {
                     <h2 className="text-29 leading-[1.344827586206897] font-light mt-30px 3xl:max-w-[90%]">
                       {item.title}
                     </h2>
+                    <h2 className="text-29 leading-[1.344827586206897] font-light mt-30px 3xl:max-w-[90%]">
+                      {item.title}
+                    </h2>
                   </Link>
                 </div>
               </motion.div>
             ))}
+
+            {/* Optional: show empty state if no results */}
+            {currentItems.length === 0 && (
+              <div className="col-span-full text-center py-10 text-paragraph">
+                No press releases found for selected filters.
+              </div>
+            )}
           </div>
 
+          {/* Pagination */}
           <div className="pagination flex items-center  gap-5 justify-center mb-10 xl:mb-15 2xl:mb-[131.68px]">
             <button
-              className={`prev cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === 1 || isAnimating ? 'opacity-30' : 'opacity-100'
-                }`}
+              className={`prev cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${
+                currentPage === 1 || isAnimating ? "opacity-30" : "opacity-100"
+              }`}
               onClick={handlePrev}
               disabled={currentPage === 1 || isAnimating}
             >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M9.7549 1.25L1.25 9.7549M1.25 9.7549L9.75297 18.2579M1.25 9.7549L18.2169 9.79374"
                   stroke="#30B6F9"
@@ -216,12 +327,21 @@ const Index = () => {
             </p>
 
             <button
-              className={`next cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === totalPages || isAnimating ? 'opacity-30' : 'opacity-100'
-                }`}
+              className={`next cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${
+                currentPage === totalPages || isAnimating
+                  ? "opacity-30"
+                  : "opacity-100"
+              }`}
               onClick={handleNext}
               disabled={currentPage === totalPages || isAnimating}
             >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M9.71189 1.25L18.2168 9.7549M18.2168 9.7549L9.71383 18.2579M18.2168 9.7549L1.24994 9.79374"
                   stroke="#30B6F9"
@@ -234,10 +354,10 @@ const Index = () => {
           </div>
         </div>
 
+
         <div className="absolute bottom-1/8 left-0 z-[-1] ">
           <motion.img style={{ y: shapeY }} src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit 2xl-w[754px] 2xl-h[1056px] relative 2xl:top-[14px] " />
         </div>
-
       </section>
       <footer>
         <Footer />

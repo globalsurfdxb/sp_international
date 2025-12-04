@@ -53,7 +53,7 @@ const Legacy = () => {
   const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
   return (
       <section className="py-7 xl:py-15 2xl:pt-22 3xl:pt-[108px] pb30 bg-primary relative overflow-hidden">
-        <div className="absolute bottom-0 left-0 w-[25%] xl:w-full">
+        <div className="absolute bottom-0 -left-25 3xl:left-0 w-[25%] 3xl:w-full">
           <img src="../assets/images/about-us/lcbanner.svg" alt="" />
         </div>
         <div className="container">
@@ -115,7 +115,7 @@ const Legacy = () => {
                 >
                   {legacyData.map((item, i) => (
                     <SwiperSlide key={i}>
-                      <div className="mb-4 lg:mb-[53px]"><h2 className="text-60 font-light leading-[1.18] text-white mb-5 xl:mb-[37px]">{item.title}</h2><p className="text-19 lg:text-29 font-light leading-[1.374] text-white">{item.text}</p></div>
+                      <div className="mb-4 lg:mb-[53px]"><h2 className="text-45 3xl:text-60 font-light leading-[1.18] text-white mb-5 xl:mb-[37px]">{item.title}</h2><p className="text-19 3xl:text-29 font-light leading-[1.374] text-white">{item.text}</p></div>
                       <div className="relative overflow-hidden" ref={imageContainerRefTwo}><motion.img style={{y:imageY}} src={item.image} alt={item.title} className="w-full object-cover" /></div>
                     </SwiperSlide>
                   ))}
