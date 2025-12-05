@@ -182,18 +182,15 @@ const InnovationSustainability = ({data}) => {
           <motion.div variants={moveLeft(0.2)} initial="hidden" whileInView="show" viewport={{amount:0.6, once:true}} className="relative">
             <motion.div
               ref={imageRef}
-              className="relative overflow-hidden xl:aspect-[4/3]" 
-            >
+              className="relative overflow-hidden xl:aspect-[4/3]" >
               <div ref={imageContainerRef}>
-
-              
-              <AnimatePresence mode="wait"  >
+              <AnimatePresence mode="wait">
                 <motion.img
                 style={{ y: imageY }}
                   key={activeIndex}
                   src={data.accordionData[activeIndex]?.image}
                   alt={data.accordionData[activeIndex]?.title}
-                  className="w-full h-[200px] md:h-[300px] lg:h-[450px] xl:h-[500px] 2xl:h-[706px] object-cover"
+                  className="w-full h-[200px] md:h-[300px] lg:h-[450px] xl:h-[500px] 2xl:h-[706px] object-cover scale-110 md:scale-100"
                   initial={{ opacity: 0, scale: 1.1 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
