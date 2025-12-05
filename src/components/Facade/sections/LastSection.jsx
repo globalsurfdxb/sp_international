@@ -1,3 +1,4 @@
+import { useMediaQuery } from "react-responsive";
 import { assets } from "../../../assets";
 import H2Title from "../../common/H2Title";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -9,6 +10,10 @@ import { useRef, useEffect } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 const LastSection = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
+  const imageOffset = isMobile ? [-30, 30] : isTablet ? [-80, 80] : [-150, 150];
+  const shapeOffset = isMobile ? [-50, 50] : isTablet ? [-100, 100] : [-200, 200];
   const sectionRef = useRef(null);
   const imageContainerRefTwo = useRef(null);
 
@@ -17,14 +22,14 @@ const LastSection = () => {
     target: imageContainerRefTwo,
     offset: ["start end", "end start"]
   });
-  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+  const imageY = useTransform(imageProgress, [0, 1], imageOffset);
 
   // Parallax for shape
   const { scrollYProgress: shapeProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
   });
-  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
+  const shapeY = useTransform(shapeProgress, [0, 1], shapeOffset);
 
 
   return (
@@ -36,9 +41,9 @@ const LastSection = () => {
         className="absolute bottom-0 left-0  w-[45%] xl:w-[365px] 3xl:w-[465px] h-auto object-contain"
       />
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] items-center lg:gap-10 xl:gap-x-18 gap-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[0.8fr_1.2fr] items-center lg:gap-10 xl:gap-x-18 gap-y-6">
           <div className="order-2 xl:order-1">
-            <H2Title titleText="Design That Inspires Progress" titleColor="black" marginClass="mb-3 xl:mb-10" />
+            <H2Title titleText="Design That Inspires Progress" titleColor="black" marginClass="mb-3 lg:mb-5 2xl:mb-10" />
             <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 leading-[1.473684210526316] font-light text-paragraph ">
               We uphold the highest industry standards for quality and safety. Every façade system is designed and executed with meticulous precision, ensuring long-term durability and performance under varied conditions.
             </motion.p>
@@ -52,7 +57,7 @@ const LastSection = () => {
               src="../../assets/images/facade/quality-safety-reliability.jpg"
               width={932}
               height={532}
-              className="w-full h-[200px] lg:h-[250px] xl:h-[300px] 2xl:w-[932px] 2xl:h-[532px] object-cover"
+              className="w-full h-[200px] md:h-[250px] lg:h-[350px] md:w-[70%] lg:w-full xl:h-[400px] 2xl:h-[532px] 2xl:w-[932px] object-cover scale-110 lg:scale-150 xl:scale-110"
               alt=""
             />
             {/* <div ref={overlayRefTwo} className="absolute top-0 left-0 w-full h-full bg-white z-10"></div> */}

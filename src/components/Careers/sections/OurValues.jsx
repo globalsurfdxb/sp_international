@@ -1,11 +1,15 @@
 "use client";
-
+import { useMediaQuery } from "react-responsive";
 import React, { useEffect, useState, useRef } from "react";
 import { valuesData } from "../data";
 import { moveLeft, moveUp, moveRight } from "../../../motionVarients";
 import { motion, useScroll, useTransform,  } from "framer-motion";
 
 const ValuesSection = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
+  const imageOffset = isMobile ? [-30, 30] : isTablet ? [-80, 80] : [-150, 150];
+  const shapeOffset = isMobile ? [-50, 50] : isTablet ? [-100, 100] : [-200, 200];
   const { title, description, image, rightImage } = valuesData;
   const [leftOffset, setLeftOffset] = useState(0);
   const [isWideScreen, setIsWideScreen] = useState(false);
@@ -18,14 +22,14 @@ const ValuesSection = () => {
       target: imageContainerRefTwo,
       offset: ["start end", "end start"]
     });
-    const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+    const imageY = useTransform(imageProgress, [0, 1], imageOffset);
   
     // Parallax for shape
     const { scrollYProgress: shapeProgress } = useScroll({
       target: sectionRef,
       offset: ["start end", "end start"]
     });
-    const shapeY = useTransform(shapeProgress, [0, 1], [100, -100]);
+    const shapeY = useTransform(shapeProgress, [0, 1], shapeOffset);
 
   useEffect(() => {
     const updateOffset = () => {
@@ -64,7 +68,7 @@ const ValuesSection = () => {
         </div>
 
         {/* Right Section */}
-        <motion.div variants={moveLeft(0.6)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="w-full md:w-1/2 h-[260px] sm:h-[340px] md:h-[420px] lg:h-[90dvh] px-[15px] md:px-0 relative" ref={imageContainerRefTwo}>
+        <motion.div variants={moveLeft(0.6)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="w-full md:w-1/2 h-[260px] sm:h-[340px] md:h-[420px] lg:h-[90dvh] px-[15px] md:px-0 relative overflow-hidden" ref={imageContainerRefTwo}>
           <motion.img style={{y:imageY}} src={rightImage} alt="people" className="w-full h-full object-cover" />
         </motion.div>
       </div>

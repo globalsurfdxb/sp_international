@@ -25,7 +25,7 @@ export default function VideoPlayer({ src, poster }) {
       onMouseLeave={() => setIsHovering(false)}
       onClick={togglePlay}
     >
-      <video ref={videoRef} src={src} poster={poster} className="w-full h-[200px] md:h-[300px] xl:h-[523px] object-cover" />
+      <video ref={videoRef} src={src} poster={poster} className="w-full h-[200px] md:h-[300px] xl:h-[400px] 2xl:h-[450px] 3xl:h-[523px] object-cover" />
       {
         !isPlaying && (
           <div className="absolute top-0 left-0 w-full h-full bg-black/20"></div>

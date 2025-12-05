@@ -9,24 +9,30 @@ import { moveUp, moveLeft } from "../../../motionVarients";
 
 
 const InnovationSustainability = ({data}) => {
+  const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
   const [activeIndex, setActiveIndex] = useState(1);
   const imageRef = useRef < HTMLDivElement | null > (null);
 
   const sectionRef = useRef(null);
   const imageContainerRef = useRef(null);
+  // Define movement amounts based on device
+  const imageOffset = isMobile ? [-30, 30] : isTablet ? [-80, 80] : [-150, 150];
+  const shapeOffset = isMobile ? [-50, 50] : isTablet ? [-100, 100] : [-200, 200];
+
   // Parallax for main image container
   const { scrollYProgress: imageProgress } = useScroll({
     target: imageContainerRef,
     offset: ["start end", "end start"]
   });
-  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+  const imageY = useTransform(imageProgress, [0, 1], imageOffset);
 
   // Parallax for shape
   const { scrollYProgress: shapeProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
   });
-  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
+  const shapeY = useTransform(shapeProgress, [0, 1], shapeOffset);
 
   const handleAccordionClick = (index) => {
     setActiveIndex(activeIndex === index ? index : index);
@@ -37,8 +43,7 @@ const InnovationSustainability = ({data}) => {
     if (activeIndex === index + 1) return "73px";
     return "26px";
   };
-  const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
+
 
   let activeSize;
   let inactiveSize;
@@ -177,18 +182,15 @@ const InnovationSustainability = ({data}) => {
           <motion.div variants={moveLeft(0.2)} initial="hidden" whileInView="show" viewport={{amount:0.6, once:true}} className="relative">
             <motion.div
               ref={imageRef}
-              className="relative overflow-hidden xl:aspect-[4/3]" 
-            >
+              className="relative overflow-hidden xl:aspect-[4/3]" >
               <div ref={imageContainerRef}>
-
-              
-              <AnimatePresence mode="wait"  >
+              <AnimatePresence mode="wait">
                 <motion.img
                 style={{ y: imageY }}
                   key={activeIndex}
                   src={data.accordionData[activeIndex]?.image}
                   alt={data.accordionData[activeIndex]?.title}
-                  className="w-full h-[200px] md:h-[300px] lg:h-[450px] xl:h-[500px] 2xl:h-[706px] object-cover"
+                  className="w-full h-[200px] sm:h-[250px] md:h-[350px] lg:h-[450px] xl:h-[500px] 2xl:h-[706px] object-cover scale-125 lg:scale-100"
                   initial={{ opacity: 0, scale: 1.1 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}

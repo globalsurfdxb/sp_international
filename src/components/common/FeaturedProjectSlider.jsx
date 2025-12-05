@@ -133,7 +133,7 @@ const FeaturedProjectSlider = ({ data }) => {
                       <div className="overflow-hidden">
                         <img
                           src={item.image}
-                          className={`w-full h-[250px] xl:h-[520px] object-cover ${!hasScrolledIntoView
+                          className={`w-full h-[250px] md:h-[300px] lg:h-[350px] 2xl:h-[470px] 3xl:h-[520px] object-cover ${!hasScrolledIntoView
                               ? 'initial-hidden-img'
                               : animatingSlide === i || initialAnimating
                                 ? 'animate-slide-img'
@@ -157,7 +157,7 @@ const FeaturedProjectSlider = ({ data }) => {
                             </h3>
                           </div>
                         </div>
-                        <div className="border-b border-cmnbdr grid lg:grid-cols-2  2xl:grid-cols-[413px_1fr] items-center">
+                        <div className="border-b border-cmnbdr grid lg:grid-cols-2 2xl:grid-cols-[413px_1fr] items-center">
                           <div className="border-b border-cmnbdr lg:border-0">
                             <div className="overflow-hidden">
                               <h4

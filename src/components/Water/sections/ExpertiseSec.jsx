@@ -1,3 +1,4 @@
+import { useMediaQuery } from "react-responsive";
 import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, Controller } from 'swiper/modules';
@@ -9,6 +10,10 @@ import { wtrData } from '../data';
 import H2Title from '../../common/H2Title';
 import {motion, useScroll, useTransform } from "framer-motion";
 const ExpertiseSec = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
+  const imageOffset = isMobile ? [-30, 30] : isTablet ? [-80, 80] : [-150, 150];
+  const shapeOffset = isMobile ? [-50, 50] : isTablet ? [-100, 100] : [-200, 200];
   const { expertiseData } = wtrData;
   const itemRefs = useRef([]);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -21,14 +26,14 @@ const ExpertiseSec = () => {
     target: imageContainerRef,
     offset: ["start end", "end start"]
   });
-  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+  const imageY = useTransform(imageProgress, [0, 1], imageOffset);
 
   // Parallax for shape
   const { scrollYProgress: shapeProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
   });
-  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
+  const shapeY = useTransform(shapeProgress, [0, 1], shapeOffset);
 
   // Helper to set ref for each item
   const setItemRef = (el, i) => {
@@ -85,9 +90,9 @@ const ExpertiseSec = () => {
 
         {/* Swiper Slider */}
         <div className="relative overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-[50%_1fr] 2xl:grid-cols-[55%_1fr] 3xl:grid-cols-[961px_1fr] gap-8 xl:gap-[70px]  " >
-            <div className='h-full relative' ref={imageContainerRef}>
-              <motion.img style={{y:imageY}} src={activeImage} alt="" className='max-h-[250px] md:max-h-full h-full w-full object-cover' />
+          <div className="grid grid-cols-1 md:grid-cols-[50%_1fr] 2xl:grid-cols-[55%_1fr] 3xl:grid-cols-[961px_1fr] gap-4 lg:gap-8 xl:gap-[70px]  " >
+            <div className='h-full relative overflow-hidden' ref={imageContainerRef}>
+              <motion.img style={{y:imageY}} src={activeImage} alt="" className='h-[200px] scale-y-110 md:h-full w-full object-cover' />
             </div>
             <div>
               <div className="flex flex-col gap-8 lg:gap-[80px] justify-between 3xl:mt-12">
