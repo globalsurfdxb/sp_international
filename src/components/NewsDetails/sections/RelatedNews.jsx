@@ -14,7 +14,7 @@ const RelatedNews = () => {
             {pressReleases.items.slice(0, 3).map((item,index) => (
               <motion.div variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} key={item.id}
                className=" border-b border-black/20 pb-5 lg:border-b-0 lg:pb-0">
-                <img src={item.image} alt={item.title} width={520} height={339} className="w-full h-[339px] object-cover" />
+                <img src={item.image} alt={item.title} width={520} height={339} className="w-full h-[200px] md:h-[250px] lg:h-[300px] 2xl:h-[339px] object-cover" />
                 <div className="pt-5">
                   <div className="flex items-center justify-between pt-[14px] pb-[13px] pl-[23.15px] pr-[23.17px] bg-f5f5">
                     <h4 className="text-paragraph text-16 font-light leading-[1.75] uppercase">{new Date(item.date).toLocaleDateString("en-US", {

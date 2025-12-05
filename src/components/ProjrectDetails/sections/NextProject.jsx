@@ -1,4 +1,5 @@
 'use client';
+import { useMediaQuery } from "react-responsive";
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -14,6 +15,10 @@ import { nextpjt } from "../data";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { moveUp } from "../../../motionVarients";
 const NextProject = () => {
+
+  const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
+  const imageOffset = isMobile ? [-30, 30] : isTablet ? [-80, 80] : [-150, 150];
   const imageContainerRef = useRef(null);
   const overlayRef = useRef(null);
 
@@ -23,7 +28,7 @@ const NextProject = () => {
     target: imageContainerRefTwo,
     offset: ["start end", "end start"]
   });
-  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+  const imageY = useTransform(imageProgress, [0, 1], imageOffset);
 
 
 
