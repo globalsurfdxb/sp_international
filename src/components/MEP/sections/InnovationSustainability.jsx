@@ -9,6 +9,8 @@ import { moveUp, moveLeft } from "../../../motionVarients";
 
 
 const InnovationSustainability = ({data}) => {
+  const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
   const [activeIndex, setActiveIndex] = useState(1);
   const imageRef = useRef < HTMLDivElement | null > (null);
 
@@ -37,8 +39,7 @@ const InnovationSustainability = ({data}) => {
     if (activeIndex === index + 1) return "73px";
     return "26px";
   };
-  const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
+
 
   let activeSize;
   let inactiveSize;

@@ -36,7 +36,7 @@ const ExpertiseSec = ({data}) => {
         <div className='grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-30px gap-y-5 lg:gap-y-8'>
             {
               data.items.map((item,i)=>(
-                <motion.div className="relative overflow-hidden border-b xl:border-b-0 border-white/30"
+                <motion.div className="relative overflow-hidden border-b pb-2 xl:border-b-0 border-white/30"
                   initial={{ rotateY: -90, opacity: 0 }}
                   whileInView={{ rotateY: 0, opacity: 1 }}
                   transition={{

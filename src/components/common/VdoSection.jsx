@@ -60,7 +60,7 @@ const VdoSection = ({ data, maxW, maxtextwidth }) => {
         <motion.img style={{ y: shapeY }} src={assets.mainShape2} alt="" className="w-[250px] lg:w-[400px] xl:w-[500px] 3xl:w-[702px] h-auto 3xl:h-[983px] max-w-[702px] object-contain" />
       </div>
       <div className="container">
-        <div className="w-full lg:max-w-[80%] xl:max-w-[1000px]  3xl:max-w-[1238px] mx-auto relative z-10">
+        <div className="w-full lg:max-w-[80%] xl:max-w-[1000px]  3xl:max-w-[1238px] mx-auto relative z-10 overflow-hidden">
           <div>
             <div className="lg:max-w-[600px] xl:max-w-[795px] ml-auto mb-5 xl:mb-[70px]">
               <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}>
@@ -90,7 +90,7 @@ const VdoSection = ({ data, maxW, maxtextwidth }) => {
                 }
                 : {}
             }
-            className="container-scroll-effect lg:max-w-[80%] mx-auto">
+            className="container-scroll-effect lg:max-w-[80%] xl:max-w-full mx-auto">
             <VideoPlayer src={data.vdo} poster={data.vdoPoster} />
           </motion.div>
         </div>
