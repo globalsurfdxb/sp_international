@@ -190,7 +190,7 @@ const InnovationSustainability = ({data}) => {
                   key={activeIndex}
                   src={data.accordionData[activeIndex]?.image}
                   alt={data.accordionData[activeIndex]?.title}
-                  className="w-full h-[200px] md:h-[300px] lg:h-[450px] xl:h-[500px] 2xl:h-[706px] object-cover scale-110 md:scale-100"
+                  className="w-full h-[200px] sm:h-[250px] md:h-[350px] lg:h-[450px] xl:h-[500px] 2xl:h-[706px] object-cover scale-125 lg:scale-100"
                   initial={{ opacity: 0, scale: 1.1 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}

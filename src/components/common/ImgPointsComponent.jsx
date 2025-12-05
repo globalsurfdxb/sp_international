@@ -53,12 +53,12 @@ const ImgPointsComponent = ({ data, bgColor, sectionSpacing }) => {
         </motion.div>
         <div className="grid lg:grid-cols-[0.8fr_1fr] 2xl:grid-cols-[1fr_1fr] 3xl:grid-cols-[916px_auto] xl:items-center gap-8 xl:gap-10 3xl:gap-[108px] transition-all duration-300">
           {/* Left Side - Image */}
-          <div className="flex-shrink-0 relative overflow-hidden h-[250px] md:h-full transition-all duration-300" ref={imageContainerRefTwo}>
+          <div className="flex-shrink-0 relative overflow-hidden h-[250px] md:h-[300px] lg:h-full transition-all duration-300" ref={imageContainerRefTwo}>
             <motion.img
               style={{ y: imageY }}
               src={image}
               alt="Workplace environment"
-              className="object-cover w-full h-[250px] md:h-full scale-110 md:scale-100"
+              className="object-cover w-full md:w-[50%] lg:w-full h-[250px] md:h-[300px] lg:h-full scale-110 md:scale-150 lg:scale-110"
             />
           </div>
 
