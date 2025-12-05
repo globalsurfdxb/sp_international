@@ -37,7 +37,7 @@ const ExpertiseSec = ({ data }) => {
   return (
     <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden" ref={sectionRef}>
       <div className="reveal-overlay4 absolute inset-0 bg-black/20 z-20"></div>
-        <div className="absolute bottom-0 right-0 "><motion.img style={{y:shapeY}} src='/assets/images/svg/sv-04.svg' className=' object-contain w-[465px] h-[652px] ' alt="" /></div>
+        <div className="absolute bottom-0 right-0 "><motion.img style={{y:shapeY}} src='/assets/images/svg/sv-02.svg' className=' object-contain w-[465px] h-[652px] ' alt="" /></div>
           
       <div className="container">
         <H2Title titleText="Our Expertise" marginClass="mb-50px" />

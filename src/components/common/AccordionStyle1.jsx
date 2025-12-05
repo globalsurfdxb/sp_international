@@ -53,7 +53,7 @@ console.log(accData)
               className={`w-full ${openIndex === index ? 'pt-30px pb-2 xl:pb-[15px] ' : 'pt-30px pb-30px' } flex items-center justify-between text-left group`}
             >
               <div className="flex-1">
-                <h3 className="text-24 xl:text-32 leading-[1.3125] font-normal text-gray-900">
+                <h3 className="text-24 xl:text-24 3xl:text-32 leading-[1.3125] font-normal text-gray-900">
                   {item.title}
                 </h3>
                 {item.subtitle && openIndex === index && (

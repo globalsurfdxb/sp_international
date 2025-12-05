@@ -11,7 +11,7 @@ const SectorsSec = ({data}) => {
     <section className="pt-text30 pb30 overflow-hidden">
       <div className="container !overflow-visible">
         <div>
-          <H2Title titleText="Sectors We Serve" titleColor="black" marginClass="mb-50px" />
+          <H2Title titleText="Sectors We Serve" titleColor="black" marginClass="mb-5 xl:mb-50px" />
         </div>
         <div>
           <Swiper

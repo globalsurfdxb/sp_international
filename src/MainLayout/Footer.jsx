@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="bg-[#191919] pt-10 md:pt-12 lg:pt-20 2xl:pt-20 3xl:pt-[153px] text-white">
+    <div className="bg-[#191919] pt-10 md:pt-12 lg:pt-10 2xl:pt-20 3xl:pt-[153px] text-white">
       <div className="container">
         <div   onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
          className="fixed right-15 bottom-4  flex flex-col gap-1 items-center bg-white/70  rounded-sm cursor-pointer  px-2 pt-2  z-[999]">

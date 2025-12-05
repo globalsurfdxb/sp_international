@@ -55,12 +55,12 @@ const ExpertiseSec = () => {
   return (
     <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden" ref={sectionRef}>
       <div className="reveal-overlay4 absolute inset-0 bg-black/20 z-20"></div>
-      <div className="absolute bottom-0 right-0 w-[519px] h-[725px]"><motion.img style={{y:shapeY}} src={assets.mainShape} alt="" /></div>
+      <div className="absolute bottom-0 right-0 w-[519px]  md:w-[350px] md:h-[500px]  2xl:w-[519px] h-[725px]"><motion.img style={{y:shapeY}} src={assets.mainShape} alt="" /></div>
       <div className="container">
         {/* Header */}
         <div className="mb-50px">
-            <H2Title titleText={expertiseData.title} titleColor="white" marginClass="mb-2 xl:mb-5" />
-            <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 leading-[1.473684210526316] opacity-90 font-light max-w-5xl pb-2 sm:pb-0">
+            <H2Title titleText={expertiseData.title} titleColor="white" marginClass="mb-4 xl:mb-5" />
+            <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 leading-[1.473684210526316] opacity-90 font-light max-w-[85ch] pb-2 sm:pb-0">
             {expertiseData.desc}
           </motion.p>
         </div>
@@ -100,7 +100,7 @@ const ExpertiseSec = () => {
             {/* Content Section - Static with Navigation */}
             <motion.div variants={moveLeft(0.6)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}>
               {/* Navigation - Fixed */}
-              <div className="flex items-center gap-4  xl:gap-[51px] mb-5 xl:mb-[50px] border-b border-white/30 pt-5 lg:pt-10  pb-4 xl:pb-[30px]">
+              <div className="flex items-center gap-4  xl:gap-[51px] mb-5 xl:mb-[50px] border-b border-white/30 pt-5 lg:pt-5  pb-4 xl:pb-[30px]">
                 <div className='flex items-center gap-[12px]'>
                   <button onClick={() => imageSwiper?.slidePrev()}
                   className="w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors"
@@ -139,7 +139,7 @@ const ExpertiseSec = () => {
                 {expertiseData.items.map((item, index) => (
                   <SwiperSlide key={index}>
                     <div>
-                      <h3 className="text-29 leading-[1.344827586206897] font-light mb-2 xl:mb-5">
+                      <h3 className="text-29 leading-[1.344827586206897] font-light mb-4  xl:mb-5">
                         {item.mainTitle}
                       </h3>
                       <p className="text-white/80 text-19 leading-[1.473684210526316] font-light mb-8 2xl:mb-[45px]">

@@ -8,7 +8,7 @@ const OurApproach = () => {
   return (
     <section className="pt-text30 pb30">
       <div className="container">
-          <H2Title titleText="Our Approach" titleColor="black" marginClass="mb-3 md:mb-5 mb-8 xl:mb-50px" />
+          <H2Title titleText="Our Approach" titleColor="black" marginClass="mb-4  xl:mb-50px" />
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-30px gap-y-8">
           {
             engineeringData.approachesData.items.map((item,index)=>(
@@ -17,7 +17,7 @@ const OurApproach = () => {
                     <img src={item.icon} alt="" width={40} height={40} className="lg:w-[65px] w-10 h-10 3xl:h-[65px] object-contain" />
                   </div>
                   <div className="pt-5 xl:pt-8">
-                  <h3 className="text-20 xl:text-29 leading-[1.344827586206897] font-light mb-2 md:mb-3 xl:mb-[15px]">{item.title}</h3>
+                  <h3 className="text-20 xl:text-24 3xl:text-29 leading-[1.344827586206897] font-light mb-2 md:mb-3 xl:mb-[15px]">{item.title}</h3>
                   <p className="text-paragraph text-19 leading-[1.473684210526316] font-light">{item.desc}</p>
                   </div>
                 </motion.div>
