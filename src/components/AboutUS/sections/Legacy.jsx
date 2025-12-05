@@ -63,7 +63,7 @@ const Legacy = () => {
         <div className="container">
         <div>
             <div className="md:max-w-[650px] lg:max-w-[800px]  xl:max-w-[950px] 2xl:max-w-[80.9%] ml-auto">
-            <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 font-light leading-[1.18] text-white mb-5 lg:mb-15">
+            <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 font-light leading-[1.18] text-white mb-5 lg:mb-8 xl:mb-15">
               Legacy
             </motion.h2>
 

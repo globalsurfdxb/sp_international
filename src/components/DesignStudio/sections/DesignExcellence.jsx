@@ -60,10 +60,10 @@ const DesignExcellence = ({ data }) => {
     };
   }, []);
   return (
-    <section className="relative overflow-hidden pt-8 lg:pt-18 xl:pt-20 2xl:pt-30 3xl:pt-[161px] pb30" ref={sectionRef}>
-      <div className="absolute bottom-[-140px] pt-8 lg:pt-18 xl:pt-20 2xl:pt-30 3xl:pt-[161px] left-0 h-full w-full z-0"><motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="w-[30%] 2xl:w-[425px] h-auto max-w-[425px] object-contain" /></div>
+    <section className="relative overflow-hidden pt30 3xl:pt-[161px] pb30" ref={sectionRef}>
+      <div className="absolute bottom-[-140px] pt30 3xl:pt-[161px] left-[-120px] xl:left-0 h-full w-full z-0"><motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="w-[30%] 2xl:w-[425px] h-auto max-w-[425px] object-contain" /></div>
       <div className="container">
-        <div className="w-full lg:max-w-[800px] 2xl:max-w-[1207px] ml-auto flex flex-col gap-5 xl:gap-0">
+        <div className="w-full max-w-[800px] 2xl:max-w-[900px] 3xl:max-w-[1207px] ml-auto flex flex-col gap-5 xl:gap-0">
           <div  className="mb-0 md:mb-6 2xl:mb-12 3xl:mb-18 order-2 xl:order-1">
               <H2Title titleText={data.title} marginClass={"mb-2 xl:mb-6 2xl:mb-30px"} />
               <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}  className="text-19 leading-[1.473684210526316] font-light text-paragraph max-w-3xl">{data.desc}</motion.p>

@@ -71,7 +71,7 @@ const ExpertiseSec = ({ data }) => {
     <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden" ref={sectionRef}>
       <div className="reveal-overlay4 absolute inset-0 bg-black/20 z-20"></div>
       <div className="container !overflow-visible">
-        <div className="flex justify-between mb-3 lg:mb-6 xl:mb-50px ">
+        <div className="flex justify-between mb-5 xl:mb-50px ">
           <H2Title titleText="Our Expertise" />
           {/* Navigation - Fixed */}
           <div className="flex items-center gap-[12px] ">

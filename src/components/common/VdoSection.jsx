@@ -55,16 +55,16 @@ const VdoSection = ({ data, maxW, maxtextwidth }) => {
   const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
 
   return (
-    <section className="relative overflow-hidden pt-text25 pb-12 xl:pb-15 2xl:pb-22 3xl:pb-[120px]" ref={sectionRef}>
-      <div className="absolute bottom-[-30px] left-[0px] h-fit w-full z-0 ">
-        <motion.img style={{ y: shapeY }} src={assets.mainShape2} alt="" className="w-[250px] lg:w-[400px] xl:w-[500px] 3xl:w-[702px] h-auto 3xl:h-[983px] max-w-[702px] object-contain" />
+    <section className="relative overflow-hidden pt-text25 pb-12 xl:pb-17 2xl:pb-24 3xl:pb-[120px]" ref={sectionRef}>
+      <div className="absolute bottom-[54px] 3xl:bottom-[-30px] left-[-140px] lg:left-[-200px] xl:left-[-22%] 2xl:left-[-116px] 3xl:left-[-58px] h-fit w-fit z-0 ">
+        <motion.img style={{ y: shapeY }} src={assets.mainShape2} alt="" className="w-[250px] lg:w-[400px] xl:w-[500px] 3xl:w-[702px] h-auto 3xl:h-[954px] max-w-[681px] object-contain" />
       </div>
       <div className="container">
         <div className="w-full lg:max-w-[80%] xl:max-w-[1000px]  3xl:max-w-[1238px] mx-auto relative z-10 overflow-hidden">
           <div>
-            <div className="lg:max-w-[600px] xl:max-w-[795px] ml-auto mb-5 xl:mb-[70px]">
+            <div className="lg:max-w-[680px] xl:max-w-[895px] 2xl:max-w-[757px] 3xl:max-w-[795px] ml-auto mb-4 xl:mb-50px 3xl:mb-17">
               <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}>
-                <H2Title titleText={data.title} titleColor="primary" marginClass="mb-4 3xl:mb-10 " maxW={maxW} />
+                <H2Title titleText={data.title} titleColor="primary" marginClass="mb-4 3xl:mb-10 " maxW={"max-w-[18ch]"} />
               </motion.div>
               {
                 data.desc.map((item) => (
@@ -90,7 +90,7 @@ const VdoSection = ({ data, maxW, maxtextwidth }) => {
                 }
                 : {}
             }
-            className="container-scroll-effect lg:max-w-[80%] xl:max-w-full mx-auto">
+            className="container-scroll-effect lg:max-w-[100%] mx-auto">
             <VideoPlayer src={data.vdo} poster={data.vdoPoster} />
           </motion.div>
         </div>

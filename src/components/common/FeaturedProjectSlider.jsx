@@ -73,7 +73,7 @@ const FeaturedProjectSlider = ({ data }) => {
       <section className="pt-text90 pb25 relative bg-f5f5 overflow-hidden" ref={sectionRef}>
         <div className="xl:px-[15px] md:pe-0 relative">
           <div className="container" ref={containerRef}>
-            <div className="flex justify-between items-center mb-5 3xl:mb-17">
+            <div className="flex justify-between items-center  mb-50px 3xl:mb-17 ">
               <motion.div variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} >
                 <H2Title titleText="Featured Projects" titleColor="black" marginClass="mb-0" />
               </motion.div>

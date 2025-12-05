@@ -62,10 +62,10 @@ const InnovationSustainability = ({data}) => {
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden pt-text30 pb30 bg-gradient-to-br from-slate-50 to-blue-50">
-      <motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="absolute bottom-3 left-0 w-[50%] 2xl:w-[960px] h-auto object-contain" />
+      <motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="absolute bottom-3 left-0  2xl:left-[-40px]  3xl:left-0 w-[50%] 2xl:w-[750px] 3xl:w-[960px] h-auto object-contain" />
       <div className="container mx-auto px-4">
         <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount:0.6, once:true}} >
-          <H2Title titleText={data.title} titleColor="black" marginClass="mb-50px 3xl:mb-18" />
+          <H2Title titleText={data.title} titleColor="black" marginClass="mb-5 lg:mb-10 xl:mb-50px 3xl:mb-18" />
         </motion.div>
         <div className="grid lg:grid-cols-2 xl:grid-cols-[0.8fr_1.1fr] 3xl:grid-cols-[1fr_916px] gap-8 lg:gap-13 items-center">
           {/* LEFT SIDE */}

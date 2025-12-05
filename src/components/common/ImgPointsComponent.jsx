@@ -49,9 +49,9 @@ const ImgPointsComponent = ({ data, bgColor, sectionSpacing }) => {
     <section className={`w-full bg-${bgColor} text-black ${sectionSpacing}`}>
       <div className="container">
         <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}>
-          <H2Title titleText={heading} titleColor="black" marginClass="mb-4 lg:mb-8 2xl:mb-[70px]" />
+          <H2Title titleText={heading} titleColor="black" marginClass="mb-5 xl:mb-50px 3xl:mb-17" />
         </motion.div>
-        <div className="grid lg:grid-cols-[0.8fr_1fr] 2xl:grid-cols-[1fr_1fr] 3xl:grid-cols-[916px_auto] xl:items-center gap-8 xl:gap-10 3xl:gap-[108px] transition-all duration-300">
+        <div className="grid lg:grid-cols-[0.8fr_1fr] 2xl:grid-cols-[730px_auto] 3xl:grid-cols-[916px_auto] xl:items-center gap-8 xl:gap-10 3xl:gap-[108px] transition-all duration-300">
           {/* Left Side - Image */}
           <div className="flex-shrink-0 relative overflow-hidden h-[250px] md:h-[300px] lg:h-full transition-all duration-300" ref={imageContainerRefTwo}>
             <motion.img

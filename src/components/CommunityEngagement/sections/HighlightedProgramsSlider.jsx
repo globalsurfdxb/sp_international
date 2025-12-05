@@ -73,7 +73,7 @@ const HighlightedProgramsSlider = () => {
             {/* Content Section - Static with Navigation */}
             <div className="order-1 lg:order-2   lg:w-[45%] 2xl:w-[37.5%]">
               {/* Navigation - Fixed */}
-              <div className="flex items-center gap-4   border-b border-white/20 pb-4 2xl:pb-[30px] lg:pb-6 mb-4 lg:mb-6 2xl:mb-[70px]">
+              <div className="flex items-center gap-4   border-b border-white/20 pb-4 2xl:pb-[30px] lg:pb-6 mb-4 xl:mb-50px 3xl:mb-17">
                 <button onClick={() => imageSwiper?.slidePrev()}
                   className="group hover:-translate-x-1 transition-all duration-300  cursor-pointer w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center  "
                   aria-label="Previous slide"
