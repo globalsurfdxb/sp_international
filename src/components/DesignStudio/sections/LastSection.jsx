@@ -71,7 +71,7 @@ const LastSection = () => {
           </div>
           <div className="order-1 xl:order-2 relative overflow-hidden" ref={imageContainerRefTwo}>
            <div className="relative" ref={imageContainerRefOne}>
-              <motion.img style={{y:imageY}} src="../../assets/images/design-studio/design-inpires.jpg" alt="" width={932} height={532} className="w-full h-[200px] md:h-[300px] xl:h-[350px] 2xl:h-[470px] 3xl:h-[532px] scale-110 md:scale-150 lg:scale-110 object-cover" />
+              <motion.img style={{y:imageY}} src="../../assets/images/design-studio/design-inpires.jpg" alt="" width={932} height={532} className="w-full h-[200px] md:h-[300px] xl:h-[350px] 2xl:h-[470px] 3xl:h-[532px] scale-110 md:scale-150 lg:scale-110 object-cover"  />
            </div>
             <div ref={overlayRefTwo} className="absolute top-0 left-0 w-full h-full bg-white z-10"></div>
           </div>
