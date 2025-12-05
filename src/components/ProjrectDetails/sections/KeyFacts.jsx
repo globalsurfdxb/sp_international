@@ -29,7 +29,7 @@ const KeyFacts = () => {
       <div className="py-8 xl:py-15 2xl:py-22  3xl:pt-[88px]  3xl:pb-[80px] bg-primary  ">
         <div className="reveal-overlay2 absolute inset-0 bg-black/20 z-20"></div>
         <div className="container relative">
-          <div className="  2xl:max-w-[1208px] ml-auto">
+          <div className="   2xl:max-w-[1008px] 3xl:max-w-[1208px] ml-auto">
             <div className="flex  justify-between items-center ">
               <div>
                 <h2 className="text-60 font-light leading-[1.17] mb-7 lg:mb-15 text-white">{keyfactors.title}</h2>

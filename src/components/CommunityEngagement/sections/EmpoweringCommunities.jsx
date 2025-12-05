@@ -95,7 +95,7 @@ const EmpoweringCommunities = () => {
           <Block src={all[8][idx[8]]} size={size.medium} fade={fade} />
         </motion.div>
         {/* Set 7 - small */}
-        <motion.div variants={moveUp(0.7 * idx[6])} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="mt-[150px] sm:mt-[200px] lg:mt-[350px] min-w-[15.27%]">
+        <motion.div variants={moveUp(0.7 * idx[6])} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="mt-[150px] sm:mt-[200px] lg:mt-[320px] min-w-[15.27%]">
           <Block src={all[6][idx[6]]} size={size.extrasmall} fade={fade} />
         </motion.div>
 

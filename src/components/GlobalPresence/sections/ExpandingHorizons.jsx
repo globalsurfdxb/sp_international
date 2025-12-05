@@ -11,11 +11,11 @@ const ExpandingHorizons = ({ data }) => {
   const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
   return (
     <section className="relative overflow-hidden pt-text25 pb30" ref={sectionRef}>
-      <div className="absolute bottom-0 left-0"><motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="w-[563px] h-auto max-w-[788px] object-contain" /></div>
+      <div className="absolute bottom-0 left-0"><motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="w-[450px] 3xl:w-[563px] h-auto max-w-[788px] object-contain relative left-[-100px]" /></div>
       <div className="container">
         <div>
           <div>
-            <div className="2xl:max-w-[85%] 3xl:max-w-[67.84%] ml-auto ">
+            <div className="2xl:max-w-[75%] 3xl:max-w-[67.84%] ml-auto ">
               <h2 className="text-60 font-light leading-[1.166666666666667] mb-50px max-w-[22ch]">{data.title}</h2>
               {
                 data.desc.map((item) => (

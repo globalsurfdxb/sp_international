@@ -48,7 +48,7 @@ const Banner = ({ title, image }) => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full h-[280px] lg:h-[350px] xl:h-[560px] overflow-hidden bg-secondary/20">
+    <section ref={sectionRef} className="relative w-full h-[280px] lg:h-[350px] xl:h-[440px] 3xl:h-[560px] overflow-hidden bg-secondary/20">
       {/* Background Image */}
       <img ref={imgRef} src={image} alt={title} className="absolute inset-0 w-full h-full object-cover object-center z-0" />
 
@@ -60,7 +60,7 @@ const Banner = ({ title, image }) => {
 
       {/* Content */}
       <div className="container relative z-30 h-full">
-        <div className="flex flex-col justify-end h-full pb-5 sm:pb-8  md:pb-8 lg:pb-10 2xl:pb-12 3xl:pb-26">
+        <div className="flex flex-col justify-end h-full pb-5 sm:pb-8  md:pb-8 lg:pb-10 2xl:pb-13 3xl:pb-26">
           <h1 ref={titleRef} className="text-white text-60 xl:text-70 font-light leading-[1.08] capitalize">{title}</h1>
         </div>
       </div>

@@ -46,19 +46,19 @@ const ContactDetails = () => {
     <section className="pt-text30 bg-f5f5 pb-10 lg:pb-0">
       <div className="container">
         <motion.h1 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-45 2xl:text-70 font-light leading-[1.071428571428571] pb-5 xl:pb-15 2xl:pb-22 3xl:pb-31">{contactData.title}</motion.h1>
-        <div className="grid grid-cols-1 lg:grid-cols-[0.6fr_1fr] xl:grid-cols-[1fr_1.6fr] 3xl:grid-cols-[auto_866px] gap-y-8 lg:gap-x-8 3xl:gap-[131px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.6fr_1fr] xl:grid-cols-[1fr_1.6fr] 2xl:grid-cols-[auto_650px] 3xl:grid-cols-[auto_866px] gap-y-8 lg:gap-x-8 3xl:gap-[131px]">
           <div className="lg:pt-[56px]" >
             <motion.h3 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-19 font-light text-paragraph mb-3 lg:mb-6 ">Head office</motion.h3>
             <motion.p variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-29 font-bold leading-[1.31] ">{contactData.name}</motion.p>
-            <motion.p variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-paragraph text-20 2xl:text-29 font-light leading-[1.35] max-w-[25ch]">{contactData.address}</motion.p>
-            <div className="flex flex-col sm:flex-row  gap-5 md:gap-15 xl:gap-[130px] my-6 lg:my-10 xl:my-15 2xl:my-20">
+            <motion.p variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-paragraph text-20 xl:text-26 3xl:text-29 font-light leading-[1.35] max-w-[25ch]">{contactData.address}</motion.p>
+            <div className="flex flex-col sm:flex-row  gap-5 md:gap-15 xl:gap-[100px] 3xl:gap-[130px] my-6 lg:my-10 xl:my-15 2xl:my-20">
               <div>
                 <motion.p variants={moveUp(0.7)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-paragraph text-19 font-light mb-[10px] leading-[1.48] ">Phone</motion.p>
-                <motion.p variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-black text-19 xl:text-29 font-light leading-[1.31] ">{contactData.phone}</motion.p>
+                <motion.p variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-black text-19 xl:text-26 3xl:text-29 font-light leading-[1.31] ">{contactData.phone}</motion.p>
               </div>
               <div>
                 <motion.p variants={moveUp(0.7)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-paragraph text-19 font-light mb-[10px] leading-[1.48] ">Email</motion.p>
-                <motion.p variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-black text-19 xl:text-29 leading-[1.31]   font-light">{contactData.email}</motion.p>
+                <motion.p variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-black text-19 xl:text-26 3xl:text-29 leading-[1.31]   font-light">{contactData.email}</motion.p>
               </div>
             </div>
 
