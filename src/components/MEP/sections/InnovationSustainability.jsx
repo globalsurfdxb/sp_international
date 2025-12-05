@@ -16,19 +16,23 @@ const InnovationSustainability = ({data}) => {
 
   const sectionRef = useRef(null);
   const imageContainerRef = useRef(null);
+  // Define movement amounts based on device
+  const imageOffset = isMobile ? [-30, 30] : isTablet ? [-80, 80] : [-150, 150];
+  const shapeOffset = isMobile ? [-50, 50] : isTablet ? [-100, 100] : [-200, 200];
+
   // Parallax for main image container
   const { scrollYProgress: imageProgress } = useScroll({
     target: imageContainerRef,
     offset: ["start end", "end start"]
   });
-  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+  const imageY = useTransform(imageProgress, [0, 1], imageOffset);
 
   // Parallax for shape
   const { scrollYProgress: shapeProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
   });
-  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
+  const shapeY = useTransform(shapeProgress, [0, 1], shapeOffset);
 
   const handleAccordionClick = (index) => {
     setActiveIndex(activeIndex === index ? index : index);
