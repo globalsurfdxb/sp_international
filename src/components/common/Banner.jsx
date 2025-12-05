@@ -48,7 +48,7 @@ const Banner = ({ title, image }) => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full h-[280px] lg:h-[350px] xl:h-[440px] 3xl:h-[560px] overflow-hidden bg-secondary/20">
+    <section ref={sectionRef} className="relative w-full h-[200px] md:h-[280px] lg:h-[350px] 2xl:h-[450px] 3xl:h-[560px] overflow-hidden bg-secondary/20">
       {/* Background Image */}
       <img ref={imgRef} src={image} alt={title} className="absolute inset-0 w-full h-full object-cover object-center z-0" />
 

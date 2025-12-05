@@ -1,5 +1,6 @@
 
 "use client";
+import { useMediaQuery } from "react-responsive";
 import { assets } from "../../../assets/index";
 import H2Title from "../../common/H2Title";
 import { useRef, useEffect } from "react";
@@ -9,6 +10,10 @@ import {motion,useScroll,useTransform} from "framer-motion"
 import {moveUp, paragraphItem } from "../../../motionVarients";
 gsap.registerPlugin(ScrollTrigger);
 const DesignExcellence = ({ data }) => {
+  const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
+  const imageOffset = isMobile ? [-30, 30] : isTablet ? [-80, 80] : [-150, 150];
+  const shapeOffset = isMobile ? [-50, 50] : isTablet ? [-100, 100] : [-200, 200];
   const imageContainerRefTwo = useRef(null);
   const overlayRefTwo = useRef(null);
 
@@ -20,14 +25,14 @@ const DesignExcellence = ({ data }) => {
     target: imageContainerRefOne,
     offset: ["start end", "end start"]
   });
-  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+  const imageY = useTransform(imageProgress, [0, 1], imageOffset);
 
   // Parallax for shape
   const { scrollYProgress: shapeProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
   });
-  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
+  const shapeY = useTransform(shapeProgress, [0, 1], shapeOffset);
 
   useEffect(() => {
     const container = imageContainerRefTwo.current;
@@ -59,13 +64,13 @@ const DesignExcellence = ({ data }) => {
       <div className="absolute bottom-[-140px] pt-8 lg:pt-18 xl:pt-20 2xl:pt-30 3xl:pt-[161px] left-0 h-full w-full z-0"><motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="w-[30%] 2xl:w-[425px] h-auto max-w-[425px] object-contain" /></div>
       <div className="container">
         <div className="w-full lg:max-w-[800px] 2xl:max-w-[1207px] ml-auto flex flex-col gap-5 xl:gap-0">
-          <div  className="mb-0 xl:mb-20 2xl:mb-18 order-2 xl:order-1">
-              <H2Title titleText={data.title} marginClass={"mb-2 xl:mb-30px"} />
+          <div  className="mb-0 md:mb-6 2xl:mb-12 3xl:mb-18 order-2 xl:order-1">
+              <H2Title titleText={data.title} marginClass={"mb-2 xl:mb-6 2xl:mb-30px"} />
               <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}  className="text-19 leading-[1.473684210526316] font-light text-paragraph max-w-3xl">{data.desc}</motion.p>
           </div>
           <div className="order-1 xl:order-2 relative overflow-hidden" ref={imageContainerRefTwo}>
             <div ref={imageContainerRefOne} className="relative">
-              <motion.img style={{ y: imageY }} src={data.img} alt="" width={1270} height={470} className="w-full xl:h-[300px] 2xl:w-[1270px] 2xl:h-[470px]  object-cover" />
+              <motion.img style={{ y: imageY }} src={data.img} alt="" width={1270} height={470} className="w-full h-[200px] md:h-[300px] lg:h-[350px] 2xl:w-[1270px] 2xl:h-[470px] scale-110 lg:scale-150 xl:scale-110 object-cover" />
             </div>
             <div ref={overlayRefTwo} className="absolute top-0 left-0 w-full h-full bg-white z-10"></div>
           </div>

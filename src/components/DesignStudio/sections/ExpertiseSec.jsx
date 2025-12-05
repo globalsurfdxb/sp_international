@@ -139,7 +139,7 @@ const ExpertiseSec = ({ data }) => {
                       <motion.img
                         src={item.img}
                         alt={item.slideTitle}
-                        className="w-full h-[250px] lg:h-[300px] xl:h-[333px] object-cover"
+                        className="w-full h-[200px] md:h-[250px] lg:h-[300px] xl:h-[333px] object-cover"
                         // variants={moveUp(0.2)}
                         // initial="hidden"
                         // whileInView="show"
