@@ -47,16 +47,16 @@ const SaftySlider = () => {
      <div className="relative mb-3">
       <motion.img style={{y:shapeY}} src="/assets/images/svg/sv-02.svg" alt="" className="absolute bottom-0 2xl:bottom-[-58px] left-0 z-[-1] w-[468px] h-[655px]" width={468} height={655} /> 
       <div className="container pt-text30">   
-        <div className=" max-w-[1206px] ml-auto  ">
+        <div className=" max-w-[1206px] 2xl:max-w-[1056px] 3xl:max-w-[1206px] ml-auto  ">
           <div>
             <H2Title titleText={saftyData.title} titleColor="black" marginClass="mb-4 2xl:mb-50px max-w-[15ch]" />
               <motion.p variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 font-light leading-[1.474] max-w-[59ch] text-paragraph">{saftyData.description}</motion.p>
           </div>
           <motion.div variants={moveLeft(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex flex-col md:flex-row p-5 lg:px-12  lg:py-10 bg-f5f5  gap-8 md:gap-0">
             {saftyData.counts.map((item,index)=>(
-              <div key={index} className="">
+              <div key={index} className="md:w-[33.33%] w-auto">
                 <motion.p variants={moveLeft(0.3*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-40 font-light leading-[1.02] text-paragraph mb-3 lg:mb-[18px] ">{item.count}</motion.p>
-                <motion.p variants={moveLeft(0.3*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 font-light text-black/70 leading-[1.48] pt-3 lg:pt-[14px] border-t border-[#cccccc] xl:whitespace-nowrap pr-5 lg:pr-[150px]">{item.title}</motion.p>
+                <motion.p variants={moveLeft(0.3*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 font-light text-black/70 leading-[1.48] pt-3 lg:pt-[14px] border-t border-[#cccccc] xl:whitespace-nowrap pr-5 lg:pr-[100px] 3xl:pr-[150px]">{item.title}</motion.p>
               </div>
             ))}
           </motion.div>

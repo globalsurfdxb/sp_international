@@ -149,7 +149,7 @@ const ProjectLists = () => {
   };
 
   return (
-    <section className="relative" ref={sectionRef}>
+    <section className="relative overflow-hidden" ref={sectionRef}>
       <div className="container">
         <motion.div
           variants={moveUp(2)}
@@ -432,12 +432,12 @@ const ProjectLists = () => {
 
         {/* GRID VIEW */}
         <div
-          className={`gap-x-30px  gap-y-10 md:gap-y-12 xl:gap-y-[80px] pb-10 xl:pb-[80px] transition-all duration-300 
+          className={`gap-5 3xl:gap-x-[30px]  gap-y-10 md:gap-y-12 xl:gap-y-[80px] pb-10 xl:pb-[80px] transition-all duration-300 
         ${
           isAnimating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
         } ${
             view === "grid"
-              ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+              ? "grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3"
               : "hidden"
           }`}
           style={{
@@ -496,10 +496,10 @@ const ProjectLists = () => {
                   </h2>
                 </div>
                 <div className="flex justify-between border-t border-t-black/20 border-b border-b-black/20">
-                  <p className="text-paragraph text-19 font-light leading-[2.44]">
+                  <p className="text-paragraph text-19 font-light leading-[2.44] max-w-[18ch] truncate">
                     Sector: {item.sector}
                   </p>
-                  <p className="text-paragraph text-19 font-light leading-[2.44] xl:pe-6">
+                  <p className="text-paragraph text-19 font-light leading-[2.44] pe-1 3xl:xl:pe-6 max-w-[18ch] truncate">
                     BUA (Sq.ft): {item.sqft}
                   </p>
                 </div>
@@ -551,10 +551,10 @@ const ProjectLists = () => {
                       className="w-full h-full   md:h-[350px] lg:min-w-[274px] lg:h-[208px] object-fit"
                     />
                   </div>
-                  <div className="flex flex-col lg:flex-row justify-between gap-1 md:gap-10 2xl:gap-10 3xl:gap-[104px] w-full">
+                  <div className="flex flex-col lg:flex-row justify-between gap-1 md:gap-5   2xl:gap-10 3xl:gap-[104px] w-full">
                     <div>
                       <div>
-                        <h2 className="text-29 leading-[1.344827586206897] font-light  ">
+                        <h2 className="text-20 xl:text-29 leading-[1.344827586206897] font-light  ">
                           {item.title}
                         </h2>
                       </div>
@@ -563,10 +563,10 @@ const ProjectLists = () => {
                       <div className="bg-f5f5 p-5 xl:py-[18px] xl:px-[30px]">
                         <div className="flex gap-5 3xl:gap-[168px] justify-between border-b border-b-black/20 pb-[11px] mb-[7px] ">
                           <p className="text-paragraph text-19 font-light leading-[2] ">
-                            Sector: {item.sector}
+                            Sector: <br className="hidden lg:block 2xl:hidden"></br>{item.sector}
                           </p>
                           <p className="text-paragraph text-19 font-light leading-[2] xl:pe-6">
-                            BUA (Sq.ft): {item.sqft}
+                            BUA (Sq.ft): <br className="hidden lg:block 2xl:hidden"></br>{item.sqft}
                           </p>
                         </div>
                         <div className="">
@@ -576,7 +576,7 @@ const ProjectLists = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 hidden lg:block">
+                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 hidden xl:block">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="35"
@@ -681,14 +681,14 @@ const ProjectLists = () => {
 
       {view === "grid" && (
         <>
-          <div className="absolute bottom-3/7 translate-y-[-78px] left-0 z-[-1]">
+          <div className="absolute bottom-[30%] translate-y-[58px] 3xl:bottom-3/7 3xl:translate-y-[-78px] left-[-140px] 3xl:left-0 z-[-1]">
             <motion.img style={{y:shapeY}}
               src="./assets/images/projects/pjtbdy1.svg"
               alt=""
               className="w-[670px] object-contain"
             />
           </div>
-          <div className="absolute bottom-0 right-0 z-[-1]   ">
+          <div className="absolute bottom-0 right-[-150px] 3xl:right-0 z-[-1]   ">
             <motion.img style={{y:shapeY}}
               src="./assets/images/projects/pjtbdy2.svg"
               alt=""

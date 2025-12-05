@@ -12,11 +12,11 @@ const MoreDetrails = () => {
   return (
     <section className="relative overflow-hidden" ref={sectionRef}>
         <div className="py-8 xl:py-15 2xl:pt-22 3xl:pt-[80px] pb-text30 relative   ">
-          <div className="absolute top-1/3 left-0 -translate-y-1/3  ">
+          <div className="absolute top-1/3 left-[-141px] 3xl:left-0  -translate-y-1/3  3xl:-translate-y-1/3  ">
             <motion.img style={{ y: shapeY }} src="/assets/images/press-releases/newsbody.svg" alt="" className="w-full h-full 2xl:w-[478px] 2xl:h-[669px] object-cover" />
           </div>
           <div className="container relative border-b border-[#cccccc] pb-text30">
-          <div className="   2xl:max-w-[1208px] ml-auto">
+          <div className="    2xl:max-w-[1008px] 3xl:max-w-[1208px] ml-auto">
              <div className=" ">
                <div>  
                  <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 font-light text-paragraph mb-6  md:mb-5 last:lg:mb-13 last:2xl:mb-15">09 January 2024, Mumbai, Kakinada: Shapoorji Pallonji Energy Pvt Ltd (SP Energy), India’s leading specialist in Floating Production Storage and Offloading (FPSO) Units, has achieved a significant milestone of “First Oil” on 07 January 2024 from its FPSO Armada Sterling V at Krishna Godavari deepwater block KG-DWN-98/2, offshore Kakinada. </motion.p>

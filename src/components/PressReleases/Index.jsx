@@ -270,10 +270,7 @@ const Index = () => {
                       {item.category}
                     </h4>
                   </div>
-                  <Link to="/news-details">
-                    <h2 className="text-29 leading-[1.344827586206897] font-light mt-30px 3xl:max-w-[90%]">
-                      {item.title}
-                    </h2>
+                  <Link to="/news-details"> 
                     <h2 className="text-29 leading-[1.344827586206897] font-light mt-30px 3xl:max-w-[90%]">
                       {item.title}
                     </h2>
@@ -355,7 +352,7 @@ const Index = () => {
         </div>
 
 
-        <div className="absolute bottom-1/8 left-0 z-[-1] ">
+        <div className="absolute bottom-1/8 left-[-141px] 3xl:left-0 z-[-1] ">
           <motion.img style={{ y: shapeY }} src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit 2xl-w[754px] 2xl-h[1056px] relative 2xl:top-[14px] " />
         </div>
       </section>

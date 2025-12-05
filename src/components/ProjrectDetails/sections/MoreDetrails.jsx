@@ -17,7 +17,7 @@ const MoreDetrails = () => {
     <section className="relative overflow-hidden" ref={sectionRef}>
       <div className="pt-7 pb-10 xl:py-15 2xl:py-22  3xl:py-[80px]  relative bg-f5f5 ">
         <div className="container relative">
-          <div className="2xl:max-w-[1208px] ml-auto">
+          <div className="2xl:max-w-[1008px] 3xl:max-w-[1208px] ml-auto">
             <div className="flex  justify-between items-center border-b border-black/20">
               <div className="relative z-20">
                 <motion.h2 variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 font-light leading-[1.17] mb-3 lg:mb-7 text-black">{moredetrails.title}</motion.h2>
@@ -30,7 +30,7 @@ const MoreDetrails = () => {
             </div>
           </div>
         </div>
-        <div  className="absolute hidden md:block left-[-120px] bottom-[-253px] lg:left-[-290px] lg:bottom-[73px]  z-10">
+        <div  className="absolute hidden md:block left-[-120px] bottom-[-253px] lg:left-[-400px] 3xl:left-[-290px] lg:bottom-[73px]  z-10">
           <motion.img style={{y:shapeY}} src="../assets/images/svg/sv-02.svg" className="w-[500px] h-[992px] lg:w-[742px] lg:h-[1040px] object-cover object-center" alt="" />
         </div>
       </div>

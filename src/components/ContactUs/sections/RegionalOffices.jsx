@@ -15,14 +15,14 @@ const RegionalOffices = () => {
               <p className="text-19 font-light mb-4 lg:mb-[45px] leading-[1.5] md:leading-[1.6] lg:leading-[1.48]" dangerouslySetInnerHTML={{ __html: office.address }}></p>
               {
                 office.phone || office.fax ? (
-                  <div className="bg-f5f5 p-5 3xl:px-10 3xl:pt-[34px] 3xl:pb-[36px]">
+                  <div className="bg-f5f5 p-5 2xl:px-7 3xl:px-10 3xl:pt-[34px] 3xl:pb-[36px]">
                     <div className="flex flex-wrap justify-between mb-5 lg:mb-[35px] ">
                       {office.phone ? (
                         <div>
                           <p className="text-paragraph text-19 font-light mb-[4px] leading-[1.48] ">Phone</p>
                           <div>
                             {office.phone.map((phone, index) => (
-                              <p key={index} className="text-paragraph text-19 font-bold leading-[1.53] ">{phone}</p>
+                              <p key={index} className=" text-16 3xl:text-19 font-bold leading-[1.53] ">{phone}</p>
                             ))}
                           </div>
                         </div>
@@ -30,7 +30,7 @@ const RegionalOffices = () => {
                       {office.fax ? (
                         <div>
                           <p className="text-paragraph text-19 font-light mb-[4px] leading-[1.48] ">Fax</p>
-                          <p className="text-paragraph text-19 font-bold leading-[1.31] ">{office.fax}</p>
+                          <p className="text-paragraph text-16 3xl:text-19 font-bold leading-[1.31] ">{office.fax}</p>
                         </div>
                       ) : null}
                     </div>

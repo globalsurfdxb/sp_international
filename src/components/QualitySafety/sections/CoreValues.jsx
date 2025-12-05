@@ -32,7 +32,7 @@ const CoreValues = () => {
             <H2Title titleText={coreValueData.title} titleColor="black" marginClass="mb-4 2xl:mb-[30px] max-w-[15ch]" />
             <p className="text-19 font-light leading-[1.474] xl:max-w-[59ch] text-paragraph">{coreValueData.description}</p>
           </div>
-          <motion.img src="/assets/images/svg/sv-02.svg" style={{y:shapeY}} alt=""  className="absolute bottom-0 right-0 xl:right-[-40px] z-[-1] w-[667px] h-[934px]" width={667} height={934} /> 
+          <motion.img src="/assets/images/svg/sv-02.svg" style={{y:shapeY}} alt=""  className="absolute bottom-0 right-0 xl:right-[-40px] z-[-1] w-[461px] 2xl:w-[461px] 3xl:w-[667px] h-[934px]" width={667} height={934} /> 
         </div>
       </div>
     </section>
