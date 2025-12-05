@@ -719,6 +719,9 @@ body::-webkit-scrollbar {
 .pt-text30{
   @apply pt-7 lg:pt-12 xl:pt-20 3xl:pt-30;
 }
+.pb-text30{
+  @apply pb-7 lg:pb-12 xl:pb-20 3xl:pb-30;
+}
 .pt-text25{
   @apply pt-5 md:pt-8 xl:pt-10 2xl:pt-22 3xl:pt-25;
 }

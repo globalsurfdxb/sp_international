@@ -76,7 +76,7 @@ const EmpowerSection = () => {
       >
 
         {/* Right Content */}
-        <div className="w-full flex flex-col justify-center 2xl:max-w-[1208px] ml-auto">
+        <div className="w-full flex flex-col justify-center  2xl:max-w-[1008px] 3xl:max-w-[1208px] ml-auto">
           <motion.h2 variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 leading-[1.1666666667] font-light mb-6 lg:mb-[30px] max-w-[20ch]">
             {heading}
           </motion.h2>

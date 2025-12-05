@@ -75,16 +75,16 @@ const HighlightedProgramsSlider = () => {
               {/* Navigation - Fixed */}
               <div className="flex items-center gap-4   border-b border-white/20 pb-4 2xl:pb-[30px] lg:pb-6 mb-4 lg:mb-6 2xl:mb-[70px]">
                 <button onClick={() => imageSwiper?.slidePrev()}
-                  className="cursor-pointer w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors"
+                  className="group hover:-translate-x-1 transition-all duration-300  cursor-pointer w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center  "
                   aria-label="Previous slide"
                 >
-                  <img src={assets.arrowLeft2} alt="" className='w-[14px] h-[14px]'/>
+                  <img src={assets.arrowLeft2} alt="" className='w-[14px] h-[14px] group-hover:opacity-90  duration-300  transition-all delay-200'/>
                 </button>
                 <button onClick={() => imageSwiper?.slideNext()}
-                  className="cursor-pointer w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors"
+                  className="group hover:translate-x-1 transition-all duration-300 cursor-pointer w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center  "
                   aria-label="Next slide"
                 >
-                  <img src={assets.arrowRight2} alt="" className='w-[14px] h-[14px]' />
+                  <img src={assets.arrowRight2} alt="" className='w-[14px] h-[14px] group-hover:opacity-90  duration-300  transition-all delay-200' />
                 </button>
                 <span className="text-19 leading-[1.473684210526316] ml-2">
                   {String(currentSlide + 1).padStart(2, '0')}/{String(expertiseData.items.length).padStart(2, '0')}
