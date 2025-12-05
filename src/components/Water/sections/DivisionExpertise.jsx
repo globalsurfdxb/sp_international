@@ -1,4 +1,6 @@
 "use client";
+import { useMediaQuery } from "react-responsive";
+import { useMotionValue } from "framer-motion";
 import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay, Navigation } from "swiper/modules";
@@ -10,6 +12,9 @@ import { moveUp } from "../../../motionVarients";
 import H2Title from "../../common/H2Title";
 import { useScroll, useTransform } from "framer-motion";
 const DivisionExpertise = ({data}) => {
+  // const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
+  // const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
+  // const imageOffset = isMobile ? [-30, 30] : isTablet ? [-80, 80] : [-150, 150];
   const swiperRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(1);
   const containerRef = useRef(null);
@@ -17,12 +22,21 @@ const DivisionExpertise = ({data}) => {
 
   const imageContainerRefTwo = useRef(null);
 
-  // Parallax for main image container
-  const { scrollYProgress: imageProgress } = useScroll({
-    target: imageContainerRefTwo,
-    offset: ["start end", "end start"]
-  });
-  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+
+  // let imageY; 
+
+  // if (!isMobile) {
+  //   const { scrollYProgress: imageProgress } = useScroll({
+  //     target: imageContainerRefTwo,
+  //     offset: ["start end", "end start"]
+  //   });
+
+  //   imageY = useTransform(imageProgress, [0, 1], imageOffset);
+  // } else {
+  //   // fallback for mobile — no movement
+  //   imageY = useMotionValue(0);
+  // }
+
 
   useEffect(() => {
     const containerEl = containerRef.current;
@@ -85,6 +99,10 @@ const DivisionExpertise = ({data}) => {
                   slidesPerView: 1,
                   spaceBetween: 10,
                 },
+                600:{
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
                 768: {
                   slidesPerView: 2.2,
                   spaceBetween: 40,
@@ -104,13 +122,13 @@ const DivisionExpertise = ({data}) => {
                 <SwiperSlide key={i}>
                   <div className="overflow-hidden md:border-l border-black/20 h-full">
                     <div className="relative overflow-hidden" ref={imageContainerRefTwo}>
-                      <motion.img style={{ y: imageY }} variants={moveUp(0.1 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={item.image} alt={`slide-${i}`} className="w-full h-auto object-cover" />
+                      <motion.img variants={moveUp(0.1 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={item.image} alt={`slide-${i}`} className="w-full h-[200px] md:h-[250px] 2xl:h-[333px] scale-y-110 object-cover" />
                     </div>
-                    <div className="pt-6 md:pl-6   lg:pt-8 lg:pl-8 lg:pb-8 2xl:pt-10 2xl:pl-10 2xl:pb-12">
+                    <div className="pt-3 md:pl-4 lg:pt-8 lg:pl-8 lg:pb-8 2xl:pt-10 2xl:pl-10 2xl:pb-12">
                       <div >
-                        <h3 className="text-29 leading-[1.344827586206897] font-light mb-2">{item.title}</h3>
+                        <h3 className="text-20 2xl:text-29 leading-[1.344827586206897] font-light mb-1 md:mb-2">{item.title}</h3>
                       </div>
-                      <p className="text-19 font-light font-paragraph leading-[1.5]">{item.desc}</p>
+                      <p className="text-14 xl:text-19 font-light font-paragraph leading-[1.5]">{item.desc}</p>
                     </div>
                   </div>
                 </SwiperSlide>
