@@ -1,4 +1,5 @@
 "use client";
+import { useMediaQuery } from "react-responsive";
 import React, { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Thumbs, EffectFade, Autoplay } from "swiper/modules";
@@ -42,6 +43,9 @@ const legacyData = [
   },
 ];
 const Legacy = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
+  const imageOffset = isMobile ? [-30, 30] : isTablet ? [-80, 80] : [-150, 150];
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const imageContainerRefTwo = useRef(null);
 
@@ -50,7 +54,7 @@ const Legacy = () => {
     target: imageContainerRefTwo,
     offset: ["start end", "end start"]
   });
-  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+  const imageY = useTransform(imageProgress, [0, 1], imageOffset);
   return (
       <section className="py-7 xl:py-15 2xl:pt-18 3xl:pt-[108px] pb30 bg-primary relative overflow-hidden">
         <div className="absolute bottom-0 -left-25 3xl:left-0 w-[25%] 3xl:w-full">
@@ -116,7 +120,7 @@ const Legacy = () => {
                   {legacyData.map((item, i) => (
                     <SwiperSlide key={i}>
                       <div className="mb-4 md:mb-[30px] lg:mb-[53px]"><h2 className="text-45 3xl:text-60 font-light leading-[1.18] text-white mb-5 xl:mb-[37px]">{item.title}</h2><p className="text-19 3xl:text-29 font-light leading-[1.374] text-white">{item.text}</p></div>
-                      <div className="relative overflow-hidden" ref={imageContainerRefTwo}><motion.img style={{y:imageY}} src={item.image} alt={item.title} className="w-full object-cover" /></div>
+                      <div className="relative overflow-hidden" ref={imageContainerRefTwo}><motion.img style={{y:imageY}} src={item.image} alt={item.title} className="w-full object-cover scale-110" /></div>
                     </SwiperSlide>
                   ))}
                 </Swiper>

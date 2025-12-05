@@ -80,8 +80,7 @@ const ImgPointsComponent = ({ data, bgColor, sectionSpacing }) => {
                     className="border-b border-black/20 last:border-b-0 py-5 xl:pt-[32px] xl:pb-[31px] last:xl:pb-[22px] pr-2"
                   >
                     <div
-                      className={`relative text-24 2xl:text-29 leading-[1.34] cursor-pointer select-none transition-all duration-300 ${isActive ? "text-black font-semibold xl:font-bold" : "text-paragraph font-light"}`}
-                    >
+                      className={`relative text-24 2xl:text-29 leading-[1.34] cursor-pointer select-none transition-all duration-300 ${isActive ? "text-black font-semibold xl:font-bold" : "text-paragraph font-light"}`} >
                       {/* Animate-in left border without pushing layout */}
                       <span
                         className={`absolute left-0 top-0 h-full w-[3px] transition-transform duration-300 ${isActive || hoverIndex === index ? "bg-secondary scale-y-100" : "bg-transparent scale-y-0"}`}
