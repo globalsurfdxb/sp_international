@@ -22,6 +22,8 @@ import GlobalPresence from "../Pages/global-presence/Index"
 import Water from "../Pages/water/Index" 
 import Facade from "../Pages/facade/Index";
 import IntegratedFacilityManagement from "../Pages/integrated-facility-management/Index";
+import Leadership from "../Pages/leadership/Index";
+import Sustainability from "../Pages/sustainability/Index";
 const MainLayout = () => {
   return (
     <BrowserRouter>
@@ -46,9 +48,10 @@ const MainLayout = () => {
         <Route path="/community-engagement" element={<CommunityEngagement />} />  
         <Route path="/global-presence" element={<GlobalPresence />} />  
         <Route path="/water" element={<Water />} />  
-        
         <Route path="/mep" element={<MEP />} />
         <Route path="/gallery" element={<Gallery />} />    
+        <Route path="/leadership" element={<Leadership />} />    
+        <Route path="/sustainability" element={<Sustainability />} />    
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
