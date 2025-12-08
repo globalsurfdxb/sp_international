@@ -21,7 +21,7 @@ const ExpertiseSec = ({data}) => {
 
   return (
     <section className="relative pt-text30 overflow-hidden" ref={sectionRef}>
-      <div className="absolute top-12 lg:top-20 xl:top-30 2xl:top-40 3xl:top-50 left-[-85px] 3xl:left-0 w-[558px] h-[725px]"><motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" /></div>
+      <div className="absolute top-75 lg:top-20 xl:top-30 2xl:top-40 3xl:top-50 right-0 lg:left-[-85px] 3xl:left-0 w-[158px] lg:w-[558px] h-[725px]"><motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" /></div>
       <div className="container">
         <div className="lg:border-b pb-0 lg:pb-10 xl:pb-15 2xl:pb-22 3xl:pb-30 border-cmnbdr">
             <H2Title titleText="Our Expertise" titleColor="black" marginClass="mb-5 xl:mb-50px" />

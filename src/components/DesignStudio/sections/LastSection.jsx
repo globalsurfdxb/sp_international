@@ -62,7 +62,7 @@ const LastSection = () => {
 
   return ( 
     <section className="py30 relative overflow-hidden" ref={sectionRef}>
-      <motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="absolute bottom-0 left-0 w-[45%] xl:w-[365px] 3xl:w-[465px] h-auto object-contain" />
+      <motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="absolute -bottom-15 lg:bottom-0 right-0 lg:left-0 w-[152px] lg:w-[45%] xl:w-[365px] 3xl:w-[465px] h-auto object-contain" />
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[0.8fr_1.2fr] items-center lg:gap-10 xl:gap-x-18 gap-y-6">
           <div className="order-2 xl:order-1">

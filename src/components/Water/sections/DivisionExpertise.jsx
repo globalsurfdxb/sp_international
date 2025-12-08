@@ -69,7 +69,7 @@ const DivisionExpertise = ({data}) => {
       <div className="xl:px-[15px] md:pe-0 relative">
         {/* Counter + Arrows */}
         <div className="container" ref={containerRef}>
-          <H2Title titleText={data.title} titleColor="black" marginClass="mb-4 xl:mb-50px" /> 
+          <H2Title titleText={data.title} titleColor="black" marginClass="mb-50px" /> 
         </div>
         {/* Swiper */}
         <div className="flex flex-col md:flex-row gap-3   md:pe-0" >

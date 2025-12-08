@@ -12,8 +12,7 @@ const MEP = () => {
   return (
     <>
       <header className="">
-        <MainNavbar />
-        <img src="./assets/images/shape-right.svg" alt="" className="absolute top-0 right-0 z-[-1]" />
+        <MainNavbar /> 
       </header>
       <Banner title="Mechanical, Electrical & Plumbing (MEP)" image="./assets/images/mep/banner.jpg" />
       <VdoSection data={mepData.mainSection} maxW="max-w-[18ch]" />

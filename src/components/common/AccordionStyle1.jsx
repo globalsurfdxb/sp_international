@@ -76,7 +76,7 @@ console.log(accData)
                   }`}
               >
                 {/* <ChevronDown size={18} /> */}
-                <img src={assets.arrowDown} alt="" width={15} height={15} className={`xl:w-auto xl:h-auto ${openIndex === index
+                <img src={assets.arrowDown} alt="" width={15} height={15} className={`w-[10px] h-[10px] lg:w-[15px] lgh-[15px] xl:w-auto xl:h-auto ${openIndex === index
                   ? 'brightness-0 invert-100'
                   : ''
                   }`} />

@@ -34,7 +34,7 @@ const About = () => {
             <div>
               <motion.div variants={moveLeft(2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} 
               className="bg-primary p-8 md:p-12 2xl:pt-[48px] 2xl:pb-[117px] 2xl:px-15 h-full  bg-right-bottom bg-no-repeat bg-size bg-auto md:bg-[length:308px] relative overflow-hidden">
-                <motion.img style={{y:shapeY}} src={assets.mainShape} alt="" className="absolute bottom-0 right-0 max-w-[55%]" />
+                <motion.img style={{y:shapeY}} src={assets.mainShape} alt="" className="absolute bottom-10 lg:bottom-0 right-0 max-w-[55%]" />
                 <div className="flex flex-col gap-12 md:gap-20  2xl:gap-15 3xl:gap-[35px]">
                   {data.right.map((item, i) => (
                     <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} key={i}>

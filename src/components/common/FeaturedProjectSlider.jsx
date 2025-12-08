@@ -70,7 +70,7 @@ const FeaturedProjectSlider = ({ data }) => {
   }, []);
 
   return (
-      <section className="pt-text90 pb25 relative bg-f5f5 overflow-hidden" ref={sectionRef}>
+      <section className="pt90 pb25 relative bg-f5f5 overflow-hidden" ref={sectionRef}>
         <div className="xl:px-[15px] md:pe-0 relative">
           <div className="container" ref={containerRef}>
             <div className="flex justify-between items-center  mb-50px 3xl:mb-17 ">
