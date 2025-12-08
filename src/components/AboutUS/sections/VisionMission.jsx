@@ -44,7 +44,7 @@ const VisionMission = () => {
       <section ref={sectionRef} className="py25  bg-f5f5 relative overflow-hidden">
         <div className="reveal-overlay absolute inset-0 bg-white z-20"></div>
         <div className="container">
-          <div className={`grid grid-cols-1 lg:grid-cols-[1fr_400px]  2xl:grid-cols-[1fr_500px] 3xl:grid-cols-[1fr_567px] gap-4 xl:gap-10 2xl:gap-[60px] 3xl:gap-[90px] items-center justify-stretch`}>
+          <div className={`grid grid-cols-1 lg:grid-cols-[1fr_400px]  2xl:grid-cols-[1fr_500px] 3xl:grid-cols-[1fr_567px] gap-4 lg:gap-10  2xl:gap-[60px] 3xl:gap-[90px] items-center justify-stretch`}>
             {/* Left Column */}
             <div className="h-full relative overflow-hidden" ref={imageContainerRefTwo}>
               <motion.img style={{y:imageY}} variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="z-10 relative h-full scale-110 objct-fit" src={Vision.image} alt="" />
@@ -56,7 +56,7 @@ const VisionMission = () => {
                 <div className="flex flex-col gap-8 2xl:gap-[56px]">
                   {Vision.right.map((item, i) => (
                     <motion.div variants={moveUp(0.5*i)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="z-10" key={i}>
-                      <h3 className='text-60 font-light leading-[1.18] text-black mb-4 lg:mb-6'>
+                      <h3 className='text-29 lg:text-40 xl:text-60 font-light leading-[1.18] text-black mb-4 lg:mb-6'>
                         {item.title}
                       </h3>
                       <p className='text-19 font-light leading-[1.474] text-paragraph'>{item.desc}</p>

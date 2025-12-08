@@ -13,8 +13,8 @@ const WhyChooseSec = ({data}) => {
   const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
   return ( 
     <section className="pt-text30 pb30 relative" ref={sectionRef}>
-      <div className="absolute bottom-0 -left-40 xl:left-0 w-full h-fit pb-20 lg:pb-25 xl:pb-30">
-          <motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="object-contain w-[325px] h-[494px] xl:w-[425px] xl:h-[594px]" />
+      <div className="absolute z-[-1] bottom-[-200px] lg:bottom-0 right-0 lg:-left-40 xl:left-0 w-fit h-fit pb-20 lg:pb-25 xl:pb-30">
+          <motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="object-contain w-[200px] lg:w-[325px] h-[494px] xl:w-[425px] xl:h-[594px]" />
         </div>
       <div className="container relative">
         <div className="max-w-[800px] 2xl:max-w-[900px] 3xl:max-w-[1207px] ml-auto">

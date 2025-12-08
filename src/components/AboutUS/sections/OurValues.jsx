@@ -31,10 +31,10 @@ const OurValues = () => {
   return (
     // <section className="py-12 xl:py-15 2xl:py-30 bg-[url('/assets/images/about-us/valuebg.svg')] bg-auto bg-right-bottom bg-no-repeat">
     <section className="pt-text30 pb30 relative overflow-hidden" ref={sectionRef}>
-      <motion.img style={{y:shapeY}} ref={sectionRef} variants={moveLeft(1)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src="/assets/images/svg/sv-02.svg" alt="" width={"432px"} height={"607px"} className="absolute bottom-0 right-0 lg:-right-25 3xl:right-0 z-[-1] w-[152px] h-full md:w-[232px] md:h-full lg:w-[432px] lg:h-[607px]" />
+      <motion.img style={{y:shapeY}} ref={sectionRef} variants={moveLeft(1)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src="/assets/images/svg/sv-02.svg" alt="" width={"432px"} height={"607px"} className="absolute -bottom-40 lg:bottom-0 right-0 lg:-right-25 3xl:right-0 z-[-1] w-[152px] h-full md:w-[232px] md:h-full lg:w-[432px] lg:h-[607px]" />
       <div className="container">
         <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}
-         className="text-60 font-light leading-[1.18] text-black mb-5 2xl:mb-[54px]">
+         className="text-60 font-light leading-[1.18] text-black mb-5 2xl:mb-10 3xl:mb-[54px]">
           {values.title}
         </motion.h2>
 

@@ -11,7 +11,8 @@ const ExpandingHorizons = ({ data }) => {
   const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
   return (
     <section className="relative overflow-hidden pt-text25 pb30" ref={sectionRef}>
-      <div className="absolute bottom-0 left-0"><motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="w-[450px] 3xl:w-[563px] h-auto max-w-[788px] object-contain relative left-[-100px]" /></div>
+      <div className="absolute bottom-[-10px] lg:bottom-0 right-0 lg:left-0 w-fit">
+        <motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="w-[150px] lg:w-[450px] 3xl:w-[563px] h-auto max-w-[788px] object-contain relative lg:left-[-100px]" /></div>
       <div className="container">
         <div>
           <div>

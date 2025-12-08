@@ -140,8 +140,8 @@ const MainNavbar = () => {
             <ul className="hidden lg:flex items-center gap-2 xl:gap-3 3xl:gap-[35px]">
               {menuItems.map((item, index) => (
                 <li key={index} className="relative group">
-                  <a
-                    href= {item.href}
+                  {/* <Link
+                    to= {item.href}
                     className="text-[12px] xl:text-14 3xl:text-16 leading-[1.75] font-300 uppercase hover:font-bold active:font-bold focus-within:font-bold transition-all duration-300 flex items-center gap-1"
                   >
                     {item.name}
@@ -150,21 +150,49 @@ const MainNavbar = () => {
                         <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                       </svg>
                     )}
-                  </a>
+                  </Link> */}
+                   <Link
+                to={item.href}
+                className="flex items-center gap-1 text-[12px] xl:text-14 3xl:text-16 leading-[1.75] font-300 uppercase hover:font-bold active:font-bold focus-within:font-bold transition-all duration-300 "
+              >
+                <span className="relative inline-block group"> 
+                  <span className="font-bold opacity-0 transition-all duration-300">
+                    {item.name}
+                  </span>
+ 
+                  <span className="absolute whitespace-nowrap flex items-center inset-0 font-300 transition-opacity duration-200 group-hover:opacity-0">
+                    {item.name }
+                    {item.submenu && (
+                      <svg className="min-w-3 min-h-4 h-3 " fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    )}
+                  </span>
+ 
+                  <span className="absolute whitespace-nowrap flex items-center inset-0 group-hover:font-bold opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                    {item.name} 
+                    {item.submenu && (
+                      <svg className="min-w-3 min-h-4 h-3 group-hover:font-bold " fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    )}
+                  </span>
+                </span>  
+                </Link>
                   {item.submenu && (
                     <div className="absolute top-full left-0 mt-2 w-70 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                      <ul className="py-2">
-                        {item.submenu.map((subItem, subIndex) => (
-                          <li key={subIndex}>
-                            <a
-                              href= {subItem.href}
-                              className="block px-4 py-2 text-sm font-300 hover:bg-gray-100 hover:font-bold transition-all duration-200"
-                            >
-                              {subItem.name}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
+                       <ul className="py-2">
+                          {item.submenu.map((subItem, subIndex) => (
+                            <li key={subIndex}>
+                              <Link
+                                to={subItem.href}   
+                                className="block px-4 py-2 text-sm font-300 hover:bg-gray-100 hover:font-bold transition-all duration-200"
+                              >
+                                {subItem.name}      
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
                     </div>
                   )}
                 </li>
@@ -295,74 +323,87 @@ const MainNavbar = () => {
               <div className="p-8 pt-28 flex flex-col gap-2 justify-between h-full">
                 {/* Mobile Menu Items */}
                 <ul className="space-y-3 ">
-                  {menuItems.map((item, index) => (
-                    <motion.li
-                      key={index}
-                      custom={index}
-                      initial="closed"
-                      animate="open"
-                      variants={itemVariants}
+                  {menuItems.map((item, index) => {
+    const hasSubmenu = Array.isArray(item.submenu) && item.submenu.length > 0;
+
+    return (
+      <motion.li
+        key={index}
+        custom={index}
+        initial="closed"
+        animate="open"
+        variants={itemVariants}
+      >
+        <div>
+          <div className="flex items-center justify-between">
+            <Link
+              to={item.href || "#"}
+              onClick={(e) => {
+                if (!hasSubmenu) {
+                  // no submenu → navigate + close
+                  toggleMenu();
+                } else {
+                  // has submenu → don't navigate, toggle submenu
+                  e.preventDefault();
+                  toggleSubmenu(item.name);
+                }
+              }}
+              className="text-16 font-light uppercase hover:font-bold transition-all duration-300 flex-1"
+            >
+              {item.name}
+            </Link>
+
+            {hasSubmenu && (
+              <button
+                onClick={() => toggleSubmenu(item.name)}
+                className="p-2 ml-2"
+                type="button"
+              >
+                <motion.svg
+                  animate={{ rotate: openSubmenu === item.name ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </motion.svg>
+              </button>
+            )}
+          </div>
+
+          {/* Submenu */}
+          <AnimatePresence>
+            {hasSubmenu && openSubmenu === item.name && (
+              <motion.ul
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden pl-4 mt-3 space-y-3"
+              >
+                {item.submenu.map((subItem, subIndex) => (
+                  <li key={subIndex}>
+                    <Link
+                      to={subItem.href}   // ✅ use its href
+                      onClick={toggleMenu}
+                      className="text-base font-light hover:font-bold transition-all duration-300 block"
                     >
-                      <div>
-                        <div className="flex items-center justify-between">
-                          <a
-                            href="#"
-                            onClick={(e) => {
-                              if (!item.submenu) {
-                                toggleMenu();
-                              } else {
-                                e.preventDefault();
-                                toggleSubmenu(item.name);
-                              }
-                            }}
-                            className="text-16 font-light uppercase hover:font-bold transition-all duration-300 flex-1"
-                          >
-                            {item.name}
-                          </a>
-                          {item.submenu && (
-                            <button
-                              onClick={() => toggleSubmenu(item.name)}
-                              className="p-2 ml-2"
-                            >
-                              <motion.svg
-                                animate={{ rotate: openSubmenu === item.name ? 180 : 0 }}
-                                transition={{ duration: 0.3 }}
-                                className="w-4 h-4"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                              >
-                                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                              </motion.svg>
-                            </button>
-                          )}
-                        </div>
-                        {/* Submenu */}
-                        <AnimatePresence>
-                          {item.submenu && openSubmenu === item.name && (
-                            <motion.ul
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: 'auto', opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.3 }}
-                              className="overflow-hidden pl-4 mt-3 space-y-3"
-                            >
-                              {item.submenu.map((subItem, subIndex) => (
-                                <li key={subIndex}>
-                                  <a
-                                    href="#"
-                                    onClick={toggleMenu}
-                                    className="text-base font-light hover:font-bold transition-all duration-300 block"
-                                  >
-                                    {subItem}
-                                  </a>
-                                </li>
-                              ))}
-                            </motion.ul>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    </motion.li>
-                  ))}
+                      {subItem.name}      {/* ✅ render name, not object */}
+                    </Link>
+                  </li>
+                ))}
+              </motion.ul>
+            )}
+          </AnimatePresence>
+        </div>
+      </motion.li>
+    );
+  })}
                 </ul>
 
                 {/* Mobile Actions */}

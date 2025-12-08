@@ -105,6 +105,45 @@ const Index = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, [isOpen, closeModal, next, prev]);
 
+  const touchStartX = useRef(null);
+const touchStartY = useRef(null);
+const SWIPE_THRESHOLD = 50; // px
+const SWIPE_VERTICAL_LIMIT = 80; // ignore mostly vertical scroll
+
+const handleTouchStart = (e) => {
+  const touch = e.touches[0];
+  touchStartX.current = touch.clientX;
+  touchStartY.current = touch.clientY;
+};
+
+const handleTouchEnd = (e) => {
+  if (touchStartX.current === null || touchStartY.current === null) return;
+
+  const touch = e.changedTouches[0];
+  const dx = touch.clientX - touchStartX.current;
+  const dy = touch.clientY - touchStartY.current;
+
+  // ignore mostly vertical swipes
+  if (Math.abs(dy) > SWIPE_VERTICAL_LIMIT) {
+    touchStartX.current = null;
+    touchStartY.current = null;
+    return;
+  }
+
+  if (Math.abs(dx) > SWIPE_THRESHOLD) {
+    if (dx < 0) {
+      // swipe left -> next image
+      next();
+    } else {
+      // swipe right -> previous image
+      prev();
+    }
+  }
+
+  touchStartX.current = null;
+  touchStartY.current = null;
+};
+
   return (
     <>
       <header className="">
@@ -247,7 +286,9 @@ const Index = () => {
                     </button>
 
                     {/* animate image change */}
-                    <div className="w-full  h-full lg:h-[60vh] 3xl:max-h-[91.7dvh]  flex items-center justify-center">
+                    <div className="w-full  h-full  flex items-center justify-center"
+                    onTouchStart={handleTouchStart}
+                    onTouchEnd={handleTouchEnd}>
                       <motion.img
                         key={images[index]} // important so framer animates on src change
                         src={images[index]}
@@ -256,7 +297,7 @@ const Index = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.25 }}
-                        className="max-h-[60vh] sm:max-h-[70vh] 3xl:max-h-[91.7dvh] object-cover w-full"
+                        className="max-h-[60vh] sm:max-h-[80vh] 3xl:max-h-[83.44dvh] object-cover w-full "
                       />
                     </div>
 
