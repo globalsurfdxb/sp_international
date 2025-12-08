@@ -31,6 +31,8 @@ const Index = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isAnimating, setIsAnimating] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState(topics[0]);
+  const [bgImagehide, setBgImagehide] = useState(true);
+
   const [selectedYear, setSelectedYear] = useState(years[0]);
   const sectionRef = useRef(null)
   const { scrollYProgress: shapeProgress } = useScroll({
@@ -95,12 +97,14 @@ const Index = () => {
   const handleTopicChange = (topic) => {
     setSelectedTopic(topic);
     setCurrentPage(1);
+    setBgImagehide(false)
   };
 
   // 🔹 When year changes → reset to page 1
   const handleYearChange = (year) => {
     setSelectedYear(year);
     setCurrentPage(1);
+    setBgImagehide(false)
   };
 
   // 🔹 Clear all filters
@@ -116,7 +120,7 @@ const Index = () => {
         <MainNavbar />
         <motion.img style={{ y: shapeY }} src="./assets/images/shape-right.svg" alt="" className="absolute top-0 right-0 z-[-1]" />
       </header>
-      <section className="relative" ref={sectionRef}>
+      <section className="relative overflow-hidden" ref={sectionRef}>
         {/* <img src="./assets/images/shape-left.svg" alt="" className="absolute  bottom-30 left-0 z-[-1]" /> */}
         <div className="container">
           <div className="mb-7 md:mb-10 xl:mb-12 3xl:mb-20 mt-12 xl:mt-15 3xl:mt-30">
@@ -138,9 +142,9 @@ const Index = () => {
             viewport={{ amount: 0.2, once: true }}
             className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between border-y border-cmnbdr py-35px mb-10 lg:mb-12  3xl:mb-20"
           >
-            <div className="flex flex-col md:flex-row gap-5 md:gap-15 xl:gap-[90px]">
+            <div className="flex flex-row gap-5 md:gap-15 xl:gap-[90px]">
               {/* Topic filter */}
-              <div className="w-full min-w-full   md:min-w-[77px] relative">
+              <div className="   md:min-w-[77px] relative">
                 <Listbox value={selectedTopic} onChange={handleTopicChange}>
                   <Listbox.Button className="relative w-fit cursor-pointer text-left flex items-center gap-3 2xl:gap-[16px] outline-0 border-0 justify-between">
                     <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase whitespace-nowrap">
@@ -152,7 +156,7 @@ const Index = () => {
                       viewBox="0 0 24 24"
                       strokeWidth="1.5"
                       stroke="currentColor"
-                      className="size-6"
+                      className="size-6 w-3 md:w-full"
                     >
                       <path
                         strokeLinecap="round"
@@ -161,14 +165,14 @@ const Index = () => {
                       />
                     </svg>
                   </Listbox.Button>
-                  <Listbox.Options className="border-0 outline-0 absolute md:w-[200px] w-full bg-white rounded-sm shadow-sm z-10">
+                  <Listbox.Options className="border-0 outline-0 absolute md:w-[200px] w-[200px] bg-white rounded-sm shadow-sm z-10">
                     {topics.map((topic) => (
                       <Listbox.Option
                         key={topic.id}
                         value={topic}
                         className="py-1 px-4 hover:bg-[#f0f0f0] cursor-pointer group hover:font-bold transition-all duration-300 w-full"
                       >
-                        <span className="group-hover:scale-[1.03] whitespace-nowrap">
+                        <span className="group-hover:scale-[1.03] ">
                           {topic.title}
                         </span>
                       </Listbox.Option>
@@ -178,7 +182,7 @@ const Index = () => {
               </div>
 
               {/* Year filter */}
-              <div className="w-full min-w-full md:min-w-[77px] relative">
+              <div className=" md:min-w-[77px] relative">
                 <Listbox value={selectedYear} onChange={handleYearChange}>
                   <Listbox.Button className="relative w-fit cursor-pointer text-left flex items-center gap-3 2xl:gap-[16px] outline-0 border-0 justify-between">
                     <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
@@ -190,7 +194,7 @@ const Index = () => {
                       viewBox="0 0 24 24"
                       strokeWidth="1.5"
                       stroke="currentColor"
-                      className="size-6"
+                      className="size-6   w-3 md:w-full"
                     >
                       <path
                         strokeLinecap="round"
@@ -199,7 +203,7 @@ const Index = () => {
                       />
                     </svg>
                   </Listbox.Button>
-                  <Listbox.Options className="md:w-[200px] w-full border-0 outline-0 absolute   bg-white rounded-sm shadow-sm z-10">
+                  <Listbox.Options className="md:w-[200px] w-[200px] border-0 outline-0 absolute   bg-white rounded-sm shadow-sm z-10">
                     {years.map((year) => (
                       <Listbox.Option
                         key={year.id}
@@ -220,12 +224,12 @@ const Index = () => {
             <button
               type="button"
               onClick={handleClearFilters}
-              className="flex items-center gap-[10px] group cursor-pointer justify-end"
+              className="flex items-center gap-1 md:gap-[10px] group cursor-pointer justify-end"
             >
               <img
                 src="./assets/images/icons/arrow-tail-left.svg"
                 alt=""
-                className="group-hover:translate-x-[-3px] transition-all duration-300"
+                className="w-4 h-4 sm:w-auto sm:h-auto group-hover:translate-x-[-3px] transition-all duration-300"
               />
               <p className="text-paragraph text-16 font-light leading-[1.75] uppercase transition-all duration-300">
                 Clear Filter
@@ -352,7 +356,7 @@ const Index = () => {
         </div>
 
 
-        <div className="absolute bottom-1/8 left-[-141px] 3xl:left-0 z-[-1] ">
+        <div className={`absolute bottom-1/8 left-[-141px] 3xl:left-0 z-[-1] ${bgImagehide ? 'block':'hidden'}`}>
           <motion.img style={{ y: shapeY }} src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit 2xl-w[754px] 2xl-h[1056px] relative 2xl:top-[14px] " />
         </div>
       </section>

@@ -38,12 +38,12 @@ const LastSection = () => {
         style={{ y: shapeY }}
         src={assets.mainShape2}
         alt=""
-        className="absolute bottom-0 left-0  w-[45%] xl:w-[365px] 3xl:w-[465px] h-auto object-contain"
+        className="absolute bottom-0 right-0 lg:left-0  w-[45%] xl:w-[365px] 3xl:w-[465px] h-auto object-contain"
       />
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[0.8fr_1.2fr] items-center lg:gap-10 xl:gap-x-18 gap-y-6">
           <div className="order-2 xl:order-1">
-            <H2Title titleText="Design That Inspires Progress" titleColor="black" marginClass="mb-3 lg:mb-5 2xl:mb-10" />
+            <H2Title titleText="Design That Inspires Progress" titleColor="black" marginClass="mb-5 2xl:mb-10" />
             <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 leading-[1.473684210526316] font-light text-paragraph ">
               We uphold the highest industry standards for quality and safety. Every façade system is designed and executed with meticulous precision, ensuring long-term durability and performance under varied conditions.
             </motion.p>

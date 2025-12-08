@@ -8,7 +8,7 @@ const OurApproach = () => {
   return (
     <section className="pt-text30 pb30">
       <div className="container">
-          <H2Title titleText="Our Approach" titleColor="black" marginClass="mb-4  xl:mb-50px" />
+          <H2Title titleText="Our Approach" titleColor="black" marginClass="mb-50px" />
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-30px gap-y-8">
           {
             engineeringData.approachesData.items.map((item,index)=>(

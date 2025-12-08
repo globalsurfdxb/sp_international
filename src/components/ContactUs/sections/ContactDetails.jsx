@@ -77,7 +77,7 @@ const ContactDetails = () => {
               </svg>
             </div>
           </div>
-          <div className="bg-primary p-5 lg:p-8 xl:p-10 3xl:p-[70px] 3xl:pt-[59px]">
+          <div className="bg-primary px-5 pt-8 pb-9 lg:p-8 xl:p-10 3xl:p-[70px] 3xl:pt-[59px]">
             <H2Title titleText="General Inquiry" titleColor="white" marginClass="mb-4 3xl:mb-50px" />
             <form>
               <div className="grid sm:grid-cols-2 gap-5 2xl:gap-50px w-full mb-6 xl:mb-8 3xl:mb-15">

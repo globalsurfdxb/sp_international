@@ -681,18 +681,18 @@ const ProjectLists = () => {
 
       {view === "grid" && (
         <>
-          <div className="absolute bottom-[30%] translate-y-[58px] 3xl:bottom-3/7 3xl:translate-y-[-78px] left-[-140px] 3xl:left-0 z-[-1]">
+          <div className="absolute bottom-[30%] translate-y-[58px] 3xl:bottom-3/7 3xl:translate-y-[-78px] lg:left-[-140px] 3xl:left-0 z-[-1]">
             <motion.img style={{y:shapeY}}
               src="./assets/images/projects/pjtbdy1.svg"
               alt=""
-              className="w-[670px] object-contain"
+              className="w-[200px] lg:w-[670px] object-contain"
             />
           </div>
-          <div className="absolute bottom-0 right-[-150px] 3xl:right-0 z-[-1]   ">
+          <div className="absolute bottom-0 right:0 lg:right-[-150px] 3xl:right-0 z-[-1]   ">
             <motion.img style={{y:shapeY}}
               src="./assets/images/projects/pjtbdy2.svg"
               alt=""
-              className="w-[670px] object-contain"
+              className="w-[200px] lg:w-[670px] object-contain"
             />
           </div>
         </>

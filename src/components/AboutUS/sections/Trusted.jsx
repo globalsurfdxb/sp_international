@@ -45,7 +45,7 @@ const Trusted = () => {
 
   return (
     <section className="py-10 xl:py-15 2xl:py-22 3xl:py-[92px] relative overflow-hidden" ref={sectionRef}>
-      <motion.img style={{y:shapeY}} variants={moveLeft(1)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src="/assets/images/svg/sv-02.svg" alt="" width={"432px"} height={"607px"} className="absolute bottom-0 right-0 z-[-1]" />
+      <motion.img style={{y:shapeY}} variants={moveLeft(1)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src="/assets/images/svg/sv-02.svg" alt="" width={"432px"} height={"607px"} className="w-[152px] h-[200px] lg:w-[432px] lg:h-[607px] absolute -bottom-15 lg:bottom-0 right-0 z-[-1]" />
       <div className="container">
         <div className="flex flex-col sm:flex-row sm:items-center sm:gap-[84px] lg:gap-[104px]">
           {/* ✅ Add class name for GSAP animation */}

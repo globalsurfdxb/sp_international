@@ -49,7 +49,7 @@ const ImgPointsComponent = ({ data, bgColor, sectionSpacing }) => {
     <section className={`w-full bg-${bgColor} text-black ${sectionSpacing}`}>
       <div className="container">
         <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}>
-          <H2Title titleText={heading} titleColor="black" marginClass="mb-5 xl:mb-50px 3xl:mb-17" />
+          <H2Title titleText={heading} titleColor="black" marginClass="mb-50px 3xl:mb-17" />
         </motion.div>
         <div className="grid lg:grid-cols-[0.8fr_1fr] 2xl:grid-cols-[730px_auto] 3xl:grid-cols-[916px_auto] xl:items-center gap-8 xl:gap-10 3xl:gap-[108px] transition-all duration-300">
           {/* Left Side - Image */}

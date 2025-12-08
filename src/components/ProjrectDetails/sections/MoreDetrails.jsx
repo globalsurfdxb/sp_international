@@ -15,7 +15,7 @@ const MoreDetrails = () => {
   const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
   return (
     <section className="relative overflow-hidden" ref={sectionRef}>
-      <div className="pt-7 pb-10 xl:py-15 2xl:py-22  3xl:py-[80px]  relative bg-f5f5 ">
+      <div className="pt-8 pb-9 xl:py-15 2xl:py-22  3xl:py-[80px]  relative bg-f5f5 ">
         <div className="container relative">
           <div className="2xl:max-w-[1008px] 3xl:max-w-[1208px] ml-auto">
             <div className="flex  justify-between items-center border-b border-black/20">

@@ -8,11 +8,11 @@ const Footer = () => {
     <div className="bg-[#191919] pt-10 md:pt-12 lg:pt-10 2xl:pt-20 3xl:pt-[153px] text-white">
       <div className="container">
         <div   onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-         className="fixed right-15 bottom-4  flex flex-col gap-1 items-center bg-white/70  rounded-sm cursor-pointer  px-2 pt-2  z-[999]">
-          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+         className="fixed right-4 lg:right-15 bottom-4  flex flex-col gap-1 items-center bg-white/70  rounded-sm cursor-pointer  px-2 pt-2 pb-2 lg:pb-0 z-[999]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" className="w-[15px] h-[15px] lg:w-[23px] lg:h-[23px] " viewBox="0 0 23 23" fill="none">
           <path d="M21.3187 11.286L11.2832 1.25052L1.25 11.2837M11.2804 1.25L11.2347 21.2708" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <p className="font-size[13px] font-light leading-[1.6] text-paragraph">TOP</p>
+          <p className="hidden lg:block font-size[13px] font-light leading-[1.6] text-paragraph">TOP</p>
         </div>
         <div className="border-b border-white/30 grid gap-6 lg:gap-0 grid-cols-1 lg:grid-cols-[350px_auto] xl:grid-cols-[549px_auto]">
           <div className="lg:border-r border-white/30">
@@ -51,43 +51,43 @@ const Footer = () => {
             <h3 className="text-24 lg:text-29 leading-[1.344827586206897] font-light mb-2 lg:mb-[27px]">About</h3>
             <ul>
               <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light">  <Link to="/about-us">Overview</Link></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><a href="#">Legacy</a></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><a href="#">Leadership</a></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="">Legacy</Link></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="">Leadership</Link></li>
             </ul>
           </motion.div>
           <motion.div variants={moveUp(0.3)} initial="hidden" animate="show">
             <h3 className="text-24 lg:text-29 leading-[1.344827586206897] font-light mb-2 lg:mb-[27px]">Services</h3>
             <ul>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><a href="#">Engineering & Construction</a></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><a href="#">MEP</a></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><a href="#">Interior Fit-out</a></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><a href="#">Façade</a></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><a href="#">Facilities Management</a></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><a href="#">Water</a></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><a href="#">Design Studio</a></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/engineering-construction">Engineering & Construction</Link></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/mep">MEP</Link></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/interior-design">Interior Fit-out</Link></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/facade">Façade</Link></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/integrated-facility-management">Facilities Management</Link></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/water">Water</Link></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/design-studio">Design Studio</Link></li>
             </ul>
           </motion.div>
           <motion.div variants={moveUp(0.4)} initial="hidden" animate="show">
             <h3 className="text-24 lg:text-29 leading-[1.344827586206897] font-light mb-2 lg:mb-[27px]">Commitments</h3>
             <ul>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><a href="#">Sustainability</a></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><a href="#">Community Engagement</a></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><a href="#">Safety & Quality</a></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="">Sustainability</Link></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/community-engagement">Community Engagement</Link></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/quality-safety">Safety & Quality</Link></li>
             </ul>
           </motion.div>
           <motion.div variants={moveUp(0.5)} initial="hidden" animate="show">
             <h3 className="text-24 lg:text-29 leading-[1.344827586206897] font-light mb-2 lg:mb-[27px]">Media</h3>
             <ul>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><a href="#">Press Releases</a></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><a href="#">Media Coverage</a></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><a href="#">Thought Leadership</a></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/press-releases">Press Releases</Link></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/gallery">Media Coverage</Link></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="#">Thought Leadership</Link></li>
             </ul>
           </motion.div>
           <motion.div variants={moveUp(0.6)} initial="hidden" animate="show">
             <h3 className="text-24 lg:text-29 leading-[1.344827586206897] font-light mb-2 lg:mb-[27px]">Quick Links</h3>
             <ul>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><a href="#">Careers</a></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><a href="#">Projects</a></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/careers">Careers</Link></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/projects">Projects</Link></li>
             </ul>
           </motion.div>
         </div>

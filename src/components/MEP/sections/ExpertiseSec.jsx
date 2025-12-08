@@ -27,9 +27,9 @@ const ExpertiseSec = ({data}) => {
       });
     }, []);
   return (
-    <section className="relative pt-text90 pb-7 lg:pb-12 xl:pb-20 3xl:pb-[95px] bg-primary text-white overflow-hidden" ref={sectionRef}>
+    <section className="relative pt-text90 pb95 bg-primary text-white overflow-hidden" ref={sectionRef}>
       <div className="reveal-overlay4 absolute inset-0 bg-black/20 z-20"></div>
-      <div className="absolute -top-3 right-0 w-[454px] h-[304px] 3xl:w-[624px] 3xl:h-[874px] z-0"><img src={assets.mainShape} alt="" /></div>
+      <div className="absolute -top-3 right-0 w-[354px] h-[504px] lg:w-[454px] lg:h-[304px] 3xl:w-[624px] 3xl:h-[874px] z-0"><img src={assets.mainShape} alt=""  /></div>
       <div className="container relative z-10">
         {/* Header */}
           <H2Title titleText={data.title} titleColor="white" marginClass=" mb-5 xl:mb-50px 3xl:mb-17" />

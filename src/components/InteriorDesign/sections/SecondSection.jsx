@@ -37,14 +37,15 @@ const SecondSection = ({data}) => {
   return (
     <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden" ref={sectionRef}>
       <div className="reveal-overlay4 absolute inset-0 bg-black/20 z-20"></div>
-      <div className="absolute bottom-[-52px] right-0 "><motion.img style={{y:shapeY}} src={assets.mainShape} className=' object-contain w-[325px] 3xl:w-[425px] h-[594px] ' alt="" /></div>
+      <div className="absolute bottom-[-100px] lg:bottom-[-52px] right-0 ">
+        <motion.img style={{y:shapeY}} src={assets.mainShape} className=' object-contain w-[200px] lg:w-[325px] 3xl:w-[425px] h-[594px] ' alt="" /></div>
       <div className="container relative z-10">
         {/* Header */}
-        <div className="mb-4 xl:mb-50px 3xl:mb-17">
+        <div className="mb-10 xl:mb-50px 3xl:mb-17">
           <H2Title titleText={data.title} titleColor="white" marginClass=" mb-4  xl:mb-5 2xl:mb-[30px]" />
           <p className='text-19 leading-[1.473684210526316] font-extralight max-w-6xl'>{data.desc}</p>
         </div>
-        <div className='grid lg:grid-cols-2 xl:grid-cols-3 gap-5 xl:gap-10'>
+        <div className='grid lg:grid-cols-2 xl:grid-cols-3 gap-10 lg:gap-5 xl:gap-10 mt-8 md:mt-0'>
             {
               data.items.map((item,index)=>(
                 <div>

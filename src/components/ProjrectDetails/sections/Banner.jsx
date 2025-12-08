@@ -21,7 +21,7 @@ const Banner = () => {
 
   return (
     <section className="relative overflow-hidden" ref={sectionRef}>
-      <div className="pt-12 xl:pt-15  3xl:pt-30 pb-32 md:pb-38  lg:pb-[170px] xl:pb-[230px] bg-f5f5 2xl:pb-[232px]  ">
+      <div className="pt-12 xl:pt-15  3xl:pt-30 pb-26 md:pb-38  lg:pb-[170px] xl:pb-[230px] bg-f5f5 2xl:pb-[232px]  ">
         <div className="container relative   z-[2]">
           <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-5 lg:gap-0 ">
             <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} > 
@@ -35,11 +35,11 @@ const Banner = () => {
         </div>
 
       </div>
-      <div className="container relative bottom-20 md:bottom-28 lg:bottom-[120px] xl:bottom-[150px] left-0 z-[2] overflow-hidden" ref={imageContainerRefTwo}>
+      <div className="container relative bottom-19 md:bottom-28 lg:bottom-[120px] xl:bottom-[150px] left-0 z-[2] overflow-hidden" ref={imageContainerRefTwo}>
         <motion.img style={{y:imageY}} variants={moveRight(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={projectdetails.image}
         width={1620} height={750} alt="" className="w-full h-[200px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px] 3xl:h-[750px] object-cover scale-110" />
       </div>
-      <div className="container relative md:bottom-[70px] bottom-12 left-0 2xl:pb-[50px]">
+      <div className="container relative md:bottom-[70px] bottom-10 left-0 2xl:pb-[50px]">
         <motion.h2 variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 font-light mb-7  xl:mb-10  2xl:mb-[58px] leading-[1.17]">About Project</motion.h2>
         <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="grid grid-cols-1 md:grid-cols-2 3xl:grid-cols-[825px_1fr]  border-t border-black/20  ">
           <div className="flex items-center  py-3 lg:py-6 border-b border-black/20 md:border-b-0">

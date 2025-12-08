@@ -62,7 +62,7 @@ const InnovationSustainability = ({data}) => {
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden pt-text30 pb30 bg-gradient-to-br from-slate-50 to-blue-50">
-      <motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="absolute bottom-3 left-0  2xl:left-[-40px]  3xl:left-0 w-[50%] 2xl:w-[750px] 3xl:w-[960px] h-auto object-contain" />
+      <motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="absolute bottom-50 lg:bottom-3 right-0 lg:left-0  2xl:left-[-40px]  3xl:left-0 w-[152px] lg:w-[50%] 2xl:w-[750px] 3xl:w-[960px] h-auto object-contain" />
       <div className="container mx-auto px-4">
         <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount:0.6, once:true}} >
           <H2Title titleText={data.title} titleColor="black" marginClass="mb-5 lg:mb-10 xl:mb-50px 3xl:mb-18" />
@@ -83,8 +83,8 @@ const InnovationSustainability = ({data}) => {
                   }}
                   initial={false}
                   animate={{
-                    marginBottom:
-                      index < data.accordionData.length - 1 ? getSpacing(index) : "0",
+                    marginBottom: 
+                      index < data.accordionData.length - 1 ? isMobile ? "30px": getSpacing(index) : "0",
                   }}
                   transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                 >
@@ -122,10 +122,10 @@ const InnovationSustainability = ({data}) => {
                   </motion.div>
 
                   {/* Content cell */}
-                  <motion.div variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{amount:0.6, once:true}} className="flex-1 pl-10 2xl:pl-12 ">
+                  <motion.div variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{amount:0.6, once:true}} className="flex-1 pl-8 md:pl-10 2xl:pl-12 ">
                     <motion.button
                       onClick={() => handleAccordionClick(index)}
-                      className="w-full text-left group flex items-start"
+                      className="w-full text-left group flex items-start cursor-pointer"
                       whileHover={{ x: 4 }}
                       transition={{ duration: 0.2 }}
                     >
@@ -134,8 +134,16 @@ const InnovationSustainability = ({data}) => {
                           fontSize: activeIndex === index ? "1.875rem " : "1.25rem",
                           color:
                             activeIndex === index ? "#000000" : "#4B5563",
-                          marginTop:
-                            activeIndex === index ? "20px" : "",
+                          // marginTop:
+                          //   activeIndex === index ? "20px" : "",
+                            marginTop:
+                            activeIndex === index
+                              ? isMobile
+                                ? "8px" // Mobile active spacing
+                                : "20px" // Desktop active spacing
+                              : isMobile
+                              ? "" // Mobile default spacing
+                              : ""
                         }}
                         transition={{
                           duration: 0.5,

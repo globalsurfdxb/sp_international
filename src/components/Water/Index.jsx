@@ -11,8 +11,7 @@ const Water = () => {
   return (
     <>
       <header className="">
-        <MainNavbar />
-        <img src="./assets/images/shape-right.svg" alt="" className="absolute top-0 right-0 z-[-1]" />
+        <MainNavbar /> 
       </header>
       <Banner title="Water" image="./assets/images/water/bnnr.jpg" />
       <VdoSection data={wtrData.mainSection} />
