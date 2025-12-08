@@ -770,3 +770,15 @@ body::-webkit-scrollbar {
   @apply mt-8 md:mt-8 xl:mt-10 2xl:mt-15 3xl:mt-[90px];
 }
 
+.scrollbar-thin::-webkit-scrollbar {
+  width: 3px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #888;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
