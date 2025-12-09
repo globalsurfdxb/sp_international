@@ -44,12 +44,12 @@ const LeaderBox = ({ data }) => {
             </div>
             <div className="pt-5 xl:pt-8 2xl:pt-12 3xl:pt-[68.5px]">
               <H2Title titleText={data[0].name} marginClass={"mb-[10px]"} />
-              <h3 className="text-29 font-light leading-[1.344827586206897] text-paragraph mb-6 lg:mb-8 xl:mb-[45px]">{data[0].position}</h3>
+              <motion.h3 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.1, once: true}} className="text-29 font-light leading-[1.344827586206897] text-paragraph mb-6 lg:mb-8 xl:mb-[45px]">{data[0].position}</motion.h3>
               <div className="lg:max-h-[385px] lg:overflow-y-scroll scrollbar-thin">
                 {data[0].desc.map((item, index) => (
-                  <div key={index} className="">
+                  <motion.div variants={moveUp(0.6 + 0.2*index)} initial="hidden" whileInView="show" viewport={{amount: 0.1, once: true}} key={index} className="">
                     <p className="text-19 leading-[1.473684210526316] text-paragraph font-light max-w-xl mb-4 2xl:mb-7">{item}</p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -63,12 +63,12 @@ const LeaderBox = ({ data }) => {
             </div>
             <div className="pt-5 xl:pt-8 2xl:pt-12 3xl:pt-[63.89px] lg:order-1">
               <H2Title titleText={data[1].name} marginClass={"mb-[10px]"} />
-              <h3 className="text-29 font-light leading-[1.344827586206897] text-paragraph mb-6 lg:mb-8 xl:mb-[45px]">{data[1].position}</h3>
+              <motion.h3 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.1, once: true}} className="text-29 font-light leading-[1.344827586206897] text-paragraph mb-6 lg:mb-8 xl:mb-[45px]">{data[1].position}</motion.h3>
               <div className="lg:max-h-[490px] lg:overflow-y-scroll scrollbar-thin">
                 {data[1].desc.map((item, index) => (
-                  <div key={index} className="">
+                  <motion.div variants={moveUp(0.6 + 0.2*index)} initial="hidden" whileInView="show" viewport={{amount: 0.1, once: true}} key={index} className="">
                     <p className="text-19 leading-[1.473684210526316] text-paragraph font-light max-w-2xl mb-4 2xl:mb-6">{item}</p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>

@@ -4,6 +4,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { valuesData } from "../data";
 import { moveLeft, moveUp, moveRight } from "../../../motionVarients";
 import { motion, useScroll, useTransform,  } from "framer-motion";
+import H2Title from "../../../components/common/H2Title";
 
 const ValuesSection = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
@@ -58,9 +59,10 @@ const ValuesSection = () => {
           {/* Background SVG (always fixed bottom-right) */}
           <motion.img style={{ y: shapeY }} variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src={image} alt="background design" className="absolute bottom-0 right-0 pointer-events-none object-contain md:object-cover opacity-90 w-[220px] sm:w-[300px] md:w-[360px] lg:w-[420px] xl:w-[425px] h-auto " />
           <div className={`relative z-10 ${!isWideScreen ? "container" : ""}`}>
-            <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 font-light leading-[1.166666666666667] max-w-[390px] mb-[24px] md:mb-[30px]">
+            {/* <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 font-light leading-[1.166666666666667] max-w-[390px] mb-[24px] md:mb-[30px]">
               {title}
-            </motion.h2>
+            </motion.h2> */}
+            <H2Title titleText={title} marginClass={"mb-[24px] md:mb-[30px]"}/>
             <motion.p variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 font-light leading-[1.473684210526316] max-w-[550px]">
               {description}
             </motion.p>

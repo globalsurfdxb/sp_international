@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { moveUp, moveLeft } from "../../../motionVarients";
 import { Link } from "react-router-dom";
- 
+import SplitTextAnimation from "../../../components/common/SplitTextAnimation";
 gsap.registerPlugin(ScrollTrigger);
 
 const Trusted = () => {
@@ -49,11 +49,8 @@ const Trusted = () => {
       <div className="container">
         <div className="flex flex-col sm:flex-row sm:items-center sm:gap-[84px] lg:gap-[104px]">
           {/* ✅ Add class name for GSAP animation */}
-          <h2
-            ref={titleRef}
-            className="trusted-title text-60 max-w-[18.14ch] font-light leading-[1.18] text-black mb-5 lg:mb-0"
-          >
-            Your Trusted Construction Partner for Quality and Innovation
+          <h2 ref={titleRef} className="trusted-title text-60 max-w-[18.14ch] font-light leading-[1.18] text-black mb-5 lg:mb-0" >
+            <SplitTextAnimation children={"Your Trusted Construction Partner for Quality and Innovation"} staggerDelay={0.1} animationDuration={0.8} delay={0.8} />
           </h2> 
        <Link to="/Projects">
           <div className="flex flex-col justify-end items-end sdsd">

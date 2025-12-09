@@ -3,6 +3,7 @@ import { useMediaQuery } from "react-responsive";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { moveUp } from "../../../motionVarients";
+import SplitTextAnimation from "../../../components/common/SplitTextAnimation";
 const Banner = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
@@ -42,7 +43,9 @@ const Banner = () => {
           </motion.div>
           <div className="flex  justify-between items-center my-6 lg:my-10">
             <div>
-              <motion.h1 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-70 font-light leading-[1.143] max-w-[26.35ch]">Shapoorji Pallonji Energy's FPSO Armada Sterling Commences Production</motion.h1>
+              <motion.h1 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-70 font-light leading-[1.143] max-w-[26.35ch]">
+                <SplitTextAnimation children={"Shapoorji Pallonji Energy's FPSO Armada Sterling Commences Production"} staggerDelay={0.1} animationDuration={0.8} delay={0.8} />
+              </motion.h1>
             </div>
           </div>
         </div>

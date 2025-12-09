@@ -2,6 +2,7 @@ import React from "react";
 import { careersData } from "../data";
 import { motion } from "framer-motion";
 import { moveLeft, moveRight, moveUp } from "../../../motionVarients";
+import H2Title from "../../../components/common/H2Title";
 const Strength = () => {
   return (
     <section className="py25">
@@ -30,7 +31,8 @@ const Strength = () => {
 
         {/* Right Text Section */}
         <div className="text-left">
-          <motion.h2 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 font-light leading-[1.166666666666667] text-black mb-3 md:mb-5">{careersData.title}</motion.h2>
+          {/* <motion.h2 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 font-light leading-[1.166666666666667] text-black mb-3 md:mb-5">{careersData.title}</motion.h2> */}
+          <H2Title titleText={careersData.title} marginClass={"mb-3 md:mb-5"}/>
           <motion.p variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 font-light leading-[1.473684210526316] text-paragraph max-w-[72ch]">{careersData.description}</motion.p>
           <motion.div variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="border-b border-gray-200 mt-[30px] xl:mt-[50px] 2xl:mt-[70px]" />
         </div>

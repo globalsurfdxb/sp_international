@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
+import H2Title from "../../../components/common/H2Title";
 const KeyFacts = () => {
   const sectionRef = useRef(null);
   useEffect(() => {
@@ -32,7 +33,7 @@ const KeyFacts = () => {
           <div className="   2xl:max-w-[1008px] 3xl:max-w-[1208px] ml-auto">
             <div className="flex  justify-between items-center ">
               <div>
-                <h2 className="text-60 font-light leading-[1.17] mb-7 lg:mb-15 text-white">{keyfactors.title}</h2>
+                <H2Title titleText={keyfactors.title} titleColor={"white"} marginClass={" mb-7 lg:mb-15"}/>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 3xl:grid-cols-[364px_364px_364px]  gap-8 md:gap-6 xl:gap-0">
