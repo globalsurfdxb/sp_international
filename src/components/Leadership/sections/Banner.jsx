@@ -1,7 +1,7 @@
 import { assets } from "../../../assets/index"
 const Banner = () => {
   return ( 
-    <section className="3xl:pt-[171px] 3xl:pb-[76px] bg-f5f5 relative overflow-hidden">
+    <section className="py25 3xl:pt-[171px] 3xl:pb-[76px] bg-f5f5 relative overflow-hidden">
       <img src={assets.mainShape2} alt="" className="absolute bottom-10 right-0 w-[487px] h-fit" />
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 3xl:grid-cols-[830px_auto]">

@@ -1,13 +1,15 @@
 import H2Title from "../../../components/common/H2Title";
+import { useMediaQuery } from "react-responsive";
 import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
 import clsx from 'clsx'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef } from 'react'
 import { assets } from "../../../assets/index";
+import {motion, useScroll, useTransform} from "framer-motion";
+import { moveUp } from "../../../motionVarients";
 
 const CoreLeardershipTeam = ({ data }) => {
   const items = data?.centetralfunctions ?? []; // fallback if undefined
-
   const [query, setQuery] = useState('')
   const [selected, setSelected] = useState(null)
 
@@ -22,11 +24,26 @@ const CoreLeardershipTeam = ({ data }) => {
       ? data.items.filter((member) => member.centralfunction === selected.name)
       : data.items;
 
+  const sectionRef = useRef(null);
+  const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
+  const shapeOffset = isMobile ? [-50, 50] : isTablet ? [-100, 100] : [-200, 200];
+
+
+  const { scrollYProgress: shapeProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const shapeY = useTransform(shapeProgress, [0, 1], shapeOffset);
+
+  const imageContainerRefTwo = useRef(null);
+  const overlayRefTwo = useRef(null);
+
   return (
-    <section className="pb30 relative overflow-hidden">
-      <img src={assets.mainShape4} width={648} height={908} alt="" className="absolute right-0 bottom-0 w-[300px] h-fit  3xl:w-[648px] max-h-[908px]" />
+    <section className="pb30 relative overflow-hidden" ref={sectionRef}>
+      <motion.img style={{y:shapeY}} src={assets.mainShape4} width={648} height={908} alt="" className="absolute right-0 bottom-0 w-[300px] h-fit 3xl:w-[648px] max-h-[908px]" />
       <div className="container">
-        <div className="flex justify-between items-center mb-6 lg:mb-10 xl:mb-12 2xl:mb-15 3xl:mb-18">
+        <div className="flex flex-wrap gap-y-5 justify-between items-center mb-6 lg:mb-10 xl:mb-12 2xl:mb-15 3xl:mb-18">
           <H2Title titleText={data?.title || "Core Leadership Team"} />
 
           <Combobox
@@ -75,16 +92,16 @@ const CoreLeardershipTeam = ({ data }) => {
           </Combobox>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 3xl:gap-y-18">
+        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-6 3xl:gap-y-18">
           {filteredTeam.map((member, index) => (
-            <div key={index} className="relative">
+            <motion.div variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{amount: 0.1, once: true}} key={index} className="relative">
               <div className="relative">
                 <img src={member.image} alt={member.name} className="w-full h-[250px] 2xl:h-[333px] object-contain rounded-xl mb-4" />
                 <div className="absolute bottom-0 left-0 bg-f5f5 w-full h-[80%] max-h-[383px] z-[-1]"></div>
               </div>
               <h3 className="text-29 font-light leading-[1.344827586206897]">{member.name}</h3>
               <p className="text-gray-600">{member.position}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

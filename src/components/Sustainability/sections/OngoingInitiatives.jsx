@@ -65,7 +65,7 @@ const OngoingInitiatives = ({data}) => {
   }, []);
 
   return (
-    <section className="pt-text30 pb30 relative  overflow-hidden">
+    <section className="pt-text30 relative  overflow-hidden">
       <div className="xl:px-[15px] md:pe-0 relative">
         {/* Counter + Arrows */}
         <div className="container" ref={containerRef}>
@@ -74,7 +74,7 @@ const OngoingInitiatives = ({data}) => {
         {/* Swiper */}
         <div className="flex flex-col md:flex-row gap-3 md:pe-0" >
           <div className="container">
-            <div className="border-b border-cmnbdr pb-20">
+            <div className="border-b border-cmnbdr pb-4 md:pb-6 xl:pb-20">
             <Swiper
               ref={swiperRef}
               modules={[EffectFade, Autoplay, Navigation]}

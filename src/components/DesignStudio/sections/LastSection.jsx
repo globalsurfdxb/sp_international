@@ -9,15 +9,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, useEffect } from "react";
 gsap.registerPlugin(ScrollTrigger);
 const LastSection = () => {
+  const sectionRef = useRef(null); 
+  const imageContainerRefOne = useRef(null);
   const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
   const imageOffset = isMobile ? [-30, 30] : isTablet ? [-80, 80] : [-150, 150];
   const shapeOffset = isMobile ? [-50, 50] : isTablet ? [-100, 100] : [-200, 200];
-  const imageContainerRefTwo = useRef(null);
-  const overlayRefTwo = useRef(null);
-
-  const sectionRef = useRef(null);
-  const imageContainerRefOne = useRef(null);
 
   // Parallax for main image container
   const { scrollYProgress: imageProgress } = useScroll({
@@ -32,12 +29,14 @@ const LastSection = () => {
     offset: ["start end", "end start"]
   });
   const shapeY = useTransform(shapeProgress, [0, 1], shapeOffset);
+
+  const imageContainerRefTwo = useRef(null);
+  const overlayRefTwo = useRef(null);
+
+
   useEffect(() => {
     const container = imageContainerRefTwo.current;
     const overlay = overlayRefTwo.current;
-
-
-
     if (!container || !overlay) return;
 
     // Set initial state - overlay covers the image
