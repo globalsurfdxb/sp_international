@@ -45,10 +45,10 @@ export default function TabStyle1Light({ data }) {
       <div className="2xl:max-w-[1209px]">
         <div ref={tabsContainerRef} className={`flex flex-wrap w-full overflow-hidden `}>
           {data.map((tab, index) => (
-            <button
+            <motion.button variants={moveUp(0.4 + 0.1*index)} initial="hidden" whileInView={"show"} viewport={{once:true,amount:0.2}}
               key={tab.id}
               onClick={() => setActiveId(tab.id)}
-              className={`tab-style1-btn flex-1 px-4 py-4 lg:py-5 flex flex-col items-center text-center border border-cmnbdr cursor-pointer transition-all duration-300 ${index !== 0 ? "-ml-[1px]" : ""
+              className={`tab-style1-btn flex-1 px-4 py-4 lg:py-5 flex flex-col items-center text-center border border-cmnbdr cursor-pointer  ${index !== 0 ? "-ml-[1px]" : ""
                 } ${tab.id === activeId
                   ? "bg-f5f5 shadow-[inset_0_2px_0_0_#30B6F9,inset_0_-2px_0_0_#30B6F9] relative z-10"
                   : "bg-transparent hover:bg-f5f5"
@@ -56,7 +56,7 @@ export default function TabStyle1Light({ data }) {
             >
               <span className="text-16 leading-[1.75] text-paragraph font-light mb-4">{tab.number}</span>
               <span className={`text-19 leading-[1.473684210526316] max-w-[30ch] transition-all duration-300  ${tab.id === activeId ? "font-bold" : "font-light"}`}>{tab.title}</span>
-            </button>
+            </motion.button>
           ))}
         </div>
       </div>
@@ -76,7 +76,7 @@ export default function TabStyle1Light({ data }) {
             <motion.div
               initial={{ opacity: 0.6, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: 1.6 }}
               className="w-full"
             >
               <div className="relative w-full overflow-hidden" ref={imageContainerRefOne}>
@@ -86,7 +86,7 @@ export default function TabStyle1Light({ data }) {
 
             {/* Right content */}
             <div className="text-sm lg:text-19">
-              <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="w-[66px] h-[66px] bg-[#30B6F94D] rounded-full flex items-center justify-center mb-5 md:mb-6 lg:mb-[33px]">
+              <motion.div variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="w-[66px] h-[66px] bg-[#30B6F94D] rounded-full flex items-center justify-center mb-5 md:mb-6 lg:mb-[33px]">
                 {/* keep your existing svg if you want to keep it — or replace by the image */}
                 {/* svg retained per your markup */}
                 <svg xmlns="http://www.w3.org/2000/svg" width="29" height="42" viewBox="0 0 29 42" fill="none">
@@ -104,9 +104,9 @@ export default function TabStyle1Light({ data }) {
                 </svg>
               </motion.div>
               <h3 className="text-40 leading-[1.344827586206897] font-light mb-30px">
-                <SplitTextAnimation>{activeTab.fullTitle}</SplitTextAnimation>
+                <SplitTextAnimation children={activeTab.fullTitle} staggerDelay={0.2} animationDuration={0.8} delay={0.8} />
               </h3>
-              <motion.p variants={moveUp(0.3 + 0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 leading-[1.473684210526316] font-light text-paragraph">{activeTab.desc}</motion.p>
+              <motion.p variants={moveUp(0.9)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 leading-[1.473684210526316] font-light text-paragraph">{activeTab.desc}</motion.p>
             </div>
           </motion.div>
         </AnimatePresence>

@@ -4,6 +4,7 @@ import AccordionStyle1 from "../../common/AccordionStyle1";
 import H2Title from "../../common/H2Title";
 import{assets} from "../../../assets"
 import { useRef } from "react";
+import { moveUp } from "../../../motionVarients";
 const WhyChooseSec = ({data}) => {
   const sectionRef = useRef(null);
   const { scrollYProgress: shapeProgress } = useScroll({
@@ -20,7 +21,7 @@ const WhyChooseSec = ({data}) => {
         <div className="max-w-[800px] 2xl:max-w-[900px] 3xl:max-w-[1207px] ml-auto">
           <div className="border-b border-cmnbdr pb-5 xl:pb-50px">
             <H2Title titleText="Why Choose Us" titleColor="black" marginClass="mb-5" />
-            <p className="text-19 leading-[1.526315789473684] font-light text-paragraph">We are more than a service provider — we are a strategic partner committed to transforming your assets into high-performing, sustainable environments.</p>
+            <motion.p variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 leading-[1.526315789473684] font-light text-paragraph">We are more than a service provider — we are a strategic partner committed to transforming your assets into high-performing, sustainable environments.</motion.p>
           </div>
           <div className="">
             <AccordionStyle1 accData={data} />

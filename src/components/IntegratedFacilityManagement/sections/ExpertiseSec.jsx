@@ -1,6 +1,6 @@
 "use client";
-import {motion, useScroll, useTransform} from "framer-motion"
-import {moveUp } from "../../../motionVarients";
+import { motion, useScroll, useTransform } from "framer-motion"
+import { moveUp } from "../../../motionVarients";
 import { assets } from "../../../assets/index"
 import H2Title from "../../common/H2Title"
 import TabStyle1 from "../../common/TabStyle1"
@@ -8,7 +8,7 @@ import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-const ExpertiseSec = ({data}) => {
+const ExpertiseSec = ({ data }) => {
   const sectionRef = useRef(null);
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -35,7 +35,7 @@ const ExpertiseSec = ({data}) => {
   return (
     <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden" ref={sectionRef}>
       <div className="reveal-overlay4 absolute inset-0 bg-black/20 z-20"></div>
-      <div className="absolute bottom-0 right-0 w-[359px] h-[625px] 3xl:w-[519px] 3xl:h-[725px]"><motion.img style={{y:shapeY}} src={assets.mainShape3} alt="" /></div>
+      <div className="absolute bottom-0 right-0 w-[359px] h-[625px] 3xl:w-[519px] 3xl:h-[725px]"><motion.img style={{ y: shapeY }} src={assets.mainShape3} alt="" /></div>
       <div className="container">
         {/* Header */}
         <div className="mb-50px">

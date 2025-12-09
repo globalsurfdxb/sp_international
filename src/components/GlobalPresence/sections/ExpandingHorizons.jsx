@@ -1,5 +1,7 @@
+import H2Title from "../../../components/common/H2Title";
 import { assets } from "../../../assets"
 import {motion,useScroll,useTransform} from "framer-motion"
+import { moveUp } from "../../../motionVarients";
 import { useRef } from "react";
 const ExpandingHorizons = ({ data }) => {
   const sectionRef = useRef(null);
@@ -17,10 +19,11 @@ const ExpandingHorizons = ({ data }) => {
         <div>
           <div>
             <div className="2xl:max-w-[75%] 3xl:max-w-[67.84%] ml-auto ">
-              <h2 className="text-60 font-light leading-[1.166666666666667] mb-50px max-w-[22ch]">{data.title}</h2>
+              {/* <h2 className="text-60 font-light leading-[1.166666666666667] mb-50px max-w-[22ch]">{data.title}</h2> */}
+              <H2Title titleText={data.title} titleColor="black" marginClass="mb-50px" maxW="max-w-[22ch]" delay={1.6} />
               {
                 data.desc.map((item) => (
-                  <p className="mb-4 xl:mb-8 last:mb-0 text-20 2xl:text-29 font-light leading-[1.35] text-paragraph max-w-[48ch]">{item}</p>
+                  <motion.p variants={moveUp(0.8)} initial="hidden" whileInView={"show"} viewport={{amount:0.2,once:false}} className="mb-4 xl:mb-8 last:mb-0 text-20 2xl:text-29 font-light leading-[1.35] text-paragraph max-w-[48ch]">{item}</motion.p>
                 ))
               }
             </div>

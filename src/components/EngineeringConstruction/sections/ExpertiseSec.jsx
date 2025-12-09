@@ -1,6 +1,6 @@
 "use client";
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { moveUp, paragraphItem, moveLeft, moveRight } from '../../../motionVarients';
+import { moveUp, moveLeft, moveRight } from '../../../motionVarients';
 import React, { useRef, useState, useEffect } from 'react';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -60,7 +60,7 @@ const ExpertiseSec = () => {
         {/* Header */}
         <div className="mb-50px">
             <H2Title titleText={expertiseData.title} titleColor="white" marginClass="mb-4 xl:mb-5" />
-            <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 leading-[1.473684210526316] opacity-90 font-light max-w-[85ch] pb-2 sm:pb-0">
+            <motion.p variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 leading-[1.473684210526316] opacity-90 font-light max-w-[85ch] pb-2 sm:pb-0">
             {expertiseData.desc}
           </motion.p>
         </div>

@@ -2,7 +2,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const H2Title = ({ titleText, titleColor, marginClass, maxW }) => {
+const H2Title = ({
+  titleText,
+  titleColor,
+  marginClass,
+  maxW,
+  delay = 0.2 // Add delay prop with default 0
+}) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
@@ -15,7 +21,8 @@ const H2Title = ({ titleText, titleColor, marginClass, maxW }) => {
       opacity: 1,
       transition: {
         staggerChildren: 0.03,
-        delayChildren: 0.1
+        delayChildren: delay, // Use the delay prop here
+        delay: delay // Add delay to the main transition
       }
     }
   };

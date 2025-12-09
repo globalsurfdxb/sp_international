@@ -45,7 +45,7 @@ const CoreLeardershipTeam = ({ data }) => {
       <div className="container">
         <div className="flex flex-wrap gap-y-5 justify-between items-center mb-6 lg:mb-10 xl:mb-12 2xl:mb-15 3xl:mb-18">
           <H2Title titleText={data?.title || "Core Leadership Team"} />
-
+          <motion.div variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}>
           <Combobox
             value={selected}
             onChange={(value) => setSelected(value)}
@@ -90,11 +90,12 @@ const CoreLeardershipTeam = ({ data }) => {
               ))}
             </ComboboxOptions>
           </Combobox>
+          </motion.div>
         </div>
 
         <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-6 3xl:gap-y-18">
           {filteredTeam.map((member, index) => (
-            <motion.div variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{amount: 0.1, once: true}} key={index} className="relative">
+            <motion.div variants={moveUp(0.5 + 0.2*index)} initial="hidden" whileInView="show" viewport={{amount: 0.1, once: true}} key={index} className="relative">
               <div className="relative">
                 <img src={member.image} alt={member.name} className="w-full h-[250px] 2xl:h-[333px] object-contain rounded-xl mb-4" />
                 <div className="absolute bottom-0 left-0 bg-f5f5 w-full h-[80%] max-h-[383px] z-[-1]"></div>

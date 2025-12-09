@@ -123,13 +123,13 @@ const OngoingInitiatives = ({data}) => {
                 <SwiperSlide key={i}>
                   <div className="overflow-hidden md:border-l border-black/20 h-full">
                     <div className="relative overflow-hidden" ref={imageContainerRefTwo}>
-                      <motion.img variants={moveUp(0.1 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={item.image} alt={`slide-${i}`} className="w-full h-[200px] md:h-[250px] 2xl:h-[333px] scale-y-110 object-cover" />
+                      <motion.img variants={moveUp(0.4 + 0.1 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={item.image} alt={`slide-${i}`} className="w-full h-[200px] md:h-[250px] 2xl:h-[333px] scale-y-110 object-cover" />
                     </div>
                     <div className="pt-3 md:pl-4 lg:pt-8 lg:pl-8 lg:pb-8 2xl:pt-10 2xl:pl-10 2xl:pb-12">
-                      <div >
+                      <motion.div variants={moveUp(0.6 + 0.1 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}>
                         <h3 className="text-20 2xl:text-29 leading-[1.344827586206897] font-light mb-1 md:mb-2">{item.title}</h3>
-                      </div>
-                      <p className="text-14 xl:text-19 font-light font-paragraph leading-[1.5]">{item.desc}</p>
+                      </motion.div>
+                      <motion.p variants={moveUp(0.8 + 0.1 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-14 xl:text-19 font-light font-paragraph leading-[1.5]">{item.desc}</motion.p>
                     </div>
                   </div>
                 </SwiperSlide>

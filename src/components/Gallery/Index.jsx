@@ -8,6 +8,7 @@ import { moveUp } from "../../motionVarients";
 import { useRef } from "react";
 import { useEffect, useState, useCallback, useMemo } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import SplitTextAnimation from "../../components/common/SplitTextAnimation";
 
 
 const ITEMS_PER_PAGE = 12;
@@ -154,10 +155,12 @@ const handleTouchEnd = (e) => {
         {/* <img src="./assets/images/shape-left.svg" alt="" className="absolute  bottom-30 left-0 z-[-1]" /> */}
         <div className="container">
           <div className="mb-7 md:mb-10 xl:mb-12 3xl:mb-20 mt-12 xl:mt-15 3xl:mt-30">
-            <motion.h1 variants={moveUp(0.4)} initial="hidden" animate="show" viewport={{ amount: 0.6, once: true }} className="text-70 font-light leading-[1.071428571428571]">{pressReleases.title}</motion.h1>
+            <h1 className="text-70 font-light leading-[1.071428571428571]">
+              <SplitTextAnimation children={pressReleases.title} staggerDelay={0.2} animationDuration={0.8} delay={0.2}/>
+            </h1>
           </div>
 
-          <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between border-y border-cmnbdr pt-[35px] mb-10 lg:mb-15 3xl:mb-25">
+          <motion.div variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between border-y border-cmnbdr pt-[35px] mb-10 lg:mb-15 3xl:mb-25">
             <div className="flex flex-wrap justify-between xl:justify-start gap-3 md:gap-15 xl:gap-[75px] mb-4 md:mb-0">
               <div className="relative pb-0 md:pb-35px    transition-all duration-300 group">
                 <span className="cursor-pointer   text-paragraph text-16 font-semibold leading-[1.75] uppercase group-hover:text-black">
@@ -196,7 +199,7 @@ const handleTouchEnd = (e) => {
           >
             {currentItems.map((item, idx) => (
 
-              <motion.div variants={moveUp(0.1 * idx)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}
+              <motion.div variants={moveUp(0.9 + 0.1 * idx)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}
                 key={item.id}
                 className="border-b border-black/20 pb-5 lg:border-b-0 lg:pb-0 cursor-pointer"
                 onClick={() => openModal(item, 0)}
