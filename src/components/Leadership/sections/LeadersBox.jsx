@@ -38,7 +38,7 @@ const LeaderBox = ({ data }) => {
        <div className="border-b border-cmnbdr relative overflow-hidden mb-5 xl:mb-20 2xl:mb-25">
           <div className="grid items-center grid-cols-1 lg:grid-cols-2 3xl:grid-cols-[739px_auto] gap-6 md:gap-10 xl:gap-15 2xl:gap-17 3xl:gap-[88px] pt25 3xl:pt-18 pb-10 3xl:pb-[135px]">
             <div className="relative flex flex-col justify-end" ref={imageContainerRefOne}>
-              <motion.img style={{y:imageY}} src={data[0].image} alt={data[0].name} className="relative w-fit object-contain mr-auto ml-3 lg:ml-auto lg:mr-2 z-20 h-[400px] xl:h-[450px] 2xl:h-[600px] 3xl:h-[735.62px]  max-w-[710px]" />
+              <motion.img style={{ y: imageY }} src={data[0].image} alt={data[0].name} className="relative w-fit object-contain mr-auto ml-3 lg:ml-auto lg:mr-2 z-20 h-[250px] xs:h-[400px] xl:h-[450px] 2xl:h-[600px] 3xl:h-[735.62px]  max-w-[710px]" />
               <motion.div style={{y:imageY}} variants={fadeIn(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.1, once: true}} className="absolute bottom-0 left-0 h-[80%] lg:h-[70%] xl:h-[90%] 3xl:h-[612px] w-full bg-primary z-10"></motion.div>
               <motion.div style={{y:imageY}} variants={fadeIn(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.1, once: true}} className="absolute bottom-0 left-0 h-[80%] lg:h-[70%] xl:h-[90%] 3xl:h-[612px] w-full bg-gradient-to-t from-primary to-transparent z-30"></motion.div>
             </div>
@@ -56,7 +56,7 @@ const LeaderBox = ({ data }) => {
           </div>
           <div className="grid items-center grid-cols-1 lg:grid-cols-2 3xl:grid-cols-[793px_auto] gap-6 md:gap-10 xl:gap-15 2xl:gap-17 3xl:gap-[88px] pb-10 xl:pb-25 3xl:pb-[135px]">
             <div className="relative lg:order-2 " ref={imageContainerRefTwo}>
-              <motion.img style={{y:image2Y}} src={data[1].image} alt={data[1].name} className="relative w-fit ml-auto mr-3 z-20 h-[400px] xl:h-[450px] 2xl:h-[600px] 3xl:h-[735.62px]" />
+              <motion.img style={{y:image2Y}} src={data[1].image} alt={data[1].name} className="relative w-fit ml-auto mr-3 z-20 h-[250px] xs:h-[400px] xl:h-[450px] 2xl:h-[600px] 3xl:h-[735.62px]" />
               <motion.div style={{y:image2Y}} className="absolute bottom-0 left-0 h-[80%] xl:h-[90%] 3xl:h-[612px] w-full bg-primary z-10"></motion.div>
               <motion.div style={{ y: image2Y }} className="absolute bottom-0 left-0 h-[80%] xl:h-[90%] 3xl:h-[612px] w-full bg-gradient-to-t from-primary to-transparent z-30"></motion.div>
 
