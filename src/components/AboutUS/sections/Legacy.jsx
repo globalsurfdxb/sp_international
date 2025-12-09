@@ -8,6 +8,8 @@ import "swiper/css/effect-fade";
 import "swiper/css/thumbs";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { moveUp } from "../../../motionVarients";
+import H2Title from "../../../components/common/H2Title";
+import SplitTextAnimation from "../../../components/common/SplitTextAnimation";
 
 
 const legacyData = [
@@ -63,9 +65,10 @@ const Legacy = () => {
         <div className="container">
         <div>
             <div className="md:max-w-[650px] lg:max-w-[800px]  xl:max-w-[950px] 2xl:max-w-[80.9%] ml-auto">
-            <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 font-light leading-[1.18] text-white mb-5 lg:mb-8 xl:mb-15">
+            {/* <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 font-light leading-[1.18] text-white">
               Legacy
-            </motion.h2>
+            </motion.h2> */}
+            <H2Title titleText="Legacy" titleColor="white" marginClass=" mb-5 lg:mb-8 xl:mb-15"/>
 
             <div className="flex flex-col-reverse md:flex-row gap-7 md:gap-5 2xl:gap-[20%]  3xl:gap-[23.3%] justify-between md:items-end">
               {/* LEFT: Vertical Year Thumbs */}
@@ -93,7 +96,7 @@ const Legacy = () => {
                     const opacity = 1 - i * 0.20;
                     return (
                       <SwiperSlide key={i}>
-                        <p className="text-[15px] sm:text-16 md:text-16 lg:text-29 cursor-pointer transition-all duration-300 hover:text-[#fff]" style={{ opacity: opacity }}>{item.year}</p>
+                        <motion.p variants={moveUp(0.6 + 0.2*i)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-[15px] sm:text-16 md:text-16 lg:text-29 cursor-pointer hover:text-[#fff]" style={{ opacity: opacity }}>{item.year}</motion.p>
                       </SwiperSlide>
                     );
                   })}
@@ -119,7 +122,12 @@ const Legacy = () => {
                 >
                   {legacyData.map((item, i) => (
                     <SwiperSlide key={i}>
-                      <div className="mb-4 md:mb-[30px] lg:mb-[53px]"><h2 className="text-[22px] md:text-45 3xl:text-60 font-light leading-[1.18] text-white mb-5 xl:mb-[37px]">{item.title}</h2><p className="text-19 3xl:text-29 font-light leading-[1.374] text-white">{item.text}</p></div>
+                      <div className="mb-4 md:mb-[30px] lg:mb-[53px]">
+                        <h2 className="text-[22px] md:text-45 3xl:text-60 font-light leading-[1.18] text-white mb-5 xl:mb-[37px]">
+                          <SplitTextAnimation children={item.title} staggerDelay={0.1} animationDuration={0.8} delay={0.8} />
+                        </h2>
+                        {/* <H2Title titleText={item.title} titleColor={"white"} marginClass={"mb-5 xl:mb-[37px]"} /> */}
+                        <motion.p variants={moveUp(1)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 3xl:text-29 font-light leading-[1.374] text-white">{item.text}</motion.p></div>
                       <div className="relative overflow-hidden" ref={imageContainerRefTwo}><motion.img style={{y:imageY}} src={item.image} alt={item.title} className="w-full object-cover scale-110" /></div>
                     </SwiperSlide>
                   ))}

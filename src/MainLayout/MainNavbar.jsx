@@ -133,7 +133,7 @@ const MainNavbar = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center gap-[10px] z-[60]">
-             <Link to="#"> <img src="./assets/images/main-logo.svg" alt="logo" /></Link>
+             <Link to="/"> <img src="./assets/images/main-logo.svg" alt="logo" /></Link>
             </div>
 
             {/* Desktop Menu */}

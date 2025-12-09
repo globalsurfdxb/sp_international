@@ -64,16 +64,15 @@ const VdoSection = ({ data, maxW, maxtextwidth }) => {
           <div>
             <div className="lg:max-w-[680px] xl:max-w-[895px] 2xl:max-w-[757px] 3xl:max-w-[795px] ml-auto mb-50px 3xl:mb-17">
               <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}>
-                <H2Title titleText={data.title} titleColor="primary" marginClass="mb-50px " maxW={"max-w-[18ch]"} />
+                <H2Title titleText={data.title} titleColor="primary" marginClass="mb-50px " maxW={"max-w-xl"} />
               </motion.div>
               {
                 data.desc.map((item) => (
-                  <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className={`${maxtextwidth} text-19 leading-[1.473684210526316] font-light text-paragraph mb-4 xl:mb-8 last:mb-0`}>{item}</motion.p>
+                  <motion.p variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className={`${maxtextwidth} text-19 leading-[1.473684210526316] font-light text-paragraph mb-4 xl:mb-8 last:mb-0`}>{item}</motion.p>
                 ))
               }
             </div>
           </div>
-
           <motion.div ref={containerRef} 
             style={
               enableAnim

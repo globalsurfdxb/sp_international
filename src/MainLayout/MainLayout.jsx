@@ -28,7 +28,7 @@ const MainLayout = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<V2 />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/version-two" element={<V2 />} />
         <Route path="/version-two-backup" element={<V2backup />} />

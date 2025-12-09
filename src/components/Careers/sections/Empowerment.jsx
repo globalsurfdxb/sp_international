@@ -6,8 +6,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { paragraphItem, moveUp } from "../../../motionVarients";
 import { motion, useScroll, useTransform } from "framer-motion";
+import H2Title from "../../../components/common/H2Title";
 
-
+gsap.registerPlugin(ScrollTrigger);
 const EmpowerSection = () => {
   const { svgSrc, heading, description, stats } = empowerData;
   const [rightPadding, setRightPadding] = useState(0);
@@ -77,9 +78,10 @@ const EmpowerSection = () => {
 
         {/* Right Content */}
         <div className="w-full flex flex-col justify-center  2xl:max-w-[1008px] 3xl:max-w-[1208px] ml-auto">
-          <motion.h2 variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 leading-[1.1666666667] font-light mb-6 lg:mb-[30px] max-w-[20ch]">
+          {/* <motion.h2 variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 leading-[1.1666666667] font-light mb-6 lg:mb-[30px] max-w-[20ch]">
             {heading}
-          </motion.h2>
+          </motion.h2> */}
+          <H2Title titleText={heading} marginClass={"mb-6 lg:mb-30px max-w-[20ch]"}/>
 
           <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 text-white font-light leading-[1.4736842105] mb-8 md:mb-[62px] max-w-[72ch]">
             {description}

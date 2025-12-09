@@ -2,7 +2,9 @@
 import { useMediaQuery } from "react-responsive";
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence,useScroll,useTransform } from "framer-motion";
+import { moveUp } from "../../motionVarients";
 import gsap from "gsap";
+import SplitTextAnimation from "./SplitTextAnimation";
 export default function TabStyle1Light({ data }) {
   const [activeId, setActiveId] = useState(data[1]?.id || data[0].id);
   const tabsContainerRef = useRef(null);
@@ -84,7 +86,7 @@ export default function TabStyle1Light({ data }) {
 
             {/* Right content */}
             <div className="text-sm lg:text-19">
-              <div className="w-[66px] h-[66px] bg-[#30B6F94D] rounded-full flex items-center justify-center mb-5 md:mb-6 lg:mb-[33px]">
+              <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="w-[66px] h-[66px] bg-[#30B6F94D] rounded-full flex items-center justify-center mb-5 md:mb-6 lg:mb-[33px]">
                 {/* keep your existing svg if you want to keep it — or replace by the image */}
                 {/* svg retained per your markup */}
                 <svg xmlns="http://www.w3.org/2000/svg" width="29" height="42" viewBox="0 0 29 42" fill="none">
@@ -100,11 +102,11 @@ export default function TabStyle1Light({ data }) {
                     </clipPath>
                   </defs>
                 </svg>
-              </div>
+              </motion.div>
               <h3 className="text-40 leading-[1.344827586206897] font-light mb-30px">
-                {activeTab.fullTitle}
+                <SplitTextAnimation>{activeTab.fullTitle}</SplitTextAnimation>
               </h3>
-              <p className="text-19 leading-[1.473684210526316] font-light text-paragraph">{activeTab.desc}</p>
+              <motion.p variants={moveUp(0.3 + 0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 leading-[1.473684210526316] font-light text-paragraph">{activeTab.desc}</motion.p>
             </div>
           </motion.div>
         </AnimatePresence>
