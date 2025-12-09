@@ -7,7 +7,7 @@ import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {motion,useScroll,useTransform} from "framer-motion"
-import {moveUp, paragraphItem } from "../../../motionVarients";
+import {moveUp} from "../../../motionVarients";
 gsap.registerPlugin(ScrollTrigger);
 const DesignExcellence = ({ data }) => {
   const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
@@ -51,6 +51,7 @@ const DesignExcellence = ({ data }) => {
         trigger: container,
         start: 'top 80%',
         end: 'top 20%',
+        delay: 0.8,
         // scrub: 1,
       }
     });
@@ -66,7 +67,7 @@ const DesignExcellence = ({ data }) => {
         <div className="w-full max-w-[800px] 2xl:max-w-[900px] 3xl:max-w-[1207px] ml-auto flex flex-col gap-5 xl:gap-0">
           <div  className="mb-0 md:mb-6 2xl:mb-12 3xl:mb-18 order-2 xl:order-1">
               <H2Title titleText={data.title} marginClass={"mb-2 xl:mb-6 2xl:mb-30px"} />
-              <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}  className="text-19 leading-[1.473684210526316] font-light text-paragraph max-w-3xl">{data.desc}</motion.p>
+              <motion.p variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}  className="text-19 leading-[1.473684210526316] font-light text-paragraph max-w-3xl">{data.desc}</motion.p>
           </div>
           <div className="order-1 xl:order-2 relative overflow-hidden" ref={imageContainerRefTwo}>
             <div ref={imageContainerRefOne} className="relative">

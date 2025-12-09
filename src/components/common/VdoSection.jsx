@@ -5,7 +5,7 @@ import { assets } from "../../assets"
 import H2Title from "./H2Title";
 import VideoPlayer from "./VideoPlayer";
 import { motion } from "framer-motion";
-import { moveUp, paragraphItem } from "../../motionVarients";
+import { moveUp} from "../../motionVarients";
 const VdoSection = ({ data, maxW, maxtextwidth }) => {
 
 
@@ -63,9 +63,9 @@ const VdoSection = ({ data, maxW, maxtextwidth }) => {
         <div className="w-full lg:max-w-[80%] xl:max-w-[1000px]  3xl:max-w-[1238px] mx-auto relative z-10 overflow-hidden">
           <div>
             <div className="lg:max-w-[680px] xl:max-w-[895px] 2xl:max-w-[757px] 3xl:max-w-[795px] ml-auto mb-50px 3xl:mb-17">
-              <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}>
-                <H2Title titleText={data.title} titleColor="primary" marginClass="mb-50px " maxW={"max-w-xl"} />
-              </motion.div>
+              {/* <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}> */}
+                <H2Title titleText={data.title} titleColor="primary" marginClass="mb-50px " maxW={maxW} delay={1.2} />
+              {/* </motion.div> */}
               {
                 data.desc.map((item) => (
                   <motion.p variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className={`${maxtextwidth} text-19 leading-[1.473684210526316] font-light text-paragraph mb-4 xl:mb-8 last:mb-0`}>{item}</motion.p>

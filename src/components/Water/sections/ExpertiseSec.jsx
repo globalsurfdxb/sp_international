@@ -9,6 +9,7 @@ import 'swiper/css/pagination';
 import { wtrData } from '../data';
 import H2Title from '../../common/H2Title';
 import {motion, useScroll, useTransform } from "framer-motion";
+import {moveUp} from "../../../motionVarients"
 const ExpertiseSec = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
@@ -104,17 +105,14 @@ const ExpertiseSec = () => {
                   onMouseLeave={handleLeave}
                 >
                   {expertiseData.items.map((item, index) => (
-                    <div
+                    <motion.div variants={moveUp(0.4 + 0.1 * index)} initial="hidden" whileInView={"show"} viewport={{amount:0.2,once:false}}
                       className="flex items-center gap-2 group w-fit"
                       key={index}
                       ref={(el) => setItemRef(el, index)}
                       // keep these optional — they help for quick taps on non-touch devices
                       onMouseEnter={() => setActiveIndex(index)}
                     >
-                      <p
-                        className={`text-19  text-white leading-[1.75] cursor-pointer transition-all duration-300 ${activeIndex === index ? "font-bold" : "font-light group-hover:font-bold"
-                          }`}
-                      >
+                      <p className={`text-19  text-white leading-[1.75] cursor-pointer transition-all duration-300 ${activeIndex === index ? "font-bold" : "font-light group-hover:font-bold" }`}>
                         {item.title}
                       </p>
 
@@ -127,13 +125,13 @@ const ExpertiseSec = () => {
                           <path d="M14.2438 1.25L1.3125 14.2404" stroke="#30B6F9" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
 
                 <div>
                   {/* Image area: shows image for active index */}
-                  <div className="w-[66px] h-[66px] bg-secondary rounded-full flex items-center justify-center">
+                  <motion.div variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{amount:0.2,once:false}} className="w-[66px] h-[66px] bg-secondary rounded-full flex items-center justify-center">
                     {/* keep your existing svg if you want to keep it — or replace by the image */}
                     {/* svg retained per your markup */}
                     <svg xmlns="http://www.w3.org/2000/svg" width="29" height="42" viewBox="0 0 29 42" fill="none">
@@ -149,11 +147,11 @@ const ExpertiseSec = () => {
                         </clipPath>
                       </defs>
                     </svg>
-                  </div>
+                  </motion.div>
                   <div className="mt-4 xl:mt-5 border-t border-white/20 pt-4 xl:pt-[28px]">
                     <ul className="list-disc max-w-[45.5ch] ml-[18px]"  >
                       {activelist.map((desc, i) => (
-                        <li key={i} className='text-19 font-light'>{desc}</li>
+                        <motion.li variants={moveUp(0.8 + 0.1 * i)} initial="hidden" whileInView={"show"} viewport={{amount:0.2,once:false}} key={i} className='text-19 font-light'>{desc}</motion.li>
                       ))}
                     </ul>
                   </div>

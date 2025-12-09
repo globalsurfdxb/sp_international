@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
-
+import { moveUp } from "../../motionVarients";
 
 
 export default function TabStyle1({ data }) {
@@ -35,14 +35,14 @@ export default function TabStyle1({ data }) {
       <div className="max-w-[1345px]">
         <div ref={tabsContainerRef} className={`flex flex-col md:flex-row flex-wrap w-full overflow-hidden `}>
           {data.map((tab, index) => (
-            <button
+            <motion.button variants={moveUp(0.6 + 0.2 * index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}
               key={tab.id}
               onClick={() => setActiveId(tab.id)}
-              className={`tab-style1-btn flex-1 px-4 py-4 lg:py-5 flex flex-col items-center  text-center border transition-all duration-300 ${tab.id === activeId ? "bg-secondary/15 border-secondary" : "border-white/30 bg-transparent hover:bg-white/5"} ${index !== 0 ? "" : ""}`}
+              className={`tab-style1-btn flex-1 px-4 py-4 lg:py-5 flex flex-col items-center  text-center border  ${tab.id === activeId ? "bg-secondary/15 border-secondary" : "border-white/30 bg-transparent hover:bg-white/5"} ${index !== 0 ? "" : ""}`}
             >
               <span className="text-16 leading-[1.75] text-white font-light mb-4">{tab.number}</span>
-              <span className={`text-19 leading-[1.473684210526316] max-w-[30ch]  ${tab.id === activeId ? "font-bold" : "font-light"}`}>{tab.title}</span>
-            </button>
+              <span className={`text-19 leading-[1.473684210526316] max-w-[30ch] transition-all duration-300 ${tab.id === activeId ? "font-bold" : "font-light"}`}>{tab.title}</span>
+            </motion.button>
           ))}
         </div>
       </div>
@@ -62,7 +62,7 @@ export default function TabStyle1({ data }) {
             <motion.div
               initial={{ opacity: 0.6, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: 0.8 }}
               className="w-full"
             >
               <div className="relative w-full overflow-hidden">
@@ -76,18 +76,18 @@ export default function TabStyle1({ data }) {
 
             {/* Right content */}
             <div className="text-white text-sm lg:text-19">
-              <h3 className="text-29 leading-[1.344827586206897] font-bold mb-30px">
+              <motion.h3 variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-29 leading-[1.344827586206897] font-bold mb-30px">
                 {activeTab.title}
-              </h3>
-              <p className="text-19 leading-[1.473684210526316] font-extralight">{activeTab.desc}</p>
+              </motion.h3>
+              <motion.p variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 leading-[1.473684210526316] font-extralight">{activeTab.desc}</motion.p>
 
               {activeTab.points?.length > 0 && (
                 <ul className="space-y-2 mt-4 xl:mt-[25px]">
                   {activeTab.points.map((point, idx) => (
-                    <li key={idx} className="flex items-start gap-2 xl:gap-[18px] font-extralight">
+                    <motion.li variants={moveUp(0.6 + 0.2 * idx)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} key={idx} className="flex items-start gap-2 xl:gap-[18px] font-extralight">
                       <span className="mt-[7px] h-[7px] w-[7px] bg-secondary" />
                       <span>{point}</span>
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
               )}

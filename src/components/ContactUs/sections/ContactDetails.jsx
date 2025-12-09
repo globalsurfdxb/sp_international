@@ -5,6 +5,7 @@ import { contactData } from "../data";
 import H2Title from "../../common/H2Title";
 import { motion } from "framer-motion";
 import { moveUp } from "../../../motionVarients";
+import SplitTextAnimation from "../../../components/common/SplitTextAnimation";
 const ContactDetails = () => {
   const [subject, setSubject] = useState(null);
 
@@ -45,7 +46,9 @@ const ContactDetails = () => {
   return (
     <section className="pt-text30 bg-f5f5 pb-10 lg:pb-0">
       <div className="container">
-        <motion.h1 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-45 2xl:text-70 font-light leading-[1.071428571428571] pb-5 xl:pb-15 2xl:pb-22 3xl:pb-31">{contactData.title}</motion.h1>
+        <h1 className="text-45 2xl:text-70 font-light leading-[1.071428571428571] pb-5 xl:pb-15 2xl:pb-22 3xl:pb-31">
+          <SplitTextAnimation children={contactData.title} staggerDelay={0.2} animationDuration={0.8} delay={0.2} />
+          </h1>
         <div className="grid grid-cols-1 lg:grid-cols-[0.6fr_1fr] xl:grid-cols-[1fr_1.6fr] 2xl:grid-cols-[auto_650px] 3xl:grid-cols-[auto_866px] gap-y-8 lg:gap-x-8 3xl:gap-[131px]">
           <div className="lg:pt-[56px]" >
             <motion.h3 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount:0.2, once:true}} className="text-19 font-light text-paragraph mb-3 lg:mb-6 ">Head office</motion.h3>
