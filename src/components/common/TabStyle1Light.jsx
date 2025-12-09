@@ -1,11 +1,22 @@
 "use client";
-
+import { useMediaQuery } from "react-responsive";
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence,useScroll,useTransform } from "framer-motion";
 import gsap from "gsap";
 export default function TabStyle1Light({ data }) {
   const [activeId, setActiveId] = useState(data[1]?.id || data[0].id);
   const tabsContainerRef = useRef(null);
+  const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
+  const imageOffset = isMobile ? [-30, 30] : isTablet ? [-80, 80] : [-150, 150];
+  const imageContainerRefOne = useRef(null);
+
+  // Parallax for main image container
+  const { scrollYProgress: imageProgress } = useScroll({
+    target: imageContainerRefOne,
+    offset: ["start end", "end start"]
+  });
+  const imageY = useTransform(imageProgress, [0, 1], imageOffset);
 
   useEffect(() => {
     if (!tabsContainerRef.current) return;
@@ -37,7 +48,7 @@ export default function TabStyle1Light({ data }) {
               onClick={() => setActiveId(tab.id)}
               className={`tab-style1-btn flex-1 px-4 py-4 lg:py-5 flex flex-col items-center text-center border border-cmnbdr cursor-pointer transition-all duration-300 ${index !== 0 ? "-ml-[1px]" : ""
                 } ${tab.id === activeId
-                ? "bg-f5f5 shadow-[inset_0_2px_0_0_#30B6F9,inset_0_-2px_0_0_#30B6F9] relative z-10"
+                  ? "bg-f5f5 shadow-[inset_0_2px_0_0_#30B6F9,inset_0_-2px_0_0_#30B6F9] relative z-10"
                   : "bg-transparent hover:bg-f5f5"
                 }`}
             >
@@ -66,8 +77,8 @@ export default function TabStyle1Light({ data }) {
               transition={{ duration: 0.4, ease: "easeOut" }}
               className="w-full"
             >
-              <div className="relative w-full overflow-hidden">
-                <img src={activeTab.image} alt={activeTab.title} className="w-full h-full max-h-[445px] object-cover" />
+              <div className="relative w-full overflow-hidden" ref={imageContainerRefOne}>
+                <motion.img style={{y:imageY}} src={activeTab.image} alt={activeTab.title} className="w-full h-full max-h-[250px] lg:max-h-[300px] xl:max-h-[445px] object-cover scale-110" />
               </div>
             </motion.div>
 
