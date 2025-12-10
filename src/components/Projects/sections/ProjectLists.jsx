@@ -165,8 +165,8 @@ const ProjectLists = () => {
           className="border-y border-cmnbdr mt-10 xl:mt-25 mb-8 xl:mb-15 3xl:mb-30 py-4 md:py-6 xl:py-[35px]"
         >
           <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-0">
-            <div className="flex flex-col md:flex-row gap-5 lg:gap-8  2xl:gap-25  3xl:gap-[174px] justify-between">
-              <div className="flex flex-col md:flex-row gap-3 lg:gap-6 2xl:gap-[90px] ">
+            <div className="flex flex-col md:flex-row gap-5 lg:gap-12  2xl:gap-25  3xl:gap-[174px] justify-between">
+              <div className="flex flex-col md:flex-row gap-3 lg:gap-10 2xl:gap-[90px] ">
                 {/* Sector */}
                 <div className="w-full lg:w-fit relative">
                   <Listbox value={selectedSector} onChange={handleSectorChange}>
@@ -387,7 +387,7 @@ const ProjectLists = () => {
             </div>
 
             {/* View toggles */}
-            <div className="flex items-center gap-6 lg:gap-[30px] justify-end">
+            <div className="flex items-center gap-6 lg:gap-10 2xl:gap-[30px] justify-end">
               <div
                 className="flex group items-center gap-[6px] cursor-pointer"
                 onClick={() => setView("grid")}
@@ -687,18 +687,18 @@ const ProjectLists = () => {
 
       {view === "grid" && (
         <>
-          <div className={`${bgImagehide ? 'block':'hidden'} absolute top-[12%] lg:bottom-[30%] translate-y-[58px] 3xl:bottom-3/7 3xl:translate-y-[-78px] right-0 lg:left-[-140px] 3xl:left-0 z-[-1]`}>
+          <div className={`${bgImagehide ? 'block':'hidden'} absolute top-[12%] 3xl:top-auto lg:bottom-[30%] translate-y-[58px] 3xl:bottom-3/7    right-0 lg:left-[-140px] 3xl:left-0 z-[-1]`}>
             <motion.img style={{y:shapeY}}
               src="./assets/images/projects/pjtbdy1.svg"
               alt=""
-              className="w-[150px] lg:w-[670px] object-contain"
+              className="w-[150px] sm:w-[270px] lg:w-[670px] object-contain"
             />
           </div>
           <div className={`${bgImagehide ? 'block':'hidden'} absolute bottom-[5%] lg:bottom-0 right-0 lg:right-[-150px] 3xl:right-0 z-[-1]`}>
             <motion.img style={{y:shapeY}}
               src="./assets/images/projects/pjtbdy2.svg"
               alt=""
-              className="w-[150px] lg:w-[670px] object-contain"
+              className="w-[150px] sm:w-[270px] lg:w-[670px] object-contain"
             />
           </div>
         </>

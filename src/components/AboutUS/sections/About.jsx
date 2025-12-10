@@ -15,13 +15,13 @@ const About = () => {
   return (
       <section className="pt-7 xl:py-15 2xl:pt-22 pb-10  3xl:pt-25 pb30 overflow-hidden" ref={sectionRef}>
         <div className="container">
-          <div className={`grid grid-cols-1 lg:grid-cols-[1fr_430px] 2xl:grid-cols-[1fr_480px] 3xl:grid-cols-[1fr_520px] gap-7 2xl:gap-[100px] 3xl:gap-[167px]`}>
+          <div className={`grid grid-cols-1 lg:grid-cols-[1fr_430px] xl:grid-cols-[1fr_480px] 3xl:grid-cols-[1fr_520px] gap-7 xl:gap-[70px] 2xl:gap-[100px] 3xl:gap-[167px]`}>
             {/* Left Column */}
             <div>
-              <motion.p variants={moveUp(0.8 + 0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className='text-29 text-paragraph font-light leading-[1.345]'>
+              <motion.p variants={moveUp(0.8 + 0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className='text-[18px] md:text-29 text-paragraph font-light leading-[1.345]'>
                 {data.left.text}
               </motion.p>
-              <div className='mt-7 xl:mt-23 pt-7  xl:pt-12  border-t border-black/20'>
+              <div className='mt-5 sm:mt-7 xl:mt-15  2xl:mt-23 pt-5 sm:pt-7  xl:pt-12   border-t border-black/20'>
                 <div className='text-19 font-light leading-[1.474] flex flex-col gap-4 lg:gap-7 text-paragraph'>
                   {data.left.paragraphs.map((p, i) => (
                     <motion.p variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} key={i}>{p}</motion.p>

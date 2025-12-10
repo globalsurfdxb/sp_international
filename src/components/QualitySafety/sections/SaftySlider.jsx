@@ -45,7 +45,7 @@ const SaftySlider = () => {
   return (
     <section className="max-w-[1920px] mx-auto overflow-hidden " ref={sectionRef}>
      <div className="relative mb-3">
-      <motion.img style={{y:shapeY}} src="/assets/images/svg/sv-02.svg" alt="" className="absolute bottom-0 2xl:bottom-[-58px] left-[-150px] 3xl:left-0 z-[-1] w-[468px] h-[655px] 2xl:h-[555px] 3xl:h-[655px]" width={468} height={655} /> 
+      <motion.img style={{y:shapeY}} src="/assets/images/svg/sv-02.svg" alt="" className="absolute top-0 lg:bottom-0 2xl:bottom-[-58px] right-0 lg:left-[-150px]   3xl:left-[-60px] z-[-1] w-[150px] h-[355px] lg:w-[468px] lg:h-[655px] 2xl:h-[555px] 3xl:h-[655px]" width={468} height={655} /> 
       <div className="container pt-text30">   
         <div className=" max-w-[1206px] 2xl:max-w-[1056px] 3xl:max-w-[1206px] ml-auto  ">
           <div>

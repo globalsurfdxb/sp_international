@@ -32,24 +32,24 @@ const OurValues = () => {
   return (
     // <section className="py-12 xl:py-15 2xl:py-30 bg-[url('/assets/images/about-us/valuebg.svg')] bg-auto bg-right-bottom bg-no-repeat">
     <section className="pt-text30 pb30 relative overflow-hidden" ref={sectionRef}>
-      <motion.img style={{y:shapeY}} ref={sectionRef} variants={moveLeft(1)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src="/assets/images/svg/sv-02.svg" alt="" width={"432px"} height={"607px"} className="absolute -bottom-40 lg:bottom-0 right-0 lg:-right-25 3xl:right-0 z-[-1] w-[152px] h-full md:w-[232px] md:h-full lg:w-[432px] lg:h-[607px]" />
+      <motion.img style={{y:shapeY}} ref={sectionRef} variants={moveLeft(1)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src="/assets/images/svg/sv-02.svg" alt="" width={"432px"} height={"607px"} className="absolute -bottom-40 lg:bottom-0 right-0 lg:-right-25  xl:-right-40  2xl:-right-25 3xl:right-0 z-[-1] w-[152px] h-full sm:w-[232px] sm:h-full lg:w-[432px] lg:h-[607px]" />
       <div className="container">
         {/* <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}
          className="text-60 font-light leading-[1.18] text-black mb-5 2xl:mb-10 3xl:mb-[54px]">
           {values.title}
         </motion.h2> */}
-        <H2Title titleText={values.title} marginClass={"mb-5 2xl:mb-10 3xl:mb-[54px]"} />
+        <H2Title titleText={values.title} marginClass={"mb-6 2xl:mb-10 3xl:mb-[54px]"} />
 
         <div className="xl:max-w-[74.51%]">
           {values.data.map((item, index) => (
             // <ValueItem key={index} item={item} />
               <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}
-                  className="group flex flex-col lg:flex-row lg:justify-between  py-[16px] cursor-pointer border-b border-black/20 first:border-t"
+                  className="group flex flex-col lg:flex-row lg:justify-between  py-[10px] md:py-[16px] cursor-pointer border-b border-black/20 first:border-t"
                   onMouseEnter={  () => handleMouseEnter(index)}
                   onMouseLeave={() => handleMouseLeave(index)}
                 >
                   <div className="flex   justify-between">
-                    <h3 className="text-29 font-light leading-[1.474] lg:leading-[2.43] text-paragraph group-hover:text-black transition-all ease-in-out duration-500 group-hover:font-bold">
+                    <h3 className="text-[19px] md:text-29 font-light leading-[1.474] lg:leading-[2.43] text-paragraph group-hover:text-black transition-all ease-in-out duration-500 group-hover:font-bold">
                       {item.label}
                     </h3><div
                       className={`flex lg:hidden w-[35px] h-[35px] lg:w-[50px] lg:h-[50px] rounded-full border border-black/20 justify-center items-center transition-transform duration-500 ${isHovered === index ? "rotate-180" : ""

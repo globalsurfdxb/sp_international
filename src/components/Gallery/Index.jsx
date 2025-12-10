@@ -149,10 +149,12 @@ const handleTouchEnd = (e) => {
     <>
       <header className="">
         <MainNavbar />
-        <motion.img style={{y:shapeY}} src="./assets/images/shape-right.svg" alt="" className="absolute top-0 right-0 z-[-1]" />
+        {/* <motion.img style={{y:shapeY}} src="./assets/images/shape-right.svg" alt="" className="absolute top-0 right-0 z-[-1]" /> */}
       </header>
       <section className="relative" ref={sectionRef}>
-        {/* <img src="./assets/images/shape-left.svg" alt="" className="absolute  bottom-30 left-0 z-[-1]" /> */}
+        <div className="absolute top-[61px] lg:top-0 right-0 sm:right-[-25px] 2xl:right-[-50px] z-0">
+        <motion.img style={{ y: shapeY }} src="/assets/images/project-details/bannerbg.svg" alt="" className="w-[150px] h-[376px] sm:w-[477px] sm:h-[476px] lg:w-[577px] lg:h-[576px] object-fit" />
+      </div> 
         <div className="container">
           <div className="mb-7 md:mb-10 xl:mb-12 3xl:mb-20 mt-12 xl:mt-15 3xl:mt-30">
             <h1 className="text-70 font-light leading-[1.071428571428571]">

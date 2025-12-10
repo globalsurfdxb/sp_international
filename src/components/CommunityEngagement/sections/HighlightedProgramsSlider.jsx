@@ -33,7 +33,7 @@ const HighlightedProgramsSlider = () => {
 
   return (
     <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden" ref={sectionRef}>
-      <div className="absolute bottom-0 right-0 w-[519px] h-[725px]"><motion.img style={{y:shapeY}} src={assets.mainShape} alt="" /></div>
+      <div className="absolute bottom-0 right-0 w-[150px] h-[525px] lg:w-[519px] lg:h-[725px]"><motion.img style={{y:shapeY}} src={assets.mainShape} alt="" /></div>
       <div className="container">
         {/* Header */}
         
