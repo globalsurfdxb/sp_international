@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { moveUp, paragraphItem } from "../../../motionVarients";
+import SplitTextAnimation from "../../../components/common/SplitTextAnimation";
 const MoreDetrails = () => {
   const sectionRef = useRef(null)
   const { scrollYProgress: shapeProgress } = useScroll({
@@ -16,7 +17,7 @@ const MoreDetrails = () => {
             <motion.img style={{ y: shapeY }} src="/assets/images/press-releases/newsbody.svg" alt="" className="w-full h-full 2xl:w-[478px] 2xl:h-[669px] object-cover" />
           </div>
           <div className="container relative border-b border-[#cccccc] pb-text30">
-          <div className="    2xl:max-w-[1008px] 3xl:max-w-[1208px] ml-auto">
+          <div className="2xl:max-w-[1008px] 3xl:max-w-[1208px] ml-auto">
              <div className=" ">
                <div>  
                  <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 font-light text-paragraph mb-6  md:mb-5 last:lg:mb-13 last:2xl:mb-15">09 January 2024, Mumbai, Kakinada: Shapoorji Pallonji Energy Pvt Ltd (SP Energy), India’s leading specialist in Floating Production Storage and Offloading (FPSO) Units, has achieved a significant milestone of “First Oil” on 07 January 2024 from its FPSO Armada Sterling V at Krishna Godavari deepwater block KG-DWN-98/2, offshore Kakinada. </motion.p>
@@ -27,12 +28,16 @@ const MoreDetrails = () => {
                 </div>
                 <div className=" flex flex-col gap-10 xl:gap-15">
                   <div>
-                  <motion.h3 variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-29 mb-5 leading-[1.35] font-light">About Shapoorji Pallonji Energy</motion.h3>
-                  <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 font-light text-paragraph   ">Shapoorji Pallonji Energy Private Limited ('SP Energy’) is a wholly-owned subsidiary of the globally diversified Shapoorji Pallonji And Company Private Limited. SP Energy aims at being a premier global company in the oil & gas value chain, encompassing floating solutions and regasification, to help meet world energy demands. Our focus is on creating global benchmarks in Design, Engineering, Procurement, Construction, Installation and Commissioning and delivering excellence in operations and maintenance of floating assets, using innovative technologies with the high standards and strict compliance to Health, Safety and Environment. To know more, please visit: www.shapoorjipallonjienergy.com</motion.p>
+                  <h3 className="text-29 mb-5 leading-[1.35] font-light">
+                    <SplitTextAnimation children={"About Shapoorji Pallonji Energy"} staggerDelay={0.2} animationDuration={0.8} delay={0.8} />
+                  </h3>
+                  <motion.p variants={moveUp(1)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 font-light text-paragraph   ">Shapoorji Pallonji Energy Private Limited ('SP Energy’) is a wholly-owned subsidiary of the globally diversified Shapoorji Pallonji And Company Private Limited. SP Energy aims at being a premier global company in the oil & gas value chain, encompassing floating solutions and regasification, to help meet world energy demands. Our focus is on creating global benchmarks in Design, Engineering, Procurement, Construction, Installation and Commissioning and delivering excellence in operations and maintenance of floating assets, using innovative technologies with the high standards and strict compliance to Health, Safety and Environment. To know more, please visit: www.shapoorjipallonjienergy.com</motion.p>
                   </div>
                   <div>
-                    <motion.h3 variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-29 mb-5 leading-[1.35] font-light">About Shapoorji Pallonji And Company Pvt Ltd</motion.h3>
-                    <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 font-light text-paragraph ">Shapoorji Pallonji Energy Private Limited ('SP Energy’) is a wholly-owned subsidiary of the globally diversified Shapoorji Pallonji And Company Private Limited. SP Energy aims at being a premier global company in the oil & gas value chain, encompassing floating solutions and regasification, to help meet world energy demands. Our focus is on creating global benchmarks in Design, Engineering, Procurement, Construction, Installation and Commissioning and delivering excellence in operations and maintenance of floating assets, using innovative technologies with the high standards and strict compliance to Health, Safety and Environment. To know more, please visit: www.shapoorjipallonjienergy.com</motion.p>
+                    <h3 className="text-29 mb-5 leading-[1.35] font-light">
+                      <SplitTextAnimation children={"About Shapoorji Pallonji And Company Pvt Ltd"} staggerDelay={0.2} animationDuration={0.8} delay={1.2} />
+                    </h3>
+                    <motion.p variants={moveUp(1.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 font-light text-paragraph ">Shapoorji Pallonji Energy Private Limited ('SP Energy’) is a wholly-owned subsidiary of the globally diversified Shapoorji Pallonji And Company Private Limited. SP Energy aims at being a premier global company in the oil & gas value chain, encompassing floating solutions and regasification, to help meet world energy demands. Our focus is on creating global benchmarks in Design, Engineering, Procurement, Construction, Installation and Commissioning and delivering excellence in operations and maintenance of floating assets, using innovative technologies with the high standards and strict compliance to Health, Safety and Environment. To know more, please visit: www.shapoorjipallonjienergy.com</motion.p>
                   </div>
                 </div>
              </div>

@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { moveUp } from "../../../motionVarients";
+import H2Title from "../../../components/common/H2Title";
 const InquireToday = () => {
   const sectionRef = useRef(null);
  
@@ -41,7 +42,7 @@ const InquireToday = () => {
           <div className=" 2xl:max-w-[1008px] 3xl:max-w-[1208px] ml-auto">
             <div className="flex justify-between items-center ">
               <div className="mb-5 xl:mb-[68px]">
-                <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 font-light leading-[1.17] mb-3 lg:mb-[21px] text-white">{Inquiretoday.title}</motion.h2>
+                <H2Title titleText={Inquiretoday.title} titleColor={"white"} marginClass="mb-3 lg:mb-[21px]" />
                 <motion.p variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-29 font-light leading-[1.35] text-white">
                   {Inquiretoday.subtitle}</motion.p>
               </div>
