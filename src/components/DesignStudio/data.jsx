@@ -3,7 +3,7 @@ import DesignExcellence from "./sections/DesignExcellence";
 export const designStudioData = {
   mainSection: {
     title: "Design Excellence. Engineered Precision.",
-    desc: ["The Design Division of Shapoorji International provides comprehensive professional services in architecture, engineering, and design management. Our team ensures end-to-end coordination between disciplines, managing diverse professionals and consultants to meet every client and authority requirement with precision and creativity.", "With an in-house Design Studio, we streamline every aspect of design development — from feasibility to final delivery — ensuring quality, efficiency, and innovation in every phase."],
+    desc: ["Shapoorji International’s Design Division delivers integrated architectural and engineering solutions that transform vision into buildable, high-performance realities. Through precise planning, coordinated design development, and collaborative expertise, we ensure every project meets functional, aesthetic, and regulatory expectations.", "Supported by our in-house Design Studio, we bring together creativity, technical intelligence and operational efficiency, guiding projects from concept through execution with consistency, clarity and innovation."],
     vdo: "./assets/videos/cmn-dummy-vdo.mp4",
     vdoPoster: "./assets/images/design-studio/vdo-poster.jpg"
   },
@@ -13,32 +13,37 @@ export const designStudioData = {
       {
         img: "./assets/images/design-studio/expertise/exp1.jpg",
         slideTitle: "Feasibility Studies",
-        slideDesc: "Assessing project potential and viability.",
+        slideDesc: "Assessing project potential and overall viability.",
       },
       {
         img: "./assets/images/design-studio/expertise/exp2.jpg",
         slideTitle: "Master Planning",
-        slideDesc: "Strategic layout and development frameworks.",
+        slideDesc: "Creating strategic layouts and development frameworks.",
       },
       {
         img: "./assets/images/design-studio/expertise/exp3.jpg",
         slideTitle: "Urban Development Schemes",
-        slideDesc: "Sustainable and smart city planning.",
+        slideDesc: "Developing sustainable and smart urban solutions.",
       },
       {
         img: "./assets/images/design-studio/expertise/exp4.jpg",
         slideTitle: "Preliminary Designs",
-        slideDesc: "Conceptualizing design intent and scope.",
+        slideDesc: "Translating concepts into clear design direction.",
       },
       {
         img: "./assets/images/design-studio/expertise/exp2.jpg",
-        slideTitle: "Master Planing",
-        slideDesc: "Conceptualizing design intent and scope.",
+        slideTitle: "Detailed Work Drawings",
+        slideDesc: "Producing accurate technical documentation for construction.",
       },
       {
         img: "./assets/images/design-studio/expertise/exp3.jpg",
-        slideTitle: "Urban Development Schemes",
-        slideDesc: "Sustainable and smart city planning.",
+        slideTitle: "BIM Implementation",
+        slideDesc: "Enhancing collaboration and minimizing design risk.",
+      },
+      {
+        img: "./assets/images/design-studio/expertise/exp3.jpg",
+        slideTitle: "Value Engineering & Innovation",
+        slideDesc: "Optimizing performance, efficiency, and cost outcomes.",
       },
     ]
   },
@@ -104,7 +109,7 @@ export const designStudioData = {
   },
   designExcellenceData:{
     title:"Proven Design Excellence",
-    desc:"With 50+ projects successfully executed under the Design & Build model, Shapoorji’s Design Division continues to demonstrate technical expertise and design innovation across diverse sectors — from residential and commercial developments to infrastructure and urban design projects.",
+    desc:"With more than 50 projects successfully delivered under the Design and Build model, Shapoorji’s Design Division showcases deep technical expertise and continuous design innovation. Our experience spans residential and commercial developments, along with large-scale infrastructure and urban design projects, reflecting our ability to deliver excellence across diverse sectors.",
     img:"./assets/images/design-studio/design-excellence.jpg"
   }
 

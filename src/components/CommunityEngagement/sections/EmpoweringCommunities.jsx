@@ -3,6 +3,7 @@ import { ecs0, ecs1, ecs2, ecs3, ecs4, ecs5, ecs6, ecs7, ecs8 } from "../data";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { moveUp } from "../../../motionVarients";
 import { assets } from "../../../assets/index"
+import SplitTextAnimation from "../../../components/common/SplitTextAnimation";
 const all = [ecs0, ecs1, ecs2, ecs3, ecs4, ecs5, ecs6, ecs7, ecs8];
 
 // Sizes
@@ -103,8 +104,11 @@ const EmpoweringCommunities = () => {
 
       <div className="container">
         <div className="pb30">
-          <motion.h1 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-[32px] lg:text-60 font-light leading-[1.18] max-w-[20ch] text-center mb-5 2xl:mb-10 m-auto ">Empowering Communities, Enriching Lives</motion.h1>
-          <motion.p variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 lg:text-29 text-paragraph font-light leading-[1.285] max-w-[46ch] m-auto text-center">Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people</motion.p>
+          <h1 className="text-[32px] lg:text-60 font-light leading-[1.18] max-w-[20ch] text-center mb-5 2xl:mb-10 m-auto ">
+            <SplitTextAnimation children={"Creating Shared Value Across Diverse Communities"} staggerDelay={0.2} animationDuration={0.8} delay={0.4} />
+            </h1>
+          <motion.p variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 lg:text-29 text-paragraph font-light leading-[1.285] max-w-[46ch] m-auto text-center">Our responsibility extends far beyond project delivery. With a team representing over 20 nationalities, we support the well-being of the diverse communities we serve by strengthening livelihoods, advancing education, improving healthcare, and restoring natural ecosystems. Through these efforts, we create lasting social and environmental impact alongside our developments.
+          </motion.p>
         </div>
       </div>
       <div className="absolute top-15 right-0 z-[-1] "><motion.img style={{ y: shapeY }} src="/assets/images/svg/sv-03.svg" alt="" className="w-[700px] h-[980px]" /></div>

@@ -36,7 +36,7 @@ const ValueItem = ({ item }) => {
         </div>
       </div>
 
-      <div className="flex overflow-hidden gap-10 lg:gap-[217px]   ">
+      <div className="flex overflow-hidden gap-10 lg:gap-[217px]">
         {/* Expanding List */}
         <div className={`transition-all duration-500 ease-in-out overflow-hidden  ${isHovered ? "opacity-100" : "opacity-0" }`} style={{ height: `${height}px` }} >
           <ul ref={listRef} className="text-19 leading-[1.85] max-w-50ch ps-6 lg:ps-12 py-[11px]">

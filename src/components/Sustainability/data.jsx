@@ -1,8 +1,8 @@
 
 export const sustainabilityData = {
     mainSection: {
-        title: "Building Responsibly, For Tomorrow",
-        desc: ["Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people"],
+        title: "Shaping a Sustainable Tomorrow",
+        desc: ["At Shapoorji Pallonji, sustainability is at the core of every project. We balance social, economic, and environmental responsibilities while delivering lasting value, ensuring that each initiative contributes to a stronger, more resilient world."],
         vdo: "./assets/videos/cmn-dummy-vdo.mp4",
         vdoPoster: "./assets/images/sustainability/vdo-poster.jpg"
     },
@@ -10,27 +10,27 @@ export const sustainabilityData = {
         title: "Our Core Pillars of Sustainability",
         items: [
             {
-                title: "Energy efficiency",
+                title: "Operational Efficiency",
                 image: "./assets/images/sustainability/core-pillars/img-2.jpg",
-                desc: ["We make sure that all our employees attend the required Health & Safety trainings and are certified with the relevant certificates."],
+                desc: ["Maximising energy, water, and material performance through intelligent planning and advanced construction practices."],
 
             },
             {
-                title: "Renewable Adoption",
+                title: "Low-Impact Development",
                 image: "./assets/images/sustainability/core-pillars/img-2.jpg",
-                desc: ["We make sure that all our employees attend the required Health & Safety trainings and are certified with the relevant certificates."],
+                desc: ["Embedding low-emission technologies and climate-conscious methods across every stage of project execution."],
 
             },
             {
-                title: "Waste Reduction",
+                title: "Responsible Procurement",
                 image: "./assets/images/sustainability/core-pillars/img-2.jpg",
-                desc: ["We make sure that all our employees attend the required Health & Safety trainings and are certified with the relevant certificates."],
+                desc: ["Adhering to stringent environmental and ethical standards across the global supply chain."],
 
             },
             {
-                title: "Green Buildings",
+                title: "Ecological Balance",
                 image: "./assets/images/sustainability/core-pillars/img-2.jpg",
-                desc: ["We make sure that all our employees attend the required Health & Safety trainings and are certified with the relevant certificates."],
+                desc: ["Safeguarding natural ecosystems through strategic waste management, site rehabilitation, and biodiversity protection."],
 
             },
 

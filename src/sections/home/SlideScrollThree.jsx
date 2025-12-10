@@ -21,7 +21,7 @@ const cities = [
     top: "0%",
     iconicpjts: "200+",
     pjtcompleted: "320+",
-    dedicatedemployees: "5000+",
+    dedicatedemployees: "4000+",
   },
   { 
     id: "usa",
@@ -30,7 +30,7 @@ const cities = [
     top: "6%",
     iconicpjts: "200+",
     pjtcompleted: "320+",
-    dedicatedemployees: "5000+",
+    dedicatedemployees: "4000+",
   },
   {
     id: "argentina",
@@ -39,7 +39,7 @@ const cities = [
     top: "35%",
     iconicpjts: "200+",
     pjtcompleted: "320+",
-    dedicatedemployees: "5000+",
+    dedicatedemployees: "4000+",
   },
   {
     id: "brazil",
@@ -48,7 +48,7 @@ const cities = [
     top: "29%",
     iconicpjts: "200+",
     pjtcompleted: "320+",
-    dedicatedemployees: "5000+",
+    dedicatedemployees: "4000+",
   },
   {
     id: "chile",
@@ -57,7 +57,7 @@ const cities = [
     top: "42%",
     iconicpjts: "200+",
     pjtcompleted: "320+",
-    dedicatedemployees: "5000+",
+    dedicatedemployees: "4000+",
   },
   { 
     id: "mexico",
@@ -66,7 +66,7 @@ const cities = [
     top: "14%",
     iconicpjts: "200+",
     pjtcompleted: "320+",
-    dedicatedemployees: "5000+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "peru",
@@ -75,7 +75,7 @@ const cities = [
     top: "30%",
     iconicpjts: "200+",
     pjtcompleted: "320+",
-    dedicatedemployees: "5000+",
+    dedicatedemployees: "4000+",
   },
   { 
     id: "italy",
@@ -84,7 +84,7 @@ const cities = [
     top: "5%",
     iconicpjts: "200+",
     pjtcompleted: "320+",
-    dedicatedemployees: "5000+",
+    dedicatedemployees: "4000+",
   },
   { 
     id: "spain",
@@ -93,7 +93,7 @@ const cities = [
     top: "6%",
     iconicpjts: "200+",
     pjtcompleted: "320+",
-    dedicatedemployees: "5000+",
+    dedicatedemployees: "4000+",
   },
   { 
     id: "unitedkingdom",
@@ -102,7 +102,7 @@ const cities = [
     top: "-1%",
     iconicpjts: "200+",
     pjtcompleted: "320+",
-    dedicatedemployees: "5000+",
+    dedicatedemployees: "4000+",
   },
   { 
     id: "bangladesh",
@@ -111,7 +111,7 @@ const cities = [
     top: "14.5%",
     iconicpjts: "200+",
     pjtcompleted: "320+",
-    dedicatedemployees: "5000+",
+    dedicatedemployees: "4000+",
   },
   { 
     id: "bhutan",
@@ -120,7 +120,7 @@ const cities = [
     top: "12.5%",
     iconicpjts: "200+",
     pjtcompleted: "320+",
-    dedicatedemployees: "5000+",
+    dedicatedemployees: "4000+",
   },
   {
     id: "india",
@@ -129,7 +129,7 @@ const cities = [
     top: "19%",
     iconicpjts: "250+",
     pjtcompleted: "250+",
-    dedicatedemployees: "8800+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "srilanka",
@@ -138,7 +138,7 @@ const cities = [
     top: "22%",
     iconicpjts: "250+",
     pjtcompleted: "250+",
-    dedicatedemployees: "8800+",
+    dedicatedemployees: "4000+",
   }, 
    {
     id: "indonesia",
@@ -147,7 +147,7 @@ const cities = [
     top: "25%",
     iconicpjts: "250+",
     pjtcompleted: "250+",
-    dedicatedemployees: "8800+",
+    dedicatedemployees: "4000+",
   }, 
    {
     id: "kasakstan",
@@ -156,7 +156,7 @@ const cities = [
     top: "2%",
     iconicpjts: "250+",
     pjtcompleted: "250+",
-    dedicatedemployees: "8800+",
+    dedicatedemployees: "4000+",
   }, {
     id: "malaysia",
     name: "Malaysia",
@@ -164,7 +164,7 @@ const cities = [
     top: "23%",
     iconicpjts: "250+",
     pjtcompleted: "250+",
-    dedicatedemployees: "8800+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "maldives",
@@ -173,7 +173,7 @@ const cities = [
     top: "22%",
     iconicpjts: "250+",
     pjtcompleted: "250+",
-    dedicatedemployees: "8800+",
+    dedicatedemployees: "4000+",
   }, 
    {
     id: "philippines",
@@ -182,7 +182,7 @@ const cities = [
     top: "20%",
     iconicpjts: "250+",
     pjtcompleted: "250+",
-    dedicatedemployees: "8800+",
+    dedicatedemployees: "4000+",
   },  {
     id: "singapore",
     name: "Singapore",
@@ -190,7 +190,7 @@ const cities = [
     top: "25%",
     iconicpjts: "250+",
     pjtcompleted: "250+",
-    dedicatedemployees: "8800+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "thailand",
@@ -199,7 +199,7 @@ const cities = [
     top: "18%",
     iconicpjts: "250+",
     pjtcompleted: "250+",
-    dedicatedemployees: "8800+",
+    dedicatedemployees: "4000+",
   },  
   {
     id: "bahrain",
@@ -208,7 +208,7 @@ const cities = [
     top: "12.2%",
     iconicpjts: "250+",
     pjtcompleted: "250+",
-    dedicatedemployees: "8800+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "iraq",
@@ -217,7 +217,7 @@ const cities = [
     top: "10%",
     iconicpjts: "250+",
     pjtcompleted: "250+",
-    dedicatedemployees: "8800+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "kuwait",
@@ -226,7 +226,7 @@ const cities = [
     top: "12%",
     iconicpjts: "250+",
     pjtcompleted: "250+",
-    dedicatedemployees: "8800+",
+    dedicatedemployees: "4000+",
   },
    {
     id: "oman",
@@ -235,7 +235,7 @@ const cities = [
     top: "16%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
    {
     id: "qatar",
@@ -244,7 +244,7 @@ const cities = [
     top: "14%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
    {
     id: "ksa",
@@ -253,7 +253,7 @@ const cities = [
     top: "14%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   },  
   
   {
@@ -263,7 +263,7 @@ const cities = [
     top: "14%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "australia",
@@ -272,7 +272,7 @@ const cities = [
     top: "36%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "algeria",
@@ -281,7 +281,7 @@ const cities = [
     top: "12%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "benin",
@@ -290,7 +290,7 @@ const cities = [
     top: "22%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "egypt",
@@ -299,7 +299,7 @@ const cities = [
     top: "12%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "ethiopia",
@@ -308,7 +308,7 @@ const cities = [
     top: "20.5%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "gabon",
@@ -317,7 +317,7 @@ const cities = [
     top: "26%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "gambia",
@@ -326,7 +326,7 @@ const cities = [
     top: "20%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "ghana",
@@ -335,7 +335,7 @@ const cities = [
     top: "22%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "guinea",
@@ -344,7 +344,7 @@ const cities = [
     top: "21%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   },  
   {
     id: "ivorycoast",
@@ -353,7 +353,7 @@ const cities = [
     top: "20%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "kenya",
@@ -362,7 +362,7 @@ const cities = [
     top: "24%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "liberia",
@@ -371,7 +371,7 @@ const cities = [
     top: "23%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "libya",
@@ -380,7 +380,7 @@ const cities = [
     top: "13%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "madagascar",
@@ -389,7 +389,7 @@ const cities = [
     top: "35%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "mauritania",
@@ -398,7 +398,7 @@ const cities = [
     top: "17%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "mauritius",
@@ -407,7 +407,7 @@ const cities = [
     top: "36%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "mozambique",
@@ -416,7 +416,7 @@ const cities = [
     top: "35%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "niger",
@@ -425,7 +425,7 @@ const cities = [
     top: "15%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "nigeria",
@@ -434,7 +434,7 @@ const cities = [
     top: "17.5%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   },
   {
     id: "rwanda",
@@ -443,7 +443,7 @@ const cities = [
     top: "25%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "sierraleone",
@@ -452,7 +452,7 @@ const cities = [
     top: "22.5%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "sauth africa",
@@ -461,7 +461,7 @@ const cities = [
     top: "39%",
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   },
   {
     id: "tanzania",
@@ -470,7 +470,7 @@ const cities = [
     top: "28%", 
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "zambia",
@@ -479,7 +479,7 @@ const cities = [
     top: "30%", 
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
   {
     id: "zimbabwe",
@@ -488,29 +488,29 @@ const cities = [
     top: "35%", 
     iconicpjts: "250+",
     pjtcompleted: "300+",
-    dedicatedemployees: "7500+",
+    dedicatedemployees: "4000+",
   }, 
 ];
 const items = [
   {
     id: 1,
     title: "Global Workforce",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text",
+    desc: "We bring together professionals from over 20 nationalities, combining diverse skills, experiences, and perspectives to deliver projects with innovation and global impact.",
   },
   {
     id: 2,
     title: "Inclusive Culture",
-    desc: "We embrace diverse perspectives, ensuring every voice is heard and respected—regardless of background, nationality, or gender.",
+    desc: "We nurture an open, respectful, and friendly environment where every voice is valued, encouraging collaboration, creativity, and meaningful connections across teams.",
   },
   {
     id: 3,
     title: "People-First Approach",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard  text",
+    desc: "Wellbeing, safety, and growth are prioritised, with leadership building strong bonds through daily collaboration and informal team engagement.",
   },
   {
     id: 4,
     title: "Celebrating Talent",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard ",
+    desc: "Learning, recognition, and development initiatives empower individuals to grow, contribute, and excel, shaping a skilled, motivated, and high-performing workforce. ",
   },
 ];
 
@@ -1619,37 +1619,37 @@ const mapactive = useRef([]);
     {
       image: "/assets/images/services/engineering-construction.jpg",
       title: "Engineering & Construction",
-      description: "Delivering complex infrastructure and building projects with precision, safety, and quality at the core. We bring engineering excellence to life across industries and geographies.",
+      description: "Spanning 20 countries, we transform complex visions into major projects. From iconic stadiums and theme parks to advanced healthcare and commercial facilities, we deliver innovative, high-quality projects designed to meet every client’s needs.",
     },
     {
       image: "/assets/images/services/servicemain.jpg",
       title: "Design Studio",
-      description: "Our design studio blends creativity with functionality to craft innovative, human-centric spaces. From concept to detail, we create solutions that inspire and endure.",
+      description: "We drive complex civil projects with advanced digital design and BIM. From integrated Design & Build to expert standalone services, we develop visionary structures with precision and expertise.",
     },
     {
       image: "/assets/images/services/mep.jpg",
       title: "MEP",
-      description: "We provide fully integrated MEP services that ensure efficiency, sustainability, and performance in every built environment. Tailored solutions backed by technical expertise.",
+      description: "Our MEP division forms the backbone of major structures. We design, install, and manage fully integrated mechanical, electrical, and plumbing systems that ensure reliable, long-term operation.",
     },
     {
       image: "/assets/images/services/interior-fit-out.jpg",
       title: "Interior Fit-out",
-      description: "Transforming interiors into purposeful and aesthetically refined spaces. We manage complete fit-out solutions with attention to detail and commitment to quality delivery.",
+      description: "SPINT’s Interior Division (SPID) delivers turnkey interior solutions across sectors, blending thoughtful design, uncompromising quality, and punctual execution to create spaces that truly inspire.",
     },
     {
       image: "/assets/images/services/Facade.jpg",
       title: "Façade",
-      description: "Specializing in advanced façade systems that merge architecture and engineering. We design and execute high-performance, energy-efficient, and visually striking exteriors.",
+      description: "From concept to completion, we combine the art and science of facades for complex structures. We design, engineer, and deliver custom, high-performance building for landmark projects worldwide.",
     },
     {
       image: "/assets/images/services/Facility-Management.jpg",
       title: "Facilities Management",
-      description: "Comprehensive facility management services focused on operational efficiency, asset longevity, and user satisfaction. We ensure smooth day-to-day operations with proactive care.",
+      description: "We provide fully integrated FM solutions, combining global expertise with local insight. This ensures smooth operations, optimised asset performance, and improved occupant experiences across every property.",
     },
     {
       image: "/assets/images/services/Water.jpg",
       title: "Water",
-      description: "Sustainable water infrastructure solutions that address urban and industrial needs. Our expertise spans treatment, distribution, and management systems with a focus on resilience.",
+      description: "We deliver essential water infrastructure, from urban pipelines to complex desalination plants. Our expertise ensures every project is executed safely, efficiently, and to the highest standards.",
     },
   ];
 
@@ -2064,29 +2064,18 @@ const mapactive = useRef([]);
                   {aboutData.title}
                 </h1>
                 <h3 className="text-[20px] lg:text-18 xl:text-24 font-light max-w-xl mb-[33px] lg:mb-0">
-                  With a rich legacy of more than{" "}
+                  With a legacy of over{" "}
                   <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                     160 years
                   </span>{" "}
-                  of delivering iconic projects
+                  delivering iconic projects worldwide
                 </h3>
               </div>
 
               <div className="relative z-40 mt-auto ml-auto">
-                <div
-                  ref={dsrnBxRef}
-                  className="p-10 w-fit xl:w-[550px] px-15 py-10 text-white relative  hidden lg:block"
-                >
-                  <div
-                    ref={dsrnRef}
-                    className="bg-primary ovrbx w-full h-full absolute left-0 right-0 bottom-0 z-[-1]"
-                  ></div>
-                  <p
-                    ref={descriptionRef}
-                    className="text-16 xl:text-18 font-light leading-[1.5]"
-                  >
-                    {aboutData.description}
-                  </p>
+                <div ref={dsrnBxRef} className="p-10 w-fit xl:w-[550px] px-15 py-10 text-white relative  hidden lg:block" >
+                  <div ref={dsrnRef} className="bg-primary ovrbx w-full h-full absolute left-0 right-0 bottom-0 z-[-1]"></div>
+                  <p ref={descriptionRef} className="text-16 xl:text-18 font-light leading-[1.5]">{aboutData.description}</p>
                 </div>
               </div>
 
@@ -2139,7 +2128,7 @@ const mapactive = useRef([]);
                 </div>
                 <div className="border-b border-[#00000020] lg:border-b-0 pb-5 mb-5">
                   <h3 className="text-26 md:text-40 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    33000+
+                  35000+
                   </h3>
                   <p className="text-[14px] md:text-[18px]  font-light leading-[1.555555555555556]">
                     Employees Strength
@@ -2147,7 +2136,7 @@ const mapactive = useRef([]);
                 </div>
                 <div>
                   <h3 className="text-24 md:text-40 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    40+
+                    35+
                   </h3>
                   <p className="text-[14px] md:text-[18px]  font-light leading-[1.555555555555556]">
                     Countries Globally Reached
@@ -2198,9 +2187,7 @@ const mapactive = useRef([]);
                   About SP International
                 </h1>
                 <p ref={spdscrpt} className="text-[14px] lg:text-18 text-[#464646] lg:text-white font-light leading-[1.5] lg:max-w-[90%]  3xl:max-w-[75%] mb-[7dvh] lg:mb-[30px]">
-                  Shapoorji Pallonji International (SPINT) is the international
-                  arm of Shapoorji Pallonji Engineering & Construction (SP E&C)
-                  for its construction operations outside India.
+                  Shapoorji Pallonji International (SPINT) is the international arm of Shapoorji Pallonji Engineering & Construction (SP E&C) for its construction operations outside India.
                 </p>
                 <a ref={spbtn}
                   href={"/"}
@@ -2245,7 +2232,7 @@ const mapactive = useRef([]);
                       </div>
                      <div className="text-white">
                         <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
-                         6000+
+                         4000+
                         </h1>
                         <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
                        Dedicated Workforce
@@ -2425,16 +2412,11 @@ const mapactive = useRef([]);
                 />
               </div>
                 <div className=" 3xl:ml-[110px] flex flex-col h-full">
-                  <h1
-                    ref={srvttlRef}
-                    className="text-[36px] lg:text-34 xl:text-48 3xl:text-60 font-light gradient-text lg:leading-[70px]"
-                  >
+                  <h1 ref={srvttlRef} className="text-[36px] lg:text-34 xl:text-48 3xl:text-60 font-light gradient-text lg:leading-[70px]">
                     Our Services
                   </h1>
                   <div className="w-full flex lg:flex-col h-full lg:justify-end   lg:mt-15 relative">
-                  
                     <div className="lg:pb-4 relative">
-                    
                    {/*    <p
                         ref={countRef}
                         className="text-60 font-light text-[#62626210]"
@@ -2444,11 +2426,7 @@ const mapactive = useRef([]);
                     </div>
                     <div className=" flex lg:flex-col gap-6 lg:gap-0 overflow-x-auto scrollbar-hide whitespace-nowrap lg:whitespace-normal lg:overflow-x-hidden   border-b border-[#ffffff20]  mb-5 lg:mb-0 pt-[4dvh] lg:pt-18 lg:pb-21 3xl:pt-14 3xl:pb-21 pr-2">
                       {content.map((service, index) => (
-                        <div
-                          key={index}
-                          className={`flex items-center gap-3 cursor-pointer group `}
-                          ref={(el) => (textItemsRef.current[index] = el)}
-                        >
+                          <div key={index} className={`flex items-center gap-3 cursor-pointer group `} ref={(el) => (textItemsRef.current[index] = el)}>
                           <p
                             className={`${activeServiceIndex === index ? "text-white lg:text-black font-bold bo " : "text-white/70 lg:text-black font-light"} text-14px lg:text-[22px] 3xl:text-28 leading-[1.607142857142857] lg:leading-[1.9]  2xl:leading-[1.70]  3xl:leading-[1.607142857142857]  cursor-pointer group-hover:text-black group-hover:font-bold `}
                             onMouseOver={() =>
@@ -2849,13 +2827,7 @@ const mapactive = useRef([]);
                   height={355}
                   className="object-cover img-f select-none min-w-[86.2dvh] max-h-[355px] lg:hidden  "
                 /> */}
-                <img
-                  src="../assets/images/world_map.png"
-                  alt="Arrow"
-                  width={1158}
-                  height={679}
-                  className="object-cover img-f select-none min-w-[733px] w-[733px] h-[355px] lg:h-full lg:min-w-[1156px] lg:w-[1156px]  "
-                />
+                <img src="../assets/images/world_map.png" alt="Arrow" width={1158} height={679} className="object-cover img-f select-none min-w-[733px] w-[733px] h-[355px] lg:h-full lg:min-w-[1156px] lg:w-[1156px]  " />
               <div className="absolute top-[-121px] lg:top-0 left-[-69px] lg:left-0 min-w-[733px] w-[733px] h-[436px] lg:h-full lg:w-[1156px]  overflow-hidden  lg:overflow-visible    ">
                 {/* Dots */}
                 {cities.map((city) => (
@@ -2888,17 +2860,11 @@ const mapactive = useRef([]);
                     >
                       {city.name}
                     </span>
-                    <div
-                  
-                      className={`hidden     lg:block translate-x-[50%] -left-1/2 top-0  rounded-full transition-all duration-500 absolute  w-full h-full  
-                       `}
+                    <div className={`hidden lg:block translate-x-[50%] -left-1/2 top-0 rounded-full transition-all duration-500 absolute  w-full h-full `}
                       ref={activeDot === city.id ? bubbleRef : undefined}
                       style={{ transform: `translateY(${adjustY}px)` }}
                     >
-                      <div
-                        ref={activeDot === city.id ? outsideRef : null}
-                        className={` transition-all duration-500  outside `}
-                      >
+                      <div ref={activeDot === city.id ? outsideRef : null} className={` transition-all duration-500  outside `} >
                         <div>
                           <div
                             className={`bubble  bg-[#0015FF66] transition-all duration-500 delay-100 border  border-[#0015FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)] 

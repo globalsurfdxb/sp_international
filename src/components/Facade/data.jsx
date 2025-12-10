@@ -1,8 +1,8 @@
 
 export const facadeData = {
   mainSection: {
-    title: "Innovative Façade Solutions. Engineered for Excellence.",
-    desc: ["Established in late 2019, SP Façade was formed to address one of the most critical and high-risk elements of construction — the building façade. As an in-house division under SP International, our mission is to deliver high-quality, safe, and efficient façade solutions at competitive prices, minimizing risk to the main contracting division while ensuring seamless coordination across all project elements."],
+    title: "Advanced Façade Systems Backed by Expertise",
+    desc: ["Established in 2019, SP Façade manages one of the most critical and high-risk elements of construction, the building façade. As an in-house division of SP International, we deliver high-performance, safe, and efficient façade solutions while ensuring seamless coordination across all project disciplines and minimizing risk for the main contracting team."],
     vdo: "./assets/videos/cmn-dummy-vdo.mp4",
     vdoPoster: "./assets/images/facade/vdo-poster.jpg"
   },
@@ -11,27 +11,27 @@ export const facadeData = {
     items: [
       {
         icon: "./assets/images/facade/expertise/exp1.svg",
-        desc: "Support tender departments during the pre-bid stage."
+        desc: "Supporting tender departments during pre-bid planning"
       },
       {
         icon: "./assets/images/facade/expertise/exp2.svg",
-        desc: "Identify and implement value engineering solutions."
+        desc: "Implementing value engineering solutions for efficiency and performance"
       },
       {
         icon: "./assets/images/facade/expertise/exp3.svg",
-        desc: "Minimize façade-related risks in design, procurement, and execution."
+        desc: "Minimizing façade-related risks across design, procurement, and execution"
       },
       {
         icon: "./assets/images/facade/expertise/exp4.svg",
-        desc: "Ensure efficient coordination between façade and other trades."
+        desc: "Ensuring seamless coordination between façade systems and other trades"
       },
       {
         icon: "./assets/images/facade/expertise/exp5.svg",
-        desc: "Provide end-to-end façade solutions for the main contracting division."
+        desc: "Delivering end-to-end façade solutions for main contracting projects"
       },
       {
         icon: "./assets/images/facade/expertise/exp6.svg",
-        desc: "Develop tailored façade strategies for each project."
+        desc: "Developing project-specific façade strategies for optimal results"
       }
     ]
   },
@@ -41,7 +41,7 @@ export const facadeData = {
     points: [
       "Experienced and qualified technical teams and site staff.",
       "Maximum utilization of UAE-based fabrication facilities and global resources.",
-      "Effective on-site management ensuring smooth coordination with other trades.",
+      "Effective on-site management ensures smooth coordination with other trades.",
       "Proven ability to handle unforeseen challenges during execution.",
       "Commitment to timely delivery without compromising quality."
     ],
