@@ -4,6 +4,7 @@ import ValueItem from "./ValueItem";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { moveUp, moveLeft ,paragraphItem} from "../../../motionVarients";
 import { useRef, useState } from "react";
+import H2Title from "../../../components/common/H2Title";
 const OurValues = () => {
    const listRef = useRef(null);
     const [isHovered, setIsHovered] = useState(1);
@@ -33,10 +34,11 @@ const OurValues = () => {
     <section className="pt-text30 pb30 relative overflow-hidden" ref={sectionRef}>
       <motion.img style={{y:shapeY}} ref={sectionRef} variants={moveLeft(1)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src="/assets/images/svg/sv-02.svg" alt="" width={"432px"} height={"607px"} className="absolute -bottom-40 lg:bottom-0 right-0 lg:-right-25 3xl:right-0 z-[-1] w-[152px] h-full md:w-[232px] md:h-full lg:w-[432px] lg:h-[607px]" />
       <div className="container">
-        <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}
+        {/* <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}
          className="text-60 font-light leading-[1.18] text-black mb-5 2xl:mb-10 3xl:mb-[54px]">
           {values.title}
-        </motion.h2>
+        </motion.h2> */}
+        <H2Title titleText={values.title} marginClass={"mb-5 2xl:mb-10 3xl:mb-[54px]"} />
 
         <div className="xl:max-w-[74.51%]">
           {values.data.map((item, index) => (

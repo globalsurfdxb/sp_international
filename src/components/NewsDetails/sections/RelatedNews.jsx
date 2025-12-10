@@ -3,13 +3,14 @@ import { pressReleases } from "../../PressReleases/data";
 import { motion } from "framer-motion";
 import { moveUp } from "../../../motionVarients";
 import { Link } from "react-router-dom";
+import H2Title from "../../../components/common/H2Title";
 const RelatedNews = () => {
 
   return (
     <section>
       <div className="pb30">
         <div className="container relative ">
-          <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 font-light leading-[1.17] mb-4 xl:mb-17">Related News</motion.h2>
+          <H2Title titleText="Related News" marginClass="mb-4 xl:mb-17" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-10 md:gap-y-15 xl:gap-y-30 ">
             {pressReleases.items.slice(0, 3).map((item,index) => (
               <motion.div variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} key={item.id}

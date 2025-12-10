@@ -11,7 +11,7 @@ const OurApproach = ({data}) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-30px">
           {
             data.items.map((item,index)=>(
-                <motion.div variants={moveUp(0.2*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.6, once: true }} key={index}>
+                <motion.div variants={moveUp(0.4 + 0.2*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.6, once: true }} key={index}>
                   <div className="border-b border-cmnbdr pb-8">
                     <img src={item.icon} width={65} height={65} alt="" className="w-auto h-10 xl:h-[65px] object-contain" />
                   </div>

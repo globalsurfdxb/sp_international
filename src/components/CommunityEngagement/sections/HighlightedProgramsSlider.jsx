@@ -8,6 +8,7 @@ import 'swiper/css/pagination';
 import { engineeringData } from '../data';
 import H2Title from '../../common/H2Title';
 import {motion, useScroll, useTransform } from "framer-motion";
+import { moveUp } from "../../../motionVarients";
 
 const HighlightedProgramsSlider = () => {
   const { expertiseData } = engineeringData;
@@ -73,11 +74,10 @@ const HighlightedProgramsSlider = () => {
             {/* Content Section - Static with Navigation */}
             <div className="order-1 lg:order-2   lg:w-[45%] 2xl:w-[37.5%]">
               {/* Navigation - Fixed */}
-              <div className="flex items-center gap-4   border-b border-white/20 pb-4 2xl:pb-[30px] lg:pb-6 mb-4 xl:mb-50px 3xl:mb-17">
+              <motion.div variants={moveUp(0.6)} initial="hidden" whileInView={"show"} viewport={{amount:0.2,once:false}} className="flex items-center gap-4   border-b border-white/20 pb-4 2xl:pb-[30px] lg:pb-6 mb-4 xl:mb-50px 3xl:mb-17">
                 <button onClick={() => imageSwiper?.slidePrev()}
                   className="group hover:-translate-x-1 transition-all duration-300  cursor-pointer w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center  "
-                  aria-label="Previous slide"
-                >
+                  aria-label="Previous slide" >
                   <img src={assets.arrowLeft2} alt="" className='w-[14px] h-[14px] group-hover:opacity-90  duration-300  transition-all delay-200'/>
                 </button>
                 <button onClick={() => imageSwiper?.slideNext()}
@@ -89,7 +89,7 @@ const HighlightedProgramsSlider = () => {
                 <span className="text-19 leading-[1.473684210526316] ml-2">
                   {String(currentSlide + 1).padStart(2, '0')}/{String(expertiseData.items.length).padStart(2, '0')}
                 </span>
-              </div>
+              </motion.div>
 
               {/* Dynamic Content - Swiper */}
               <Swiper
@@ -110,12 +110,12 @@ const HighlightedProgramsSlider = () => {
                 {expertiseData.items.map((item, index) => (
                   <SwiperSlide key={index}>
                     <div>
-                      <h3 className="text-29 leading-[1.344827586206897] font-light mb-6">
+                      <motion.h3 variants={moveUp(0.7 + 0.1*index)} initial="hidden" whileInView={"show"} viewport={{amount:0.2,once:false}} className="text-29 leading-[1.344827586206897] font-light mb-6">
                         {item.mainTitle}
-                      </h3>
-                      <p className="text-white/80 text-19 leading-[1.473684210526316] font-light xl:mb-8">
+                      </motion.h3>
+                      <motion.p variants={moveUp(0.8 + 0.1*index)} initial="hidden" whileInView={"show"} viewport={{amount:0.2,once:false}} className="text-white/80 text-19 leading-[1.473684210526316] font-light xl:mb-8">
                         {item.mainDesc}
-                      </p>
+                      </motion.p>
                       {/* Services */}
                     </div>
                   </SwiperSlide>
