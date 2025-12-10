@@ -1,7 +1,7 @@
 export const aboutData = {
   title: "About SP Group",
   subtitle: "With a rich legacy of more than 160 years of delivering iconic projects",
-  description: "The Shapoorji Pallonji Group is a diversified business house trusted by clients for over 160 years, known for its values and one-stop solutions in construction and allied industries, with a vision for continued global growth.",
+  description: "The Shapoorji Pallonji Group stands among the world’s most trusted diversified enterprises, offering integrated solutions across construction, infrastructure, real estate, water, renewables, oil & gas, and consumer sectors. With a strong reputation for excellence and timely delivery, the Group continues to expand its global presence while building long-term partnerships.",
   leftBgImage: "/assets/images/about-left-bg.jpg",
   rightBgImage: "/assets/images/about-right-bg.jpg",
 };

@@ -66,7 +66,7 @@ const LastSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[0.8fr_1.2fr] items-center lg:gap-10 xl:gap-x-18 gap-y-6">
           <div className="order-2 xl:order-1">
               <H2Title titleText="Design That Inspires Progress" titleColor="black" marginClass="mb-3 xl:mb-10" />
-            <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 leading-[1.473684210526316] font-light text-paragraph ">We believe that great design merges creativity with engineering precision. Our multidisciplinary approach ensures that every project is not only visually compelling but also technically sound, sustainable, and aligned with client vision.</motion.p>
+            <motion.p variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 leading-[1.473684210526316] font-light text-paragraph ">We believe that great design is the balance of creativity and engineering precision. Our multidisciplinary approach delivers spaces that are visually striking, technically robust, sustainable, and seamlessly aligned with the client’s vision.</motion.p>
           </div>
           <div className="order-1 xl:order-2 relative overflow-hidden" ref={imageContainerRefTwo}>
            <div className="relative" ref={imageContainerRefOne}>

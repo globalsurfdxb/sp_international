@@ -33,7 +33,7 @@ const ExpertiseSec = ({data}) => {
       <div className="container relative z-10">
         {/* Header */}
           <H2Title titleText={data.title} titleColor="white" marginClass=" mb-5 xl:mb-50px 3xl:mb-17" />
-        <div className='grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-30px gap-y-5 lg:gap-y-8'>
+        <div className='grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 3xl:grid-cols-5 gap-30px gap-y-5 lg:gap-y-8'>
             {
               data.items.map((item,i)=>(
                 <motion.div className="relative overflow-hidden border-b xl:border-b-0 border-white/30 pb-5 xl:pb-0"

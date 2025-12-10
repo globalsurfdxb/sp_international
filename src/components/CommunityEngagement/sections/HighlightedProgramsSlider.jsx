@@ -5,13 +5,13 @@ import { assets } from "../../../assets/index"
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { engineeringData } from '../data';
+import { highlightedData } from '../data';
 import H2Title from '../../common/H2Title';
 import {motion, useScroll, useTransform } from "framer-motion";
 import { moveUp } from "../../../motionVarients";
 
 const HighlightedProgramsSlider = () => {
-  const { expertiseData } = engineeringData;
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [imageSwiper, setImageSwiper] = useState(null);
   const [contentSwiper, setContentSwiper] = useState(null);
@@ -37,7 +37,7 @@ const HighlightedProgramsSlider = () => {
       <div className="container">
         {/* Header */}
         
-          <H2Title titleText={expertiseData.title} titleColor="white" marginClass="mb-4 lg:mb-6 2xl:mb-50px" />
+          <H2Title titleText={highlightedData.title} titleColor="white" marginClass="mb-4 lg:mb-6 2xl:mb-50px" />
 
         {/* Swiper Slider */}
         <div className="relative">
@@ -61,7 +61,7 @@ const HighlightedProgramsSlider = () => {
                 }}
                 className="expertise-swiper"
               >
-                {expertiseData.items.map((item, index) => (
+                {highlightedData.items.map((item, index) => (
                   <SwiperSlide key={index}>
                     <div className="relative overflow-hidden shadow-2xl" ref={imageContainerRef}>
                       <motion.img style={{y:imageY}} src={item.img} alt={item.mainTitle} className="w-full h-[300px] xl:h-[576px]  object-cover" />
@@ -87,7 +87,7 @@ const HighlightedProgramsSlider = () => {
                   <img src={assets.arrowRight2} alt="" className='w-[14px] h-[14px] group-hover:opacity-90  duration-300  transition-all delay-200' />
                 </button>
                 <span className="text-19 leading-[1.473684210526316] ml-2">
-                  {String(currentSlide + 1).padStart(2, '0')}/{String(expertiseData.items.length).padStart(2, '0')}
+                  {String(currentSlide + 1).padStart(2, '0')}/{String(highlightedData.items.length).padStart(2, '0')}
                 </span>
               </motion.div>
 
@@ -107,7 +107,7 @@ const HighlightedProgramsSlider = () => {
                 allowTouchMove={false}
                 className="content-swiper w-full"
               >
-                {expertiseData.items.map((item, index) => (
+                {highlightedData.items.map((item, index) => (
                   <SwiperSlide key={index}>
                     <div>
                       <motion.h3 variants={moveUp(0.7 + 0.1*index)} initial="hidden" whileInView={"show"} viewport={{amount:0.2,once:false}} className="text-29 leading-[1.344827586206897] font-light mb-6">
