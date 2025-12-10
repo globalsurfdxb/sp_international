@@ -117,10 +117,12 @@ const Index = () => {
   return (
     <>
       <header className="">
-        <MainNavbar />
-        <motion.img style={{ y: shapeY }} src="./assets/images/shape-right.svg" alt="" className="absolute top-0 right-0 z-[-1]" />
+        <MainNavbar /> 
       </header>
       <section className="relative overflow-hidden" ref={sectionRef}>
+         <div className="absolute top-[61px] lg:top-0 right-0 2xl:right-[-50px] z-0">
+        <motion.img style={{ y: shapeY }} src="/assets/images/project-details/bannerbg.svg" alt="" className="w-[150px] h-[376px] md:w-[377px] md:h-[476px] lg:w-[577px] lg:h-[576px] object-fit" />
+      </div>
         {/* <img src="./assets/images/shape-left.svg" alt="" className="absolute  bottom-30 left-0 z-[-1]" /> */}
         <div className="container">
           <div className="mb-7 md:mb-10 xl:mb-12 3xl:mb-20 mt-12 xl:mt-15 3xl:mt-30">

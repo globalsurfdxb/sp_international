@@ -95,7 +95,7 @@ const Banner = () => {
       </div>
     </div>
       <motion.div variants={moveUp(2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="absolute right-0 -bottom-8 lg:bottom-0 z-10">
-      <img  src="../assets/images/svg/sv-02.svg" className="w-[200px]  lg:w-[449px] h-[630px] object-cover object-center" alt="" />
+      <img  src="../assets/images/svg/sv-02.svg" className="w-[200px]  h-[230px] sm:w-[240px] sm:h-[330px] lg:w-[340px]  lg:h-[430px] 2xl:w-[449px] 2xl:h-[630px] object-cover object-center" alt="" />
     </motion.div>
   </section>
   );

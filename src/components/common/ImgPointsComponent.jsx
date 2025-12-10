@@ -58,7 +58,7 @@ const ImgPointsComponent = ({ data, bgColor, sectionSpacing }) => {
               style={{ y: imageY }}
               src={image}
               alt="Workplace environment"
-              className="object-cover w-full md:w-[50%] lg:w-full h-[250px] md:h-[300px] lg:h-full scale-110 md:scale-150 lg:scale-110"
+              className="object-cover w-full   lg:w-full h-[250px] md:h-[300px] lg:h-full scale-110 md:scale-150 lg:scale-110"
             />
           </div>
 

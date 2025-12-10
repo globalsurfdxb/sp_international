@@ -25,7 +25,7 @@ const Banner = () => {
     <section className="relative overflow-hidden" ref={sectionRef}>
       <div className="pt-12 xl:pt-15  3xl:pt-30 pb-26 md:pb-38  lg:pb-[170px] xl:pb-[230px] bg-f5f5 2xl:pb-[232px]  ">
         <div className="container relative   z-[2]">
-          <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-5 lg:gap-0 ">
+          <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-3 lg:gap-0 ">
             <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} > 
               <h1 className="text-70 font-light leading-[1.07] mb-3 lg:mb-5">
                 <SplitTextAnimation children={projectdetails.title} staggerDelay={0.2} animationDuration={0.8} delay={0.3} />
@@ -93,8 +93,8 @@ const Banner = () => {
         </motion.div>
 
       </div>
-      <div className="absolute top-0 right-0 z-0">
-        <img src="/assets/images/project-details/bannerbg.svg" alt="" className=" object-fit" />
+      <div className="absolute top-[61px] lg:top-0 right-0 z-0">
+        <img src="/assets/images/project-details/bannerbg.svg" alt="" className="w-[150px] h-[376px] lg:w-[577px] lg:h-[576px] object-fit" />
       </div>
     </section>
   );

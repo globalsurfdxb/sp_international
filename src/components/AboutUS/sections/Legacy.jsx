@@ -59,7 +59,7 @@ const Legacy = () => {
   const imageY = useTransform(imageProgress, [0, 1], imageOffset);
   return (
       <section className="py-7 xl:py-15 2xl:pt-18 3xl:pt-[108px] pb30 bg-primary relative overflow-hidden">
-        <div className="absolute top-0 lg:bottom-0 right-0 lg:-left-25 3xl:left-0 w-[50%]  lg:w-[25%] 3xl:w-full">
+        <div className="absolute top-0 md:top-auto md:bottom-0 right-0 md:-left-25 3xl:left-0 w-[50%]  md:w-[25%] 3xl:w-full">
           <img src="../assets/images/about-us/lcbanner.svg" alt="" />
         </div>
         <div className="container">

@@ -115,7 +115,7 @@ const FocusArea = () => {
 
             {/* Right column */}
             <div ref={rightRef} className="w-[1316px] pb-2 max-h-screen overflow-y-auto custom-scroll-left" >
-              <div className='pl-2 lg:pl-10 2xl:pl-[107px] lg:pt-[100px] 2xl:pt-25 3xl:pt-[180px] pb-12 xl:pb-20'>
+              <div className='pl-2 lg:pl-10 2xl:pl-[107px] lg:pt-[100px] 2xl:pt-25 3xl:pt-[180px] pb-20 xl:pb-20'>
                 {focusData.areas.map((area, i) => (
                   <div key={i} className="flex gap-3 pb-6 xl:pb-[63px] last:pb-6 last:xl:pb-[63px]">
                     <div className='flex flex-col lg:flex-row gap-6 lg:gap-12 2xl:gap-[181px] justify-between w-full sdsdsd'>
@@ -135,7 +135,7 @@ const FocusArea = () => {
             </div>
           </div>
         </div>
-        <div className="absolute top-1/2 translate-y-[-20%] left-0 z-[1] w-[510px] h-[714px]"><motion.img style={{ y: shapeY }} src={assets.mainShape} alt="" /></div>
+        <div className="absolute top-2/3 translate-y-[-1%] lg:top-1/2 lg:translate-y-[-20%] right-0 lg:left-0 z-[1] w-[150px] h-[714px] lg:w-[510px] lg:h-[714px]"><motion.img style={{ y: shapeY }} src={assets.mainShape} alt="" /></div>
       </section>
     </div>
   );
