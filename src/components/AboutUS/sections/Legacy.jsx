@@ -14,33 +14,33 @@ import SplitTextAnimation from "../../../components/common/SplitTextAnimation";
 
 const legacyData = [
   {
-    year: "1975 - 1980",
-    title: "1975 - 1980",
-    text: "Fostering an environment that helps in the creation of knowledge and its application to work.",
+    year: "1971",
+    title: "The Beginning",
+    text: "As the first Indian construction company to operate in the GCC, we marked our global debut with the construction of the iconic Al Alam Palace in Muscat, Oman. This landmark project laid the foundation for our enduring legacy in the region.",
     image: "/assets/images/about-us/slide1.jpg",
   },
   {
-    year: "1980 - 1985",
-    title: "1980 - 1985",
-    text: "Fostering an environment that helps in the creation of knowledge and its application to work. ",
+    year: "2005 - 2010",
+    title: "Establishing SP International",
+    text: "With the formal establishment of SP International, we undertook iconic UAE projects such as DAMAC Park Towers, Taj Grandeur Hotel, Jumeirah Lake Towers, and the Fairmont Hotel in Abu Dhabi. These developments showcased our ability to deliver high-profile, complex projects on time and to exacting standards.",
     image: "/assets/images/about-us/slide1.jpg",
   },
   {
-    year: "1985 - 1990",
-    title: "1985 - 1990",
-    text: "Fostering an environment that helps in the creation of knowledge and its application to work. ",
+    year: "2011 - 2015",
+    title: "Regional Expansion",
+    text: "Expanding across Qatar, Saudi Arabia, and Kuwait, we delivered landmark projects including Barwa Commercial Avenue, Barwa City, King Abdullah Financial District (KAFD), AKH Tower, Kuwait University, and Al Sabah Hospital. This period demonstrated our capacity to manage multi-location, large-scale developments with efficiency and excellence.",
     image: "/assets/images/about-us/slide1.jpg",
   },
   {
-    year: "1990 - 1995",
-    title: "1990 - 1995",
-    text: "Fostering an environment that helps in the creation of knowledge and its application to work. ",
+    year: "2016 - 2020",
+    title: "Prestige & Growth",
+    text: "We delivered some of the GCC and Africa’s most prestigious projects, including 5JJ Tower, Dubai Hills, Kings College, SECO, and SABIC Headquarters, as well as cultural landmarks like the Mall of Oman and Oman Convention Centre.Beyond the Gulf, we completed the Niger Convention Centre, reinforcing our global execution capabilities.",
     image: "/assets/images/about-us/slide1.jpg",
   },
   {
-    year: "1995 - 2000",
-    title: "1995 - 2000",
-    text: "Fostering an environment that helps in the creation of knowledge and its application to work. ",
+    year: "2021 - 2025",
+    title: "Diversification & New Horizons",
+    text: "Expanding into entertainment and lifestyle, we delivered Obhur Entertainment Complex, Exit 10, Palm Beach Towers, and Al Marjan Islands Residences, alongside critical healthcare projects like Corniche Hospital. These developments highlight our ability to execute diverse, large-scale projects across multiple sectors.",
     image: "/assets/images/about-us/slide1.jpg",
   },
 ];

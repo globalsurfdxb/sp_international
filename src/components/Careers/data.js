@@ -1,18 +1,18 @@
 export const careersData = {
   buttonText: "EXPLORE OPPORTUNITIES",
-  title: "Our People, Our Strength",
+  title: "Our People, Our Power",
   description:
-    "Build your legacy with SP International. We’re actively seeking top-tier talent—from innovative engineers to visionary project managers—ready to shape the future of the built environment and achieve unparalleled career growth.",
+    "Sub description: Our people define our legacy. We invite talented and ambitious professionals to join us in creating landmark projects, driving innovation, and contributing to a culture of excellence. Be part of a team where your growth, impact, and achievements shape the future of the built environment.",
 };
 
 export const empowerData = {
   svgSrc: "/assets/images/svg/svsv.svg",
   heading: "Empowering People, Enabling Excellence",
   description:
-    "Our workforce is our greatest asset. With individuals from varied backgrounds, experiences, and expertise, we come together to create a culture of innovation, resilience, and excellence. Every employee plays a key role in shaping SP’s legacy.",
+    "Our people are the foundation of SP International. Bringing together a wide range of skills, experiences, and perspectives, our teams thrive in a culture of collaboration, learning, and mutual respect. Every individual contributes to our shared vision and success, helping SP International grow stronger and more innovative every day.",
   stats: [
     {
-      value: "1500+",
+      value: "20+",
       label: "Nationalities",
     },
     {
@@ -30,18 +30,18 @@ export const workplaceData = {
   heading: "A Workplace Built Around People",
   image: "/assets/images/careers/workplace/leftimage.jpg",
   points: [
-    "Collaborative teams tackling real-world challenges",
-    "Employees empowered to innovate and lead",
-    "Learning, mentorship, and growth opportunities for all",
+    "Diverse and inclusive teams driving collaboration and innovation",
+    "Employees empowered to lead, take initiative, and deliver impact",
+    "Continuous learning, mentorship, and professional growth opportunities",
     "Celebrating achievements and milestones together",
   ],
 };
 
 // src/data/valuesData.js
 export const valuesData = {
-  title: "Our Values Through People",
+  title: "Driven by Talent, United by Values",
   description:
-    "At Shapoorji Pallonji, every employee brings their unique strengths, perspectives, and talents to drive our vision forward. Together, we innovate, collaborate, and deliver excellence across projects and communities.",
+    "By bringing together diverse talents, experiences, and perspectives, we foster collaboration, mutual respect, and shared purpose. Together, we innovate, support one another, and deliver excellence that strengthens both our projects and the communities we serve.",
   image: "/assets/images/careers/our-values/left-svg.svg",
   rightImage: "/assets/images/careers/our-values/right-image.jpg",
 };
@@ -49,7 +49,7 @@ export const valuesData = {
 export const cultureData = {
   title: "Be Part of Our People–First Culture",
   description:
-    "If you are passionate, driven, and eager to make an impact, we’d love to have you on board. Explore our opportunities and start your journey with SP.",
+    "At SP International, we believe in building more than careers - we build lasting bonds. Here, your ideas are valued, your growth is nurtured, and your achievements are celebrated. Join us to be part of a team where collaboration, trust, and shared success define every day.",
   buttonText: "Explore Opportunities",
   backgroundImage: "/assets/images/careers/partofus/bg-image.jpg",
 };

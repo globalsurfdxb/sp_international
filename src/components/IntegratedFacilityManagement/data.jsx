@@ -2,32 +2,19 @@
 export const ifmData = {
     mainSection: {
         title: "A Legacy of Excellence in Facility Management",
-        desc: ["Shapoorji Pallonji International (SP International) delivers premium, fully Integrated Facility Management (IFM) solutions built on a legacy of global excellence and deep regional expertise across high-growth markets including Oman and the Kingdom of Saudi Arabia.", "We go beyond maintenance — we ensure operational continuity, asset longevity, and exceptional user experiences, helping clients achieve efficiency, sustainability, and peace of mind through one trusted partner."],
+        desc: ["Shapoorji Pallonji International provides fully integrated facility management services shaped by decades of engineering capability and regional understanding across Oman and the Kingdom of Saudi Arabia.", "Our scope extends far beyond routine upkeep. We focus on continuity of operations, enhanced lifecycle value, and consistently high standards of safety and functionality. Serving as a single point of accountability, we oversee both critical technical systems and the daily operational services that support efficient, well-managed environments."],
         vdo: "./assets/videos/cmn-dummy-vdo.mp4",
         vdoPoster: "./assets/images/ifm/vdo-poster.jpg"
     },
     expertiseData: {
         title: "Our Expertise",
-        desc: "Our services are designed to meet every operational, technical, and experiential need within your facility — ensuring safety, efficiency, and satisfaction across all levels.",
+        desc: "Our services are structured to support every operational, technical, and user-focused requirement within a facility - ensuring consistency, compliance, efficiency, and a seamless experience at every level.",
         items: [
             {
                 id: 1,
                 number: "01",
-                title: "Hard Services – Asset Management & Technical Integrity",
-                desc: "Our hard services ensure the reliability and performance of all critical assets within your facility, focusing on uptime, safety, and long-term value.",
-                points: [
-                    "Planned & Reactive Maintenance",
-                    "HVAC, Electrical & Mechanical Systems",
-                    "Asset Life Cycle Management",
-                    "Compliance, Testing & Certification",
-                ],
-                image: "./assets/images/ifm/expertise/exp1.jpg",
-            },
-            {
-                id: 2,
-                number: "02",
                 title: "Soft Services – User Experience & Environment",
-                desc: "Our services are designed to meet every operational, technical, and experiential need within your facility — ensuring safety, efficiency, and satisfaction across all levels.",
+                desc: "Our soft services are designed to maintain a clean, safe, and well-managed environment that supports productivity, comfort, and a positive occupant experience. All functions are executed under strict quality protocols with trained, site-dedicated teams.",
                 points: [
                     "Professional Cleaning & Housekeeping",
                     "Manned Guarding & Surveillance",
@@ -39,15 +26,34 @@ export const ifmData = {
                 image: "./assets/images/ifm/expertise/exp1.jpg",
             },
             {
+                id: 2,
+                number: "02",
+                title: "Hard Services – Asset Management & Technical Integrity",
+                desc: "We manage, monitor, and maintain critical building systems to ensure operational reliability, compliance with statutory standards, and long-term asset protection. Through preventive and predictive maintenance strategies, we minimise downtime and extend equipment lifespan.",
+                points: [
+                    "HVAC Operations & Maintenance",
+                    "Electrical & Plumbing Systems",
+                    "Fire Fighting & Life Safety Systems",
+                    "BMS Operation & Monitoring",
+                    "Civil Works & Fabric Maintenance",
+                    "Energy Monitoring & Statutory Compliance"
+                ],
+                image: "./assets/images/ifm/expertise/exp1.jpg",
+            },
+           
+            {
                 id: 3,
                 number: "03",
                 title: "Specialized & Tailor-Made Services",
-                desc: "We design customized solutions to match your unique operational needs, industry standards, and strategic objectives.",
+                desc: "Designed to address unique client requirements, our specialised services provide flexible and scalable support for premium, high-security, or non-standard operational needs. These solutions are structured on a case-by-case basis to ensure precision and discretion.",
                 points: [
-                    "Industry-Specific Service Packages",
-                    "High-Security & Sensitive Facilities",
-                    "Project-Based & On-Demand Services",
-                    "Consulting & Performance Optimization",
+                    "Recreational & Lifestyle Services",
+                    "Luxury Vehicle & Chauffeur Services",
+                    "VIP & Protocol Support",
+                    "Event & Hospitality Support",
+                    "Space Planning & Asset Tagging",
+                    "Temporary Staffing & Inventory Management",
+                    "Custom Reporting & Integrated Support Functions"
                 ],
                 image: "./assets/images/ifm/expertise/exp1.jpg",
             }
@@ -59,19 +65,19 @@ export const ifmData = {
             {
                 icon: "./assets/images/eng-constructions/icons/apr1.svg",
                 title: "Global Standards, Local Expertise",
-                desc: "We blend decades of global Facility Management experience with deep local insights. Every operation adheres to international benchmarks while maintaining full local statutory compliance, ensuring reliability, safety, and consistency."
+                desc: "Our Facility Management delivery is aligned with internationally recognised practices, supported by strong regional knowledge and on-ground execution capabilities. All operations follow global benchmarks while meeting local statutory and regulatory requirements."
             },
             {
                 icon: "./assets/images/eng-constructions/icons/apr2.svg",
                 title: "Technology-Driven Intelligence",
-                desc: "Powered by Computerized Maintenance Management Systems (CMMS) and predictive analytics, our FM model anticipates issues before they occur. This data-driven intelligence ensures maximum uptime, energy efficiency, and optimized asset performance."
+                desc: "We implement Computerized Maintenance Management Systems (CMMS) led workflows and performance tracking to enable preventive and predictive maintenance. This data-based approach supports higher equipment availability, structured planning, and measurable operational efficiency."
             },
             {
                 icon: "./assets/images/ifm/icons/spoc.svg",
                 title: "The Single-Source Advantage (SPOC)",
-                desc: "We simplify your operations through a Single Point of Contact (SPOC) model. By consolidating all services under one governance structure, we eliminate vendor complexity, ensuring accountability, speed, and service uniformity across your facilities."
+                desc: "A single governance point oversees all services, ensuring clear responsibility, consistent reporting, and streamlined communication. This structure reduces operational complexity and maintains uniform service levels across sites."
             },
-            
+
         ]
     },
     featuredProjectsData: {
@@ -110,27 +116,27 @@ export const ifmData = {
     },
     WhyChooseData: {
         title: "Why Choose Us",
-        desc: "We are more than a service provider — we are a strategic partner committed to transforming your assets into high-performing, sustainable environments.",
+        desc: "Our role extends beyond maintenance, enabling well-governed, efficient, and sustainable facility operations through a single, dependable framework.",
         items: [
             {
-                title: "Consistent Quality Across Regions",
-                content: "Designers, engineers, and project managers aligned for excellence"
+                title: "Scalable and Reliable Solutions",
+                content: "Our service models are structured to adapt to facilities of all sizes and complexities, ensuring consistent performance at every stage of operation."
             },
             {
-                title: "Scalable and Reliable Solutions",
-                content: "Designers, engineers, and project managers aligned for excellence"
+                title: "Consistent Quality Across Regions",
+                content: "Standardised processes and governance frameworks ensure uniform service delivery and quality control across all operating locations."
             },
             {
                 title: "Proactive Maintenance & Reduced Downtime",
-                content: "Designers, engineers, and project managers aligned for excellence"
+                content: "Preventive and predictive methods are applied to minimise disruptions, extend asset life, and maintain continuous system functionality."
             },
             {
                 title: "Enhanced Safety, Compliance, and Sustainability",
-                content: "Designers, engineers, and project managers aligned for excellence"
+                content: "All activities are aligned with international standards and local regulations, supporting safe operation and sustainable resource use."
             },
             {
                 title: "Improved Occupant Comfort and Productivity",
-                content: "Designers, engineers, and project managers aligned for excellence"
+                content: "Operational efficiency, environmental quality, and responsive service contribute to better user experience and workplace performance."
             }
         ]
     }

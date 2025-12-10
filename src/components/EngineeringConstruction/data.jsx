@@ -3,13 +3,13 @@ import WhyChooseSec from "./sections/WhyChooseSec";
 export const engineeringData = {
  mainSection:{
     title:"A Legacy of Engineering & Construction Excellence",
-    desc: ["Shapoorji Pallonji International’s Engineering & Construction (E&C) Division has been at the forefront of building iconic infrastructure across the world. With over a century of expertise, we combine innovative engineering, robust project management, and sustainable practices to deliver high-quality, timely, and cost-effective solutions.","From industrial complexes and commercial hubs to residential and infrastructure projects, we transform visions into reality while ensuring safety, compliance, and operational efficiency."],
+        desc: ["Shapoorji Pallonji International’s Engineering & Construction (E&C) Division has been at the forefront of delivering iconic infrastructure worldwide. With over a century of expertise, we combine innovative engineering, robust project management, and sustainable practices to provide high-quality, timely, and cost-effective solutions.","From industrial complexes and commercial hubs to residential and infrastructure projects, we transform visions into reality while ensuring safety, compliance, and operational efficiency."],
     vdo:"./assets/videos/cmn-dummy-vdo.mp4",
     vdoPoster:"./assets/images/eng-constructions/vdo-poster.jpg"
  },
  expertiseData:{
    title:"Our Expertise",
-    desc:"Our multidisciplinary approach enables us to manage complex projects from concept to completion, across various sectors and geographies.",
+     desc:"We bring multidisciplinary knowledge and execution excellence to every project, across diverse industries and geographies.",
     items:[
       {
           mainTitle:"Commercial & Residential Projects",
@@ -19,24 +19,17 @@ export const engineeringData = {
           img:"./assets/images/eng-constructions/expertise/exp1.jpg"
       },
       {
-          mainTitle:"Commercial & Residential Projects",
-          mainDesc:"Creating functional, sustainable, and aesthetically appealing spaces for businesses and communities.",
+          mainTitle:"Industrial & Infrastructure Projects",
+          mainDesc:"Delivering large-scale industrial facilities, power plants, and transportation infrastructure with precision and efficiency.",
           subTitle:"Key Services",
-          desc: ["Commercial Complexes & Office Spaces", "Residential Townships & High-Rise Buildings", "Mixed-Use Developments","Retail & Hospitality Projects"],
+          desc: ["Industrial Plants & Factories", "Power & Energy Infrastructure", "Transportation & Roads","Ports & Maritime Facilities"],
           img:"./assets/images/eng-constructions/expertise/exp1.jpg"
       },
       {
-          mainTitle:"Commercial & Residential Projects",
-          mainDesc:"Creating functional, sustainable, and aesthetically appealing spaces for businesses and communities.",
+          mainTitle: "Specialized & Turnkey Solutions",
+          mainDesc:"Providing end-to-end solutions customized to unique client requirements, ensuring seamless delivery and high performance.",
           subTitle:"Key Services",
-          desc: ["Commercial Complexes & Office Spaces", "Residential Townships & High-Rise Buildings", "Mixed-Use Developments","Retail & Hospitality Projects"],
-          img:"./assets/images/eng-constructions/expertise/exp1.jpg"
-      },
-      {
-          mainTitle:"Commercial & Residential Projects",
-          mainDesc:"Creating functional, sustainable, and aesthetically appealing spaces for businesses and communities.",
-          subTitle:"Key Services",
-          desc: ["Commercial Complexes & Office Spaces", "Residential Townships & High-Rise Buildings", "Mixed-Use Developments","Retail & Hospitality Projects"],
+          desc: ["Design-Build Projects", "Project Management & Consultancy", "Renovation & Refurbishment","Green Building & Sustainable Construction Practices"],
           img:"./assets/images/eng-constructions/expertise/exp1.jpg"
       },
     ]
@@ -120,24 +113,24 @@ export const engineeringData = {
      desc:"With over a century of experience, SP International is committed to",
      items:[
          {
-             title: "On-Time, On-Budget Delivery",
-             content: "We ensure your projects are completed within the agreed timeline and budget constraints, with transparent communication and efficient resource management throughout the entire process."
+             title: "High-Quality Construction & Engineering Standards",
+             content: "Designers, engineers, and project managers aligned for excellence"
          },
          {
-             title: "High-Quality Construction & Engineering Standards",
-             content: "Our team of experienced professionals adheres to the highest industry standards, implementing rigorous quality control measures and innovative engineering solutions to deliver exceptional results."
+             title: "On-Time, On-Budget Delivery",
+             content: "Strategic planning, efficient execution, and strict cost control at every stage"
          },
          {
              title: "Innovative & Sustainable Practices",
-             content: "We integrate cutting-edge sustainable technologies and eco-friendly materials into our projects, reducing environmental impact while maximizing efficiency and long-term value."
+             content: "Advanced technologies and eco-conscious methods driving smarter builds"
          },
          {
              title: "End-to-End Project Management",
-             content: "From initial concept to final delivery, we provide comprehensive project management services, coordinating all aspects of construction to ensure seamless execution and client satisfaction."
+             content: "Single-point accountability from concept to completion"
          },
          {
              title: "Global Expertise, Local Execution",
-             content: "Combining international best practices with local knowledge, we deliver world-class solutions tailored to your specific regional requirements and cultural context."
+             content: "International best practices powered by regional knowledge"
          }
      ]
  }

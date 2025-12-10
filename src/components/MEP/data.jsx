@@ -3,7 +3,7 @@ import WhyChooseSec from "../common/ImgPointsComponent";
 export const mepData = {
     mainSection: {
         title: "Driving Efficiency Through MEP Expertise",
-        desc: ["Shapoorji Pallonji Water Division delivers end-to-end water infrastructure solutions, combining engineering excellence, cutting-edge technology, and rigorous quality standards. Our team has successfully executed projects across water transmission, reservoirs, desalination plants, and complex urban utility networks."],
+        desc: ["Shapoorji Pallonji International leverages extensive experience delivering comprehensive MEP solutions that keep projects fully operational, efficient, and safe. From meticulous system design to large-scale installation and integration, our services ensure seamless performance, energy efficiency, and long-term reliability across diverse building and infrastructure projects."],
         vdo: "./assets/videos/cmn-dummy-vdo.mp4",
         vdoPoster: "./assets/images/mep/vdo-poster.jpg"
     },
@@ -11,21 +11,25 @@ export const mepData = {
         title: "Our Expertise",
         items: [
             {
-                img: "./assets/images/mep/expertise/exp1.jpg",
-                title: "Mechanical Systems"
-            },
-            {
                 img: "./assets/images/mep/expertise/exp2.jpg",
                 title: "Electrical Systems"
             },
             {
-                img: "./assets/images/mep/expertise/exp3.jpg",
-                title: "Plumbing & Drainage"
+                img: "./assets/images/mep/expertise/exp4.jpg",
+                title: "HVAC Systems"
             },
             {
-                img: "./assets/images/mep/expertise/exp4.jpg",
-                title: "HVAC"
-            }
+                img: "./assets/images/mep/expertise/exp3.jpg",
+                title: "Plumbing & Fire Protection"
+            },
+            {
+                img: "./assets/images/mep/expertise/exp3.jpg",
+                title: "Fire Alarm & Security Systems"
+            },
+            {
+                img: "./assets/images/mep/expertise/exp1.jpg",
+                title: "Building Management & ELV Systems"
+            },
         ]
     },
     whyChooseData: {
@@ -34,9 +38,9 @@ export const mepData = {
         points: [
             "Integrated design-to-delivery approach",
             "Adherence to international safety & quality standards",
-            "Sustainable & energy-efficient solutions",
-            "Proven track record across multiple geographies",
-            "Expertise in handling complex, large-scale projects"
+            "Experienced management team with 15–30 years of expertise",
+            "Highly skilled installation engineers and in-house technicians",
+            "Proven track record of delivering complex, landmark projects"
         ],
     },
 
@@ -74,59 +78,34 @@ export const mepData = {
 
         ]
     },
-    WhyChooseData: {
-        title: "Why Choose Us",
-        desc: "With over a century of experience, SP International is committed to",
-        items: [
-            {
-                title: "On-Time, On-Budget Delivery",
-                content: "We ensure your projects are completed within the agreed timeline and budget constraints, with transparent communication and efficient resource management throughout the entire process."
-            },
-            {
-                title: "High-Quality Construction & Engineering Standards",
-                content: "Our team of experienced professionals adheres to the highest industry standards, implementing rigorous quality control measures and innovative engineering solutions to deliver exceptional results."
-            },
-            {
-                title: "Innovative & Sustainable Practices",
-                content: "We integrate cutting-edge sustainable technologies and eco-friendly materials into our projects, reducing environmental impact while maximizing efficiency and long-term value."
-            },
-            {
-                title: "End-to-End Project Management",
-                content: "From initial concept to final delivery, we provide comprehensive project management services, coordinating all aspects of construction to ensure seamless execution and client satisfaction."
-            },
-            {
-                title: "Global Expertise, Local Execution",
-                content: "Combining international best practices with local knowledge, we deliver world-class solutions tailored to your specific regional requirements and cultural context."
-            }
-        ]
-    },
     innovationSustainabilityData: {
         title: "Innovation & Sustainability in MEP",
         accordionData: [
             {
                 id: 1,
-                title: "BIM",
-                content:
-                    "Shapoorji International brings decades of expertise in delivering end-to-end MEP solutions that power, connect, and sustain world-class projects. From designing efficient systems to executing large-scale installations.",
-                image:
-                    "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=800&q=80",
-                icon: "https://api.iconify.design/mdi:cube-outline.svg?color=%231E45A2",
-            },
-            {
-                id: 2,
                 title: "Smart Systems",
                 content:
-                    "Shapoorji International brings decades of expertise in delivering end-to-end MEP solutions that power, connect, and sustain world-class projects. From designing efficient systems to executing large-scale installations.",
+                    "Shapoorji International delivers integrated, intelligent MEP systems that enhance building performance, operational efficiency, and long-term sustainability.",
                 image:
                     "../../assets/images/mep/smart-systems.jpg",
                 icon:
                     "../../assets/images/mep/icons/smart-systems.svg",
             },
             {
+                id: 2,
+                title: "BIM",
+                content:
+                    "Advanced Building Information Modelling enables precise planning, clash detection, and seamless coordination across all project stages.",
+                image:
+                    "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=800&q=80",
+                icon: "https://api.iconify.design/mdi:cube-outline.svg?color=%231E45A2",
+            },
+           
+            {
                 id: 3,
                 title: "Energy-Saving Solutions",
                 content:
-                    "Shapoorji International brings decades of expertise in delivering end-to-end MEP solutions that power, connect, and sustain world-class projects. From designing efficient systems to executing large-scale installations.",
+                    "Optimised system designs focused on reducing energy consumption while maintaining maximum performance.",
                 image:
                     "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80",
                 icon: "https://api.iconify.design/mdi:leaf.svg?color=%231E45A2",
@@ -135,7 +114,7 @@ export const mepData = {
                 id: 4,
                 title: "Green Building Compliance",
                 content:
-                    "Shapoorji International brings decades of expertise in delivering end-to-end MEP solutions that power, connect, and sustain world-class projects. From designing efficient systems to executing large-scale installations.",
+                    "All solutions are developed in alignment with global green building standards and sustainability benchmarks.",
                 image:
                     "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
                 icon:

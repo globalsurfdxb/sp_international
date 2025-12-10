@@ -63,7 +63,7 @@ const ValuesSection = () => {
               {title}
             </motion.h2> */}
             <H2Title titleText={title} marginClass={"mb-[24px] md:mb-[30px]"}/>
-            <motion.p variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 font-light leading-[1.473684210526316] max-w-[550px]">
+            <motion.p variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 font-light leading-[1.473684210526316] max-w-2xl">
               {description}
             </motion.p>
           </div>

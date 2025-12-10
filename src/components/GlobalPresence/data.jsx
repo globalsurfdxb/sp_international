@@ -2,8 +2,8 @@
 
 export const globalPresenceData = {
  mainSection:{
-    title:"Expanding Horizons Worldwide with Engineering Excellence and Innovation",
-    desc: ["Our leadership and expertise in various segments of our business portfolio comes from more than a century old dedication, experience, continuous innovation and investment in our people"],
+        title:"Expanding Horizons Worldwide with Engineering Excellence and Expertise",
+        desc: ["Our leadership across sectors is built on over a century of experience, skill, and commitment, enabling us to deliver world-class projects across the globe."],
    
  },
  Horizons:{
@@ -38,7 +38,7 @@ export const globalPresenceData = {
           image:"./assets/images/global-presence/ho4.jpg",
           projects:"350",
           countries:"07",
-          countriesList: ["Bahrain", "Iraq", "Kuwait", "Oman"],
+          countriesList: ["Bahrain", "Iraq", "Kuwait", "Oman", "Qatar", "KSA", "UAE"],
        
       }, 
       {
