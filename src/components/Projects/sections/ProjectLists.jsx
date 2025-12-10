@@ -43,6 +43,7 @@ const ITEMS_PER_PAGE = 12;
 const ProjectLists = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [bgImagehide, setBgImagehide] = useState(true);
   const sectionRef=useRef(null)
     const { scrollYProgress: shapeProgress } = useScroll({
       target: sectionRef,
@@ -122,21 +123,25 @@ const ProjectLists = () => {
   const handleSectorChange = (opt) => {
     setSelectedSector(opt);
     setCurrentPage(1);
+    setBgImagehide(false)
   };
 
   const handleStatusChange = (opt) => {
     setSelectedStatus(opt);
     setCurrentPage(1);
+    setBgImagehide(false)
   };
 
   const handleCountryChange = (opt) => {
     setSelectedCountry(opt);
     setCurrentPage(1);
+    setBgImagehide(false)
   };
 
   const handleServiceChange = (opt) => {
     setSelectedService(opt);
     setCurrentPage(1);
+    setBgImagehide(false)
   };
 
   // 🔹 Clear all filters
@@ -146,6 +151,7 @@ const ProjectLists = () => {
     setSelectedCountry(country[0]);
     setSelectedService(service[0]);
     setCurrentPage(1);
+    setBgImagehide(true)
   };
 
   return (
@@ -159,8 +165,8 @@ const ProjectLists = () => {
           className="border-y border-cmnbdr mt-10 xl:mt-25 mb-8 xl:mb-15 3xl:mb-30 py-4 md:py-6 xl:py-[35px]"
         >
           <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-0">
-            <div className="flex flex-col md:flex-row gap-8  2xl:gap-25  3xl:gap-[174px] justify-between">
-              <div className="flex flex-col md:flex-row gap-6 2xl:gap-[90px] ">
+            <div className="flex flex-col md:flex-row gap-5 lg:gap-8  2xl:gap-25  3xl:gap-[174px] justify-between">
+              <div className="flex flex-col md:flex-row gap-3 lg:gap-6 2xl:gap-[90px] ">
                 {/* Sector */}
                 <div className="w-full lg:w-fit relative">
                   <Listbox value={selectedSector} onChange={handleSectorChange}>
@@ -681,18 +687,18 @@ const ProjectLists = () => {
 
       {view === "grid" && (
         <>
-          <div className="absolute bottom-[30%] translate-y-[58px] 3xl:bottom-3/7 3xl:translate-y-[-78px] lg:left-[-140px] 3xl:left-0 z-[-1]">
+          <div className={`${bgImagehide ? 'block':'hidden'} absolute top-[12%] lg:bottom-[30%] translate-y-[58px] 3xl:bottom-3/7 3xl:translate-y-[-78px] right-0 lg:left-[-140px] 3xl:left-0 z-[-1]`}>
             <motion.img style={{y:shapeY}}
               src="./assets/images/projects/pjtbdy1.svg"
               alt=""
-              className="w-[200px] lg:w-[670px] object-contain"
+              className="w-[150px] lg:w-[670px] object-contain"
             />
           </div>
-          <div className="absolute bottom-0 right:0 lg:right-[-150px] 3xl:right-0 z-[-1]   ">
+          <div className={`${bgImagehide ? 'block':'hidden'} absolute bottom-[5%] lg:bottom-0 right-0 lg:right-[-150px] 3xl:right-0 z-[-1]`}>
             <motion.img style={{y:shapeY}}
               src="./assets/images/projects/pjtbdy2.svg"
               alt=""
-              className="w-[200px] lg:w-[670px] object-contain"
+              className="w-[150px] lg:w-[670px] object-contain"
             />
           </div>
         </>
