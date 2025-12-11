@@ -96,27 +96,27 @@ export const highlightedData = {
     {
       mainTitle: "Women Empowerment",
       mainDesc: "6,000 women empowered with skills training, enabling sustainable livelihoods and generating ₹380 million in collective earnings.",
-      img: "./assets/images/eng-constructions/expertise/exp1.jpg"
+      img: "./assets/images/eng-constructions/expertise/hl1.jpg"
     },
     {
       mainTitle: "Improved Nutrition for Infants",
       mainDesc: "1.5 million nutritious feeds provided, improving early childhood health and supporting proper growth and development.",
-      img: "./assets/images/eng-constructions/expertise/exp1.jpg"
+      img: "./assets/images/eng-constructions/expertise/hl2.jpg"
     },
     {
       mainTitle: "Child Education & Learning",
       mainDesc: "13,000 children supported with programs that enhance learning levels, school performance, and overall educational outcomes.",
-      img: "./assets/images/eng-constructions/expertise/exp1.jpg"
+      img: "./assets/images/eng-constructions/expertise/hl3.jpg"
     },
     {
       mainTitle: "Environmental Restoration",
       mainDesc: "1 million native and fruit-bearing trees planted, restoring ecosystems, improving biodiversity, and enhancing community livelihoods",
-      img: "./assets/images/eng-constructions/expertise/exp1.jpg"
+      img: "./assets/images/eng-constructions/expertise/hl4.jpg"
     },
     {
       mainTitle: "Sustainable Farming",
       mainDesc: "1,100 farmers assisted with alternative and sustainable farming techniques, boosting productivity and long-term income security.",
-      img: "./assets/images/eng-constructions/expertise/exp1.jpg"
+      img: "./assets/images/eng-constructions/expertise/hl5.jpg"
     },
   ]
 };

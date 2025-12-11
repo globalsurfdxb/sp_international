@@ -18,7 +18,7 @@ const ExpandingHorizons = ({ data }) => {
       <div className="container">
         <div>
           <div>
-            <div className="2xl:max-w-[75%] 3xl:max-w-[67.84%] ml-auto ">
+            <div className="w-full lg:max-w-[65%]   2xl:max-w-[73%] 3xl:max-w-[67.84%] ml-auto ">
               {/* <h2 className="text-60 font-light leading-[1.166666666666667] mb-50px max-w-[22ch]">{data.title}</h2> */}
               <H2Title titleText={data.title} titleColor="black" marginClass="mb-50px" maxW="max-w-[22ch]" delay={1.6} />
               {

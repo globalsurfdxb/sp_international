@@ -41,22 +41,22 @@ const InquireToday = () => {
           
         <div className="container relative py-8 xl:py-15 2xl:py-22 3xl:py-[108px] overflow-hidden">
           <motion.img style={{y:shapeY}} variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} width={"313px"} height={"440px"} src="/assets/images/svg/sv-02.svg" alt="" className="hidden xl:block w-[150px] h-[200px] lg:w-[313px] lg:h-[440px] absolute right-[0px] lg:left-[0px] 3xl:left-[13px] bottom-0 z-10 object-contain" />
-          <div className=" lg:max-w-[650px] xl:max-w-[900px] 2xl:max-w-[1008px] 3xl:max-w-[1208px] ml-auto">
+          <div className=" lg:max-w-[650px] xl:max-w-[900px] 2xl:max-w-[1008px] 3xl:max-w-[1208px] ml-auto ">
             <div className="flex justify-between items-center ">
-              <div className="mb-5 xl:mb-[68px]">
-                <H2Title titleText={Inquiretoday.title} titleColor={"white"} marginClass="mb-3 lg:mb-[21px]" />
+              <div className="mb-3 md:mb-5 xl:mb-[68px]">
+                <H2Title titleText={Inquiretoday.title} titleColor={"white"} marginClass="mb-5 md:mb-3 lg:mb-[21px]" />
                 <motion.p variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-29 font-light leading-[1.35] text-white">
                   {Inquiretoday.subtitle}</motion.p>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <motion.p variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="font-16 font-light text-white uppercase leading-[1.75]">Email</motion.p>
-              <motion.p variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="font-16 font-light text-[#97B6FF] leading-[1.75]">{Inquiretoday.mail}</motion.p>
-              <motion.svg variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} xmlns="http://www.w3.org/2000/svg" width="27" height="17" viewBox="0 0 27 17" fill="none">
+             <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0, once: true}}  className="flex items-center gap-2">
+              <p className="font-16 font-light text-white uppercase leading-[1.75]">Email</p>
+              <p className="font-16 font-light text-[#97B6FF] leading-[1.75]">{Inquiretoday.mail}</p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="27" height="17" viewBox="0 0 27 17" fill="none">
                 <path d="M17.6328 1.93262L25.0111 8.5134L17.6579 15.0679" stroke="#30B6F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M24.5954 8.5H1.98047" stroke="#30B6F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </motion.svg>
-            </div>
+              </svg>
+            </motion.div>
           </div>
         </div>
       </div>

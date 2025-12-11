@@ -111,7 +111,7 @@ const EmpoweringCommunities = () => {
           </motion.p>
         </div>
       </div>
-      <div className="absolute top-20 lg:top-15 right-0 z-[-1] "><motion.img style={{ y: shapeY }} src="/assets/images/svg/sv-03.svg" alt="" className="w-[150px] h-[780px] lg:w-[700px] lg:h-[980px]" /></div>
+      <div className="absolute top-20 lg:top-15 right-0 z-[-1] "><motion.img style={{ y: shapeY }} src="/assets/images/svg/sv-03.svg" alt="" className="w-[150px] h-[780px] sm:w-[250px] sm:h-[780px] lg:w-[500px] lg:h-[980px] xl:w-[700px] xl:h-[980px]" /></div>
     </section>
   );
 };

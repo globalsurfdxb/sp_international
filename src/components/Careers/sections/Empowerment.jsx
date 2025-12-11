@@ -66,8 +66,8 @@ const EmpowerSection = () => {
       className="w-full py-8 xl:py-15 2xl:py-22 3xl:py-23 bg-primary text-white lg:max-h-[611px] lg:overflow-hidden relative overflow-hidden " >
       <div className="reveal-overlay4 absolute inset-0 bg-black/20 z-20"></div>
       {/* Below XL: custom padding; XL and up: container */}
-      <motion.div  className="hidden xl:block flex-shrink-0">
-        <motion.img style={{ y: shapeY }} src={svgSrc} alt="logo-svg" className="2xl:w-[394px] 2xl:h-[549px] object-contain absolute" />
+      <motion.div  className="  flex-shrink-0">
+        <motion.img style={{ y: shapeY }} src={svgSrc} alt="logo-svg" className="w-[150px] md:w-[250px] xl:w-[244px] 2xl:w-[324px] 2xl:h-[549px] 3xl:w-[394px] 3xl:h-[549px] object-contain absolute bottom-0 lg:bottom-0 right-0 lg:right:auto lg:left-[-84px]  xl:left-0" />
       </motion.div>  <div
         className={
           rightPadding > 0
@@ -77,7 +77,7 @@ const EmpowerSection = () => {
       >
 
         {/* Right Content */}
-        <div className="w-full flex flex-col justify-center  2xl:max-w-[1008px] 3xl:max-w-[1208px] ml-auto">
+        <div className="w-full flex flex-col justify-center lg:max-w-[800px] xl:max-w-[900px] 2xl:max-w-[1008px] 3xl:max-w-[1208px] ml-auto">
           {/* <motion.h2 variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 leading-[1.1666666667] font-light mb-6 lg:mb-[30px] max-w-[20ch]">
             {heading}
           </motion.h2> */}

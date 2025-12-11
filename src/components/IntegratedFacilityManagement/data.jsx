@@ -3,7 +3,7 @@ export const ifmData = {
     mainSection: {
         title: "A Legacy of Excellence in Facility Management",
         desc: ["Shapoorji Pallonji International provides fully integrated facility management services shaped by decades of engineering capability and regional understanding across Oman and the Kingdom of Saudi Arabia.", "Our scope extends far beyond routine upkeep. We focus on continuity of operations, enhanced lifecycle value, and consistently high standards of safety and functionality. Serving as a single point of accountability, we oversee both critical technical systems and the daily operational services that support efficient, well-managed environments."],
-        vdo: "./assets/videos/cmn-dummy-vdo.mp4",
+        vdo: "./assets/videos/facility-management-businessman.mp4",
         vdoPoster: "./assets/images/ifm/vdo-poster.jpg"
     },
     expertiseData: {

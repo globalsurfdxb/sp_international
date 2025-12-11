@@ -4,22 +4,22 @@ export const mepData = {
     mainSection: {
         title: "Driving Efficiency Through MEP Expertise",
         desc: ["Shapoorji Pallonji International leverages extensive experience delivering comprehensive MEP solutions that keep projects fully operational, efficient, and safe. From meticulous system design to large-scale installation and integration, our services ensure seamless performance, energy efficiency, and long-term reliability across diverse building and infrastructure projects."],
-        vdo: "./assets/videos/cmn-dummy-vdo.mp4",
+        vdo: "./assets/videos/mep.mp4",
         vdoPoster: "./assets/images/mep/vdo-poster.jpg"
     },
     expertiseData: {
         title: "Our Expertise",
         items: [
             {
-                img: "./assets/images/mep/expertise/exp2.jpg",
+                img: "./assets/images/mep/expertise/exp01.jpg",
                 title: "Electrical Systems"
             },
             {
-                img: "./assets/images/mep/expertise/exp4.jpg",
+                img: "./assets/images/mep/expertise/exp02.jpg",
                 title: "HVAC Systems"
             },
             {
-                img: "./assets/images/mep/expertise/exp3.jpg",
+                img: "./assets/images/mep/expertise/exp03.jpg",
                 title: "Plumbing & Fire Protection"
             },
             {
@@ -27,7 +27,7 @@ export const mepData = {
                 title: "Fire Alarm & Security Systems"
             },
             {
-                img: "./assets/images/mep/expertise/exp1.jpg",
+                img: "./assets/images/mep/expertise/exp05.jpg",
                 title: "Building Management & ELV Systems"
             },
         ]

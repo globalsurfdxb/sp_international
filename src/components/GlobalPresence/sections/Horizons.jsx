@@ -10,7 +10,7 @@ const Horizons = ({data}) => {
            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-6 lg:gap-y-10 xl:gap-y-[120px]">
             {
               data.items.map((item,index)=>( 
-                <motion.div variants={moveUp(0.1*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="group border-l border-black/20 border-t-cmnbdr lg:border-t-transparent border-b lg:border-b-transparent bdrrst hover:border-y-2 hover:border-y-[#30B6F9] 
+                <motion.div variants={moveUp(0.1*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="group border-l border-black/20 border-t-cmnbdr lg:border-t-transparent border-y-2 lg:border-y-transparent bdrrst hover:border-y-2 hover:border-y-[#30B6F9] 
                   ">
                   <h3 className="text-29 font-light leading-[1.311] mb-4 lg:mb-[22px]  px-3 lg:px-10 pt-4 lg:pt-7">{item.location}</h3>
                   <div className="relative">
@@ -18,7 +18,7 @@ const Horizons = ({data}) => {
                       <div className="h-0 w-8 group-hover:h-8 lg:w-10 group-hover:lg:h-10 2xl:w-20 group-hover:2xl:h-20 bg-primary flex items-center justify-center absolute bottom-0 transition-all duration-300 delay-100 ">
                         <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 delay-150"> 
                           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 35 35" fill="none" 
-                           className="w-5 h-5 xl:w-8 xl:h-8">
+                           className="w-4 h-4 xl:w-8 xl:h-8">
                           <path d="M1.25 1.25012H33.2484V33.2412" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                           <path d="M33.2517 1.25L1.40625 33.2411" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                           </svg>

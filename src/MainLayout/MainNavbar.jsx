@@ -11,10 +11,22 @@ const MainNavbar = () => {
 
   // Measure nav height once (to create spacer and avoid jump)
   useEffect(() => {
+  function updateNavHeight() {
     if (navRef.current) {
       setNavHeight(navRef.current.offsetHeight);
     }
-  }, []);
+  }
+
+  // Run on page load
+  updateNavHeight();
+
+  // Run on resize
+  window.addEventListener("resize", updateNavHeight);
+
+  // Cleanup when component unmounts
+  return () => window.removeEventListener("resize", updateNavHeight);
+}, []);
+
 
   // Scroll listener to toggle sticky
   useEffect(() => {
@@ -116,20 +128,19 @@ const MainNavbar = () => {
     <>
      <nav
         ref={navRef}
-        className={`
-          pt-[16px] pb-[17px]
+        className={`min-h-[74px] md:min-h-[91px]
           border-b border-[#f0f0f0]
           bg-white
           z-50 fixed
           transition-all duration-300 w-full
           ${
             isSticky
-              ? " top-0 left-0 right-0 shadow-md translate-y-0"
+              ? " top-0 left-0 right-0 shadow-md translate-y-0 "
               : " shadow-none"
           }
         `}
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 pt-[8px] pb-[8px] md:pt-[16px] md:pb-[17px]" >
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center gap-[10px] z-[60]">

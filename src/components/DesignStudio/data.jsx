@@ -4,14 +4,14 @@ export const designStudioData = {
   mainSection: {
     title: "Design Excellence. Engineered Precision.",
     desc: ["Shapoorji International’s Design Division delivers integrated architectural and engineering solutions that transform vision into buildable, high-performance realities. Through precise planning, coordinated design development, and collaborative expertise, we ensure every project meets functional, aesthetic, and regulatory expectations.", "Supported by our in-house Design Studio, we bring together creativity, technical intelligence and operational efficiency, guiding projects from concept through execution with consistency, clarity and innovation."],
-    vdo: "./assets/videos/cmn-dummy-vdo.mp4",
+    vdo: "./assets/videos/graphic-design.mp4",
     vdoPoster: "./assets/images/design-studio/vdo-poster.jpg"
   },
   expertiseData: {
     title: "Our Expertise",
     items: [
       {
-        img: "./assets/images/design-studio/expertise/exp1.jpg",
+        img: "./assets/images/design-studio/expertise/exp01.jpg",
         slideTitle: "Feasibility Studies",
         slideDesc: "Assessing project potential and overall viability.",
       },
@@ -21,27 +21,27 @@ export const designStudioData = {
         slideDesc: "Creating strategic layouts and development frameworks.",
       },
       {
-        img: "./assets/images/design-studio/expertise/exp3.jpg",
+        img: "./assets/images/design-studio/expertise/exp03.jpg",
         slideTitle: "Urban Development Schemes",
         slideDesc: "Developing sustainable and smart urban solutions.",
       },
       {
-        img: "./assets/images/design-studio/expertise/exp4.jpg",
+        img: "./assets/images/design-studio/expertise/exp04.jpg",
         slideTitle: "Preliminary Designs",
         slideDesc: "Translating concepts into clear design direction.",
       },
       {
-        img: "./assets/images/design-studio/expertise/exp2.jpg",
+        img: "./assets/images/design-studio/expertise/exp05.jpg",
         slideTitle: "Detailed Work Drawings",
         slideDesc: "Producing accurate technical documentation for construction.",
       },
       {
-        img: "./assets/images/design-studio/expertise/exp3.jpg",
+        img: "./assets/images/design-studio/expertise/exp06.jpg",
         slideTitle: "BIM Implementation",
         slideDesc: "Enhancing collaboration and minimizing design risk.",
       },
       {
-        img: "./assets/images/design-studio/expertise/exp3.jpg",
+        img: "./assets/images/design-studio/expertise/exp07.jpg",
         slideTitle: "Value Engineering & Innovation",
         slideDesc: "Optimizing performance, efficiency, and cost outcomes.",
       },

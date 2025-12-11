@@ -3,7 +3,7 @@ export const interiorData = {
     mainSection: {
         title: "Transforming Vision into Exceptional Interiors",
         desc: ["Shapoorji Pallonji Interior Division (SPID) delivers world-class turnkey interior solutions through structured execution, uncompromising quality standards, and absolute attention to detail."],
-        vdo: "./assets/videos/cmn-dummy-vdo.mp4",
+        vdo: "./assets/videos/creative-interior-design.mp4",
         vdoPoster: "./assets/images/interior-design/vdo-poster.jpg"
     },
     secondSectionData: {
@@ -31,17 +31,17 @@ export const interiorData = {
         title: "Our Expertise",
         items: [
             {
-                img: "./assets/images/interior-design/expertise/exp1.jpg",
+                img: "./assets/images/interior-design/expertise/exp01.jpg",
                 title: "Turnkey Interior Fit-out Solutions",
                 desc: "Complete project delivery from concept to handover, aligned to client needs.",
             },
             {
-                img: "./assets/images/interior-design/expertise/exp2.jpg",
+                img: "./assets/images/interior-design/expertise/exp02.jpg",
                 title: "Architectural Finishing Works",
                 desc: "High-precision execution of joinery, gypsum, glass, stone, tiling, and finishes.",
             },
             {
-                img: "./assets/images/interior-design/expertise/exp3.jpg",
+                img: "./assets/images/interior-design/expertise/exp03.jpg",
                 title: "Project Management & Execution",
                 desc: "Structured planning and oversight to ensure timely, high-quality delivery.",
             }

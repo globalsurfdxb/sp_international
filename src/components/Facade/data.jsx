@@ -3,7 +3,7 @@ export const facadeData = {
   mainSection: {
     title: "Advanced Façade Systems Backed by Expertise",
     desc: ["Established in 2019, SP Façade manages one of the most critical and high-risk elements of construction, the building façade. As an in-house division of SP International, we deliver high-performance, safe, and efficient façade solutions while ensuring seamless coordination across all project disciplines and minimizing risk for the main contracting team."],
-    vdo: "./assets/videos/cmn-dummy-vdo.mp4",
+    vdo: "./assets/videos/decorative-grilles.mp4",
     vdoPoster: "./assets/images/facade/vdo-poster.jpg"
   },
   expertiseData: {
@@ -37,7 +37,7 @@ export const facadeData = {
   },
   ourStrengthData: {
     heading: "Our Strengths",
-    image: "/assets/images/facade/our-strengths.jpg",
+    image: "/assets/images/facade/itm1.jpg",
     points: [
       "Experienced and qualified technical teams and site staff.",
       "Maximum utilization of UAE-based fabrication facilities and global resources.",

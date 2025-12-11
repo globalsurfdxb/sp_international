@@ -64,12 +64,13 @@ const NextProject = () => {
     <section className="pt-text30 pb30">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-[auto_550px] xl:grid-cols-[auto_1fr] 3xl:grid-cols-[auto_961px] gap-8 lg:gap-20 xl:gap-[137px]">
-          <div className="flex flex-col justify-between items-left pt-0 2xl:pt-[45px] pb-0 2xl:pb-[50px]">
-            <div className="mb-5 xl:mb-[68px]">
-              <h2 className="text-29 font-light leading-[1.17] mb-3 lg:mb-[21px] text-paragraph">
+          <div className=" mb-2 md:mb-3 lg:mb-10 xl:mb-[90px] flex flex-col justify-between items-left pt-0 2xl:pt-[45px] ">
+            <div className=" h-full">
+              <h2 className="text-29 font-light leading-[1.17] lg:pb-5 text-paragraph">
                 <SplitTextAnimation children={nextpjt.title} staggerDelay={0.1} animationDuration={0.8} delay={0.2} />
               </h2>
-              <p className="text-60 font-light leading-[1.17] text-black max-w-[12ch]">
+              <div className=" flex lg:flex-col justify-between lg:justify-start xl:justify-between items-center lg:items-start h-full  ">
+<p className="text-60 font-light leading-[1.17] text-black lg:max-w-[12ch] md:mb-3 lg:mb-[21px]">
                 <SplitTextAnimation
                   children={nextpjt.subtitle}
                   staggerDelay={0.1} // Try smaller value
@@ -77,8 +78,7 @@ const NextProject = () => {
                   delay={0.8}
                 />
               </p>
-            </div>
-            <Link to="/project-details" className='w-fit'>
+              <Link to="/project-details" className='w-fit'>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="cursor-pointer w-[35px] h-[35px] xl:w-[71px] xl:h-[71px]"
@@ -103,6 +103,9 @@ const NextProject = () => {
               />
             </svg>
             </Link>
+              </div>
+            </div>
+            
           </div>
           <div ref={imageContainerRef} className="relative overflow-hidden">
             <div className='relative overflow-hidden' ref={imageContainerRefTwo}>
