@@ -16,21 +16,21 @@ export const engineeringData = {
           mainDesc:"Creating functional, sustainable, and aesthetically appealing spaces for businesses and communities.",
           subTitle:"Key Services",
           desc: ["Commercial Complexes & Office Spaces", "Residential Townships & High-Rise Buildings", "Mixed-Use Developments","Retail & Hospitality Projects"],
-          img:"./assets/images/eng-constructions/expertise/exp1.jpg"
+          img:"./assets/images/eng-constructions/expertise/exp01.jpg"
       },
       {
           mainTitle:"Industrial & Infrastructure Projects",
           mainDesc:"Delivering large-scale industrial facilities, power plants, and transportation infrastructure with precision and efficiency.",
           subTitle:"Key Services",
           desc: ["Industrial Plants & Factories", "Power & Energy Infrastructure", "Transportation & Roads","Ports & Maritime Facilities"],
-          img:"./assets/images/eng-constructions/expertise/exp1.jpg"
+          img:"./assets/images/eng-constructions/expertise/exp02.jpg"
       },
       {
           mainTitle: "Specialized & Turnkey Solutions",
           mainDesc:"Providing end-to-end solutions customized to unique client requirements, ensuring seamless delivery and high performance.",
           subTitle:"Key Services",
           desc: ["Design-Build Projects", "Project Management & Consultancy", "Renovation & Refurbishment","Green Building & Sustainable Construction Practices"],
-          img:"./assets/images/eng-constructions/expertise/exp1.jpg"
+          img:"./assets/images/eng-constructions/expertise/exp03.jpg"
       },
     ]
  },

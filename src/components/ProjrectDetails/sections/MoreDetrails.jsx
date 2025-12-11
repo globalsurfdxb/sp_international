@@ -31,8 +31,8 @@ const MoreDetrails = () => {
             </div>
           </div>
         </div>
-        <div  className="absolute hidden md:block left-[-120px] bottom-[-253px] lg:left-[-400px] 3xl:left-[-290px] lg:bottom-[73px]  z-10">
-          <motion.img style={{y:shapeY}} src="../assets/images/svg/sv-02.svg" className="w-[500px] h-[992px] lg:w-[742px] lg:h-[1040px] object-cover object-center" alt="" />
+        <div  className="absolute hidden md:block right-0 lg:left-[-400px] 3xl:left-[-290px] bottom-8 lg:bottom-[73px]    z-10">
+          <motion.img style={{y:shapeY}} src="../assets/images/svg/sv-02.svg" className="w-[500px] h-[992px] md:w-[150x] md:h-[340px] lg:w-[742px] lg:h-[1040px] object-cover object-center" alt="" />
         </div>
       </div>
     </section>

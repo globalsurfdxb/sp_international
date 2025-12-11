@@ -46,13 +46,13 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="grid gap-y-4 md:gap-y-8 lg:gap-3 sm:grid-cols-2 lg:grid-cols-[140px_230px_250px_180px_1fr] xl:grid-cols-[180px_323px_300px_230px_1fr] 3xl:grid-cols-[260px_373px_350px_1fr_1fr] pt-5 md:pt-8 lg:pt-12 xl:pt-[53px] pb-10 md:pb-8 lg:pb-12 xl:pb-[45px]">
+        <div className="grid gap-y-6 md:gap-y-8 lg:gap-3 sm:grid-cols-2 lg:grid-cols-[140px_230px_250px_180px_1fr] xl:grid-cols-[180px_323px_300px_230px_1fr] 3xl:grid-cols-[260px_373px_350px_1fr_1fr] pt-5 md:pt-8 lg:pt-12 xl:pt-[53px] pb-10 md:pb-8 lg:pb-12 xl:pb-[45px]">
           <motion.div variants={moveUp(0.2)} initial="hidden" animate="show">
             <h3 className="text-24 lg:text-29 leading-[1.344827586206897] font-light mb-2 lg:mb-[27px]">About</h3>
             <ul>
               <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light">  <Link to="/about-us">Overview</Link></li>
               <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="">Legacy</Link></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="">Leadership</Link></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/leadership">Leadership</Link></li>
             </ul>
           </motion.div>
           <motion.div variants={moveUp(0.3)} initial="hidden" animate="show">
@@ -70,7 +70,7 @@ const Footer = () => {
           <motion.div variants={moveUp(0.4)} initial="hidden" animate="show">
             <h3 className="text-24 lg:text-29 leading-[1.344827586206897] font-light mb-2 lg:mb-[27px]">Commitments</h3>
             <ul>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="">Sustainability</Link></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/sustainability">Sustainability</Link></li>
               <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/community-engagement">Community Engagement</Link></li>
               <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/quality-safety">Safety & Quality</Link></li>
             </ul>

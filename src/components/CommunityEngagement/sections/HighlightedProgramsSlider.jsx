@@ -37,7 +37,7 @@ const HighlightedProgramsSlider = () => {
       <div className="container">
         {/* Header */}
         
-          <H2Title titleText={highlightedData.title} titleColor="white" marginClass="mb-4 lg:mb-6 2xl:mb-50px" />
+          <H2Title titleText={highlightedData.title} titleColor="white" marginClass="mb-5 lg:mb-6 2xl:mb-50px" />
 
         {/* Swiper Slider */}
         <div className="relative">
@@ -109,15 +109,15 @@ const HighlightedProgramsSlider = () => {
               >
                 {highlightedData.items.map((item, index) => (
                   <SwiperSlide key={index}>
-                    <div>
-                      <motion.h3 variants={moveUp(0.7 + 0.1*index)} initial="hidden" whileInView={"show"} viewport={{amount:0.2,once:false}} className="text-29 leading-[1.344827586206897] font-light mb-6">
+                    <motion.div variants={moveUp(0.7 + 0.1*index)} initial="hidden" whileInView={"show"} viewport={{amount:0.2,once:false}}>
+                      <h3 className="text-29 leading-[1.344827586206897] font-light mb-3 md:mb-6">
                         {item.mainTitle}
-                      </motion.h3>
-                      <motion.p variants={moveUp(0.8 + 0.1*index)} initial="hidden" whileInView={"show"} viewport={{amount:0.2,once:false}} className="text-white/80 text-19 leading-[1.473684210526316] font-light xl:mb-8">
+                      </h3>
+                      <p  className="text-white/80 text-19 leading-[1.473684210526316] font-light xl:mb-8">
                         {item.mainDesc}
-                      </motion.p>
+                      </p>
                       {/* Services */}
-                    </div>
+                    </motion.div>
                   </SwiperSlide>
                 ))}
               </Swiper>

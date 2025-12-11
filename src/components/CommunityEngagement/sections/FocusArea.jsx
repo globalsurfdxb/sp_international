@@ -122,7 +122,7 @@ const FocusArea = () => {
                       <motion.div variants={moveUp(0.2 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}>
                         <div className='flex gap-3 lg:block items-center'>
                           <img src={area.icon} alt='' className='lg:hidden w-[32px] h-[32px] mb-3 lg:mb-5' />
-                          <p className='text-29 font-light mb-3 lg:mb-5 leading-[1.474]'>{area.title}</p></div>
+                          <p className='text-[18px] md:text-29 font-light mb-3 lg:mb-5 leading-[1.474]'>{area.title}</p></div>
                         <div><p className='text-19 font-light leading-[1.527] text-paragraph max-w-[42ch] 3xl:min-w-[41.3ch]'>{area.description}</p></div>
                       </motion.div>
                       <div className='relative overflow-hidden mb-3 xs:mb-0' >
@@ -135,7 +135,7 @@ const FocusArea = () => {
             </div>
           </div>
         </div>
-        <div className="absolute top-2/3 translate-y-[-1%] lg:top-1/2 lg:translate-y-[-20%] right-0 lg:left-0 z-[1] w-[150px] h-[714px] lg:w-[510px] lg:h-[714px]"><motion.img style={{ y: shapeY }} src={assets.mainShape} alt="" /></div>
+        <div className="absolute top-2/3 translate-y-[-1%] lg:top-1/2 lg:translate-y-[-20%] right-0 xl:left-0 z-[1] w-[150px] h-[714px] lg:w-[190px] lg:h-[714px] 2xl:w-[250px] 2xl:h-[714px] 3xl:w-[510px] 3xl:h-[714px]"><motion.img style={{ y: shapeY }} src={assets.mainShape} alt="" /></div>
       </section>
     </div>
   );

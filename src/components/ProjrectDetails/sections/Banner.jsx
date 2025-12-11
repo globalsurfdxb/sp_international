@@ -45,7 +45,7 @@ const Banner = () => {
       </div>
       <div className="container relative bottom-19 md:bottom-28 lg:bottom-[120px] xl:bottom-[150px] left-0 z-[2] overflow-hidden" ref={imageContainerRefTwo}>
         <motion.img style={{y:imageY}} variants={fadeIn(0.6)} initial="hidden" animate="show" viewport={{amount: 0.2, once: true}} src={projectdetails.image} width={1620} height={750} alt={projectdetails.title} 
-        className="w-full h-[200px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px] 3xl:h-[750px] object-cover scale-110" />
+        className="w-full h-[250px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px] 3xl:h-[750px] object-cover scale-110" />
       </div>
       <div className="container relative md:bottom-[70px] bottom-10 left-0 2xl:pb-[50px]">
         {/* <motion.h2 variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 font-light mb-7  xl:mb-10  2xl:mb-[58px] leading-[1.17]">About Project</motion.h2> */}

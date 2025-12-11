@@ -165,7 +165,7 @@ const ProjectLists = () => {
           className="border-y border-cmnbdr mt-10 xl:mt-25 mb-8 xl:mb-15 3xl:mb-30 py-4 md:py-6 xl:py-[35px]"
         >
           <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-0">
-            <div className="flex flex-col md:flex-row gap-5 lg:gap-12  2xl:gap-25  3xl:gap-[174px] justify-between">
+            <div className="flex flex-col md:flex-row gap-5 items-center lg:gap-12  2xl:gap-25  3xl:gap-[174px] justify-between">
               <div className="flex flex-col md:flex-row gap-3 lg:gap-10 2xl:gap-[90px] ">
                 {/* Sector */}
                 <div className="w-full lg:w-fit relative">
@@ -192,7 +192,7 @@ const ProjectLists = () => {
                         />
                       </svg>
                     </Listbox.Button>
-                    <Listbox.Options className="border-0 outline-0 absolute w-[200px] bg-white rounded-sm shadow-sm z-[1]">
+                    <Listbox.Options className="border-0 outline-0 absolute w-full md:w-[200px] bg-white rounded-sm shadow-sm z-[1]">
                       {sector.map((opt) => (
                         <Listbox.Option
                           key={opt.id}
@@ -233,7 +233,7 @@ const ProjectLists = () => {
                         />
                       </svg>
                     </Listbox.Button>
-                    <Listbox.Options className="border-0 outline-0 absolute w-[120px] bg-white rounded-sm shadow-sm z-[1]">
+                    <Listbox.Options className="border-0 outline-0 absolute w-full md:w-[120px] bg-white rounded-sm shadow-sm z-[1]">
                       {status.map((opt) => (
                         <Listbox.Option
                           key={opt.id}
@@ -277,7 +277,7 @@ const ProjectLists = () => {
                         />
                       </svg>
                     </Listbox.Button>
-                    <Listbox.Options className="border-0 outline-0 absolute w-[150px] bg-white rounded-sm shadow-sm z-[1]">
+                    <Listbox.Options className="border-0 outline-0 absolute w-full md:w-[150px] bg-white rounded-sm shadow-sm z-[1]">
                       {country.map((opt) => (
                         <Listbox.Option
                           key={opt.id}
@@ -321,7 +321,7 @@ const ProjectLists = () => {
                         />
                       </svg>
                     </Listbox.Button>
-                    <Listbox.Options className="border-0 outline-0 absolute w-[200px] bg-white rounded-sm shadow-sm z-[1]">
+                    <Listbox.Options className="border-0 outline-0 absolute w-full md:w-[200px] bg-white rounded-sm shadow-sm z-[1]">
                       {service.map((opt) => (
                         <Listbox.Option
                           key={opt.id}
@@ -497,7 +497,7 @@ const ProjectLists = () => {
                   </div>
                 </div>
                 <div>
-                  <h2 className="text-29 leading-[1.344827586206897] font-light py-4 md:py-6 xl:max-w-[90%]">
+                  <h2 className="text-29 truncate leading-[1.344827586206897] font-light py-4 md:py-6 xl:max-w-[90%]">
                     {item.title}
                   </h2>
                 </div>
@@ -568,10 +568,10 @@ const ProjectLists = () => {
                     <div>
                       <div className="bg-f5f5 p-5 xl:py-[18px] xl:px-[30px]">
                         <div className="flex gap-5 3xl:gap-[168px] justify-between border-b border-b-black/20 pb-[11px] mb-[7px] ">
-                          <p className="text-paragraph text-19 font-light leading-[2] ">
+                          <p className="text-paragraph text-19 font-light  leading-[1.4] md:leading-[2] ">
                             Sector: <br className="hidden lg:block 2xl:hidden"></br>{item.sector}
                           </p>
-                          <p className="text-paragraph text-19 font-light leading-[2] xl:pe-6">
+                          <p className="text-paragraph text-19 font-light leading-[1.4] md:leading-[2] xl:pe-6">
                             BUA (Sq.ft): <br className="hidden lg:block 2xl:hidden"></br>{item.sqft}
                           </p>
                         </div>

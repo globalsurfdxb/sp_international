@@ -57,7 +57,7 @@ const ValuesSection = () => {
         {/* Left Section */}
         <div className="relative w-full md:w-1/2 flex flex-col justify-center pb-6 md:py-0 overflow-hidden">
           {/* Background SVG (always fixed bottom-right) */}
-          <motion.img style={{ y: shapeY }} variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src={image} alt="background design" className="absolute bottom-0 right-0 pointer-events-none object-contain md:object-cover opacity-90 w-[220px] sm:w-[300px] md:w-[360px] lg:w-[420px] xl:w-[425px] h-auto " />
+          <motion.img style={{ y: shapeY }} variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src={image} alt="background design" className="absolute bottom-0 right-0 pointer-events-none object-contain md:object-cover opacity-90 w-[220px] sm:w-[300px] md:w-[360px] lg:w-[420px] xl:w-[244px] 2xl:w-[425px] h-auto " />
           <div className={`relative z-10 ${!isWideScreen ? "container" : ""}`}>
             {/* <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-60 font-light leading-[1.166666666666667] max-w-[390px] mb-[24px] md:mb-[30px]">
               {title}

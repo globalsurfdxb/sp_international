@@ -120,7 +120,7 @@ const Index = () => {
         <MainNavbar /> 
       </header>
       <section className="relative overflow-hidden" ref={sectionRef}>
-         <div className="absolute top-[61px] lg:top-0 right-0 2xl:right-[-50px] z-0">
+         <div className="absolute top-[61px] lg:top-0 right-0 2xl:right-[-50px] z-[-1]">
         <motion.img style={{ y: shapeY }} src="/assets/images/project-details/bannerbg.svg" alt="" className="w-[150px] h-[376px] md:w-[377px] md:h-[476px] lg:w-[577px] lg:h-[576px] object-fit" />
       </div>
         {/* <img src="./assets/images/shape-left.svg" alt="" className="absolute  bottom-30 left-0 z-[-1]" /> */}
@@ -241,7 +241,7 @@ const Index = () => {
 
           {/* Grid */}
           <div
-            className={`relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-10 xl:gap-y-15 2xl:gap-y-30 mb-10 xl:mb-12 2xl:mb-[100.32px] transition-all duration-300 ${
+            className={`relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-10 xl:gap-y-15 2xl:gap-y-20 3xl:gap-y-30 mb-10 xl:mb-12 2xl:mb-[100.32px] transition-all duration-300 ${
               isAnimating
                 ? "opacity-0 translate-y-4"
                 : "opacity-100 translate-y-0"
@@ -358,8 +358,8 @@ const Index = () => {
         </div>
 
 
-        <div className={`absolute bottom-1/8 left-[-141px] 3xl:left-0 z-[-1] ${bgImagehide ? 'block':'hidden'}`}>
-          <motion.img style={{ y: shapeY }} src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit 2xl-w[754px] 2xl-h[1056px] relative 2xl:top-[14px] " />
+        <div className={`absolute   bottom-1/8 lg:left-[-141px] 3xl:left-0 z-[-1] right-0 lg:right-auto w-fit ${bgImagehide ? 'block':'hidden'}`}>
+          <motion.img style={{ y: shapeY }} src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit w-[350px] 2xl-w[754px] 2xl-h[1056px] relative 2xl:top-[14px] " />
         </div>
       </section>
       <footer>
