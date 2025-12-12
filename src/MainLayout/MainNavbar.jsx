@@ -55,13 +55,14 @@ const MainNavbar = () => {
       ]
     },
     { name: 'Global Presence', submenu: null,href:"/global-presence" },
-    {
+    {  
       name: 'Projects', href:"/projects"
       // submenu: ['Residential', 'Commercial', 'Industrial', 'Infrastructure']
     },
     { name: 'Our Commitments',  submenu: [  
         { name: 'Community Engagement', href:"/community-engagement" }, 
-        { name: 'Safety & Quality', href:"/quality-safety" }, 
+        { name: 'HSE', href:"/hse" }, 
+        { name: 'Safety ', href:"/safety" }, 
       ] },
     { name: 'Newsroom',  submenu: [  
         { name: 'Press Releases', href:"/press-releases" }, 
@@ -128,7 +129,7 @@ const MainNavbar = () => {
     <>
      <nav
         ref={navRef}
-        className={`min-h-[74px] md:min-h-[91px]
+        className={`min-h-[74px] md:min-h-[78.14px] xl:min-h-[91px]
           border-b border-[#f0f0f0]
           bg-white
           z-50 fixed
@@ -144,11 +145,11 @@ const MainNavbar = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center gap-[10px] z-[60]">
-             <Link to="/"> <img src="./assets/images/main-logo.svg" alt="logo" /></Link>
+             <Link to="/"> <img src="./assets/images/main-logo.svg" alt="logo" className='w-[101px] lg:w-[80px] xl:w-[101px]' /></Link>
             </div>
 
             {/* Desktop Menu */}
-            <ul className="hidden lg:flex items-center gap-2 xl:gap-3 3xl:gap-[35px]">
+            <ul className="hidden lg:flex items-center gap-3 xl:gap-4 3xl:gap-[35px]">
               {menuItems.map((item, index) => (
                 <li key={index} className="relative group">
                   {/* <Link
@@ -213,16 +214,16 @@ const MainNavbar = () => {
            <div className="flex items-center gap-3">
              {/* Desktop Actions */}
             <div className="hidden md:flex items-center">
-              <button className="bg-gradient-to-r from-[#30B6F9] to-[#1E45A2] text-white text-13 leading-[1.230769230769231] font-300 uppercase rounded-full px-[22px] py-[7.5px] cursor-pointer mr-3 hover:scale-[1.03] transition-all duration-300">
+              <button className="bg-gradient-to-r from-[#30B6F9] to-[#1E45A2] text-white text-13 leading-[1.230769230769231] font-300 uppercase rounded-full px-4 2xl:px-[22px] py-[7.5px] cursor-pointer mr-3 hover:scale-[1.03] transition-all duration-300">
                 العربية
               </button>
               <div className="leading-[1] p-[1px] rounded-full bg-gradient-to-r from-[#30B6F9] via-[#1E45A2] to-[#30B6F9] animate-[gradient_3s_linear_infinite] bg-[length:200%_200%] inline-block transition-all duration-300 hover:shadow-[0_0_12px_rgba(48,182,249,0.6)] hover:scale-[1.03] cursor-pointer">
-                <button className="uppercase text-[10px] xl:text-16 leading-[1.75] font-300 px-[10px] xl:px-[18px] py-[1.5px] bg-white rounded-full transition-all duration-300 hover:bg-[#f7faff]">
+                <button className="uppercase text-[10px] xl:text-[12px] 2xl:text-16 leading-[1.75] font-300 px-[10px] 2xl:px-[18px] py-[5px] xl:py-1 2xl:py-[1.5px]  bg-white rounded-full transition-all duration-300 hover:bg-[#f7faff]">
                   Employee login
                 </button>
               </div>
-              <button className="cursor-pointer bg-[#000000CC] rounded-full p-[2px] w-[30px] h-[30px]  xl:w-[45px] xl:h-[45px] flex items-center justify-center ml-3 xl:ml-5 transition-all duration-300 hover:shadow-[0_0_12px_rgba(48,182,249,0.6)] group">
-                <img src="./assets/images/icons/search-icon.svg" alt="search" className="group-hover:scale-[1.1] transition-all duration-300 w-[12px] h-[12px] xl:w-[18px] xl:h-[18px]" />
+              <button className="cursor-pointer bg-[#000000CC] rounded-full p-[2px] w-[30px] h-[30px]  2xl:w-[45px] 2xl:h-[45px] flex items-center justify-center ml-3 xl:ml-5 transition-all duration-300 hover:shadow-[0_0_12px_rgba(48,182,249,0.6)] group">
+                <img src="./assets/images/icons/search-icon.svg" alt="search" className="group-hover:scale-[1.1] transition-all duration-300 w-[12px] h-[12px] 2xl:w-[18px] 2xl:h-[18px]" />
               </button>
             </div>
 

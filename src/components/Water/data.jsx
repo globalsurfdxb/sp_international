@@ -3,33 +3,33 @@ export const wtrData = {
     mainSection: {
         title: "Water Systems with Strategic Engineering Depth",
         desc: ["Shapoorji Pallonji’s Water Division undertakes end-to-end execution of critical water infrastructure. From large-diameter transmission pipelines to desalination and complex urban utility networks, the division supports essential water systems through robust engineering, advanced integration, and disciplined execution across challenging environments."],
-        vdo: "./assets/videos/cmn-dummy-vdo.mp4",
-        vdoPoster: "./assets/images/water/wtr-main.jpg"
+        vdo: "./assets/videos/aerial-view.mp4",
+        vdoPoster: "./assets/images/water/vdo-poster.jpg"
     },
     expertiseData: {
         title: "Our Expertise",
         items: [
             {
                 title: "Water Infrastructure Projects",
-                image: "./assets/images/water/expertise.jpg",
+                image: "./assets/images/water/exi1.jpg",
                 desc: ["Execution of large-diameter transmission pipelines using open-cut and micro-tunnelling methods, supported by associated chambers, valves, and utility structures. Includes conversion of butterfly valves to motorised systems with full SCADA integration."],
 
             },
             {
                 title: "Specialized Utility Solutions",
-                image: "./assets/images/water/rtd.jpg",
+                image: "./assets/images/water/exi2.jpg",
                 desc: ["Diversions, relocations, and tie-in connections coordinated with authorities, executed in live environments while maintaining continuity of existing services."],
 
             },
             {
                 title: "Water Storage Reservoirs",
-                image: "./assets/images/water/expertise.jpg",
+                image: "./assets/images/water/exi3.jpg",
                 desc: ["Design, construction, testing and commissioning of reservoirs, including ancillary infrastructure such as pump stations, chemical buildings, access roads, and connecting pipelines."],
 
             },
             {
                 title: "Desalination Plants",
-                image: "./assets/images/water/expertise.jpg",
+                image: "./assets/images/water/exi4.jpg",
                 desc: ["Construction of desalination support facilities including potable water pump stations, backwash tanks, chemical storage buildings, internal roads and associated networks."],
 
             },

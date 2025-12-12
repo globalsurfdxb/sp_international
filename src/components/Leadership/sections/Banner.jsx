@@ -4,10 +4,10 @@ import { motion } from "framer-motion"
 import { moveUp } from "../../../motionVarients"
 const Banner = () => {
   return ( 
-    <section className="py25 3xl:pt-[171px] 3xl:pb-[76px] bg-f5f5 relative overflow-hidden">
-      <img src={assets.mainShape2} alt="" className="absolute bottom-10 right-0 w-[487px] h-fit" />
+    <section className="py-11 xl:py-15 2xl:py-22 3xl:pt-[171px] 3xl:pb-[76px] bg-f5f5 relative overflow-hidden">
+      <img src={assets.mainShape2} alt="" className="absolute -bottom-15 md:bottom-7 -right-2  w-[150px] md:w-[327px] lg:w-[327px] 3xl:w-[487px] h-fit" />
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 3xl:grid-cols-[830px_auto]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 3xl:grid-cols-[830px_auto] gap-5 lg:gap-0">
           <div>
             <h1 className="text-70 font-light leading-[1.071428571428571]">
               <SplitTextAnimation children={"Leadership"} staggerDelay={0.2} animationDuration={0.8} delay={0.2}/>

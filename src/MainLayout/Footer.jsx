@@ -19,7 +19,7 @@ const Footer = () => {
             <motion.img variants={fadeIn(0.5)} initial="hidden" animate="show" src="./assets/images/logo.svg" alt="logo" className="w-[169px] h-auto" />
           </div>
           <div className="lg:pl-20 xl:pl-20 2xl:pl-[107px] pb-6 md:pb-9 lg:pb-15 xl:pb-20">
-            <motion.p variants={moveUp(0.2)} initial="hidden" animate="show" className="text-19 font-300 leading-[1.578947368421053] text-white/70 mb-[22px] max-w-[35ch]">Al Hudaiba Mall, Al Mina Street P.O. Box No. 118219 Dubai, UAE, Office 307, 3rd Floor</motion.p>
+            <motion.p variants={moveUp(0.2)} initial="hidden" animate="show" className="text-19 font-300 leading-[1.578947368421053] text-white/70 mb-[22px] max-w-[35ch]">Al Hudaiba Mall, Al Mina Street <br />P.O. Box No. 118219 Dubai, UAE <br />Office 307, 3rd Floor </motion.p>
             <motion.div variants={moveUp(0.3)} initial="hidden" animate="show" className="flex flex-wrap items-center gap-[22px] 2xl:gap-[40px] 3xl:gap-[62px] mb-[35px]">
               <a href="tel:+97142156222" className="text-19 lg:text-20 xl:text-29 font-300 leading-[1.344827586206897]">+971 42156222</a>
               <a href="mailto:info@spinternational.com" className="text-19 lg:text-20 xl:text-29 font-300 leading-[1.344827586206897]">info@spinternational.com</a>
@@ -29,12 +29,12 @@ const Footer = () => {
               
                 <li className="relative p-[2px] rounded-full bg-[linear-gradient(90deg,#30B6F9,#1E45A2,#30B6F9)] bg-[length:200%_200%] animate-[gradient_3s_linear_infinite] inline-flex items-center justify-center transition-all duration-300 hover:scale-[1.08]">
                   <a href="#" className="w-[34px] h-[34px] rounded-full bg-black flex items-center justify-center">
-                    <img src="./assets/images/icons/linked-in.svg" alt="linked-in" />
+                    <img src="./assets/images/icons/insta.svg" alt="insta" className="invert-100 w-[16px]" />
                   </a>
                 </li>
                 <li className="relative p-[2px] rounded-full bg-[linear-gradient(90deg,#30B6F9,#1E45A2,#30B6F9)] bg-[length:200%_200%] animate-[gradient_3s_linear_infinite] inline-flex items-center justify-center transition-all duration-300 hover:scale-[1.08]">
                   <a href="#" className="w-[34px] h-[34px] rounded-full bg-black flex items-center justify-center">
-                    <img src="./assets/images/icons/fb.svg" alt="fb" />
+                    <img src="./assets/images/icons/linked-in.svg" alt="linked-in" />
                   </a>
                 </li>
                 <li className="relative p-[2px] rounded-full bg-[linear-gradient(90deg,#30B6F9,#1E45A2,#30B6F9)] bg-[length:200%_200%] animate-[gradient_3s_linear_infinite] inline-flex items-center justify-center transition-all duration-300 hover:scale-[1.08]">
