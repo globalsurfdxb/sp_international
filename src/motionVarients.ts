@@ -52,7 +52,7 @@ export const moveLeft = (delay: number = 0) => ({
       ease: silkyEase,
     },
   },
-});
+}); 
 
 export const moveRight = (delay: number = 0) => ({
   hidden: { opacity: 0, x: -60 },
