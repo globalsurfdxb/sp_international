@@ -1,13 +1,13 @@
  
 import MainNavbar from "../../MainLayout/MainNavbar";
 import Footer from "../../MainLayout/Footer"; 
-import Banner from "../common/Banner";  
+import Banner from "../../components/common/Banner";  
 import CoreValues from "./sections/CoreValues"; 
 // import EnsuringSafety from "./sections/EnsuringSafety";
 import { EnsuringSafetyData } from "./data";
 import Certifications from "./sections/Certifications";
 import SaftySlider from "./sections/SaftySlider";
-import ImgPointsComponent from "../common/ImgPointsComponent";
+import ImgPointsComponent from "../../components/common/ImgPointsComponent";
 const QualitySafety = () => {
   return (
     <>
