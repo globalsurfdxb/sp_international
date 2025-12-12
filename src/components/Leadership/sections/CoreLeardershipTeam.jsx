@@ -106,12 +106,37 @@ const filteredTeam =
         <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-6 3xl:gap-y-18">
           {filteredTeam.map((member, index) => (
             <motion.div variants={moveUp(0.5 + 0.2*index)} initial="hidden" whileInView="show" viewport={{amount: 0.1, once: true}} key={index} className="relative">
-              <div className="relative">
-                <img src={member.image} alt={member.name} className="w-full h-[250px] 2xl:h-[333px] object-contain rounded-xl mb-4" />
+              <div className="relative group">
+                <img src={member.image} alt={member.name} className="w-full h-[250px] 2xl:h-[333px] object-contain rounded-xl mb-5 md:mb-[27px]" />
                 <div className="absolute bottom-0 left-0 bg-f5f5 w-full h-[67%] max-h-[383px] z-[-1]"></div>
+                <div className=" opacity-0 group-hover:opacity-100 transition-all duration-300 absolute left-0 bottom-0 w-[50px] h-[50px]  xl:w-[80px] xl:h-[80px] flex items-center justify-center bg-primary">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="-translate-x-2 group-hover:translate-x-0 translate-y-2 group-hover:translate-y-0 transition-all duration-500 w-[25px] h-[25px] lg:w-[25px] lg:h-[25px]"
+                      width="35"
+                      height="35"
+                      viewBox="0 0 35 35"
+                      fill="none"
+                    >
+                      <path
+                        d="M1.25 1.25H33.2484V33.2411"
+                        stroke="#30B6F9"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M33.2498 1.25L1.4043 33.2411"
+                        stroke="#30B6F9"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
               </div>
-              <h3 className="text-29 font-light leading-[1.344827586206897]">{member.name}</h3>
-              <p className="text-gray-600">{member.position}</p>
+              <h3 className="text-29 font-light leading-[1.344827586206897] mb-[7px]">{member.name}</h3>
+              <p className="text-paragraph text-19 font-light">{member.position}</p>
             </motion.div>
           ))}
         </div>
@@ -121,3 +146,5 @@ const filteredTeam =
 }
 
 export default CoreLeardershipTeam;
+
+
