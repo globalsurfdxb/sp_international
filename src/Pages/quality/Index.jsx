@@ -1,4 +1,4 @@
-import QualitySafety from "../../components/QualitySafety/Index";
+import QualitySafety from "../../components/Quality/Index";
 const Index = () => {
   return ( 
     <>

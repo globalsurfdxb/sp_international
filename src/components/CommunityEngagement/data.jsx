@@ -54,7 +54,7 @@ export const contactData = {
   name: "SP International",
   address: "Al Hudaiba Mall, Al Mina Street Dubai, UAE P.O. Box No. 118219, Office 307, 3rd Floor Dubai, UAE",
   phone: "+971-42156222",
-  email: "info@spinternational.ae",
+  email: "info@spinternational.com",
   location: "",
 
 

@@ -1,20 +1,20 @@
  
 import MainNavbar from "../../MainLayout/MainNavbar";
 import Footer from "../../MainLayout/Footer"; 
-import Banner from "../../components/common/Banner";  
+import Banner from "../common/Banner";  
 import CoreValues from "./sections/CoreValues"; 
 // import EnsuringSafety from "./sections/EnsuringSafety";
 import { EnsuringSafetyData } from "./data";
 import Certifications from "./sections/Certifications";
 import SaftySlider from "./sections/SaftySlider";
-import ImgPointsComponent from "../../components/common/ImgPointsComponent";
-const QualitySafety = () => {
+import ImgPointsComponent from "../common/ImgPointsComponent";
+const Hse = () => {
   return (
     <>
       <header className="">
         <MainNavbar /> 
       </header>
-        <Banner title="Quality & Safety" image="/assets/images/qualitysafety/qbanner.jpg" />
+        <Banner title="HSE" image="/assets/images/qualitysafety/qbanner.jpg" />
        <CoreValues /> 
         <Certifications />
         <SaftySlider />
@@ -27,4 +27,4 @@ const QualitySafety = () => {
   );
 }
 
-export default QualitySafety;
+export default Hse;
