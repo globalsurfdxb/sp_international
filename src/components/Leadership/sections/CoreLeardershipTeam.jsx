@@ -51,10 +51,10 @@ const CoreLeardershipTeam = ({ data }) => {
             onChange={(value) => setSelected(value)}
             onClose={() => setQuery('')}
           >
-            <div className="relative">
+            <div className="relative 2xl:-left-[196px]">
               <ComboboxInput
                 className={clsx(
-                  'w-fit rounded-lg border-none bg-white/5 py-1.5 pr-8 pl-3 text-16 text-black ',
+                  'w-fit rounded-lg border-none bg-white/5 py-1.5 pr-3 pl-3 text-16 text-black  ',
                   'placeholder:text-paragraph placeholder:text-sm placeholder:uppercase  placeholder:font-semibold',
                   'focus:not-data-focus:outline-none data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-white/25'
                 )}

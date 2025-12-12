@@ -74,7 +74,7 @@ const Banner = () => {
 
   return (
     <section ref={sectionRef} className="relative w-full h-[280px] lg:h-[350px] xl:h-[440px] 3xl:h-[560px] bg-secondary/20 overflow-hidden">
-    <img ref={imgRef} src="/assets/images/projects/banner.jpg" alt="" className="absolute top-0 left-0 w-full h-full object-cover object-center z-0" />
+    <img ref={imgRef} src="/assets/images/projects/banner.jpg" alt="" className="absolute top-0 left-0 w-full h-full object-cover object-top z-0" />
     <div ref={overlayRef} className="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.75)_18.92%,rgba(0,0,0,0)_72.69%)]"></div>
     <div className="container  " ref={containerRef}></div>
     <div className=" relative z-2 h-full " ref={targetRef}>

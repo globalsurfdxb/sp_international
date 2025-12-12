@@ -23,7 +23,7 @@ export const ifmData = {
                     "Waste Management & Recycling",
                     "Office Support & Mailroom Services",
                 ],
-                image: "./assets/images/ifm/expertise/exp1.jpg",
+                image: "./assets/images/ifm/expertise/exp01.jpg",
             },
             {
                 id: 2,
@@ -38,7 +38,7 @@ export const ifmData = {
                     "Civil Works & Fabric Maintenance",
                     "Energy Monitoring & Statutory Compliance"
                 ],
-                image: "./assets/images/ifm/expertise/exp1.jpg",
+                image: "./assets/images/ifm/expertise/exp02.jpg",
             },
            
             {
@@ -55,7 +55,7 @@ export const ifmData = {
                     "Temporary Staffing & Inventory Management",
                     "Custom Reporting & Integrated Support Functions"
                 ],
-                image: "./assets/images/ifm/expertise/exp1.jpg",
+                image: "./assets/images/ifm/expertise/exp03.jpg",
             }
         ]
     },
