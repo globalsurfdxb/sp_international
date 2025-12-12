@@ -49,7 +49,7 @@ const MainLayout = () => {
         <Route path="/contact-us" element={<ContactUs />} />  
         <Route path="/quality" element={<quality />} />  
         <Route path="/hse" element={<QualitySafety />} />  
-        <Route path="/hse" element={<Hse />} />  
+        {/* <Route path="/hse" element={<Hse />} />   */}
         <Route path="/community-engagement" element={<CommunityEngagement />} />  
         <Route path="/global-presence" element={<GlobalPresence />} />  
         <Route path="/water" element={<Water />} />  

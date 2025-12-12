@@ -61,7 +61,7 @@ const MainNavbar = () => {
     },
     { name: 'Our Commitments',  submenu: [  
         { name: 'Community Engagement', href:"/community-engagement" }, 
-        { name: 'Safety ', href:"/quality-safety" }, 
+        { name: 'Safety ', href:"/quality" }, 
         { name: 'Hse', href:"/hse" }, 
       ] },
     { name: 'Newsroom',  submenu: [  

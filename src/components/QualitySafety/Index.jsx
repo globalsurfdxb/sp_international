@@ -14,7 +14,7 @@ const QualitySafety = () => {
       <header className="">
         <MainNavbar /> 
       </header>
-        <Banner title="Quality & Safety" image="/assets/images/qualitysafety/qbanner.jpg" />
+        <Banner title="Health safety & environmental" image="/assets/images/qualitysafety/qbanner.jpg" />
        <CoreValues /> 
         <Certifications />
         <SaftySlider />
