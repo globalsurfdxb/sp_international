@@ -38,7 +38,7 @@ const NavPage = ({ isOpen }) => {
         >
             <div className="left-spacing w-full flex">
                 {/* LEFT = 45% */}
-                <div className="w-[45%] h-full pl-[16%] 3xl:pl-[15%] text-white flex items-center relative">
+                <div className="w-[45%] h-full pl-[16%] 3xl:pl-[15%] border-r border-white/30 text-white flex items-center relative">
                     <div className="flex flex-col gap-6 3xl:gap-8">
                         {navData.mainMenu.map((item, index) => {
                             const isLast = index === navData.mainMenu.length - 1;
@@ -71,8 +71,8 @@ const NavPage = ({ isOpen }) => {
                                     </span>
 
                                     {/* RIGHT ARROW */}
-<span
-    className={`
+                                    <span
+                                        className={`
         text-white w-[27px] h-[17px] transition-all duration-300
         ${
             activeMenu === item.id
@@ -80,14 +80,13 @@ const NavPage = ({ isOpen }) => {
                 : "opacity-0 group-hover:opacity-100 group-hover:translate-x-1"
         }
     `}
->
-    <img src="/assets/images/icons/arrow-right.svg" alt="arrow" />
-</span>
-
+                                    >
+                                        <img src="/assets/images/icons/arrow-right.svg" alt="arrow" />
+                                    </span>
 
                                     {/* UNDERLINE */}
-<span
-    className={`
+                                    <span
+                                        className={`
         absolute left-0 -bottom-1 h-[1px] bg-white/30 transition-all duration-400
         ${
             activeMenu === item.id
@@ -95,8 +94,7 @@ const NavPage = ({ isOpen }) => {
                 : "w-0 group-hover:w-full"
         }
     `}
-/>
-
+                                    />
                                 </motion.div>
                             );
                         })}
@@ -168,7 +166,7 @@ const NavPage = ({ isOpen }) => {
                                     <img src="../assets/images/ln.svg" alt="LinkedIn" width={15} height={14} />
                                 </motion.div>
                                 <motion.div
-                                    variants={moveUp(0.2)}
+                                    variants={moveUp(0.35)}
                                     initial="hidden"
                                     whileInView="show"
                                     className="flex items-center justify-center border border-[#30B6F9] cursor-pointer w-[34px] h-[34px] bg-[#00000030] rounded-full"
@@ -176,7 +174,7 @@ const NavPage = ({ isOpen }) => {
                                     <img src="../assets/images/fb.svg" alt="Facebook" width={8} height={14} />
                                 </motion.div>
                                 <motion.div
-                                    variants={moveUp(0.2)}
+                                    variants={moveUp(0.5)}
                                     initial="hidden"
                                     whileInView="show"
                                     className="flex items-center justify-center border border-[#30B6F9] cursor-pointer w-[34px] h-[34px] bg-[#00000030] rounded-full"
