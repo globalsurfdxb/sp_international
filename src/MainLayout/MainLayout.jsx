@@ -10,7 +10,7 @@ import PressReleases from "../Pages/press-releases/Index";
 import ProjectDetails from "../Pages/project-details/Index";
 import Projects from "../Pages/projects/Index";
 import NewsDetails from "../Pages/news-details/Index"; 
-import QualitySafety from "../Pages/quality-safety/Index" 
+import QualitySafety from "../Pages/hse/Index" 
 import EngineeringConstruction from "../Pages/engineering-construction/Index"; 
 import MEP from "../Pages/mep/Index";
 import DesignStudio from "../Pages/design-studio/Index";
@@ -48,7 +48,7 @@ const MainLayout = () => {
         <Route path="/integrated-facility-management" element={<IntegratedFacilityManagement />} /> 
         <Route path="/contact-us" element={<ContactUs />} />  
         <Route path="/quality" element={<quality />} />  
-        <Route path="/quality-safety" element={<QualitySafety />} />  
+        <Route path="/hse" element={<QualitySafety />} />  
         {/* <Route path="/hse" element={<Hse />} />   */}
         <Route path="/community-engagement" element={<CommunityEngagement />} />  
         <Route path="/global-presence" element={<GlobalPresence />} />  

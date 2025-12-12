@@ -1,8 +1,8 @@
-import Hse from "../../components/Hse/Index";
+import QualitySafety from "../../components/QualitySafety/Index";
 const Index = () => {
   return ( 
     <>
-    <Hse />
+    <QualitySafety />
     </>
    );
 }
