@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import NavPage from "../MainLayout/NavPage";
 
 gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(ScrollTrigger);
@@ -191,10 +192,11 @@ useEffect(() => {
   };
 
   const activeIndex = sections.findIndex((s) => s.id === activeSection);
+    const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <>
-      <div className="fixed top-13 right-0 lg:right-10 3xl:right-38 z-50 w-full ">
+      <div className="fixed top-13 right-0 lg:right-10 3xl:right-38 z-[50] w-full ">
         <div className="flex gap-8 items-center justify-between lg:justify-end ps-5 lg:ps-0">
           <div className="flex justify-center items-center lg:hidden">
             <img
@@ -262,7 +264,9 @@ useEffect(() => {
         </div>
       </div>
 
-      <header className="fixed top-0 left-0 z-50 hidden lg:block">
+      {/* <header className="fixed top-0 left-0 z-50 hidden lg:block"> */}
+      <header className="fixed top-0 left-0 z-20 hidden lg:block">
+
         <div className="flex">
           <div className="flex w-[150px] h-screen">
             {activeSection !== "section1" && (
@@ -306,14 +310,20 @@ useEffect(() => {
             )}
           </div>
           <div className="left-spacing fixed ">
-            <div
-              ref={headerRef}
-              className=" shadow ml-0 my-12 w-[125px] 3xl:w-[133px] h-[calc(100vh-100px)] relative"
-            >
+<div
+  ref={headerRef}
+  className={`shadow ml-0 my-12 w-[125px] 3xl:w-[133px] h-[calc(100vh-100px)] relative
+      transition-all duration-300
+      ${menuOpen ? "bg-white" : ""}
+  `}
+>
+
               <div className="bg-transparent  w-full absolute z-[-2] bxone"></div>
               <div className="bg-primary h-[20%] w-full absolute z-[-1] bottom-0 bxtwo"></div>
               <div className="flex flex-col justify-between h-full pt-10 pb-6 z-10 w-full">
                 <div className="flex justify-center items-center">
+                  {
+                    !menuOpen ?
                   <img
                     className="logsc"
                     src="/assets/images/logo.svg"
@@ -321,25 +331,57 @@ useEffect(() => {
                     width={90}
                     height={55}
                   />
+                  :
+                                    <img
+                    className="logsc"
+                    src="/assets/images/main-logo.svg"
+                    alt="Logo"
+                    width={90}
+                    height={55}
+                  />
+}
                 </div>
-                <div className="flex justify-center items-center ">
-                  <img
+                <div className="flex justify-center items-center">
+                  {/* <img
                     src="/assets/images/menu-crbs.svg"
                     className="mnsc cursor-pointer"
                     alt="Menu"
                     width={31}
                     height={24}
-                  />
+                  /> */}
+{!menuOpen ? (
+  // DESKTOP HAMBURGER
+  <img
+    src="/assets/images/menu-crbs.svg"
+    className="mnsc cursor-pointer"
+    alt="Menu"
+    width={31}
+    height={24}a
+    onClick={() => setMenuOpen(true)}
+  />
+) : (
+  // DESKTOP CLOSE ICON
+  <img
+    src="/assets/images/icons/close.svg"
+    className="cursor-pointer"
+    alt="Menu"
+    width={22}
+    height={22}
+    onClick={() => setMenuOpen(false)}
+  />
+)}
+
+
                 </div>
                 <div
-                  className="flex flex-col gap-3 justify-center items-center border-t border-[#ffffff20] cursor-pointer scrlldwn"
+                  className={`flex flex-col gap-3 justify-center items-center border-t ${menuOpen ? "border-[#626262]" : "border-white"} cursor-pointer scrlldwn`}
                   onClick={() => handleScroll(nextSection.id)}
                 >
-                  <p className="text-white font-[300] text-[13px] leading-[25px] pt-3">
+                  <p className={`${menuOpen ? "text-[#626262]" : "text-white"} font-[300] text-[13px] leading-[25px] pt-3`}>
                     SCROLL DOWN
                   </p>
                   {/* <img src="/assets/images/round-arrow-down-menu.svg" alt="Arrow" width={87} height={87} /> */}
-                  <div className="flex items-center relative group">
+                  <div className={`flex items-center relative group ${menuOpen ? "border rounded-full border-[#626262]" : ""}`}>
                     <img
                       src="/assets/images/round-circle.svg"
                       alt="Arrow"
@@ -367,11 +409,13 @@ useEffect(() => {
         onClick={() => handleScroll(nextSection.id)}
       >
         <div className="w-[35px] h-[35px] bg-primary flex items-center justify-center  mx-auto mb-7">
-          <div className="w-[22px] h-[22px] border border-white rounded-full flex items-center justify-center ">
+          <div className={`${menuOpen ? "border-[#626262]" : "border-white"} w-[22px] h-[22px] border rounded-full flex items-center justify-center `}>
             <img src="../assets/images/home/downarrow.svg" />
           </div>
         </div>
       </div>
+      <NavPage isOpen={menuOpen} closeMenu={() => setMenuOpen(false)} />
+
     </>
   );
 };
