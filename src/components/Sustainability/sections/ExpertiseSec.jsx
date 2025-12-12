@@ -84,7 +84,8 @@ const ExpertiseSec = () => {
 
   return (
     <section className="relative pt-text90 pb25 bg-f5f5 overflow-hidden" ref={sectionRef}>
-      <div className="absolute bottom-[-150px] 3xl:bottom-0 right-0 w-[400px] 3xl:w-[573px] h-[803px]"><motion.img style={{y:shapeY}} src={assets.mainShape} alt="" /></div>
+        <div className="absolute bottom-0   lg:bottom-[-150px] 3xl:bottom-0 right-0 w-[200px] md:w-[300px] lg:w-[400px] 3xl:w-[522px] h-[281px] md:h-[431px] lg:h-[731px]"><motion.img style={{y:shapeY}} src={assets.mainShape} alt="" /></div>
+        
       <div className="container">
         {/* Header */}
         <H2Title titleText={expertiseData.title} titleColor="black" marginClass="mb-4 xl:mb-50px" />

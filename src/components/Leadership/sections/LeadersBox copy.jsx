@@ -33,7 +33,7 @@ const LeaderBox = ({ data }) => {
   const shapeY = useTransform(shapeProgress, [0, 1], shapeOffset);
   return (
     <section className="relative overflow-hidden" ref={sectionRef}>
-        <motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="absolute left-0 bottom-20 w-[40%] 3xl:w-[764px]" />
+        <motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="absolute right-0 lg:left-0 bottom-20 w-[150px] md:w-[40%] 3xl:w-[764px]" />
       <div className="container">
        <div className="border-b border-cmnbdr relative overflow-hidden mb-5 xl:mb-20 2xl:mb-25">
           <div className="grid items-center grid-cols-1 lg:grid-cols-2 3xl:grid-cols-[739px_auto]  pt25 3xl:pt-18 pb-10 3xl:pb-[135px]">

@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { moveUp } from "../../../motionVarients";
 import SplitTextAnimation from "../../../components/common/SplitTextAnimation";
 const ContactDetails = () => {
+  
   const [subject, setSubject] = useState(null);
 
   const options = [
@@ -41,7 +42,11 @@ const ContactDetails = () => {
       background: state.isFocused ? "#1A2D47" : "transparent",
       color: "white",
       cursor: "pointer",
+    paddingLeft: "10px",   
+    fontSize: "14px",
     }),
+     
+  
   };
   return (
     <section className="pt-text30 bg-f5f5 pb-10 lg:pb-0">
@@ -132,8 +137,8 @@ const ContactDetails = () => {
                     value={subject}
                     onChange={setSubject}
                     styles={customStyles}
-                    placeholder="" // hide placeholder for floating label
-                    classNamePrefix="react-select font-light text-19 !px-0 " 
+                    placeholder=""
+                    classNamePrefix="react-select font-light text-19 !px-0"
                   />
                 </div>
               </motion.div>
