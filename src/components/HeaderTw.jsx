@@ -374,7 +374,7 @@ useEffect(() => {
 
                 </div>
                 <div
-                  className={`flex flex-col gap-3 justify-center items-center border-t ${menuOpen ? "border-[#626262]" : "border-white"} cursor-pointer scrlldwn`}
+                  className={`flex flex-col gap-3 justify-center items-center border-t ${menuOpen ? "border-[#626262]" : "border-white/25"} cursor-pointer scrlldwn`}
                   onClick={() => handleScroll(nextSection.id)}
                 >
                   <p className={`${menuOpen ? "text-[#626262]" : "text-white"} font-[300] text-[13px] leading-[25px] pt-3`}>
