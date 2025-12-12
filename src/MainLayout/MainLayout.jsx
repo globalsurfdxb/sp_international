@@ -17,7 +17,7 @@ import DesignStudio from "../Pages/design-studio/Index";
 import InteriorDesign from "../Pages/interior-design/Index";
 import Gallery from "../Pages/gallery/Index";   
 import ContactUs from "../Pages/contact-us/Index" 
-import Quality from "../Pages/quality/Index"  
+import Quality from "../Pages/safety/Index"  
 import CommunityEngagement from "../Pages/community-engagement/Index" 
 import GlobalPresence from "../Pages/global-presence/Index" 
 import Water from "../Pages/water/Index" 
@@ -43,11 +43,10 @@ const MainLayout = () => {
         <Route path="/engineering-construction" element={<EngineeringConstruction />} /> 
         <Route path="/design-studio" element={<DesignStudio />} /> 
         <Route path="/interior-design" element={<InteriorDesign />} /> 
-        <Route path="/quality" element={<Quality />} />  
+        <Route path="/safety" element={<Quality />} />  
         <Route path="/facade" element={<Facade />} />
         <Route path="/integrated-facility-management" element={<IntegratedFacilityManagement />} /> 
-        <Route path="/contact-us" element={<ContactUs />} />  
-        <Route path="/quality" element={<quality />} />  
+        <Route path="/contact-us" element={<ContactUs />} />   
         <Route path="/hse" element={<QualitySafety />} />  
         {/* <Route path="/hse" element={<Hse />} />   */}
         <Route path="/community-engagement" element={<CommunityEngagement />} />  
