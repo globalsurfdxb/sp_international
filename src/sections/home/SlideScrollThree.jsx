@@ -1619,36 +1619,43 @@ const mapactive = useRef([]);
     {
       image: "/assets/images/services/engineering-construction.jpg",
       title: "Engineering & Construction",
+      link:"/engineering-construction",
       description: "Spanning 20 countries, we transform complex visions into major projects. From iconic stadiums and theme parks to advanced healthcare and commercial facilities, we deliver innovative, high-quality projects designed to meet every client’s needs.",
     },
     {
       image: "/assets/images/services/servicemain.jpg",
       title: "Design Studio",
+      link:"/design-studio",
       description: "We drive complex civil projects with advanced digital design and BIM. From integrated Design & Build to expert standalone services, we develop visionary structures with precision and expertise.",
     },
     {
       image: "/assets/images/services/mep.jpg",
       title: "MEP",
+      link:"/mep",
       description: "Our MEP division forms the backbone of major structures. We design, install, and manage fully integrated mechanical, electrical, and plumbing systems that ensure reliable, long-term operation.",
     },
     {
       image: "/assets/images/services/interior-fit-out.jpg",
       title: "Interior Fit-out",
+      link:"/interior-design",
       description: "SPINT’s Interior Division (SPID) delivers turnkey interior solutions across sectors, blending thoughtful design, uncompromising quality, and punctual execution to create spaces that truly inspire.",
     },
     {
       image: "/assets/images/services/Facade.jpg",
       title: "Façade",
+      link:"/facade",
       description: "From concept to completion, we combine the art and science of facades for complex structures. We design, engineer, and deliver custom, high-performance building for landmark projects worldwide.",
     },
     {
       image: "/assets/images/services/Facility-Management.jpg",
       title: "Facilities Management",
+      link:"/integrated-facility-management",
       description: "We provide fully integrated FM solutions, combining global expertise with local insight. This ensures smooth operations, optimised asset performance, and improved occupant experiences across every property.",
     },
     {
       image: "/assets/images/services/Water.jpg",
       title: "Water",
+      link: "/water",
       description: "We deliver essential water infrastructure, from urban pipelines to complex desalination plants. Our expertise ensures every project is executed safely, efficiently, and to the highest standards.",
     },
   ];
@@ -2427,24 +2434,26 @@ const mapactive = useRef([]);
                     <div className=" flex lg:flex-col gap-6 lg:gap-0 overflow-x-auto scrollbar-hide whitespace-nowrap lg:whitespace-normal lg:overflow-x-hidden   border-b border-[#ffffff20]  mb-5 lg:mb-0 pt-[4dvh] lg:pt-18 lg:pb-21 3xl:pt-14 3xl:pb-21 pr-2">
                       {content.map((service, index) => (
                           <div key={index} className={`flex items-center gap-3 cursor-pointer group `} ref={(el) => (textItemsRef.current[index] = el)}>
-                          <p
-                            className={`${activeServiceIndex === index ? "text-white lg:text-black font-bold bo " : "text-white/70 lg:text-black font-light"} text-14px lg:text-[22px] 3xl:text-28 leading-[1.607142857142857] lg:leading-[1.9]  2xl:leading-[1.70]  3xl:leading-[1.607142857142857]  cursor-pointer group-hover:text-black group-hover:font-bold `}
-                            onMouseOver={() =>
-                            [setActiveService({
-                                image: service.image,
-                                title: service.title,
-                                description: service.description,
-                                index,
-                              }),
-                              
-                              setActiveServiceIndex(index)]
-                            }
-                          >
-                            <span className="duration-100">
-                              {" "}
-                              {service.title}
-                            </span>
-                          </p>
+                          <a href={service.link}>
+                            <p
+                              className={`${activeServiceIndex === index ? "text-white lg:text-black font-bold bo " : "text-white/70 lg:text-black font-light"} text-14px lg:text-[22px] 3xl:text-28 leading-[1.607142857142857] lg:leading-[1.9]  2xl:leading-[1.70]  3xl:leading-[1.607142857142857]  cursor-pointer group-hover:text-black group-hover:font-bold `}
+                              onMouseOver={() =>
+                              [setActiveService({
+                                  image: service.image,
+                                  title: service.title,
+                                  description: service.description,
+                                  index,
+                                }),
+                            
+                                setActiveServiceIndex(index)]
+                              }
+                            >
+                              <span className="duration-100">
+                                {" "}
+                                {service.title}
+                              </span>
+                            </p>
+                          </a>
                           <img
                             src="../assets/images/services/arrowblw.svg"
                             className={`${activeServiceIndex === index ? "hidden lg:block" : "hidden "} transform-all duration-300 delay-300   group-hover:block `}
