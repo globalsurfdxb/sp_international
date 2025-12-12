@@ -25,7 +25,7 @@ import Facade from "../Pages/facade/Index";
 import IntegratedFacilityManagement from "../Pages/integrated-facility-management/Index";
 import Leadership from "../Pages/leadership/Index";
 import Sustainability from "../Pages/sustainability/Index";
-import Hse from "../Pages/Hse/Index";
+// import Hse from "../Pages/Hse/Index";
 const MainLayout = () => {
   return (
     <BrowserRouter>
@@ -49,7 +49,7 @@ const MainLayout = () => {
         <Route path="/contact-us" element={<ContactUs />} />  
         <Route path="/quality" element={<quality />} />  
         <Route path="/quality-safety" element={<QualitySafety />} />  
-        <Route path="/hse" element={<Hse />} />  
+        {/* <Route path="/hse" element={<Hse />} />   */}
         <Route path="/community-engagement" element={<CommunityEngagement />} />  
         <Route path="/global-presence" element={<GlobalPresence />} />  
         <Route path="/water" element={<Water />} />  
