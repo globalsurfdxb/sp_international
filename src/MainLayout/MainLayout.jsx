@@ -9,18 +9,18 @@ import AboutUs from "../Pages/about-us/Index";
 import PressReleases from "../Pages/press-releases/Index";
 import ProjectDetails from "../Pages/project-details/Index";
 import Projects from "../Pages/projects/Index";
-import NewsDetails from "../Pages/news-details/Index"; 
-import QualitySafety from "../Pages/hse/Index" 
-import EngineeringConstruction from "../Pages/engineering-construction/Index"; 
+import NewsDetails from "../Pages/news-details/Index";
+import QualitySafety from "../Pages/hse/Index"
+import EngineeringConstruction from "../Pages/engineering-construction/Index";
 import MEP from "../Pages/mep/Index";
 import DesignStudio from "../Pages/design-studio/Index";
 import InteriorDesign from "../Pages/interior-design/Index";
 import Gallery from "../Pages/gallery/Index";   
-import ContactUs from "../Pages/contact-us/Index" 
+import ContactUs from "../Pages/contact-us/Index"
 import Quality from "../Pages/safety/Index"  
-import CommunityEngagement from "../Pages/community-engagement/Index" 
-import GlobalPresence from "../Pages/global-presence/Index" 
-import Water from "../Pages/water/Index" 
+import CommunityEngagement from "../Pages/community-engagement/Index"
+import GlobalPresence from "../Pages/global-presence/Index"
+import Water from "../Pages/water/Index"
 import Facade from "../Pages/facade/Index";
 import IntegratedFacilityManagement from "../Pages/integrated-facility-management/Index";
 import Leadership from "../Pages/leadership/Index";
@@ -39,13 +39,13 @@ const MainLayout = () => {
         <Route path="/press-releases" element={<PressReleases />} />
         <Route path="/project-details" element={<ProjectDetails />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/news-details" element={<NewsDetails />} /> 
-        <Route path="/engineering-construction" element={<EngineeringConstruction />} /> 
-        <Route path="/design-studio" element={<DesignStudio />} /> 
-        <Route path="/interior-design" element={<InteriorDesign />} /> 
+        <Route path="/news-details" element={<NewsDetails />} />
+        <Route path="/engineering-construction" element={<EngineeringConstruction />} />
+        <Route path="/design-studio" element={<DesignStudio />} />
+        <Route path="/interior-design" element={<InteriorDesign />} />
         <Route path="/safety" element={<Quality />} />  
         <Route path="/facade" element={<Facade />} />
-        <Route path="/integrated-facility-management" element={<IntegratedFacilityManagement />} /> 
+        <Route path="/integrated-facility-management" element={<IntegratedFacilityManagement />} />
         <Route path="/contact-us" element={<ContactUs />} />   
         <Route path="/hse" element={<QualitySafety />} />  
         {/* <Route path="/hse" element={<Hse />} />   */}
@@ -61,5 +61,7 @@ const MainLayout = () => {
     </BrowserRouter>
   );
 };
-
+ 
 export default MainLayout;
+ 
+ 
