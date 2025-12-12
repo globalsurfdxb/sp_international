@@ -55,7 +55,7 @@ const MainNavbar = () => {
       ]
     },
     { name: 'Global Presence', submenu: null,href:"/global-presence" },
-    {
+    {  
       name: 'Projects', href:"/projects"
       // submenu: ['Residential', 'Commercial', 'Industrial', 'Infrastructure']
     },
