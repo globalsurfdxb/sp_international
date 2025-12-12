@@ -42,7 +42,7 @@ export default function TabStyle1Light({ data }) {
   return (
     <div className="w-full">
       {/* Tabs */}
-      <div className="2xl:max-w-[1209px]">
+      <div className=" 2xl:max-w-[1109px] 3xl:max-w-[1209px]">
         <div ref={tabsContainerRef} className={`flex flex-wrap w-full overflow-hidden `}>
           {data.map((tab, index) => (
             <motion.button variants={moveUp(0.4 + 0.1*index)} initial="hidden" whileInView={"show"} viewport={{once:true,amount:0.2}}
@@ -62,7 +62,7 @@ export default function TabStyle1Light({ data }) {
       </div>
 
       {/* Content */}
-      <div className="2xl:max-w-[1209px] mt-12">
+      <div className="2xl:max-w-[1109px] 3xl:max-w-[1209px] mt-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab.id}
