@@ -22,18 +22,18 @@ const EmpoweringCommunities = () => {
     offset: ["start end", "end start"]
   });
   const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
-  
+
   const [idx, setIdx] = useState(new Array(9).fill(0));
   const intervals = [
-    1200,
-    1400,
-    1300,
-    1200,
-    1400,
-    1200,
-    1300,
-    1400,
-    1200,
+    10000,
+    15000,
+    20000,
+    25000,
+    30000,
+    35000,
+    40000,
+    45000,
+    50000,
   ];
   useEffect(() => {
     const timers = all.map((arr, i) =>
@@ -50,10 +50,11 @@ const EmpoweringCommunities = () => {
   }, []);
 
   const fade = {
-    initial: { opacity: .8, scale: 1.02 },
-    animate: { opacity: 1, scale: 0.98 },
-    exit: { opacity: .9, scale: 1.02 }
+    initial: { opacity: 0, scale: 1 },
+    animate: { opacity: 1, scale: 1.1 },
+    exit: { opacity: 0, scale: 1 }
   };
+
   return (
     <section className="pt-10 xl:pt-15 2xl:pt-25 overflow-hidden relative" ref={sectionRef}>
       <div className="w-full h-[260px] sm:h-[320px] lg:h-[600px]  3xl:h-[670px] flex justify-center  gap-1 lg:gap-3 2xl:gap-[16px]">
@@ -106,7 +107,7 @@ const EmpoweringCommunities = () => {
         <div className="pb30">
           <h1 className="text-[32px] lg:text-60 font-light leading-[1.18] max-w-[20ch] text-center mb-5 2xl:mb-10 m-auto ">
             <SplitTextAnimation children={"Creating Shared Value Across Diverse Communities"} staggerDelay={0.2} animationDuration={0.8} delay={0.4} />
-            </h1>
+          </h1>
           <motion.p variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 lg:text-29 text-paragraph font-light leading-[1.285] max-w-[46ch] m-auto text-center">Our responsibility extends far beyond project delivery. With a team representing over 20 nationalities, we support the well-being of the diverse communities we serve by strengthening livelihoods, advancing education, improving healthcare, and restoring natural ecosystems. Through these efforts, we create lasting social and environmental impact alongside our developments.
           </motion.p>
         </div>
@@ -115,19 +116,20 @@ const EmpoweringCommunities = () => {
     </section>
   );
 };
+
 function Block({ src, size, fade }) {
   return (
-    <div className={`${size} relative`}>
-      <AnimatePresence mode="wait">
+    <div className={`${size} relative overflow-hidden`}>
+      <AnimatePresence mode="popLayout">
         <motion.div
           key={src}
-          className={`absolute inset-0 `}
+          className="absolute inset-0"
           initial={fade.initial}
           animate={fade.animate}
           exit={fade.exit}
-          transition={{ duration: 1.6 }}
+          transition={{ duration: 10, ease: "easeOut" }}
         >
-          <img src={src} className="w-full h-full object-cover" />
+          <img src={src} className="w-full h-full object-cover" alt="" />
         </motion.div>
       </AnimatePresence>
     </div>

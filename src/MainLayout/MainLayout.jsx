@@ -25,10 +25,12 @@ import Facade from "../Pages/facade/Index";
 import IntegratedFacilityManagement from "../Pages/integrated-facility-management/Index";
 import Leadership from "../Pages/leadership/Index";
 import Sustainability from "../Pages/sustainability/Index";
+import ScrollToTop from "../components/common/ScrollToTop";
 // import Hse from "../Pages/Hse/Index";
 const MainLayout = () => {
   return (
     <BrowserRouter>
+    <ScrollToTop />
       <Routes>
         <Route path="/" element={<V2 />} />
         <Route path="/careers" element={<Careers />} />

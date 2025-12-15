@@ -40,7 +40,7 @@ const KeyFacts = () => {
               {keyfactors.list.map((item, i) => (
                 <div key={i}>
                   <h3 className="text-40 font-light leading-[1.3] text-white">{item.value}</h3>
-                  <p className="text-19 font-light leading-[1.474] text-white/70">{item.title}</p>
+                  <p className="text-19 font-extralight leading-[1.474] text-white/70">{item.title}</p>
                 </div>
               ))}
             </div>
