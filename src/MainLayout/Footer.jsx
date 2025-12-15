@@ -51,7 +51,7 @@ const Footer = () => {
             <h3 className="text-24 lg:text-29 leading-[1.344827586206897] font-light mb-2 lg:mb-[27px]">About</h3>
             <ul>
               <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light">  <Link to="/about-us">Overview</Link></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="">Legacy</Link></li>
+              {/* <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="">Legacy</Link></li> */}
               <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/leadership">Leadership</Link></li>
             </ul>
           </motion.div>
@@ -72,15 +72,17 @@ const Footer = () => {
             <ul>
               <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/sustainability">Sustainability</Link></li>
               <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/community-engagement">Community Engagement</Link></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/quality-safety">Safety & Quality</Link></li>
+              {/* <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/quality-safety">Safety & Quality</Link></li> */}
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/quality-safety">Hse</Link></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/quality-safety">Quality</Link></li>
             </ul>
           </motion.div>
           <motion.div variants={moveUp(0.5)} initial="hidden" animate="show">
             <h3 className="text-24 lg:text-29 leading-[1.344827586206897] font-light mb-2 lg:mb-[27px]">Media</h3>
             <ul>
               <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/press-releases">Press Releases</Link></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/gallery">Media Coverage</Link></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="#">Thought Leadership</Link></li>
+              {/* <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/gallery">Media Coverage</Link></li> */}
+              {/* <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="#">Thought Leadership</Link></li> */}
             </ul>
           </motion.div>
           <motion.div variants={moveUp(0.6)} initial="hidden" animate="show">

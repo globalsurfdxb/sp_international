@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { paragraphItem, moveUp } from "../../../motionVarients";
 import { motion, useScroll, useTransform } from "framer-motion";
 import H2Title from "../../../components/common/H2Title";
+import InsideCounter from "../../InsideCounter";
 
 gsap.registerPlugin(ScrollTrigger);
 const EmpowerSection = () => {
@@ -95,7 +96,7 @@ const EmpowerSection = () => {
                 className="flex flex-col items-start text-left   min-w-[25%]   xl:min-w-[290px] last:w-[100%] "
               >
                 <h3 className="text-[32px] sm:text-[36px] md:text-[38px] xl:text-[40px] leading-[1] font-light w-full mb-4 2xl:mb-[15px] pb-4 2xl:pb-[15px] border-b border-white/30">
-                  {stat.value}
+                  <InsideCounter value={stat.value} delay={100} suffix={index === 1 ? "%" : "+"} />
                 </h3>
 
                 {/* Mobile Divider */}

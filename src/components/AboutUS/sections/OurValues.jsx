@@ -62,10 +62,10 @@ const OurValues = () => {
                   <div className="flex overflow-hidden gap-10 lg:gap-[217px]   ">
                     {/* Expanding List */}
                     <div className={`transition-all duration-500 ease-in-out overflow-hidden  ${isHovered === index ? `opacity-100 h-[${height}px]` : "opacity-0 h-0" }`} >
-                      <ul ref={listRef} className="text-19 leading-[1.85] max-w-50ch ps-6 lg:ps-12 py-[11px]">
+                      <ul ref={listRef} key={isHovered === index ? "open" : "closed"} className="text-19 leading-[1.85] max-w-50ch ps-6 lg:ps-12 py-[11px]">
                         {item.list.map((listItem, i) => (
-                          <li key={i} className="relative before:content-[''] before:absolute before:-left-6 before:top-[14px] before:w-[7px] before:h-[7px]
-                           before:bg-secondary before:rounded-none text-paragraph">{listItem}</li>
+                          <motion.li variants={moveUp(i * 0.07)} key={i} initial="hidden" animate="show" viewport={{amount: 0.2, once: true}} className="relative before:content-[''] before:absolute before:-left-6 before:top-[14px] before:w-[7px] before:h-[7px]
+                           before:bg-secondary before:rounded-none text-paragraph">{listItem}</motion.li>
                         ))}
                       </ul>
                     </div>

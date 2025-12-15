@@ -4,6 +4,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { paragraphItem, moveUp, moveLeft } from "../../../motionVarients";
 import { useRef } from "react";
 import { assets } from "../../../assets";
+import InsideCounter from "../../InsideCounter";
+
 const About = () => {
   const sectionRef = useRef(null);
 // Parallax for shape
@@ -39,7 +41,7 @@ const About = () => {
                   {data.right.map((item, i) => (
                     <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} key={i}>
                       <h3 className='text-40 font-light leading-[1] mb-3 text-white'>
-                        {item.value}
+                        <InsideCounter value={item.value} delay={2000} />+
                       </h3>
                       <p className='text-19 font-light leading-[1.474] text-white/70'>{item.label}</p>
                     </motion.div>

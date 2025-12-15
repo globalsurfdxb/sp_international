@@ -12,6 +12,10 @@ gsap.registerPlugin(DrawSVGPlugin);
 import { motion, AnimatePresence } from "framer-motion";
 
 import { aboutData } from "./data.js";
+import { moveUp } from "../../motionVarients.js";
+import CountUp from "../../components/CountUp.jsx";
+import { useFirstTimeDelay } from "../../hooks/useDelayTimer.jsx";
+
 const cities = [
   {
     
@@ -656,6 +660,24 @@ const mapactive = useRef([]);
     }, [setActiveDot]);
   
     const [activeItem, setActiveItem] = useState(items[1]);  
+const autoSlideTimerRef = useRef();
+
+useEffect(() => {
+  // Clear the existing timer
+  clearInterval(autoSlideTimerRef.current);
+
+  // Start a new timer
+  autoSlideTimerRef.current = setInterval(() => {
+    setActiveItem(prev => {
+      const currentIndex = items.findIndex(i => i.id === prev.id);
+      const nextIndex = (currentIndex + 1) % items.length;
+      return items[nextIndex];
+    });
+  }, 5500);
+
+  return () => clearInterval(autoSlideTimerRef.current);
+}, [activeItem]);
+
 
   useEffect(() => {
     const a3 = gsap.timeline();
@@ -1160,20 +1182,22 @@ const mapactive = useRef([]);
               duration: 0.9,
               ease: "power1.out",
             },
-            "-=0.8"
-          )
-           .fromTo(
-            dotsItms,
-            {  opacity: 0, scale: 0 },
-            {
-              scale: 1,
-              opacity: 1,
-              duration: 1,
-              stagger: 0.3,
-              ease: "power3.out",
-            },
             "-=1.2"
-          )  
+          )
+// .fromTo( dotsItms, { opacity: 0, scale: 0 }, { scale: 1, opacity: 1, duration: 1, stagger: 0.3, ease: "power3.out", }, "-=1.2" )
+.fromTo(
+  dotsItms,
+  { opacity: 0, scale: 0.6 },
+  {
+    scale: 1,
+    opacity: 1,
+    duration: 0.6,
+    stagger: 0.04,
+    ease: "power3.out",
+  },
+  "-=0.8"
+)
+ 
          /*  .fromTo(".actdts", {
         opacity: 0, scale: 0.8 },
             {
@@ -1509,6 +1533,10 @@ const mapactive = useRef([]);
     }
   };
 
+const [currentVisibleSlide, setCurrentVisibleSlide] = useState(null);
+
+
+
   const updateSlides = (newIndex) => {
     const prevIndex = currentIndexRef.current;
     currentIndexRef.current = newIndex;
@@ -1550,9 +1578,11 @@ const mapactive = useRef([]);
         if (i === newIndex) {
           gsap.set(el, { visibility: "inherit", zIndex: 1 });
 
-          timeoutRef.current = setTimeout(() => {
-            gsap.set(el, { zIndex: 2 });
-          }, 2200);
+timeoutRef.current = setTimeout(() => {
+  gsap.set(el, { zIndex: 2 });
+  setCurrentVisibleSlide(`section${newIndex + 1}`);
+}, 2200);
+
 
           playEntryAnimation(i);
         } else if (i === prevIndex) {
@@ -1565,6 +1595,7 @@ const mapactive = useRef([]);
       });
     });
   };
+
 
   const handleScroll = (e) => {
     if (scrollBlock.current) return;
@@ -1802,6 +1833,18 @@ const mapactive = useRef([]);
   
     const visibleSectors = getVisibleSectors();
     const activeSector = sectors[displayedIndex];
+    const [prevImage, setPrevImage] = useState(null);
+    useEffect(() => {
+  setPrevImage(activeService?.image);
+}, [activeService]);
+
+
+const delayProjects = useFirstTimeDelay(
+  currentVisibleSlide === "section5",
+  3000,   // FIRST TIME delay
+  10      // LATER delay when clicking items
+);
+
 
   return (
     <div
@@ -2095,16 +2138,17 @@ const mapactive = useRef([]);
                   className="border-t border-white/30 absolute top-0 w-full my-0"
                 />
                 <div>
-                  <h3 className="text-24 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    160+
-                  </h3>
+<h3 className="text-24 xl:text-40 font-light leading-[auto] mb-[5px]">
+<CountUp value={160} trigger={currentVisibleSlide === "section2"} />+
+</h3>
+
                   <p className="text-16 xl:text-18 font-light leading-[1.555555555555556]">
                     Years of Legacy
                   </p>
                 </div>
                 <div>
                   <h3 className="text-24 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    33000+
+                    <CountUp value={33000} trigger={currentVisibleSlide === "section2"} />+
                   </h3>
                   <p className="text-16 xl:text-18 font-light leading-[1.555555555555556]">
                     Employees Strength
@@ -2112,7 +2156,7 @@ const mapactive = useRef([]);
                 </div>
                 <div>
                   <h3 className="text-24 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    40+
+                    <CountUp value={40} trigger={currentVisibleSlide === "section2"} />+
                   </h3>
                   <p className="text-16 xl:text-18 font-light leading-[1.555555555555556]">
                     Countries Globally Reached
@@ -2127,7 +2171,7 @@ const mapactive = useRef([]);
               
                 <div className="border-b border-[#0a000020] lg:border-b-0 pb-5 mb-5">
                   <h3 className="text-26 md:text-40 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    160+
+<CountUp value={160} trigger={currentVisibleSlide === "section2"} />+
                   </h3>
                   <p className="text-[14px] md:text-[18px]  font-light leading-[1.555555555555556]">
                     Years of Legacy
@@ -2135,7 +2179,7 @@ const mapactive = useRef([]);
                 </div>
                 <div className="border-b border-[#00000020] lg:border-b-0 pb-5 mb-5">
                   <h3 className="text-26 md:text-40 xl:text-40 font-light leading-[auto] mb-[5px]">
-                  35000+
+                  <CountUp value={35000} trigger={currentVisibleSlide === "section2"} />+
                   </h3>
                   <p className="text-[14px] md:text-[18px]  font-light leading-[1.555555555555556]">
                     Employees Strength
@@ -2143,7 +2187,7 @@ const mapactive = useRef([]);
                 </div>
                 <div>
                   <h3 className="text-24 md:text-40 xl:text-40 font-light leading-[auto] mb-[5px]">
-                    35+
+                  <CountUp value={40} trigger={currentVisibleSlide === "section2"} />+
                   </h3>
                   <p className="text-[14px] md:text-[18px]  font-light leading-[1.555555555555556]">
                     Countries Globally Reached
@@ -2231,7 +2275,7 @@ const mapactive = useRef([]);
                   <div className="hidden lg:grid grid-cols-3 " ref={spStats}>
                          <div className="text-white">
                         <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
-                          350+
+                          <CountUp value={350} trigger={currentVisibleSlide === "section3"} delay={300} />+
                         </h1>
                         <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
                           Iconic Projects
@@ -2239,7 +2283,7 @@ const mapactive = useRef([]);
                       </div>
                      <div className="text-white">
                         <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
-                         4000+
+                         <CountUp value={4000} trigger={currentVisibleSlide === "section3"} delay={300} />+
                         </h1>
                         <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
                        Dedicated Workforce
@@ -2247,7 +2291,7 @@ const mapactive = useRef([]);
                       </div>
                        <div className="text-white">
                         <h1 className="text-[35px] xl:text-[40px] font-light leading-[1] mb-[35px]">
-                        250+
+                        <CountUp value={250} trigger={currentVisibleSlide === "section3"} delay={300} />+
                         </h1>
                         <p className="text-16 xl:text-18 opacity-70 font-light leading-[1.555555555555556]">
                        Happy Clients
@@ -2433,10 +2477,10 @@ const mapactive = useRef([]);
                     </div>
                     <div className=" flex lg:flex-col gap-6 lg:gap-0 overflow-x-auto scrollbar-hide whitespace-nowrap lg:whitespace-normal lg:overflow-x-hidden   border-b border-[#ffffff20]  mb-5 lg:mb-0 pt-[4dvh] lg:pt-18 lg:pb-21 3xl:pt-14 3xl:pb-21 pr-2">
                       {content.map((service, index) => (
-                          <div key={index} className={`flex items-center gap-3 cursor-pointer group `} ref={(el) => (textItemsRef.current[index] = el)}>
+                          <div key={index} className={`flex items-center gap-3 cursor-pointer group w-fit`} ref={(el) => (textItemsRef.current[index] = el)}>
                           <a href={service.link}>
                             <p
-                              className={`${activeServiceIndex === index ? "text-white lg:text-black font-bold bo " : "text-white/70 lg:text-black font-light"} text-14px lg:text-[22px] 3xl:text-28 leading-[1.607142857142857] lg:leading-[1.9]  2xl:leading-[1.70]  3xl:leading-[1.607142857142857]  cursor-pointer group-hover:text-black group-hover:font-bold `}
+                              className={`${activeServiceIndex === index ? "text-white lg:text-black font-bold bo " : "text-white/70 lg:text-black font-light"} text-14px lg:text-[22px] 3xl:text-28 leading-[1.607142857142857] lg:leading-[1.9]  2xl:leading-[1.70]  3xl:leading-[1.607142857142857]  cursor-pointer group-hover:text-black group-hover:font-bold`}
                               onMouseOver={() =>
                               [setActiveService({
                                   image: service.image,
@@ -2448,19 +2492,24 @@ const mapactive = useRef([]);
                                 setActiveServiceIndex(index)]
                               }
                             >
-                              <span className="duration-100">
+                              <span className="duration-400">
                                 {" "}
                                 {service.title}
                               </span>
                             </p>
                           </a>
-                          <img
-                            src="../assets/images/services/arrowblw.svg"
-                            className={`${activeServiceIndex === index ? "hidden lg:block" : "hidden "} transform-all duration-300 delay-300   group-hover:block `}
-                            alt="Arrow"
-                            width={21}
-                            height={21}
-                          />
+<img
+  src="../assets/images/services/arrowblw.svg"
+  alt="Arrow"
+  width={21}
+  height={21}
+  className={`
+    lg:block hidden
+    transition-all duration-500 ease-in-out
+    ${activeServiceIndex === index ? "opacity-100 scale-100" : "opacity-0 scale-75"}
+  `}
+/>
+
                         </div>
                       ))}
                     </div>
@@ -2471,7 +2520,7 @@ const mapactive = useRef([]);
             {/* left */}
 
             <div className="relative w-full   lg:h-[100vh] z-[-1]"  ref={srvsRghtBx}>
-              <div className="lg:absolute h-full w-full" ref={srvsImgRef}>
+              {/* <div className="lg:absolute h-full w-full" ref={srvsImgRef}>
                               <div className="lg:absolute z-10 top-0 left-0 w-full lg:h-full lg:bg-gradient-to-r lg:from-black/60 from-0% lg:via-black/60 via-52% lg:to-black/60 to-100%"></div>
 
                               <img
@@ -2480,7 +2529,43 @@ const mapactive = useRef([]);
                                 fill
                                 className="object-cover object-top lg:absolute w-full h-[277px] lg:h-full"
                               />
-              </div>
+              </div> */}
+<div className="lg:absolute h-full w-full relative overflow-hidden" ref={srvsImgRef}>
+
+  {/* BASE IMAGE = PREVIOUS SERVICE IMAGE */}
+  {prevImage && (
+    <img
+      src={prevImage}
+      className="absolute inset-0 object-cover object-top w-full h-full z-10"
+    />
+  )}
+
+  {/* NEW IMAGE FADES ABOVE IT */}
+  <AnimatePresence mode="wait">
+    <motion.img
+      key={activeService?.image}
+      src={activeService?.image}
+      className="absolute inset-0 object-cover object-top w-full h-full z-20"
+
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+    />
+  </AnimatePresence>
+
+  {/* GRADIENT ALWAYS ON TOP */}
+  <div className="absolute inset-0 z-30 bg-gradient-to-r from-black/60 via-black/60 to-black/60 pointer-events-none"></div>
+</div>
+
+
+
+
+
+
+
+
               <div className="hidden lg:block lg:absolute bottom-0 right-0  w-[40%] " ref={srvsVct}>
                 <img
                   src="../assets/images/svg/srv-vct.svg"
@@ -2499,7 +2584,7 @@ const mapactive = useRef([]);
                         ref={brdonRef}
                         className=" lg:absolute  left-[-40px] 3xl:left-[-58px] right-[25%] h-[1px] top-[60px] opacity-20 bottom-0 z-20 border-none   bg-white "
                       />
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-2 items-center overflow-hidden">
                   <div className="flex items-center justify-center lg:hidden bg-secondary rounded-full bottom-10 3xl:bottom-[50px] left-[45px] 3xl:left-[58px] z-10 w-7 h-7" ref={srvsArrw}>
                     <img
                       src="../assets/images/services/icn1.svg"
@@ -2509,9 +2594,14 @@ const mapactive = useRef([]);
                       height={19}
                     />
                   </div>
-                  <h3 className="text-[20px] lg:text-29 leading-[1.344827586206897] font-light text-black lg:text-white">
+                  <motion.h3 
+                  key={activeService?.index}
+                  variants={moveUp(0.2)}
+                  initial="hidden"
+                  animate="show"
+                  className="text-[20px] lg:text-29 leading-[1.344827586206897] font-light text-black lg:text-white">
                   {activeService?.title}
-                </h3>
+                </motion.h3>
                  <div className=" lg:hidden    bottom-10 3xl:bottom-[50px] left-[45px] 3xl:left-[58px] z-10" ref={srvsArrw}>
                     <img
                       src="../assets/images/services/thickarrow.svg"
@@ -2522,9 +2612,16 @@ const mapactive = useRef([]);
                     />
                   </div>
                 </div>
-                <p className="text-[14px] lg:text-18 text-paragraph lg:text-white mt-5 lg:mt-[80px] w-full lg:w-[75%] 3xl:w-[55%]">
-                  {activeService?.description}
-                </p>
+                <div className="overflow-hidden">
+                  <motion.p
+                  key={activeService?.index}
+                  variants={moveUp(0.35)}
+                  initial="hidden"
+                  animate="show"
+                  className="text-[14px] lg:text-18 text-paragraph lg:text-white mt-5 lg:mt-[80px] w-full lg:w-[75%] 3xl:w-[55%]">
+                    {activeService?.description}
+                  </motion.p>
+                </div>
               </div>
               <div className="hidden lg:block absolute bottom-10 3xl:bottom-[50px] left-[45px] 3xl:left-[58px] z-10" ref={srvsArrw}>
                 <img
@@ -2756,7 +2853,12 @@ const mapactive = useRef([]);
                               animationFillMode: "both",
                             }}
                           >
-                            {activeSector.projectsCompleted}
+                            {/* <CountUp value={activeSector.projectsCompleted} trigger={currentVisibleSlide === "section5"} delay={10} />+ */}
+                            <CountUp
+                              value={activeSector.projectsCompleted}
+                              trigger={currentVisibleSlide === "section5"}
+                              delay={delayProjects}
+                            />+
                           </h3>
                         </div>
                         <p className="text-[14px] lg:text-19 font-light text-paragraph lg:text-white/70 leading-[1.473684210526316]">
@@ -2775,7 +2877,12 @@ const mapactive = useRef([]);
                               animationFillMode: "both",
                             }}
                           >
-                            {activeSector.ongoingProjects}
+                            {/* <CountUp value={activeSector.ongoingProjects} trigger={currentVisibleSlide === "section5"} delay={100} />+ */}
+                            <CountUp
+                              value={activeSector.ongoingProjects}
+                              trigger={currentVisibleSlide === "section5"}
+                              delay={delayProjects}
+                            />+
                           </h3>
                         </div>
                         <p className="text-[14px] lg:text-19 font-light text-paragraph lg:text-white/70 leading-[1.473684210526316]">
@@ -2836,7 +2943,11 @@ const mapactive = useRef([]);
                   height={355}
                   className="object-cover img-f select-none min-w-[86.2dvh] max-h-[355px] lg:hidden  "
                 /> */}
-                <img src="../assets/images/world_map.png" alt="Arrow" width={1158} height={679} className="object-cover img-f select-none min-w-[733px] w-[733px] h-[355px] lg:h-full lg:min-w-[1156px] lg:w-[1156px]  " />
+                <motion.img 
+  // initial={{ opacity: 0 }}
+  // animate={{ opacity: 1 }}
+  // transition={{ duration: 1.5, ease: "easeOut" }}
+                src="../assets/images/world_map.png" alt="Arrow" width={1158} height={679} className="object-cover img-f select-none min-w-[733px] w-[733px] h-[355px] lg:h-full lg:min-w-[1156px] lg:w-[1156px]  " />
               <div className="absolute top-[-121px] lg:top-0 left-[-69px] lg:left-0 min-w-[733px] w-[733px] h-[436px] lg:h-full lg:w-[1156px]  overflow-hidden  lg:overflow-visible    ">
                 {/* Dots */}
                 {cities.map((city) => (
@@ -2884,7 +2995,8 @@ const mapactive = useRef([]);
                                 }   `}
                           >
                             <p className="text-[24px] font-[200] leading-tight">
-                              {city.iconicpjts}
+                              {/* {city.iconicpjts} */}
+                              <CountUp value={city.iconicpjts} trigger={currentVisibleSlide === "section6" && activeDot === city.id} delay={200} />+
                             </p>
                             <p className="text-[14px] font-[200]">
                               Iconic Projects
@@ -2900,7 +3012,7 @@ const mapactive = useRef([]);
                                 }   transition-all duration-500 delay-200`}
                           >
                             <p className="text-[24px] font-[200] leading-tight">
-                              {city.pjtcompleted}
+                              <CountUp value={city.pjtcompleted} trigger={currentVisibleSlide === "section6" && activeDot === city.id} delay={200} />+
                             </p>
                             <p className="text-[14px] font-[200]">
                               Project Completed
@@ -2915,7 +3027,7 @@ const mapactive = useRef([]);
                                 }   transition-all duration-500 delay-300`}
                           >
                             <p className="text-[24px] font-[200] leading-tight">
-                              {city.dedicatedemployees}
+                              <CountUp value={city.dedicatedemployees} trigger={currentVisibleSlide === "section6" && activeDot === city.id} delay={200} />+
                             </p>
                             <p className="text-[14px] font-[200]">
                               Dedicated Employees
@@ -3084,15 +3196,14 @@ const mapactive = useRef([]);
                   <div className="flex flex-col lg:flex-row lg:flex-wrap lg:items-center lg:gap-5" ref={cultlist}>
                     {items.map((item) => (
                       <div className="ctitm">
-                      <div
-                        key={item.id}
-                        onClick={() => setActiveItem(item)}
-                        className={`hover:lg:border-b-[2px] hover:lg:border-primary lg:border-b-2 border-b border-white/30  ${
-                          activeItem.id === item.id
-                            ? "lg:border-primary"
-                            : "border-transparent"
-                        } lg:pb-1 transition-all duration-300 `}
-                      >
+<div
+  key={item.id}
+  onClick={() => setActiveItem(item)}
+  className={`hover:lg:border-b-[2px] hover:lg:border-primary lg:border-b-2 border-b border-white/30  
+    ${activeItem.id === item.id ? "underline-anim-item" : "border-transparent"} 
+    lg:pb-1 transition-all duration-300 `}
+>
+
                         <p
                           className={`py-1 lg:py-0  ${
                       activeItem.id === item.id

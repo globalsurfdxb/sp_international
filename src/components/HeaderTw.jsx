@@ -5,6 +5,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import NavPage from "../MainLayout/NavPage";
+import { AnimatePresence, motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(ScrollTrigger);
@@ -191,6 +192,7 @@ useEffect(() => {
     // }
   };
 
+
   const activeIndex = sections.findIndex((s) => s.id === activeSection);
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -326,7 +328,7 @@ useEffect(() => {
                     !menuOpen ?
                   <img
                     className="logsc"
-                    src="/assets/images/logo.svg"
+                    src="/assets/images/icons/logo-white.svg"
                     alt="Logo"
                     width={90}
                     height={55}
@@ -377,9 +379,19 @@ useEffect(() => {
                   className={`flex flex-col gap-3 justify-center items-center border-t ${menuOpen ? "border-[#626262]" : "border-white/25"} cursor-pointer scrlldwn`}
                   onClick={() => handleScroll(nextSection.id)}
                 >
-                  <p className={`${menuOpen ? "text-[#626262]" : "text-white"} font-[300] text-[13px] leading-[25px] pt-3`}>
-                    SCROLL DOWN
-                  </p>
+<AnimatePresence mode="wait">
+  <motion.p
+    key={activeSection === "section7" ? "up" : "down"}
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -10 }}
+    transition={{ duration: 0.35 }}
+    className={`${menuOpen ? "text-[#626262]" : "text-white"} font-[300] text-[13px] leading-[25px] pt-3 uppercase`}
+  >
+    {activeSection === "section7" ? "scroll up" : "scroll down"}
+  </motion.p>
+</AnimatePresence>
+
                   {/* <img src="/assets/images/round-arrow-down-menu.svg" alt="Arrow" width={87} height={87} /> */}
                   <div className={`flex items-center relative group ${menuOpen ? "border rounded-full border-[#626262]" : ""}`}>
                     <img
@@ -393,9 +405,9 @@ useEffect(() => {
                       alt="Arrow"
                       width={35}
                       height={35}
-                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0
+                      className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0
                group-hover:scale-110 transition-transform duration-300 ease-in-out
-               animate-[scaleFade_0.8s_ease-out_forwards] [animation-delay:1.5s]"
+               animate-[scaleFade_0.8s_ease-out_forwards] [animation-delay:1.5s] ${activeSection === "section7" ? "rotate-180 duration-500" : ""} `}
                     />
                   </div>
                 </div>
