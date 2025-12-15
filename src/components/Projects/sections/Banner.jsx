@@ -4,6 +4,8 @@ import { projectDetails } from "../data";
 import gsap from "gsap";
 import { moveUp, moveLeft } from "../../../motionVarients";
 import { motion } from "framer-motion";
+import InsideCounter from "../../InsideCounter";
+
 const Banner = () => {
   const containerRef = useRef(null);
   const targetRef = useRef(null);
@@ -85,7 +87,10 @@ const Banner = () => {
             <div className="flex items-center gap-12 xl:gap-[148px]">
               {projectDetails.list.map((item, i) => (
                 <div key={i}>
-                  <h3 className="text-40 font-light leading-[1.5] text-white">{item.value}</h3>
+                  <h3 className="text-40 font-light leading-[1.5] text-white">
+                    {/* {item.value} */}
+<InsideCounter value={item.value} delay={2000}/>
+                  </h3>
                   <p className="text-[16px] md:text-19 font-light leading-[1.2] text-white/70">{item.title}</p>
                 </div>
               ))}
