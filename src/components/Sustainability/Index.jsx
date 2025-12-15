@@ -16,7 +16,7 @@ const Sustainability = () => {
         <MainNavbar /> 
       </header>
       <Banner title="Sustainability" image="./assets/images/sustainability/banner.jpg" />
-      <VdoSection data={sustainabilityData.mainSection} />
+      <VdoSection data={sustainabilityData.mainSection} maxW="max-w-[18ch]" />
       <ExpertiseSec />
       <OngoingInitiatives data={sustainabilityData.OngoingInvData} /> 
       <Certifications data={sustainabilityData.certificationsData} />
