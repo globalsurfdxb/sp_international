@@ -41,7 +41,7 @@ const About = () => {
                   {data.right.map((item, i) => (
                     <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} key={i}>
                       <h3 className='text-40 font-light leading-[1] mb-3 text-white'>
-                        <InsideCounter value={item.value} delay={2000} />+
+                        <InsideCounter value={item.value} delay={i == 2 ? 20 : 2000} />+
                       </h3>
                       <p className='text-19 font-light leading-[1.474] text-white/70'>{item.label}</p>
                     </motion.div>
