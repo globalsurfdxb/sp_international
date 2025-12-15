@@ -162,7 +162,7 @@ const ProjectLists = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ amount: 0.2, once: true }}
-          className="border-y border-cmnbdr mt-10 xl:mt-25 mb-8 xl:mb-15 3xl:mb-30 py-4 md:py-6 xl:py-[35px]"
+          className="border-y border-cmnbdr mt-10 xl:mt-25 mb-8 xl:mb-15 py-4 md:py-6 xl:py-[35px]"
         >
           <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-0">
             <div className="flex flex-col md:flex-row gap-5 items-center lg:gap-12  2xl:gap-25  3xl:gap-[174px] justify-between">

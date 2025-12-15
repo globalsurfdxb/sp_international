@@ -89,9 +89,9 @@ const Banner = () => {
                 <div key={i}>
                   <h3 className="text-40 font-light leading-[1.5] text-white">
                     {/* {item.value} */}
-<InsideCounter value={item.value} delay={2000}/>
+<InsideCounter value={item.value} delay={2000}/><span>+</span>
                   </h3>
-                  <p className="text-[16px] md:text-19 font-light leading-[1.2] text-white/70">{item.title}</p>
+                  <p className="text-[16px] md:text-19 font-extralight leading-[1.2] text-white/70">{item.title}</p>
                 </div>
               ))}
             </div>

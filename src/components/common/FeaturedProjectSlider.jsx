@@ -142,8 +142,7 @@ const FeaturedProjectSlider = ({ data }) => {
                       <div>
                         <div className="border-b border-cmnbdr pt-5 3xl:pt-7 pb-5 xl:pb-7">
                           <div className="overflow-hidden">
-                            <h3
-                              className={`text-29 leading-[1.344827586206897] font-light ${!hasScrolledIntoView
+                            <h3 className={`text-29 leading-[1.344827586206897] font-light ${!hasScrolledIntoView
                                   ? 'initial-hidden-text'
                                   : animatingSlide === i || initialAnimating
                                     ? 'animate-slide-text-1'
@@ -157,8 +156,7 @@ const FeaturedProjectSlider = ({ data }) => {
                         <div className="border-b border-cmnbdr grid lg:grid-cols-2 2xl:grid-cols-[413px_1fr] items-center">
                           <div className="border-b border-cmnbdr lg:border-0">
                             <div className="overflow-hidden">
-                              <h4
-                                className={`text-19 leading-[2.052631578947368] font-light text-paragraph ${!hasScrolledIntoView
+                              <h4 className={`text-19 leading-[2.052631578947368] font-light text-paragraph ${!hasScrolledIntoView
                                     ? 'initial-hidden-text'
                                     : animatingSlide === i || initialAnimating
                                       ? 'animate-slide-text-2'
@@ -171,8 +169,7 @@ const FeaturedProjectSlider = ({ data }) => {
                           </div>
                           <div className="">
                             <div className="overflow-hidden">
-                              <h4
-                                className={`text-19 leading-[2.052631578947368] font-light text-paragraph ${!hasScrolledIntoView
+                              <h4 className={`text-19 leading-[2.052631578947368] font-light text-paragraph ${!hasScrolledIntoView
                                     ? 'initial-hidden-text'
                                     : animatingSlide === i || initialAnimating
                                       ? 'animate-slide-text-3'
@@ -186,11 +183,10 @@ const FeaturedProjectSlider = ({ data }) => {
                         </div>
                         <div className="border-b border-cmnbdr py-1">
                           <div className="overflow-hidden">
-                            <h4
-                              className={`text-19 leading-[2.052631578947368] font-light text-paragraph ${!hasScrolledIntoView
+                            <h4 className={`text-19 leading-[2.052631578947368] font-light text-paragraph ${!hasScrolledIntoView
                                   ? 'initial-hidden-text'
                                   : animatingSlide === i || initialAnimating
-                                    ? 'animate-slide-text-4'
+                                    ? 'animate-slide-text-3'
                                     : 'initial-visible'
                                 }`}
                             >
