@@ -24,7 +24,7 @@ const filteredTeam =
   selected.id === "all"
     ? data.items
     : data.items.filter(
-        (member) => member.centralfunction === selected.name
+        (member) => member.position === selected.name
       );
 
   const sectionRef = useRef(null);
@@ -43,8 +43,10 @@ const filteredTeam =
   const overlayRefTwo = useRef(null);
 
   return (
-    <section className="pb30 relative overflow-hidden" ref={sectionRef}>
-      <motion.img style={{y:shapeY}} src={assets.mainShape4} width={648} height={908} alt="" className="absolute right-0 bottom-0 w-[300px] h-fit 3xl:w-[648px] max-h-[908px]" />
+    <section className="pb30 relative overflow-hidden" ref={sectionRef}> 
+      <div className={`${selected.id == 'all' ? 'visible' : 'hidden'}`}>
+          <motion.img style={{y:shapeY}} src={assets.mainShape4} width={648} height={908} alt="" className="absolute -z-10 right-0 bottom-0 2xl:bottom-50 w-[300px] h-fit 3xl:w-[648px] max-h-[908px]" />
+      </div>
       <div className="container">
         <div className="flex flex-wrap gap-y-5 justify-between items-center mb-6 lg:mb-10 xl:mb-12 2xl:mb-15 3xl:mb-18">
           <H2Title titleText={data?.title || "Core Leadership Team"} />
@@ -54,10 +56,10 @@ const filteredTeam =
             onChange={(value) => setSelected(value)}
             onClose={() => setQuery('')}
           >
-            <div className="relative 2xl:-left-[196px]">
+            <div className="relative 2xl:-left-[196px] border-b border-[#cccccc40]">
               <ComboboxInput
                 className={clsx(
-                  'w-fit rounded-lg border-none bg-white/5 py-1.5 pr-3 pl-3 text-16 text-black  select-none caret-transparent',
+                  ' w-fit rounded-lg border-none bg-white/5 py-1.5 pr-1 pl-1 text-16 text-black outline-none select-none caret-transparent',
                   'placeholder:text-paragraph placeholder:text-sm placeholder:uppercase  placeholder:font-semibold',
                   'focus:not-data-focus:outline-none data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-white/25'
                 )}
@@ -103,7 +105,7 @@ const filteredTeam =
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-6 3xl:gap-y-18">
+        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-6 3xl:gap-y-[70px] 3xl:gap-[30px]">
           {filteredTeam.map((member, index) => (
             <motion.div variants={moveUp(0.5 + 0.2*index)} initial="hidden" whileInView="show" viewport={{amount: 0.1, once: true}} key={index} className="relative">
               <div className="relative group">
@@ -140,6 +142,11 @@ const filteredTeam =
             </motion.div>
           ))}
         </div>
+         {filteredTeam.length === 0 && (
+            <div className="col-span-full text-center py-10 text-paragraph">
+              No result found.
+            </div>
+          )}
       </div>
     </section>
   );

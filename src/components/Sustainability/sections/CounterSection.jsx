@@ -71,22 +71,22 @@ const CounterSection = ({data}) => {
         }
       >
       <motion.div className="hidden xl:block flex-shrink-0">
-        <motion.img style={{ y: shapeY }} src={svgSrc} alt="logo-svg" width={229} height={320} className="2xl:w-[229px] 2xl:h-[320px] object-contain absolute" />
+        <motion.img style={{ y: shapeY }} src={svgSrc} alt="logo-svg" width={229} height={320} className="2xl:w-[229px] 2xl:h-[320px] left-[-80px] 2xl:left-auto  object-contain absolute" />
       </motion.div>  
 
         {/* Right Content */}
-        <div className="w-full flex flex-col justify-center 2xl:max-w-[1008px] 3xl:max-w-[1208px] ml-auto">
+        <div className="w-full flex flex-col justify-center w-[500px] 2xl:max-w-[950px] 3xl:max-w-[1070px] ml-auto 2xl:mr-[25px] 3xl:mr-[136px]">
           {/* Stats */}
-          <div className="relative flex flex-col md:flex-row w-full gap-5 md:gap-0">
+          <div className="relative grid lg:grid-cols-3 2xl:grid-cols-[360px_280px_330px] 3xl:grid-cols-[360px_280px_430px] w-full gap-5 md:gap-0">
             {stats.map((stat, index) => (
               <motion.div variants={moveUp(0.2 * index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}
-                key={index}className="flex flex-col items-start text-left min-w-[33%] xl:min-w-[290px] last:w-[100%] ">
-                <h3 className="text-[32px] sm:text-[36px] md:text-[38px] xl:text-[40px] leading-[1] font-light w-full mb-4 2xl:mb-[15px] pb-4 2xl:pb-[15px] border-b border-white/30">
+                key={index}className="flex flex-col items-start text-left  ">
+                <h3 className="text-[32px] sm:text-[36px] md:text-[38px] xl:text-[40px] leading-[1] font-light w-full mb-4 2xl:mb-[14px] pb-4 2xl:pb-[18px] border-b border-white/30">
                   {stat.value}
                 </h3>
 
                 {/* Mobile Divider */}
-                <p className="text-[16px] sm:text-[17px] md:text-[18px] xl:text-[19px] text-white/70 leading-[1.5] word-break: break-all font-extralight">
+                <p className="text-[16px] sm:text-[17px] md:text-[18px] xl:text-[19px] text-white/70 leading-[1.5] word-break: break-all font-extralight ">
                   {stat.label}
                 </p>
               </motion.div>

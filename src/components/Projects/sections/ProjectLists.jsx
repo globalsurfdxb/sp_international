@@ -166,7 +166,7 @@ const ProjectLists = () => {
         >
           <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-0">
             <div className="flex flex-col md:flex-row gap-5 items-center lg:gap-12  2xl:gap-25  3xl:gap-[174px] justify-between">
-              <div className="flex flex-col md:flex-row gap-3 lg:gap-10 2xl:gap-[90px] ">
+              <div className="flex flex-col md:flex-row gap-3 lg:gap-10 2xl:gap-[90px] w-full ">
                 {/* Sector */}
                 <div className="w-full lg:w-fit relative">
                   <Listbox value={selectedSector} onChange={handleSectorChange}>
@@ -339,7 +339,7 @@ const ProjectLists = () => {
               </div>
 
               {/* Clear Filter */}
-              <div>
+              <div className="w-full">
                 <button
                   type="button"
                   onClick={handleClearFilters}

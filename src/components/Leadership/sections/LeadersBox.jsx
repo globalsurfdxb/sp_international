@@ -33,7 +33,7 @@ const LeaderBox = ({ data }) => {
   const shapeY = useTransform(shapeProgress, [0, 1], shapeOffset);
   return (
     <section className="relative overflow-hidden" ref={sectionRef}>
-        <motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="absolute right-0 lg:left-0 bottom-20 w-[150px] md:w-[30%] lg:w-[40%] 3xl:w-[764px]" />
+        <motion.img style={{y:shapeY}} src={assets.mainShape2} alt="" className="absolute right-0 lg:left-0 bottom-10 md:bottom-20 xl:bottom-49 w-[150px] md:w-[30%] lg:w-[40%] 3xl:w-[764px]" />
       <div className="container">
        <div className="border-b border-cmnbdr relative overflow-hidden mb-5 xl:mb-20 2xl:mb-25">
           <div className="grid items-center grid-cols-1 lg:grid-cols-2 3xl:grid-cols-[739px_auto]  pt25 3xl:pt-18 pb-10 3xl:pb-[135px]">
@@ -42,7 +42,7 @@ const LeaderBox = ({ data }) => {
               <motion.div style={{y:imageY}} variants={fadeIn(0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.1, once: true}} className="absolute bottom-0 left-0 h-[80%] lg:h-[70%] xl:h-[90%] 3xl:h-[612px] w-full bg-primary z-10"></motion.div>
               <motion.div style={{y:imageY}} variants={fadeIn(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.1, once: true}} className="absolute bottom-0 left-0 h-[60%] lg:h-[60%] xl:h-[60%] 3xl:h-[382px] w-full bg-gradient-to-t from-primary to-transparent z-30"></motion.div>
             </div>
-            <div className="pt-5 xl:pt-8 2xl:pt-12 3xl:pt-[68.5px] pl-8  xl:pl-15 2xl:pl-17 3xl:pl-[97px]">
+            <div className="pt-5 xl:pt-8 2xl:pt-12 3xl:pt-[68.5px] lg:pl-8  xl:pl-15 2xl:pl-17 3xl:pl-[97px]">
               <H2Title titleText={data[0].name} marginClass={"mb-[10px]"} />
               <motion.h3 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.1, once: true}} className="text-29 font-light leading-[1.344827586206897] text-paragraph mb-6 lg:mb-8 xl:mb-[45px]">{data[0].position}</motion.h3>
               <div className="lg:max-h-[385px] lg:overflow-y-scroll scrollbar-thin">
@@ -64,7 +64,7 @@ const LeaderBox = ({ data }) => {
             <div className="pt-5 xl:pt-8 2xl:pt-12 3xl:pt-[63.89px] lg:order-1">
               <H2Title titleText={data[1].name} marginClass={"mb-[10px]"} />
               <motion.h3 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.1, once: true}} className="text-29 font-light leading-[1.344827586206897] text-paragraph mb-6 lg:mb-8 xl:mb-[45px]">{data[1].position}</motion.h3>
-              <div className="lg:max-h-[350px] 2xl:max-h-[490px] lg:overflow-y-scroll scrollbar-thin">
+              <div className="lg:max-h-[350px] 2xl:max-h-[490px] lg:overflow-y-auto scrollbar-thin">
                 {data[1].desc.map((item, index) => (
                   <motion.div variants={moveUp(0.6 + 0.2*index)} initial="hidden" whileInView="show" viewport={{amount: 0.1, once: true}} key={index} className="">
                     <p className="text-19 leading-[1.473684210526316] text-paragraph font-light lg:max-w-[54ch] mb-4 2xl:mb-6">{item}</p>

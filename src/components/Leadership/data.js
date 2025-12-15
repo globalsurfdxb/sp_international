@@ -28,102 +28,90 @@ export const leaderData = {
       centetralfunctions:[
         {
           id:1,
-          name:"Item 1",
+          name:"Designation 1",
         },
         {
           id:2,
-          name:"Item 2"
+          name:"Designation 2"
         },
         {
           id:3,
-          name:"Item 3",
+          name:"Designation 3",
         },
         {
           id:4,
-          name:"Item 4"
+          name:"Designation 4"
         },
         {
           id:5,
-          name:"Item 5",
+          name:"Designation 5",
         },
         {
           id:6,
-          name:"Item 6"
+          name:"Designation 6"
         },
       ],
       items:[
         {
           image:"../assets/images/leadership/core-team/t1.png",
           name:"Hadley Vaughn",
-          position:"Designation 1",
-          centralfunction:"Item 1"
+          position:"Designation 1", 
         },
         {
           image:"../assets/images/leadership/core-team/t2.png",
           name:"Kemp Massy",
-          position:"Designation 2",
-          centralfunction:"Item 2"
+          position:"Designation 2", 
         },
         {
           image:"../assets/images/leadership/core-team/t3.png",
           name:"Laura Hopkins",
-          position:"Designation 1",
-          centralfunction:"Item 3"
+          position:"Designation 1", 
         },
         {
           image:"../assets/images/leadership/core-team/t4.png",
           name:"Laura Hopkins",
-          position:"Designation 2",
-          centralfunction:"Item 4"
+          position:"Designation 2", 
         },
         {
           image:"../assets/images/leadership/core-team/t5.png",
           name:"Marc Haynes",
-          position:"Designation 1",
-          centralfunction:"Item 5"
+          position:"Designation 1", 
         },
         {
           image:"../assets/images/leadership/core-team/t6.png",
           name:"Les Caldwell",
-          position:"Designation 2",
-          centralfunction:"Item 6"
+          position:"Designation 2", 
         },
         {
           image:"../assets/images/leadership/core-team/t7.png",
           name:"Polly Santos",
-          position:"Designation 1",
-          centralfunction:"Item 2"
+          position:"Designation 1", 
         },
         {
           image:"../assets/images/leadership/core-team/t8.png",
           name:"Andrea Kimmons",
-          position:"Designation 2",
-          centralfunction:"Item 3"
+          position:"Designation 2", 
         },
         {
           image:"../assets/images/leadership/core-team/t9.png",
           name:"Laura Hopkins",
-          position:"Designation 1",
-          centralfunction:"Item 4",
+          position:"Designation 1", 
         },
         {
           image:"../assets/images/leadership/core-team/t10.png",
           name:"Zea Conner",
-          position:"Designation 2",
-          centralfunction:"Item 5"
+          position:"Designation 2", 
         },
         {
           image:"../assets/images/leadership/core-team/t11.png",
           name:"Kemp Massy",
-          position:"Designation 1",
-          centralfunction:"Item 6"
+          position:"Designation 1", 
 
         },
         {
           image:"../assets/images/leadership/core-team/t12.png",
           name:"Scott Schneider",
-          position:"Designation 2",
-          centralfunction:"Item 6"
+          position:"Designation 2", 
         }
       
       ]

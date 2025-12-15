@@ -88,7 +88,7 @@ const ExpertiseSec = () => {
         
       <div className="container">
         {/* Header */}
-        <H2Title titleText={expertiseData.title} titleColor="black" marginClass="mb-4 xl:mb-50px" />
+        <H2Title titleText={expertiseData.title} titleColor="black" marginClass="mb-4 xl:mb-50px"  maxW={'max-w-[11ch]'}/>
 
         {/* Swiper Slider */}
         <div className="relative overflow-hidden">
@@ -97,7 +97,7 @@ const ExpertiseSec = () => {
               <motion.img style={{y:imageY}} src={activeImage} alt="" className='h-[200px] scale-y-110 md:h-full w-full object-cover' />
             </div>
             <div>
-              <div className="flex flex-col gap-8 lg:gap-[80px] justify-between 3xl:mt-12">
+              <div className="flex flex-col gap-8 lg:gap-25 justify-between 3xl:mt-12">
                 <div
                   // attach pointer handlers here so child items don't each need them
                   onTouchMove={handleTouchMove}
@@ -114,7 +114,7 @@ const ExpertiseSec = () => {
                       onMouseEnter={() => setActiveIndex(index)}
                     >
                       <p
-                        className={`text-19  text-black leading-[1.75] cursor-pointer transition-all duration-300 ${activeIndex === index ? "font-bold" : "font-light group-hover:font-bold"
+                        className={`text-19  leading-[1.75] cursor-pointer transition-all duration-300 ${activeIndex === index ? "font-bold text-black" : "font-light group-hover:font-bold text-paragraph "
                           }`}
                       >
                         {item.title}
@@ -155,7 +155,7 @@ const ExpertiseSec = () => {
                       <motion.h3 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-29 leading-[1.724137931034483] text-black font-light">{expertiseData?.items?.[activeIndex]?.title}</motion.h3>  
                     </div>
                   </div>
-                  <div className="mt-4 xl:mt-5 border-t border-cmnbdr pt-4 xl:pt-[28px]">
+                  <div className="mt-4 xl:mt-5 border-t border-black/20 pt-4 xl:pt-[28px]">
                       {activelist.map((desc, i) => (
                         <motion.p variants={moveUp(0.6 + 0.2 * i)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} key={i} className='text-19 leading-[1.526315789473684] text-paragraph font-light max-w-lg'>{desc}</motion.p>
                       ))}

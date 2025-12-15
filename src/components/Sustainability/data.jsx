@@ -59,6 +59,26 @@ export const sustainabilityData = {
                 title: "Renewable Adoption",
                 desc: "We make sure that all our employees attend the required Health & Safety trainings and are certified with the relevant certificates.",
             },
+            {
+                image: "./assets/images/sustainability/ongoing/img-1.jpg",
+                title: "Renewable Adoption",
+                desc: "We make sure that all our employees attend the required Health & Safety trainings and are certified with the relevant certificates.",
+            },
+            {
+                image: "./assets/images/sustainability/ongoing/img-2.jpg",
+                title: "Renewable Adoption",
+                desc: "We make sure that all our employees attend the required Health & Safety trainings and are certified with the relevant certificates.",
+            },
+            {
+                image: "./assets/images/sustainability/ongoing/img-3.jpg",
+                title: "Renewable Adoption",
+                desc: "We make sure that all our employees attend the required Health & Safety trainings and are certified with the relevant certificates.",
+            },
+            {
+                image: "./assets/images/sustainability/ongoing/img-4.jpg",
+                title: "Renewable Adoption",
+                desc: "We make sure that all our employees attend the required Health & Safety trainings and are certified with the relevant certificates.",
+            },
 
         ]
     },

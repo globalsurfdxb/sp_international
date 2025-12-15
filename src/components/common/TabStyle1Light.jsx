@@ -80,7 +80,7 @@ export default function TabStyle1Light({ data }) {
               className="w-full"
             >
               <div className="relative w-full overflow-hidden" ref={imageContainerRefOne}>
-                <motion.img style={{y:imageY}} src={activeTab.image} alt={activeTab.title} className="w-full h-full max-h-[250px] lg:max-h-[300px] xl:max-h-[445px] object-cover scale-110" />
+                <motion.img style={{y:imageY}} src={activeTab.image} alt={activeTab.title} className="w-full h-full max-h-[300px] lg:max-h-[350px] xl:max-h-[487px] object-cover scale-110" />
               </div>
             </motion.div>
 
@@ -103,10 +103,10 @@ export default function TabStyle1Light({ data }) {
                   </defs>
                 </svg>
               </motion.div>
-              <h3 className="text-40 leading-[1.344827586206897] font-light mb-30px">
+              <h3 className="text-40 leading-[1.344827586206897] font-light mb-3 2xl:mb-[25px] max-w-[17ch]">
                 <SplitTextAnimation children={activeTab.fullTitle} staggerDelay={0.2} animationDuration={0.8} delay={0.8} />
               </h3>
-              <motion.p variants={moveUp(0.9)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-19 leading-[1.473684210526316] font-light text-paragraph">{activeTab.desc}</motion.p>
+              <motion.p variants={moveUp(0.9)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className=" text-19 max-w-[38ch] leading-[1.473684210526316] font-light text-paragraph">{activeTab.desc}</motion.p>
             </div>
           </motion.div>
         </AnimatePresence>
