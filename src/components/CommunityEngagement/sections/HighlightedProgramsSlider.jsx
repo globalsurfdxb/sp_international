@@ -76,15 +76,15 @@ const HighlightedProgramsSlider = () => {
               {/* Navigation - Fixed */}
               <motion.div variants={moveUp(0.6)} initial="hidden" whileInView={"show"} viewport={{amount:0.2,once:false}} className="flex items-center gap-4   border-b border-white/20 pb-4 2xl:pb-[30px] lg:pb-6 mb-4 xl:mb-50px 3xl:mb-17">
                 <button onClick={() => imageSwiper?.slidePrev()}
-                  className="group hover:-translate-x-1 transition-all duration-300  cursor-pointer w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center  "
+                  className="group hover:-translate-x-1 transition-all duration-300  cursor-pointer w-10 h-10 xl:w-[50px] xl:h-[50px]  rounded-full border border-white/20 flex items-center justify-center  "
                   aria-label="Previous slide" >
-                  <img src={assets.arrowLeft2} alt="" className='w-[14px] h-[14px] group-hover:opacity-90  duration-300  transition-all delay-200'/>
+                  <img src={assets.arrowLeft2} alt="" width={14} height={14} className='w-auto h-auto group-hover:opacity-90  duration-300  transition-all delay-200'/>
                 </button>
                 <button onClick={() => imageSwiper?.slideNext()}
-                  className="group hover:translate-x-1 transition-all duration-300 cursor-pointer w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center  "
+                  className="group hover:translate-x-1 transition-all duration-300 cursor-pointer w-10 h-10 xl:w-[50px] xl:h-[50px] rounded-full border border-white/20 flex items-center justify-center  "
                   aria-label="Next slide"
                 >
-                  <img src={assets.arrowRight2} alt="" className='w-[14px] h-[14px] group-hover:opacity-90  duration-300  transition-all delay-200' />
+                  <img src={assets.arrowRight2} alt="" width={14} className='w-auto h-auto group-hover:opacity-90  duration-300  transition-all delay-200' />
                 </button>
                 <span className="text-19 leading-[1.473684210526316] ml-2">
                   {String(currentSlide + 1).padStart(2, '0')}/{String(highlightedData.items.length).padStart(2, '0')}

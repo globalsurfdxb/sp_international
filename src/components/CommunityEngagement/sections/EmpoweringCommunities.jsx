@@ -25,15 +25,15 @@ const EmpoweringCommunities = () => {
 
   const [idx, setIdx] = useState(new Array(9).fill(0));
   const intervals = [
-    10000,
     15000,
-    20000,
-    25000,
-    30000,
-    35000,
-    40000,
-    45000,
-    50000,
+    15500,
+    16000,
+    16500,
+    17000,
+    17500,
+    18000,
+    16200,
+    16800,
   ];
   useEffect(() => {
     const timers = all.map((arr, i) =>
@@ -50,9 +50,9 @@ const EmpoweringCommunities = () => {
   }, []);
 
   const fade = {
-    initial: { opacity: 0, scale: 1 },
-    animate: { opacity: 1, scale: 1.1 },
-    exit: { opacity: 0, scale: 1 }
+    initial: { opacity: 0, scale: 1.05 },
+    animate: { opacity: 1, scale: 1.15 },
+    exit: { opacity: 0, scale: 1.1 }
   };
 
   return (
@@ -127,7 +127,10 @@ function Block({ src, size, fade }) {
           initial={fade.initial}
           animate={fade.animate}
           exit={fade.exit}
-          transition={{ duration: 10, ease: "easeOut" }}
+          transition={{
+            duration: 12,
+            ease: [0.25, 0.1, 0.25, 1]
+          }}
         >
           <img src={src} className="w-full h-full object-cover" alt="" />
         </motion.div>

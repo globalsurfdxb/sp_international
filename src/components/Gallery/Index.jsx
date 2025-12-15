@@ -1,4 +1,3 @@
-
 'use client';
 import MainNavbar from "../../MainLayout/MainNavbar";
 import Footer from "../../MainLayout/Footer";
@@ -15,6 +14,7 @@ const ITEMS_PER_PAGE = 12;
 
 const Index = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [isAnimating, setIsAnimating] = useState(false);
   const sectionRef = useRef(null);
   const { scrollYProgress: shapeProgress } = useScroll({
@@ -22,22 +22,46 @@ const Index = () => {
     offset: ["start end", "end start"]
   });
   const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
-  // function moveUp(delay = 0) {
-  //   return {
-  //     hidden: { opacity: 0, y: 8 },
-  //     show: { opacity: 1, y: 0, transition: { delay, duration: 0.5 } },
-  //   };
-  // }
 
-  // Calculate total pages based on actual data
-  const totalPages = Math.ceil(pressReleases.items.length / ITEMS_PER_PAGE);
+  // Filter items based on selected category
+  const filteredItems = useMemo(() => {
+    if (selectedCategory === "All") {
+      return pressReleases.items;
+    }
+    return pressReleases.items.filter(item => item.category === selectedCategory);
+  }, [selectedCategory]);
+
+  // Calculate total pages based on filtered data
+  const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
 
   // Get current items for the page
   const currentItems = useMemo(() => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
-    return pressReleases.items.slice(startIndex, endIndex);
-  }, [currentPage]);
+    return filteredItems.slice(startIndex, endIndex);
+  }, [currentPage, filteredItems]);
+
+  // Reset to page 1 when category changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategory]);
+
+  const handleCategoryChange = (category) => {
+    if (category === selectedCategory || isAnimating) return;
+
+    setIsAnimating(true);
+    setSelectedCategory(category);
+
+    // Scroll to top of section smoothly
+    const section = document.querySelector('section');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 300);
+  };
 
   const handlePageChange = (newPage) => {
     if (newPage < 1 || newPage > totalPages || isAnimating) return;
@@ -107,43 +131,43 @@ const Index = () => {
   }, [isOpen, closeModal, next, prev]);
 
   const touchStartX = useRef(null);
-const touchStartY = useRef(null);
-const SWIPE_THRESHOLD = 50; // px
-const SWIPE_VERTICAL_LIMIT = 80; // ignore mostly vertical scroll
+  const touchStartY = useRef(null);
+  const SWIPE_THRESHOLD = 50; // px
+  const SWIPE_VERTICAL_LIMIT = 80; // ignore mostly vertical scroll
 
-const handleTouchStart = (e) => {
-  const touch = e.touches[0];
-  touchStartX.current = touch.clientX;
-  touchStartY.current = touch.clientY;
-};
+  const handleTouchStart = (e) => {
+    const touch = e.touches[0];
+    touchStartX.current = touch.clientX;
+    touchStartY.current = touch.clientY;
+  };
 
-const handleTouchEnd = (e) => {
-  if (touchStartX.current === null || touchStartY.current === null) return;
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
 
-  const touch = e.changedTouches[0];
-  const dx = touch.clientX - touchStartX.current;
-  const dy = touch.clientY - touchStartY.current;
+    const touch = e.changedTouches[0];
+    const dx = touch.clientX - touchStartX.current;
+    const dy = touch.clientY - touchStartY.current;
 
-  // ignore mostly vertical swipes
-  if (Math.abs(dy) > SWIPE_VERTICAL_LIMIT) {
+    // ignore mostly vertical swipes
+    if (Math.abs(dy) > SWIPE_VERTICAL_LIMIT) {
+      touchStartX.current = null;
+      touchStartY.current = null;
+      return;
+    }
+
+    if (Math.abs(dx) > SWIPE_THRESHOLD) {
+      if (dx < 0) {
+        // swipe left -> next image
+        next();
+      } else {
+        // swipe right -> previous image
+        prev();
+      }
+    }
+
     touchStartX.current = null;
     touchStartY.current = null;
-    return;
-  }
-
-  if (Math.abs(dx) > SWIPE_THRESHOLD) {
-    if (dx < 0) {
-      // swipe left -> next image
-      next();
-    } else {
-      // swipe right -> previous image
-      prev();
-    }
-  }
-
-  touchStartX.current = null;
-  touchStartY.current = null;
-};
+  };
 
   return (
     <>
@@ -153,41 +177,52 @@ const handleTouchEnd = (e) => {
       </header>
       <section className="relative" ref={sectionRef}>
         <div className="absolute top-[61px] lg:top-0 right-0 sm:right-[-25px] 2xl:right-[-50px] z-0">
-        <motion.img style={{ y: shapeY }} src="/assets/images/project-details/bannerbg.svg" alt="" className="w-[150px] h-[376px] sm:w-[477px] sm:h-[476px] lg:w-[577px] lg:h-[576px] object-fit" />
-      </div> 
+          <motion.img style={{ y: shapeY }} src="/assets/images/project-details/bannerbg.svg" alt="" className="w-[150px] h-[376px] sm:w-[477px] sm:h-[476px] lg:w-[577px] lg:h-[576px] object-fit" />
+        </div>
         <div className="container">
           <div className="mb-7 md:mb-10 xl:mb-12 3xl:mb-20 mt-12 xl:mt-15 3xl:mt-30">
             <h1 className="text-70 font-light leading-[1.071428571428571]">
-              <SplitTextAnimation children={pressReleases.title} staggerDelay={0.2} animationDuration={0.8} delay={0.2}/>
+              <SplitTextAnimation children={pressReleases.title} staggerDelay={0.2} animationDuration={0.8} delay={0.2} />
             </h1>
           </div>
 
           <motion.div variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between border-y border-cmnbdr pt-[35px] mb-10 lg:mb-15 3xl:mb-25">
             <div className="flex flex-wrap justify-between xl:justify-start gap-3 md:gap-15 xl:gap-[75px] mb-4 md:mb-0">
-              <div className="relative pb-0 md:pb-35px    transition-all duration-300 group">
-                <span className="cursor-pointer   text-paragraph text-16 font-semibold leading-[1.75] uppercase group-hover:text-black">
+              <div
+                className={`relative pb-0 md:pb-35px transition-all duration-300 group cursor-pointer ${selectedCategory === "All" ? "text-black" : ""}`}
+                onClick={() => handleCategoryChange("All")}
+              >
+                <span className={`text-paragraph text-16 font-semibold leading-[1.75] uppercase group-hover:text-black ${selectedCategory === "All" ? "text-black" : ""}`}>
                   All
                 </span>
-                <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
+                <div className={`absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 ${selectedCategory === "All" ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}></div>
               </div>
-              <div className=" relative pb-0 md:pb-35px transition-all duration-300 group">
-                <span className="cursor-pointer  text-paragraph text-16 font-semibold leading-[1.75] uppercase group-hover:text-black">
+              <div
+                className={`relative pb-0 md:pb-35px transition-all duration-300 group cursor-pointer ${selectedCategory === "Events" ? "text-black" : ""}`}
+                onClick={() => handleCategoryChange("Events")}
+              >
+                <span className={`text-paragraph text-16 font-semibold leading-[1.75] uppercase group-hover:text-black ${selectedCategory === "Events" ? "text-black" : ""}`}>
                   Events
                 </span>
-                <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
-
+                <div className={`absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 ${selectedCategory === "Events" ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}></div>
               </div>
-              <div className=" relative pb-0 md:pb-35px transition-all duration-300 group">
-                <span className="cursor-pointer  text-paragraph text-16 font-semibold leading-[1.75] uppercase group-hover:text-black">
+              <div
+                className={`relative pb-0 md:pb-35px transition-all duration-300 group cursor-pointer ${selectedCategory === "Activities" ? "text-black" : ""}`}
+                onClick={() => handleCategoryChange("Activities")}
+              >
+                <span className={`text-paragraph text-16 font-semibold leading-[1.75] uppercase group-hover:text-black ${selectedCategory === "Activities" ? "text-black" : ""}`}>
                   Activities
                 </span>
-                <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
+                <div className={`absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 ${selectedCategory === "Activities" ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}></div>
               </div>
-              <div className=" relative pb-0 md:pb-35px transition-all duration-300 group">
-                <span className="cursor-pointer  text-paragraph text-16 font-semibold leading-[1.75] uppercase group-hover:text-black">
+              <div
+                className={`relative pb-0 md:pb-35px transition-all duration-300 group cursor-pointer ${selectedCategory === "Achievements" ? "text-black" : ""}`}
+                onClick={() => handleCategoryChange("Achievements")}
+              >
+                <span className={`text-paragraph text-16 font-semibold leading-[1.75] uppercase group-hover:text-black ${selectedCategory === "Achievements" ? "text-black" : ""}`}>
                   Achievements
                 </span>
-                <div className="absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
+                <div className={`absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 ${selectedCategory === "Achievements" ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}></div>
               </div>
             </div>
           </motion.div>
@@ -202,7 +237,7 @@ const handleTouchEnd = (e) => {
             {currentItems.map((item, idx) => (
 
               <motion.div variants={moveUp(0.9 + 0.1 * idx)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}
-                key={item.id}
+                key={`${selectedCategory}-${item.link}-${idx}`}
                 className="border-b border-black/20 pb-5 lg:border-b-0 lg:pb-0 cursor-pointer"
                 onClick={() => openModal(item, 0)}
               >
@@ -292,8 +327,8 @@ const handleTouchEnd = (e) => {
 
                     {/* animate image change */}
                     <div className="w-full  h-full  flex items-center justify-center"
-                    onTouchStart={handleTouchStart}
-                    onTouchEnd={handleTouchEnd}>
+                      onTouchStart={handleTouchStart}
+                      onTouchEnd={handleTouchEnd}>
                       <motion.img
                         key={images[index]} // important so framer animates on src change
                         src={images[index]}

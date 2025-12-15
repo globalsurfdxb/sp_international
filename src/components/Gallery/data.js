@@ -1,7 +1,6 @@
 export const pressReleases = {
 
     title: "Gallery",
-   
     items:[
       {
         image:"./assets/images/gallery/gl1.jpg",
@@ -17,7 +16,7 @@ export const pressReleases = {
         title:"Shapoorji Pallonji Energy's FPSO Armada Sterling..",
         date:"2024-01-01",
         link:"/press-releases/press-release-2",
-        category:"Events" 
+        category:"Activities" 
       },
       {
         image:"./assets/images/gallery/gl3.jpg",
@@ -25,7 +24,7 @@ export const pressReleases = {
         title:"Shapoorji Pallonji Energy's FPSO Armada Sterling..",
         date:"2024-01-01",
         link:"/press-releases/press-release-3",
-        category:"Events" 
+        category:"Achievements" 
       },
       {
         image:"./assets/images/gallery/gl4.jpg",
@@ -49,7 +48,7 @@ export const pressReleases = {
         title:"Shapoorji Pallonji Energy's FPSO Armada Sterling..",
         date:"2024-01-01",
         link:"/press-releases/press-release-6",
-        category:"Events" 
+        category:"Achievements" 
       },
       {
         image:"./assets/images/gallery/gl7.jpg",
