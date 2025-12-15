@@ -1,6 +1,7 @@
 import H2Title from "../../common/H2Title";
 import { motion } from "framer-motion";
 import { moveUp } from "../../../motionVarients"; 
+import InsideCounter from "../../InsideCounter"; 
  
 const Horizons = ({data}) => {
   return ( 
@@ -30,11 +31,16 @@ const Horizons = ({data}) => {
                  <div className="p-4 lg:p-7 2xl:p-10  2xl:pb-[35px]">
                    <div className="flex gap-5 lg:gap-[45px]   max-w-[413px]">
                     <div className="w-[185px]">
-                      <p className="text-[30px] xl:text-40 leading-[1.3] font-light mb-[2px]">{item.projects} +</p>
+                      <p className="text-[30px] xl:text-40 leading-[1.3] font-light mb-[2px]">
+                        <InsideCounter value={item.projects} delay={10} />+
+                      </p>
                       <p className="text-19 font-light text-black/70">Projects</p>
                     </div>
                     <div>
-                      <p className="text-[30px] xl:text-40 leading-[1.1] font-light mb-[2px]">{item.countries} +</p>
+                      <p className="text-[30px] xl:text-40 leading-[1.1] font-light mb-[2px]">
+                        <InsideCounter value={item.countries} delay={10} />+
+                      </p>
+
                       <p className="text-19 font-light text-black/70">Countries</p>
                     </div>
                    </div>
