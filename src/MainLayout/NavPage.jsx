@@ -34,12 +34,13 @@ const NavPage = ({ isOpen }) => {
             initial={{ x: "-100%" }}
             animate={{ x: isOpen ? 0 : "-100%" }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="fixed top-0 left-0 w-full h-full bg-primary z-10 flex"
+            className="fixed top-0 left-0 w-full h-full bg-[#1E45A2] z-10 flex"
         >
-            <div className="left-spacing w-full flex">
+            <div className="left-spacing w-full flex relative">
                 {/* LEFT = 45% */}
+                <div className="absolute inset-0 bg-black/20 w-full" />
                 <div className="w-[45%] h-full pl-[16%] 3xl:pl-[15%] border-r border-white/30 text-white flex items-center relative">
-                    <div className="flex flex-col gap-6 3xl:gap-8">
+                    <div className="flex flex-col gap-6 3xl:gap-8 ">
                         {navData.mainMenu.map((item, index) => {
                             const isLast = index === navData.mainMenu.length - 1;
 

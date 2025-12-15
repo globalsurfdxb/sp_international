@@ -73,8 +73,8 @@ const Footer = () => {
               <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/sustainability">Sustainability</Link></li>
               <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/community-engagement">Community Engagement</Link></li>
               {/* <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/quality-safety">Safety & Quality</Link></li> */}
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/quality-safety">Hse</Link></li>
-              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/quality-safety">Quality</Link></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/hse">Hse</Link></li>
+              <li className="opacity-70 hover:opacity-100 transition-all duration-200 text-[16px] xl:text-19 leading-[1.578947368421053] font-light"><Link to="/safety">Safety</Link></li>
             </ul>
           </motion.div>
           <motion.div variants={moveUp(0.5)} initial="hidden" animate="show">

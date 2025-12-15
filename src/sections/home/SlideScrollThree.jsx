@@ -2814,7 +2814,7 @@ const delayProjects = useFirstTimeDelay(
 
                     </div>
                    <div className=" lg:hidden tlnits p-5 group cursor-pointer absolute bottom-0 left-0">
-                      <a href="/sectors" className="flex items-center gap-2 uppercase font-light text-[14px] text-white">
+                      <a href="/projects" className="flex items-center gap-2 uppercase font-light text-[14px] text-white">
                         View All Projects
                         <img
                           src="../assets/images/icons/arrow-right.svg"
