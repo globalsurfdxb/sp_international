@@ -12,7 +12,7 @@ const Certifications = ({ data }) => {
               <div key={index}>
                 <motion.div variants={moveUp(0.4 + 0.1 * index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}>
                   <div className="border-b border-cmnbdr pb-30px mb-4">
-                    <img src={item.icon} alt="" width={120} height={120} className="w-20 h-20 md:w-24 md:h-24 2xl:w-30 2xl:h-30" />
+                    <img src={item.icon} alt="" width={120} height={120} className="w-auto h-20 md:w-24 md:h-24 2xl:w-auto 2xl:h-30" />
                   </div>
                   <h3 className="text-20 md:text-29 leading-[1.2] 2xl:leading-[1.724137931034483] font-light font-title">{item.title}</h3>
                 </motion.div>
