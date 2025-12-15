@@ -11,7 +11,7 @@ const Horizons = ({data}) => {
            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-6 lg:gap-y-10 xl:gap-y-[120px]">
             {
               data.items.map((item,index)=>( 
-                <motion.div variants={moveUp(0.1*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="group border-l border-black/20 border-t-cmnbdr lg:border-t-transparent border-y-2 lg:border-y-transparent bdrrst hover:border-y-2 hover:border-y-[#30B6F9] 
+                <motion.div variants={moveUp(0.1*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="group border-l border-black/20 border-t-cmnbdr lg:border-t-transparent border-y lg:border-y-2 lg:border-y-transparent bdrrst hover:border-y-2 hover:border-y-[#30B6F9] 
                   ">
                   <h3 className="text-29 font-light leading-[1.311] mb-4 lg:mb-[22px]  px-3 lg:px-10 pt-4 lg:pt-7">{item.location}</h3>
                   <div className="relative">
