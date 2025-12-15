@@ -8,15 +8,15 @@ const RegionalOffices = () => {
     <section className="pt-text30  pb25">
       <div className="container ">
         <H2Title titleText={regionalData.title} titleColor="black" marginClass="mb-4 2xl:mb-50px" />
-        <div className="grid md:grid-cols-2 2xl:grid-cols-3 md:gap-y-8 3xl:gap-y-17">
+        <div className="grid md:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-[506px_1fr_1fr] md:gap-y-8 3xl:gap-y-17">
           {regionalData.offices.map((office, index) => (
             <motion.div variants={zoomIn(0.4 + 0.1*index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} key={index} className="px-0 md:px-5 p-5 py-8 3xl:px-15 3xl:pb-15 md:border-r md:border-t border-b border-[#CCCCCC] no-border-right no-pl0 ">
               <div className="mb-2 md:mb-5"> <h3 className="text-19 font-bold max-w-[32ch]">{office.name}</h3></div>
-              <p className={`text-19 font-light  leading-[1.5] md:leading-[1.6] lg:leading-[1.48] ${office.phone || office.fax ? ('mb-4 lg:mb-[45px]') : null}`} dangerouslySetInnerHTML={{ __html: office.address }}></p>
+              <p className={`text-19 font-light  leading-[1.5] md:leading-[1.6] lg:leading-[1.48] text-paragraph ${office.phone || office.fax ? ('mb-4 lg:mb-[45px]') : null}`} dangerouslySetInnerHTML={{ __html: office.address }}></p>
             
               {
                 office.phone || office.fax ? (
-                  <div className="bg-f5f5 p-5 2xl:px-7 3xl:px-10 3xl:pt-[34px] 3xl:pb-[36px]">
+                  <div className="bg-f5f5 p-5 2xl:px-7 3xl:px-10 3xl:pt-[34px] 3xl:pb-[36px] max-w-[446px]">
                     <div className="flex flex-wrap justify-between mb-5 lg:mb-[35px] ">
                       {office.phone ? (
                         <div>
@@ -31,7 +31,7 @@ const RegionalOffices = () => {
                       {office.fax ? (
                         <div>
                           <p className="text-paragraph text-19 font-light mb-[4px] leading-[1.48] ">Fax</p>
-                          <p className="text-paragraph text-16 3xl:text-19 font-bold leading-[1.31] ">{office.fax}</p>
+                          <p className=" text-16 3xl:text-19 font-bold leading-[1.31] ">{office.fax}</p>
                         </div>
                       ) : null}
                     </div>
