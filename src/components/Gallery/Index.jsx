@@ -192,7 +192,7 @@ const Index = () => {
                 className={`relative pb-0 md:pb-35px transition-all duration-300 group cursor-pointer ${selectedCategory === "All" ? "text-black" : ""}`}
                 onClick={() => handleCategoryChange("All")}
               >
-                <span className={` text-16 font-semibold leading-[1.75] uppercase group-hover:text-black ${selectedCategory === "All" ? "text-black" : "text-paragraph"}`}>
+                <span className={`text-16 font-semibold leading-[1.75] uppercase group-hover:text-black ${selectedCategory === "All" ? "text-black" : "text-paragraph"}`}>
                   All
                 </span>
                 <div className={`absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 ${selectedCategory === "All" ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}></div>
@@ -201,7 +201,7 @@ const Index = () => {
                 className={`relative pb-0 md:pb-35px transition-all duration-300 group cursor-pointer ${selectedCategory === "Events" ? "text-black" : ""}`}
                 onClick={() => handleCategoryChange("Events")}
               >
-                <span className={`text-paragraph text-16 font-semibold leading-[1.75] uppercase group-hover:text-black ${selectedCategory === "Events" ? "text-black" : "text-paragraph"}`}>
+                <span className={`text-16 font-semibold leading-[1.75] uppercase group-hover:text-black ${selectedCategory === "Events" ? "text-black" : "text-paragraph"}`}>
                   Events
                 </span>
                 <div className={`absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 ${selectedCategory === "Events" ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}></div>
@@ -210,7 +210,7 @@ const Index = () => {
                 className={`relative pb-0 md:pb-35px transition-all duration-300 group cursor-pointer ${selectedCategory === "Activities" ? "text-black" : ""}`}
                 onClick={() => handleCategoryChange("Activities")}
               >
-                <span className={`text-paragraph text-16 font-semibold leading-[1.75] uppercase group-hover:text-black ${selectedCategory === "Activities" ? "text-black" : "text-paragraph"}`}>
+                <span className={`text-16 font-semibold leading-[1.75] uppercase group-hover:text-black ${selectedCategory === "Activities" ? "text-black" : "text-paragraph"}`}>
                   Activities
                 </span>
                 <div className={`absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 ${selectedCategory === "Activities" ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}></div>
@@ -219,7 +219,7 @@ const Index = () => {
                 className={`relative pb-0 md:pb-35px transition-all duration-300 group cursor-pointer ${selectedCategory === "Achievements" ? "text-black" : ""}`}
                 onClick={() => handleCategoryChange("Achievements")}
               >
-                <span className={`text-paragraph text-16 font-semibold leading-[1.75] uppercase group-hover:text-black ${selectedCategory === "Achievements" ? "text-black" : ""}`}>
+                <span className={`text-16 font-semibold leading-[1.75] uppercase group-hover:text-black ${selectedCategory === "Achievements" ? "text-black" : ""}`}>
                   Achievements
                 </span>
                 <div className={`absolute bottom-[-2px] left-0 w-full h-1 bg-secondary transition-all duration-300 ${selectedCategory === "Achievements" ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}></div>
