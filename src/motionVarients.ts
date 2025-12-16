@@ -166,3 +166,34 @@ export const letterItemTop = {
     },
   },
 };
+
+// Dropdown container
+export const dropdownListVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.06,   // tighter stagger = smoother flow
+      delayChildren: 0.04,
+    },
+  },
+};
+
+// Dropdown item
+export const dropdownItemVariants = {
+  hidden: {
+    opacity: 0,
+    x: -6,                    // softer offset
+    y: -4,                    // asymmetry feels more natural
+    filter: "blur(1px)",
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.55,         // slightly longer = smoother
+      ease: [0.22, 1, 0.36, 1], // ✨ easeOutCubic (very smooth)
+    },
+  },
+};
