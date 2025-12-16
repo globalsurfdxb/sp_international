@@ -91,7 +91,7 @@ export const focusData = {
 };
 
 export const highlightedData = {
-  title: "Highlighted Programs",
+  title: "Highlighted Programmes",
   items: [
     {
       mainTitle: "Women Empowerment",
@@ -105,7 +105,7 @@ export const highlightedData = {
     },
     {
       mainTitle: "Child Education & Learning",
-      mainDesc: "13,000 children supported with programs that enhance learning levels, school performance, and overall educational outcomes.",
+      mainDesc: "13,000 children supported with programmes that enhance learning levels, school performance, and overall educational outcomes.",
       img: "./assets/images/eng-constructions/expertise/hl3.jpg"
     },
     {
@@ -259,7 +259,7 @@ export const regionalData = {
 export const engineeringData = {
 
   expertiseData: {
-    title: "Highlighted Programs",
+    title: "Highlighted Programmes",
     items: [
       {
         mainTitle: "Improved Nutrition for infants by providing 1.5MLN feeds",

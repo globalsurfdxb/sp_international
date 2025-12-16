@@ -43,8 +43,8 @@ export const navData = {
       href: "/commitments",
       submenu: [
         { label: "Sustainability", href: "/sustainability" },
-        { label: "HSE", href: "/hse" },
-        { label: "Safety", href: "/safety" }
+        { label: "Health safety & environmental", href: "/hse" },
+        { label: "Quality", href: "/quality" }
       ]
     },
     {

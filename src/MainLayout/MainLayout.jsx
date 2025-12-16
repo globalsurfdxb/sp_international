@@ -45,7 +45,7 @@ const MainLayout = () => {
         <Route path="/engineering-construction" element={<EngineeringConstruction />} />
         <Route path="/design-studio" element={<DesignStudio />} />
         <Route path="/interior-design" element={<InteriorDesign />} />
-        <Route path="/safety" element={<Quality />} />  
+        <Route path="/quality" element={<Quality />} />  
         <Route path="/facade" element={<Facade />} />
         <Route path="/integrated-facility-management" element={<IntegratedFacilityManagement />} />
         <Route path="/contact-us" element={<ContactUs />} />   

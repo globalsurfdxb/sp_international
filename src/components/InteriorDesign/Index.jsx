@@ -14,7 +14,7 @@ const InteriorDesign = () => {
       <header>
         <MainNavbar /> 
       </header>
-      <Banner title="Interior Design" image="./assets/images/interior-design/banner.jpg" />
+      <Banner title="Interior Fit-out" image="./assets/images/interior-design/banner.jpg" />
       <VdoSection data={interiorData.mainSection} />
       <SecondSection data={interiorData.secondSectionData}/>
       <ExpertiseSec data={interiorData.expertiseData}/>

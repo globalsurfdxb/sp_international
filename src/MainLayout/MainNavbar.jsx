@@ -46,7 +46,7 @@ const MainNavbar = () => {
                 { name: "MEP", href: "/mep" },
                 { name: "Design Studio", href: "/design-studio" },
                 { name: "Interior Fit-out", href: "/interior-design" },
-                { name: "Façade", href: "/facade" },
+                { name: "Facade", href: "/facade" },
                 { name: "Facilities Management", href: "/integrated-facility-management" },
                 { name: "Water", href: "/water" },
             ],
@@ -61,8 +61,8 @@ const MainNavbar = () => {
             name: "Our Commitments",
             submenu: [
                 { name: "Community Engagement", href: "/community-engagement" },
-                { name: "HSE", href: "/hse" },
-                { name: "Safety ", href: "/safety" },
+                { name: "Health safety & environmental", href: "/hse" },
+                { name: "Quality", href: "/quality" },
             ],
         },
         {

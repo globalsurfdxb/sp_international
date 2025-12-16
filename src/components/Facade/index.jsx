@@ -16,7 +16,7 @@ const Facade = () => {
       <MainNavbar />
     </header>
     <main>
-        <Banner title="Façade" image="./assets/images/facade/banner.jpg" />
+        <Banner title="Facade" image="./assets/images/facade/banner.jpg" />
         <VdoSection data={facadeData.mainSection} />
         <ExpertiseSec data={facadeData.expertiseData} />
         <ImgPointsComponent data={facadeData.ourStrengthData} bgColor="white" sectionSpacing="pt-text30 pb30" />
