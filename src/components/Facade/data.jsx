@@ -1,8 +1,8 @@
 
 export const facadeData = {
   mainSection: {
-    title: "Advanced Façade Systems Backed by Expertise",
-    desc: ["Established in 2019, SP Façade manages one of the most critical and high-risk elements of construction, the building façade. As an in-house division of SP International, we deliver high-performance, safe, and efficient façade solutions while ensuring seamless coordination across all project disciplines and minimizing risk for the main contracting team."],
+    title: "Advanced Facade Systems Backed by Expertise",
+    desc: ["Established in 2019, SP Facade manages one of the most critical and high-risk elements of construction, the building facade. As an in-house division of SP International, we deliver high-performance, safe, and efficient facade solutions while ensuring seamless coordination across all project disciplines and minimizing risk for the main contracting team."],
     vdo: "./assets/videos/decorative-grilles.mp4",
     vdoPoster: "./assets/images/facade/vdo-poster.jpg"
   },
@@ -19,19 +19,19 @@ export const facadeData = {
       },
       {
         icon: "./assets/images/facade/expertise/exp3.svg",
-        desc: "Minimizing façade-related risks across design, procurement, and execution"
+        desc: "Minimizing facade-related risks across design, procurement, and execution"
       },
       {
         icon: "./assets/images/facade/expertise/exp4.svg",
-        desc: "Ensuring seamless coordination between façade systems and other trades"
+        desc: "Ensuring seamless coordination between facade systems and other trades"
       },
       {
         icon: "./assets/images/facade/expertise/exp5.svg",
-        desc: "Delivering end-to-end façade solutions for main contracting projects"
+        desc: "Delivering end-to-end facade solutions for main contracting projects"
       },
       {
         icon: "./assets/images/facade/expertise/exp6.svg",
-        desc: "Developing project-specific façade strategies for optimal results"
+        desc: "Developing project-specific facade strategies for optimal results"
       }
     ]
   },

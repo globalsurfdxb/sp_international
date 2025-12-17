@@ -79,7 +79,7 @@ const CultureSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="container pb30 pt-text30">
+    <section id="careers-stop-section" ref={sectionRef} className="container pb30 pt-text30">
       <div
         className="relative w-full h-[420px] xl:h-[490px] overflow-hidden flex items-center" ref={imageContainerRefTwo}
       >

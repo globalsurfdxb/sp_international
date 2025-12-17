@@ -243,14 +243,12 @@ useEffect(() => {
             <a href="#">
               <div className="hidden lg:flex items-center justify-center z-[1]  cursor-pointer relative  h-[31px] bg-[#00000040] rounded-[15px]">
                 <img
-                  src="../assets/images/grbdr.svg"
+                  src="../assets/images/border-wide.svg"
                   alt="Logo"
                   className="absolute w-full h-full"
-                  width={18}
-                  height={31}
                 />
-                <p className="mb-0 text-white font-[300] text-[16px] px-4">
-                  HRMS
+                <p className="mb-0 text-white z-1 font-[300] text-[16px] px-4 pt-[1px] uppercase">
+                  Employee Login
                 </p>
               </div>
             </a>

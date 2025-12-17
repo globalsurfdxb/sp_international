@@ -38,7 +38,7 @@ const Horizons = ({data}) => {
                     </div>
                     <div>
                       <p className="text-[30px] xl:text-40 leading-[1.1] font-light mb-[2px]">
-                        <InsideCounter value={item.countries} delay={10} />+
+                        <InsideCounter value={item.countries} delay={10} suffix={item.location==="Oceania" ? "":"+"} />
                       </p>
 
                       <p className="text-19 font-light text-black/70">Countries</p>

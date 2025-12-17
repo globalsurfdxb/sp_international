@@ -1654,12 +1654,6 @@ timeoutRef.current = setTimeout(() => {
       description: "Spanning 20 countries, we transform complex visions into major projects. From iconic stadiums and theme parks to advanced healthcare and commercial facilities, we deliver innovative, high-quality projects designed to meet every client’s needs.",
     },
     {
-      image: "/assets/images/services/servicemain.jpg",
-      title: "Design Studio",
-      link:"/design-studio",
-      description: "We drive complex civil projects with advanced digital design and BIM. From integrated Design & Build to expert standalone services, we develop visionary structures with precision and expertise.",
-    },
-    {
       image: "/assets/images/services/mep.jpg",
       title: "MEP",
       link:"/mep",
@@ -1673,13 +1667,13 @@ timeoutRef.current = setTimeout(() => {
     },
     {
       image: "/assets/images/services/Facade.jpg",
-      title: "Façade",
+      title: "Facade",
       link:"/facade",
       description: "From concept to completion, we combine the art and science of facades for complex structures. We design, engineer, and deliver custom, high-performance building for landmark projects worldwide.",
     },
     {
       image: "/assets/images/services/Facility-Management.jpg",
-      title: "Facilities Management",
+      title: "Facility Management",
       link:"/integrated-facility-management",
       description: "We provide fully integrated FM solutions, combining global expertise with local insight. This ensures smooth operations, optimised asset performance, and improved occupant experiences across every property.",
     },
@@ -1688,6 +1682,12 @@ timeoutRef.current = setTimeout(() => {
       title: "Water",
       link: "/water",
       description: "We deliver essential water infrastructure, from urban pipelines to complex desalination plants. Our expertise ensures every project is executed safely, efficiently, and to the highest standards.",
+    },
+    {
+      image: "/assets/images/services/servicemain.jpg",
+      title: "Design Studio",
+      link:"/design-studio",
+      description: "We drive complex civil projects with advanced digital design and BIM. From integrated Design & Build to expert standalone services, we develop visionary structures with precision and expertise.",
     },
   ];
 
@@ -1703,11 +1703,11 @@ timeoutRef.current = setTimeout(() => {
 
    const sectors = [
     {
-      name: "Industrial",
-      icon: "../assets/images/sectors/icons/hospitality-icon.svg",
-      image: "../assets/images/sectors/industrial.jpg",
-      projectsCompleted: "180+",
-      ongoingProjects: "15+",
+      name: "Commercial",
+      icon: "../assets/images/sectors/icons/Commercial.svg",
+      image: "../assets/images/sectors/commercial.jpg",
+      projectsCompleted: "320+",
+      ongoingProjects: "30+",
     },
     {
       name: "Healthcare",
@@ -1717,18 +1717,25 @@ timeoutRef.current = setTimeout(() => {
       ongoingProjects: "20+",
     },
     {
-      name: "Commercial",
-      icon: "../assets/images/sectors/icons/Commercial.svg",
-      image: "../assets/images/sectors/commercial.jpg",
-      projectsCompleted: "320+",
-      ongoingProjects: "30+",
-    },
-    {
       name: "Hospitality",
       icon: "../assets/images/sectors/icons/industrial.svg",
       image: "../assets/images/sectors/hospitality2.jpg",
       projectsCompleted: "275+",
       ongoingProjects: "25+",
+    },
+    {
+      name: "Industrial",
+      icon: "../assets/images/sectors/icons/hospitality-icon.svg",
+      image: "../assets/images/sectors/industrial.jpg",
+      projectsCompleted: "180+",
+      ongoingProjects: "15+",
+    },
+        {
+      name: "Infrastructure",
+      icon: "../assets/images/sectors/icons/infrastructure.svg",
+      image: "../assets/images/sectors/infrastructure.jpg",
+      projectsCompleted: "95+",
+      ongoingProjects: "12+",
     },
     {
       name: "Residential",
@@ -1744,15 +1751,8 @@ timeoutRef.current = setTimeout(() => {
       projectsCompleted: "95+",
       ongoingProjects: "12+",
     },
-    {
-      name: "Infrastructure",
-      icon: "../assets/images/sectors/icons/infrastructure.svg",
-      image: "../assets/images/sectors/infrastructure.jpg",
-      projectsCompleted: "95+",
-      ongoingProjects: "12+",
-    },
   ];
-   const [activeIndex, setActiveIndex] = useState(3);
+   const [activeIndex, setActiveIndex] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
     const [animationDirection, setAnimationDirection] = useState(0); // 1 for down, -1 for up
     const [displayedIndex, setDisplayedIndex] = useState(activeIndex);
@@ -1844,6 +1844,37 @@ const delayProjects = useFirstTimeDelay(
   3000,   // FIRST TIME delay
   10      // LATER delay when clicking items
 );
+
+
+// // sectors autoplay
+// const sectorsAutoplayRef = useRef(null);
+
+// useEffect(() => {
+//   const isMobile = window.matchMedia("(max-width:1023px)").matches;
+//   if (isMobile) return;
+
+//   if (currentVisibleSlide !== "section5") {
+//     clearInterval(sectorsAutoplayRef.current);
+//     sectorsAutoplayRef.current = null;
+//     return;
+//   }
+
+//   if (sectorsAutoplayRef.current) return;
+
+//   sectorsAutoplayRef.current = setInterval(() => {
+//     if (isAnimating) return;
+
+//     const nextIndex = (activeIndex + 1) % sectors.length;
+//     handleSlideClick(nextIndex);
+//   }, 5000);
+
+//   return () => {
+//     clearInterval(sectorsAutoplayRef.current);
+//     sectorsAutoplayRef.current = null;
+//   };
+// }, [currentVisibleSlide, activeIndex, isAnimating]);
+
+
 
 
   return (
@@ -2556,7 +2587,8 @@ const delayProjects = useFirstTimeDelay(
   </AnimatePresence>
 
   {/* GRADIENT ALWAYS ON TOP */}
-  <div className="absolute inset-0 z-30 bg-gradient-to-r from-black/60 via-black/60 to-black/60 pointer-events-none"></div>
+  {/* <div className="absolute inset-0 z-30 bg-gradient-to-r from-black/60 via-black/60 to-black/60 pointer-events-none"></div> */}
+  <div className="absolute inset-0 z-30 bg-gradient-to-r from-black/50 via-black/30 to-black/20 pointer-events-none"></div>
 </div>
 
 
