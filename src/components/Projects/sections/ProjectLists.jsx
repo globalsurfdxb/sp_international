@@ -602,68 +602,67 @@ const ProjectLists = () => {
                             viewport={{ amount: 0.2, once: true }}
                         >
                             <Link to="/project-details">
-                                <div className="flex flex-col lg:flex-row gap-3 md:gap-10 3xl:gap-[69px] ">
-                                    <div className="w-full lg:w-[274px]">
+                                <div className="flex flex-col lg:grid grid-cols-[240px_244px_448px_0px] xl:grid-cols-[240px_244px_448px_32px] 2xl:grid-cols-[274px_324px_458px_32px] 3xl:grid-cols-[274px_384px_658px_32px] justify-between gap-3 md:gap-8 lg:gap-4 3xl:gap-[69px] ">
+                                    <div className="w-full xl:w-[274px]">
                                         <img
                                             src={item.image}
                                             alt={item.title}
                                             width={274}
                                             height={208}
-                                            className="w-full h-full   md:h-[350px] lg:min-w-[274px] lg:h-[208px] object-fit"
+                                            className="w-full h-full   md:h-[350px] xl:min-w-[274px] lg:h-[208px] object-fit"
                                         />
                                     </div>
-                                    <div className="flex flex-col lg:flex-row justify-between gap-1 md:gap-5   2xl:gap-10 3xl:gap-[104px] w-full">
+                                    <div>
                                         <div>
-                                            <div>
-                                                <h2 className="text-20 xl:text-29 leading-[1.344827586206897] font-light  ">
-                                                    {item.title}
-                                                </h2>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="bg-f5f5 p-5 xl:py-[18px] xl:px-[30px]">
-                                                <div className="flex gap-5 3xl:gap-[168px] justify-between border-b border-b-black/20 pb-[11px] mb-[7px] ">
-                                                    <p className="text-paragraph text-19 font-light  leading-[1.4] md:leading-[2] ">
-                                                        Sector: <br className="hidden lg:block 2xl:hidden"></br>
-                                                        {item.sector}
-                                                    </p>
-                                                    <p className="text-paragraph text-19 font-light leading-[1.4] md:leading-[2] xl:pe-6">
-                                                        BUA (Sq.ft): <br className="hidden lg:block 2xl:hidden"></br>
-                                                        {item.sqft}
-                                                    </p>
-                                                </div>
-                                                <div className="">
-                                                    <p className="text-paragraph text-19 font-light leading-[2]">
-                                                        Location: {item.country}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 hidden xl:block">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="35"
-                                                height="35"
-                                                viewBox="0 0 35 35"
-                                                fill="none"
-                                            >
-                                                <path
-                                                    d="M1.25 1.25H33.2484V33.2411"
-                                                    stroke="#30B6F9"
-                                                    strokeWidth="2.5"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M33.2498 1.25L1.4043 33.2411"
-                                                    stroke="#30B6F9"
-                                                    strokeWidth="2.5"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                            </svg>
+                                            <h2 className="text20 text-29 leading-[1.344827586206897] font-light  ">
+                                                {item.title}
+                                            </h2>
                                         </div>
                                     </div>
+                                    <div>
+                                        <div className="bg-f5f5 p-5 xl:py-[18px] xl:px-[30px]">
+                                            <div className="flex gap-5 3xl:gap-[168px] justify-between border-b border-b-black/20 pb-[11px] mb-[7px] ">
+                                                <p className="text-paragraph text-19 font-light  leading-[1.4] md:leading-[2] ">
+                                                    Sector: <br className="hidden lg:block 2xl:hidden"></br>
+                                                    {item.sector}
+                                                </p>
+                                                <p className="text-paragraph text-19 font-light leading-[1.4] md:leading-[2] xl:pe-6">
+                                                    BUA (Sq.ft): <br className="hidden lg:block 2xl:hidden"></br>
+                                                    {item.sqft}
+                                                </p>
+                                            </div>
+                                            <div className="">
+                                                <p className="text-paragraph text-19 font-light leading-[2]">
+                                                    Location: {item.country}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 hidden lg:block">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="35"
+                                            height="35"
+                                            viewBox="0 0 35 35"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M1.25 1.25H33.2484V33.2411"
+                                                stroke="#30B6F9"
+                                                strokeWidth="2.5"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
+                                            <path
+                                                d="M33.2498 1.25L1.4043 33.2411"
+                                                stroke="#30B6F9"
+                                                strokeWidth="2.5"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
+                                        </svg>
+                                    </div>
+
                                 </div>
                             </Link>
                         </motion.div>
