@@ -89,12 +89,11 @@ const ExpertiseSec = () => {
       <div className="container">
         {/* Header */}
         <H2Title titleText={expertiseData.title} titleColor="black" marginClass="mb-4 xl:mb-50px"  maxW={'max-w-[11ch]'}/>
-
         {/* Swiper Slider */}
         <div className="relative overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-[50%_1fr] 2xl:grid-cols-[55%_1fr] 3xl:grid-cols-[961px_1fr] gap-4 lg:gap-8 xl:gap-[70px]  " >
             <div className='h-full relative overflow-hidden' ref={imageContainerRef}>
-              <motion.img style={{y:imageY}} src={activeImage} alt="" className='h-[200px] scale-y-110 md:h-full w-full object-cover' />
+              <motion.img style={{y:imageY}} src={activeImage} alt="" className='h-[200px] scale-110 md:h-full xl:h-[598px] w-full object-cover' />
             </div>
             <div>
               <div className="flex flex-col gap-8 lg:gap-25 justify-between 3xl:mt-12">
@@ -106,24 +105,18 @@ const ExpertiseSec = () => {
                   onMouseLeave={handleLeave}
                 >
                   {expertiseData.items.map((item, index) => (
-                    <div
-                      className="flex items-center gap-2 group w-fit"
-                      key={index}
-                      ref={(el) => setItemRef(el, index)}
+                    <div className="flex items-center gap-2 group w-fit"
+                      key={index} ref={(el) => setItemRef(el, index)}
                       // keep these optional — they help for quick taps on non-touch devices
                       onMouseEnter={() => setActiveIndex(index)}
                     >
-                      <p
-                        className={`text-19  leading-[1.75] cursor-pointer transition-all duration-300 ${activeIndex === index ? "font-bold text-black" : "font-light group-hover:font-bold text-paragraph "
+                      <p className={`text-19  leading-[1.75] cursor-pointer transition-all duration-300 ${activeIndex === index ? "font-bold text-black" : "font-light group-hover:font-bold text-paragraph "
                           }`}
                       >
                         {item.title}
                       </p>
 
-                      <div
-                        className={`transition-all duration-300 opacity-0 ${activeIndex === index ? "rotate-0 opacity-100" : "group-hover:opacity-100 rotate-45 "
-                          }`}
-                      >
+                      <div className={`transition-all duration-300 opacity-0 ${activeIndex === index ? "rotate-0 opacity-100" : "group-hover:opacity-100 rotate-45" }`}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                           <path d="M1.25 1.25H14.2433V14.2404" stroke="#30B6F9" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                           <path d="M14.2438 1.25L1.3125 14.2404" stroke="#30B6F9" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />

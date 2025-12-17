@@ -92,11 +92,11 @@ const ImgPointsComponent = ({ data, bgColor = "", sectionSpacing = "" }) => {
           <H2Title
             titleText={heading}
             titleColor="black"
-            marginClass="mb-50px 3xl:mb-17"
+            marginClass="mb-4 lg:mb-6 xl:mb-8 3xl:mb-17"
           />
         </motion.div>
 
-        <div className="grid lg:grid-cols-[0.8fr_1fr] 2xl:grid-cols-[730px_auto] 3xl:grid-cols-[916px_auto] xl:items-center gap-8 xl:gap-10 3xl:gap-[108px] transition-all duration-300">
+        <div className="grid lg:grid-cols-[0.8fr_1fr] 2xl:grid-cols-[600px_auto] 3xl:grid-cols-[916px_auto] xl:items-center gap-8 xl:gap-10 2xl:gap-18 3xl:gap-[108px] transition-all duration-300">
           {/* IMAGE */}
           <div
             ref={imageRef}
@@ -134,10 +134,10 @@ const ImgPointsComponent = ({ data, bgColor = "", sectionSpacing = "" }) => {
                   setActiveIndex(index);
                   updateImage(index);
                 }}
-                className="border-b border-black/20 last:border-b-0 py-5 xl:py-[32px] cursor-pointer"
+                className="border-b border-black/20 last:border-b-0 py-5 3xl:py-8 cursor-pointer"
               >
                 <div
-                  className={`relative text-24 2xl:text-29 transition-all ${
+                  className={`relative 2xl:text-24 3xl:text-29 transition-all ${
                     isActive(index)
                       ? "text-black font-semibold"
                       : "text-paragraph font-light"
@@ -148,8 +148,7 @@ const ImgPointsComponent = ({ data, bgColor = "", sectionSpacing = "" }) => {
                       isActive(index) ? "scale-y-100" : "scale-y-0"
                     }`}
                   />
-                  <span
-                    className={`inline-block transition-transform  ${
+                  <span className={`inline-block transition-transform  ${
                       isActive(index)
                         ? "translate-x-[20px] xl:translate-x-[43px]"
                         : "translate-x-0"

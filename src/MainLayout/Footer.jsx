@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <div className="bg-[#191919] pt-10 md:pt-12 lg:pt-10 xl:pt-15  2xl:pt-20 3xl:pt-[153px] text-white">
       <div className="container">
-        <div   onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        <div onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
          className="fixed right-4 lg:right-15 bottom-4  flex flex-col gap-1 items-center bg-white/70  rounded-sm cursor-pointer  px-2 pt-2 pb-2 lg:pb-0 z-[999]">
           <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" className="w-[15px] h-[15px] lg:w-[23px] lg:h-[23px] " viewBox="0 0 23 23" fill="none">
           <path d="M21.3187 11.286L11.2832 1.25052L1.25 11.2837M11.2804 1.25L11.2347 21.2708" stroke="#30B6F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -46,7 +46,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="grid gap-y-6 md:gap-y-8 lg:gap-3 sm:grid-cols-2 lg:grid-cols-[140px_230px_250px_180px_1fr] xl:grid-cols-[180px_323px_300px_230px_1fr] 3xl:grid-cols-[260px_373px_350px_1fr_1fr] pt-5 md:pt-8 lg:pt-12 xl:pt-[53px] pb-10 md:pb-8 lg:pb-12 xl:pb-[45px]">
+        <div className="grid gap-y-6 md:gap-y-8 lg:gap-10 sm:grid-cols-2 lg:grid-cols-[1fr_1.5fr_1.3fr_1fr] 2xl:grid-cols-[auto_250px_280px_auto_auto] 3xl:grid-cols-[260px_373px_350px_1fr_1fr] pt-5 md:pt-8 lg:pt-12 xl:pt-[53px] pb-10 md:pb-8 lg:pb-12 xl:pb-[45px]">
           <motion.div variants={moveUp(0.2)} initial="hidden" animate="show">
             <h3 className="text-24 lg:text-29 leading-[1.344827586206897] font-light mb-2 lg:mb-[27px]">About</h3>
             <ul>

@@ -146,14 +146,14 @@ export const contactData = {
 
  export const coreValueData = { 
   image:"/assets/images/qualitysafety/qmain.jpg",
-  title: "Safety and Quality – Our Core Values",
+   title: "A Disciplined Approach to Quality ",
   description:
-    "At Shapoorji Pallonji, quality and safety are at the heart of everything we do. We adhere to the highest international standards, ensuring every project is executed with precision, care, and a strong commitment to the well-being of our workforce.",
+    "At SP Group, quality is built through structured planning, detailed checks, and close oversight at every stage of execution. Clear standards and defined processes guide how work is planned, reviewed, and delivered across projects.",
 };
 export const CertificationsData = { 
   title: "International Certifications",
   description:
-    "Our management systems are certified under globally recognized standards, demonstrating our commitment to operational excellence and environmental stewardship.",
+    "International certifications reflect SP Group’s disciplined quality control and assessment practices, supporting high standards of delivery and reinforcing customer confidence. ",
 certificates:[
   {
     title:"EN ISO 9001",
@@ -177,7 +177,7 @@ certificates:[
     "/assets/images/qualitysafety/slide4.jpg", 
   ];
   export const saftyData = {
-    title:"Our Safety Prowess in Numbers",
+    title:"Quality Strength in Numbers",
     counts:[
       {
         title:"Qualified Safety Professionals",
@@ -215,23 +215,23 @@ export const empowerData = {
 };
 
 export const EnsuringSafetyData = {
-  heading: "Ensuring Safety at Every Step", 
+  heading: "Our Quality Practices", 
     points: [
       {
         image: "/assets/images/qualitysafety/safty.jpg",
-        text: "Rigorous training and induction programs for all personnel"
+        text: "Defined quality control procedures applied across design, procurement, and construction stages "
       },
       {
         image: "/assets/images/qualitysafety/safty.jpg",
-        text: "Comprehensive risk assessments before project execution"
+        text: "Regular inspections and assessments to verify workmanship and compliance"
       },
       {
         image: "/assets/images/qualitysafety/safty.jpg",
-        text: "Regular audits and continuous improvement measures"
+        text: "Clear documentation and review mechanisms to support accurate execution "
       },
       {
         image: "/assets/images/qualitysafety/safty.jpg",
-        text: "Use of latest safety technologies and equipment"
+        text: "Continuous evaluation to strengthen processes and address improvement areas "
       } 
     ]
 };

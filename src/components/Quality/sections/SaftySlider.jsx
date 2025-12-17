@@ -45,7 +45,7 @@ const SaftySlider = () => {
 
     return (
         <section className="max-w-[1920px] mx-auto overflow-hidden " ref={sectionRef}>
-            <div className="relative mb-3">
+            <div className="relative mb-[15px]">
                 <motion.img
                     style={{ y: shapeY }}
                     src="/assets/images/svg/sv-02.svg"
@@ -57,18 +57,8 @@ const SaftySlider = () => {
                 <div className="container pt-text30">
                     <div className=" max-w-[1206px] 2xl:max-w-[1056px] 3xl:max-w-[1206px] ml-auto  ">
                         <div>
-                            <H2Title
-                                titleText={saftyData.title}
-                                titleColor="black"
-                                marginClass="mb-4 2xl:mb-50px max-w-[15ch]"
-                            />
-                            <motion.p
-                                variants={moveUp(0.2)}
-                                initial="hidden"
-                                whileInView="show"
-                                viewport={{ amount: 0.2, once: true }}
-                                className="text-19 font-light leading-[1.474] max-w-[59ch] text-paragraph"
-                            >
+                            <H2Title titleText={saftyData.title} titleColor="black" marginClass="mb-4 2xl:mb-50px max-w-[15ch]" />
+                            <motion.p variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 font-light leading-[1.474] max-w-[59ch] text-paragraph">
                                 {saftyData.description}
                             </motion.p>
                         </div>
@@ -77,17 +67,11 @@ const SaftySlider = () => {
                             initial="hidden"
                             whileInView="show"
                             viewport={{ amount: 0.2, once: true }}
-                            className="flex flex-col md:flex-row p-5 lg:px-12  lg:py-10 bg-f5f5  gap-8 md:gap-0"
+                            className="grid grid-cols-1 md:grid-cols-3 3xl:grid-cols-[406px_300px_auto] p-5 lg:px-12 lg:py-10 2xl:pt-[43px] 2xl:pb-[42px] bg-f5f5 gap-8 md:gap-0"
                         >
                             {saftyData.counts.map((item, index) => (
-                                <div key={index} className="md:w-[33.33%] w-auto">
-                                    <motion.p
-                                        variants={moveLeft(0.3 * index)}
-                                        initial="hidden"
-                                        whileInView="show"
-                                        viewport={{ amount: 0.2, once: true }}
-                                        className="text-40 font-light leading-[1.02] text-paragraph mb-3 lg:mb-[18px]"
-                                    >
+                                <div key={index} className="">
+                                    <motion.p variants={moveLeft(0.3 * index)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-40 font-light leading-[1.02] mb-3 lg:mb-[22px]">
                                         <InsideCounter
                                             value={item.count}
                                             delay={100}
@@ -110,7 +94,7 @@ const SaftySlider = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-full bg-white   xl:pb-5 3xl:pb-30">
+            <div className="w-full bg-white xl:pb-5 3xl:pb-30">
                 <motion.div
                     variants={moveLeft(0.3)}
                     initial="hidden"
@@ -122,6 +106,7 @@ const SaftySlider = () => {
                         modules={[Autoplay]}
                         centeredSlides
                         loop={true}
+                        // rewind={true}
                         spaceBetween={15}
                         autoplay={{
                             delay: 2000,
@@ -136,7 +121,7 @@ const SaftySlider = () => {
                             0: { slidesPerView: 1.2 }, // SM
                         }}
                         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-                        className="h-[400px] md:h-[470px]  lg:h-[570px] xl:h-[586px] 2xl:h-[611px] 3xl:h-[597px]"
+                        className="h-[400px] md:h-[470px] lg:h-[570px] xl:h-[586px] 2xl:h-[611px] 3xl:h-[597px]"
                     >
                         {[...sliderImages, ...sliderImages].map((img, i) => (
                             <SwiperSlide
@@ -148,8 +133,7 @@ const SaftySlider = () => {
                                     transition: "height 0.6s ease",
                                 }}
                             >
-                                <div
-                                    className="overflow-hidden transition-all duration-500 ease-in-out relative"
+                                <div className="overflow-hidden transition-all duration-500 ease-in-out relative"
                                     ref={imageContainerRefTwo}
                                     style={{
                                         // Dynamically scale height based on screen width
@@ -158,22 +142,17 @@ const SaftySlider = () => {
                                             window.innerWidth >= 1536
                                                 ? 1
                                                 : window.innerWidth >= 1280
-                                                ? 0.9
-                                                : window.innerWidth >= 1024
-                                                ? 0.8
-                                                : window.innerWidth >= 768
-                                                ? 0.7
-                                                : 0.6
+                                                    ? 0.9
+                                                    : window.innerWidth >= 1024
+                                                        ? 0.8
+                                                        : window.innerWidth >= 768
+                                                            ? 0.7
+                                                            : 0.6
                                         ),
                                         width: "100%",
                                     }}
                                 >
-                                    <motion.img
-                                        style={{ y: imageY }}
-                                        src={img}
-                                        alt={`slide-${i}`}
-                                        className="w-full h-full object-cover"
-                                    />
+                                    <motion.img style={{ y: imageY }} src={img} alt={`slide-${i}`} className="w-full h-full object-cover xl:scale-105" />
                                 </div>
                             </SwiperSlide>
                         ))}

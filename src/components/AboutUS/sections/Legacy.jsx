@@ -46,9 +46,9 @@ const legacyData = [
   },
 ];
 const Legacy = () => {
-const [imageSwiper, setImageSwiper] = useState(null);
+  const [imageSwiper, setImageSwiper] = useState(null);
 
-    const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
   const imageOffset = isMobile ? [-30, 30] : isTablet ? [-80, 80] : [-150, 150];
@@ -62,19 +62,18 @@ const [imageSwiper, setImageSwiper] = useState(null);
   });
   const imageY = useTransform(imageProgress, [0, 1], imageOffset);
   return (
-      <section className="py-7 xl:py-15 2xl:pt-18 3xl:pt-[108px] pb30 bg-primary relative overflow-hidden">
-         
-        <div className="container">
+    <section className="py-7 xl:py-15 2xl:pt-18 3xl:pt-[108px] pb30 bg-primary relative overflow-hidden">
+      <div className="container">
         <div>
-            <div className="">
+          <div className="">
             {/* <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 font-light leading-[1.18] text-white">
               Legacy
             </motion.h2> */}
-            <H2Title titleText="Legacy" titleColor="white" marginClass=" mb-5 lg:mb-8 xl:mb-15"/>
+            <H2Title titleText="Legacy" titleColor="white" marginClass=" mb-5 lg:mb-8 xl:mb-15" />
 
             <div className="flex flex-col-reverse md:flex-row gap-7 md:gap-5 2xl:gap-[20%]  3xl:gap-[23.3%] justify-between md:items-end">
               {/* LEFT: Vertical Year Thumbs */}
-              
+
 
               {/* RIGHT: Main Content */}
               <div className="  w-full ">
@@ -90,40 +89,40 @@ const [imageSwiper, setImageSwiper] = useState(null);
                   autoplay={{
                     delay: 4000,
                     disableOnInteraction: false,
-                  }}onSlideChange={(swiper) => {
-                  setCurrentSlide(swiper.realIndex);
-                }}
+                  }} onSlideChange={(swiper) => {
+                    setCurrentSlide(swiper.realIndex);
+                  }}
                   className="legacy-main-swiper"
                 >
                   {legacyData.map((item, i) => (
                     <SwiperSlide key={i}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-7 lg:gap-15 2xl:gap-[137px] items-center">
-                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-7 lg:gap-15 2xl:gap-[137px] items-center">
+
                         <div>
                           <div className="flex items-center gap-4  xl:gap-[51px] mb-5 xl:mb-[50px] border-b border-white/30 pt-5 lg:pt-5  pb-4 xl:pb-[50px]">
-                                          <div className='flex items-center gap-5'>
-                                                           <button
-                                          onClick={() => imageSwiper?.slidePrev()}
-                                          className="w-10 xl:w-[50px] xl:h-[50px] h-10 rounded-full border border-white/20 flex items-center justify-center"
-                                        >
-                                          <img src={assets.arrowLeft2} alt="" />
-                                        </button>
+                            <div className='flex items-center gap-5'>
+                              <button
+                                onClick={() => imageSwiper?.slidePrev()}
+                                className="w-10 xl:w-[50px] xl:h-[50px] h-10 rounded-full border border-white/20 flex items-center justify-center"
+                              >
+                                <img src={assets.arrowLeft2} alt="" />
+                              </button>
 
-                                        <button
-                                          onClick={() => imageSwiper?.slideNext()}
-                                          className="w-10 xl:w-[50px] xl:h-[50px] h-10 rounded-full border border-white/20 flex items-center justify-center"
-                                        >
-                                          <img src={assets.arrowRight2} alt="" />
-                                        </button>
-                                                          </div>
-                                          
-                                        </div>
+                              <button
+                                onClick={() => imageSwiper?.slideNext()}
+                                className="w-10 xl:w-[50px] xl:h-[50px] h-10 rounded-full border border-white/20 flex items-center justify-center"
+                              >
+                                <img src={assets.arrowRight2} alt="" />
+                              </button>
+                            </div>
+
+                          </div>
                           <p className="text-29 text-white font-light leading-[1] mb-3 xl:mb-5">{item.year}</p>
                           <p className="text-19 font-light leading-[1.474] text-white">{item.text}</p></div>
                         <div className="relative overflow-hidden" ref={imageContainerRefTwo}>
-                          <motion.img style={{y:imageY}} src={item.image} alt={item.title} className="w-full object-cover scale-110 w-full h-[305px] 
+                          <motion.img style={{ y: imageY }} src={item.image} alt={item.title} className="w-full object-cover scale-110 w-full h-[305px] 
                           md:w-full xl:w-[795px] xl:h-[505px]" /></div>
-                    </div>
+                      </div>
                     </SwiperSlide>
                   ))}
                 </Swiper>
@@ -131,8 +130,8 @@ const [imageSwiper, setImageSwiper] = useState(null);
             </div>
           </div>
         </div>
-        </div>
-      </section>
+      </div>
+    </section>
 
   );
 };

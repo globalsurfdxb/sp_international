@@ -34,13 +34,27 @@ export const mepData = {
     },
     whyChooseData: {
         heading: "Why Choose Us",
-        image: "/assets/images/mep/why-choose.jpg",
         points: [
-            "Integrated design-to-delivery approach",
-            "Adherence to international safety & quality standards",
-            "Experienced management team with 15–30 years of expertise",
-            "Highly skilled installation engineers and in-house technicians",
-            "Proven track record of delivering complex, landmark projects"
+            {
+                text: "Integrated design-to-delivery approach",
+                image: "/assets/images/mep/why-choose.jpg",
+            },
+            {
+                text: "Adherence to international safety & quality standards",
+                image: "/assets/images/mep/why-choose.jpg",
+            },
+            {
+                text: "Experienced management team with 15–30 years of expertise",
+                image: "/assets/images/mep/why-choose.jpg",
+            },
+            {
+                text: "Highly skilled installation engineers and in-house technicians",
+                image: "/assets/images/mep/why-choose.jpg",
+            },
+            {
+                text: "Proven track record of delivering complex, landmark projects",
+                image: "/assets/images/mep/why-choose.jpg",
+            },
         ],
     },
 

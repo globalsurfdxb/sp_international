@@ -100,16 +100,16 @@ const ExpertiseSec = () => {
             {/* Content Section - Static with Navigation */}
             <motion.div variants={moveLeft(0.6)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}}>
               {/* Navigation - Fixed */}
-              <div className="flex items-center gap-4  xl:gap-[51px] mb-5 xl:mb-[50px] border-b border-white/30 pt-5 lg:pt-5  pb-4 xl:pb-[30px]">
+              <div className="flex items-center gap-4 xl:gap-[51px] mb-5 xl:mb-[50px] border-b border-white/30 pt-5 lg:pt-5 xl:pt-10 pb-4 xl:pb-[30px]">
                 <div className='flex items-center gap-[12px]'>
                   <button onClick={() => imageSwiper?.slidePrev()}
-                  className="w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors"
+                    className="w-10 h-10 xl:w-50px xl:h-50px  rounded-full border border-white/20 flex items-center justify-center transition-colors"
                   aria-label="Previous slide"
                 >
                   <img src={assets.arrowLeft2} alt="" />
                 </button>
                 <button onClick={() => imageSwiper?.slideNext()}
-                  className="w-10 xl:w-50px xl:h-50px h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors"
+                    className="w-10 h-10 xl:w-50px xl:h-50px rounded-full border border-white/20 flex items-center justify-center transition-colors"
                   aria-label="Next slide"
                 >
                   <img src={assets.arrowRight2} alt="" />
