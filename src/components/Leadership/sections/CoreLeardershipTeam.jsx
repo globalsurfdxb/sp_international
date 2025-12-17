@@ -8,8 +8,8 @@ import { assets } from "../../../assets/index";
 import {motion, useScroll, useTransform} from "framer-motion";
 import { moveUp } from "../../../motionVarients";
 
-const CoreLeardershipTeam = ({ data }) => {
-  const items = data?.centetralfunctions ?? []; // fallback if undefined
+const CoreLeadershipTeam = ({ data = {} }) => {
+  const items = data?.centetralfunctions || []; // fallback if undefined
   const [query, setQuery] = useState('') 
 
   const filteredItems = useMemo(() => {
@@ -20,12 +20,12 @@ const CoreLeardershipTeam = ({ data }) => {
   }, [query, items]); 
       const [selected, setSelected] = useState({ id: "all", name: "All" });
 
-const filteredTeam =
-  selected.id === "all"
-    ? data.items
-    : data.items.filter(
-        (member) => member.position === selected.name
-      );
+  const filteredTeam = useMemo(() => {
+    if (!data?.items) return [];
+    return selected.id === "all"
+      ? data.items
+      : data.items.filter((member) => member.position === selected.name);
+  }, [data?.items, selected]);
 
   const sectionRef = useRef(null);
   const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
@@ -69,7 +69,7 @@ const filteredTeam =
               />
               <ComboboxButton className="group absolute inset-y-0 right-0 px-1.5 w-full flex items-center justify-end cursor-pointer outline-none">
                 <svg width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 1L7.9992 8L1 1.00159" stroke="#464646" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M15 1L7.9992 8L1 1.00159" stroke="#464646" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
 
               </ComboboxButton>
@@ -152,6 +152,6 @@ const filteredTeam =
   );
 }
 
-export default CoreLeardershipTeam;
+export default CoreLeadershipTeam;
 
 

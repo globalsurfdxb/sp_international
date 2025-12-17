@@ -36,16 +36,31 @@ export const facadeData = {
     ]
   },
   ourStrengthData: {
-    heading: "Our Strengths",
-    image: "/assets/images/facade/itm1.jpg",
-    points: [
-      "Experienced and qualified technical teams and site staff.",
-      "Maximum utilization of UAE-based fabrication facilities and global resources.",
-      "Effective on-site management ensures smooth coordination with other trades.",
-      "Proven ability to handle unforeseen challenges during execution.",
-      "Commitment to timely delivery without compromising quality."
-    ],
-  },
+  heading: "Our Strengths",
+  points: [
+    {
+      text: "Experienced and qualified technical teams and site staff.",
+      image: "/assets/images/facade/itm1.jpg",
+    },
+    {
+      text: "Maximum utilization of UAE-based fabrication facilities and global resources.",
+      image: "/assets/images/facade/itm2.jpg",
+    },
+    {
+      text: "Effective on-site management ensures smooth coordination with other trades.",
+      image: "/assets/images/facade/itm3.jpg",
+    },
+    {
+      text: "Proven ability to handle unforeseen challenges during execution.",
+      image: "/assets/images/facade/itm4.jpg",
+    },
+    {
+      text: "Commitment to timely delivery without compromising quality.",
+      image: "/assets/images/facade/itm5.jpg",
+    },
+  ],
+},
+
   featuredProjectsData: {
     title: "",
     items: [
@@ -87,3 +102,4 @@ export const facadeData = {
   }
 
 }
+

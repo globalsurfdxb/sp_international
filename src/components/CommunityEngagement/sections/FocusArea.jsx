@@ -98,7 +98,7 @@ const FocusArea = () => {
       <section className="sticky top-0 h-screen pt-text90 pb25 bg-f5f5 overflow-hidden" ref={sectionRef}>
         <div className="container relative h-full">
           <div className="w-[800px] 2xl:w-[1016px] 3xl:w-[1316px]  flex justify-end 3xl:ml-auto lg:absolute left-0 lg:left-[120px] xl:left-[160px] 3xl:right-0">
-            <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className=' relative lg:before:absolute before:top-0 before:left-[-170px] before:w-[100px] before:h-[47px] before:2xl:h-[53px] before:3xl:h-[70px] before:bg-f5f5 before:z-10  bg-f5f5 z-10 w-full pl-0  xl:pl-[25px] 2xl:pl-[90px] 3xl:pl-[90px] text-60 md:text-40 2xl:text-45 3xl:text-60 font-light leading-[1.18] mb-5 lg:mb-8 xl:mb-[90px]'>{focusData.title}</motion.h2>
+            <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className=' relative lg:before:absolute before:top-0 before:left-[-170px] before:w-[100px] before:h-[47px] before:2xl:h-[53px] before:3xl:h-[70px] before:bg-f5f5 before:z-10  bg-f5f5 z-10 w-full pl-0  xl:pl-[25px] 2xl:pl-[90px] 3xl:pl-[90px] text-60 font-light leading-[1.18] mb-5 lg:mb-8 xl:mb-[90px]'>{focusData.title}</motion.h2>
           </div>
           <div className="flex gap-6 xl:gap-[80px] justify-end relative z-[2]">
             {/* Left column */}

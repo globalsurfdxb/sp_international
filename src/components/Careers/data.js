@@ -26,7 +26,7 @@ export const empowerData = {
   ],
 };
 
-export const workplaceData = {
+export const workplaceDatadd = {
   heading: "A Workplace Built Around People",
   image: "/assets/images/careers/workplace/leftimage.jpg",
   points: [
@@ -36,6 +36,28 @@ export const workplaceData = {
     "Celebrating achievements and milestones together",
   ],
 };
+export const workplaceData = {
+  heading: "A Workplace Built Around People", 
+    points: [
+      {
+        image: "assets/images/careers/workplace/leftimage.jpg",
+        text: "Diverse and inclusive teams driving collaboration and innovation"
+      },
+      {
+        image: "assets/images/careers/workplace/leftimage.jpg",
+        text: "Employees empowered to lead, take initiative, and deliver impact"
+      },
+      {
+        image: "assets/images/careers/workplace/leftimage.jpg",
+        text: "Continuous learning, mentorship, and professional growth opportunities"
+      },
+      {
+        image: "assets/images/careers/workplace/leftimage.jpg",
+        text: "Celebrating achievements and milestones together"
+      } 
+    ]
+};
+
 
 // src/data/valuesData.js
 export const valuesData = {

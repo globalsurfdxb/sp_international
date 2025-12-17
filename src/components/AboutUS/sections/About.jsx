@@ -20,7 +20,7 @@ const About = () => {
           <div className={`grid grid-cols-1 lg:grid-cols-[1fr_430px] xl:grid-cols-[1fr_480px] 3xl:grid-cols-[1fr_520px] gap-7 xl:gap-[70px] 2xl:gap-[100px] 3xl:gap-[167px]`}>
             {/* Left Column */}
             <div>
-              <motion.p variants={moveUp(0.8 + 0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className='text-[18px] md:text-29 text-paragraph font-light leading-[1.345]'>
+              <motion.p variants={moveUp(0.8 + 0.2)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className='text-[20px] md:text-29 text-paragraph font-light leading-[1.345]'>
                 {data.left.text}
               </motion.p>
               <div className='mt-5 sm:mt-7 xl:mt-15  2xl:mt-23 pt-5 sm:pt-7  xl:pt-12   border-t border-black/20'>
