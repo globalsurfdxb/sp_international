@@ -120,29 +120,21 @@ const AccordionStyle1 = ({ accData }) => {
           initial="hidden"
           whileInView="show"
           viewport={{ amount: 0.2, once: true }}
-          className={`border-b border-cmnbdr relative transition-all duration-500 ${
-            openIndex === index ? "pl-50px" : "pl-0"
-          }`}
+          className={`border-b border-cmnbdr relative transition-all duration-500 ${openIndex === index ? "pl-50px" : "pl-0"
+            }`}
         >
           {/* LEFT ACTIVE BAR */}
-{/* LEFT ACTIVE BAR */}
-<div
-  className={`absolute left-0 top-1/2 -translate-y-1/2 bg-[#30B6F9]
-    ${
-      openIndex === index
-        ? "w-[3px] h-[80%] transition-all duration-500"
-        : "w-0 h-[80%] transition-all duration-150"
-    }
-  `}
-/>
-
-
+          <div className={`absolute left-0 top-1/2 -translate-y-1/2 bg-[#30B6F9] ${openIndex === index
+            ? "w-[3px] h-[80%] transition-all duration-500"
+            : "w-0 h-[80%] transition-all duration-150"
+            }
+            `}
+          />
           {/* HEADER */}
           <button
             onClick={() => toggleAccordion(index)}
-            className={`w-full ${
-              openIndex === index ? "pt-30px pb-2 xl:pb-[15px]" : "pt-30px pb-30px"
-            } flex items-center justify-between text-left group transition-all duration-500`}
+            className={`w-full ${openIndex === index ? "pt-30px pb-2 xl:pb-[15px]" : "pt-30px pb-30px"
+              } flex items-center justify-between text-left group transition-all duration-500`}
           >
             <div className="flex-1">
               <h3 className="text-24 xl:text-24 3xl:text-32 leading-[1.3125] font-normal text-gray-900">
@@ -165,20 +157,18 @@ const AccordionStyle1 = ({ accData }) => {
             <motion.div
               animate={{ rotate: openIndex === index ? 180 : 0 }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
-              className={`ml-4 w-6 h-6 md:w-10 md:h-10 xl:w-[50px] xl:h-[50px] rounded-full flex items-center justify-center border transition-colors duration-300 ${
-                openIndex === index
-                  ? "bg-[#30B6F9] text-white border-[#30B6F9]"
-                  : "bg-white border-black/20"
-              }`}
+              className={`ml-4 w-6 h-6 md:w-10 md:h-10 xl:w-[50px] xl:h-[50px] rounded-full flex items-center justify-center border transition-colors duration-300 ${openIndex === index
+                ? "bg-[#30B6F9] text-white border-[#30B6F9]"
+                : "bg-white border-black/20"
+                }`}
             >
               <img
                 src={assets.arrowDown}
                 alt="arrow"
                 width={15}
                 height={15}
-                className={`${
-                  openIndex === index ? "brightness-0 invert" : ""
-                } w-[10px] h-[10px] lg:w-[15px] lg:h-[15px]`}
+                className={`${openIndex === index ? "brightness-0 invert" : ""
+                  } w-[10px] h-[10px] lg:w-[15px] lg:h-[15px]`}
               />
             </motion.div>
           </button>

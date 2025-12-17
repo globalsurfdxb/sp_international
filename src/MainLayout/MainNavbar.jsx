@@ -174,33 +174,15 @@ const MainNavbar = () => {
                         </div>
 
                         {/* Desktop Menu */}
-                        <ul className="hidden lg:flex items-center gap-2 xl:gap-2 2xl:gap-4 3xl:gap-[35px]">
+                        <ul className="hidden lg:flex items-center gap-2 xl:gap-4 2xl:gap-4 3xl:gap-[35px]">
                             {menuItems.map((item, index) => (
                                 // <li key={index} className="relative group">
-                                <li
-                                    key={index}
-                                    className="relative group"
-                                    onMouseEnter={() => setOpenSubmenu(index)}
-                                    onMouseLeave={() => setOpenSubmenu(null)}
-                                >
-                                    {/* <Link
-                    to= {item.href}
-                    className="text-[12px] xl:text-14 3xl:text-16 leading-[1.75] font-300 uppercase hover:font-bold active:font-bold focus-within:font-bold transition-all duration-300 flex items-center gap-1"
-                  >
-                    {item.name}
-                    {item.submenu && (
-                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                      </svg>
-                    )}
-                  </Link> */}
-                                    <Link
-                                        to={item.href}
-                                        className="flex items-center gap-1 text-[11px] xl:text-[12px] 3xl:text-16 leading-[1.75] font-300 uppercase hover:font-bold active:font-bold focus-within:font-bold transition-all duration-300 "
-                                    >
+                                <li key={index} className="relative group" onMouseEnter={() => setOpenSubmenu(index)} onMouseLeave={() => setOpenSubmenu(null)}>
+                                   
+                                    <Link to={item.href} className="flex items-center gap-1 text-[11px] md:text-13 2xl:text-[12px] 3xl:text-16 leading-[1.75] font-300 uppercase hover:font-bold active:font-bold focus-within:font-bold transition-all duration-300">
                                         <span className="relative inline-block group">
-                                            <span className={`font-bold  opacity-0 transition-all duration-300 ${item.submenu != null ?'mr-[16px]':''}`}>
-                                                {item.name} 
+                                            <span className={`font-bold  opacity-0 transition-all duration-300 ${item.submenu != null ? 'mr-[16px]' : ''}`}>
+                                                {item.name}
                                             </span>
 
                                             <span className="absolute  whitespace-nowrap flex items-center inset-0 font-300 transition-opacity duration-200 group-hover:opacity-0">

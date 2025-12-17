@@ -73,14 +73,14 @@ const FeaturedProjectSlider = ({ data }) => {
       <section className="pt90 pb25 relative bg-f5f5 overflow-hidden" ref={sectionRef}>
         <div className="xl:px-[15px] md:pe-0 relative">
           <div className="container" ref={containerRef}>
-            <div className="flex justify-between items-center  mb-50px 3xl:mb-17 ">
+            <div className="flex justify-between items-center mb-4 lg:mb-6 xl:mb-8 3xl:mb-17 gap-2">
                 <H2Title titleText="Featured Projects" titleColor="black" marginClass="mb-0" />
-              <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="flex gap-5 ">
+              <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="flex gap-2 2xl:gap-5 ">
                 <button className="custom-prev  w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] flex items-center justify-center cursor-pointer rounded-full group border border-black/20   hover:bg-secondary hover:text-white transition">
-                  <img src="/assets/images/project-details/rightarrow.svg" className="w-[13.89px] h-[13.89px] rotate-180 group-hover:brightness-0 group-hover:invert-100 transition-all duration-300" alt="" width={14} height={14} />
+                  <img src="/assets/images/project-details/rightarrow.svg" className="w-[13.89px] h-[13.89px] lg:h-auto lg:w-auto rotate-180 group-hover:brightness-0 group-hover:invert-100 transition-all duration-300" alt="" width={14} height={14} />
                 </button>
                 <button className="custom-next w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] flex items-center justify-center cursor-pointer rounded-full group border border-black/20   hover:bg-secondary hover:text-white transition">
-                  <img src="/assets/images/project-details/rightarrow.svg" className="w-[13.89px] h-[13.89px] group-hover:brightness-0 group-hover:invert-100 transition-all duration-300" alt="" width={14} height={14} />
+                  <img src="/assets/images/project-details/rightarrow.svg" className="w-[13.89px] h-[13.89px] lg:h-auto lg:w-auto group-hover:brightness-0 group-hover:invert-100 transition-all duration-300" alt="" width={14} height={14} />
                 </button>
               </motion.div>
             </div>

@@ -43,7 +43,7 @@ const H2Title = ({
   };
 
   return (
-    <h2 ref={ref} className={`text-60 font-light leading-[1.166666666666667] text-${titleColor} ${marginClass} ${maxW}`} >
+    <h2 ref={ref} className={`text-[1.5rem] xs:text-[1.8rem] md:text-[2rem] lg:text-[2.8rem] xl:text-[3rem] 2xl:text-[3.4rem] 3xl:text-60 font-light leading-[1.166666666666667] text-${titleColor} ${marginClass} ${maxW}`} >
       <motion.span
         variants={container}
         initial="hidden"

@@ -128,7 +128,7 @@ const DivisionExpertise = ({data}) => {
                       <div >
                         <h3 className="text-20 2xl:text-29 leading-[1.344827586206897] font-light mb-1 md:mb-2">{item.title}</h3>
                       </div>
-                      <p className="text-14 xl:text-19 font-light font-paragraph leading-[1.5]">{item.desc}</p>
+                      <p className="text-14 xl:text-19 font-extralight font-paragraph leading-[1.5]">{item.desc}</p>
                     </div>
                   </div>
                 </SwiperSlide>

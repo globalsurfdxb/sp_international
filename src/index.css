@@ -33,11 +33,11 @@ html {
     --text-45: clamp(1.80rem, 5vw + 0.5rem, 45px);
     --text-48: clamp(1.85rem, 5.2vw + 0.5rem, 48px);
     --text-60: clamp(1.9rem, 3vw + 0.5rem, 60px);
-    --text-70: clamp(2.20rem, 5.5vw + 0.3rem, 70px);
+    --text-70: clamp(2.20rem, 4vw + 0.1rem, 70px);
 
   --spacing-30px: clamp(0.75rem, 1.5vw + 0.5rem, 30px);
   --spacing-35px: clamp(0.875rem, 1.5vw + 0.5rem, 35px);
-  --spacing-50px: clamp(1.4rem, 2vw + 0.1em, 50px);
+  --spacing-50px: clamp(1.4rem, 10vw + 0.1em, 50px);
 }
 
 @theme {
@@ -50,6 +50,42 @@ html {
   --breakpoint-2xl: 1360px;
   --breakpoint-3xl: 1680px;
 }
+
+@utility container {
+  @apply mx-auto px-[15px];
+
+  /* Set custom max-widths at each breakpoint */
+  max-width: 100%;
+
+  @media (width >=550px) {
+    max-width: 520px;
+  }
+
+  @media (width >=640px) {
+    max-width: 610px;
+  }
+
+  @media (width >=768px) {
+    max-width: 738px;
+  }
+
+  @media (width >=1024px) {
+    max-width: 900px;
+  }
+
+  @media (width >=1200px) {
+    max-width: 1100px;
+  }
+
+  @media (width >=1360px) {
+    max-width: 1330px;
+  }
+
+  @media (width >=1680px) {
+    max-width: 1650px;
+  }
+}
+
 
 @theme inline {
   --color-background: var(--background);
@@ -87,8 +123,6 @@ html {
   --spacing-30px: var(--spacing-30px);
   --spacing-35px: var(--spacing-35px);
   --spacing-50px: var(--spacing-50px);
-
-  --container-xs:100%;
 
 }
 
@@ -819,4 +853,13 @@ body::-webkit-scrollbar {
   to {
     width: 100%;
   }
+}
+/* Chrome, Edge, Safari */
+.scrollbar-pointer::-webkit-scrollbar {
+  cursor: pointer;
+}
+
+/* Optional: thumb specifically */
+.scrollbar-pointer::-webkit-scrollbar-thumb {
+  cursor: pointer;
 }

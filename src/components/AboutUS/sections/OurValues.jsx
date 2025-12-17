@@ -40,7 +40,7 @@ const OurValues = () => {
         </motion.h2> */}
         <H2Title titleText={values.title} marginClass={"mb-6 2xl:mb-10 3xl:mb-[54px]"} />
 
-        <div className="xl:max-w-[74.51%]">
+        <div className="2xl:max-w-[74.51%]">
           {values.data.map((item, index) => (
             // <ValueItem key={index} item={item} />
             <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}>
