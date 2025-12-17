@@ -104,7 +104,7 @@ const CultureSection = () => {
 
         {/* Content */}
         <div ref={contentRef} className="relative z-10 text-white px-6 sm:px-10 md:px-14 lg:px-[100px]">
-          <h2 className="text-48 lg:text-60 font-light leading-[1.166666666666667] mb-6 xl:mb-[30px] lg:max-w-[500px]">
+          <h2 className="text-60 font-light leading-[1.166666666666667] mb-6 xl:mb-[30px] lg:max-w-[500px]">
             {title}
           </h2>
           <p className="text-18 md:text-19 font-light leading-[1.473684210526316] max-w-[660px] mb-[24px] xl:mb-[30px]">

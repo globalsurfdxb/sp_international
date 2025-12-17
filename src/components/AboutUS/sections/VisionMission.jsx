@@ -56,7 +56,7 @@ const VisionMission = () => {
                 <div className="flex flex-col gap-8 2xl:gap-[56px]">
                   {Vision.right.map((item, i) => (
                     <motion.div variants={moveUp(0.5*i)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="z-10" key={i}>
-                      <h3 className='text-29 lg:text-40 xl:text-60 font-light leading-[1.18] text-black mb-4 lg:mb-6'>
+                      <h3 className='text-60 font-light leading-[1.18] text-black mb-4 lg:mb-6'>
                         {item.title}
                       </h3>
                       <p className='text-19 font-light leading-[1.474] text-paragraph'>{item.desc}</p>

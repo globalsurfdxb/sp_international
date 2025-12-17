@@ -214,15 +214,28 @@ export const empowerData = {
   ],
 };
 
+ 
+
 export const EnsuringSafetyData = {
-  heading: "Ensuring Safety at Every Step",
-  image: "/assets/images/qualitysafety/safty.jpg",
-  points: [
-    "Rigorous training and induction programs for all personnel",
-    "Comprehensive risk assessments before project execution",
-    "Regular audits and continuous improvement measures",
-    "Use of latest safety technologies and equipment",
-  ],
+  heading: "Ensuring Safety at Every Step", 
+    points: [
+      {
+        image: "/assets/images/qualitysafety/safty.jpg",
+        text: "Rigorous training and induction programs for all personnel"
+      },
+      {
+        image: "/assets/images/qualitysafety/safty.jpg",
+        text: "Comprehensive risk assessments before project execution"
+      },
+      {
+        image: "/assets/images/qualitysafety/safty.jpg",
+        text: "Regular audits and continuous improvement measures"
+      },
+      {
+        image: "/assets/images/qualitysafety/safty.jpg",
+        text: "Use of latest safety technologies and equipment"
+      } 
+    ]
 };
 
 // src/data/valuesData.js

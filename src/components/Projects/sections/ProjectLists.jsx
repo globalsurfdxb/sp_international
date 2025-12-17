@@ -547,20 +547,19 @@ const ProjectLists = () => {
               viewport={{ amount: 0.2, once: true }}
             >
               <Link to="/project-details">
-                <div className="flex flex-col lg:flex-row gap-3 md:gap-10 3xl:gap-[69px] ">
-                  <div className="w-full lg:w-[274px]">
+                <div className="flex flex-col lg:grid grid-cols-[240px_244px_448px_0px] xl:grid-cols-[240px_244px_448px_32px] 2xl:grid-cols-[274px_324px_458px_32px] 3xl:grid-cols-[274px_384px_658px_32px] justify-between gap-3 md:gap-8 lg:gap-4 3xl:gap-[69px] ">
+                  <div className="w-full xl:w-[274px]">
                     <img
                       src={item.image}
                       alt={item.title}
                       width={274}
                       height={208}
-                      className="w-full h-full   md:h-[350px] lg:min-w-[274px] lg:h-[208px] object-fit"
+                      className="w-full h-full   md:h-[350px] xl:min-w-[274px] lg:h-[208px] object-fit"
                     />
                   </div>
-                  <div className="flex flex-col lg:flex-row justify-between gap-1 md:gap-5   2xl:gap-10 3xl:gap-[104px] w-full">
                     <div>
                       <div>
-                        <h2 className="text-20 xl:text-29 leading-[1.344827586206897] font-light  ">
+                        <h2 className="text20 text-29 leading-[1.344827586206897] font-light  ">
                           {item.title}
                         </h2>
                       </div>
@@ -582,7 +581,7 @@ const ProjectLists = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 hidden xl:block">
+                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 hidden lg:block">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="35"
@@ -606,7 +605,7 @@ const ProjectLists = () => {
                         />
                       </svg>
                     </div>
-                  </div>
+                   
                 </div>
               </Link>
             </motion.div>

@@ -50,7 +50,7 @@ const OurValues = () => {
               onMouseLeave={() => handleMouseLeave(index)}
             >
               <div className="flex justify-between">
-                <h3 className={`text-[19px] md:text-29  leading-[1.474] lg:leading-[2.43] text-paragraph group-hover:text-black transition-all ease-in-out duration-500 group-hover:font-bold ${isHovered === index ? "font-bold text-black" : "font-light"}`}>
+                <h3 className={`text-[20px] md:text-29  leading-[1.474] lg:leading-[2.43] text-paragraph group-hover:text-black transition-all ease-in-out duration-500 group-hover:font-bold ${isHovered === index ? "font-bold text-black" : "font-light"}`}>
                   {item.label}
                 </h3>
                 <div className={`flex lg:hidden w-[35px] h-[35px] lg:w-[50px] lg:h-[50px] rounded-full border border-black/20 justify-center items-center transition-transform duration-500 
