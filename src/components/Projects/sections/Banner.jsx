@@ -76,33 +76,33 @@ const Banner = () => {
 
   return (
     <section ref={sectionRef} className="relative w-full h-[280px] lg:h-[350px] xl:h-[440px] 3xl:h-[560px] bg-secondary/20 overflow-hidden">
-    <img ref={imgRef} src="/assets/images/projects/banner.jpg" alt="" className="absolute top-0 left-0 w-full h-full object-cover object-top z-0" />
-    <div ref={overlayRef} className="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.75)_18.92%,rgba(0,0,0,0)_72.69%)]"></div>
-    <div className="container  " ref={containerRef}></div>
-    <div className=" relative z-2 h-full " ref={targetRef}>
-      <div className="flex flex-col justify-end h-full  ">
-        <div className="flex flex-col md:flex-row justify-between ps-3 gap-5 lg:gap-0">
-          <h1 ref={titleRef} className="text-white  text-70  font-light leading-[1.08]">Projects</h1>
-          <motion.div variants={moveLeft(2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="py-3 lg:py-[48px] ps-6 lg:ps-[83px] pe-6 bg-primary min-w-[70.68%]">
-            <div className="flex items-center gap-12 xl:gap-[148px]">
-              {projectDetails.list.map((item, i) => (
-                <div key={i}>
-                  <h3 className="text-40 font-light leading-[1.5] text-white">
-                    {/* {item.value} */}
-<InsideCounter value={item.value} delay={2000}/><span>+</span>
-                  </h3>
-                  <p className="text-[16px] md:text-19 font-extralight leading-[1.2] text-white/70">{item.title}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+      <img ref={imgRef} src="/assets/images/projects/banner.jpg" alt="" className="absolute top-0 left-0 w-full h-full object-cover object-top z-0" />
+      <div ref={overlayRef} className="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.75)_18.92%,rgba(0,0,0,0)_72.69%)]"></div>
+      <div className="container" ref={containerRef}></div>
+      <div className=" relative z-2 h-full " ref={targetRef}>
+        <div className="flex flex-col justify-end h-full  ">
+          <div className="flex flex-col md:flex-row justify-between ps-3 gap-5 lg:gap-0">
+            <h1 ref={titleRef} className="text-white text-70 xl:text-32 2xl:text-70 font-light leading-[1.08]">Projects</h1>
+            <motion.div variants={moveLeft(2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="py-3 lg:py-[48px] ps-6 lg:ps-[83px] pe-6 bg-primary min-w-[70.68%]">
+              <div className="flex items-center gap-12 xl:gap-[148px]">
+                {projectDetails.list.map((item, i) => (
+                  <div key={i}>
+                    <h3 className="text-20 lg:text-29 xl:text-32 2xl:text-40 font-light leading-[1.5] text-white">
+                      {/* {item.value} */}
+                      <InsideCounter value={item.value} delay={2000} /><span>+</span>
+                    </h3>
+                    <p className="text-14 md:text-16 lg:text-19 font-extralight leading-[1.2] text-white/70">{item.title}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
-    </div>
       <motion.div variants={moveUp(2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="absolute right-0 -bottom-8 lg:bottom-0 z-10">
-      <img  src="../assets/images/svg/sv-02.svg" className="w-[200px]  h-[230px] sm:w-[240px] sm:h-[330px] lg:w-[340px]  lg:h-[430px] 2xl:w-[449px] 2xl:h-[630px] object-cover object-center" alt="" />
-    </motion.div>
-  </section>
+        <img src="../assets/images/svg/sv-02.svg" className="w-[200px]  h-[230px] sm:w-[240px] sm:h-[330px] lg:w-[340px]  lg:h-[430px] 2xl:w-[449px] 2xl:h-[630px] object-cover object-center" alt="" />
+      </motion.div>
+    </section>
   );
 };
 

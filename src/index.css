@@ -800,11 +800,11 @@ body::-webkit-scrollbar {
 }
 
 .py25 {
-  @apply py-11 xl:py-15 2xl:py-22 3xl:py-25;
+  @apply py-6 md:py-11 xl:py-15 2xl:py-22 3xl:py-25;
 }
 
 .pt30 {
-  @apply pt-11 xl:pt-15 2xl:pt-22 3xl:pt-30;
+  @apply py-8 md:pt-11 xl:pt-15 2xl:pt-22 3xl:pt-30;
 }
 
 .pb30 {
@@ -1020,3 +1020,10 @@ body::-webkit-scrollbar {
 @media   (max-width:1023px) {
   .w-md200{width: 200px;}
 }
+
+
+/* @media (max-width:768px){
+  .text-70{
+    font-size: clamp();
+  }
+} */

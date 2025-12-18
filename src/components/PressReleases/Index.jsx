@@ -7,7 +7,7 @@ import { useState, useMemo, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { moveUp } from "../../motionVarients";
 import { Link } from "react-router-dom";
-
+import SplitTextAnimation from "../../components/common/SplitTextAnimation";
 const topics = [
   { id: 1, title: "Topic" }, // default (no filter)
   { id: 2, title: "Press Releases 1" },
@@ -46,13 +46,13 @@ const Index = () => {
 
     // Topic filter (ignore default "Topic")
     if (selectedTopic.id !== 1) {
-    items = items.filter((item) => item.topic === selectedTopic.title);
-  }
+      items = items.filter((item) => item.topic === selectedTopic.title);
+    }
 
     // Year filter (ignore default "Year")
     if (selectedYear.id !== 1) {
-    items = items.filter((item) => item.year === selectedYear.title);
-  }
+      items = items.filter((item) => item.year === selectedYear.title);
+    }
 
     return items;
   }, [selectedTopic, selectedYear]);
@@ -117,12 +117,12 @@ const Index = () => {
   return (
     <>
       <header className="">
-        <MainNavbar /> 
+        <MainNavbar />
       </header>
       <section className="relative overflow-hidden" ref={sectionRef}>
-         <div className="absolute top-[61px] lg:top-6 right-0 2xl:right-[-50px] z-[-1]">
-        <motion.img style={{ y: shapeY }} src="/assets/images/project-details/bannerbg.svg" alt="" className="w-md200 h-[576px]  md:h-[476px] lg:w-[577px] lg:h-[576px] object-fit" />
-      </div>
+        <div className="absolute top-[61px] lg:top-6 right-0 2xl:right-[-50px] z-[-1]">
+          <motion.img style={{ y: shapeY }} src="/assets/images/project-details/bannerbg.svg" alt="" className="w-md200 h-[576px]  md:h-[476px] lg:w-[577px] lg:h-[576px] object-fit" />
+        </div>
         {/* <img src="./assets/images/shape-left.svg" alt="" className="absolute  bottom-30 left-0 z-[-1]" /> */}
         <div className="container">
           <div className="mb-7 md:mb-10 xl:mb-12 3xl:mb-20 mt-12 xl:mt-15 3xl:mt-30">
@@ -131,9 +131,10 @@ const Index = () => {
               initial="hidden"
               whileInView="show"
               viewport={{ amount: 0.2, once: true }}
-              className="text-70 font-light leading-[1.071428571428571]"
+              className="text-40 2xl:text-70 font-light leading-[1.071428571428571]"
             >
-              Press Releases
+              
+              <SplitTextAnimation children={"Press Releases"} staggerDelay={0.1} animationDuration={0.8} delay={0.8} />
             </motion.h1>
           </div>
 
@@ -223,16 +224,8 @@ const Index = () => {
             </div>
 
             {/* Clear Filter */}
-            <button
-              type="button"
-              onClick={handleClearFilters}
-              className="flex items-center gap-1 md:gap-[10px] group cursor-pointer justify-end"
-            >
-              <img
-                src="./assets/images/icons/arrow-tail-left.svg"
-                alt=""
-                className="w-4 h-4 sm:w-auto sm:h-auto group-hover:translate-x-[-3px] transition-all duration-300"
-              />
+            <button type="button" onClick={handleClearFilters} className="flex items-center gap-1 md:gap-[10px] group cursor-pointer justify-end" >
+              <img src="./assets/images/icons/arrow-tail-left.svg" alt="" className="w-4 h-4 sm:w-auto sm:h-auto group-hover:translate-x-[-3px] transition-all duration-300" />
               <p className="text-paragraph text-16 font-light leading-[1.75] uppercase transition-all duration-300">
                 Clear Filter
               </p>
@@ -241,11 +234,10 @@ const Index = () => {
 
           {/* Grid */}
           <div
-            className={`relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-10 xl:gap-y-15 2xl:gap-y-20 3xl:gap-y-30 mb-10 xl:mb-12 2xl:mb-[100.32px] transition-all duration-300 ${
-              isAnimating
+            className={`relative grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-x-30px gap-y-10 xl:gap-y-15 2xl:gap-y-20 3xl:gap-y-30 mb-10 xl:mb-12 2xl:mb-[100.32px] transition-all duration-300 ${isAnimating
                 ? "opacity-0 translate-y-4"
                 : "opacity-100 translate-y-0"
-            }`}
+              }`}
             style={{
               transform: isAnimating ? "translateY(16px)" : "translateY(0)",
               transition: "opacity 300ms ease-in-out, transform 300ms ease-in-out",
@@ -256,13 +248,7 @@ const Index = () => {
                 key={item.id}
                 className="border-b border-black/20 pb-5 lg:border-b-0 lg:pb-0"
               >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  width={520}
-                  height={339}
-                  className="w-full h-[339px] object-cover"
-                />
+                <img src={item.image} alt={item.title} width={520} height={339} className="w-full h-[200px] md:h-[250px] lg:h-[300px] 3xl:h-[339px] object-cover" />
                 <div className="pt-5">
                   <div className="flex items-center justify-between pt-[14px] pb-[13px] pl-[23.15px] pr-[23.17px] bg-f5f5">
                     <h4 className="text-paragraph text-16 font-light leading-[1.75] uppercase">
@@ -276,10 +262,10 @@ const Index = () => {
                       {item.category}
                     </h4>
                   </div>
-                  <Link to="/news-details"> 
-                    <h2 className="text-29 leading-[1.344827586206897] font-light mt-30px 3xl:max-w-[90%]">
+                  <Link to="/news-details">
+                    <h3 className="text-20 2xl:text-29 leading-[1.344827586206897] font-light mt-2 xl:mt-30px 3xl:max-w-[90%]">
                       {item.title}
-                    </h2>
+                    </h3>
                   </Link>
                 </div>
               </motion.div>
@@ -296,9 +282,8 @@ const Index = () => {
           {/* Pagination */}
           <div className="pagination flex items-center  gap-5 justify-center mb-10 xl:mb-15 2xl:mb-[131.68px]">
             <button
-              className={`prev cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${
-                currentPage === 1 || isAnimating ? "opacity-30" : "opacity-100"
-              }`}
+              className={`prev cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === 1 || isAnimating ? "opacity-30" : "opacity-100"
+                }`}
               onClick={handlePrev}
               disabled={currentPage === 1 || isAnimating}
             >
@@ -330,11 +315,10 @@ const Index = () => {
             </p>
 
             <button
-              className={`next cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${
-                currentPage === totalPages || isAnimating
+              className={`next cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === totalPages || isAnimating
                   ? "opacity-30"
                   : "opacity-100"
-              }`}
+                }`}
               onClick={handleNext}
               disabled={currentPage === totalPages || isAnimating}
             >
