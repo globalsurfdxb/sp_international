@@ -135,7 +135,7 @@ const FocusArea = () => {
             </div>
           </div>
         </div>
-        <div className="absolute top-2/3 translate-y-[-1%] lg:top-1/2 lg:translate-y-[-20%] right-0 xl:left-0 z-[1] w-[150px] h-[714px] lg:w-[190px] lg:h-[714px] 2xl:w-[250px] 2xl:h-[714px] 3xl:w-[510px] 3xl:h-[714px]"><motion.img style={{ y: shapeY }} src={assets.mainShape} alt="" /></div>
+        <div className="absolute top-2/3 translate-y-[-1%] lg:top-1/2 lg:translate-y-[-20%] right-0 xl:left-0 z-[1] w-[200px] h-[714px] lg:w-[190px] lg:h-[714px] 2xl:w-[250px] 2xl:h-[714px] 3xl:w-[510px] 3xl:h-[714px]"><motion.img style={{ y: shapeY }} src={assets.mainShape} alt="" /></div>
       </section>
     </div>
   );

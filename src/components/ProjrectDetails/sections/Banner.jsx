@@ -93,8 +93,8 @@ const Banner = () => {
         </motion.div>
 
       </div>
-      <div className="absolute top-[61px] lg:top-0 right-0 z-0">
-        <img src="/assets/images/project-details/bannerbg.svg" alt="" className="w-[150px] h-[376px] lg:w-[577px] lg:h-[576px] object-fit" />
+      <div className="absolute top-[61px] lg:-top-20 right-0 z-0">
+        <img src="/assets/images/project-details/bannerbg.svg" alt="" className="w-md200 h-[376px] lg:w-[577px] lg:h-[576px] object-fit" />
       </div>
     </section>
   );

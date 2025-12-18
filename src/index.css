@@ -1009,3 +1009,14 @@ body::-webkit-scrollbar {
     width: 90%;
   }
 }
+
+@media (min-width:1200px) and (max-width:1450px) {
+.shapelt50 img{
+          left: -50px;
+}
+}
+ 
+
+@media   (max-width:1023px) {
+  .w-md200{width: 200px;}
+}

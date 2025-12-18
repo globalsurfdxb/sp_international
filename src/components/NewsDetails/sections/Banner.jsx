@@ -53,8 +53,8 @@ const Banner = () => {
       <motion.div variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="container relative overflow-hidden" ref={imageContainerRefTwo}>
         <motion.img style={{ y: imageY }} src="/assets/images/press-releases/newsbanner.jpg" alt="" width={1620} height={687} className="w-full h-[200px] md:h-[300px] lg:h-[400px] xl:h-[500px] 3xl:h-[687px] scale-y-110 object-cover" />
       </motion.div>
-      <div className="absolute bottom-20 md:bottom-1/4  lg:top-0 right-0 z-[-1]">
-        <motion.img style={{ y: shapeY }} src="/assets/images/project-details/bannerbg.svg" alt="" className="w-[150px] h-[276px]  lg:w-[577px] lg:h-[576px] object-fit" />
+      <div className="absolute bottom-20 md:bottom-1/4  lg:-top-8 right-0 z-[-1]">
+        <motion.img style={{ y: shapeY }} src="/assets/images/project-details/bannerbg.svg" alt="" className="w-md200 h-[450px]  md:h-[476px] lg:w-[577px] lg:h-[576px] object-fit" />
       </div>
       
     </section>

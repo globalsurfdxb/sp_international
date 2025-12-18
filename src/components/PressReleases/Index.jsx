@@ -120,8 +120,8 @@ const Index = () => {
         <MainNavbar /> 
       </header>
       <section className="relative overflow-hidden" ref={sectionRef}>
-         <div className="absolute top-[61px] lg:top-0 right-0 2xl:right-[-50px] z-[-1]">
-        <motion.img style={{ y: shapeY }} src="/assets/images/project-details/bannerbg.svg" alt="" className="w-[150px] h-[376px] md:w-[377px] md:h-[476px] lg:w-[577px] lg:h-[576px] object-fit" />
+         <div className="absolute top-[61px] lg:top-6 right-0 2xl:right-[-50px] z-[-1]">
+        <motion.img style={{ y: shapeY }} src="/assets/images/project-details/bannerbg.svg" alt="" className="w-md200 h-[576px]  md:h-[476px] lg:w-[577px] lg:h-[576px] object-fit" />
       </div>
         {/* <img src="./assets/images/shape-left.svg" alt="" className="absolute  bottom-30 left-0 z-[-1]" /> */}
         <div className="container">
@@ -142,7 +142,7 @@ const Index = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ amount: 0.2, once: true }}
-            className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between border-y border-cmnbdr py-35px mb-10 lg:mb-12  3xl:mb-20"
+            className="flex flex-col md:flex-row gap-3 md:gap-0 justify-between border-y border-cmnbdr py-35px mb-10 lg:mb-12  3xl:mb-20"
           >
             <div className="flex flex-row gap-5 md:gap-15 xl:gap-[90px]">
               {/* Topic filter */}
@@ -359,7 +359,7 @@ const Index = () => {
 
 
         <div className={`absolute   bottom-1/8 lg:left-[-141px] 3xl:left-0 z-[-1] right-0 lg:right-auto w-fit ${bgImagehide ? 'block':'hidden'}`}>
-          <motion.img style={{ y: shapeY }} src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit w-[350px] 2xl-w[754px] 2xl-h[1056px] relative 2xl:top-[14px] " />
+          <motion.img style={{ y: shapeY }} src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit w-md200 lg:w-[350px] 2xl:w-[754px] 2xl:h-[1056px] relative 2xl:top-[14px] " />
         </div>
       </section>
       <footer>
