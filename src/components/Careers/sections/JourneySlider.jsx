@@ -39,16 +39,10 @@ const JourneySlider = () => {
           {/* Decorative SVGs */}
           <div className="hidden lg:block">
             <div className="absolute top-30 left-0">
-              <img
-                src="/assets/images/careers/journey-slider/svg/left.svg"
-                alt="decor-left"
-              />
+              <img src="/assets/images/careers/journey-slider/svg/left.svg" alt="decor-left" />
             </div>
             <div className="absolute bottom-30 right-0">
-              <img
-                src="/assets/images/careers/journey-slider/svg/right.svg"
-                alt="decor-right"
-              />
+              <img src="/assets/images/careers/journey-slider/svg/right.svg" alt="decor-right" />
             </div>
           </div>
 
@@ -70,30 +64,31 @@ const JourneySlider = () => {
               onBeforeInit={(swiper) => (swiperRef.current = swiper)}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
               modules={[EffectCoverflow, Autoplay]}
-              className="swiper_container relative flex justify-center !pt-5 lg:!pt-15 lg:!pb-15"
+              className="swiper_container relative flex justify-center !pt-5 lg:!pt-15 lg:!pb-15 h-[350px] xs:h-[350px] md:h-[400px] lg:h-auto"
             >
               {journeyData.slides.map((item, index) => {
                 const isActive = index === activeIndex;
                 const totalSlides = journeyData.slides.length;
-                // Custom delay order: first two slides in order, rest in reverse
                 const getDelayMultiplier = (idx, total) => {
                   if (idx < 2) {
-                    return idx; // 0, 1
+                    return idx;
                   } else {
-                    return total - 1 - (idx - 2); // Reverse for the rest
+                    return total - 1 - (idx - 2);
                   }
                 };
                 return (
-                  <SwiperSlide key={index} className="swiper-slide relative">
-                    <motion.div variants={fadeIn(0.15 * getDelayMultiplier(index, totalSlides))} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="relative overflow-hidden transition-all duration-500"
+                  <SwiperSlide key={index} className="swiper-slide relative !h-full">
+                    <motion.div
+                      variants={fadeIn(0.15 * getDelayMultiplier(index, totalSlides))}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ amount: 0.2, once: true }}
+                      className="relative overflow-hidden transition-all duration-500 h-full"
                       style={{
-                        boxShadow:
-                          isActive && isXlUp
-                            ? "0px 10px 44px 0px #00041680"
-                            : "none",
+                        boxShadow: isActive && isXlUp ? "0px 10px 44px 0px #00041680" : "none",
                       }}
                     >
-                      <img src={item.image} alt={item.alt || `slide_image_${index + 1}`} className="w-full h-full object-cover" />
+                      <img src={item.image} alt={item.alt || `slide_image_${index + 1}`} className="w-full h-full object-contain" />
                       <div
                         className="absolute inset-0 transition-all duration-500"
                         style={{
@@ -103,13 +98,13 @@ const JourneySlider = () => {
                         }}
                       />
                       <div
-                        className={`absolute bottom-[20px] left-[20px] md:bottom-[32px] md:left-[38px] font-light z-10 transition-all duration-500 ${isActive ? "opacity-100" : "opacity-0"
+                        className={`absolute bottom-5 left-5 md:bottom-8 md:left-[38px] font-light z-10 transition-all duration-500 ${isActive ? "opacity-100" : "opacity-0"
                           }`}
                       >
-                        <h2 className="text-white text-[29px] mb-[4px] md:mb-[7px] leading-[1.31]">
+                        <h3 className="text-white text-20 xl:text-29 mb-[4px] md:mb-[7px] leading-[1.31]">
                           {item.name}
-                        </h2>
-                        <p className="text-white text-[19px] leading-[1.47]">
+                        </h3>
+                        <p className="text-white text-16 xl:text-19 leading-[1.47]">
                           {item.designation}
                         </p>
                       </div>

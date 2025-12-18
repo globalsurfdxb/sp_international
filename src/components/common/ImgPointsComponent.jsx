@@ -96,11 +96,11 @@ const ImgPointsComponent = ({ data, bgColor = "", sectionSpacing = "" }) => {
           />
         </motion.div>
 
-        <div className="grid lg:grid-cols-[0.8fr_1fr] 2xl:grid-cols-[600px_auto] 3xl:grid-cols-[916px_auto] xl:items-center gap-8 xl:gap-10 2xl:gap-18 3xl:gap-[108px] transition-all duration-300">
+        <div className="grid md:grid-cols-[0.8fr_1fr] 2xl:grid-cols-[600px_auto] 3xl:grid-cols-[916px_auto] xl:items-center gap-8 xl:gap-10 2xl:gap-18 3xl:gap-[108px] transition-all duration-300">
           {/* IMAGE */}
           <div
             ref={imageRef}
-            className="relative h-[250px] md:h-[300px] lg:h-full overflow-hidden"
+            className="relative h-[250px] md:h-full overflow-hidden"
           >
             <motion.img
               key={activeImage}
@@ -129,7 +129,7 @@ const ImgPointsComponent = ({ data, bgColor = "", sectionSpacing = "" }) => {
                     updateImage(index);
                   }
                 }}
-                onMouseLeave={() => !isMobile &&  setActiveIndex(null) }
+                onMouseLeave={() => !isMobile && setActiveIndex(null)}
                 onClick={() => {
                   setActiveIndex(index);
                   updateImage(index);
@@ -137,21 +137,18 @@ const ImgPointsComponent = ({ data, bgColor = "", sectionSpacing = "" }) => {
                 className="border-b border-black/20 last:border-b-0 py-5 3xl:py-8 cursor-pointer"
               >
                 <div
-                  className={`relative 2xl:text-24 3xl:text-29 transition-all ${
-                    isActive(index)
+                  className={`relative 2xl:text-24 3xl:text-29 transition-all ${isActive(index)
                       ? "text-black font-semibold"
                       : "text-paragraph font-light"
-                  }`}
+                    }`}
                 >
                   <span
-                    className={`absolute left-0 top-0 h-full w-[3px] bg-secondary transition-transform origin-top  ${
-                      isActive(index) ? "scale-y-100" : "scale-y-0"
-                    }`}
+                    className={`absolute left-0 top-0 h-full w-[3px] bg-secondary transition-transform origin-top  ${isActive(index) ? "scale-y-100" : "scale-y-0"
+                      }`}
                   />
-                  <span className={`inline-block transition-transform  ${
-                      isActive(index)
-                        ? "translate-x-[20px] xl:translate-x-[43px]"
-                        : "translate-x-0"
+                  <span className={`inline-block transition-transform  ${isActive(index)
+                      ? "translate-x-[20px] xl:translate-x-[43px]"
+                      : "translate-x-0"
                     }`}
                   >
                     {item.text}
