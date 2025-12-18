@@ -338,10 +338,10 @@ const Index = () => {
           </div>
 
 
-        <div className={`absolute   bottom-1/8 lg:left-[-141px] 3xl:left-0 z-[-1] right-0 lg:right-auto w-fit ${bgImagehide ? 'block':'hidden'}`}>
-          <motion.img style={{ y: shapeY }} src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit w-md200 lg:w-[350px] 2xl:w-[754px] 2xl:h-[1056px] relative 2xl:top-[14px] " />
-        </div>
-      </section>
+          <div className={`absolute   bottom-1/8 lg:left-[-141px] 3xl:left-0 z-[-1] right-0 lg:right-auto w-fit ${bgImagehide ? 'block' : 'hidden'}`}>
+            <motion.img style={{ y: shapeY }} src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit w-md200 lg:w-[350px] 2xl:w-[754px] 2xl:h-[1056px] relative 2xl:top-[14px] " />
+          </div>
+        </section>
       </main>
       <footer>
         <Footer />
