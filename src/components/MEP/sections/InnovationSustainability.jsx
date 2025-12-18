@@ -131,25 +131,19 @@ const InnovationSustainability = ({data}) => {
                     >
                       <motion.h3
                         animate={{
-                          fontSize: activeIndex === index ? "1.875rem " : "1.25rem",
-                          color:
-                            activeIndex === index ? "#000000" : "#4B5563",
-                          // marginTop:
-                          //   activeIndex === index ? "20px" : "",
-                            marginTop:
-                            activeIndex === index
-                              ? isMobile
-                                ? "8px" // Mobile active spacing
-                                : "20px" // Desktop active spacing
-                              : isMobile
-                              ? "" // Mobile default spacing
-                              : ""
+                          color: activeIndex === index ? "#000000" : "#4B5563",
+                          marginTop: activeIndex === index
+                            ? (isMobile ? "8px" : "20px")
+                            : ""
                         }}
                         transition={{
                           duration: 0.5,
                           ease: [0.4, 0, 0.2, 1],
                         }}
-                        className="font-light"
+                        className={`font-light ${activeIndex === index
+                            ? "text-20 md:text-24 xl:text-29" // Active sizes
+                            : "text-base md:text-16 xl:text-19"  // Inactive sizes
+                          }`}
                         style={{ lineHeight: "1.2" }}
                       >
                         {item.title}
@@ -173,7 +167,7 @@ const InnovationSustainability = ({data}) => {
                             animate={{ y: 0 }}
                             exit={{ y: -10 }}
                             transition={{ duration: 0.4 }}
-                            className="text-19 leading-[1.473684210526316] text-paragraph font-light pr-8 mt-4 2xl:mt-[25px] max-w-full xl:max-w-[37ch]"
+                            className="text-16 2xl:text-19 leading-[1.473684210526316] text-paragraph font-light pr-8 mt-4 2xl:mt-[25px] max-w-full xl:max-w-[37ch]"
                           >
                             {item.content}
                           </motion.p>
