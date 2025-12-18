@@ -13,8 +13,8 @@ if (typeof window !== 'undefined') {
 // Import your data
 import { nextpjt } from "../data";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { moveUp } from "../../../motionVarients";
 import SplitTextAnimation from "../../../components/common/SplitTextAnimation";
+import H2Title from "../../../components/common/H2Title";
 const NextProject = () => {
 
   const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
@@ -64,20 +64,21 @@ const NextProject = () => {
     <section className="pt-text30 pb30">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-[auto_550px] xl:grid-cols-[auto_1fr] 3xl:grid-cols-[auto_961px] gap-8 lg:gap-20 xl:gap-[137px]">
-          <div className=" mb-2 md:mb-3 lg:mb-10 xl:mb-[90px] flex flex-col justify-between items-left pt-0 2xl:pt-[45px] ">
+          <div className="mb-2 md:mb-3 lg:mb-10 xl:mb-[90px] flex flex-col justify-between items-left pt-0 2xl:pt-[45px] ">
             <div className=" h-full">
-              <h2 className="text-29 font-light leading-[1.17] lg:pb-5 text-paragraph">
+              <h2 className="text-20 2xl:text-29 font-light leading-[1.17] lg:pb-5 text-paragraph">
                 <SplitTextAnimation children={nextpjt.title} staggerDelay={0.1} animationDuration={0.8} delay={0.2} />
               </h2>
               <div className=" flex lg:flex-col justify-between lg:justify-start xl:justify-between items-center lg:items-start h-full  ">
-<p className="text-60 font-light leading-[1.17] text-black lg:max-w-[12ch] md:mb-3 lg:mb-[21px]">
+                {/* <p className="text-60 font-light leading-[1.17] text-black lg:max-w-[12ch] md:mb-3 lg:mb-[21px]">
                 <SplitTextAnimation
                   children={nextpjt.subtitle}
                   staggerDelay={0.1} // Try smaller value
                   animationDuration={0.8}
                   delay={0.8}
                 />
-              </p>
+              </p> */}
+                <H2Title titleText={nextpjt.subtitle} marginClass={"md:mb-3 lg:mb-[21px]"} maxW={"lg:max-w-[12ch]"} />
               <Link to="/project-details" className='w-fit'>
             <svg
               xmlns="http://www.w3.org/2000/svg"

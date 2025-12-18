@@ -27,10 +27,10 @@ const Banner = () => {
         <div className="container relative   z-[2]">
           <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-3 lg:gap-0 ">
             <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} > 
-              <h1 className="text-70 font-light leading-[1.07] mb-3 lg:mb-5">
+              <h1 className="text-40 2xl:text-70 font-light leading-[1.07] mb-3 lg:mb-5">
                 <SplitTextAnimation children={projectdetails.title} staggerDelay={0.2} animationDuration={0.8} delay={0.3} />
                 </h1>
-              <p className="text-29 font-light text-paragraph leading-[1.33]">
+              <p className="text-20 2xl:text-29 font-light text-paragraph leading-[1.33]">
                 <SplitTextAnimation children={projectdetails.subtitle} staggerDelay={0.2} animationDuration={0.8} delay={0.6} />
               </p>
             </motion.div>

@@ -463,9 +463,8 @@ const ProjectLists = () => {
                                     height="19"
                                     viewBox="0 0 19 19"
                                     fill="none"
-                                    className={`brightness-0 group-hover:brightness-100 transition-all duration-300 ${
-                                        view === "grid" ? "brightness-100" : "brightness-0"
-                                    }`}
+                                    className={`brightness-0 group-hover:brightness-100 transition-all duration-300 ${view === "grid" ? "brightness-100" : "brightness-0"
+                                        }`}
                                 >
                                     <rect width="8" height="8" fill="#30B6F9" />
                                     <rect y="11" width="8" height="8" fill="#30B6F9" />
@@ -480,9 +479,8 @@ const ProjectLists = () => {
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className={`brightness-0 group-hover:brightness-100 transition-all duration-300 ${
-                                        view === "list" ? "brightness-100" : "brightness-0"
-                                    }`}
+                                    className={`brightness-0 group-hover:brightness-100 transition-all duration-300 ${view === "list" ? "brightness-100" : "brightness-0"
+                                        }`}
                                     width="19"
                                     height="13"
                                     viewBox="0 0 19 13"
@@ -500,9 +498,8 @@ const ProjectLists = () => {
                 {/* GRID VIEW */}
                 <div
                     className={`gap-5 3xl:gap-x-[30px]  gap-y-10 md:gap-y-12 xl:gap-y-[80px] pb-10 xl:pb-[80px] transition-all duration-300 
-          ${isAnimating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"} ${
-                        view === "grid" ? "grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3" : "hidden"
-                    }`}
+          ${isAnimating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"} ${view === "grid" ? "grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3" : "hidden"
+                        }`}
                     style={{
                         transform: isAnimating ? "translateY(16px)" : "translateY(0)",
                         transition: "opacity 300ms ease-in-out, transform 300ms ease-in-out",
@@ -519,13 +516,7 @@ const ProjectLists = () => {
                         >
                             <Link to="/project-details">
                                 <div className="relative">
-                                    <img
-                                        src={item.image}
-                                        alt={item.title}
-                                        width={520}
-                                        height={395}
-                                        className="w-full h-[250px] lg:h-[395px] object-cover"
-                                    />
+                                    <img src={item.image} alt={item.title} width={520} height={395} className="w-full h-[200px] md:h-[250px] xl:h-[395px] object-cover" />
                                     <div className=" opacity-0 group-hover:opacity-100 transition-all duration-300 absolute left-0 bottom-0 w-[50px] h-[50px]  xl:w-[80px] xl:h-[80px] flex items-center justify-center bg-primary">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -553,7 +544,7 @@ const ProjectLists = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <h2 className="text-29 truncate leading-[1.344827586206897] font-light py-4 md:py-6 xl:max-w-[90%]">
+                                    <h2 className="text-19 lg:text-24 2xl:text-29 truncate leading-[1.344827586206897] font-light py-4 md:py-6 xl:max-w-[90%]">
                                         {item.title}
                                     </h2>
                                 </div>
@@ -582,11 +573,9 @@ const ProjectLists = () => {
                 </div>
 
                 {/* LIST VIEW */}
-                <div
-                    className={`   pb-10 xl:pb-[80px] transition-all duration-300 
-          ${isAnimating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"} ${
-                        view === "list" ? "flex flex-col " : "hidden"
-                    }`}
+                <div className={`   pb-10 xl:pb-[80px] transition-all duration-300 
+          ${isAnimating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"} ${view === "list" ? "flex flex-col " : "hidden"
+                        }`}
                     style={{
                         transform: isAnimating ? "translateY(16px)" : "translateY(0)",
                         transition: "opacity 300ms ease-in-out, transform 300ms ease-in-out",
@@ -677,9 +666,8 @@ const ProjectLists = () => {
                 <div className="flex items-center justify-center gap-2 w-full pb-10 xl:pb-15 2xl:pb-[120px]">
                     <div className="pagination flex items-center gap-5 justify-center ">
                         <button
-                            className={`prev cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${
-                                currentPage === 1 || isAnimating ? "opacity-30" : "opacity-100"
-                            }`}
+                            className={`prev cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === 1 || isAnimating ? "opacity-30" : "opacity-100"
+                                }`}
                             onClick={handlePrev}
                             disabled={currentPage === 1 || isAnimating}
                         >
@@ -703,9 +691,8 @@ const ProjectLists = () => {
                         </p>
 
                         <button
-                            className={`next cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${
-                                currentPage === totalPages || isAnimating ? "opacity-30" : "opacity-100"
-                            }`}
+                            className={`next cursor-pointer transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed ${currentPage === totalPages || isAnimating ? "opacity-30" : "opacity-100"
+                                }`}
                             onClick={handleNext}
                             disabled={currentPage === totalPages || isAnimating}
                         >
@@ -726,9 +713,8 @@ const ProjectLists = () => {
             {view === "grid" && (
                 <>
                     <div
-                        className={`${
-                            bgImagehide ? "block" : "hidden"
-                        } absolute top-[12%] 3xl:top-auto lg:bottom-[30%] translate-y-[58px] 3xl:bottom-3/7    right-0 lg:left-[-140px] 3xl:left-0 z-[-1]`}
+                        className={`${bgImagehide ? "block" : "hidden"
+                            } absolute top-[12%] 3xl:top-auto lg:bottom-[30%] translate-y-[58px] 3xl:bottom-3/7    right-0 lg:left-[-140px] 3xl:left-0 z-[-1]`}
                     >
                         <motion.img
                             style={{ y: shapeY }}
@@ -738,9 +724,8 @@ const ProjectLists = () => {
                         />
                     </div>
                     <div
-                        className={`${
-                            bgImagehide ? "block" : "hidden"
-                        } absolute bottom-[5%] lg:bottom-0 right-0 lg:right-[-150px] 3xl:right-0 z-[-1]`}
+                        className={`${bgImagehide ? "block" : "hidden"
+                            } absolute bottom-[5%] lg:bottom-0 right-0 lg:right-[-150px] 3xl:right-0 z-[-1]`}
                     >
                         <motion.img
                             style={{ y: shapeY }}
