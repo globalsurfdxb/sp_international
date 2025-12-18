@@ -792,7 +792,7 @@ body::-webkit-scrollbar {
 }
 
 .pt25 {
-  @apply pt-11 xl:pt-15 2xl:pt-22 3xl:pt-25;
+  @apply pt-8 md:pt-11 xl:pt-15 2xl:pt-22 3xl:pt-25;
 }
 
 .pb25 {
@@ -812,27 +812,27 @@ body::-webkit-scrollbar {
 }
 
 .py30 {
-  @apply py-11 xl:py-15 2xl:py-22 3xl:py-30;
+  @apply py-8 md:py-11 xl:py-15 2xl:py-22 3xl:py-30;
 }
 
 .pt90 {
-  @apply pt-11 xl:pt-15 2xl:pt-22 3xl:pt-[90px];
+  @apply pt-6 md:pt-11 xl:pt-15 2xl:pt-22 3xl:pt-[90px];
 }
 
 .pt-text30 {
-  @apply pt-6 md:pt-8 lg:pt-12 xl:pt-20 3xl:pt-30;
+  @apply pt-8 md:pt-11 lg:pt-12 xl:pt-16 3xl:pt-30;
 }
 
 .pb-text30 {
-  @apply pb-8 lg:pb-12 xl:pb-20 3xl:pb-30;
+  @apply pb-8 md:pb-12 xl:pb-16 3xl:pb-30;
 }
 
 .pt-text25 {
-  @apply pt-8 md:pt-8 xl:pt-17 2xl:pt-20 3xl:pt-25;
+  @apply pt-8 md:pt-8 xl:pt-15 2xl:pt-20 3xl:pt-25;
 }
 
 .pt-text90 {
-  @apply pt-6 md:pt-8 xl:pt-17 3xl:pt-[90px];
+  @apply pt-6 md:pt-8 xl:pt-12 3xl:pt-[90px];
 }
 
 .pb95 {
@@ -947,7 +947,7 @@ body::-webkit-scrollbar {
 
 @media (min-width:1400px) and (max-width:1460px) {
   .vdo-content-wrapper{
-    width: 85%;
+    width: 75%;
   }
 }
 @media (min-width:1461px) and (max-width:1486px) {
@@ -955,7 +955,7 @@ body::-webkit-scrollbar {
     width: 90%;
   }
   .vdo-shape{
-    width: 75%;
+    width: 80%;
   }
 }
 @media (min-width:1487px) and (max-width:1500px) {
@@ -963,7 +963,7 @@ body::-webkit-scrollbar {
     width: 85%;
   }
   .vdo-shape{
-    width: 75%;
+    width: 80%;
   }
 }
 @media (min-width:1501px) and (max-width:1600px) {
@@ -971,7 +971,7 @@ body::-webkit-scrollbar {
     width: 85%;
   }
   .vdo-shape{
-    width: 75%;
+    width: 80%;
   }
 }
 @media (min-width:1601px) and (max-width:1800px) {
@@ -979,7 +979,7 @@ body::-webkit-scrollbar {
     width: 85%;
   }
   .vdo-shape{
-    width: 75%;
+    width: 85%;
   }
 }
 @media (min-width:1801px) and (max-width:1850px) {
@@ -990,6 +990,9 @@ body::-webkit-scrollbar {
   .vdo-shape{
     width: 80%;
   }
+  .vdo-content{
+    max-width: 80%;
+  }
 }
 @media (min-width:1851px) and (max-width:1920px) {
   .vdo-content-wrapper{
@@ -997,16 +1000,17 @@ body::-webkit-scrollbar {
     max-width: 1238px;
   }
   .vdo-shape{
-    width: 90%;
+    width: 100%;
   }
 }
 @media (min-width:1921px) {
   .vdo-content-wrapper{
     width: 100%;
-    max-width: 1238px;
+    max-width: 1375px;
   }
   .vdo-shape{
-    width: 90%;
+    width: 702px;
+    height: 993px;
   }
 }
 

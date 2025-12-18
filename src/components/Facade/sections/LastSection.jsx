@@ -57,7 +57,7 @@ const LastSection = () => {
               src="../../assets/images/facade/quality-safety-reliability.jpg"
               width={932}
               height={532}
-              className="w-full h-[320px]   lg:h-[350px] md:w-full lg:w-full xl:h-[400px] 2xl:h-[532px] 2xl:w-[932px] object-cover scale-105 "
+              className="w-full h-[250px] md:h-[320px] lg:h-[350px] md:w-full lg:w-full xl:h-[400px] 2xl:h-[532px] 2xl:w-[932px] object-cover scale-105 "
               alt=""
             />
             {/* <div ref={overlayRefTwo} className="absolute top-0 left-0 w-full h-full bg-white z-10"></div> */}

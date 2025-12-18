@@ -56,19 +56,19 @@ const VdoSection = ({ data, maxW, maxtextwidth }) => {
 
   return (
     <section className="relative sectm-100 pb30" ref={sectionRef}>
-      <div className="absolute top-custom-100 right-0 lg:left-[-200px] xl:left-[-14%] 2xl:left-[-80px] 3xl:left-[-58px] h-fit w-fit z-0 ">
+      <div className="absolute top-custom-100 right-0 lg:left-[-4%] xl:left-0 2xl:left-[-6%] 3xl:left-0 h-fit w-fit z-0 ">
         <motion.img style={{ y: shapeY }} src={assets.mainShape2} alt="" className="w-[152px] lg:w-[400px] xl:w-[55%] 2xl:w-[70%] 3xl:w-[100%] h-fit object-contain vdo-shape" />
       </div>
       <div className="container">
-        <div className="w-full lg:max-w-[70%] xl:max-w-[95%] 2xl:max-w-[90%] 3xl:max-w-[70%] mx-auto relative z-10 overflow-hidden vdo-content-wrapper">
+        <div className="w-full lg:max-w-[70%] xl:max-w-[95%] 2xl:max-w-[95%] 3xl:max-w-[70%] ml-auto 2xl:mr-[137px] relative z-10 overflow-hidden vdo-content-wrapper">
           <div>
-            <div className="lg:max-w-[600px] xl:max-w-[850px] 2xl:max-w-[800px] 3xl:max-w-[880px] ml-auto mb-4 xl:mb-50px 3xl:mb-17">
+            <div className="lg:max-w-[600px] xl:max-w-[700px] 2xl:max-w-[700px] 3xl:max-w-[795px] ml-auto mb-4 xl:mb-50px 3xl:mb-17 vdo-content">
               {/* <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}> */}
-                <H2Title titleText={data.title} titleColor="primary" marginClass="mb-3 md:mb-4 lg:mb-5 3xl:mb-50px " maxW={maxW} delay={1.2} />
+                <H2Title titleText={data.title} titleColor="primary" marginClass="mb-3 md:mb-4 lg:mb-5 3xl:mb-10 " maxW={maxW} delay={1.2} />
               {/* </motion.div> */}
               {
                 data.desc.map((item) => (
-                  <motion.p variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className={`${maxtextwidth} text-16 xl:text-19 leading-[1.473684210526316] font-light text-paragraph mb-4 xl:mb-8 last:mb-0`}>{item}</motion.p>
+                  <motion.p variants={moveUp(1.4)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className={`${maxtextwidth} text-16 xl:text-19 leading-[1.473684210526316] font-light text-paragraph mb-4 xl:mb-8 last:mb-0`}>{item}</motion.p>
                 ))
               }
             </div>
@@ -89,7 +89,7 @@ const VdoSection = ({ data, maxW, maxtextwidth }) => {
                 }
                 : {}
             }
-            className="container-scroll-effect lg:max-w-[100%] mx-auto">
+            className="container-scroll-effect lg:max-w-[100%] mx-auto pt-5">
             <VideoPlayer src={data.vdo} poster={data.vdoPoster} />
           </motion.div>
         </div>
