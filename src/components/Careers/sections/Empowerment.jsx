@@ -100,7 +100,7 @@ const EmpowerSection = () => {
                 </h3>
 
                 {/* Mobile Divider */}
-                <p className="text-[16px] sm:text-[17px] md:text-[18px] xl:text-[19px] text-white/70 leading-[1.5] word-break: break-all ">
+                <p className="text-[16px] sm:text-[17px] md:text-[16px] lg:text-[18px] xl:text-[19px] text-white/70 leading-[1.5] word-break: break-all ">
                   {stat.label}
                 </p>
               </motion.div>

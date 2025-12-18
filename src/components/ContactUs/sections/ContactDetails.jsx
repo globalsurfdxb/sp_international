@@ -54,19 +54,19 @@ const ContactDetails = () => {
         <h1 className="text-45 2xl:text-70 font-light leading-[1.071428571428571] pb-6 xl:pb-15 2xl:pb-22 3xl:pb-31">
           <SplitTextAnimation children={contactData.title} staggerDelay={0.2} animationDuration={0.8} delay={0.2} />
         </h1>
-        <div className="grid grid-cols-1 lg:grid-cols-[0.6fr_1fr] xl:grid-cols-[1fr_1.6fr] 2xl:grid-cols-[auto_650px] 3xl:grid-cols-[auto_866px] gap-y-8 lg:gap-x-8 3xl:gap-[131px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.6fr_1fr] xl:grid-cols-[1fr_1fr] 2xl:grid-cols-[auto_650px] 3xl:grid-cols-[auto_866px] gap-y-8 lg:gap-x-8 3xl:gap-[131px]">
           <div className="lg:pt-[56px]" >
             <motion.h3 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 font-light text-paragraph mb-3 lg:mb-6 ">Head office</motion.h3>
             <motion.p variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-29 font-bold leading-[1.31] ">{contactData.name}</motion.p>
             <motion.p variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-paragraph text-20 xl:text-26 3xl:text-29 font-light leading-[1.35] max-w-[25ch]">{contactData.address}</motion.p>
-            <div className="flex flex-col sm:flex-row  gap-5 md:gap-15 xl:gap-[100px] 3xl:gap-[130px] my-6 lg:my-10 xl:my-15 2xl:my-20">
+            <div className="flex flex-col 2xl:flex-row   gap-5  2xl:gap-15 my-6 lg:my-10 xl:my-15 2xl:my-20 3xl:justify-between">
               <div>
-                <motion.p variants={moveUp(0.7)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-paragraph text-19 font-light mb-[10px] leading-[1.48] ">Phone</motion.p>
-                <motion.p variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-black text-19 xl:text-26 3xl:text-29 font-light leading-[1.31] ">{contactData.phone}</motion.p>
+                <motion.p variants={moveUp(0.7)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-paragraph text-19 font-light mb-1 lg:mb-[10px] leading-[1.48] ">Phone</motion.p>
+                <motion.p variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-black text-20 xl:text-26 3xl:text-29 font-light leading-[1.31] ">{contactData.phone}</motion.p>
               </div>
               <div>
-                <motion.p variants={moveUp(0.7)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-paragraph text-19 font-light mb-[10px] leading-[1.48] ">Email</motion.p>
-                <motion.p variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-black text-19 xl:text-26 3xl:text-29 leading-[1.31]   font-light">{contactData.email}</motion.p>
+                <motion.p variants={moveUp(0.7)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-paragraph text-19 font-light mb-1 lg:mb-[10px] leading-[1.48] ">Email</motion.p>
+                <motion.p variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-black text-20 xl:text-26 3xl:text-29 leading-[1.31]   font-light">{contactData.email}</motion.p>
               </div>
             </div>
 
@@ -164,7 +164,7 @@ const ContactDetails = () => {
                 <div class="relative p-[1px] rounded-full cursor-pointer">
                   <div class="absolute inset-0 rounded-full bg-gradient-to-r from-[#30B6F9] to-[#1E45A2]"></div>
 
-                  <div class="relative rounded-full bg-[#5974b7] py-2 px-4 text-white text-[16px]">
+                  <div class="relative rounded-full bg-[#5974b7] py-2 px-4 text-white text-[12px] md:text-[14px] lg:text-[16px]">
                     Send Message
                   </div>
                 </div>
