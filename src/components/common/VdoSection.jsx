@@ -27,7 +27,7 @@ const VdoSection = ({ data, maxW, maxtextwidth }) => {
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end 80%"]
   });
   const blurValue = useTransform(scrollYProgress,
     [0, 0.25, 0.75, 1],
@@ -55,20 +55,20 @@ const VdoSection = ({ data, maxW, maxtextwidth }) => {
   const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
 
   return (
-    <section className="relative overflow-hidden pt-text25 pb30" ref={sectionRef}>
-      <div className="absolute bottom-40 lg:bottom-[54px] 3xl:bottom-[-30px] right-0 lg:left-[-200px] xl:left-[-14%] 2xl:left-[-80px] 3xl:left-[-58px] h-fit w-fit z-0 ">
-        <motion.img style={{ y: shapeY }} src={assets.mainShape2} alt="" className="w-[152px] lg:w-[400px] 2xl:w-[70%] 3xl:w-[100%] h-auto 3xl:h-[954px] max-w-[681px] object-contain" />
+    <section className="relative sectm-100 pb30" ref={sectionRef}>
+      <div className="absolute top-custom-100 right-0 lg:left-[-200px] xl:left-[-14%] 2xl:left-[-80px] 3xl:left-[-58px] h-fit w-fit z-0 ">
+        <motion.img style={{ y: shapeY }} src={assets.mainShape2} alt="" className="w-[152px] lg:w-[400px] xl:w-[55%] 2xl:w-[70%] 3xl:w-[100%] h-fit object-contain vdo-shape" />
       </div>
       <div className="container">
-        <div className="w-full lg:max-w-[80%] xl:max-w-[1000px] 2xl:max-w-[1000px] 3xl:max-w-[1238px] mx-auto relative z-10 overflow-hidden">
+        <div className="w-full lg:max-w-[70%] xl:max-w-[95%] 2xl:max-w-[90%] 3xl:max-w-[70%] mx-auto relative z-10 overflow-hidden vdo-content-wrapper">
           <div>
-            <div className="lg:max-w-[680px] xl:max-w-[895px] 2xl:max-w-[800px] 3xl:max-w-[880px] ml-auto mb-50px 3xl:mb-17">
+            <div className="lg:max-w-[600px] xl:max-w-[850px] 2xl:max-w-[800px] 3xl:max-w-[880px] ml-auto mb-4 xl:mb-50px 3xl:mb-17">
               {/* <motion.div variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}> */}
-                <H2Title titleText={data.title} titleColor="primary" marginClass="mb-5 xl:mb-50px " maxW={maxW} delay={1.2} />
+                <H2Title titleText={data.title} titleColor="primary" marginClass="mb-3 md:mb-4 lg:mb-5 3xl:mb-50px " maxW={maxW} delay={1.2} />
               {/* </motion.div> */}
               {
                 data.desc.map((item) => (
-                  <motion.p variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className={`${maxtextwidth} text-19 leading-[1.473684210526316] font-light text-paragraph mb-4 xl:mb-8 last:mb-0`}>{item}</motion.p>
+                  <motion.p variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className={`${maxtextwidth} text-16 xl:text-19 leading-[1.473684210526316] font-light text-paragraph mb-4 xl:mb-8 last:mb-0`}>{item}</motion.p>
                 ))
               }
             </div>

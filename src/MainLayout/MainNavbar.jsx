@@ -179,7 +179,7 @@ const MainNavbar = () => {
                                 // <li key={index} className="relative group">
                                 <li key={index} className="relative group" onMouseEnter={() => setOpenSubmenu(index)} onMouseLeave={() => setOpenSubmenu(null)}>
                                    
-                                    <Link to={item.href} className="flex items-center gap-1 text-[11px] md:text-13 2xl:text-[12px] 3xl:text-16 leading-[1.75] font-300 uppercase hover:font-bold active:font-bold focus-within:font-bold transition-all duration-300">
+                                    <Link to={item.href} className="flex items-center gap-1 text-[11px] md:text-11 2xl:text-[12px] 3xl:text-16 leading-[1.75] font-300 uppercase hover:font-bold active:font-bold focus-within:font-bold transition-all duration-300">
                                         <span className="relative inline-block group">
                                             <span className={`font-bold  opacity-0 transition-all duration-300 ${item.submenu != null ? 'mr-[16px]' : ''}`}>
                                                 {item.name}

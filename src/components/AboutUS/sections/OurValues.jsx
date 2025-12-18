@@ -38,13 +38,13 @@ const OurValues = () => {
          className="text-60 font-light leading-[1.18] text-black mb-5 2xl:mb-10 3xl:mb-[54px]">
           {values.title}
         </motion.h2> */}
-        <H2Title titleText={values.title} marginClass={"mb-6 2xl:mb-10 3xl:mb-[54px]"} />
+        <H2Title titleText={values.title} marginClass={"mb-4 2xl:mb-10 3xl:mb-[54px]"} />
 
         <div className="2xl:max-w-[74.51%]">
           {values.data.map((item, index) => (
             // <ValueItem key={index} item={item} />
             <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}>
-            <div className={`group grid lg:grid-cols-[1.5fr_2fr_auto] py-[10px] md:py-[16px] cursor-pointer border-b border-black/20 first:border-t transition-all duration-300
+            <div className={`group grid lg:grid-cols-[1.5fr_2fr_auto] py-2 md:py-[16px] cursor-pointer border-b border-black/20 first:border-t transition-all duration-300
                  ${isHovered === index ? "items-start" : "items-center"}`}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}

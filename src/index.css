@@ -17,23 +17,23 @@ html {
   --color-paragraph: #464646;
   --cmn-border-color: #cccccc;
   --text-12: clamp(0.60rem, 1.2vw + 0.35rem, 12px);
-    --text-13: clamp(0.65rem, 1.4vw + 0.4rem, 13px);
-    --text-14: clamp(0.70rem, 1.6vw + 0.4rem, 14px);
-    --text-16: clamp(0.80rem, 2vw + 0.4rem, 16px);
-    --text-18: clamp(0.90rem, 2.3vw + 0.45rem, 18px);
-    --text-19: clamp(0.95rem, 1.4vw + 0.1rem, 19px);
-    --text-20: clamp(1rem, 2.8vw + 0.45rem, 20px);
-    --text-24: clamp(1.20rem, 3vw + 0.5rem, 24px);
-    --text-26: clamp(1.25rem, 3.4vw + 0.5rem, 26px);
-    --text-28: clamp(1.3rem, 3.6vw + 0.5rem, 28px);
-    --text-29: clamp(1.35rem, 3.8vw + 0.5rem, 29px);
-    --text-32: clamp(1.36rem, 4vw + 0.5rem, 32px);
-    --text-36: clamp(1.60rem, 4.2vw + 0.5rem, 36px);
-    --text-40: clamp(1.70rem, 4.5vw + 0.5rem, 40px);
-    --text-45: clamp(1.80rem, 5vw + 0.5rem, 45px);
-    --text-48: clamp(1.85rem, 5.2vw + 0.5rem, 48px);
-    --text-60: clamp(1.9rem, 3vw + 0.5rem, 60px);
-    --text-70: clamp(2.20rem, 4vw + 0.1rem, 70px);
+  --text-13: clamp(0.65rem, 1.4vw + 0.4rem, 13px);
+  --text-14: clamp(0.70rem, 1.6vw + 0.4rem, 14px);
+  --text-16: clamp(0.80rem, 2vw + 0.4rem, 16px);
+  --text-18: clamp(0.90rem, 2.3vw + 0.45rem, 18px);
+  --text-19: clamp(0.95rem, 1.4vw + 0.1rem, 19px);
+  --text-20: clamp(1rem, 2.8vw + 0.45rem, 20px);
+  --text-24: clamp(1.20rem, 3vw + 0.5rem, 24px);
+  --text-26: clamp(1.25rem, 3.4vw + 0.5rem, 26px);
+  --text-28: clamp(1.3rem, 3.6vw + 0.5rem, 28px);
+  --text-29: clamp(1.35rem, 3.8vw + 0.5rem, 29px);
+  --text-32: clamp(1.36rem, 4vw + 0.5rem, 32px);
+  --text-36: clamp(1.60rem, 4.2vw + 0.5rem, 36px);
+  --text-40: clamp(1.70rem, 4.5vw + 0.5rem, 40px);
+  --text-45: clamp(1.80rem, 5vw + 0.5rem, 45px);
+  --text-48: clamp(1.85rem, 5.2vw + 0.5rem, 48px);
+  --text-60: clamp(1.9rem, 3vw + 0.5rem, 60px);
+  --text-70: clamp(2.20rem, 4vw + 0.1rem, 70px);
 
   --spacing-30px: clamp(0.75rem, 1.5vw + 0.5rem, 30px);
   --spacing-35px: clamp(0.875rem, 1.5vw + 0.5rem, 35px);
@@ -68,9 +68,12 @@ html {
   @media (width >=768px) {
     max-width: 738px;
   }
+  @media (width >=900px) {
+    max-width: 850px;
+  }
 
   @media (width >=1024px) {
-    max-width: 900px;
+    max-width: 1000px;
   }
 
   @media (width >=1200px) {
@@ -78,7 +81,7 @@ html {
   }
 
   @media (width >=1360px) {
-    max-width: 1330px;
+    max-width: 1300px;
   }
 
   @media (width >=1680px) {
@@ -533,6 +536,7 @@ body::-webkit-scrollbar {
     opacity: 0;
     transform: scale(0.85);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -566,10 +570,11 @@ body::-webkit-scrollbar {
     left: 165px;
   }
 }
+
 @media (max-width: 1023px) {
   .legacy-year-swiper .swiper-slide-thumb-active::after {
     top: 11px;
-        left: 105px;
+    left: 105px;
   }
 }
 
@@ -629,39 +634,45 @@ body::-webkit-scrollbar {
 
 @media (min-width: 1024px) {
   .float-bubble1 {
-  animation: float-bubble 14s ease-in-out infinite;
+    animation: float-bubble 14s ease-in-out infinite;
+  }
+
+  .float-bubble2 {
+    animation: float-bubble 12s ease-in-out infinite;
+  }
+
+  .float-bubble3 {
+    animation: float-bubble 10s ease-in-out infinite;
+  }
 }
 
-.float-bubble2 {
-  animation: float-bubble 12s ease-in-out infinite;
-}
-
-.float-bubble3 {
-  animation: float-bubble 10s ease-in-out infinite;
-}
-}
 @media (max-width: 1023px) {
-  
-  
-.bubble {
-  min-width: 140px;
-  min-height: 140px;
-  box-shadow: none;}
-  .gradient-text{
+
+
+  .bubble {
+    min-width: 140px;
+    min-height: 140px;
+    box-shadow: none;
+  }
+
+  .gradient-text {
     background: none;
     -webkit-background-clip: text;
     -webkit-text-fill-color: white;
     background-clip: text;
     color: white;
   }
-  .text-bl{
+
+  .text-bl {
     background: none;
     -webkit-background-clip: text;
     -webkit-text-fill-color: black;
     background-clip: text;
-    color: black;}
+    color: black;
+  }
 
 }
+
 @media (min-width: 1280px) {
   .journey-slider .swiper_container {
     margin: 0 80px !important;
@@ -695,6 +706,7 @@ body::-webkit-scrollbar {
 .journey-slider .swiper-slide-shadow-right {
   display: none;
 }
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -704,81 +716,132 @@ body::-webkit-scrollbar {
   scrollbar-width: none;
 }
 
-@media (min-width: 768px) and (max-width: 1359px){
+@media (min-width: 768px) and (max-width: 1359px) {
   .no-border-right:nth-child(1n) {
     @apply border-l;
   }
 }
-@media (min-width: 1360px){
- .no-border-right:nth-child(3n) {
+
+@media (min-width: 1360px) {
+  .no-border-right:nth-child(3n) {
     border-right: none !important;
   }
+
   .no-pl0:nth-child(3n+1) {
     padding-left: 0 !important;
   }
-  
+
 }
-@media (min-width: 1280px){
-  .bdrrst:nth-child(3n), .bdrrst:nth-child(7n) {
-    @apply border-r 
+
+@media (min-width: 1280px) {
+
+  .bdrrst:nth-child(3n),
+  .bdrrst:nth-child(7n) {
+    @apply border-r
   }
 }
-@media (max-width: 1279px){
-  .bdrrst:nth-child(2n), .bdrrst:nth-child(7n) {
-    @apply border-r 
+
+@media (max-width: 1279px) {
+
+  .bdrrst:nth-child(2n),
+  .bdrrst:nth-child(7n) {
+    @apply border-r
   }
 }
-@media (max-width: 767px){
+
+@media (max-width: 767px) {
   .bdrrst {
     @apply border-r border-t
   }
 }
 
 
- 
+
 /* hide native scrollbar when desired */
-.scrollbar-hidden::-webkit-scrollbar { display: none; }
-.scrollbar-hidden { -ms-overflow-style: none; scrollbar-width: none; }
-
-/* left-side native scrollbar (if you still use native scrollbar) */
-.custom-scroll-left { direction: rtl; }
-.custom-scroll-left > * { direction: ltr; }
-
-/* optional styling for native scrollbar thumb (if kept) */
-.custom-scroll-left::-webkit-scrollbar { width: 2px;background: #cccccc }
-.custom-scroll-left::-webkit-scrollbar-thumb { background: #30B6F9; border-radius: 4px; }
-.ulst li:nth-last-child(1) .laststs{
+.scrollbar-hidden::-webkit-scrollbar {
   display: none;
 }
-.pt25{
-  @apply pt-11 xl:pt-15 2xl:pt-22 3xl:pt-25;
-}  
-.pb25{
-  @apply pb-11 xl:pb-15 2xl:pb-22 3xl:pb-25;} 
-.py25{
-  @apply py-11 xl:py-15 2xl:py-22 3xl:py-25;} 
 
-.pt30{ @apply pt-11 xl:pt-15 2xl:pt-22 3xl:pt-30;} 
-.pb30{ @apply pb-11 xl:pb-15 2xl:pb-22 3xl:pb-30;} 
-.py30{ @apply py-11 xl:py-15 2xl:py-22 3xl:py-30;}
-
-.pt90{ @apply pt-11 xl:pt-15 2xl:pt-22 3xl:pt-[90px];} 
-.pt-text30{
-  @apply pt-8 lg:pt-12 xl:pt-20 3xl:pt-30;
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-.pb-text30{
+
+/* left-side native scrollbar (if you still use native scrollbar) */
+.custom-scroll-left {
+  direction: rtl;
+}
+
+.custom-scroll-left>* {
+  direction: ltr;
+}
+
+/* optional styling for native scrollbar thumb (if kept) */
+.custom-scroll-left::-webkit-scrollbar {
+  width: 2px;
+  background: #cccccc
+}
+
+.custom-scroll-left::-webkit-scrollbar-thumb {
+  background: #30B6F9;
+  border-radius: 4px;
+}
+
+.ulst li:nth-last-child(1) .laststs {
+  display: none;
+}
+
+.pt25 {
+  @apply pt-11 xl:pt-15 2xl:pt-22 3xl:pt-25;
+}
+
+.pb25 {
+  @apply pb-8 md:pb-11 xl:pb-15 2xl:pb-22 3xl:pb-25;
+}
+
+.py25 {
+  @apply py-11 xl:py-15 2xl:py-22 3xl:py-25;
+}
+
+.pt30 {
+  @apply pt-11 xl:pt-15 2xl:pt-22 3xl:pt-30;
+}
+
+.pb30 {
+  @apply pb-8 md:pb-11 xl:pb-15 2xl:pb-22 3xl:pb-30;
+}
+
+.py30 {
+  @apply py-11 xl:py-15 2xl:py-22 3xl:py-30;
+}
+
+.pt90 {
+  @apply pt-11 xl:pt-15 2xl:pt-22 3xl:pt-[90px];
+}
+
+.pt-text30 {
+  @apply pt-6 md:pt-8 lg:pt-12 xl:pt-20 3xl:pt-30;
+}
+
+.pb-text30 {
   @apply pb-8 lg:pb-12 xl:pb-20 3xl:pb-30;
 }
-.pt-text25{
-  @apply pt-8 md:pt-8  xl:pt-17 3xl:pt-25;
+
+.pt-text25 {
+  @apply pt-8 md:pt-8 xl:pt-17 2xl:pt-20 3xl:pt-25;
 }
-.pt-text90{
-  @apply pt-8 md:pt-8  xl:pt-17 3xl:pt-[90px];
+
+.pt-text90 {
+  @apply pt-6 md:pt-8 xl:pt-17 3xl:pt-[90px];
 }
-.pb95{
-  @apply pb-10   xl:pb-17 3xl:pb-[95px];
+
+.pb95 {
+  @apply pb-10 xl:pb-17 3xl:pb-[95px];
 }
-.pb-120{@apply pb-11 xl:pb-17 2xl:pb-24 3xl:pb-[120px]}
+
+.pb-120 {
+  @apply pb-11 xl:pb-17 2xl:pb-24 3xl:pb-[120px]
+}
 
 .mt25 {
   @apply mt-11 xl:mt-15 2xl:mt-22 3xl:mt-25;
@@ -816,15 +879,27 @@ body::-webkit-scrollbar {
   @apply mt-8 md:mt-8 xl:mt-10 2xl:mt-15 3xl:mt-[90px];
 }
 
+.sectp-100{
+  padding-top: clamp(1.2em, 5vw + 0.1em, 100px);
+}
+.sectm-100{
+  margin-top: clamp(1.2em, 5vw + 0.1em, 100px);
+}
+.top-custom-100{
+  top:clamp(2em, 5vw + 0.1em, 100px);
+}
 .scrollbar-thin::-webkit-scrollbar {
   width: 3px;
 }
+
 .scrollbar-thin::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
+
 .scrollbar-thin::-webkit-scrollbar-thumb {
   background: #888;
 }
+
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
@@ -838,9 +913,11 @@ body::-webkit-scrollbar {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -2px;  /* sits exactly at the border line */
+  bottom: -2px;
+  /* sits exactly at the border line */
   height: 2px;
-  background-color: var(--primary); /* primary color */
+  background-color: var(--primary);
+  /* primary color */
   width: 0%;
   transform-origin: left;
   animation: underlineGrow 5.5s linear forwards;
@@ -850,10 +927,12 @@ body::-webkit-scrollbar {
   from {
     width: 0%;
   }
+
   to {
     width: 100%;
   }
 }
+
 /* Chrome, Edge, Safari */
 .scrollbar-pointer::-webkit-scrollbar {
   cursor: pointer;
@@ -862,4 +941,71 @@ body::-webkit-scrollbar {
 /* Optional: thumb specifically */
 .scrollbar-pointer::-webkit-scrollbar-thumb {
   cursor: pointer;
+}
+
+/* custom media query */
+
+@media (min-width:1400px) and (max-width:1460px) {
+  .vdo-content-wrapper{
+    width: 85%;
+  }
+}
+@media (min-width:1461px) and (max-width:1486px) {
+  .vdo-content-wrapper{
+    width: 90%;
+  }
+  .vdo-shape{
+    width: 75%;
+  }
+}
+@media (min-width:1487px) and (max-width:1500px) {
+  .vdo-content-wrapper{
+    width: 85%;
+  }
+  .vdo-shape{
+    width: 75%;
+  }
+}
+@media (min-width:1501px) and (max-width:1600px) {
+  .vdo-content-wrapper{
+    width: 85%;
+  }
+  .vdo-shape{
+    width: 75%;
+  }
+}
+@media (min-width:1601px) and (max-width:1800px) {
+  .vdo-content-wrapper{
+    width: 85%;
+  }
+  .vdo-shape{
+    width: 75%;
+  }
+}
+@media (min-width:1801px) and (max-width:1850px) {
+  .vdo-content-wrapper{
+    width: 100%;
+    max-width: 1138px;
+  }
+  .vdo-shape{
+    width: 80%;
+  }
+}
+@media (min-width:1851px) and (max-width:1920px) {
+  .vdo-content-wrapper{
+    width: 100%;
+    max-width: 1238px;
+  }
+  .vdo-shape{
+    width: 90%;
+  }
+}
+@media (min-width:1921px) {
+  .vdo-content-wrapper{
+    width: 100%;
+    max-width: 1238px;
+  }
+  .vdo-shape{
+    width: 90%;
+  }
 }
