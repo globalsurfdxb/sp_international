@@ -342,6 +342,7 @@ const Index = () => {
           <motion.img style={{ y: shapeY }} src="/assets/images/press-releases/listbody.svg" alt="" className=" object-fit w-md200 lg:w-[350px] 2xl:w-[754px] 2xl:h-[1056px] relative 2xl:top-[14px] " />
         </div>
       </section>
+      </main>
       <footer>
         <Footer />
       </footer>
