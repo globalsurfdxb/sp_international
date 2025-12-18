@@ -44,7 +44,7 @@ useEffect(() => {
 
     return (
         <section className="py25">
-            <div className="container flex flex-col lg:flex-row items-start gap-5 2xl:gap-[190px]" ref={containerRef}>
+            <div className="container flex flex-col lg:flex-row items-start gap-5 xl:gap-12 2xl:gap-[190px]" ref={containerRef}>
                 {/* Left Button */}
                 <motion.div
                     variants={moveRight(0.4)}
