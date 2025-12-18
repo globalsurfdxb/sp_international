@@ -54,7 +54,7 @@ const Trusted = () => {
           </h2> 
        <Link to="/Projects">
           <div className="flex flex-col justify-end items-end sdsd">
-            <motion.img variants={moveUp(1)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src="../assets/images/about-us/toarrow.svg" width={71} height={71} alt="arrow" className="w-5 h-5 sm:w-[71px] sm:h-[71px]" />
+            <motion.img variants={moveUp(1)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} src="../assets/images/about-us/toarrow.svg" width={71} height={71} alt="arrow" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-[71px] xl:h-[71px]" />
             <p className="text-16 font-light leading-[1.474] text-paragraph uppercase pt-3">
               View projects
             </p>

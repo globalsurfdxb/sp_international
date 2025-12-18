@@ -38,19 +38,19 @@ const OurValues = () => {
          className="text-60 font-light leading-[1.18] text-black mb-5 2xl:mb-10 3xl:mb-[54px]">
           {values.title}
         </motion.h2> */}
-        <H2Title titleText={values.title} marginClass={"mb-4 2xl:mb-10 3xl:mb-[54px]"} />
+        <H2Title titleText={values.title} marginClass={"mb-4 xl:mb-10 3xl:mb-[54px]"} />
 
-        <div className="2xl:max-w-[74.51%]">
+        <div className="md:max-w-[70%] lg:max-w-[80%] 2xl:max-w-[74.51%]">
           {values.data.map((item, index) => (
             // <ValueItem key={index} item={item} />
             <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }}>
-            <div className={`group grid lg:grid-cols-[1.5fr_2fr_auto] py-2 md:py-[16px] cursor-pointer border-b border-black/20 first:border-t transition-all duration-300
+            <div className={`group grid lg:grid-cols-[1.2fr_2.4fr_auto] py-2 2xl:py-[16px] cursor-pointer border-b border-black/20 first:border-t transition-all duration-300
                  ${isHovered === index ? "items-start" : "items-center"}`}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
             >
-              <div className="flex justify-between">
-                <h3 className={`text-[20px] md:text-29  leading-[1.474] lg:leading-[2.43] text-paragraph group-hover:text-black transition-all ease-in-out duration-500 group-hover:font-bold ${isHovered === index ? "font-bold text-black" : "font-light"}`}>
+              <div className="flex justify-between items-center">
+                <h3 className={`text-19 xs:text-20 xl:text-29  leading-[1.474] lg:leading-[2.43] text-paragraph group-hover:text-black transition-all ease-in-out duration-500 group-hover:font-bold ${isHovered === index ? "font-bold text-black" : "font-light"}`}>
                   {item.label}
                 </h3>
                 <div className={`flex lg:hidden w-[35px] h-[35px] lg:w-[50px] lg:h-[50px] rounded-full border border-black/20 justify-center items-center transition-transform duration-500 
@@ -59,20 +59,19 @@ const OurValues = () => {
                 </div>
               </div>
 
-              <div className="flex justify-between overflow-hidden gap-10 lg:gap-[217px]">
+              <div className="grid grid-cols-[2fr_auto] overflow-hidden gap-10 lg:gap-[217px]">
                 {/* Expanding List */}
                 <div className={`transition-all duration-500 ease-in-out overflow-hidden  ${isHovered === index ? `opacity-100 h-[${height}px]` : "opacity-0 h-0"}`} >
-                  <ul ref={listRef} key={isHovered === index ? "open" : "closed"} className="text-19 leading-[1.85] max-w-50ch ps-6 lg:ps-12 py-[11px]">
+                  <ul ref={listRef} key={isHovered === index ? "open" : "closed"} className="text-sm xl:text-19 leading-[1.85] max-w-50ch ps-6 lg:ps-12 py-[11px]">
                     {item.list.map((listItem, i) => (
-                      <motion.li variants={moveUp(i * 0.07)} key={i} initial="hidden" animate="show" viewport={{ amount: 0.2, once: true }} className="relative before:content-[''] before:absolute before:-left-6 before:top-[14px] before:w-[7px] before:h-[7px]
-                           before:bg-secondary before:rounded-none font-light text-paragraph">{listItem}</motion.li>
+                      <motion.li variants={moveUp(i * 0.07)} key={i} initial="hidden" animate="show" viewport={{ amount: 0.2, once: true }} className="relative before:content-[''] before:absolute before:-left-6 before:top-[14px] before:w-[7px] before:h-[7px] before:bg-secondary before:rounded-none font-light text-paragraph">{listItem}</motion.li>
                     ))}
                   </ul>
                 </div>
 
-                <div className={`hidden lg:flex min-w-[35px] min-h-[35px] lg:w-[50px] lg:h-[50px] rounded-full border border-black/20 justify-center items-center transition-transform duration-500 ${isHovered === index ? "rotate-180" : ""
+                <div className={`hidden lg:flex w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] rounded-full border border-black/20 justify-center items-center transition-transform duration-500 ${isHovered === index ? "rotate-180" : ""
                   }`}>
-                  <img src="/assets/images/about-us/arrow-top1.svg" width={20} height={20} alt="arrow" />
+                  <img src="/assets/images/about-us/arrow-top1.svg" width={20} height={20} alt="arrow" className="w-3 h-3" />
                 </div>
               </div>
             </div>

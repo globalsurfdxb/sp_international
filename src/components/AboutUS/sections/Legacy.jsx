@@ -69,7 +69,7 @@ const Legacy = () => {
             {/* <motion.h2 variants={moveUp(0.2)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-60 font-light leading-[1.18] text-white">
               Legacy
             </motion.h2> */}
-            <H2Title titleText="Legacy" titleColor="white" marginClass=" mb-5 lg:mb-8 xl:mb-15" />
+            <H2Title titleText="Legacy" titleColor="white" marginClass="md:mb-4 lg:mb-8 xl:mb-15" />
 
             <div className="flex flex-col-reverse md:flex-row gap-7 md:gap-5 2xl:gap-[20%]  3xl:gap-[23.3%] justify-between md:items-end">
               {/* LEFT: Vertical Year Thumbs */}
@@ -97,7 +97,6 @@ const Legacy = () => {
                   {legacyData.map((item, i) => (
                     <SwiperSlide key={i}>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-7 lg:gap-15 2xl:gap-[137px] items-center">
-
                         <div>
                           <div className="flex items-center gap-4  xl:gap-[51px] mb-5 xl:mb-[50px] border-b border-white/30 pt-5 lg:pt-5  pb-4 xl:pb-[50px]">
                             <div className='flex items-center gap-5'>
