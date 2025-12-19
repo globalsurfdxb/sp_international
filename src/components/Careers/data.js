@@ -126,3 +126,27 @@ export const journeyData = {
     },
   ],
 };
+export const interiorData = {
+    WhyChooseData: {
+        title: "Why Choose Us",
+        items: [
+            {
+                title: "Global Workforce",
+                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+            },
+            {
+                title: "Inclusive Culture",
+                content: "We bring together professionals from over 20 nationalities, combining diverse skills, experiences, and perspectives to deliver projects with innovation and global impact."
+            },
+            {
+                title: "People-First Approach",
+                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+            },
+            {
+                title: "Celebrating Talent",
+                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+            }, 
+        ]
+    }
+
+}

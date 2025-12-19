@@ -39,7 +39,7 @@ const ExpertiseSec = ({ data }) => {
       <div className="container relative z-[1]">
         {/* Header */}
         <div className="mb-50px">
-          <H2Title titleText={data.title} titleColor="white" marginClass="mb-4 xl:mb-50px" />
+          <H2Title titleText={data.title} titleColor="white" marginClass="mb-4 " />
           <motion.p variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{ amount: 0.6, once: true }} className="text-19 leading-[1.473684210526316] opacity-90 font-light max-w-5xl">
             {data.desc}
           </motion.p>

@@ -35,7 +35,7 @@ const itemRefs = useRef({});
       <div className="max-w-[1345px]">
         <div
           ref={tabsContainerRef}
-          className="flex flex-col md:flex-row flex-wrap w-full overflow-hidden"
+          className="flex flex-col md:flex-row flex-wrap w-full overflow-hidden gap-5 lg:gap-[32px]"
         >
           {data.map((tab, index) => {
             const isActive = tab.id === activeId;
@@ -62,16 +62,14 @@ const itemRefs = useRef({});
                     }, 250); // wait for accordion animation
                   }
                 }}
-                  className={`tab-style1-btn w-full px-4 py-4 lg:py-5 flex flex-col items-center text-center border h-full
+                  className={`tab-style1-btn w-full pb-4 flex flex-col  text-left border-b h-full 
                     ${
                       isActive
-                        ? "bg-secondary/15 border-secondary"
-                        : "border-white/30 bg-transparent hover:bg-white/5"
+                        ? "border-b-3 border-secondary"
+                        : "border-white bg-transparent "
                     }`}
                 >
-                  <span className="text-16 leading-[1.75] text-white font-light mb-4">
-                    {tab.number}
-                  </span>
+                  
                   <span
                     className={`text-19 leading-[1.473684210526316] max-w-[30ch] transition-all duration-300 ${
                       isActive ? "font-bold" : "font-light"

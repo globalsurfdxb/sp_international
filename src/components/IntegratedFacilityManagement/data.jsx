@@ -10,23 +10,9 @@ export const ifmData = {
         title: "Our Expertise",
         desc: "Our services are structured to support every operational, technical, and user-focused requirement within a facility - ensuring consistency, compliance, efficiency, and a seamless experience at every level.",
         items: [
+
             {
                 id: 1,
-                number: "01",
-                title: "Soft Services – User Experience & Environment",
-                desc: "Our soft services are designed to maintain a clean, safe, and well-managed environment that supports productivity, comfort, and a positive occupant experience. All functions are executed under strict quality protocols with trained, site-dedicated teams.",
-                points: [
-                    "Professional Cleaning & Housekeeping",
-                    "Manned Guarding & Surveillance",
-                    "Landscaping & Pest Control",
-                    "Concierge & Front Office Support",
-                    "Waste Management & Recycling",
-                    "Office Support & Mailroom Services",
-                ],
-                image: "./assets/images/ifm/expertise/exp01.jpg",
-            },
-            {
-                id: 2,
                 number: "02",
                 title: "Hard Services – Asset Management & Technical Integrity",
                 desc: "We manage, monitor, and maintain critical building systems to ensure operational reliability, compliance with statutory standards, and long-term asset protection. Through preventive and predictive maintenance strategies, we minimise downtime and extend equipment lifespan.",
@@ -39,6 +25,21 @@ export const ifmData = {
                     "Energy Monitoring & Statutory Compliance"
                 ],
                 image: "./assets/images/ifm/expertise/exp02.jpg",
+            },
+            {
+                id: 2,
+                number: "01",
+                title: "Soft Services – User Experience & Environment",
+                desc: "Our soft services are designed to maintain a clean, safe, and well-managed environment that supports productivity, comfort, and a positive occupant experience. All functions are executed under strict quality protocols with trained, site-dedicated teams.",
+                points: [
+                    "Professional Cleaning & Housekeeping",
+                    "Manned Guarding & Surveillance",
+                    "Landscaping & Pest Control",
+                    "Concierge & Front Office Support",
+                    "Waste Management & Recycling",
+                    "Office Support & Mailroom Services",
+                ],
+                image: "./assets/images/ifm/expertise/exp01.jpg",
             },
            
             {

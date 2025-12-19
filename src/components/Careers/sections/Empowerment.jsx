@@ -68,7 +68,7 @@ const EmpowerSection = () => {
       <div className="reveal-overlay4 absolute inset-0 bg-black/20 z-20"></div>
       {/* Below XL: custom padding; XL and up: container */}
       <motion.div  className="shapelt50  flex-shrink-0">
-        <motion.img style={{ y: shapeY }} src={svgSrc} alt="logo-svg" className="w-md200 lg:w-[250px]  2xl:w-[324px] h-fit object-contain absolute bottom-0 lg:bottom-0 right-0 lg:right:auto lg:left-[-84px]  xl:left-0" />
+        <motion.img style={{ y: shapeY }} src={svgSrc} alt="logo-svg" className="w-md200 lg:w-[250px]  2xl:w-[324px] 3xl:w-[394px] h-fit object-contain absolute bottom-0 lg:bottom-0 right-0 lg:right:auto lg:left-[-84px]  xl:left-0" />
       </motion.div>  <div
         className={
           rightPadding > 0

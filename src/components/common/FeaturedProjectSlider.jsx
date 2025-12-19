@@ -153,7 +153,7 @@ const FeaturedProjectSlider = ({ data }) => {
                             </h3>
                           </div>
                         </div>
-                        <div className="border-b border-cmnbdr grid lg:grid-cols-2 2xl:grid-cols-[413px_1fr] items-center">
+                        <div className="border-b border-cmnbdr grid lg:grid-cols-2 2xl:grid-cols-[413px_1fr] items-center py-[2px]">
                           <div className="border-b border-cmnbdr lg:border-0">
                             <div className="overflow-hidden">
                               <h4 className={`text-19 leading-[2.052631578947368] font-light text-paragraph ${!hasScrolledIntoView
