@@ -1015,7 +1015,16 @@ body::-webkit-scrollbar {
           left: -50px;
 }
 }
- 
+ @media (min-width:1360px) and (max-width:1500px) {
+.shapenews{
+          left: -195px;
+}
+}
+ @media (min-width:1680px) and (max-width:1805px) {
+.shapenews{
+          left: -85px;
+}
+}
 
 @media   (max-width:1023px) {
   .w-md200{width: 200px;}
