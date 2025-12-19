@@ -105,7 +105,7 @@ const EmpoweringCommunities = () => {
 
       <div className="container">
         <div className="pb30">
-          <h1 className="text-60 font-light leading-[1.18] max-w-[20ch] text-center mb-5 2xl:mb-10 m-auto ">
+          <h1 className="text-[1.7rem] xs:text-[1.8rem] md:text-[2rem] lg:text-[2.3rem] xl:text-[2.5rem] 2xl:text-[2.6rem] 3xl:text-60 font-light leading-[1.18] max-w-[20ch] text-center mb-3 lg:mb-4 2xl:mb-10 m-auto ">
             <SplitTextAnimation children={"Creating Shared Value Across Diverse Communities"} staggerDelay={0.2} animationDuration={0.8} delay={0.4} />
           </h1>
           <motion.p variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="text-19 lg:text-29 text-paragraph font-light leading-[1.285] max-w-[46ch] m-auto text-center">Our responsibility extends far beyond project delivery. With a team representing over 20 nationalities, we support the well-being of the diverse communities we serve by strengthening livelihoods, advancing education, improving healthcare, and restoring natural ecosystems. Through these efforts, we create lasting social and environmental impact alongside our developments.

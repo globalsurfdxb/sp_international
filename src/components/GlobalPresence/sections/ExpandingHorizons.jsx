@@ -23,7 +23,7 @@ const ExpandingHorizons = ({ data }) => {
               <H2Title titleText={data.title} titleColor="black" marginClass="mb-4 md:mb-6 2xl:mb-50px" maxW="max-w-[22ch]" delay={1.6} />
               {
                 data.desc.map((item) => (
-                  <motion.p variants={moveUp(0.8)} initial="hidden" whileInView={"show"} viewport={{amount:0.2,once:false}} className="mb-4 xl:mb-8 last:mb-0 text-19 lg:text-20 2xl:text-29 font-light leading-[1.35] text-paragraph max-w-[48ch]">{item}</motion.p>
+                  <motion.p variants={moveUp(0.8)} initial="hidden" whileInView={"show"} viewport={{amount:0.2,once:false}} className="mb-4 xl:mb-8 last:mb-0 text-19 lg:text-20 3xl:text-29 font-light leading-[1.35] text-paragraph max-w-[48ch]">{item}</motion.p>
                 ))
               }
             </div>

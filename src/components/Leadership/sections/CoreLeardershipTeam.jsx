@@ -105,13 +105,13 @@ const CoreLeadershipTeam = ({ data = {} }) => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-6 3xl:gap-y-[70px] 3xl:gap-[30px]">
+        <div className="grid grid-cols-2 xs:grid-cols-3 lg:grid-cols-4 gap-6 3xl:gap-y-[70px] 3xl:gap-[30px]">
           {filteredTeam.map((member, index) => (
             <motion.div variants={moveUp(0.5 + 0.2*index)} initial="hidden" whileInView="show" viewport={{amount: 0.1, once: true}} key={index} className="relative">
-              <div className="relative group">
-                <img src={member.image} alt={member.name} className="w-full h-[250px] 2xl:h-[333px] object-contain rounded-xl mb-5 md:mb-[27px]" />
-                <div className="absolute bottom-0 left-0 bg-f5f5 w-full h-[67%] max-h-[383px] z-[-1]"></div>
-                <div className=" opacity-0 group-hover:opacity-100 transition-all duration-300 absolute left-0 bottom-0 w-[50px] h-[50px]  xl:w-[80px] xl:h-[80px] flex items-center justify-center bg-primary">
+              <div className="relative group h-[150px] md:h-[250px] 2xl:h-[333px] flex flex-col justify-end">
+                <img src={member.image} alt={member.name} className="w-full xs:w-fit max-h-full object-contain rounded-xl absolute bottom-0" />
+                <div className="bg-f5f5 xl:w-full h-[60%] 2xl:h-[234px] z-[-1]"></div>
+                <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute left-0 bottom-0 w-[50px] h-[50px]  xl:w-[80px] xl:h-[80px] flex items-center justify-center bg-primary">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="-translate-x-2 group-hover:translate-x-0 translate-y-2 group-hover:translate-y-0 transition-all duration-500 w-[25px] h-[25px] lg:w-[25px] lg:h-[25px]"
@@ -137,8 +137,10 @@ const CoreLeadershipTeam = ({ data = {} }) => {
                     </svg>
                   </div>
               </div>
-              <h3 className="text-29 font-light leading-[1.344827586206897] mb-[7px]">{member.name}</h3>
-              <p className="text-paragraph text-19 font-light">{member.position}</p>
+              <div className="mt-3 xl:mt-[27px]">
+                <h3 className="text-20 xl:text-24 2xl:text-29 font-light leading-[1.344827586206897] mb-0 xl:mb-[7px]">{member.name}</h3>
+                <p className="text-paragraph text-16 2xl:text-19 font-light">{member.position}</p>
+              </div>
             </motion.div>
           ))}
         </div>

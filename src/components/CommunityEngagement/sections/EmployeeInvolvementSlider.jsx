@@ -46,11 +46,11 @@ const EmployeeInvolvementSlider = ({ data }) => {
       <div className="px-[15px] md:pe-0 relative">
         {/* Counter + Arrows */}
         <div className="container" ref={containerRef}>
-          <div className="flex justify-between items-center mb-50px">
-            <div className="text-lg font-semibold text-black flex items-center gap-1">
-              <H2Title titleText="Employee Involvement" titleColor="black" marginClass="mb-0" />
-            </div>
-          </div>
+          {/* <div className="flex justify-between items-center mb-50px">
+            <div className="text-lg font-semibold text-black flex items-center gap-1"> */}
+              <H2Title titleText="Employee Involvement" titleColor="black" marginClass="mb-4 md:mb-6 2xl:mb-50px" />
+            {/* </div>
+          </div> */}
         </div>
         {/* Swiper */}
         <div className="flex flex-col md:flex-row gap-3   md:pe-0" >
@@ -92,7 +92,7 @@ const EmployeeInvolvementSlider = ({ data }) => {
                 <SwiperSlide key={i}>
                   <div className="overflow-hidden ">
                     <div className="after:h-full after:w-full  after:bg-[linear-gradient(180deg,rgba(0,0,0,0)_42.43%,rgba(0,0,0,0.75)_91.64%)] after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0">
-                      <motion.img variants={moveUp(0.1 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={item.image} alt={`slide-${i}`} className="w-full h-[350px] md:h-[400px] 2xl:h-auto object-cover" />
+                      <motion.img variants={moveUp(0.1 * i)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} src={item.image} alt={`slide-${i}`} className="w-full h-[300px] md:h-[350px] lg:h-[400px] 2xl:h-auto object-cover" />
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 px-5 lg:px-8 3xl:px-12">
                       <div className=" pb-5 lg:pb-8 3xl:pb-[42px]">

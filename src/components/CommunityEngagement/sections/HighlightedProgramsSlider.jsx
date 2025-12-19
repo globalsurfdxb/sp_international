@@ -9,9 +9,12 @@ import { highlightedData } from '../data';
 import H2Title from '../../common/H2Title';
 import {motion, useScroll, useTransform } from "framer-motion";
 import { moveUp } from "../../../motionVarients";
-
+import { useMediaQuery } from "react-responsive";
 const HighlightedProgramsSlider = () => {
-
+  const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
+  const imageOffset = isMobile ? [-30, 30] : isTablet ? [-80, 80] : [-150, 150];
+  const shapeOffset = isMobile ? [-50, 50] : isTablet ? [-100, 100] : [-200, 200];
   const [currentSlide, setCurrentSlide] = useState(0);
   const [imageSwiper, setImageSwiper] = useState(null);
   const [contentSwiper, setContentSwiper] = useState(null);
@@ -23,13 +26,13 @@ const HighlightedProgramsSlider = () => {
     target: imageContainerRef,
     offset: ["start end", "end start"]
   });
-  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+  const imageY = useTransform(imageProgress, [0, 1], imageOffset);
   // Parallax for shape
   const { scrollYProgress: shapeProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
   });
-  const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
+  const shapeY = useTransform(shapeProgress, [0, 1], shapeOffset);
 
   return (
     <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden" ref={sectionRef}>
@@ -64,7 +67,7 @@ const HighlightedProgramsSlider = () => {
                 {highlightedData.items.map((item, index) => (
                   <SwiperSlide key={index}>
                     <div className="relative overflow-hidden shadow-2xl" ref={imageContainerRef}>
-                      <motion.img style={{y:imageY}} src={item.img} alt={item.mainTitle} className="w-full h-[300px] xl:h-[576px]  object-cover" />
+                      <motion.img style={{y:imageY}} src={item.img} alt={item.mainTitle} className="w-full h-[200px] md:h-[250px] lg:h-[300px] xl:h-[576px]  object-cover" />
                     </div>
                   </SwiperSlide>
                 ))}
