@@ -103,11 +103,11 @@ const FeaturedProjectSlider = ({ data }) => {
                 }}
                 onSlideChange={handleSlideChange}
                 speed={1200}
-                autoplay={{
-                  delay: 4000,
-                  disableOnInteraction: false,
-                  waitForTransition: true,
-                }}
+                // autoplay={{
+                //   delay: 4000,
+                //   disableOnInteraction: false,
+                //   waitForTransition: true,
+                // }}
                 breakpoints={{
                   600: {
                     slidesPerView: 1,
@@ -115,7 +115,7 @@ const FeaturedProjectSlider = ({ data }) => {
                   },
                   768: {
                     slidesPerView: 2,
-                    spaceBetween: 10,
+                    spaceBetween: 30,
                   },
                   1024: {
                     slidesPerView: 2,
