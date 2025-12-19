@@ -43,14 +43,14 @@ const Banner = () => {
           </motion.div>
           <div className="flex  justify-between items-center my-6 lg:my-10">
             <div>
-              <motion.h1 variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="text-70 font-light leading-[1.143] max-w-[26.35ch]">
+              <h1 className="text-40 2xl:text-70 font-light leading-[1.143] max-w-[26.35ch]">
                 <SplitTextAnimation children={"Shapoorji Pallonji Energy's FPSO Armada Sterling Commences Production"} staggerDelay={0.1} animationDuration={0.8} delay={0.8} />
-              </motion.h1>
+              </h1>
             </div>
           </div>
         </div>
       </div>
-      <motion.div variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="container relative overflow-hidden" ref={imageContainerRefTwo}>
+      <motion.div variants={moveUp(1)} initial="hidden" whileInView="show" viewport={{amount: 0.2, once: true}} className="container relative overflow-hidden" ref={imageContainerRefTwo}>
         <motion.img style={{ y: imageY }} src="/assets/images/press-releases/newsbanner.jpg" alt="" width={1620} height={687} className="w-full h-[200px] md:h-[300px] lg:h-[400px] xl:h-[500px] 3xl:h-[687px] scale-y-110 object-cover" />
       </motion.div>
       <div className="absolute bottom-20 md:bottom-1/4  lg:-top-8 right-0 z-[-1]">

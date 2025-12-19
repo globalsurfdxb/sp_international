@@ -5,7 +5,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cultureData } from "../data";
 import { motion,useScroll, useTransform } from "framer-motion";
-
+import H2Title from "../../../components/common/H2Title";
+import { useMediaQuery } from "react-responsive";
 // Register ScrollTrigger plugin
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -13,20 +14,22 @@ if (typeof window !== "undefined") {
 
 const CultureSection = () => {
   const { title, description, buttonText, backgroundImage } = cultureData;
-
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const overlayRef = useRef(null);
   const clipPathRef = useRef(null);
 
+  const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
+  const imageOffset = isMobile ? [-30, 30] : isTablet ? [-80, 80] : [-90, 90];
+
   const imageContainerRefTwo = useRef(null);
 
-  // Parallax for main image container
   const { scrollYProgress: imageProgress } = useScroll({
     target: imageContainerRefTwo,
     offset: ["start end", "end start"]
   });
-  const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+  const imageY = useTransform(imageProgress, [0, 1], imageOffset);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -79,44 +82,30 @@ const CultureSection = () => {
   }, []);
 
   return (
-    <section id="careers-stop-section" ref={sectionRef} className="container pb30 pt-text30">
-      <div
-        className="relative w-full h-[420px] xl:h-[490px] overflow-hidden flex items-center" ref={imageContainerRefTwo}
-      >
+    <section id="careers-stop-section" ref={sectionRef} className="pb30 pt-text30 overflow-hidden">
+      <div className="relative w-full h-[350px] lg:h-[420px] xl:h-[490px] overflow-hidden flex items-center container" ref={imageContainerRefTwo}>
         {/* Background image with clip path reveal */}
-        <motion.div 
-          ref={clipPathRef}
-          className="absolute inset-0"
-          style={{
+        <motion.div ref={clipPathRef} className="absolute h-full inset-0" style={{
             backgroundImage: `linear-gradient(90deg, rgba(0, 0, 0, 0.8) 7.22%, rgba(0, 0, 0, 0) 74.6%), url(${backgroundImage})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             y:imageY
           }}
         />
-
         {/* Overlay for additional reveal effect */}
-        <div
-          ref={overlayRef}
-          className="absolute inset-0 bg-black/50"
-          style={{ transformOrigin: "left" }}
-        />
-
+        <div ref={overlayRef} className="absolute inset-0 bg-black/50" style={{ transformOrigin: "left" }} />
         {/* Content */}
         <div ref={contentRef} className="relative z-10 text-white px-6 sm:px-10 md:px-14 lg:px-[100px]">
-          <h2 className="text-60 font-light leading-[1.166666666666667] mb-6 xl:mb-[30px] lg:max-w-[500px]">
+          {/* <h2 className="text-60 font-light leading-[1.166666666666667] mb-6 xl:mb-[30px] lg:max-w-[500px]">
             {title}
-          </h2>
-          <p className="text-18 md:text-19 font-light leading-[1.473684210526316] max-w-[660px] mb-[24px] xl:mb-[30px]">
+          </h2> */}
+          <H2Title titleText={title} marginClass={"mb-3 md:mb-6 xl:mb-[30px]"} maxW={"max-w-xs lg:max-w-[500px]"} />
+          <p className="text-16 md:text-19 font-light leading-[1.473684210526316] max-w-[660px] mb-[24px] xl:mb-[30px]">
             {description}
           </p>
           {/* Button with centered text over SVG */}
           <button className="relative inline-flex items-center justify-center">
-            <img
-              src="/assets/images/careers/partofus/btn-svg.svg"
-              alt="button"
-              className="w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] h-auto"
-            />
+            <img src="/assets/images/careers/partofus/btn-svg.svg" alt="button" className="w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] h-full" />
             <span className="absolute text-white font-light uppercase text-12 md:text-14 lg:text-16 leading-[1.75]">
               {buttonText}
             </span>

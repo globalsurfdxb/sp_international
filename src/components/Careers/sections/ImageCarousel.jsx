@@ -54,7 +54,7 @@ const ImageCarousel = () => {
             breakpoints={{
               1536: { slidesPerView: 3.6165 }, // 2XL
               1280: { slidesPerView: 3.45 }, // XL
-              1024: { slidesPerView: 2.2 }, // LG
+              1024: { slidesPerView: 3.2 }, // LG
               768: { slidesPerView: 2.2 }, // MD
               0: { slidesPerView: 1.2 }, // SM
             }}
