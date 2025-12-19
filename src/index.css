@@ -820,11 +820,11 @@ body::-webkit-scrollbar {
 }
 
 .pt-text30 {
-  @apply pt-8 md:pt-11 lg:pt-12 xl:pt-16 3xl:pt-30;
+  @apply pt-6 md:pt-11 lg:pt-12 xl:pt-16 3xl:pt-30;
 }
 
 .pb-text30 {
-  @apply pb-8 md:pb-12 xl:pb-16 3xl:pb-30;
+  @apply pb-6 md:pb-12 xl:pb-16 3xl:pb-30;
 }
 
 .pt-text25 {
