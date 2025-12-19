@@ -186,7 +186,7 @@ const Index = () => {
             </h1>
           </div>
 
-          <motion.div variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between border-y border-cmnbdr pt-[35px] mb-10 lg:mb-15 3xl:mb-25">
+          <motion.div variants={moveUp(0.8)} initial="hidden" whileInView="show" viewport={{ amount: 0.2, once: true }} className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between border-y border-cmnbdr pt-5 2xl:pt-[35px] mb-10 lg:mb-15 3xl:mb-25">
             <div className="flex flex-wrap justify-between xl:justify-start gap-3 md:gap-15 xl:gap-[75px] mb-4 md:mb-0">
               <div
                 className={`relative pb-0 md:pb-35px transition-all duration-300 group cursor-pointer ${selectedCategory === "All" ? "text-black" : ""}`}

@@ -10,10 +10,14 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import InsideCounter from "../../InsideCounter";
 
 import H2Title from "../../common/H2Title";
-
+import { useMediaQuery } from "react-responsive";
 import { sliderImages, saftyData } from "../data";
 
 const SaftySlider = () => {
+    const isMobile = useMediaQuery({ maxWidth: 767 }); // < 768
+    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // 768 - 1023
+    const imageOffset = isMobile ? [-30, 30] : isTablet ? [-80, 80] : [-150, 150];
+    const shapeOffset = isMobile ? [-50, 50] : isTablet ? [-100, 100] : [-200, 200];
     const [activeIndex, setActiveIndex] = useState(0);
     const sectionRef = useRef(null);
     const imageContainerRefTwo = useRef(null);
@@ -23,13 +27,13 @@ const SaftySlider = () => {
         target: imageContainerRefTwo,
         offset: ["start end", "end start"],
     });
-    const imageY = useTransform(imageProgress, [0, 1], [-150, 150]);
+    const imageY = useTransform(imageProgress, [0, 1], imageOffset);
     // Parallax for shape
     const { scrollYProgress: shapeProgress } = useScroll({
         target: sectionRef,
         offset: ["start end", "end start"],
     });
-    const shapeY = useTransform(shapeProgress, [0, 1], [-200, 200]);
+    const shapeY = useTransform(shapeProgress, [0, 1], shapeOffset);
 
     const computeHeight = (i, scale = 1) => {
         const diff = Math.abs(activeIndex - i);
@@ -46,14 +50,8 @@ const SaftySlider = () => {
     return (
         <section className="max-w-[1920px] mx-auto overflow-hidden " ref={sectionRef}>
             <div className="relative mb-[15px]">
-                <motion.img
-                    style={{ y: shapeY }}
-                    src="/assets/images/svg/sv-02.svg"
-                    alt=""
-                    className="absolute top-0 lg:bottom-0 2xl:bottom-[-58px] right-0 lg:left-[-150px]   3xl:left-[-60px] z-[-1] w-[150px] h-[355px] lg:w-[468px] lg:h-[655px] 2xl:h-[555px] 3xl:h-[655px]"
-                    width={468}
-                    height={655}
-                />
+                <motion.img style={{ y: shapeY }} src="/assets/images/svg/sv-02.svg" alt="" width={468} height={655}
+                    className="absolute top-0 lg:bottom-0 2xl:bottom-[-58px] right-0 lg:left-[-150px] 3xl:left-[-60px] z-[-1] w-[150px] h-[355px] lg:w-[468px] lg:h-[655px] 2xl:h-[555px] 3xl:h-[655px]"/>
                 <div className="container pt-text30">
                     <div className=" max-w-[1206px] 2xl:max-w-[1056px] 3xl:max-w-[1206px] ml-auto  ">
                         <div>
@@ -121,7 +119,7 @@ const SaftySlider = () => {
                             0: { slidesPerView: 1.2 }, // SM
                         }}
                         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-                        className="h-[400px] md:h-[470px] lg:h-[570px] xl:h-[586px] 2xl:h-[611px] 3xl:h-[597px]"
+                        className="h-[350px] md:h-[470px] lg:h-[570px] xl:h-[586px] 2xl:h-[611px] 3xl:h-[597px]"
                     >
                         {[...sliderImages, ...sliderImages].map((img, i) => (
                             <SwiperSlide
