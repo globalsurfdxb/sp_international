@@ -36,10 +36,10 @@ const ExpertiseSec = ({ data }) => {
     <section className="relative pt-text90 pb25 bg-primary text-white overflow-hidden" ref={sectionRef}>
       <div className="reveal-overlay4 absolute inset-0 bg-black/20 z-20"></div>
       <div className="absolute bottom-0 right-0 w-[359px] h-[625px] 3xl:w-[519px] 3xl:h-[725px]"><motion.img style={{ y: shapeY }} src={assets.mainShape3} alt="" /></div>
-      <div className="container">
+      <div className="container relative z-[1]">
         {/* Header */}
         <div className="mb-50px">
-          <H2Title titleText={data.title} titleColor="white" marginClass="mb-4 xl:mb-50px" />
+          <H2Title titleText={data.title} titleColor="white" marginClass="mb-4 " />
           <motion.p variants={moveUp(0.4)} initial="hidden" whileInView="show" viewport={{ amount: 0.6, once: true }} className="text-19 leading-[1.473684210526316] opacity-90 font-light max-w-5xl">
             {data.desc}
           </motion.p>

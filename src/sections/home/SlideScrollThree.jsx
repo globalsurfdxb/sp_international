@@ -5,6 +5,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 
+import { Link } from "react-router-dom";
+
 import gsap from "gsap";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
@@ -609,6 +611,8 @@ const mapactive = useRef([]);
       const cultlist = useRef([]);
       const cutltimg = useRef([]);
       const cutltdtls = useRef([]);
+      const cutltmain = useRef([]);
+      const cutlttext = useRef([]);
 
   /*     const [activeIndex, setActiveIndex] = useState(0); */
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -1215,6 +1219,8 @@ useEffect(() => {
           .set(cultlist.current, { opacity: 0, x: 0 })
           .set(cultlistItems.current, { opacity: 0, x: 0 })
           .set(cutltdtls.current, { opacity: 0, x: 0 })
+          .set(cutltmain.current, { opacity: 0, x: 0 }) 
+          .set(cutlttext.current, { opacity: 0, x: 0 })  
           .set(cutltimg.current, { opacity: 0, x: 0, width: "0%", scale: 1})
            .fromTo(
             cutltimg.current,
@@ -1256,6 +1262,18 @@ useEffect(() => {
           )
          .fromTo(
             cutltdtls.current,
+            { x: -30, opacity: 0 },
+            { x: 0, opacity: 1, duration: 1.5, delay: 0, ease: "power1.out" },
+            "-=1"
+          )
+         .fromTo(
+            cutltmain.current,
+            { x: -30, opacity: 0 },
+            { x: 0, opacity: 1, duration: 1.5, delay: 0, ease: "power1.out" },
+            "-=1"
+          )
+         .fromTo(
+            cutlttext.current,
             { x: -30, opacity: 0 },
             { x: 0, opacity: 1, duration: 1.5, delay: 0, ease: "power1.out" },
             "-=1"
@@ -1522,6 +1540,14 @@ useEffect(() => {
           "-=0.5"
         ).to(
           cutltdtls.current,
+          { x: 100, opacity: 0, duration: 1, ease: "power1.in" },
+          "-=1.2"
+        ).to(
+          cutltmain.current,
+          { x: 100, opacity: 0, duration: 1, ease: "power1.in" },
+          "-=1.2"
+        ).to(
+          cutlttext.current,
           { x: 100, opacity: 0, duration: 1, ease: "power1.in" },
           "-=1.2"
         ).to(
@@ -2683,7 +2709,7 @@ const delayProjects = useFirstTimeDelay(
         >
             <div className="lg:grid lg:grid-cols-[600px_auto] xl:grid-cols-[800px_auto]  3xl:grid-cols-[1021px_auto] h-full">
             {/* left start */}
-            <div className="flex lg:h-full bg-primary lg:bg-white">
+            <div className="flex lg:h-full bg-primary lg:bg-transparent">
               <div className="w-full pt-[16.5dvh] pl-5 lg:pt-25 xl:pt-25 3xl:pt-33 lg:pl-[205px] xl:pl-[245px] 3xl:pl-[310px]">
                  <div className="absolute -top-58 right-0    " ref={srvsVct}>
                 <img
@@ -3225,6 +3251,18 @@ const delayProjects = useFirstTimeDelay(
               </AnimatePresence>
             </div>
                 <div>
+                  <motion.div
+                 className="py-3 w-fit ml-auto lg:hidden "  >
+              <Link to="/careers">
+               <div className="flex items-center gap-[6px]">
+                <p className="text-white text-16 font-light uppercase">Careers</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="27" height="17" viewBox="0 0 27 17" fill="none">
+                   <path d="M17.6328 1.93262L25.0111 8.5134L17.6579 15.0679" stroke="#30B6F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24.5954 8.5H1.98047" stroke="#30B6F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+              </div>
+              </Link>
+              </motion.div> 
                   <div className="flex flex-col lg:flex-row lg:flex-wrap lg:items-center lg:gap-5" ref={cultlist}>
                     {items.map((item) => (
                       <div className="ctitm">
@@ -3271,8 +3309,15 @@ const delayProjects = useFirstTimeDelay(
             </div>
 
             {/* RIGHT SIDE */}
-            <div className="hidden lg:flex flex-col justify-end h-full pb-[120px] 3xl:pb-[212px] pt-[120px] 3xl:pt-[150px] overflow-hidden relative border-l border-white/25">
-              <AnimatePresence mode="wait" >
+            <div className="hidden lg:flex flex-col justify-end h-full  pt-[120px] 3xl:pt-[150px] overflow-hidden relative border-l border-white/25">
+              <motion.div
+                ref={cutltmain} 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                 className=" p-5 lg:p-7 3xl:py-12 3xl:px-15 bg-primary w-fit 2xl:w-[400px] 3xl:w-[550px] text-white relative ">
+                <AnimatePresence mode="wait" >
                 <motion.div
                 ref={cutltdtls}
                   key={activeItem.id}
@@ -3280,7 +3325,6 @@ const delayProjects = useFirstTimeDelay(
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="p-5 lg:p-7 3xl:py-12 3xl:px-15 bg-primary w-fit 2xl:w-[400px] 3xl:w-[550px] text-white relative "
                 >
                   <div className="h-fit mb-5 overflow-hidden">
                     <motion.h3
@@ -3306,6 +3350,24 @@ const delayProjects = useFirstTimeDelay(
                   </motion.p>
                 </motion.div>
               </AnimatePresence>
+              </motion.div>
+
+            <motion.div
+                ref={cutlttext} 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }} className="pt-[37px] pb-[60px] 3xl:pb-[151px] px-5 lg:px-7   3xl:px-15 "  >
+              <Link to="/careers">
+               <div className="flex items-center gap-[6px]">
+                <p className="text-white text-16 font-light uppercase">Careers</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="27" height="17" viewBox="0 0 27 17" fill="none">
+                   <path d="M17.6328 1.93262L25.0111 8.5134L17.6579 15.0679" stroke="#30B6F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24.5954 8.5H1.98047" stroke="#30B6F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+              </div>
+              </Link>
+              </motion.div> 
             </div>
           </div>
         </section>

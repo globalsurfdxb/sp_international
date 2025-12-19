@@ -166,13 +166,13 @@ const ProjectLists = () => {
                     viewport={{ amount: 0.2, once: true }}
                     className="border-y border-cmnbdr mt-10 xl:mt-25 mb-8 xl:mb-15 py-4 md:py-6 xl:py-[35px]"
                 >
-                    <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-0">
-                        <div className="flex flex-col md:flex-row gap-5 items-center lg:gap-12  2xl:gap-25  3xl:gap-[174px] justify-between">
+                    <div className="flex flex-col lg:flex-row justify-between gap-3 lg:gap-4 lg:gap-0">
+                        <div className="flex flex-col md:flex-row gap-5 md:items-center lg:gap-12  2xl:gap-25  3xl:gap-[174px] justify-between">
                             <div className="flex flex-col md:flex-row gap-3 lg:gap-10 2xl:gap-[90px] w-full ">
                                 {/* Sector */}
                                 <div className="w-full lg:w-fit relative">
                                     <Listbox value={selectedSector} onChange={handleSectorChange}>
-                                        <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-[16px] outline-0 border-0 justify-between">
+                                        <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-[16px] outline-0 border-0 justify-between md:justify-start">
                                             <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                                                 {selectedSector.title === "All" ? "Sector" : selectedSector.title}
                                             </span>
@@ -182,6 +182,7 @@ const ProjectLists = () => {
                                                 height="7"
                                                 viewBox="0 0 16 9"
                                                 fill="none"
+                                                className="w-[14px] h-[7px]"
                                             >
                                                 <path
                                                     d="M15 1L7.9992 8L1 1.00159"
@@ -230,7 +231,7 @@ const ProjectLists = () => {
                                 {/* Status */}
                                 <div className="w-full lg:w-fit relative">
                                     <Listbox value={selectedStatus} onChange={handleStatusChange}>
-                                        <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-[16px] outline-0 border-0 justify-between">
+                                        <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-[16px] outline-0 border-0 justify-between md:justify-start">
                                             <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                                                 {selectedStatus.title === "All" ? "Status" : selectedStatus.title}
                                             </span>
@@ -283,7 +284,7 @@ const ProjectLists = () => {
                                 {/* Country */}
                                 <div className="w-full lg:w-fit relative">
                                     <Listbox value={selectedCountry} onChange={handleCountryChange}>
-                                        <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-[16px] outline-0 border-0 justify-between">
+                                        <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-[16px] outline-0 border-0 justify-between md:justify-start">
                                             <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                                                 {selectedCountry.title === "All" ? "Country" : selectedCountry.title}
                                             </span>
@@ -336,7 +337,7 @@ const ProjectLists = () => {
                                 {/* Service */}
                                 <div className="w-full lg:w-fit relative">
                                     <Listbox value={selectedService} onChange={handleServiceChange}>
-                                        <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-[16px] outline-0 border-0 justify-between">
+                                        <Listbox.Button className="relative w-full cursor-pointer text-left flex items-center gap-[16px] outline-0 border-0 justify-between md:justify-start">
                                             <span className="text-paragraph text-16 font-semibold leading-[1.75] uppercase">
                                                 {selectedService.title === "All" ? "Service" : selectedService.title}
                                             </span>
@@ -406,18 +407,17 @@ const ProjectLists = () => {
                             </div>
 
                             {/* Clear Filter */}
-                            <div className="w-full">
+                            <div className="">
                                 <button
                                     type="button"
                                     onClick={handleClearFilters}
-                                    className="flex items-center gap-[10px] cursor-pointer"
+                                    className="flex items-center gap-[8px] lg:gap-[10px] cursor-pointer"
                                 >
                                     <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="27"
-                                        height="17"
+                                        xmlns="http://www.w3.org/2000/svg" 
                                         viewBox="0 0 27 17"
                                         fill="none"
+                                        className="w-[20px] h-[14px] lg:w-[27px] lg:h-[17px]"
                                     >
                                         <g clipPath="url(#clip0_3119_4427)">
                                             <path
@@ -446,24 +446,22 @@ const ProjectLists = () => {
                                             </clipPath>
                                         </defs>
                                     </svg>
-                                    <p className="uppercase text-16 text-paragraph font-light">Clear Filter</p>
+                                    <p className="uppercase text-16 text-paragraph font-light w-max">Clear Filter</p>
                                 </button>
                             </div>
                         </div>
 
                         {/* View toggles */}
-                        <div className="flex items-center gap-6 lg:gap-10 2xl:gap-[30px] justify-end">
+                        <div className="flex items-center gap-6 lg:gap-5 2xl:gap-[30px] justify-end">
                             <div
                                 className="flex group items-center gap-[6px] cursor-pointer"
                                 onClick={() => setView("grid")}
                             >
                                 <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="19"
-                                    height="19"
+                                    xmlns="http://www.w3.org/2000/svg" 
                                     viewBox="0 0 19 19"
                                     fill="none"
-                                    className={`brightness-0 group-hover:brightness-100 transition-all duration-300 ${view === "grid" ? "brightness-100" : "brightness-0"
+                                    className={`w-[14px] h-[14px] md:w-[19px] md:h-[19px] brightness-0 group-hover:brightness-100 transition-all duration-300 ${view === "grid" ? "brightness-100" : "brightness-0"
                                         }`}
                                 >
                                     <rect width="8" height="8" fill="#30B6F9" />
@@ -471,7 +469,7 @@ const ProjectLists = () => {
                                     <rect x="11" width="8" height="8" fill="#30B6F9" />
                                     <rect x="11" y="11" width="8" height="8" fill="#30B6F9" />
                                 </svg>
-                                <p className="uppercase text-16 text-paragraph font-light ">Grid View</p>
+                                <p className="uppercase text-[12px] md:text-[14px] lg:text-16 text-paragraph font-light ">Grid View</p>
                             </div>
                             <div
                                 className="flex group items-center gap-[6px] cursor-pointer"
@@ -479,17 +477,15 @@ const ProjectLists = () => {
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className={`brightness-0 group-hover:brightness-100 transition-all duration-300 ${view === "list" ? "brightness-100" : "brightness-0"
-                                        }`}
-                                    width="19"
-                                    height="13"
+                                    className={`w-[14px] h-[11px] md:w-[19px] md:h-[13px] brightness-0 group-hover:brightness-100 transition-all duration-300 ${view === "list" ? "brightness-100" : "brightness-0"
+                                        }`} 
                                     viewBox="0 0 19 13"
                                     fill="none"
                                 >
                                     <line y1="0.5" x2="19" y2="0.5" stroke="#30B6F9" />
                                     <line y1="12.5" x2="19" y2="12.5" stroke="#30B6F9" />
                                 </svg>
-                                <p className="uppercase text-16 text-paragraph font-light ">list View</p>
+                                <p className="uppercase text-[12px] md:text-[14px] lg:text-16 text-paragraph font-light ">list View</p>
                             </div>
                         </div>
                     </div>
