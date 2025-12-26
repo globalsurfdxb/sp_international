@@ -19,13 +19,13 @@ export const Vision = {
    
    image:"../../assets/images/about-us/vision.jpg",
     right:   [
-      { title: "Vision", 
+      { title: "IMPACT", 
         desc: "Fostering an environment that encourages knowledge creation and its practical application. We pursue the highest standards in all business activities while building Shapoorji Pallonji into a creative and innovative organisation." 
       },
-      { 
-        title: "Mission", 
-        desc: "To be the company of first choice in the construction industry, driven by a steadfast commitment to customer satisfaction, quality, and lasting value." 
-      },
+      // { 
+      //   title: "Mission", 
+      //   desc: "To be the company of first choice in the construction industry, driven by a steadfast commitment to customer satisfaction, quality, and lasting value." 
+      // },
     ] 
 }; 
 
