@@ -519,8 +519,6 @@ const cityGroups = [
 
       { id: "bangladesh", name: "Bangladesh", position: { x: 53.5, y: 14.5 }, stats: { iconicpjts: 200, pjtcompleted: 320, dedicatedemployees: 4000 } },
       { id: "bhutan", name: "Bhutan", position: { x: 54, y: 12.5 }, stats: { iconicpjts: 200, pjtcompleted: 320, dedicatedemployees: 4000 } },
-      // { id: "india", name: "India", position: { x: 51.2, y: 19 }, stats: { iconicpjts: 250, pjtcompleted: 250, dedicatedemployees: 4000 } },
-      { id: "srilanka", name: "Sri Lanka", position: { x: 52.5, y: 22 }, stats: { iconicpjts: 250, pjtcompleted: 250, dedicatedemployees: 4000 } },
       { id: "indonesia", name: "Indonesia", position: { x: 60.5, y: 25 }, stats: { iconicpjts: 250, pjtcompleted: 250, dedicatedemployees: 4000 } },
       { id: "kazakhstan", name: "Kazakhstan", position: { x: 48, y: 2 }, stats: { iconicpjts: 250, pjtcompleted: 250, dedicatedemployees: 4000 } },
       { id: "malaysia", name: "Malaysia", position: { x: 57.3, y: 23 }, stats: { iconicpjts: 250, pjtcompleted: 250, dedicatedemployees: 4000 } },
@@ -580,6 +578,7 @@ const cityGroups = [
           dedicatedemployees: 4000,
         },
       },
+      { id: "srilanka", name: "Sri Lanka", position: { x: 52.5, y: 22 }, stats: { iconicpjts: 250, pjtcompleted: 250, dedicatedemployees: 4000 } },
       {
         id: "afghanistan",
         name: "Afghanistan",
