@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import NavPage from "../MainLayout/NavPage";
 import { AnimatePresence, motion } from "framer-motion";
+import HomeMobileNavbar from "../MainLayout/HomeMobileNavbar";
 
 gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(ScrollTrigger);
@@ -128,6 +129,8 @@ const HeaderTw = ({ activeSection, setActiveSection, setIndexToScroll }) => {
   }, []);
 
   const [logostatus, setLogostatus] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
 
   const length = activeSection.length;
   console.log(activeSection[length - 1]);
@@ -230,7 +233,9 @@ useEffect(() => {
                 </p>
               </div>
             </a>
-            <div className="flex lg:hidden justify-center items-center ">
+            <div className="flex lg:hidden justify-center items-center "
+              onClick={() => setMobileMenuOpen(true)}
+              >
             
             
 <svg xmlns="http://www.w3.org/2000/svg" width="31" height="24" viewBox="0 0 33 26" fill="none">
@@ -425,6 +430,10 @@ useEffect(() => {
         </div>
       </div>
       <NavPage isOpen={menuOpen} closeMenu={() => setMenuOpen(false)} />
+<HomeMobileNavbar
+  isOpen={mobileMenuOpen}
+  onClose={() => setMobileMenuOpen(false)}
+/>
 
     </>
   );
