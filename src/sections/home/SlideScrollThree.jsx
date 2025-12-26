@@ -592,7 +592,7 @@ const cityGroups = [
       {
         id: "jamaica",
         name: "Jamaica",
-        position: { x: 10.5, y: 18 },
+        position: { x: 12.1, y: 17.5 },
         stats: {
           iconicpjts: 200,
           pjtcompleted: 300,
@@ -602,7 +602,7 @@ const cityGroups = [
       {
         id: "haiti",
         name: "Haiti",
-        position: { x: 11.5, y: 17 },
+        position: { x: 12.4, y: 15 },
         stats: {
           iconicpjts: 200,
           pjtcompleted: 300,
@@ -612,7 +612,7 @@ const cityGroups = [
       {
         id: "cuba",
         name: "Cuba",
-        position: { x: 9.5, y: 16 },
+        position: { x: 11.5, y: 12.5 },
         stats: {
           iconicpjts: 200,
           pjtcompleted: 300,
@@ -630,9 +630,9 @@ const cityGroups = [
   },
 },
 {
-  id: "bahamas",
-  name: "Bahamas",
-  position: { x: 9, y: 13.5 },
+  id: "trinidad-and-tobago",
+  name: "Trinidad & Tobago",
+  position: { x: 14.5, y: 22.5 },
   stats: {
     iconicpjts: 200,
     pjtcompleted: 300,
@@ -640,9 +640,9 @@ const cityGroups = [
   },
 },
 {
-  id: "trinidad-and-tobago",
-  name: "Trinidad & Tobago",
-  position: { x: 14.5, y: 22.5 },
+  id: "bahamas",
+  name: "Bahamas",
+  position: { x: 12, y: 13.5 },
   stats: {
     iconicpjts: 200,
     pjtcompleted: 300,
@@ -3181,9 +3181,17 @@ const delayProjects = useFirstTimeDelay(
                   <div
                     key={city.id}
                     ref={mapactive}
-                    className={` absolute   transition-all duration-300 flex items-center justify-center    w-[480px] h-[480px] ${
-                      activeDot === city.id ? "z-[999]   " : ""
-                    }`}
+                    // className={` absolute   transition-all duration-300 flex items-center justify-center    w-[480px] h-[480px] ${
+                    //   activeDot === city.id ? "z-[999]   " : ""
+                    // }`}
+className={`absolute transition-all duration-300 flex items-center justify-center w-[480px] h-[480px] pointer-events-none ${
+  activeDot === city.id && city.groupId === "sp-international"
+    ? "z-[999]"
+    : "z-[1]"
+}`}
+
+
+
                     style={{ left: city.left, top: city.top }}
                   >
                     <div                    
@@ -3209,7 +3217,7 @@ const delayProjects = useFirstTimeDelay(
                       //     ? "bg-[#30F955] shadow-[0_0_35px_#30F955,0_0_50px_rgba(0,255,136,0.6)] border border-[#97DCFF] scale-full"
                       //     : "bg-[#30B6F9]   border border-[#97DCFF] scale-85"
                       // }`}
-                      className={`w-[8px] h-[8px] lg:w-[15px] lg:h-[15px] group cursor-pointer relative z-10 rounded-full transition-all duration-500 itmbsx backdrop-blur-[4px] ${
+className={`w-[8px] h-[8px] lg:w-[15px] lg:h-[15px] group cursor-pointer relative z-20 pointer-events-auto rounded-full transition-all duration-500 itmbsx backdrop-blur-[4px] ${
   city.groupId === "sp-group"
     ? activeDot === city.id
       ? "bg-[#30F955] shadow-[0_0_35px_rgba(239,68,68,0.9),0_0_50px_rgba(239,68,68,0.6)] border border-white scale-full"
@@ -3218,6 +3226,7 @@ const delayProjects = useFirstTimeDelay(
       ? "bg-[#30F955] shadow-[0_0_35px_#30F955,0_0_50px_rgba(0,255,136,0.6)] border border-[#97DCFF] scale-full"
       : "bg-[#30B6F9] border border-[#97DCFF] scale-85"
 }`}
+
                     ></div>
                     <span
                       className={`relative   -left-1 border border-[#30F95533] min-w-[110px] text-center backdrop-blur-[10px] uppercase bg-[#0015FF99] text-white text-[14px] font-bold px-2 py-[2px] rounded-full opacity-0 
@@ -3300,14 +3309,14 @@ const delayProjects = useFirstTimeDelay(
                     </div> */}
                     {city.groupId === "sp-international" && (
   <div
-    className={`hidden lg:block translate-x-[50%] -left-1/2 top-0 rounded-full transition-all duration-500 absolute w-full h-full`}
+    className={`hidden lg:block translate-x-[50%] -left-1/2 top-0 rounded-full transition-all duration-500 absolute w-full h-full pointer-events-none`}
     ref={activeDot === city.id ? bubbleRef : undefined}
     style={{ transform: `translateY(${adjustY}px)` }}
   >
-    <div
-      ref={activeDot === city.id ? outsideRef : null}
-      className="transition-all duration-500 outside"
-    >
+<div
+  ref={activeDot === city.id ? outsideRef : null}
+  className="transition-all duration-500 outside pointer-events-none"
+>
       <div>
         {/* Bubble 1 */}
         <div
