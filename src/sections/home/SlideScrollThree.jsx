@@ -3220,15 +3220,15 @@ className={`absolute transition-all duration-300 flex items-center justify-cente
 className={`w-[8px] h-[8px] lg:w-[15px] lg:h-[15px] group cursor-pointer relative z-20 pointer-events-auto rounded-full transition-all duration-500 itmbsx backdrop-blur-[4px] ${
   city.groupId === "sp-group"
     ? activeDot === city.id
-      ? "bg-[#30F955] shadow-[0_0_35px_rgba(239,68,68,0.9),0_0_50px_rgba(239,68,68,0.6)] border border-white scale-full"
+      ? "bg-primary/40 shadow-[0_0_35px_rgba(239,68,68,0.9),0_0_50px_rgba(239,68,68,0.6)] border border-white scale-full"
       : "bg-primary border border-white scale-85"
     : activeDot === city.id
-      ? "bg-[#30F955] shadow-[0_0_35px_#30F955,0_0_50px_rgba(0,255,136,0.6)] border border-[#97DCFF] scale-full"
+      ? "bg-primary/40 shadow-[0_0_35px_#30F955,0_0_50px_rgba(0,255,136,0.6)] border border-[#97DCFF] scale-full"
       : "bg-[#30B6F9] border border-[#97DCFF] scale-85"
 }`}
 
                     ></div>
-                    <span
+                    {/* <span
                       className={`relative   -left-1 border border-[#30F95533] min-w-[110px] text-center backdrop-blur-[10px] uppercase bg-[#0015FF99] text-white text-[14px] font-bold px-2 py-[2px] rounded-full opacity-0 
                             ${
                               activeDot === city.id
@@ -3237,7 +3237,33 @@ className={`w-[8px] h-[8px] lg:w-[15px] lg:h-[15px] group cursor-pointer relativ
                             } group-hover:opacity-100 transition-all duration-500`}
                     >
                       {city.name}
-                    </span>
+                    </span> */}
+
+                    <div className="relative flex flex-col items-center gap-[7px] pointer-events-none">
+  {/* SP GROUP LABEL */}
+  {city.groupId === "sp-group" && activeDot === city.id && (
+    <span className="text-13 font-semibold uppercase text-primary">
+      SP Group
+    </span>
+  )}
+
+  {/* CITY NAME PILL */}
+  <span
+    className={`border border-[#30F95533] min-w-[110px]
+      text-center backdrop-blur-[10px] uppercase bg-[#0015FF99]
+      text-white text-[14px] font-bold px-2 py-[2px] rounded-full
+      transition-all duration-500
+      ${
+        activeDot === city.id
+          ? "opacity-100 scale-100"
+          : "opacity-0 scale-90"
+      }`}
+  >
+    {city.name}
+  </span>
+</div>
+
+                    
                     {/* <div className={`hidden lg:block translate-x-[50%] -left-1/2 top-0 rounded-full transition-all duration-500 absolute  w-full h-full `}
                       ref={activeDot === city.id ? bubbleRef : undefined}
                       style={{ transform: `translateY(${adjustY}px)` }}
@@ -3320,7 +3346,7 @@ className={`w-[8px] h-[8px] lg:w-[15px] lg:h-[15px] group cursor-pointer relativ
       <div>
         {/* Bubble 1 */}
         <div
-          className={`bubble bg-[#0015FF66] transition-all duration-500 delay-100 border border-[#0015FF26] backdrop-blur-sm text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)]
+          className={`bubble bg-[#00C8FF80] transition-all duration-500 delay-100 border border-[#00C8FF26] backdrop-blur-sm text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)]
             absolute left-[0%] top-[21%] ${
               activeDot === city.id
                 ? "opacity-100 scale-full float-bubble1"
@@ -3329,16 +3355,16 @@ className={`w-[8px] h-[8px] lg:w-[15px] lg:h-[15px] group cursor-pointer relativ
         >
           <p className="text-[24px] font-[200] leading-tight">
             <CountUp
-              value={city.iconicpjts}
+              value={city.pjtcompleted}
               trigger={currentVisibleSlide === "section6" && activeDot === city.id}
               delay={200}
             />+
           </p>
-          <p className="text-[14px] font-[200]">Ongoing Projects</p>
+          <p className="text-[14px] font-[200]">Projects</p>
         </div>
 
         {/* Bubble 2 */}
-        <div
+        {/* <div
           className={`bubble bg-[#00C8FF80] border border-[#00C8FF26] backdrop-blur-sm text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)]
             absolute left-[48.3%] top-[5%] ${
               activeDot === city.id
@@ -3354,7 +3380,7 @@ className={`w-[8px] h-[8px] lg:w-[15px] lg:h-[15px] group cursor-pointer relativ
             />+
           </p>
           <p className="text-[14px] font-[200]">Completed Projects</p>
-        </div>
+        </div> */}
 
         {/* Bubble 3 */}
         <div
