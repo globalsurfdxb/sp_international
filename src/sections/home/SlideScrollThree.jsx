@@ -18,485 +18,655 @@ import { moveUp } from "../../motionVarients.js";
 import CountUp from "../../components/CountUp.jsx";
 import { useFirstTimeDelay } from "../../hooks/useDelayTimer.jsx";
 
-const cities = [
-  {
+// const cities = [
+//   {
     
-    id: "canada",
-    name: "Canada",
-    left: "3%",
-    top: "0%",
-    iconicpjts: "200+",
-    pjtcompleted: "320+",
-    dedicatedemployees: "4000+",
-  },
-  { 
-    id: "usa",
-    name: "USA",
-    left: "5%",
-    top: "6%",
-    iconicpjts: "200+",
-    pjtcompleted: "320+",
-    dedicatedemployees: "4000+",
-  },
-  {
-    id: "argentina",
-    name: "Argentina",
-    left: "16%",
-    top: "35%",
-    iconicpjts: "200+",
-    pjtcompleted: "320+",
-    dedicatedemployees: "4000+",
-  },
-  {
-    id: "brazil",
-    name: "Brazil",
-    left: "16%",
-    top: "29%",
-    iconicpjts: "200+",
-    pjtcompleted: "320+",
-    dedicatedemployees: "4000+",
-  },
-  {
-    id: "chile",
-    name: "Chile",
-    left: "13.5%",
-    top: "42%",
-    iconicpjts: "200+",
-    pjtcompleted: "320+",
-    dedicatedemployees: "4000+",
-  },
-  { 
-    id: "mexico",
-    name: "Mexico",
-    left: "6%",
-    top: "14%",
-    iconicpjts: "200+",
-    pjtcompleted: "320+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "peru",
-    name: "Peru",
-    left: "13%",
-    top: "30%",
-    iconicpjts: "200+",
-    pjtcompleted: "320+",
-    dedicatedemployees: "4000+",
-  },
-  { 
-    id: "italy",
-    name: "Italy",
-    left: "35%",
-    top: "5%",
-    iconicpjts: "200+",
-    pjtcompleted: "320+",
-    dedicatedemployees: "4000+",
-  },
-  { 
-    id: "spain",
-    name: "Spain",
-    left: "30.5%",
-    top: "6%",
-    iconicpjts: "200+",
-    pjtcompleted: "320+",
-    dedicatedemployees: "4000+",
-  },
-  { 
-    id: "unitedkingdom",
-    name: "United Kingdom",
-    left: "32.5%",
-    top: "-1%",
-    iconicpjts: "200+",
-    pjtcompleted: "320+",
-    dedicatedemployees: "4000+",
-  },
-  { 
-    id: "bangladesh",
-    name: "Bangladesh",
-    left: "53.5%",
-    top: "14.5%",
-    iconicpjts: "200+",
-    pjtcompleted: "320+",
-    dedicatedemployees: "4000+",
-  },
-  { 
-    id: "bhutan",
-    name: "Bhutan",
-    left: "54%",
-    top: "12.5%",
-    iconicpjts: "200+",
-    pjtcompleted: "320+",
-    dedicatedemployees: "4000+",
-  },
-  {
-    id: "india",
-    name: "India",
-    left: "51.2%",
-    top: "19%",
-    iconicpjts: "250+",
-    pjtcompleted: "250+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "srilanka",
-    name: "Sri Lanka",
-    left: "52.5%",
-    top: "22%",
-    iconicpjts: "250+",
-    pjtcompleted: "250+",
-    dedicatedemployees: "4000+",
-  }, 
-   {
-    id: "indonesia",
-    name: "Indonesia",
-    left: "60.5%",
-    top: "25%",
-    iconicpjts: "250+",
-    pjtcompleted: "250+",
-    dedicatedemployees: "4000+",
-  }, 
-   {
-    id: "kasakstan",
-    name: "Kasakstan", 
-    left: "48%",
-    top: "2%",
-    iconicpjts: "250+",
-    pjtcompleted: "250+",
-    dedicatedemployees: "4000+",
-  }, {
-    id: "malaysia",
-    name: "Malaysia",
-    left: "57.3%",
-    top: "23%",
-    iconicpjts: "250+",
-    pjtcompleted: "250+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "maldives",
-    name: "Maldives",
-    left: "50.2%",
-    top: "22%",
-    iconicpjts: "250+",
-    pjtcompleted: "250+",
-    dedicatedemployees: "4000+",
-  }, 
-   {
-    id: "philippines",
-    name: "Philippines",
-    left: "62.7%",
-    top: "20%",
-    iconicpjts: "250+",
-    pjtcompleted: "250+",
-    dedicatedemployees: "4000+",
-  },  {
-    id: "singapore",
-    name: "Singapore",
-    left: "58%",
-    top: "25%",
-    iconicpjts: "250+",
-    pjtcompleted: "250+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "thailand",
-    name: "Thailand",
-    left: "57%",
-    top: "18%",
-    iconicpjts: "250+",
-    pjtcompleted: "250+",
-    dedicatedemployees: "4000+",
-  },  
-  {
-    id: "bahrain",
-    name: "Bahrain", 
-    left: "44.2%",
-    top: "12.2%",
-    iconicpjts: "250+",
-    pjtcompleted: "250+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "iraq",
-    name: "Iraq", 
-    left: "43.2%",
-    top: "10%",
-    iconicpjts: "250+",
-    pjtcompleted: "250+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "kuwait",
-    name: "Kuwait", 
-    left: "43.6%",
-    top: "12%",
-    iconicpjts: "250+",
-    pjtcompleted: "250+",
-    dedicatedemployees: "4000+",
-  },
-   {
-    id: "oman",
-    name: "Oman",
-    left: "46%",
-    top: "16%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-   {
-    id: "qatar",
-    name: "Qatar", 
-    left: "44.2%",
-    top: "14%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-   {
-    id: "ksa",
-    name: "KSA", 
-    left: "42.5%",
-    top: "14%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  },  
+//     id: "canada",
+//     name: "Canada",
+//     left: "3%",
+//     top: "0%",
+//     iconicpjts: "200+",
+//     pjtcompleted: "320+",
+//     dedicatedemployees: "4000+",
+//   },
+//   { 
+//     id: "usa",
+//     name: "USA",
+//     left: "5%",
+//     top: "6%",
+//     iconicpjts: "200+",
+//     pjtcompleted: "320+",
+//     dedicatedemployees: "4000+",
+//   },
+//   {
+//     id: "argentina",
+//     name: "Argentina",
+//     left: "16%",
+//     top: "35%",
+//     iconicpjts: "200+",
+//     pjtcompleted: "320+",
+//     dedicatedemployees: "4000+",
+//   },
+//   {
+//     id: "brazil",
+//     name: "Brazil",
+//     left: "16%",
+//     top: "29%",
+//     iconicpjts: "200+",
+//     pjtcompleted: "320+",
+//     dedicatedemployees: "4000+",
+//   },
+//   {
+//     id: "chile",
+//     name: "Chile",
+//     left: "13.5%",
+//     top: "42%",
+//     iconicpjts: "200+",
+//     pjtcompleted: "320+",
+//     dedicatedemployees: "4000+",
+//   },
+//   { 
+//     id: "mexico",
+//     name: "Mexico",
+//     left: "6%",
+//     top: "14%",
+//     iconicpjts: "200+",
+//     pjtcompleted: "320+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "peru",
+//     name: "Peru",
+//     left: "13%",
+//     top: "30%",
+//     iconicpjts: "200+",
+//     pjtcompleted: "320+",
+//     dedicatedemployees: "4000+",
+//   },
+//   { 
+//     id: "italy",
+//     name: "Italy",
+//     left: "35%",
+//     top: "5%",
+//     iconicpjts: "200+",
+//     pjtcompleted: "320+",
+//     dedicatedemployees: "4000+",
+//   },
+//   { 
+//     id: "spain",
+//     name: "Spain",
+//     left: "30.5%",
+//     top: "6%",
+//     iconicpjts: "200+",
+//     pjtcompleted: "320+",
+//     dedicatedemployees: "4000+",
+//   },
+//   { 
+//     id: "unitedkingdom",
+//     name: "United Kingdom",
+//     left: "32.5%",
+//     top: "-1%",
+//     iconicpjts: "200+",
+//     pjtcompleted: "320+",
+//     dedicatedemployees: "4000+",
+//   },
+//   { 
+//     id: "bangladesh",
+//     name: "Bangladesh",
+//     left: "53.5%",
+//     top: "14.5%",
+//     iconicpjts: "200+",
+//     pjtcompleted: "320+",
+//     dedicatedemployees: "4000+",
+//   },
+//   { 
+//     id: "bhutan",
+//     name: "Bhutan",
+//     left: "54%",
+//     top: "12.5%",
+//     iconicpjts: "200+",
+//     pjtcompleted: "320+",
+//     dedicatedemployees: "4000+",
+//   },
+//   {
+//     id: "india",
+//     name: "India",
+//     left: "51.2%",
+//     top: "19%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "250+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "srilanka",
+//     name: "Sri Lanka",
+//     left: "52.5%",
+//     top: "22%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "250+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//    {
+//     id: "indonesia",
+//     name: "Indonesia",
+//     left: "60.5%",
+//     top: "25%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "250+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//    {
+//     id: "kasakstan",
+//     name: "Kasakstan", 
+//     left: "48%",
+//     top: "2%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "250+",
+//     dedicatedemployees: "4000+",
+//   }, {
+//     id: "malaysia",
+//     name: "Malaysia",
+//     left: "57.3%",
+//     top: "23%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "250+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "maldives",
+//     name: "Maldives",
+//     left: "50.2%",
+//     top: "22%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "250+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//    {
+//     id: "philippines",
+//     name: "Philippines",
+//     left: "62.7%",
+//     top: "20%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "250+",
+//     dedicatedemployees: "4000+",
+//   },  {
+//     id: "singapore",
+//     name: "Singapore",
+//     left: "58%",
+//     top: "25%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "250+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "thailand",
+//     name: "Thailand",
+//     left: "57%",
+//     top: "18%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "250+",
+//     dedicatedemployees: "4000+",
+//   },  
+//   {
+//     id: "bahrain",
+//     name: "Bahrain", 
+//     left: "44.2%",
+//     top: "12.2%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "250+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "iraq",
+//     name: "Iraq", 
+//     left: "43.2%",
+//     top: "10%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "250+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "kuwait",
+//     name: "Kuwait", 
+//     left: "43.6%",
+//     top: "12%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "250+",
+//     dedicatedemployees: "4000+",
+//   },
+//    {
+//     id: "oman",
+//     name: "Oman",
+//     left: "46%",
+//     top: "16%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//    {
+//     id: "qatar",
+//     name: "Qatar", 
+//     left: "44.2%",
+//     top: "14%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//    {
+//     id: "ksa",
+//     name: "KSA", 
+//     left: "42.5%",
+//     top: "14%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   },  
   
+//   {
+//     id: "uae",
+//     name: "UAE",
+//     left: "46%",
+//     top: "14%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "australia",
+//     name: "Australia",
+//     left: "65%",
+//     top: "36%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "algeria",
+//     name: "Algeria", 
+//     left: "32%",
+//     top: "12%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "benin",
+//     name: "Benin", 
+//     left: "32%",
+//     top: "22%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "egypt",
+//     name: "Egypt", 
+//     left: "39%",
+//     top: "12%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "ethiopia",
+//     name: "Ethiopia", 
+//     left: "41%",
+//     top: "20.5%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "gabon",
+//     name: "Gabon", 
+//     left: "34.5%",
+//     top: "26%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "gambia",
+//     name: "Gambia", 
+//     left: "28.5%",
+//     top: "20%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "ghana",
+//     name: "Ghana", 
+//     left: "31%",
+//     top: "22%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "guinea",
+//     name: "Guinea", 
+//     left: "29.5%",
+//     top: "21%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   },  
+//   {
+//     id: "ivorycoast",
+//     name: "Ivory Coast", 
+//     left: "30.5%",
+//     top: "20%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "kenya",
+//     name: "Kenya", 
+//     left: "41%",
+//     top: "24%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "liberia",
+//     name: "Liberia", 
+//      left: "29.5%",
+//     top: "23%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "libya",
+//     name: "Libya", 
+//     left: "35.5%",
+//     top: "13%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "madagascar",
+//     name: "Madagascar", 
+//     left: "43.5%",
+//     top: "35%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "mauritania",
+//     name: "Mauritania", 
+//     left: "29%",
+//     top: "17%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "mauritius",
+//     name: "Mauritius", 
+//     left: "46%",
+//     top: "36%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "mozambique",
+//     name: "Mozambique", 
+//     left: "40.5%",
+//     top: "35%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "niger",
+//     name: "Niger", 
+//     left: "34%",
+//     top: "15%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "nigeria",
+//     name: "Nigeria", 
+//     left: "34%",
+//     top: "17.5%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   },
+//   {
+//     id: "rwanda",
+//     name: "Rwanda", 
+//     left: "39.5%",
+//     top: "25%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "sierraleone",
+//     name: "Sierra Leone", 
+//     left: "28.5%",
+//     top: "22.5%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "sauth africa",
+//     name: "South Africa", 
+//    left: "38%",
+//     top: "39%",
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   },
+//   {
+//     id: "tanzania",
+//     name: "Tanzania",  
+//     left: "40.5%",
+//     top: "28%", 
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "zambia",
+//     name: "Zambia",  
+//     left: "39%",
+//     top: "30%", 
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+//   {
+//     id: "zimbabwe",
+//     name: "Zimbabwe",  
+//     left: "39%",
+//     top: "35%", 
+//     iconicpjts: "250+",
+//     pjtcompleted: "300+",
+//     dedicatedemployees: "4000+",
+//   }, 
+// ];
+
+
+const cityGroups = [
   {
-    id: "uae",
-    name: "UAE",
-    left: "46%",
-    top: "14%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "australia",
-    name: "Australia",
-    left: "65%",
-    top: "36%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "algeria",
-    name: "Algeria", 
-    left: "32%",
-    top: "12%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "benin",
-    name: "Benin", 
-    left: "32%",
-    top: "22%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "egypt",
-    name: "Egypt", 
-    left: "39%",
-    top: "12%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "ethiopia",
-    name: "Ethiopia", 
-    left: "41%",
-    top: "20.5%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "gabon",
-    name: "Gabon", 
-    left: "34.5%",
-    top: "26%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "gambia",
-    name: "Gambia", 
-    left: "28.5%",
-    top: "20%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "ghana",
-    name: "Ghana", 
-    left: "31%",
-    top: "22%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "guinea",
-    name: "Guinea", 
-    left: "29.5%",
-    top: "21%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  },  
-  {
-    id: "ivorycoast",
-    name: "Ivory Coast", 
-    left: "30.5%",
-    top: "20%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "kenya",
-    name: "Kenya", 
-    left: "41%",
-    top: "24%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "liberia",
-    name: "Liberia", 
-     left: "29.5%",
-    top: "23%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "libya",
-    name: "Libya", 
-    left: "35.5%",
-    top: "13%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "madagascar",
-    name: "Madagascar", 
-    left: "43.5%",
-    top: "35%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "mauritania",
-    name: "Mauritania", 
-    left: "29%",
-    top: "17%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "mauritius",
-    name: "Mauritius", 
-    left: "46%",
-    top: "36%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "mozambique",
-    name: "Mozambique", 
-    left: "40.5%",
-    top: "35%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "niger",
-    name: "Niger", 
-    left: "34%",
-    top: "15%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "nigeria",
-    name: "Nigeria", 
-    left: "34%",
-    top: "17.5%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
+    id: "sp-international",
+    label: "SP International",
+    theme: "blue",
+    cities: [
+            { id: "canada", name: "Canada", position: { x: 3, y: 0 }, stats: { iconicpjts: 200, pjtcompleted: 320, dedicatedemployees: 4000 } },
+      { id: "usa", name: "USA", position: { x: 5, y: 6 }, stats: { iconicpjts: 200, pjtcompleted: 320, dedicatedemployees: 4000 } },
+      { id: "argentina", name: "Argentina", position: { x: 16, y: 35 }, stats: { iconicpjts: 200, pjtcompleted: 320, dedicatedemployees: 4000 } },
+      { id: "brazil", name: "Brazil", position: { x: 16, y: 29 }, stats: { iconicpjts: 200, pjtcompleted: 320, dedicatedemployees: 4000 } },
+      { id: "chile", name: "Chile", position: { x: 13.5, y: 42 }, stats: { iconicpjts: 200, pjtcompleted: 320, dedicatedemployees: 4000 } },
+      { id: "mexico", name: "Mexico", position: { x: 6, y: 14 }, stats: { iconicpjts: 200, pjtcompleted: 320, dedicatedemployees: 4000 } },
+      { id: "peru", name: "Peru", position: { x: 13, y: 30 }, stats: { iconicpjts: 200, pjtcompleted: 320, dedicatedemployees: 4000 } },
+
+      { id: "italy", name: "Italy", position: { x: 35, y: 5 }, stats: { iconicpjts: 200, pjtcompleted: 320, dedicatedemployees: 4000 } },
+      { id: "spain", name: "Spain", position: { x: 30.5, y: 6 }, stats: { iconicpjts: 200, pjtcompleted: 320, dedicatedemployees: 4000 } },
+      { id: "unitedkingdom", name: "United Kingdom", position: { x: 32.5, y: -1 }, stats: { iconicpjts: 200, pjtcompleted: 320, dedicatedemployees: 4000 } },
+
+      { id: "bangladesh", name: "Bangladesh", position: { x: 53.5, y: 14.5 }, stats: { iconicpjts: 200, pjtcompleted: 320, dedicatedemployees: 4000 } },
+      { id: "bhutan", name: "Bhutan", position: { x: 54, y: 12.5 }, stats: { iconicpjts: 200, pjtcompleted: 320, dedicatedemployees: 4000 } },
+      // { id: "india", name: "India", position: { x: 51.2, y: 19 }, stats: { iconicpjts: 250, pjtcompleted: 250, dedicatedemployees: 4000 } },
+      { id: "srilanka", name: "Sri Lanka", position: { x: 52.5, y: 22 }, stats: { iconicpjts: 250, pjtcompleted: 250, dedicatedemployees: 4000 } },
+      { id: "indonesia", name: "Indonesia", position: { x: 60.5, y: 25 }, stats: { iconicpjts: 250, pjtcompleted: 250, dedicatedemployees: 4000 } },
+      { id: "kazakhstan", name: "Kazakhstan", position: { x: 48, y: 2 }, stats: { iconicpjts: 250, pjtcompleted: 250, dedicatedemployees: 4000 } },
+      { id: "malaysia", name: "Malaysia", position: { x: 57.3, y: 23 }, stats: { iconicpjts: 250, pjtcompleted: 250, dedicatedemployees: 4000 } },
+      { id: "maldives", name: "Maldives", position: { x: 50.2, y: 22 }, stats: { iconicpjts: 250, pjtcompleted: 250, dedicatedemployees: 4000 } },
+      { id: "philippines", name: "Philippines", position: { x: 62.7, y: 20 }, stats: { iconicpjts: 250, pjtcompleted: 250, dedicatedemployees: 4000 } },
+      { id: "singapore", name: "Singapore", position: { x: 58, y: 25 }, stats: { iconicpjts: 250, pjtcompleted: 250, dedicatedemployees: 4000 } },
+      { id: "thailand", name: "Thailand", position: { x: 57, y: 18 }, stats: { iconicpjts: 250, pjtcompleted: 250, dedicatedemployees: 4000 } },
+
+      { id: "bahrain", name: "Bahrain", position: { x: 44.2, y: 12.2 }, stats: { iconicpjts: 250, pjtcompleted: 250, dedicatedemployees: 4000 } },
+      { id: "iraq", name: "Iraq", position: { x: 43.2, y: 10 }, stats: { iconicpjts: 250, pjtcompleted: 250, dedicatedemployees: 4000 } },
+      { id: "kuwait", name: "Kuwait", position: { x: 43.6, y: 12 }, stats: { iconicpjts: 250, pjtcompleted: 250, dedicatedemployees: 4000 } },
+      { id: "oman", name: "Oman", position: { x: 46, y: 16 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "qatar", name: "Qatar", position: { x: 44.2, y: 14 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "ksa", name: "KSA", position: { x: 42.5, y: 14 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "uae", name: "UAE", position: { x: 46, y: 14 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+
+      { id: "australia", name: "Australia", position: { x: 65, y: 36 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+
+      { id: "algeria", name: "Algeria", position: { x: 32, y: 12 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "benin", name: "Benin", position: { x: 32, y: 22 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "egypt", name: "Egypt", position: { x: 39, y: 12 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "ethiopia", name: "Ethiopia", position: { x: 41, y: 20.5 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "gabon", name: "Gabon", position: { x: 34.5, y: 26 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "gambia", name: "Gambia", position: { x: 28.5, y: 20 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "ghana", name: "Ghana", position: { x: 31, y: 22 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "guinea", name: "Guinea", position: { x: 29.5, y: 21 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "ivorycoast", name: "Ivory Coast", position: { x: 30.5, y: 20 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "kenya", name: "Kenya", position: { x: 41, y: 24 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "liberia", name: "Liberia", position: { x: 29.5, y: 23 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "libya", name: "Libya", position: { x: 35.5, y: 13 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "madagascar", name: "Madagascar", position: { x: 43.5, y: 35 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "mauritania", name: "Mauritania", position: { x: 29, y: 17 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "mauritius", name: "Mauritius", position: { x: 46, y: 36 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "mozambique", name: "Mozambique", position: { x: 40.5, y: 35 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "niger", name: "Niger", position: { x: 34, y: 15 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "nigeria", name: "Nigeria", position: { x: 34, y: 17.5 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "rwanda", name: "Rwanda", position: { x: 39.5, y: 25 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "sierraleone", name: "Sierra Leone", position: { x: 28.5, y: 22.5 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "southafrica", name: "South Africa", position: { x: 38, y: 39 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "tanzania", name: "Tanzania", position: { x: 40.5, y: 28 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "zambia", name: "Zambia", position: { x: 39, y: 30 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+      { id: "zimbabwe", name: "Zimbabwe", position: { x: 39, y: 35 }, stats: { iconicpjts: 250, pjtcompleted: 300, dedicatedemployees: 4000 } },
+    ]
   },
-  {
-    id: "rwanda",
-    name: "Rwanda", 
-    left: "39.5%",
-    top: "25%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "sierraleone",
-    name: "Sierra Leone", 
-    left: "28.5%",
-    top: "22.5%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "sauth africa",
-    name: "South Africa", 
-   left: "38%",
-    top: "39%",
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
+{
+    id: "sp-group",
+    label: "SP Group",
+    theme: "red",
+    cities: [
+      {
+        id: "india",
+        name: "India",
+        position: { x: 51.2, y: 19 },
+        stats: {
+          iconicpjts: 250,
+          pjtcompleted: 250,
+          dedicatedemployees: 4000,
+        },
+      },
+      {
+        id: "afghanistan",
+        name: "Afghanistan",
+        position: { x: 48.5, y: 11 },
+        stats: {
+          iconicpjts: 250,
+          pjtcompleted: 300,
+          dedicatedemployees: 4000,
+        },
+      },
+      {
+        id: "jamaica",
+        name: "Jamaica",
+        position: { x: 10.5, y: 18 },
+        stats: {
+          iconicpjts: 200,
+          pjtcompleted: 300,
+          dedicatedemployees: 4000,
+        },
+      },
+      {
+        id: "haiti",
+        name: "Haiti",
+        position: { x: 11.5, y: 17 },
+        stats: {
+          iconicpjts: 200,
+          pjtcompleted: 300,
+          dedicatedemployees: 4000,
+        },
+      },
+      {
+        id: "cuba",
+        name: "Cuba",
+        position: { x: 9.5, y: 16 },
+        stats: {
+          iconicpjts: 200,
+          pjtcompleted: 300,
+          dedicatedemployees: 4000,
+        },
+      },
+      {
+  id: "dominican-republic",
+  name: "Dominican Republic",
+  position: { x: 12.5, y: 16.5 },
+  stats: {
+    iconicpjts: 200,
+    pjtcompleted: 300,
+    dedicatedemployees: 4000,
   },
-  {
-    id: "tanzania",
-    name: "Tanzania",  
-    left: "40.5%",
-    top: "28%", 
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "zambia",
-    name: "Zambia",  
-    left: "39%",
-    top: "30%", 
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
-  {
-    id: "zimbabwe",
-    name: "Zimbabwe",  
-    left: "39%",
-    top: "35%", 
-    iconicpjts: "250+",
-    pjtcompleted: "300+",
-    dedicatedemployees: "4000+",
-  }, 
+},
+{
+  id: "bahamas",
+  name: "Bahamas",
+  position: { x: 9, y: 13.5 },
+  stats: {
+    iconicpjts: 200,
+    pjtcompleted: 300,
+    dedicatedemployees: 4000,
+  },
+},
+{
+  id: "trinidad-and-tobago",
+  name: "Trinidad & Tobago",
+  position: { x: 14.5, y: 22.5 },
+  stats: {
+    iconicpjts: 200,
+    pjtcompleted: 300,
+    dedicatedemployees: 4000,
+  },
+}
+    ],
+  },
+
 ];
+
+const cities = cityGroups.flatMap(group =>
+  group.cities.map(city => ({
+    id: city.id,
+    name: city.name,
+    left: `${city.position.x}%`,
+    top: `${city.position.y}%`,
+    ...city.stats,
+    groupId: group.id,
+  }))
+);
+
+
 const items = [
   {
     id: 1,
@@ -3018,15 +3188,37 @@ const delayProjects = useFirstTimeDelay(
                     style={{ left: city.left, top: city.top }}
                   >
                     <div                    
-                      onClick={() => {
-                    setActiveDot(city.id); 
-                    setSelectedCity({ id: city.id, pjtcompleted: city.pjtcompleted,iconicpjts: city.iconicpjts ,dedicatedemployees: city.dedicatedemployees });
-                  }}
-                      className={`w-[8px] h-[8px] lg:w-[15px] lg:h-[15px] group cursor-pointer relative  z-10 rounded-full transition-all duration-500 itmbsx backdrop-blur-[4px] ${
-                        activeDot === city.id
-                          ? "bg-[#30F955] shadow-[0_0_35px_#30F955,0_0_50px_rgba(0,255,136,0.6)] border border-[#97DCFF] scale-full"
-                          : "bg-[#30B6F9]   border border-[#97DCFF] scale-85"
-                      }`}
+                  //     onClick={() => {
+                  //   setActiveDot(city.id); 
+                  //   setSelectedCity({ id: city.id, pjtcompleted: city.pjtcompleted,iconicpjts: city.iconicpjts ,dedicatedemployees: city.dedicatedemployees });
+                  // }}
+                  onClick={() => {
+  setActiveDot(city.id);
+
+  if (city.groupId === "sp-international") {
+    setSelectedCity({
+      id: city.id,
+      pjtcompleted: city.pjtcompleted,
+      iconicpjts: city.iconicpjts,
+      dedicatedemployees: city.dedicatedemployees,
+    });
+  }
+}}
+
+                      // className={`w-[8px] h-[8px] lg:w-[15px] lg:h-[15px] group cursor-pointer relative  z-10 rounded-full transition-all duration-500 itmbsx backdrop-blur-[4px] ${
+                      //   activeDot === city.id
+                      //     ? "bg-[#30F955] shadow-[0_0_35px_#30F955,0_0_50px_rgba(0,255,136,0.6)] border border-[#97DCFF] scale-full"
+                      //     : "bg-[#30B6F9]   border border-[#97DCFF] scale-85"
+                      // }`}
+                      className={`w-[8px] h-[8px] lg:w-[15px] lg:h-[15px] group cursor-pointer relative z-10 rounded-full transition-all duration-500 itmbsx backdrop-blur-[4px] ${
+  city.groupId === "sp-group"
+    ? activeDot === city.id
+      ? "bg-[#30F955] shadow-[0_0_35px_rgba(239,68,68,0.9),0_0_50px_rgba(239,68,68,0.6)] border border-white scale-full"
+      : "bg-primary border border-white scale-85"
+    : activeDot === city.id
+      ? "bg-[#30F955] shadow-[0_0_35px_#30F955,0_0_50px_rgba(0,255,136,0.6)] border border-[#97DCFF] scale-full"
+      : "bg-[#30B6F9] border border-[#97DCFF] scale-85"
+}`}
                     ></div>
                     <span
                       className={`relative   -left-1 border border-[#30F95533] min-w-[110px] text-center backdrop-blur-[10px] uppercase bg-[#0015FF99] text-white text-[14px] font-bold px-2 py-[2px] rounded-full opacity-0 
@@ -3038,7 +3230,7 @@ const delayProjects = useFirstTimeDelay(
                     >
                       {city.name}
                     </span>
-                    <div className={`hidden lg:block translate-x-[50%] -left-1/2 top-0 rounded-full transition-all duration-500 absolute  w-full h-full `}
+                    {/* <div className={`hidden lg:block translate-x-[50%] -left-1/2 top-0 rounded-full transition-all duration-500 absolute  w-full h-full `}
                       ref={activeDot === city.id ? bubbleRef : undefined}
                       style={{ transform: `translateY(${adjustY}px)` }}
                     >
@@ -3053,7 +3245,6 @@ const delayProjects = useFirstTimeDelay(
                                 }   `}
                           >
                             <p className="text-[24px] font-[200] leading-tight">
-                              {/* {city.iconicpjts} */}
                               <CountUp value={city.iconicpjts} trigger={currentVisibleSlide === "section6" && activeDot === city.id} delay={200} />+
                             </p>
                             <p className="text-[14px] font-[200]">
@@ -3107,7 +3298,92 @@ const delayProjects = useFirstTimeDelay(
                           }}
                         ></div>
                       </div>
-                    </div>
+                    </div> */}
+                    {city.groupId === "sp-international" && (
+  <div
+    className={`hidden lg:block translate-x-[50%] -left-1/2 top-0 rounded-full transition-all duration-500 absolute w-full h-full`}
+    ref={activeDot === city.id ? bubbleRef : undefined}
+    style={{ transform: `translateY(${adjustY}px)` }}
+  >
+    <div
+      ref={activeDot === city.id ? outsideRef : null}
+      className="transition-all duration-500 outside"
+    >
+      <div>
+        {/* Bubble 1 */}
+        <div
+          className={`bubble bg-[#0015FF66] transition-all duration-500 delay-100 border border-[#0015FF26] backdrop-blur-sm text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)]
+            absolute left-[0%] top-[21%] ${
+              activeDot === city.id
+                ? "opacity-100 scale-full float-bubble1"
+                : "scale-80 opacity-0"
+            }`}
+        >
+          <p className="text-[24px] font-[200] leading-tight">
+            <CountUp
+              value={city.iconicpjts}
+              trigger={currentVisibleSlide === "section6" && activeDot === city.id}
+              delay={200}
+            />+
+          </p>
+          <p className="text-[14px] font-[200]">Ongoing Projects</p>
+        </div>
+
+        {/* Bubble 2 */}
+        <div
+          className={`bubble bg-[#00C8FF80] border border-[#00C8FF26] backdrop-blur-sm text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)]
+            absolute left-[48.3%] top-[5%] ${
+              activeDot === city.id
+                ? "opacity-100 scale-full float-bubble2"
+                : "scale-80 opacity-0"
+            } transition-all duration-500 delay-200`}
+        >
+          <p className="text-[24px] font-[200] leading-tight">
+            <CountUp
+              value={city.pjtcompleted}
+              trigger={currentVisibleSlide === "section6" && activeDot === city.id}
+              delay={200}
+            />+
+          </p>
+          <p className="text-[14px] font-[200]">Completed Projects</p>
+        </div>
+
+        {/* Bubble 3 */}
+        <div
+          className={`bubble bg-[#0066EB80] border border-[#0066EB26] backdrop-blur-sm text-white text-center p-3 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)]
+            absolute left-[51%] top-[55%] ${
+              activeDot === city.id
+                ? "opacity-100 scale-full float-bubble3"
+                : "scale-80 opacity-0"
+            } transition-all duration-500 delay-300`}
+        >
+          <p className="text-[24px] font-[200] leading-tight">
+            <CountUp
+              value={city.dedicatedemployees}
+              trigger={currentVisibleSlide === "section6" && activeDot === city.id}
+              delay={200}
+            />+
+          </p>
+          <p className="text-[14px] font-[200]">Dedicated Employees</p>
+        </div>
+      </div>
+
+      {/* Ring */}
+      <div
+        className={`absolute -left-[50px] w-full h-full rounded-full z-[-1] scale-pulse ${
+          activeDot === city.id ? "opacity-100 scale-full" : "opacity-0"
+        } transition-all duration-500 delay-300`}
+        style={{
+          backgroundImage: `url(../assets/images/ring3.svg)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
+    </div>
+  </div>
+)}
+
                   </div>
                 ))}
               </div>
