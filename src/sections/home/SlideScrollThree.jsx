@@ -1035,6 +1035,8 @@ const SlideScrollThree = ({ setActiveSection, indexToScroll, setIndexToScroll })
     const cutltdtls = useRef([]);
     const cutltmain = useRef([]);
     const cutlttext = useRef([]);
+    const mobileStatsRef = useRef(null);
+
 
     // Mobile screen refs(scrolling)
     const touchStartY = useRef(0);
@@ -1095,21 +1097,42 @@ const SWIPE_THRESHOLD = 60; // px
     const [activeItem, setActiveItem] = useState(items[1]);
     const autoSlideTimerRef = useRef();
 
+    // useEffect(() => {
+    //     // Clear the existing timer
+    //     clearInterval(autoSlideTimerRef.current);
+
+    //     // Start a new timer
+    //     autoSlideTimerRef.current = setInterval(() => {
+    //         setActiveItem((prev) => {
+    //             const currentIndex = items.findIndex((i) => i.id === prev.id);
+    //             const nextIndex = (currentIndex + 1) % items.length;
+    //             return items[nextIndex];
+    //         });
+    //     }, 5500);
+
+    //     return () => clearInterval(autoSlideTimerRef.current);
+    // }, [activeItem]);
+    
     useEffect(() => {
-        // Clear the existing timer
-        clearInterval(autoSlideTimerRef.current);
+  // Not section 7 → stop auto slide
+  if (currentIndex !== 6) {
+    clearInterval(autoSlideTimerRef.current);
+    return;
+  }
 
-        // Start a new timer
-        autoSlideTimerRef.current = setInterval(() => {
-            setActiveItem((prev) => {
-                const currentIndex = items.findIndex((i) => i.id === prev.id);
-                const nextIndex = (currentIndex + 1) % items.length;
-                return items[nextIndex];
-            });
-        }, 5500);
+  // Optional: reset when entering section 7
+  setActiveItem(items[0]);
 
-        return () => clearInterval(autoSlideTimerRef.current);
-    }, [activeItem]);
+  autoSlideTimerRef.current = setInterval(() => {
+    setActiveItem((prev) => {
+      const current = items.findIndex((i) => i.id === prev.id);
+      return items[(current + 1) % items.length];
+    });
+  }, 5500);
+
+  return () => clearInterval(autoSlideTimerRef.current);
+}, [currentIndex]);
+
 
     useEffect(() => {
         const a3 = gsap.timeline();
@@ -1292,7 +1315,21 @@ const SWIPE_THRESHOLD = 60; // px
                             ease: "power3.out",
                             stagger: 0.2,
                         }
-                    );
+                    )
+                    .fromTo(
+      mobileStatsRef.current,
+      {
+        x: 50,
+        opacity: 0,
+      },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: "power3.out",
+      },
+      0 // sync with other content
+    );
                 break;
             case 2:
                 c1.set(splftimng.current, { opacity: 0, width: "0%", x: 0 })
@@ -1739,7 +1776,16 @@ const SWIPE_THRESHOLD = 60; // px
                     leftSecRef.current,
                     { x: -800, opacity: 0, duration: 1.1, ease: "power1.inOut" },
                     0
-                );
+                ).to(
+      mobileStatsRef.current,
+      {
+        x: 50,
+        opacity: 0,
+        duration: 0.4,
+        ease: "power3.in",
+      },
+      0
+    );
                 /*   .to(ttbxsRef.current, { x: 800, opacity: 0, duration: 1.5, ease: 'power1.in' }, 0)
                  */
                 break;
@@ -2618,7 +2664,7 @@ const handleTouchEnd = () => {
                         </div>
                         <div
                             className=" grid grid-cols-2  relative  pt-[33px] xl:pt-[30px]  text-black lg:hidden px-5 bg-white"
-                            ref={title2Ref}
+                            ref={mobileStatsRef}
                         >
                             <div className="border-b border-[#0a000020] lg:border-b-0 pb-5 mb-5">
                                 <h3 className="text-26 md:text-40 xl:text-40 font-light leading-[auto] mb-[5px]">
@@ -2645,7 +2691,7 @@ const handleTouchEnd = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="block lg:hidden   ">
+                        {/* <div className="block lg:hidden   ">
                             <img
                                 ref={sprIcnim}
                                 src="/assets/images/svg/sv-02.svg"
@@ -2653,7 +2699,7 @@ const handleTouchEnd = () => {
                                 height={600}
                                 className=" w-full absolute  left-0 bottom-0 z-[1]"
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </section>
             </div>
@@ -2783,13 +2829,13 @@ const handleTouchEnd = () => {
                                 </div>
                             </div>
                         </div>
-                        <img
+                        {/* <img
                             ref={sprIcnim}
                             src="/assets/images/svg/sv-02.svg"
                             width={600}
                             height={600}
                             className=" lg:hidden absolute bottom-0 right-0 w-full 3xl:w-[300px]"
-                        />
+                        /> */}
                     </div>
                     {/* <div className="absolute top-0 left-0 z-0 w-full h-full bg-transparent">
             <img

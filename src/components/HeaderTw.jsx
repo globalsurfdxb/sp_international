@@ -201,7 +201,7 @@ useEffect(() => {
 
   return (
     <>
-      <div className="fixed top-13 right-0 lg:right-10 3xl:right-38 z-[50] w-full ">
+      <div className="fixed top-7 lg:top-13 right-0 lg:right-10 3xl:right-38 z-[50] w-full ">
         <div className="flex gap-8 items-center justify-between lg:justify-end ps-5 lg:ps-0">
           <div className="flex justify-center items-center lg:hidden">
             <img
@@ -425,7 +425,7 @@ useEffect(() => {
       >
         <div className="w-[35px] h-[35px] bg-primary flex items-center justify-center  mx-auto mb-7">
           <div className={`${menuOpen ? "border-[#626262]" : "border-white"} w-[22px] h-[22px] border rounded-full flex items-center justify-center `}>
-            <img src="../assets/images/home/downarrow.svg" />
+            <img src="../assets/images/home/downarrow.svg" className={`${activeSection === "section7" ? "rotate-180 duration-500" : " duration-500"}`}/>
           </div>
         </div>
       </div>
