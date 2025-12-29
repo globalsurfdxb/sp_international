@@ -429,7 +429,7 @@ body::-webkit-scrollbar {
   align-items: center;
 }
 
-@media (max-width: 389px) {
+@media (max-width: 412px) {
   .bubble {
     width: 90px;
     height: 90px;
@@ -443,9 +443,9 @@ body::-webkit-scrollbar {
   }
 }
 
-@media (max-width: 389px) {
+@media (max-width: 412px) {
     .bubble-margin {
-    margin-top: -3rem;
+    margin-top: -2rem;
   }
 }
 
