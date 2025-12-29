@@ -420,7 +420,7 @@ useEffect(() => {
         </div>
       </header>
       <div
-        className="block lg:hidden absolute bottom-0 z-20 right-1/2 translate-x-1/2 "
+        className="block lg:hidden absolute bottom-0 z-20 right-1/2 translate-x-1/2"
         onClick={() => handleScroll(nextSection.id)}
       >
         <div className="w-[35px] h-[35px] bg-primary flex items-center justify-center  mx-auto mb-7">
