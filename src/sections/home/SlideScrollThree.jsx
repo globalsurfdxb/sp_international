@@ -1742,13 +1742,13 @@ useEffect(() => {
                       talentDescMob.current,
                       { x: -100,opacity: 0 },
                       { x: 0, opacity: 1, duration: 0.4, delay: 0, ease: "power1.Out" },
-                      "-=1"
+                      "-=2"
                     )
                     .fromTo(
                       talentCareerMob.current,
                       { x: -100,opacity: 0 },
                       { x: 0, opacity: 1, duration: 0.6, delay: 0, ease: "power1.Out" },
-                      "-=1"
+                      "-=1.6"
                     )
                     .fromTo(
                         cutlttext.current,
