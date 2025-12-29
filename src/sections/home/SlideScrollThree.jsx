@@ -1022,6 +1022,7 @@ const SlideScrollThree = ({ setActiveSection, indexToScroll, setIndexToScroll })
     const talentlist = useRef([]);
     const talentimage = useRef([]);
     const talentdtls = useRef([]);
+    const sectorLeft = useRef(null);
 
     const section6Ref = useRef(null);
     const maptitle = useRef([]);
@@ -1036,15 +1037,15 @@ const SlideScrollThree = ({ setActiveSection, indexToScroll, setIndexToScroll })
     const cutltmain = useRef([]);
     const cutlttext = useRef([]);
     const mobileStatsRef = useRef(null);
-
+    const talentDescMob = useRef(null);
+    const talentCareerMob = useRef(null);
 
     // Mobile screen refs(scrolling)
     const touchStartY = useRef(0);
     const touchStartX = useRef(0);
 
-const touchEndY = useRef(0);
-const SWIPE_THRESHOLD = 60; // px
-
+    const touchEndY = useRef(0);
+    const SWIPE_THRESHOLD = 60; // px
 
     /*     const [activeIndex, setActiveIndex] = useState(0); */
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -1097,6 +1098,18 @@ const SWIPE_THRESHOLD = 60; // px
     const [activeItem, setActiveItem] = useState(items[1]);
     const autoSlideTimerRef = useRef();
 
+    const startAutoSlide = () => {
+  clearInterval(autoSlideTimerRef.current);
+
+  autoSlideTimerRef.current = setInterval(() => {
+    setActiveItem((prev) => {
+      const current = items.findIndex((i) => i.id === prev.id);
+      return items[(current + 1) % items.length];
+    });
+  }, 5500);
+};
+
+
     // useEffect(() => {
     //     // Clear the existing timer
     //     clearInterval(autoSlideTimerRef.current);
@@ -1112,23 +1125,18 @@ const SWIPE_THRESHOLD = 60; // px
 
     //     return () => clearInterval(autoSlideTimerRef.current);
     // }, [activeItem]);
-    
-    useEffect(() => {
+
+useEffect(() => {
   // Not section 7 → stop auto slide
   if (currentIndex !== 6) {
     clearInterval(autoSlideTimerRef.current);
     return;
   }
 
-  // Optional: reset when entering section 7
+  // Reset when entering section 7
   setActiveItem(items[0]);
 
-  autoSlideTimerRef.current = setInterval(() => {
-    setActiveItem((prev) => {
-      const current = items.findIndex((i) => i.id === prev.id);
-      return items[(current + 1) % items.length];
-    });
-  }, 5500);
+  startAutoSlide(); // 🔥 use helper instead of inline setInterval
 
   return () => clearInterval(autoSlideTimerRef.current);
 }, [currentIndex]);
@@ -1317,19 +1325,19 @@ const SWIPE_THRESHOLD = 60; // px
                         }
                     )
                     .fromTo(
-      mobileStatsRef.current,
-      {
-        x: 50,
-        opacity: 0,
-      },
-      {
-        x: 0,
-        opacity: 1,
-        duration: 0.6,
-        ease: "power3.out",
-      },
-      0 // sync with other content
-    );
+                        mobileStatsRef.current,
+                        {
+                            x: 50,
+                            opacity: 0,
+                        },
+                        {
+                            x: 0,
+                            opacity: 1,
+                            duration: 0.6,
+                            ease: "power3.out",
+                        },
+                        0 // sync with other content
+                    );
                 break;
             case 2:
                 c1.set(splftimng.current, { opacity: 0, width: "0%", x: 0 })
@@ -1612,16 +1620,15 @@ const SWIPE_THRESHOLD = 60; // px
                         "-=1"
                     )
                     .fromTo(
-                        talentdtlsItems,
-                        { opacity: 0, x: -30 },
+                        sectorLeft.current,
+                        { x: -50, opacity: 0 },
                         {
                             x: 0,
                             opacity: 1,
-                            duration: 1,
-                            ease: "power3.out",
-                            stagger: 0.2,
+                            duration: 0.5,
+                            ease: "power1.out",
                         },
-                        "-=0.3"
+                        "-=1"
                     );
 
                 break;
@@ -1732,6 +1739,18 @@ const SWIPE_THRESHOLD = 60; // px
                         "-=1"
                     )
                     .fromTo(
+                      talentDescMob.current,
+                      { x: -100,opacity: 0 },
+                      { x: 0, opacity: 1, duration: 0.4, delay: 0, ease: "power1.Out" },
+                      "-=1"
+                    )
+                    .fromTo(
+                      talentCareerMob.current,
+                      { x: -100,opacity: 0 },
+                      { x: 0, opacity: 1, duration: 0.6, delay: 0, ease: "power1.Out" },
+                      "-=1"
+                    )
+                    .fromTo(
                         cutlttext.current,
                         { x: -30, opacity: 0 },
                         { x: 0, opacity: 1, duration: 1.5, delay: 0, ease: "power1.out" },
@@ -1772,20 +1791,18 @@ const SWIPE_THRESHOLD = 60; // px
 
                 break;
             case 1:
-                b2.to(rightSecRef.current, { x: 800, opacity: 0, duration: 1.1, ease: "power1.inOut" }, 0).to(
-                    leftSecRef.current,
-                    { x: -800, opacity: 0, duration: 1.1, ease: "power1.inOut" },
-                    0
-                ).to(
-      mobileStatsRef.current,
-      {
-        x: 50,
-        opacity: 0,
-        duration: 0.4,
-        ease: "power3.in",
-      },
-      0
-    );
+                b2.to(rightSecRef.current, { x: 800, opacity: 0, duration: 1.1, ease: "power1.inOut" }, 0)
+                    .to(leftSecRef.current, { x: -800, opacity: 0, duration: 1.1, ease: "power1.inOut" }, 0)
+                    .to(
+                        mobileStatsRef.current,
+                        {
+                            x: 100,
+                            opacity: 0,
+                            duration: 0.4,
+                            ease: "power3.in",
+                        },
+                        0
+                    );
                 /*   .to(ttbxsRef.current, { x: 800, opacity: 0, duration: 1.5, ease: 'power1.in' }, 0)
                  */
                 break;
@@ -1929,7 +1946,8 @@ const SWIPE_THRESHOLD = 60; // px
             case 4:
                 e2.to(talenttitle.current, { x: -30, opacity: 0, duration: 1, ease: "power1.in" }, 0)
                     .to(talentlist.current, { x: -30, opacity: 0, duration: 1, ease: "power1.in" }, "-=0.5")
-                    .to(talentimage.current, { x: 100, opacity: 0, duration: 1, ease: "power1.in" }, "-=0.5");
+                    .to(talentimage.current, { x: 100, opacity: 0, duration: 0.3, ease: "power1.inOut" }, "-=0.5")
+                    .to(sectorLeft.current, { x: -100, opacity: 0, duration: 0.5, ease: "power1.inOut" }, "-=0.5");
                 break;
             case 5:
                 f2.to(maptitle.current, { x: -30, opacity: 0, duration: 1, ease: "power1.in" }, 0).to(
@@ -1944,6 +1962,8 @@ const SWIPE_THRESHOLD = 60; // px
                     .to(cutltdtls.current, { x: 100, opacity: 0, duration: 1, ease: "power1.in" }, "-=1.2")
                     .to(cutltmain.current, { x: 100, opacity: 0, duration: 1, ease: "power1.in" }, "-=1.2")
                     .to(cutlttext.current, { x: 100, opacity: 0, duration: 1, ease: "power1.in" }, "-=1.2")
+                    .to(talentDescMob.current, { x: 100, opacity: 0, duration: 1, ease: "power1.in" }, "-=1.2")
+                    .to(talentCareerMob.current, { x: 100, opacity: 0, duration: 1, ease: "power1.in" }, "-=1.2")
                     .to(cutltimg.current, { scale: 1.5, opacity: 0, duration: 1.2, ease: "power1.in" }, "-=1.2");
                 break;
         }
@@ -2009,53 +2029,48 @@ const SWIPE_THRESHOLD = 60; // px
         });
     };
 
-const handleTouchStart = (e) => {
-  touchStartY.current = e.touches[0].clientY;
-  touchStartX.current = e.touches[0].clientX;
-  touchEndY.current = touchStartY.current;
-};
+    const handleTouchStart = (e) => {
+        touchStartY.current = e.touches[0].clientY;
+        touchStartX.current = e.touches[0].clientX;
+        touchEndY.current = touchStartY.current;
+    };
 
+    const handleTouchMove = (e) => {
+        const touch = e.touches[0];
+        const deltaX = Math.abs(touch.clientX - (touchStartX.current ?? touch.clientX));
+        const deltaY = Math.abs(touch.clientY - touchStartY.current);
 
-const handleTouchMove = (e) => {
-  const touch = e.touches[0];
-  const deltaX = Math.abs(touch.clientX - (touchStartX.current ?? touch.clientX));
-  const deltaY = Math.abs(touch.clientY - touchStartY.current);
+        // If horizontal swipe → allow native scroll
+        if (deltaX > deltaY) {
+            return; // ✅ allow horizontal scrolling
+        }
 
-  // If horizontal swipe → allow native scroll
-  if (deltaX > deltaY) {
-    return; // ✅ allow horizontal scrolling
-  }
+        // Vertical swipe → block native scroll
+        e.preventDefault();
+        touchEndY.current = touch.clientY;
+    };
 
-  // Vertical swipe → block native scroll
-  e.preventDefault();
-  touchEndY.current = touch.clientY;
-};
+    const handleTouchEnd = () => {
+        if (scrollBlock.current) return;
 
+        const delta = touchStartY.current - touchEndY.current;
 
+        // Ignore tiny or accidental moves
+        if (Math.abs(delta) < SWIPE_THRESHOLD) return;
 
-const handleTouchEnd = () => {
-  if (scrollBlock.current) return;
+        scrollBlock.current = true;
 
-  const delta = touchStartY.current - touchEndY.current;
+        const direction = delta > 0 ? 1 : -1;
+        const newIndex = currentIndexRef.current + direction;
 
-  // Ignore tiny or accidental moves
-  if (Math.abs(delta) < SWIPE_THRESHOLD) return;
+        if (newIndex >= 0 && newIndex < sections.length) {
+            updateSlides(newIndex);
+        }
 
-  scrollBlock.current = true;
-
-  const direction = delta > 0 ? 1 : -1;
-  const newIndex = currentIndexRef.current + direction;
-
-  if (newIndex >= 0 && newIndex < sections.length) {
-    updateSlides(newIndex);
-  }
-
-  setTimeout(() => {
-    scrollBlock.current = false;
-  }, 2500);
-};
-
-
+        setTimeout(() => {
+            scrollBlock.current = false;
+        }, 2500);
+    };
 
     const handleScroll = (e) => {
         if (scrollBlock.current) return;
@@ -2107,36 +2122,35 @@ const handleTouchEnd = () => {
     // }, []);
 
     useEffect(() => {
-  const container = containerRef.current;
-  if (!container) return;
+        const container = containerRef.current;
+        if (!container) return;
 
-  const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+        const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
 
-  if (isDesktop) {
-    container.addEventListener("wheel", handleScroll, { passive: false });
-  } else {
-    container.addEventListener("touchstart", handleTouchStart, { passive: true });
-    container.addEventListener("touchmove", handleTouchMove, { passive: false });
-    container.addEventListener("touchend", handleTouchEnd);
-  }
+        if (isDesktop) {
+            container.addEventListener("wheel", handleScroll, { passive: false });
+        } else {
+            container.addEventListener("touchstart", handleTouchStart, { passive: true });
+            container.addEventListener("touchmove", handleTouchMove, { passive: false });
+            container.addEventListener("touchend", handleTouchEnd);
+        }
 
-  // Init first slide
-  gsap.set(section1Ref.current, {
-    visibility: "inherit",
-    zIndex: 2,
-    opacity: 1,
-  });
-  requestAnimationFrame(() => playEntryAnimation(0));
+        // Init first slide
+        gsap.set(section1Ref.current, {
+            visibility: "inherit",
+            zIndex: 2,
+            opacity: 1,
+        });
+        requestAnimationFrame(() => playEntryAnimation(0));
 
-  return () => {
-    container.removeEventListener("wheel", handleScroll);
-    container.removeEventListener("touchstart", handleTouchStart);
-    container.removeEventListener("touchmove", handleTouchMove);
-    container.removeEventListener("touchend", handleTouchEnd);
-    clearTimeout(timeoutRef.current);
-  };
-}, []);
-
+        return () => {
+            container.removeEventListener("wheel", handleScroll);
+            container.removeEventListener("touchstart", handleTouchStart);
+            container.removeEventListener("touchmove", handleTouchMove);
+            container.removeEventListener("touchend", handleTouchEnd);
+            clearTimeout(timeoutRef.current);
+        };
+    }, []);
 
     const content = [
         {
@@ -3199,9 +3213,9 @@ const handleTouchEnd = () => {
                 <section id="section5" className="h-screen relative overflow-hidden whitebgref scroll-area">
                     <div className="lg:grid lg:grid-cols-[600px_auto] xl:grid-cols-[800px_auto]  3xl:grid-cols-[1021px_auto] h-full">
                         {/* left start */}
-                        <div className="flex lg:h-full bg-primary lg:bg-transparent">
+                        <div ref={sectorLeft} className="flex lg:h-full bg-primary lg:bg-transparent">
                             <div className="w-full pt-[16.5dvh] pl-5 lg:pt-25 xl:pt-25 3xl:pt-33 lg:pl-[205px] xl:pl-[245px] 3xl:pl-[310px]">
-                                <div className="absolute -top-58 right-0    " ref={srvsVct}>
+                                <div className="absolute -top-58 right-0   " ref={srvsVct}>
                                     <img
                                         src="../assets/images/svg/srv-vct.svg"
                                         alt="Logo"
@@ -3743,7 +3757,7 @@ const handleTouchEnd = () => {
                                 <div className={` transition-all duration-500  outside `}>
                                     <div className="flex lg:block justify-center gap-2">
                                         <div
-                                            // className={`me-2 bubble  bg-[#0015FF66] transition-all duration-500 delay-100 border  border-[#0015FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full  
+                                            // className={`me-2 bubble  bg-[#0015FF66] transition-all duration-500 delay-100 border  border-[#0015FF26] backdrop-blur-sm   text-white text-center p-3 rounded-full
                                             className={`me-2 bubble transition-all duration-500 delay-100 backdrop-blur-sm bg-[#00C8FF80] border border-[#00C8FF26]  text-white text-center p-3 rounded-full  
                                 lg:absolute left-[0%] top-[21%] ${
                                     activeDot === selectedCity.id
@@ -3838,7 +3852,7 @@ const handleTouchEnd = () => {
                                     Driven by Talent. <br /> Defined by Culture.
                                 </h1>
                                 <div className="mb-[35%] md:mb-[15%] lg:mb-0">
-                                    <div className="max-w-[34ch] flex lg:hidden flex-col lg:justify-end lg:h-full mb-4  relative gap-2 lg:gap-0  before:content-[''] before:absolute before:right-[50px]   before:bg-primary before:w-full before:h-full ">
+                                    {/* <div  className="max-w-[34ch] flex lg:hidden flex-col lg:justify-end lg:h-full mb-4  relative gap-2 lg:gap-0  before:content-[''] before:absolute before:right-[50px]   before:bg-primary before:w-full before:h-full ">
                                         <AnimatePresence mode="wait">
                                             <motion.div
                                                 ref={cutltdtls}
@@ -3861,9 +3875,24 @@ const handleTouchEnd = () => {
                                                 </motion.p>
                                             </motion.div>
                                         </AnimatePresence>
+                                    </div> */}
+
+                                    <div ref={talentDescMob} className="max-w-[34ch] flex lg:hidden flex-col lg:justify-end lg:h-full mb-4  relative gap-2 lg:gap-0">
+                                        <div className="p-5 md:p-10 lg:p-7 3xl:py-12 3xl:px-15 bg-primary w-fit 2xl:w-[400px] 3xl:w-[550px] text-white relative ">
+                                            <motion.p
+                                                key={activeItem.id}
+                                                initial={{ opacity: 0, y: 15 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                exit={{ opacity: 0, y: -15 }}
+                                                transition={{ duration: 0.5, ease: "easeInOut" }}
+                                                className="text-[14px] xl:text-19 font-light leading-[1.5]"
+                                            >
+                                                {activeItem.desc}
+                                            </motion.p>
+                                        </div>
                                     </div>
                                     <div>
-                                        <motion.div className="py-3 w-fit ml-auto lg:hidden ">
+                                        <div ref={talentCareerMob} className="py-3 w-fit ml-auto lg:hidden ">
                                             <Link to="/careers">
                                                 <div className="flex items-center gap-[6px]">
                                                     <p className="text-white text-16 font-light uppercase">Careers</p>
@@ -3891,7 +3920,7 @@ const handleTouchEnd = () => {
                                                     </svg>
                                                 </div>
                                             </Link>
-                                        </motion.div>
+                                        </div>
                                         <div
                                             className="flex flex-col lg:flex-row lg:flex-wrap lg:items-center lg:gap-5"
                                             ref={cultlist}
@@ -3900,7 +3929,12 @@ const handleTouchEnd = () => {
                                                 <div className="ctitm">
                                                     <div
                                                         key={item.id}
-                                                        onClick={() => setActiveItem(item)}
+                                                        // onClick={() => setActiveItem(item)}
+                                                        onClick={() => {
+  setActiveItem(item);
+  startAutoSlide();
+}}
+
                                                         className={`hover:lg:border-b-[2px] hover:lg:border-primary lg:border-b-2 border-b border-white/30  
     ${activeItem.id === item.id ? "underline-anim-item" : "border-transparent"} 
     lg:pb-1 transition-all duration-300 `}
