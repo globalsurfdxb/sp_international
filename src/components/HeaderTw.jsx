@@ -372,7 +372,7 @@ const HeaderTw = ({ activeSection, setActiveSection, setIndexToScroll }) => {
 
                                     <button
                                         onClick={() => setMenuOpen((prev) => !prev)}
-                                        className="relative w-[31px] h-[28px] flex items-center justify-center"
+                                        className="relative w-[31px] h-[28px] flex items-center justify-center cursor-pointer"
                                         aria-label="Menu Toggle"
                                     >
                                         <svg

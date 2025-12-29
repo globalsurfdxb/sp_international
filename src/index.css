@@ -1086,12 +1086,11 @@ body::-webkit-scrollbar {
 
 
 
-
+/* Home: Hamburger-close btn */
 .menu-icon .line {
   stroke-width: 2;
   stroke-linecap: round;
 
-  /* 🔥 THIS IS THE KEY FIX */
   transform-box: fill-box;
   transform-origin: center;
 
@@ -1101,7 +1100,6 @@ body::-webkit-scrollbar {
     stroke 0.25s ease;
 }
 
-/* Hamburger colors */
 .menu-icon .line1,
 .menu-icon .line3 {
   stroke: #ffffff;
@@ -1111,7 +1109,6 @@ body::-webkit-scrollbar {
   stroke: #30B6F9;
 }
 
-/* OPEN → CLOSE (perfect X) */
 .menu-icon.open .line1 {
   transform: translateY(12px) rotate(45deg);
   stroke: #30B6F9;
